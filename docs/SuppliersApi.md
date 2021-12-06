@@ -1,0 +1,378 @@
+# SuppliersApi
+
+All URIs are relative to *https://api-v2.fattureincloud.it*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createSupplier**](SuppliersApi.md#createSupplier) | **POST** /c/{company_id}/entities/suppliers | Create Supplier
+[**deleteSupplier**](SuppliersApi.md#deleteSupplier) | **DELETE** /c/{company_id}/entities/suppliers/{supplier_id} | Delete Supplier
+[**getSupplier**](SuppliersApi.md#getSupplier) | **GET** /c/{company_id}/entities/suppliers/{supplier_id} | Get Supplier
+[**listSuppliers**](SuppliersApi.md#listSuppliers) | **GET** /c/{company_id}/entities/suppliers | List Suppliers
+[**modifySupplier**](SuppliersApi.md#modifySupplier) | **PUT** /c/{company_id}/entities/suppliers/{supplier_id} | Modify Supplier
+
+
+<a name="createSupplier"></a>
+# **createSupplier**
+> CreateSupplierResponse createSupplier(companyId, createSupplierRequest)
+
+Create Supplier
+
+Creates a new supplier.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SuppliersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SuppliersApi apiInstance = new SuppliersApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    CreateSupplierRequest createSupplierRequest = new CreateSupplierRequest(); // CreateSupplierRequest | The supplier to create
+    try {
+      CreateSupplierResponse result = apiInstance.createSupplier(companyId, createSupplierRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SuppliersApi#createSupplier");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **createSupplierRequest** | [**CreateSupplierRequest**](CreateSupplierRequest.md)| The supplier to create | [optional]
+
+### Return type
+
+[**CreateSupplierResponse**](CreateSupplierResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+
+<a name="deleteSupplier"></a>
+# **deleteSupplier**
+> deleteSupplier(companyId, supplierId)
+
+Delete Supplier
+
+Deletes the specified supplier.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SuppliersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SuppliersApi apiInstance = new SuppliersApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer supplierId = 56; // Integer | The ID of the supplier.
+    try {
+      apiInstance.deleteSupplier(companyId, supplierId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SuppliersApi#deleteSupplier");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **supplierId** | **Integer**| The ID of the supplier. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Entity Removed |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+<a name="getSupplier"></a>
+# **getSupplier**
+> GetSupplierResponse getSupplier(companyId, supplierId, fields, fieldset)
+
+Get Supplier
+
+Gets the specified supplier.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SuppliersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SuppliersApi apiInstance = new SuppliersApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer supplierId = 56; // Integer | The ID of the supplier.
+    String fields = "fields_example"; // String | List of comma-separated fields.
+    String fieldset = "basic"; // String | Name of the fieldset.
+    try {
+      GetSupplierResponse result = apiInstance.getSupplier(companyId, supplierId, fields, fieldset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SuppliersApi#getSupplier");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **supplierId** | **Integer**| The ID of the supplier. |
+ **fields** | **String**| List of comma-separated fields. | [optional]
+ **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed]
+
+### Return type
+
+[**GetSupplierResponse**](GetSupplierResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
+<a name="listSuppliers"></a>
+# **listSuppliers**
+> ListSuppliersResponse listSuppliers(companyId, fields, fieldset, sort, page, perPage)
+
+List Suppliers
+
+Lists the suppliers.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SuppliersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SuppliersApi apiInstance = new SuppliersApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    String fields = "fields_example"; // String | List of comma-separated fields.
+    String fieldset = "basic"; // String | Name of the fieldset.
+    String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
+    Integer page = 1; // Integer | The page to retrieve.
+    Integer perPage = 5; // Integer | The size of the page.
+    try {
+      ListSuppliersResponse result = apiInstance.listSuppliers(companyId, fields, fieldset, sort, page, perPage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SuppliersApi#listSuppliers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **fields** | **String**| List of comma-separated fields. | [optional]
+ **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed]
+ **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
+ **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
+ **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+
+### Return type
+
+[**ListSuppliersResponse**](ListSuppliersResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
+
+<a name="modifySupplier"></a>
+# **modifySupplier**
+> ModifySupplierResponse modifySupplier(companyId, supplierId, modifySupplierRequest)
+
+Modify Supplier
+
+Modifies the specified supplier.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SuppliersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SuppliersApi apiInstance = new SuppliersApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer supplierId = 56; // Integer | The ID of the supplier.
+    ModifySupplierRequest modifySupplierRequest = new ModifySupplierRequest(); // ModifySupplierRequest | The modified Supplier. First level parameters are managed in delta mode.
+    try {
+      ModifySupplierResponse result = apiInstance.modifySupplier(companyId, supplierId, modifySupplierRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SuppliersApi#modifySupplier");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **supplierId** | **Integer**| The ID of the supplier. |
+ **modifySupplierRequest** | [**ModifySupplierRequest**](ModifySupplierRequest.md)| The modified Supplier. First level parameters are managed in delta mode. | [optional]
+
+### Return type
+
+[**ModifySupplierResponse**](ModifySupplierResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+
