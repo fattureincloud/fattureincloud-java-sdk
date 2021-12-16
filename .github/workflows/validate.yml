@@ -5,23 +5,36 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  validate:
 
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: false
       matrix:
         java: [8, 11, 16, 17]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK
+    - id: checkout
+      name: Checkout repo
+      uses: actions/checkout@v2
+
+    - id: setup-jdk
+      name: Set up JDK
       uses: actions/setup-java@v2
       with:
         java-version: ${{ matrix.java }}
         distribution: 'adopt'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
-      with:
-        arguments: build
+
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+
+    - id: gradle-build
+      name: Build with Gradle
+      run: |
+        ./gradlew build
+
+    - id: gradle-test
+      name: Test with Gradle
+      run: |
+        ./gradlew test
