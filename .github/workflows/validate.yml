@@ -29,6 +29,11 @@ jobs:
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
 
+    - id: executable-wrapper
+      name: Gradle Wrapper is made executable
+      run: |
+        chmod a+x ./gradlew
+
     - id: gradle-build
       name: Build with Gradle
       run: |
