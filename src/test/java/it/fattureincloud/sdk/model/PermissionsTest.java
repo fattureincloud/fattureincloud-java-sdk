@@ -22,10 +22,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.PermissionLevel;
 import it.fattureincloud.sdk.model.PermissionsFicIssuedDocumentsDetailed;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

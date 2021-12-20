@@ -28,12 +28,11 @@ import it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoItemsDefaultValues
 import it.fattureincloud.sdk.model.PaymentAccount;
 import it.fattureincloud.sdk.model.PaymentMethod;
 import it.fattureincloud.sdk.model.VatType;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

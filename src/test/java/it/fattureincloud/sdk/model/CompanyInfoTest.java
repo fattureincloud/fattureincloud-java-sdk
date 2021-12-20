@@ -23,11 +23,11 @@ import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.CompanyInfoAccessInfo;
 import it.fattureincloud.sdk.model.CompanyInfoPlanInfo;
 import it.fattureincloud.sdk.model.CompanyType;
+
 import java.io.IOException;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

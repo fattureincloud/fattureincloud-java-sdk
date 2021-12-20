@@ -22,13 +22,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.F24Status;
 import it.fattureincloud.sdk.model.PaymentAccount;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

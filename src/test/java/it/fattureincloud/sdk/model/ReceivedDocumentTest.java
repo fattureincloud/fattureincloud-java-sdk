@@ -25,15 +25,15 @@ import it.fattureincloud.sdk.model.ReceivedDocumentEntity;
 import it.fattureincloud.sdk.model.ReceivedDocumentItemsList;
 import it.fattureincloud.sdk.model.ReceivedDocumentPaymentsList;
 import it.fattureincloud.sdk.model.ReceivedDocumentType;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

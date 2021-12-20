@@ -13,32 +13,50 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ArchiveDocument
  */
 public class ArchiveDocumentTest {
-    private final ArchiveDocument model = new ArchiveDocument();
+    private ArchiveDocument model;
+
+    @BeforeEach
+    public void init() {
+        model = new ArchiveDocument()
+                .id(12345)
+                .date(LocalDate.parse("2021-08-20"))
+                .category("Altri documenti")
+                .description("spesa 2")
+                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+    }
 
     /**
      * Model tests for ArchiveDocument
      */
     @Test
     public void testArchiveDocument() {
-        // TODO: test ArchiveDocument
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}";
+        assertEquals(str, json);
+        ArchiveDocument generated = gson.fromJson(str, ArchiveDocument.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +64,18 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(12345, model.getId());
+        model.setId(33333);
+        assertEquals(33333, model.getId());
+
+        ArchiveDocument a = model.id(69);
+        ArchiveDocument expected = new ArchiveDocument()
+                .id(69)
+                .date(LocalDate.parse("2021-08-20"))
+                .category("Altri documenti")
+                .description("spesa 2")
+                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+        assertEquals(expected, a);
     }
 
     /**
@@ -54,7 +83,18 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        assertEquals(LocalDate.parse("2021-08-20"), model.getDate());
+        model.setDate(LocalDate.parse("2021-12-21"));
+        assertEquals(LocalDate.parse("2021-12-21"), model.getDate());
+
+        ArchiveDocument a = model.date(LocalDate.parse("2021-12-17"));
+        ArchiveDocument expected = new ArchiveDocument()
+                .id(12345)
+                .date(LocalDate.parse("2021-12-17"))
+                .category("Altri documenti")
+                .description("spesa 2")
+                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+        assertEquals(expected, a);
     }
 
     /**
@@ -62,7 +102,18 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("spesa 2", model.getDescription());
+        model.setDescription("pensavo fosse un gioco");
+        assertEquals("pensavo fosse un gioco", model.getDescription());
+
+        ArchiveDocument a = model.description("è stato mio figlio minorenne");
+        ArchiveDocument expected = new ArchiveDocument()
+                .id(12345)
+                .date(LocalDate.parse("2021-08-20"))
+                .category("Altri documenti")
+                .description("è stato mio figlio minorenne")
+                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+        assertEquals(expected, a);
     }
 
     /**
@@ -70,7 +121,12 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void attachmentUrlTest() {
-        // TODO: test attachmentUrl
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String str = "{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"attachment_url\":\"spesa2.pdf\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}";
+        ArchiveDocument generated = gson.fromJson(str, ArchiveDocument.class);
+        assertEquals("spesa2.pdf", generated.getAttachmentUrl());
+        assertEquals("{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"attachment_url\":\"spesa2.pdf\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}", gson.toJson(generated));
     }
 
     /**
@@ -78,7 +134,18 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void categoryTest() {
-        // TODO: test category
+        assertEquals("Altri documenti", model.getCategory());
+        model.setCategory("Top secret");
+        assertEquals("Top secret", model.getCategory());
+
+        ArchiveDocument a = model.description("Lista della spesa");
+        ArchiveDocument expected = new ArchiveDocument()
+                .id(12345)
+                .date(LocalDate.parse("2021-08-20"))
+                .category("Lista della spesa")
+                .description("spesa 2")
+                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+        assertEquals(expected, a);
     }
 
     /**
@@ -86,7 +153,18 @@ public class ArchiveDocumentTest {
      */
     @Test
     public void attachmentTokenTest() {
-        // TODO: test attachmentToken
+        assertEquals("jwfbaiuwbfoiewfoa8weohafw7gefa9we", model.getAttachmentToken());
+        model.setAttachmentToken("25630541cfeac29c829c8f9e057812ba");
+        assertEquals("25630541cfeac29c829c8f9e057812ba", model.getAttachmentToken());
+
+        ArchiveDocument a = model.attachmentToken("25a2b204540559e615c90bb5438680f3");
+        ArchiveDocument expected = new ArchiveDocument()
+                .id(12345)
+                .date(LocalDate.parse("2021-08-20"))
+                .category("Altri documenti")
+                .description("spesa 2")
+                .attachmentToken("25a2b204540559e615c90bb5438680f3");
+        assertEquals(expected, a);
     }
 
 }

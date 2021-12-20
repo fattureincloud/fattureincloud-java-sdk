@@ -23,12 +23,12 @@ import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.CashbookEntryDataDocument;
 import it.fattureincloud.sdk.model.CashbookEntryKind;
 import it.fattureincloud.sdk.model.CashbookEntryType;
+
 import java.io.IOException;
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

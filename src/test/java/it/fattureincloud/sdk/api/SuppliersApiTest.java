@@ -20,8 +20,8 @@ import it.fattureincloud.sdk.model.GetSupplierResponse;
 import it.fattureincloud.sdk.model.ListSuppliersResponse;
 import it.fattureincloud.sdk.model.ModifySupplierRequest;
 import it.fattureincloud.sdk.model.ModifySupplierResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * API tests for SuppliersApi
  */
-@Ignore
+@Disabled
 public class SuppliersApiTest {
 
     private final SuppliersApi api = new SuppliersApi();

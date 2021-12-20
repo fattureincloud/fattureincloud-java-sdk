@@ -29,8 +29,8 @@ import it.fattureincloud.sdk.model.ModifyPaymentMethodRequest;
 import it.fattureincloud.sdk.model.ModifyPaymentMethodResponse;
 import it.fattureincloud.sdk.model.ModifyVatTypeRequest;
 import it.fattureincloud.sdk.model.ModifyVatTypeResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ import java.util.Map;
 /**
  * API tests for SettingsApi
  */
-@Ignore
+@Disabled
 public class SettingsApiTest {
 
     private final SettingsApi api = new SettingsApi();

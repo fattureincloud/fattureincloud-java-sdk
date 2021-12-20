@@ -13,24 +13,48 @@
 
 package it.fattureincloud.sdk.api;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.model.GetUserInfoResponse;
-import it.fattureincloud.sdk.model.ListUserCompaniesResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import it.fattureincloud.sdk.JSON;
+import it.fattureincloud.sdk.model.*;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * API tests for UserApi
  */
-@Ignore
 public class UserApiTest {
 
-    private final UserApi api = new UserApi();
+    private static UserApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
+        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+
+        final Response response = new Response.Builder()
+                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200).message("").body(
+                        ResponseBody.create(
+                                serializedBody,
+                                MediaType.parse("application/json")
+                        ))
+                .build();
+
+        Mockito.when(remoteCall.execute()).thenReturn(response);
+        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
+
+        ApiClient client = new ApiClient(okHttpClient);
+
+        return new UserApi(client);
+    }
 
     
     /**
@@ -42,9 +66,25 @@ public class UserApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getUserInfoTest() throws ApiException {
-                GetUserInfoResponse response = api.getUserInfo();
-        // TODO: test validations
+    public void getUserInfoTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12345,\"name\":\"Mario Rossi\",\"first_name\":\"Mario\",\"last_name\":\"Rossi\",\"email\":\"mario.rossi@example.com\",\"hash\":\"5add29e1234532a1bf2ed7b612043029\",\"picture\":\"picture.jpg\"},\"info\":{\"need_marketing_consents_confirmation\":false,\"need_password_change\":false,\"need_terms_of_service_confirmation\":false},\"email_confirmation_state\":{\"need_confirmation\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+
+        UserApi api = mockApi(result, mockCall);
+
+        GetUserInfoResponse response = api.getUserInfo();
+        User user = response.getData();
+        User expected = new User()
+                .id(12345)
+                .name("Mario Rossi")
+                .firstName("Mario")
+                .lastName("Rossi")
+                .email("mario.rossi@example.com")
+                .hash("5add29e1234532a1bf2ed7b612043029")
+                .picture("picture.jpg");
+        assertEquals(expected, user);
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
     
     /**
@@ -56,9 +96,40 @@ public class UserApiTest {
      *          if the Api call fails
      */
     @Test
-    public void listUserCompaniesTest() throws ApiException {
-                ListUserCompaniesResponse response = api.listUserCompanies();
-        // TODO: test validations
+    public void listUserCompaniesTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"companies\":[{\"id\":2,\"name\":\"Studio Commercialista\",\"vat_number\":\"IT01111111111\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816,\"controlled_companies\":[{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]},{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}]},{\"id\":11,\"name\":\"Ino S.p.A\",\"vat_number\":\"33333333333\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882,\"controlled_companies\":[]}]}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        UserApi api = mockApi(result, mockCall);
+
+        ListUserCompaniesResponse response = api.listUserCompanies();
+        ListUserCompaniesResponseData data = response.getData();
+        assertNotNull(data);
+        List<Company> companies = data.getCompanies();
+        assertNotNull(companies);
+        assertEquals(2, companies.size());
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        Company company5 = gson.fromJson("{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]}", Company.class);
+
+        Company company16 = gson.fromJson("{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}", Company.class);
+
+        ArrayList<Company> controlledCompanies = new ArrayList<>();
+        controlledCompanies.add(company5);
+        controlledCompanies.add(company16);
+
+        Company company2 = gson.fromJson("{\"id\":2,\"name\":\"Studio Commercialista\",\"vat_number\":\"IT01111111111\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816,\"controlled_companies\":[]}", Company.class)
+                .controlledCompanies(controlledCompanies);
+
+        Company company11 = gson.fromJson("{\"id\":11,\"name\":\"Ino S.p.A\",\"vat_number\":\"33333333333\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882,\"controlled_companies\":[]}", Company.class);
+
+        List<Company> expected = new ArrayList<>();
+        expected.add(company2);
+        expected.add(company11);
+
+        assertEquals(expected, companies);
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
 }

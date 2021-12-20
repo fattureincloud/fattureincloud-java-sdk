@@ -26,13 +26,13 @@ import it.fattureincloud.sdk.model.CashbookEntryKind;
 import it.fattureincloud.sdk.model.CashbookEntryOut;
 import it.fattureincloud.sdk.model.CashbookEntryType;
 import it.fattureincloud.sdk.model.PaymentAccount;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

@@ -22,8 +22,8 @@ import it.fattureincloud.sdk.model.ListArchiveDocumentsResponse;
 import it.fattureincloud.sdk.model.ModifyArchiveDocumentRequest;
 import it.fattureincloud.sdk.model.ModifyArchiveDocumentResponse;
 import it.fattureincloud.sdk.model.UploadArchiveAttachmentResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * API tests for ArchiveApi
  */
-@Ignore
+@Disabled
 public class ArchiveApiTest {
 
     private final ArchiveApi api = new ArchiveApi();

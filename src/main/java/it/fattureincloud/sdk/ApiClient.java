@@ -903,7 +903,7 @@ public class ApiClient {
             if (obj != null) {
                 content = json.serialize(obj);
             } else {
-                content = null;
+                content = "";
             }
             return RequestBody.create(content, MediaType.parse(contentType));
         } else {

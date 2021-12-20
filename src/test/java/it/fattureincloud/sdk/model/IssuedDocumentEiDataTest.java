@@ -22,12 +22,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.OriginalDocumentType;
 import it.fattureincloud.sdk.model.VatKind;
+
 import java.io.IOException;
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**
