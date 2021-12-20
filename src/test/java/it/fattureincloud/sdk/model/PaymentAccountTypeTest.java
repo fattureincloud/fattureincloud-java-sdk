@@ -13,9 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +30,27 @@ public class PaymentAccountTypeTest {
      */
     @Test
     public void testPaymentAccountType() {
-        // TODO: test PaymentAccountType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"standard\"", gson.toJson(PaymentAccountType.STANDARD));
+        assertEquals("\"bank\"", gson.toJson(PaymentAccountType.BANK));
+
+        assertEquals(PaymentAccountType.STANDARD, gson.fromJson("\"standard\"", PaymentAccountType.class));
+        assertEquals(PaymentAccountType.BANK, gson.fromJson("\"bank\"", PaymentAccountType.class));
+
+        assertEquals("standard", PaymentAccountType.STANDARD.getValue());
+        assertEquals("bank", PaymentAccountType.BANK.getValue());
+
+        assertEquals("standard", PaymentAccountType.STANDARD.toString());
+        assertEquals("bank", PaymentAccountType.BANK.toString());
+
+        assertEquals(PaymentAccountType.STANDARD, PaymentAccountType.fromValue("standard"));
+        assertEquals(PaymentAccountType.BANK, PaymentAccountType.fromValue("bank"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            PaymentAccountType.fromValue("Flora was here");
+        });
     }
 
 }

@@ -138,7 +138,7 @@ public class ArchiveDocumentTest {
         model.setCategory("Top secret");
         assertEquals("Top secret", model.getCategory());
 
-        ArchiveDocument a = model.description("Lista della spesa");
+        ArchiveDocument a = model.category("Lista della spesa");
         ArchiveDocument expected = new ArchiveDocument()
                 .id(12345)
                 .date(LocalDate.parse("2021-08-20"))

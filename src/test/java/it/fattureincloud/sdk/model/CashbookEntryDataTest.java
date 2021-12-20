@@ -13,36 +13,56 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.CashbookEntryDataDocument;
-import it.fattureincloud.sdk.model.CashbookEntryKind;
-import it.fattureincloud.sdk.model.CashbookEntryType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for CashbookEntryData
  */
 public class CashbookEntryDataTest {
-    private final CashbookEntryData model = new CashbookEntryData();
+    private CashbookEntryData model;
+
+    @BeforeEach
+    public void init() {
+        model = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+    }
 
     /**
      * Model tests for CashbookEntryData
      */
     @Test
     public void testCashbookEntryData() {
-        // TODO: test CashbookEntryData
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"}}";
+        assertEquals(str, json);
+        CashbookEntryData generated = gson.fromJson(str, CashbookEntryData.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +70,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals("1", model.getId());
+        model.setId("2");
+        assertEquals("2", model.getId());
+
+        CashbookEntryData c = model.id("69");
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("69")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -58,7 +95,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        assertEquals(LocalDate.parse("2021-12-19"), model.getDate());
+        model.setDate(LocalDate.parse("2021-12-25"));
+        assertEquals(LocalDate.parse("2021-12-25"), model.getDate());
+
+        CashbookEntryData c = model.date(LocalDate.parse("2022-01-01"));
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2022-01-01"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -66,7 +120,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("Fattura n. 201/2021", model.getDescription());
+        model.setDescription("Fattura n. 1/2022");
+        assertEquals("Fattura n. 1/2022", model.getDescription());
+
+        CashbookEntryData c = model.description("Fattura n. 999/2019");
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 999/2019")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -74,7 +145,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void kindTest() {
-        // TODO: test kind
+        assertEquals(CashbookEntryKind.ISSUED_DOCUMENT, model.getKind());
+        model.setKind(CashbookEntryKind.TAX);
+        assertEquals(CashbookEntryKind.TAX, model.getKind());
+
+        CashbookEntryData c = model.kind(CashbookEntryKind.RECEIPT);
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.RECEIPT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -82,7 +170,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(CashbookEntryType.IN, model.getType());
+        model.setType(CashbookEntryType.OUT);
+        assertEquals(CashbookEntryType.OUT, model.getType());
+
+        CashbookEntryData c = model.type(CashbookEntryType.IN);
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -90,7 +195,24 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void entityNameTest() {
-        // TODO: test entityName
+        assertEquals("Rossi S.r.l.", model.getEntityName());
+        model.setEntityName("Volley Bergamo 1991 S.r.l.");
+        assertEquals("Volley Bergamo 1991 S.r.l.", model.getEntityName());
+
+        CashbookEntryData c = model.entityName("Volley Bergamo S.r.l.");
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Volley Bergamo S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                );
+        assertEquals(expected, c);
     }
 
     /**
@@ -98,7 +220,35 @@ public class CashbookEntryDataTest {
      */
     @Test
     public void documentTest() {
-        // TODO: test document
+        CashbookEntryDataDocument d1 = new CashbookEntryDataDocument()
+                .id(12345)
+                .type("issued_document")
+                .path("/doc1.pdf");
+
+        CashbookEntryDataDocument d2 = new CashbookEntryDataDocument()
+                .id(67890)
+                .type("received_document")
+                .path("/fattura.pdf");
+
+        CashbookEntryDataDocument d3 = new CashbookEntryDataDocument()
+                .id(33333)
+                .type("receipt")
+                .path("/scontrino.pdf");
+
+        assertEquals(d1, model.getDocument());
+        model.setDocument(d2);
+        assertEquals(d2, model.getDocument());
+
+        CashbookEntryData c = model.document(d3);
+        CashbookEntryData expected = new CashbookEntryData()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .entityName("Rossi S.r.l.")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .document(d3);
+        assertEquals(expected, c);
     }
 
 }

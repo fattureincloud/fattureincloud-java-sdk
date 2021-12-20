@@ -14,9 +14,8 @@
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,6 +62,10 @@ public class CashbookEntryKindTest {
         assertEquals(CashbookEntryKind.RECEIVED_DOCUMENT, CashbookEntryKind.fromValue("received_document"));
         assertEquals(CashbookEntryKind.TAX, CashbookEntryKind.fromValue("tax"));
         assertEquals(CashbookEntryKind.RECEIPT, CashbookEntryKind.fromValue("receipt"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CashbookEntryKind.fromValue("Evil Joshua");
+        });
     }
 
 }

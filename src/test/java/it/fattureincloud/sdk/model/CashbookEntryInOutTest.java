@@ -13,40 +13,77 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.CashbookEntryDataDocument;
-import it.fattureincloud.sdk.model.CashbookEntryIn;
-import it.fattureincloud.sdk.model.CashbookEntryKind;
-import it.fattureincloud.sdk.model.CashbookEntryOut;
-import it.fattureincloud.sdk.model.CashbookEntryType;
-import it.fattureincloud.sdk.model.PaymentAccount;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for CashbookEntryInOut
  */
 public class CashbookEntryInOutTest {
-    private final CashbookEntryInOut model = new CashbookEntryInOut();
+    private CashbookEntryInOut model;
+
+    @BeforeEach
+    public void init() {
+        model = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(new PaymentAccount()
+                        .id(21)
+                        .name("Indesa - Carta conto")
+                        .type(PaymentAccountType.STANDARD)
+                        .iban("IT84Y0300203280294126225888")
+                        .sia("sai")
+                        .cuc("cuc")
+                        .virtual(false)
+                )
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(new PaymentAccount()
+                        .id(21)
+                        .name("Indesa - Carta conto")
+                        .type(PaymentAccountType.STANDARD)
+                        .iban("IT84Y0300203280294126225888")
+                        .sia("sai")
+                        .cuc("cuc")
+                        .virtual(false)
+                );
+    }
 
     /**
      * Model tests for CashbookEntryInOut
      */
     @Test
     public void testCashbookEntryInOut() {
-        // TODO: test CashbookEntryInOut
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+        assertEquals(str, json);
+        CashbookEntryInOut generated = gson.fromJson(str, CashbookEntryInOut.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -54,7 +91,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals("1", model.getId());
+        model.setId("2");
+        assertEquals("2", model.getId());
+
+        CashbookEntryInOut c = model.id("69");
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("69")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -62,7 +129,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(LocalDate.parse("2021-12-19"), model.getDate());
+        model.setDate(LocalDate.parse("2021-12-01"));
+        assertEquals(LocalDate.parse("2021-12-01"), model.getDate());
+
+        CashbookEntryInOut c = model.date(LocalDate.parse("2002-12-19"));
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2002-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -70,7 +167,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals("Fattura n. 201/2021", model.getDescription());
+        model.setDescription("Fattura n. 1/2021");
+        assertEquals("Fattura n. 1/2021", model.getDescription());
+
+        CashbookEntryInOut c = model.description("Fattura n. 201/2050");
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2050")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -78,7 +205,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void kindTest() {
-        // TODO: test kind
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(CashbookEntryKind.ISSUED_DOCUMENT, model.getKind());
+        model.setKind(CashbookEntryKind.TAX);
+        assertEquals(CashbookEntryKind.TAX, model.getKind());
+
+        CashbookEntryInOut c = model.kind(CashbookEntryKind.RECEIPT);
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.RECEIPT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -86,7 +243,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(CashbookEntryType.IN, model.getType());
+        model.setType(CashbookEntryType.OUT);
+        assertEquals(CashbookEntryType.OUT, model.getType());
+
+        CashbookEntryInOut c = model.type(CashbookEntryType.IN);
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -94,7 +281,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void entityNameTest() {
-        // TODO: test entityName
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals("Rossi S.r.l.", model.getEntityName());
+        model.setEntityName("Volley Bergamo 1991 S.r.l.");
+        assertEquals("Volley Bergamo 1991 S.r.l.", model.getEntityName());
+
+        CashbookEntryInOut c = model.entityName("Volley Bergamo S.r.l.");
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Volley Bergamo S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -102,7 +319,48 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void documentTest() {
-        // TODO: test document
+        CashbookEntryDataDocument d1 = new CashbookEntryDataDocument()
+                .id(12345)
+                .type("issued_document")
+                .path("/doc1.pdf");
+
+        CashbookEntryDataDocument d2 = new CashbookEntryDataDocument()
+                .id(12345)
+                .type("issued_document")
+                .path("/doc1.pdf");
+
+        CashbookEntryDataDocument d3 = new CashbookEntryDataDocument()
+                .id(12345)
+                .type("issued_document")
+                .path("/doc1.pdf");
+
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(d1, model.getDocument());
+        model.setDocument(d2);
+        assertEquals(d2, model.getDocument());
+
+        CashbookEntryInOut c = model.document(d3);
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(d3)
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -110,7 +368,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void amountOutTest() {
-        // TODO: test amountOut
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(BigDecimal.valueOf(10), model.getAmountOut());
+        model.setAmountOut(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getAmountOut());
+
+        CashbookEntryInOut c = model.amountOut(BigDecimal.valueOf(12));
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(12))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -118,7 +406,55 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void paymentAccountOutTest() {
-        // TODO: test paymentAccountOut
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p2 = new PaymentAccount()
+                .id(22)
+                .name("UniPirl - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p3 = new PaymentAccount()
+                .id(23)
+                .name("A Monte - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(p1, model.getPaymentAccountOut());
+        model.setPaymentAccountOut(p2);
+        assertEquals(p2, model.getPaymentAccountOut());
+
+        CashbookEntryInOut c = model.paymentAccountOut(p3);
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p3)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -126,7 +462,37 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void amountInTest() {
-        // TODO: test amountIn
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(BigDecimal.valueOf(10), model.getAmountIn());
+        model.setAmountIn(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getAmountIn());
+
+        CashbookEntryInOut c = model.amountIn(BigDecimal.valueOf(12));
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(12))
+                .paymentAccountIn(p1);
+        assertEquals(expected, c);
     }
 
     /**
@@ -134,7 +500,55 @@ public class CashbookEntryInOutTest {
      */
     @Test
     public void paymentAccountInTest() {
-        // TODO: test paymentAccountIn
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p2 = new PaymentAccount()
+                .id(22)
+                .name("UniPirl - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p3 = new PaymentAccount()
+                .id(23)
+                .name("A Monte - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(p1, model.getPaymentAccountIn());
+        model.setPaymentAccountIn(p2);
+        assertEquals(p2, model.getPaymentAccountIn());
+
+        CashbookEntryInOut c = model.paymentAccountIn(p3);
+        CashbookEntryInOut expected = new CashbookEntryInOut()
+                .id("1")
+                .date(LocalDate.parse("2021-12-19"))
+                .description("Fattura n. 201/2021")
+                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                .type(CashbookEntryType.IN)
+                .entityName("Rossi S.r.l.")
+                .document(new CashbookEntryDataDocument()
+                        .id(12345)
+                        .type("issued_document")
+                        .path("/doc1.pdf")
+                )
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p1)
+                .amountIn(BigDecimal.valueOf(10))
+                .paymentAccountIn(p3);
+        assertEquals(expected, c);
     }
 
 }
