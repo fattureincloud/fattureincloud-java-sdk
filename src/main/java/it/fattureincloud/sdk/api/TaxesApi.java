@@ -69,7 +69,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -129,7 +130,8 @@ public class TaxesApi {
      * @return CreateF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -149,7 +151,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;CreateF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -171,7 +174,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -193,7 +197,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -258,7 +263,8 @@ public class TaxesApi {
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -277,7 +283,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -298,7 +305,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -319,7 +327,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -384,7 +393,8 @@ public class TaxesApi {
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -403,7 +413,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -424,7 +435,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -447,7 +459,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -523,7 +536,8 @@ public class TaxesApi {
      * @return GetF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -545,7 +559,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;GetF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -569,7 +584,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -595,7 +611,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -678,7 +695,8 @@ public class TaxesApi {
      * @return ListF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -701,7 +719,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;ListF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -726,7 +745,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -748,7 +768,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -815,7 +836,8 @@ public class TaxesApi {
      * @return ModifyF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -836,7 +858,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;ModifyF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -859,7 +882,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -882,7 +906,8 @@ public class TaxesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
      </table>
@@ -949,7 +974,8 @@ public class TaxesApi {
      * @return UploadF24AttachmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
      </table>
@@ -968,7 +994,8 @@ public class TaxesApi {
      * @return ApiResponse&lt;UploadF24AttachmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
      </table>
@@ -989,7 +1016,8 @@ public class TaxesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
      </table>

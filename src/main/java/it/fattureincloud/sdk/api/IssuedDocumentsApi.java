@@ -76,7 +76,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -135,7 +136,8 @@ public class IssuedDocumentsApi {
      * @return CreateIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -154,7 +156,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;CreateIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -175,7 +178,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -196,7 +200,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -261,7 +266,8 @@ public class IssuedDocumentsApi {
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -280,7 +286,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -301,7 +308,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -322,7 +330,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -387,7 +396,8 @@ public class IssuedDocumentsApi {
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -406,7 +416,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -427,7 +438,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -448,7 +460,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
      </table>
@@ -512,7 +525,8 @@ public class IssuedDocumentsApi {
      * @return GetEmailDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
      </table>
@@ -530,7 +544,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;GetEmailDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
      </table>
@@ -550,7 +565,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
      </table>
@@ -571,7 +587,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -638,7 +655,8 @@ public class IssuedDocumentsApi {
      * @return GetExistingIssuedDocumentTotalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -659,7 +677,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;GetExistingIssuedDocumentTotalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -682,7 +701,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -706,7 +726,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -782,7 +803,8 @@ public class IssuedDocumentsApi {
      * @return GetIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -804,7 +826,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;GetIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -828,7 +851,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -850,7 +874,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
      </table>
@@ -917,7 +942,8 @@ public class IssuedDocumentsApi {
      * @return GetIssuedDocumentPreCreateInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
      </table>
@@ -935,7 +961,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;GetIssuedDocumentPreCreateInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
      </table>
@@ -955,7 +982,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
      </table>
@@ -975,7 +1003,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1034,7 +1063,8 @@ public class IssuedDocumentsApi {
      * @return GetNewIssuedDocumentTotalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1053,7 +1083,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;GetNewIssuedDocumentTotalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1074,7 +1105,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1100,7 +1132,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1194,7 +1227,8 @@ public class IssuedDocumentsApi {
      * @return ListIssuedDocumentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1219,7 +1253,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;ListIssuedDocumentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1246,7 +1281,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1269,7 +1305,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1336,7 +1373,8 @@ public class IssuedDocumentsApi {
      * @return ModifyIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1357,7 +1395,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;ModifyIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1380,7 +1419,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1403,7 +1443,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1469,7 +1510,8 @@ public class IssuedDocumentsApi {
      * @param scheduleEmailRequest Email Schedule (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1489,7 +1531,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1511,7 +1554,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1533,7 +1577,8 @@ public class IssuedDocumentsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1601,7 +1646,8 @@ public class IssuedDocumentsApi {
      * @return UploadIssuedDocumentAttachmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1621,7 +1667,8 @@ public class IssuedDocumentsApi {
      * @return ApiResponse&lt;UploadIssuedDocumentAttachmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1643,7 +1690,8 @@ public class IssuedDocumentsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
