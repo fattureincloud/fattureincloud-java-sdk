@@ -13,37 +13,51 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Currency;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.ReceivedDocumentInfoDefaultValues;
-import it.fattureincloud.sdk.model.ReceivedDocumentInfoItemsDefaultValues;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentInfo
  */
 public class ReceivedDocumentInfoTest {
-    private final ReceivedDocumentInfo model = new ReceivedDocumentInfo();
+    private ReceivedDocumentInfo model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1));
+    }
 
     /**
      * Model tests for ReceivedDocumentInfo
      */
     @Test
     public void testReceivedDocumentInfo() {
-        // TODO: test ReceivedDocumentInfo
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}";
+        assertEquals(str, json);
+        ReceivedDocumentInfo generated = gson.fromJson(str, ReceivedDocumentInfo.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -51,7 +65,19 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void defaultValuesTest() {
-        // TODO: test defaultValues
+        assertEquals(new ReceivedDocumentInfoDefaultValues().detailed(false), model.getDefaultValues());
+        model.setDefaultValues(new ReceivedDocumentInfoDefaultValues().detailed(true));
+        assertEquals(new ReceivedDocumentInfoDefaultValues().detailed(true), model.getDefaultValues());
+
+        ReceivedDocumentInfo a = model.defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false));
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -59,7 +85,19 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void itemsDefaultValuesTest() {
-        // TODO: test itemsDefaultValues
+        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(10), model.getItemsDefaultValues());
+        model.setItemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(101));
+        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(101), model.getItemsDefaultValues());
+
+        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10));
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -67,7 +105,20 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void countriesListTest() {
-        // TODO: test countriesList
+        assertEquals(Arrays.asList("Italia"), model.getCountriesList());
+        model.addCountriesListItem("Albania");
+        assertEquals(Arrays.asList("Italia", "Albania"), model.getCountriesList());
+
+        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10));
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCountriesListItem("Albania")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -75,7 +126,20 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void currenciesListTest() {
-        // TODO: test currenciesList
+        assertEquals(Arrays.asList(new VatType().id(1)), model.getVatTypesList());
+        model.addVatTypesListItem(new VatType().id(2));
+        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+
+        ReceivedDocumentInfo a = model;
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1))
+                .addVatTypesListItem(new VatType().id(2));
+        assertEquals(expected, a);
     }
 
     /**
@@ -83,7 +147,20 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void categoriesListTest() {
-        // TODO: test categoriesList
+        assertEquals(Arrays.asList("cat6"), model.getCategoriesList());
+        model.addCategoriesListItem("cat5");
+        assertEquals(Arrays.asList("cat6", "cat5"), model.getCategoriesList());
+
+        ReceivedDocumentInfo a = model;
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addCategoriesListItem("cat5")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -91,7 +168,20 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void paymentAccountsListTest() {
-        // TODO: test paymentAccountsList
+        assertEquals(Arrays.asList(new PaymentAccount().id(1)), model.getPaymentAccountsList());
+        model.addPaymentAccountsListItem(new PaymentAccount().id(2));
+        assertEquals(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)), model.getPaymentAccountsList());
+
+        ReceivedDocumentInfo a = model;
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addPaymentAccountsListItem(new PaymentAccount().id(2))
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -99,7 +189,20 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void vatTypesListTest() {
-        // TODO: test vatTypesList
+        assertEquals(Arrays.asList(new VatType().id(1)), model.getVatTypesList());
+        model.addVatTypesListItem(new VatType().id(2));
+        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+
+        ReceivedDocumentInfo a = model;
+        ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
+                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .addCountriesListItem("Italia")
+                .addCategoriesListItem("cat6")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addVatTypesListItem(new VatType().id(1))
+                .addVatTypesListItem(new VatType().id(2));
+        assertEquals(expected, a);
     }
 
 }

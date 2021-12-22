@@ -13,30 +13,44 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentInfoDefaultValues
  */
 public class ReceivedDocumentInfoDefaultValuesTest {
-    private final ReceivedDocumentInfoDefaultValues model = new ReceivedDocumentInfoDefaultValues();
+    private ReceivedDocumentInfoDefaultValues model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentInfoDefaultValues()
+                .detailed(true);
+    }
 
     /**
      * Model tests for ReceivedDocumentInfoDefaultValues
      */
     @Test
     public void testReceivedDocumentInfoDefaultValues() {
-        // TODO: test ReceivedDocumentInfoDefaultValues
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"detailed\":true}";
+        assertEquals(str, json);
+        ReceivedDocumentInfoDefaultValues generated = gson.fromJson(str, ReceivedDocumentInfoDefaultValues.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +58,14 @@ public class ReceivedDocumentInfoDefaultValuesTest {
      */
     @Test
     public void detailedTest() {
-        // TODO: test detailed
+        assertEquals(true, model.getDetailed());
+        model.setDetailed(false);
+        assertEquals(false, model.getDetailed());
+
+        ReceivedDocumentInfoDefaultValues i = model.detailed(true);
+        ReceivedDocumentInfoDefaultValues expected = new ReceivedDocumentInfoDefaultValues()
+                .detailed(true);
+        assertEquals(expected, i);
     }
 
 }

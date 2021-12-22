@@ -13,34 +13,55 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentItemsList
  */
 public class ReceivedDocumentItemsListTest {
-    private final ReceivedDocumentItemsList model = new ReceivedDocumentItemsList();
+    private ReceivedDocumentItemsList model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+    }
 
     /**
      * Model tests for ReceivedDocumentItemsList
      */
     @Test
     public void testReceivedDocumentItemsList() {
-        // TODO: test ReceivedDocumentItemsList
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"product_id\":1,\"code\":\"cod\",\"name\":\"neim\",\"measure\":\"s\",\"net_price\":10,\"category\":\"cat6\",\"qty\":10,\"vat\":{\"id\":1,\"editable\":true},\"stock\":10}";
+        assertEquals(str, json);
+        ReceivedDocumentItemsList generated = gson.fromJson(str, ReceivedDocumentItemsList.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +69,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
+
+        ReceivedDocumentItemsList i = model.id(1);
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -56,7 +93,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void productIdTest() {
-        // TODO: test productId
+        assertEquals(1, model.getProductId());
+        model.setProductId(2);
+        assertEquals(2, model.getProductId());
+
+        ReceivedDocumentItemsList i = model.productId(1);
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -64,7 +117,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void codeTest() {
-        // TODO: test code
+        assertEquals("cod", model.getCode());
+        model.setCode("2");
+        assertEquals("2", model.getCode());
+
+        ReceivedDocumentItemsList i = model.code("cod");
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -72,7 +141,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("neim", model.getName());
+        model.setName("2");
+        assertEquals("2", model.getName());
+
+        ReceivedDocumentItemsList i = model.name("neim");
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -80,7 +165,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void measureTest() {
-        // TODO: test measure
+        assertEquals("s", model.getMeasure());
+        model.setMeasure("2");
+        assertEquals("2", model.getMeasure());
+
+        ReceivedDocumentItemsList i = model.measure("s");
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -88,7 +189,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void netPriceTest() {
-        // TODO: test netPrice
+        assertEquals(BigDecimal.valueOf(10), model.getNetPrice());
+        model.setNetPrice(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getNetPrice());
+
+        ReceivedDocumentItemsList i = model.netPrice(BigDecimal.valueOf(10));
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -96,7 +213,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void categoryTest() {
-        // TODO: test category
+        assertEquals("cat6", model.getCategory());
+        model.setCategory("cat7");
+        assertEquals("cat7", model.getCategory());
+
+        ReceivedDocumentItemsList i = model.category("cat6");
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -104,7 +237,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void qtyTest() {
-        // TODO: test qty
+        assertEquals(BigDecimal.valueOf(10), model.getQty());
+        model.setQty(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getQty());
+
+        ReceivedDocumentItemsList i = model.qty(BigDecimal.valueOf(10));
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -112,7 +261,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void vatTest() {
-        // TODO: test vat
+        assertEquals(new VatType().id(1), model.getVat());
+        model.setVat(new VatType().id(2));
+        assertEquals(new VatType().id(2), model.getVat());
+
+        ReceivedDocumentItemsList i = model.vat(new VatType().id(1));
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -120,7 +285,23 @@ public class ReceivedDocumentItemsListTest {
      */
     @Test
     public void stockTest() {
-        // TODO: test stock
+        assertEquals(BigDecimal.valueOf(10), model.getStock());
+        model.setStock(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getStock());
+
+        ReceivedDocumentItemsList i = model.stock(BigDecimal.valueOf(10));
+        ReceivedDocumentItemsList expected = new ReceivedDocumentItemsList()
+                .id(1)
+                .productId(1)
+                .code("cod")
+                .name("neim")
+                .measure("s")
+                .netPrice(BigDecimal.valueOf(10))
+                .category("cat6")
+                .qty(BigDecimal.valueOf(10))
+                .vat(new VatType().id(1))
+                .stock(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
 }
