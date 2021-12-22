@@ -13,33 +13,56 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.DocumentTemplate;
-import it.fattureincloud.sdk.model.PaymentMethod;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPreCreateInfoDefaultValues
  */
 public class IssuedDocumentPreCreateInfoDefaultValuesTest {
-    private final IssuedDocumentPreCreateInfoDefaultValues model = new IssuedDocumentPreCreateInfoDefaultValues();
+    private IssuedDocumentPreCreateInfoDefaultValues model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+    }
 
     /**
      * Model tests for IssuedDocumentPreCreateInfoDefaultValues
      */
     @Test
     public void testIssuedDocumentPreCreateInfoDefaultValues() {
-        // TODO: test IssuedDocumentPreCreateInfoDefaultValues
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}}";
+        assertEquals(str, json);
+        IssuedDocumentPreCreateInfoDefaultValues generated = gson.fromJson(str, IssuedDocumentPreCreateInfoDefaultValues.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +70,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void defaultTemplateTest() {
-        // TODO: test defaultTemplate
+        assertEquals(new DocumentTemplate().id(1), model.getDefaultTemplate());
+        model.setDefaultTemplate(new DocumentTemplate().id(11));
+        assertEquals(new DocumentTemplate().id(11), model.getDefaultTemplate());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.defaultTemplate(new DocumentTemplate().id(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -55,7 +95,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void dnTemplateTest() {
-        // TODO: test dnTemplate
+        assertEquals(new DocumentTemplate().id(1), model.getDnTemplate());
+        model.setDnTemplate(new DocumentTemplate().id(11));
+        assertEquals(new DocumentTemplate().id(11), model.getDnTemplate());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.dnTemplate(new DocumentTemplate().id(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -63,7 +120,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void aiTemplateTest() {
-        // TODO: test aiTemplate
+        assertEquals(new DocumentTemplate().id(1), model.getAiTemplate());
+        model.setAiTemplate(new DocumentTemplate().id(11));
+        assertEquals(new DocumentTemplate().id(11), model.getAiTemplate());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.aiTemplate(new DocumentTemplate().id(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -71,7 +145,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void notesTest() {
-        // TODO: test notes
+        assertEquals("notes", model.getNotes());
+        model.setNotes("new notes");
+        assertEquals("new notes", model.getNotes());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.notes("notes");
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -79,7 +170,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void rivalsaTest() {
-        // TODO: test rivalsa
+        assertEquals(BigDecimal.valueOf(1), model.getRivalsa());
+        model.setRivalsa(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getRivalsa());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.rivalsa(BigDecimal.valueOf(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -87,7 +195,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void cassaTest() {
-        // TODO: test cassa
+        assertEquals(BigDecimal.valueOf(1), model.getCassa());
+        model.setCassa(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getCassa());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.cassa(BigDecimal.valueOf(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -95,7 +220,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void withholdingTaxTest() {
-        // TODO: test withholdingTax
+        assertEquals(BigDecimal.valueOf(1), model.getWithholdingTax());
+        model.setWithholdingTax(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.withholdingTax(BigDecimal.valueOf(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -103,7 +245,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void withholdingTaxTaxableTest() {
-        // TODO: test withholdingTaxTaxable
+        assertEquals(BigDecimal.valueOf(1), model.getWithholdingTaxTaxable());
+        model.setWithholdingTaxTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTaxTaxable());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.withholdingTaxTaxable(BigDecimal.valueOf(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -111,7 +270,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void otherWithholdingTaxTest() {
-        // TODO: test otherWithholdingTax
+        assertEquals(BigDecimal.valueOf(1), model.getOtherWithholdingTax());
+        model.setOtherWithholdingTax(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getOtherWithholdingTax());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.otherWithholdingTax(BigDecimal.valueOf(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -119,7 +295,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void useGrossPricesTest() {
-        // TODO: test useGrossPrices
+        assertEquals(true, model.getUseGrossPrices());
+        model.setUseGrossPrices(false);
+        assertEquals(false, model.getUseGrossPrices());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.useGrossPrices(true);
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -127,7 +320,24 @@ public class IssuedDocumentPreCreateInfoDefaultValuesTest {
      */
     @Test
     public void paymentMethodTest() {
-        // TODO: test paymentMethod
+        assertEquals(new PaymentMethod().id(1), model.getPaymentMethod());
+        model.setPaymentMethod(new PaymentMethod().id(10));
+        assertEquals(new PaymentMethod().id(10), model.getPaymentMethod());
+
+        IssuedDocumentPreCreateInfoDefaultValues i = model.paymentMethod(new PaymentMethod().id(1));
+        IssuedDocumentPreCreateInfoDefaultValues expected = new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1));
+        assertEquals(expected, i);
     }
 
 }

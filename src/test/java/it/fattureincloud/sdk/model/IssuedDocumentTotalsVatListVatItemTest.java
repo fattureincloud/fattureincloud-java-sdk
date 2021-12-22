@@ -13,31 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentTotalsVatListVatItem
  */
 public class IssuedDocumentTotalsVatListVatItemTest {
-    private final IssuedDocumentTotalsVatListVatItem model = new IssuedDocumentTotalsVatListVatItem();
+    private IssuedDocumentTotalsVatListVatItem model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentTotalsVatListVatItem()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10));
+    }
 
     /**
      * Model tests for IssuedDocumentTotalsVatListVatItem
      */
     @Test
     public void testIssuedDocumentTotalsVatListVatItem() {
-        // TODO: test IssuedDocumentTotalsVatListVatItem
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"amount_net\":10,\"amount_vat\":10}";
+        assertEquals(str, json);
+        IssuedDocumentTotalsVatListVatItem generated = gson.fromJson(str, IssuedDocumentTotalsVatListVatItem.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +61,15 @@ public class IssuedDocumentTotalsVatListVatItemTest {
      */
     @Test
     public void amountNetTest() {
-        // TODO: test amountNet
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+        model.setAmountNet(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountNet());
+
+        IssuedDocumentTotalsVatListVatItem i = model.amountNet(BigDecimal.valueOf(10));
+        IssuedDocumentTotalsVatListVatItem expected = new IssuedDocumentTotalsVatListVatItem()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
     /**
@@ -53,7 +77,15 @@ public class IssuedDocumentTotalsVatListVatItemTest {
      */
     @Test
     public void amountVatTest() {
-        // TODO: test amountVat
+        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
+        model.setAmountVat(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountVat());
+
+        IssuedDocumentTotalsVatListVatItem i = model.amountVat(BigDecimal.valueOf(10));
+        IssuedDocumentTotalsVatListVatItem expected = new IssuedDocumentTotalsVatListVatItem()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10));
+        assertEquals(expected, i);
     }
 
 }
