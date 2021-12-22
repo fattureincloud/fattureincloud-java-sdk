@@ -29,8 +29,8 @@ import it.fattureincloud.sdk.model.ModifyIssuedDocumentRequest;
 import it.fattureincloud.sdk.model.ModifyIssuedDocumentResponse;
 import it.fattureincloud.sdk.model.ScheduleEmailRequest;
 import it.fattureincloud.sdk.model.UploadIssuedDocumentAttachmentResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ import java.util.Map;
 /**
  * API tests for IssuedDocumentsApi
  */
-@Ignore
+@Disabled
 public class IssuedDocumentsApiTest {
 
     private final IssuedDocumentsApi api = new IssuedDocumentsApi();

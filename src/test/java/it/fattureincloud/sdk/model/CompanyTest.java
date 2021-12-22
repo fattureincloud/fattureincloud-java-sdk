@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -20,28 +21,56 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.CompanyType;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for Company
  */
 public class CompanyTest {
-    private final Company model = new Company();
+    private Company model;
+
+    @BeforeEach
+    public void init() {
+        model = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .type(CompanyType.COMPANY)
+                .accessToken("ABCDEF")
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+    }
 
     /**
      * Model tests for Company
      */
     @Test
     public void testCompany() {
-        // TODO: test Company
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":5,\"name\":\"Azienda 1\",\"type\":\"company\",\"access_token\":\"ABCDEF\",\"controlled_companies\":[],\"connection_id\":94817,\"tax_code\":\"SLVMTT50A01F205L\"}";
+        assertEquals(str, json);
+        Company generated = gson.fromJson(str, Company.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -49,7 +78,20 @@ public class CompanyTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(5, model.getId());
+        model.setId(3);
+        assertEquals(3, model.getId());
+
+        Company c = model.id(69);
+        Company expected = new Company()
+                .id(69)
+                .name("Azienda 1")
+                .type(CompanyType.COMPANY)
+                .accessToken("ABCDEF")
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
     }
 
     /**
@@ -57,7 +99,20 @@ public class CompanyTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("Azienda 1", model.getName());
+        model.setName("Fatture in Cloud");
+        assertEquals("Fatture in Cloud", model.getName());
+
+        Company c = model.name("Milan AC");
+        Company expected = new Company()
+                .id(5)
+                .name("Milan AC")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
     }
 
     /**
@@ -65,7 +120,20 @@ public class CompanyTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(CompanyType.COMPANY, model.getType());
+        model.setType(CompanyType.ACCOUNTANT);
+        assertEquals(CompanyType.ACCOUNTANT, model.getType());
+
+        Company c = model.type(CompanyType.COMPANY);
+        Company expected = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
     }
 
     /**
@@ -73,7 +141,21 @@ public class CompanyTest {
      */
     @Test
     public void accessTokenTest() {
-        // TODO: test accessToken
+        assertEquals("ABCDEF", model.getAccessToken());
+        model.setAccessToken("GHIJKL");
+        assertEquals("GHIJKL", model.getAccessToken());
+
+        Company c = model.accessToken("MNOPQR");
+        Company expected = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .accessToken("MNOPQR")
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
     }
 
     /**
@@ -81,7 +163,64 @@ public class CompanyTest {
      */
     @Test
     public void controlledCompaniesTest() {
-        // TODO: test controlledCompanies
+        Company cc = new Company()
+                .id(99)
+                .name("Vini Benzene")
+                .accessToken("QQQQQ")
+                .type(CompanyType.COMPANY)
+                .accessToken("QQQQQ")
+                .connectionId(BigDecimal.valueOf(54321))
+                .controlledCompanies(Collections.emptyList())
+                .taxCode("SLVMTT50A01F205L");
+
+        assertEquals(Collections.emptyList(), model.getControlledCompanies());
+        List<Company> c1 = Arrays.asList(cc);
+        model.setControlledCompanies(c1);
+        assertEquals(c1, model.getControlledCompanies());
+
+        List<Company> c2 = Arrays.asList(cc, new Company()
+                .id(100)
+                .name("Agenzia Immobiliare Baracca")
+                .accessToken("BBBBB")
+                .type(CompanyType.COMPANY)
+                .accessToken("BBBBB")
+                .connectionId(BigDecimal.valueOf(54321))
+                .controlledCompanies(Collections.emptyList())
+                .taxCode("SLVMTT50A01F205L"));
+
+        Company c = model.controlledCompanies(c2);
+        Company expected = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(c2)
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
+
+        model.setControlledCompanies(new ArrayList<>());
+
+        Company added = new Company()
+                .id(100)
+                .name("Laser Game")
+                .accessToken("LLLLL")
+                .type(CompanyType.COMPANY)
+                .accessToken("LLLLL")
+                .connectionId(BigDecimal.valueOf(54321))
+                .controlledCompanies(Collections.emptyList())
+                .taxCode("SLVMTT50A01F205L");
+
+        Company a = model.addControlledCompaniesItem(added);
+        Company expectedA = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .type(CompanyType.COMPANY)
+                .accessToken("ABCDEF")
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(Arrays.asList(added))
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expectedA, a);
     }
 
     /**
@@ -89,7 +228,20 @@ public class CompanyTest {
      */
     @Test
     public void connectionIdTest() {
-        // TODO: test connectionId
+        assertEquals(BigDecimal.valueOf(94817), model.getConnectionId());
+        model.setConnectionId(BigDecimal.valueOf(11111));
+        assertEquals(BigDecimal.valueOf(11111), model.getConnectionId());
+
+        Company c = model.connectionId(BigDecimal.valueOf(22222));
+        Company expected = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .connectionId(BigDecimal.valueOf(22222))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("SLVMTT50A01F205L");
+        assertEquals(expected, c);
     }
 
     /**
@@ -97,7 +249,20 @@ public class CompanyTest {
      */
     @Test
     public void taxCodeTest() {
-        // TODO: test taxCode
+        assertEquals("SLVMTT50A01F205L", model.getTaxCode());
+        model.setTaxCode("CPRSLD88A01L218N");
+        assertEquals("CPRSLD88A01L218N", model.getTaxCode());
+
+        Company c = model.taxCode("LTTDTT90A41F205S");
+        Company expected = new Company()
+                .id(5)
+                .name("Azienda 1")
+                .accessToken("ABCDEF")
+                .type(CompanyType.COMPANY)
+                .connectionId(BigDecimal.valueOf(94817))
+                .controlledCompanies(new ArrayList<>())
+                .taxCode("LTTDTT90A41F205S");
+        assertEquals(expected, c);
     }
 
 }

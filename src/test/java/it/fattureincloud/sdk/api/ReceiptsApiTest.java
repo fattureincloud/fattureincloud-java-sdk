@@ -22,8 +22,8 @@ import it.fattureincloud.sdk.model.GetReceiptsMonthlyTotalsResponse;
 import it.fattureincloud.sdk.model.ListReceiptsResponse;
 import it.fattureincloud.sdk.model.ModifyReceiptRequest;
 import it.fattureincloud.sdk.model.ModifyReceiptResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * API tests for ReceiptsApi
  */
-@Ignore
+@Disabled
 public class ReceiptsApiTest {
 
     private final ReceiptsApi api = new ReceiptsApi();

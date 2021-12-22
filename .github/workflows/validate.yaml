@@ -26,16 +26,29 @@ jobs:
         java-version: ${{ matrix.java }}
         distribution: 'adopt'
 
-    - name: Validate Gradle wrapper
+    - id: cache-gradle
+      name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: ${{ runner.os }}-gradle
+
+    - id: validate-wrapper
+      name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
 
     - id: executable-wrapper
       name: Gradle Wrapper is made executable
       run: |
-        chmod a+x ./gradlew
+        chmod +x ./gradlew
 
     - id: gradle-build
       name: Build with Gradle
+      env:
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+        GPG_KEY: ${{ secrets.GPG_KEY }}
       run: |
         ./gradlew build
 

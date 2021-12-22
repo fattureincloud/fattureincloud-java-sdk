@@ -13,25 +13,28 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ArchiveDocument;
-import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 
 /**
  * Model tests for CreateArchiveDocumentRequest
  */
 public class CreateArchiveDocumentRequestTest {
-    private final CreateArchiveDocumentRequest model = new CreateArchiveDocumentRequest();
+    private CreateArchiveDocumentRequest model;
+
+    @BeforeEach
+    public void init() {
+        model = new CreateArchiveDocumentRequest()
+                .data(new ArchiveDocument()
+                        .id(12345)
+                        .date(LocalDate.parse("2021-08-20"))
+                        .category("Altri documenti")
+                        .description("spesa 2")
+                        .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we"));
+    }
 
     /**
      * Model tests for CreateArchiveDocumentRequest

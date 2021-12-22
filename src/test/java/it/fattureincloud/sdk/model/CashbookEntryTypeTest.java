@@ -13,11 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -29,7 +30,27 @@ public class CashbookEntryTypeTest {
      */
     @Test
     public void testCashbookEntryType() {
-        // TODO: test CashbookEntryType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"in\"", gson.toJson(CashbookEntryType.IN));
+        assertEquals("\"out\"", gson.toJson(CashbookEntryType.OUT));
+
+        assertEquals(CashbookEntryType.IN, gson.fromJson("\"in\"", CashbookEntryType.class));
+        assertEquals(CashbookEntryType.OUT, gson.fromJson("\"out\"", CashbookEntryType.class));
+
+        assertEquals("in", CashbookEntryType.IN.getValue());
+        assertEquals("out", CashbookEntryType.OUT.getValue());
+
+        assertEquals("in", CashbookEntryType.IN.toString());
+        assertEquals("out", CashbookEntryType.OUT.toString());
+
+        assertEquals(CashbookEntryType.IN, CashbookEntryType.fromValue("in"));
+        assertEquals(CashbookEntryType.OUT, CashbookEntryType.fromValue("out"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CashbookEntryType.fromValue("Evil Joshua");
+        });
     }
 
 }

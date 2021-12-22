@@ -27,8 +27,8 @@ import it.fattureincloud.sdk.model.ListReceivedDocumentsResponse;
 import it.fattureincloud.sdk.model.ModifyReceivedDocumentRequest;
 import it.fattureincloud.sdk.model.ModifyReceivedDocumentResponse;
 import it.fattureincloud.sdk.model.UploadReceivedDocumentAttachmentResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +38,7 @@ import java.util.Map;
 /**
  * API tests for ReceivedDocumentsApi
  */
-@Ignore
+@Disabled
 public class ReceivedDocumentsApiTest {
 
     private final ReceivedDocumentsApi api = new ReceivedDocumentsApi();

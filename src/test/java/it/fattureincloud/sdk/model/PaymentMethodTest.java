@@ -23,13 +23,13 @@ import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.PaymentAccount;
 import it.fattureincloud.sdk.model.PaymentMethodDetails;
 import it.fattureincloud.sdk.model.PaymentMethodType;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

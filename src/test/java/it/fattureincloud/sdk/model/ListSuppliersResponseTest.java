@@ -23,14 +23,14 @@ import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.ListSuppliersResponsePage;
 import it.fattureincloud.sdk.model.Pagination;
 import it.fattureincloud.sdk.model.Supplier;
+
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

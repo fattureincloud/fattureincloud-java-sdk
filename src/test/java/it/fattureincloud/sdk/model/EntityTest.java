@@ -26,11 +26,11 @@ import it.fattureincloud.sdk.model.PaymentMethod;
 import it.fattureincloud.sdk.model.Supplier;
 import it.fattureincloud.sdk.model.SupplierType;
 import it.fattureincloud.sdk.model.VatType;
+
 import java.io.IOException;
+
+import org.junit.jupiter.api.Test;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

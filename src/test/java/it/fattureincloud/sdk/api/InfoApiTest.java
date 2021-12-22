@@ -29,8 +29,8 @@ import it.fattureincloud.sdk.model.ListRevenueCentersResponse;
 import it.fattureincloud.sdk.model.ListTemplatesResponse;
 import it.fattureincloud.sdk.model.ListUnitsOfMeasureResponse;
 import it.fattureincloud.sdk.model.ListVatTypesResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ import java.util.Map;
 /**
  * API tests for InfoApi
  */
-@Ignore
+@Disabled
 public class InfoApiTest {
 
     private final InfoApi api = new InfoApi();

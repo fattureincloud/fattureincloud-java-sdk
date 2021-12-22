@@ -22,8 +22,8 @@ import it.fattureincloud.sdk.model.ListF24Response;
 import it.fattureincloud.sdk.model.ModifyF24Request;
 import it.fattureincloud.sdk.model.ModifyF24Response;
 import it.fattureincloud.sdk.model.UploadF24AttachmentResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * API tests for TaxesApi
  */
-@Ignore
+@Disabled
 public class TaxesApiTest {
 
     private final TaxesApi api = new TaxesApi();

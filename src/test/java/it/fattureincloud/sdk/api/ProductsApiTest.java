@@ -20,8 +20,8 @@ import it.fattureincloud.sdk.model.GetProductResponse;
 import it.fattureincloud.sdk.model.ListProductsResponse;
 import it.fattureincloud.sdk.model.ModifyProductRequest;
 import it.fattureincloud.sdk.model.ModifyProductResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * API tests for ProductsApi
  */
-@Ignore
+@Disabled
 public class ProductsApiTest {
 
     private final ProductsApi api = new ProductsApi();

@@ -20,8 +20,8 @@ import it.fattureincloud.sdk.model.GetCashbookEntryResponse;
 import it.fattureincloud.sdk.model.ListCashbookEntriesResponse;
 import it.fattureincloud.sdk.model.ModifyCashbookEntryRequest;
 import it.fattureincloud.sdk.model.ModifyCashbookEntryResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * API tests for CashbookApi
  */
-@Ignore
+@Disabled
 public class CashbookApiTest {
 
     private final CashbookApi api = new CashbookApi();

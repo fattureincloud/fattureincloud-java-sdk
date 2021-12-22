@@ -18,8 +18,8 @@ import it.fattureincloud.sdk.model.SendEInvoiceRequest;
 import it.fattureincloud.sdk.model.SendEInvoiceResponse;
 import it.fattureincloud.sdk.model.VerifyEInvoiceXmlErrorResponse;
 import it.fattureincloud.sdk.model.VerifyEInvoiceXmlResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * API tests for IssuedEInvoicesApi
  */
-@Ignore
+@Disabled
 public class IssuedEInvoicesApiTest {
 
     private final IssuedEInvoicesApi api = new IssuedEInvoicesApi();

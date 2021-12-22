@@ -13,34 +13,54 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import java.io.IOException;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for CashbookEntryOutData
  */
 public class CashbookEntryOutDataTest {
-    private final CashbookEntryOutData model = new CashbookEntryOutData();
+    private CashbookEntryOutData model;
+
+    @BeforeEach
+    public void init() {
+        model = new CashbookEntryOutData()
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(new PaymentAccount()
+                        .id(21)
+                        .name("Indesa - Carta conto")
+                        .type(PaymentAccountType.STANDARD)
+                        .iban("IT84Y0300203280294126225888")
+                        .sia("sai")
+                        .cuc("cuc")
+                        .virtual(false));
+    }
 
     /**
      * Model tests for CashbookEntryOutData
      */
     @Test
     public void testCashbookEntryOutData() {
-        // TODO: test CashbookEntryOutData
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+        assertEquals(str, json);
+        CashbookEntryOutData generated = gson.fromJson(str, CashbookEntryOutData.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +68,22 @@ public class CashbookEntryOutDataTest {
      */
     @Test
     public void amountOutTest() {
-        // TODO: test amountOut
+        assertEquals(BigDecimal.valueOf(10), model.getAmountOut());
+        model.setAmountOut(BigDecimal.valueOf(22));
+        assertEquals(BigDecimal.valueOf(22), model.getAmountOut());
+
+        CashbookEntryOutData c = model.amountOut(BigDecimal.valueOf(23));
+        CashbookEntryOutData expected = new CashbookEntryOutData()
+                .amountOut(BigDecimal.valueOf(23))
+                .paymentAccountOut(new PaymentAccount()
+                        .id(21)
+                        .name("Indesa - Carta conto")
+                        .type(PaymentAccountType.STANDARD)
+                        .iban("IT84Y0300203280294126225888")
+                        .sia("sai")
+                        .cuc("cuc")
+                        .virtual(false));
+        assertEquals(expected, c);
     }
 
     /**
@@ -56,7 +91,42 @@ public class CashbookEntryOutDataTest {
      */
     @Test
     public void paymentAccountOutTest() {
-        // TODO: test paymentAccountOut
+        PaymentAccount p1 = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p2 = new PaymentAccount()
+                .id(22)
+                .name("UniPirl - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount p3 = new PaymentAccount()
+                .id(23)
+                .name("A Monte - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        assertEquals(p1, model.getPaymentAccountOut());
+        model.setPaymentAccountOut(p2);
+        assertEquals(p2, model.getPaymentAccountOut());
+
+        CashbookEntryOutData c = model.paymentAccountOut(p3);
+        CashbookEntryOutData expected = new CashbookEntryOutData()
+                .amountOut(BigDecimal.valueOf(10))
+                .paymentAccountOut(p3);
+        assertEquals(expected, c);
     }
 
 }

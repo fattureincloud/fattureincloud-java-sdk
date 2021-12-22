@@ -23,10 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.GetUserInfoResponseEmailConfirmationState;
 import it.fattureincloud.sdk.model.GetUserInfoResponseInfo;
 import it.fattureincloud.sdk.model.User;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
 
 
 /**

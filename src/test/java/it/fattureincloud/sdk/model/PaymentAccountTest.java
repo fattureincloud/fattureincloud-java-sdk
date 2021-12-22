@@ -13,33 +13,50 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccountType;
-import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for PaymentAccount
  */
 public class PaymentAccountTest {
-    private final PaymentAccount model = new PaymentAccount();
+    private PaymentAccount model;
+
+    @BeforeEach
+    public void init() {
+        model = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+    }
 
     /**
      * Model tests for PaymentAccount
      */
     @Test
     public void testPaymentAccount() {
-        // TODO: test PaymentAccount
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}";
+        assertEquals(str, json);
+        PaymentAccount generated = gson.fromJson(str, PaymentAccount.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +64,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(21, model.getId());
+        model.setId(22);
+        assertEquals(22, model.getId());
+
+        PaymentAccount p = model.id(23);
+        PaymentAccount expected = new PaymentAccount()
+                .id(23)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -55,7 +85,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("Indesa - Carta conto", model.getName());
+        model.setName("UniPirl - Carta conto");
+        assertEquals("UniPirl - Carta conto", model.getName());
+
+        PaymentAccount p = model.name("Monte dei Pascoli di Pradalunga - Carta conto");
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Monte dei Pascoli di Pradalunga - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -63,7 +106,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(PaymentAccountType.STANDARD, model.getType());
+        model.setType(PaymentAccountType.BANK);
+        assertEquals(PaymentAccountType.BANK, model.getType());
+
+        PaymentAccount p = model.type(PaymentAccountType.STANDARD);
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -71,7 +127,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void ibanTest() {
-        // TODO: test iban
+        assertEquals("IT84Y0300203280294126225888", model.getIban());
+        model.setIban("IT35H0300203280879181335315");
+        assertEquals("IT35H0300203280879181335315", model.getIban());
+
+        PaymentAccount p = model.iban("IT90U0300203280637837127897");
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT90U0300203280637837127897")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -79,7 +148,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void siaTest() {
-        // TODO: test sia
+        assertEquals("sai", model.getSia());
+        model.setSia("no non lo so");
+        assertEquals("no non lo so", model.getSia());
+
+        PaymentAccount p = model.sia("chandelier");
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("chandelier")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -87,7 +169,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void cucTest() {
-        // TODO: test cuc
+        assertEquals("cuc", model.getCuc());
+        model.setCuc("cucco");
+        assertEquals("cucco", model.getCuc());
+
+        PaymentAccount p = model.cuc("cucchiaio");
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cucchiaio")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
     /**
@@ -95,7 +190,20 @@ public class PaymentAccountTest {
      */
     @Test
     public void virtualTest() {
-        // TODO: test virtual
+        assertEquals(false, model.getVirtual());
+        model.setVirtual(true);
+        assertEquals(true, model.getVirtual());
+
+        PaymentAccount p = model.virtual(false);
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+        assertEquals(expected, p);
     }
 
 }

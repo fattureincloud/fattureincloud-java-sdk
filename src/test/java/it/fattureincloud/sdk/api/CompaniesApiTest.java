@@ -15,8 +15,8 @@ package it.fattureincloud.sdk.api;
 
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.GetCompanyInfoResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * API tests for CompaniesApi
  */
-@Ignore
+@Disabled
 public class CompaniesApiTest {
 
     private final CompaniesApi api = new CompaniesApi();
