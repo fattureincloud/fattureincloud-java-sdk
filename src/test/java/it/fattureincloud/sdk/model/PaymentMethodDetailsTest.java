@@ -13,30 +13,45 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for PaymentMethodDetails
  */
 public class PaymentMethodDetailsTest {
-    private final PaymentMethodDetails model = new PaymentMethodDetails();
+    private PaymentMethodDetails model;
+
+    @BeforeEach
+    public void init() {
+        model = new PaymentMethodDetails()
+                .title("details")
+                .description("new details");
+    }
 
     /**
      * Model tests for PaymentMethodDetails
      */
     @Test
     public void testPaymentMethodDetails() {
-        // TODO: test PaymentMethodDetails
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"title\":\"details\",\"description\":\"new details\"}";
+        assertEquals(str, json);
+        PaymentMethodDetails generated = gson.fromJson(str, PaymentMethodDetails.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +59,15 @@ public class PaymentMethodDetailsTest {
      */
     @Test
     public void titleTest() {
-        // TODO: test title
+        assertEquals("details", model.getTitle());
+        model.setTitle("title");
+        assertEquals("title", model.getTitle());
+
+        PaymentMethodDetails p = model.title("string");
+        PaymentMethodDetails expected = new PaymentMethodDetails()
+                .title("string")
+                .description("new details");
+        assertEquals(expected, p);
     }
 
     /**
@@ -52,7 +75,15 @@ public class PaymentMethodDetailsTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("new details", model.getDescription());
+        model.setDescription("description");
+        assertEquals("description", model.getDescription());
+
+        PaymentMethodDetails p = model.description("string");
+        PaymentMethodDetails expected = new PaymentMethodDetails()
+                .title("details")
+                .description("string");
+        assertEquals(expected, p);
     }
 
 }

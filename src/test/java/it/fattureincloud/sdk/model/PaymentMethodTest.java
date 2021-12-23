@@ -13,37 +13,61 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.PaymentMethodDetails;
-import it.fattureincloud.sdk.model.PaymentMethodType;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for PaymentMethod
  */
 public class PaymentMethodTest {
-    private final PaymentMethod model = new PaymentMethod();
+    private PaymentMethod model;
+
+    @BeforeEach
+    public void init() {
+        model = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+    }
 
     /**
      * Model tests for PaymentMethod
      */
     @Test
     public void testPaymentMethod() {
-        // TODO: test PaymentMethod
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":12346,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}";
+        assertEquals(str, json);
+        PaymentMethod generated = gson.fromJson(str, PaymentMethod.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -51,7 +75,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(12346, model.getId());
+        model.setId(33333);
+        assertEquals(33333, model.getId());
+
+        PaymentMethod p = model.id(69);
+        PaymentMethod expected = new PaymentMethod()
+                .id(69)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -59,7 +104,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("Bonifico bancario", model.getName());
+        model.setName("Assegno");
+        assertEquals("Assegno", model.getName());
+
+        PaymentMethod p = model.name("Centesimi in un barattolo di vetro");
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Centesimi in un barattolo di vetro")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -67,7 +133,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(PaymentMethodType.STANDARD, model.getType());
+        model.setType(PaymentMethodType.RIBA);
+        assertEquals(PaymentMethodType.RIBA, model.getType());
+
+        PaymentMethod p = model.type(PaymentMethodType.STANDARD);
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -75,7 +162,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void isDefaultTest() {
-        // TODO: test isDefault
+        assertEquals(true, model.getIsDefault());
+        model.setIsDefault(false);
+        assertEquals(false, model.getIsDefault());
+
+        PaymentMethod p = model.isDefault(true);
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -83,7 +191,37 @@ public class PaymentMethodTest {
      */
     @Test
     public void defaultPaymentAccountTest() {
-        // TODO: test defaultPaymentAccount
+        PaymentAccount pa1 = new PaymentAccount()
+                .id(21)
+                .name("n1");
+
+        PaymentAccount pa2 = new PaymentAccount()
+                .id(22)
+                .name("n2");
+
+        PaymentAccount pa3 = new PaymentAccount()
+                .id(23)
+                .name("n3");
+
+        assertEquals(pa1, model.getDefaultPaymentAccount());
+        model.setDefaultPaymentAccount(pa2);
+        assertEquals(pa2, model.getDefaultPaymentAccount());
+
+        PaymentMethod p = model.defaultPaymentAccount(pa3);
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(pa3)
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -91,7 +229,38 @@ public class PaymentMethodTest {
      */
     @Test
     public void detailsTest() {
-        // TODO: test details
+        PaymentMethodDetails d1 = new PaymentMethodDetails()
+                .title("t1");
+
+        PaymentMethodDetails d2 = new PaymentMethodDetails()
+                .title("t2");
+
+        PaymentMethodDetails d3 = new PaymentMethodDetails()
+                .title("t3");
+
+        assertEquals(Arrays.asList(d1), model.getDetails());
+        model.setDetails(Arrays.asList(d1, d2));
+        assertEquals(Arrays.asList(d1, d2), model.getDetails());
+
+        PaymentMethod p = model.details((new ArrayList<>()));
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(new ArrayList<>())
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
+
+        p.addDetailsItem(d3);
+        assertEquals(Arrays.asList(d3), model.getDetails());
     }
 
     /**
@@ -99,7 +268,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void bankIbanTest() {
-        // TODO: test bankIban
+        assertEquals("IT62W0300203280486429468578", model.getBankIban());
+        model.setBankIban("IT44P0300203280576235492789");
+        assertEquals("IT44P0300203280576235492789", model.getBankIban());
+
+        PaymentMethod p = model.bankIban("IT88Y0300203280339363739456");
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT88Y0300203280339363739456")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -107,7 +297,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void bankNameTest() {
-        // TODO: test bankName
+        assertEquals("Indesa", model.getBankName());
+        model.setBankName("UniPirl");
+        assertEquals("UniPirl", model.getBankName());
+
+        PaymentMethod p = model.bankName("Piggy Bank");
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Piggy Bank")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -115,7 +326,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void bankBeneficiaryTest() {
-        // TODO: test bankBeneficiary
+        assertEquals("mamma", model.getBankBeneficiary());
+        model.setBankBeneficiary("Nonna");
+        assertEquals("Nonna", model.getBankBeneficiary());
+
+        PaymentMethod p = model.bankBeneficiary("Giorgia");
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("Giorgia")
+                .eiPaymentMethod("2");
+        assertEquals(expected, p);
     }
 
     /**
@@ -123,7 +355,28 @@ public class PaymentMethodTest {
      */
     @Test
     public void eiPaymentMethodTest() {
-        // TODO: test eiPaymentMethod
+        assertEquals("2", model.getEiPaymentMethod());
+        model.setEiPaymentMethod("3");
+        assertEquals("3", model.getEiPaymentMethod());
+
+        PaymentMethod p = model.eiPaymentMethod("4");
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("4");
+        assertEquals(expected, p);
     }
 
 }
