@@ -13,36 +13,53 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.F24Status;
-import it.fattureincloud.sdk.model.PaymentAccount;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for F24
  */
 public class F24Test {
-    private final F24 model = new F24();
+    private F24 model;
+
+    @BeforeEach
+    public void init() {
+        model = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+    }
 
     /**
      * Model tests for F24
      */
     @Test
     public void testF24() {
-        // TODO: test F24
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":2,\"due_date\":\"2021-12-25\",\"status\":\"not_paid\",\"payment_account\":{\"id\":1,\"type\":\"standard\"},\"amount\":10,\"attachment_token\":\"1234567890\",\"description\":\"descr\"}";
+        assertEquals(str, json);
+        F24 generated = gson.fromJson(str, F24.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +67,20 @@ public class F24Test {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(2, model.getId());
+        model.setId(1);
+        assertEquals(1, model.getId());
+
+        F24 a = model.id(2);
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -58,7 +88,20 @@ public class F24Test {
      */
     @Test
     public void dueDateTest() {
-        // TODO: test dueDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDueDate());
+        model.setDueDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDueDate());
+
+        F24 a = model.dueDate(LocalDate.of(2021, 12, 25));
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -66,7 +109,20 @@ public class F24Test {
      */
     @Test
     public void statusTest() {
-        // TODO: test status
+        assertEquals(F24Status.NOT_PAID, model.getStatus());
+        model.setStatus(F24Status.PAID);
+        assertEquals(F24Status.PAID, model.getStatus());
+
+        F24 a = model.status(F24Status.NOT_PAID);
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -74,7 +130,20 @@ public class F24Test {
      */
     @Test
     public void paymentAccountTest() {
-        // TODO: test paymentAccount
+        assertEquals(F24Status.NOT_PAID, model.getStatus());
+        model.setStatus(F24Status.PAID);
+        assertEquals(F24Status.PAID, model.getStatus());
+
+        F24 a = model.status(F24Status.NOT_PAID);
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -82,7 +151,20 @@ public class F24Test {
      */
     @Test
     public void amountTest() {
-        // TODO: test amount
+        assertEquals(BigDecimal.valueOf(10), model.getAmount());
+        model.setAmount(BigDecimal.valueOf(1));
+        assertEquals(BigDecimal.valueOf(1), model.getAmount());
+
+        F24 a = model.amount(BigDecimal.valueOf(10));
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -90,7 +172,12 @@ public class F24Test {
      */
     @Test
     public void attachmentUrlTest() {
-        // TODO: test attachmentUrl
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"id\":2,\"due_date\":\"2021-12-25\",\"status\":\"not_paid\",\"payment_account\":{\"id\":1,\"type\":\"standard\"},\"amount\":10,\"attachment_token\":\"1234567890\",\"attachment_url\":\"www.attachment.url\",\"description\":\"descr\"}";
+        F24 generated = gson.fromJson(json, F24.class);
+
+        assertEquals("www.attachment.url", generated.getAttachmentUrl());
     }
 
     /**
@@ -98,7 +185,20 @@ public class F24Test {
      */
     @Test
     public void attachmentTokenTest() {
-        // TODO: test attachmentToken
+        assertEquals("1234567890", model.getAttachmentToken());
+        model.setAttachmentToken("98765432");
+        assertEquals("98765432", model.getAttachmentToken());
+
+        F24 a = model.attachmentToken("1234567890");
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
     /**
@@ -106,7 +206,20 @@ public class F24Test {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("descr", model.getDescription());
+        model.setDescription("descr2");
+        assertEquals("descr2", model.getDescription());
+
+        F24 a = model.description("descr");
+        F24 expected = new F24()
+                .id(2)
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .status(F24Status.NOT_PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .amount(BigDecimal.valueOf(10))
+                .attachmentToken("1234567890")
+                .description("descr");
+        assertEquals(expected, a);
     }
 
 }
