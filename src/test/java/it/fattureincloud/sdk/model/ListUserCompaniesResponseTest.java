@@ -13,31 +13,59 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ListUserCompaniesResponseData;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for ListUserCompaniesResponse
  */
 public class ListUserCompaniesResponseTest {
-    private final ListUserCompaniesResponse model = new ListUserCompaniesResponse();
+    private ListUserCompaniesResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListUserCompaniesResponse();
+    }
 
     /**
      * Model tests for ListUserCompaniesResponse
      */
     @Test
     public void testListUserCompaniesResponse() {
-        // TODO: test ListUserCompaniesResponse
+        ListUserCompaniesResponse r = new ListUserCompaniesResponse()
+                .data(new ListUserCompaniesResponseData()
+                        .companies(Arrays.asList(new Company()
+                                .id(12345)
+                                .name("Studio Commercialista")
+                                .taxCode("ABCSFN94T17A794K")
+                                .type(CompanyType.ACCOUNTANT)
+                                .accessToken("fc3c89ba29a926f9ef20203577c00ada")
+                                .connectionId(BigDecimal.valueOf(94566))
+                                .controlledCompanies(new ArrayList<>())
+                        ))
+                );
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(r);
+        String str = "{\"data\":{\"companies\":[{\"id\":12345,\"name\":\"Studio Commercialista\",\"type\":\"accountant\",\"access_token\":\"fc3c89ba29a926f9ef20203577c00ada\",\"controlled_companies\":[],\"connection_id\":94566,\"tax_code\":\"ABCSFN94T17A794K\"}]}}";
+        assertEquals(str, json);
+        ListUserCompaniesResponse generated = gson.fromJson(str, ListUserCompaniesResponse.class);
+        assertEquals(r, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +73,21 @@ public class ListUserCompaniesResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        ListUserCompaniesResponseData rd1 = new ListUserCompaniesResponseData()
+                .addCompaniesItem(new Company().id(1));
+
+        ListUserCompaniesResponseData rd2 = new ListUserCompaniesResponseData()
+                .addCompaniesItem(new Company().id(2))
+                .addCompaniesItem(new Company().id(3));
+
+        assertNull(model.getData());
+        model.setData(rd1);
+        assertEquals(rd1, model.getData());
+
+        ListUserCompaniesResponse u = model.data(rd2);
+        ListUserCompaniesResponse expected = new ListUserCompaniesResponse();
+        expected.setData(rd2);
+        assertEquals(expected, u);
     }
 
 }
