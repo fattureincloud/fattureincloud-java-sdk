@@ -13,34 +13,62 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.IssuedDocumentTotalsVatList;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentTotals
  */
 public class IssuedDocumentTotalsTest {
-    private final IssuedDocumentTotals model = new IssuedDocumentTotals();
+    private IssuedDocumentTotals model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+    }
 
     /**
      * Model tests for IssuedDocumentTotals
      */
     @Test
     public void testIssuedDocumentTotals() {
-        // TODO: test IssuedDocumentTotals
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"amount_net\":10,\"amount_rivalsa\":10,\"amount_net_with_rivalsa\":10,\"amount_cassa\":10,\"taxable_amount\":10,\"not_taxable_amount\":10,\"amount_vat\":10,\"amount_gross\":10,\"taxable_amount_withholding_tax\":10,\"amount_withholding_tax\":10,\"taxable_amount_other_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"stamp_duty\":10,\"amount_due\":10,\"is_enasarco_maximal_exceeded\":true,\"payments_sum\":10}";
+        assertEquals(str, json);
+        IssuedDocumentTotals generated = gson.fromJson(str, IssuedDocumentTotals.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +76,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountNetTest() {
-        // TODO: test amountNet
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+        model.setAmountNet(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountNet());
+
+        IssuedDocumentTotals i = model.amountNet(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -56,7 +107,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountRivalsaTest() {
-        // TODO: test amountRivalsa
+        assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsa());
+        model.setAmountRivalsa(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountRivalsa());
+
+        IssuedDocumentTotals i = model.amountRivalsa(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -64,7 +138,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountNetWithRivalsaTest() {
-        // TODO: test amountNetWithRivalsa
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNetWithRivalsa());
+        model.setAmountNetWithRivalsa(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountNetWithRivalsa());
+
+        IssuedDocumentTotals i = model.amountNetWithRivalsa(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -72,7 +169,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountCassaTest() {
-        // TODO: test amountCassa
+        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa());
+        model.setAmountCassa(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountCassa());
+
+        IssuedDocumentTotals i = model.amountCassa(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -80,7 +200,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void taxableAmountTest() {
-        // TODO: test taxableAmount
+        assertEquals(BigDecimal.valueOf(10), model.getTaxableAmount());
+        model.setTaxableAmount(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getTaxableAmount());
+
+        IssuedDocumentTotals i = model.taxableAmount(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -88,7 +231,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void notTaxableAmountTest() {
-        // TODO: test notTaxableAmount
+        assertEquals(BigDecimal.valueOf(10), model.getNotTaxableAmount());
+        model.setNotTaxableAmount(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getNotTaxableAmount());
+
+        IssuedDocumentTotals i = model.notTaxableAmount(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -96,7 +262,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountVatTest() {
-        // TODO: test amountVat
+        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
+        model.setAmountVat(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountVat());
+
+        IssuedDocumentTotals i = model.amountVat(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -104,7 +293,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountGrossTest() {
-        // TODO: test amountGross
+        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
+        model.setAmountGross(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountGross());
+
+        IssuedDocumentTotals i = model.amountGross(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -112,7 +324,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void taxableAmountWithholdingTaxTest() {
-        // TODO: test taxableAmountWithholdingTax
+        assertEquals(BigDecimal.valueOf(10), model.getTaxableAmountWithholdingTax());
+        model.setTaxableAmountWithholdingTax(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getTaxableAmountWithholdingTax());
+
+        IssuedDocumentTotals i = model.taxableAmountWithholdingTax(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -120,7 +355,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountWithholdingTaxTest() {
-        // TODO: test amountWithholdingTax
+        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
+        model.setAmountWithholdingTax(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTax());
+
+        IssuedDocumentTotals i = model.amountWithholdingTax(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -128,7 +386,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void taxableAmountOtherWithholdingTaxTest() {
-        // TODO: test taxableAmountOtherWithholdingTax
+        assertEquals(BigDecimal.valueOf(10), model.getTaxableAmountOtherWithholdingTax());
+        model.setTaxableAmountOtherWithholdingTax(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getTaxableAmountOtherWithholdingTax());
+
+        IssuedDocumentTotals i = model.taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -136,7 +417,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountOtherWithholdingTaxTest() {
-        // TODO: test amountOtherWithholdingTax
+        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
+        model.setAmountOtherWithholdingTax(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTax());
+
+        IssuedDocumentTotals i = model.amountOtherWithholdingTax(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -144,7 +448,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void stampDutyTest() {
-        // TODO: test stampDuty
+        assertEquals(BigDecimal.valueOf(10), model.getStampDuty());
+        model.setStampDuty(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getStampDuty());
+
+        IssuedDocumentTotals i = model.stampDuty(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -152,7 +479,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void amountDueTest() {
-        // TODO: test amountDue
+        assertEquals(BigDecimal.valueOf(10), model.getAmountDue());
+        model.setAmountDue(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountDue());
+
+        IssuedDocumentTotals i = model.amountDue(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -160,7 +510,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void isEnasarcoMaximalExceededTest() {
-        // TODO: test isEnasarcoMaximalExceeded
+        assertEquals(true, model.getIsEnasarcoMaximalExceeded());
+        model.setIsEnasarcoMaximalExceeded(false);
+        assertEquals(false, model.getIsEnasarcoMaximalExceeded());
+
+        IssuedDocumentTotals i = model.isEnasarcoMaximalExceeded(true);
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -168,7 +541,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void paymentsSumTest() {
-        // TODO: test paymentsSum
+        assertEquals(BigDecimal.valueOf(10), model.getPaymentsSum());
+        model.setPaymentsSum(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getPaymentsSum());
+
+        IssuedDocumentTotals i = model.paymentsSum(BigDecimal.valueOf(10));
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -176,7 +572,30 @@ public class IssuedDocumentTotalsTest {
      */
     @Test
     public void vatListTest() {
-        // TODO: test vatList
+        assertEquals(null, model.getVatList());
+        model.setVatList(null);
+        assertEquals(null, model.getVatList());
+
+        IssuedDocumentTotals i = model.vatList(null);
+        IssuedDocumentTotals expected = new IssuedDocumentTotals()
+                .amountNet(BigDecimal.valueOf(10))
+                .amountRivalsa(BigDecimal.valueOf(10))
+                .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                .amountCassa(BigDecimal.valueOf(10))
+                .taxableAmount(BigDecimal.valueOf(10))
+                .notTaxableAmount(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                .amountWithholdingTax(BigDecimal.valueOf(10))
+                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                .stampDuty((BigDecimal.valueOf(10)))
+                .amountDue((BigDecimal.valueOf(10)))
+                .isEnasarcoMaximalExceeded(true)
+                .paymentsSum((BigDecimal.valueOf(10)))
+                .vatList(null);
+        assertEquals(expected, i);
     }
 
 }

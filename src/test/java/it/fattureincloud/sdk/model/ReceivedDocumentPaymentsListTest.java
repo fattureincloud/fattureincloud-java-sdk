@@ -13,36 +13,53 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.ReceivedDocumentPaymentTerms;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentPaymentsList
  */
 public class ReceivedDocumentPaymentsListTest {
-    private final ReceivedDocumentPaymentsList model = new ReceivedDocumentPaymentsList();
+    private ReceivedDocumentPaymentsList model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+    }
 
     /**
      * Model tests for ReceivedDocumentPaymentsList
      */
     @Test
     public void testReceivedDocumentPaymentsList() {
-        // TODO: test ReceivedDocumentPaymentsList
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"amount\":10,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":10},\"status\":\"oks\",\"payment_account\":{\"id\":1,\"type\":\"standard\"}}";
+        assertEquals(str, json);
+        ReceivedDocumentPaymentsList generated = gson.fromJson(str, ReceivedDocumentPaymentsList.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +67,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
+
+        ReceivedDocumentPaymentsList i = model.id(1);
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -58,7 +88,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void amountTest() {
-        // TODO: test amount
+        assertEquals(BigDecimal.valueOf(10), model.getAmount());
+        model.setAmount(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmount());
+
+        ReceivedDocumentPaymentsList i = model.amount(BigDecimal.valueOf(10));
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -66,7 +109,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void dueDateTest() {
-        // TODO: test dueDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDueDate());
+        model.setDueDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDueDate());
+
+        ReceivedDocumentPaymentsList i = model.dueDate(LocalDate.of(2021, 12, 25));
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -74,7 +130,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void paidDateTest() {
-        // TODO: test paidDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getPaidDate());
+        model.setPaidDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getPaidDate());
+
+        ReceivedDocumentPaymentsList i = model.paidDate(LocalDate.of(2021, 12, 25));
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -82,7 +151,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void paymentTermsTest() {
-        // TODO: test paymentTerms
+        assertEquals(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)), model.getPaymentTerms());
+        model.setPaymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(11)));
+        assertEquals(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(11)), model.getPaymentTerms());
+
+        ReceivedDocumentPaymentsList i = model.paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)));
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -90,7 +172,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void statusTest() {
-        // TODO: test status
+        assertEquals("oks", model.getStatus());
+        model.setStatus("ok");
+        assertEquals("ok", model.getStatus());
+
+        ReceivedDocumentPaymentsList i = model.status("oks");
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
     /**
@@ -98,7 +193,20 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void paymentAccountTest() {
-        // TODO: test paymentAccount
+        assertEquals(new PaymentAccount().id(1), model.getPaymentAccount());
+        model.setPaymentAccount(new PaymentAccount().id(11));
+        assertEquals(new PaymentAccount().id(11), model.getPaymentAccount());
+
+        ReceivedDocumentPaymentsList i = model.paymentAccount(new PaymentAccount().id(1));
+        ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
+                .id(1)
+                .amount(BigDecimal.valueOf(10))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .status("oks")
+                .paymentAccount(new PaymentAccount().id(1));
+        assertEquals(expected, i);
     }
 
 }

@@ -13,32 +13,44 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentInfoItemsDefaultValues
  */
 public class ReceivedDocumentInfoItemsDefaultValuesTest {
-    private final ReceivedDocumentInfoItemsDefaultValues model = new ReceivedDocumentInfoItemsDefaultValues();
+    private ReceivedDocumentInfoItemsDefaultValues model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentInfoItemsDefaultValues()
+                .vat(10);
+    }
 
     /**
      * Model tests for ReceivedDocumentInfoItemsDefaultValues
      */
     @Test
     public void testReceivedDocumentInfoItemsDefaultValues() {
-        // TODO: test ReceivedDocumentInfoItemsDefaultValues
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"vat\":10}";
+        assertEquals(str, json);
+        ReceivedDocumentInfoItemsDefaultValues generated = gson.fromJson(str, ReceivedDocumentInfoItemsDefaultValues.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +58,14 @@ public class ReceivedDocumentInfoItemsDefaultValuesTest {
      */
     @Test
     public void vatTest() {
-        // TODO: test vat
+        assertEquals(10, model.getVat());
+        model.setVat(22);
+        assertEquals(22, model.getVat());
+
+        ReceivedDocumentInfoItemsDefaultValues i = model.vat(10);
+        ReceivedDocumentInfoItemsDefaultValues expected = new ReceivedDocumentInfoItemsDefaultValues()
+                .vat(10);
+        assertEquals(expected, i);
     }
 
 }

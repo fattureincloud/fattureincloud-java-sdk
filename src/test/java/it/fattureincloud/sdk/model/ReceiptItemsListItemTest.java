@@ -13,34 +13,51 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceiptItemsListItem
  */
 public class ReceiptItemsListItemTest {
-    private final ReceiptItemsListItem model = new ReceiptItemsListItem();
+    private ReceiptItemsListItem model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+
+    }
 
     /**
      * Model tests for ReceiptItemsListItem
      */
     @Test
     public void testReceiptItemsListItem() {
-        // TODO: test ReceiptItemsListItem
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":10,\"amount_net\":10,\"amount_gross\":10,\"category\":\"cat6\",\"vat\":{\"id\":1,\"editable\":true}}";
+        assertEquals(str, json);
+        ReceiptItemsListItem generated = gson.fromJson(str, ReceiptItemsListItem.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +65,18 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(BigDecimal.valueOf(10), model.getId());
+        model.setId(BigDecimal.valueOf(1));
+        assertEquals(BigDecimal.valueOf(1), model.getId());
+
+        ReceiptItemsListItem a = model.id(BigDecimal.valueOf(10));
+        ReceiptItemsListItem expected = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -56,7 +84,18 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void amountNetTest() {
-        // TODO: test amountNet
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+        model.setAmountNet(BigDecimal.valueOf(1));
+        assertEquals(BigDecimal.valueOf(1), model.getAmountNet());
+
+        ReceiptItemsListItem a = model.amountNet(BigDecimal.valueOf(10));
+        ReceiptItemsListItem expected = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -64,7 +103,18 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void amountGrossTest() {
-        // TODO: test amountGross
+        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
+        model.setAmountGross(BigDecimal.valueOf(1));
+        assertEquals(BigDecimal.valueOf(1), model.getAmountGross());
+
+        ReceiptItemsListItem a = model.amountGross(BigDecimal.valueOf(10));
+        ReceiptItemsListItem expected = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -72,7 +122,18 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void categoryTest() {
-        // TODO: test category
+        assertEquals("cat6", model.getCategory());
+        model.setCategory("cat5");
+        assertEquals("cat5", model.getCategory());
+
+        ReceiptItemsListItem a = model.category("cat6");
+        ReceiptItemsListItem expected = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -80,7 +141,18 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void vatTest() {
-        // TODO: test vat
+        assertEquals(new VatType().id(1), model.getVat());
+        model.setVat(new VatType().id(2));
+        assertEquals(new VatType().id(2), model.getVat());
+
+        ReceiptItemsListItem a = model.vat(new VatType().id(1));
+        ReceiptItemsListItem expected = new ReceiptItemsListItem()
+                .id(BigDecimal.valueOf(10))
+                .amountNet(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .category("cat6")
+                .vat(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
 }

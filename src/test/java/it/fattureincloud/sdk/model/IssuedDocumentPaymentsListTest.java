@@ -13,36 +13,52 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.IssuedDocumentStatus;
-import it.fattureincloud.sdk.model.PaymentAccount;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPaymentsList
  */
 public class IssuedDocumentPaymentsListTest {
-    private final IssuedDocumentPaymentsList model = new IssuedDocumentPaymentsList();
+    private IssuedDocumentPaymentsList model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+    }
 
     /**
      * Model tests for IssuedDocumentPaymentsList
      */
     @Test
     public void testIssuedDocumentPaymentsList() {
-        // TODO: test IssuedDocumentPaymentsList
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"due_date\":\"2021-12-25\",\"amount\":10,\"status\":\"paid\",\"payment_account\":{\"id\":1,\"type\":\"standard\"},\"paid_date\":\"2021-12-25\"}";
+        assertEquals(str, json);
+        IssuedDocumentPaymentsList generated = gson.fromJson(str, IssuedDocumentPaymentsList.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +66,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void dueDateTest() {
-        // TODO: test dueDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDueDate());
+        model.setDueDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDueDate());
+
+        IssuedDocumentPaymentsList i = model.dueDate(LocalDate.of(2021, 12, 25));
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -58,7 +86,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void amountTest() {
-        // TODO: test amount
+        assertEquals(BigDecimal.valueOf(10), model.getAmount());
+        model.setAmount(BigDecimal.valueOf(101));
+        assertEquals(BigDecimal.valueOf(101), model.getAmount());
+
+        IssuedDocumentPaymentsList i = model.amount(BigDecimal.valueOf(10));
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -66,7 +106,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void statusTest() {
-        // TODO: test status
+        assertEquals(IssuedDocumentStatus.PAID, model.getStatus());
+        model.setStatus(IssuedDocumentStatus.NOT_PAID);
+        assertEquals(IssuedDocumentStatus.NOT_PAID, model.getStatus());
+
+        IssuedDocumentPaymentsList i = model.status(IssuedDocumentStatus.PAID);
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -74,7 +126,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void paymentAccountTest() {
-        // TODO: test paymentAccount
+        assertEquals(new PaymentAccount().id(1), model.getPaymentAccount());
+        model.setPaymentAccount(new PaymentAccount().id(11));
+        assertEquals(new PaymentAccount().id(11), model.getPaymentAccount());
+
+        IssuedDocumentPaymentsList i = model.paymentAccount(new PaymentAccount().id(1));
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -82,7 +146,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void paidDateTest() {
-        // TODO: test paidDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getPaidDate());
+        model.setPaidDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getPaidDate());
+
+        IssuedDocumentPaymentsList i = model.paidDate(LocalDate.of(2021, 12, 25));
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
     /**
@@ -90,7 +166,19 @@ public class IssuedDocumentPaymentsListTest {
      */
     @Test
     public void eiRawTest() {
-        // TODO: test eiRaw
+        assertEquals(null, model.getEiRaw());
+        model.setEiRaw(false);
+        assertEquals(false, model.getEiRaw());
+
+        IssuedDocumentPaymentsList i = model.eiRaw(null);
+        IssuedDocumentPaymentsList expected = new IssuedDocumentPaymentsList()
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .amount(BigDecimal.valueOf(10))
+                .status(IssuedDocumentStatus.PAID)
+                .paymentAccount(new PaymentAccount().id(1))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .eiRaw(null);
+        assertEquals(expected, i);
     }
 
 }

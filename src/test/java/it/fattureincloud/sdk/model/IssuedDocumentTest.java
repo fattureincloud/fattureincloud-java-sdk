@@ -13,48 +13,30 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Currency;
-import it.fattureincloud.sdk.model.DocumentTemplate;
-import it.fattureincloud.sdk.model.Entity;
-import it.fattureincloud.sdk.model.IssuedDocumentEiData;
-import it.fattureincloud.sdk.model.IssuedDocumentExtraData;
-import it.fattureincloud.sdk.model.IssuedDocumentItemsList;
-import it.fattureincloud.sdk.model.IssuedDocumentPaymentsList;
-import it.fattureincloud.sdk.model.IssuedDocumentRefersTo;
-import it.fattureincloud.sdk.model.IssuedDocumentType;
-import it.fattureincloud.sdk.model.Language;
-import it.fattureincloud.sdk.model.PaymentMethod;
-import it.fattureincloud.sdk.model.ShowTotalsMode;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * Model tests for IssuedDocument
  */
 public class IssuedDocumentTest {
-    private final IssuedDocument model = new IssuedDocument();
+    private IssuedDocument model = new IssuedDocument();
 
     /**
      * Model tests for IssuedDocument
      */
     @Test
     public void testIssuedDocument() {
-        // TODO: test IssuedDocument
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -62,7 +44,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        model.id(1);
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
     }
 
     /**
@@ -70,7 +55,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void entityTest() {
-        // TODO: test entity
+        model.entity(new Entity().id(1));
+        assertEquals(new Entity().id(1), model.getEntity());
+        model.setEntity(new Entity().id(2));
+        assertEquals(new Entity().id(2), model.getEntity());
     }
 
     /**
@@ -78,7 +66,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        model.type(IssuedDocumentType.INVOICE);
+        assertEquals(IssuedDocumentType.INVOICE, model.getType());
+        model.setType(IssuedDocumentType.CREDIT_NOTE);
+        assertEquals(IssuedDocumentType.CREDIT_NOTE, model.getType());
     }
 
     /**
@@ -86,7 +77,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void numberTest() {
-        // TODO: test number
+        model.number(1);
+        assertEquals(1, model.getNumber());
+        model.setNumber(2);
+        assertEquals(2, model.getNumber());
     }
 
     /**
@@ -94,7 +88,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void numerationTest() {
-        // TODO: test numeration
+        model.numeration("num");
+        assertEquals("num", model.getNumeration());
+        model.setNumeration("nums");
+        assertEquals("nums", model.getNumeration());
     }
 
     /**
@@ -102,7 +99,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        model.date(LocalDate.of(2021, 12, 25));
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
+        model.setDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
     }
 
     /**
@@ -110,7 +110,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void currencyTest() {
-        // TODO: test currency
+        model.currency(new Currency().id("EUR"));
+        assertEquals(new Currency().id("EUR"), model.getCurrency());
+        model.setCurrency(new Currency().id("USD"));
+        assertEquals(new Currency().id("USD"), model.getCurrency());
     }
 
     /**
@@ -118,7 +121,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void languageTest() {
-        // TODO: test language
+        model.language(new Language().name("Italieno"));
+        assertEquals(new Language().name("Italieno"), model.getLanguage());
+        model.setLanguage(new Language().name("Francese"));
+        assertEquals(new Language().name("Francese"), model.getLanguage());
     }
 
     /**
@@ -126,7 +132,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void subjectTest() {
-        // TODO: test subject
+        model.subject("subgetto");
+        assertEquals("subgetto", model.getSubject());
+        model.setSubject("supergetto");
+        assertEquals("supergetto", model.getSubject());
     }
 
     /**
@@ -134,7 +143,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void visibleSubjectTest() {
-        // TODO: test visibleSubject
+        model.visibleSubject("subgetto vibisile");
+        assertEquals("subgetto vibisile", model.getVisibleSubject());
+        model.setVisibleSubject("supergetto sibivile");
+        assertEquals("supergetto sibivile", model.getVisibleSubject());
     }
 
     /**
@@ -142,7 +154,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void rcCenterTest() {
-        // TODO: test rcCenter
+        model.rcCenter("bg");
+        assertEquals("bg", model.getRcCenter());
+        model.setRcCenter("mi");
+        assertEquals("mi", model.getRcCenter());
     }
 
     /**
@@ -150,7 +165,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void notesTest() {
-        // TODO: test notes
+        model.notes("otes");
+        assertEquals("otes", model.getNotes());
+        model.setNotes("teso");
+        assertEquals("teso", model.getNotes());
     }
 
     /**
@@ -158,7 +176,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void rivalsaTest() {
-        // TODO: test rivalsa
+        model.rivalsa(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getRivalsa());
+        model.setRivalsa(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getRivalsa());
     }
 
     /**
@@ -166,7 +187,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void cassaTest() {
-        // TODO: test cassa
+        model.cassa(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getCassa());
+        model.setCassa(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getCassa());
     }
 
     /**
@@ -174,7 +198,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void withholdingTaxTest() {
-        // TODO: test withholdingTax
+        model.withholdingTax(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
+        model.setWithholdingTax(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
     }
 
     /**
@@ -182,7 +209,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void withholdingTaxTaxableTest() {
-        // TODO: test withholdingTaxTaxable
+        model.withholdingTaxTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTaxTaxable());
+        model.setWithholdingTaxTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getWithholdingTaxTaxable());
     }
 
     /**
@@ -190,7 +220,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void otherWithholdingTaxTest() {
-        // TODO: test otherWithholdingTax
+        model.otherWithholdingTax(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getOtherWithholdingTax());
+        model.setOtherWithholdingTax(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getOtherWithholdingTax());
     }
 
     /**
@@ -198,7 +231,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void stampDutyTest() {
-        // TODO: test stampDuty
+        model.stampDuty(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getStampDuty());
+        model.setStampDuty(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getStampDuty());
     }
 
     /**
@@ -206,7 +242,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void paymentMethodTest() {
-        // TODO: test paymentMethod
+        model.paymentMethod(new PaymentMethod().id(1));
+        assertEquals(new PaymentMethod().id(1), model.getPaymentMethod());
+        model.setPaymentMethod(new PaymentMethod().id(2));
+        assertEquals(new PaymentMethod().id(2), model.getPaymentMethod());
     }
 
     /**
@@ -214,7 +253,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void useSplitPaymentTest() {
-        // TODO: test useSplitPayment
+        model.useSplitPayment(true);
+        assertEquals(true, model.getUseSplitPayment());
+        model.setUseSplitPayment(false);
+        assertEquals(false, model.getUseSplitPayment());
     }
 
     /**
@@ -222,7 +264,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void useGrossPricesTest() {
-        // TODO: test useGrossPrices
+        model.useGrossPrices(true);
+        assertEquals(true, model.getUseGrossPrices());
+        model.setUseGrossPrices(false);
+        assertEquals(false, model.getUseGrossPrices());
     }
 
     /**
@@ -230,7 +275,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eInvoiceTest() {
-        // TODO: test eInvoice
+        model.eInvoice(true);
+        assertEquals(true, model.geteInvoice());
+        model.seteInvoice(false);
+        assertEquals(false, model.geteInvoice());
     }
 
     /**
@@ -238,7 +286,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiDataTest() {
-        // TODO: test eiData
+        model.eiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
+        assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
+        model.setEiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
+        assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
     }
 
     /**
@@ -246,7 +297,9 @@ public class IssuedDocumentTest {
      */
     @Test
     public void itemsListTest() {
-        // TODO: test itemsList
+        model.addItemsListItem(new IssuedDocumentItemsList().name("item1"));
+        model.addItemsListItem(new IssuedDocumentItemsList().name("item2"));
+        assertEquals(Arrays.asList(new IssuedDocumentItemsList().name("item1"), new IssuedDocumentItemsList().name("item2")), model.getItemsList());
     }
 
     /**
@@ -254,7 +307,9 @@ public class IssuedDocumentTest {
      */
     @Test
     public void paymentsListTest() {
-        // TODO: test paymentsList
+        model.addPaymentsListItem(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(100)));
+        model.addPaymentsListItem(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(10)));
+        assertEquals(Arrays.asList(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(100)), new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(10))), model.getPaymentsList());
     }
 
     /**
@@ -262,7 +317,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void templateTest() {
-        // TODO: test template
+        model.template(new DocumentTemplate().id(1));
+        assertEquals(new DocumentTemplate().id(1), model.getTemplate());
+        model.setTemplate(new DocumentTemplate().id(2));
+        assertEquals(new DocumentTemplate().id(2), model.getTemplate());
     }
 
     /**
@@ -270,7 +328,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void deliveryNoteTemplateTest() {
-        // TODO: test deliveryNoteTemplate
+        model.deliveryNoteTemplate(new DocumentTemplate().id(1));
+        assertEquals(new DocumentTemplate().id(1), model.getDeliveryNoteTemplate());
+        model.setDeliveryNoteTemplate(new DocumentTemplate().id(2));
+        assertEquals(new DocumentTemplate().id(2), model.getDeliveryNoteTemplate());
     }
 
     /**
@@ -278,7 +339,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void accInvTemplateTest() {
-        // TODO: test accInvTemplate
+        model.accInvTemplate(new DocumentTemplate().id(1));
+        assertEquals(new DocumentTemplate().id(1), model.getAccInvTemplate());
+        model.setAccInvTemplate(new DocumentTemplate().id(2));
+        assertEquals(new DocumentTemplate().id(2), model.getAccInvTemplate());
     }
 
     /**
@@ -286,7 +350,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void hMarginsTest() {
-        // TODO: test hMargins
+        model.hMargins(1);
+        assertEquals(1, model.gethMargins());
+        model.sethMargins(2);
+        assertEquals(2, model.gethMargins());
     }
 
     /**
@@ -294,7 +361,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showPaymentsTest() {
-        // TODO: test showPayments
+        model.showPayments(true);
+        assertEquals(true, model.getShowPayments());
+        model.setShowPayments(false);
+        assertEquals(false, model.getShowPayments());
     }
 
     /**
@@ -302,7 +372,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showPaymentMethodTest() {
-        // TODO: test showPaymentMethod
+        model.showPaymentMethod(true);
+        assertEquals(true, model.getShowPaymentMethod());
+        model.setShowPaymentMethod(false);
+        assertEquals(false, model.getShowPaymentMethod());
     }
 
     /**
@@ -310,7 +383,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showTotalsTest() {
-        // TODO: test showTotals
+        model.showTotals(ShowTotalsMode.ALL);
+        assertEquals(ShowTotalsMode.ALL, model.getShowTotals());
+        model.setShowTotals(ShowTotalsMode.NONE);
+        assertEquals(ShowTotalsMode.NONE, model.getShowTotals());
     }
 
     /**
@@ -318,7 +394,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void vMarginsTest() {
-        // TODO: test vMargins
+        model.vMargins(1);
+        assertEquals(1, model.getvMargins());
+        model.setvMargins(2);
+        assertEquals(2, model.getvMargins());
     }
 
     /**
@@ -326,7 +405,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showPaypalButtonTest() {
-        // TODO: test showPaypalButton
+        model.showPaypalButton(true);
+        assertEquals(true, model.getShowPaypalButton());
+        model.setShowPaypalButton(false);
+        assertEquals(false, model.getShowPaypalButton());
     }
 
     /**
@@ -334,7 +416,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showNotificationButtonTest() {
-        // TODO: test showNotificationButton
+        model.showNotificationButton(true);
+        assertEquals(true, model.getShowNotificationButton());
+        model.setShowNotificationButton(false);
+        assertEquals(false, model.getShowNotificationButton());
     }
 
     /**
@@ -342,7 +427,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void deliveryNoteTest() {
-        // TODO: test deliveryNote
+        model.deliveryNote(true);
+        assertEquals(true, model.getDeliveryNote());
+        model.setDeliveryNote(false);
+        assertEquals(false, model.getDeliveryNote());
     }
 
     /**
@@ -350,7 +438,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void accompanyingInvoiceTest() {
-        // TODO: test accompanyingInvoice
+        model.accompanyingInvoice(true);
+        assertEquals(true, model.getAccompanyingInvoice());
+        model.setAccompanyingInvoice(false);
+        assertEquals(false, model.getAccompanyingInvoice());
     }
 
     /**
@@ -358,7 +449,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnNumberTest() {
-        // TODO: test dnNumber
+        model.dnNumber(1);
+        assertEquals(1, model.getDnNumber());
+        model.setDnNumber(2);
+        assertEquals(2, model.getDnNumber());
     }
 
     /**
@@ -366,7 +460,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnDateTest() {
-        // TODO: test dnDate
+        model.dnDate(LocalDate.of(2021, 12, 25));
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDnDate());
+        model.setDnDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDnDate());
     }
 
     /**
@@ -374,7 +471,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiPackagesNumberTest() {
-        // TODO: test dnAiPackagesNumber
+        model.dnAiPackagesNumber("quarantasette");
+        assertEquals("quarantasette", model.getDnAiPackagesNumber());
+        model.setDnAiPackagesNumber("7/8sour");
+        assertEquals("7/8sour", model.getDnAiPackagesNumber());
     }
 
     /**
@@ -382,7 +482,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiWeightTest() {
-        // TODO: test dnAiWeight
+        model.dnAiWeight("ottantotto");
+        assertEquals("ottantotto", model.getDnAiWeight());
+        model.setDnAiWeight("ottantottolo");
+        assertEquals("ottantottolo", model.getDnAiWeight());
     }
 
     /**
@@ -390,7 +493,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiCausalTest() {
-        // TODO: test dnAiCausal
+        model.dnAiCausal("ottantotto");
+        assertEquals("ottantotto", model.getDnAiCausal());
+        model.setDnAiCausal("ottantottolo");
+        assertEquals("ottantottolo", model.getDnAiCausal());
     }
 
     /**
@@ -398,7 +504,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiDestinationTest() {
-        // TODO: test dnAiDestination
+        model.dnAiDestination("ottantotto");
+        assertEquals("ottantotto", model.getDnAiDestination());
+        model.setDnAiDestination("ottantottolo");
+        assertEquals("ottantottolo", model.getDnAiDestination());
     }
 
     /**
@@ -406,7 +515,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiTransporterTest() {
-        // TODO: test dnAiTransporter
+        model.dnAiTransporter("ottantotto");
+        assertEquals("ottantotto", model.getDnAiTransporter());
+        model.setDnAiTransporter("ottantottolo");
+        assertEquals("ottantottolo", model.getDnAiTransporter());
     }
 
     /**
@@ -414,7 +526,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void dnAiNotesTest() {
-        // TODO: test dnAiNotes
+        model.dnAiNotes("ottantotto");
+        assertEquals("ottantotto", model.getDnAiNotes());
+        model.setDnAiNotes("ottantottolo");
+        assertEquals("ottantottolo", model.getDnAiNotes());
     }
 
     /**
@@ -422,7 +537,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void refersToTest() {
-        // TODO: test refersTo
+        model.refersTo(new IssuedDocumentRefersTo().id(1));
+        assertEquals(new IssuedDocumentRefersTo().id(1), model.getRefersTo());
+        model.setRefersTo(new IssuedDocumentRefersTo().id(2));
+        assertEquals(new IssuedDocumentRefersTo().id(2), model.getRefersTo());
     }
 
     /**
@@ -430,7 +548,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void isMarkedTest() {
-        // TODO: test isMarked
+        model.isMarked(true);
+        assertEquals(true, model.getIsMarked());
+        model.setIsMarked(false);
+        assertEquals(false, model.getIsMarked());
     }
 
     /**
@@ -438,7 +559,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountNetTest() {
-        // TODO: test amountNet
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_net\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
     }
 
     /**
@@ -446,7 +571,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountVatTest() {
-        // TODO: test amountVat
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_vat\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
     }
 
     /**
@@ -454,7 +583,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountGrossTest() {
-        // TODO: test amountGross
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_gross\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
     }
 
     /**
@@ -462,7 +595,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountRivalsaTest() {
-        // TODO: test amountRivalsa
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_rivalsa\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsa());
     }
 
     /**
@@ -470,7 +607,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountCassaTest() {
-        // TODO: test amountCassa
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_cassa\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa());
     }
 
     /**
@@ -478,7 +619,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountWithholdingTaxTest() {
-        // TODO: test amountWithholdingTax
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_withholding_tax\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
     }
 
     /**
@@ -486,7 +631,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountOtherWithholdingTaxTest() {
-        // TODO: test amountOtherWithholdingTax
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_other_withholding_tax\":10}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
     }
 
     /**
@@ -494,7 +643,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void extraDataTest() {
-        // TODO: test extraData
+        model.extraData(new IssuedDocumentExtraData().tsFileId("cinque"));
+        assertEquals(new IssuedDocumentExtraData().tsFileId("cinque"), model.getExtraData());
+        model.setExtraData(new IssuedDocumentExtraData().tsFileId("sei"));
+        assertEquals(new IssuedDocumentExtraData().tsFileId("sei"), model.getExtraData());
     }
 
     /**
@@ -502,7 +654,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void seenDateTest() {
-        // TODO: test seenDate
+        model.seenDate(LocalDate.of(2021, 12, 25));
+        assertEquals(LocalDate.of(2021, 12, 25), model.getSeenDate());
+        model.setSeenDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getSeenDate());
     }
 
     /**
@@ -510,7 +665,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void nextDueDateTest() {
-        // TODO: test nextDueDate
+        model.nextDueDate(LocalDate.of(2021, 12, 25));
+        assertEquals(LocalDate.of(2021, 12, 25), model.getNextDueDate());
+        model.setNextDueDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getNextDueDate());
     }
 
     /**
@@ -518,7 +676,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void urlTest() {
-        // TODO: test url
+        model.url("www.url.co");
+        assertEquals("www.url.co", model.getUrl());
+        model.setUrl("www.co.url");
+        assertEquals("www.co.url", model.getUrl());
     }
 
     /**
@@ -526,7 +687,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void attachmentUrlTest() {
-        // TODO: test attachmentUrl
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"attachment_url\":\"www.attachment.url\"}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals("www.attachment.url", model.getAttachmentUrl());
     }
 
     /**
@@ -534,7 +699,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void attachmentTokenTest() {
-        // TODO: test attachmentToken
+        model.attachmentToken("tok678ken");
+        assertEquals("tok678ken", model.getAttachmentToken());
+        model.setAttachmentToken("tok876ken");
+        assertEquals("tok876ken", model.getAttachmentToken());
     }
 
     /**
@@ -542,7 +710,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiRawTest() {
-        // TODO: test eiRaw
+        model.eiRaw(null);
+        assertEquals(null, model.getEiRaw());
+        model.setEiRaw(null);
+        assertEquals(null, model.getEiRaw());
     }
 
     /**
@@ -550,7 +721,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void showTspayButtonTest() {
-        // TODO: test showTspayButton
+        model.showTspayButton(true);
+        assertEquals(true, model.getShowTspayButton());
+        model.setShowTspayButton(false);
+        assertEquals(false, model.getShowTspayButton());
     }
 
     /**
@@ -558,7 +732,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void yearTest() {
-        // TODO: test year
+        model.year(2021);
+        assertEquals(2021, model.getYear());
+        model.setYear(2022);
+        assertEquals(2022, model.getYear());
     }
 
     /**
@@ -566,7 +743,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountRivalsaTaxableTest() {
-        // TODO: test amountRivalsaTaxable
+        model.amountRivalsaTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsaTaxable());
+        model.setAmountRivalsaTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountRivalsaTaxable());
     }
 
     /**
@@ -574,7 +754,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountGlobalCassaTaxableTest() {
-        // TODO: test amountGlobalCassaTaxable
+        model.amountGlobalCassaTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountGlobalCassaTaxable());
+        model.setAmountGlobalCassaTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountGlobalCassaTaxable());
     }
 
     /**
@@ -582,7 +765,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountCassaTaxableTest() {
-        // TODO: test amountCassaTaxable
+        model.amountCassaTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountCassaTaxable());
+        model.setAmountCassaTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountCassaTaxable());
     }
 
     /**
@@ -590,7 +776,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountCassa2Test() {
-        // TODO: test amountCassa2
+        model.amountCassa2(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa2());
+        model.setAmountCassa2(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountCassa2());
     }
 
     /**
@@ -598,7 +787,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountCassa2TaxableTest() {
-        // TODO: test amountCassa2Taxable
+        model.amountCassa2Taxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa2Taxable());
+        model.setAmountCassa2Taxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountCassa2Taxable());
     }
 
     /**
@@ -606,7 +798,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountWithholdingTaxTaxableTest() {
-        // TODO: test amountWithholdingTaxTaxable
+        model.amountWithholdingTaxTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTaxTaxable());
+        model.setAmountWithholdingTaxTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTaxTaxable());
     }
 
     /**
@@ -614,7 +809,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountEnasarcoTaxableTest() {
-        // TODO: test amountEnasarcoTaxable
+        model.amountEnasarcoTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountEnasarcoTaxable());
+        model.setAmountEnasarcoTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountEnasarcoTaxable());
     }
 
     /**
@@ -622,7 +820,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountOtherWithholdingTaxTaxableTest() {
-        // TODO: test amountOtherWithholdingTaxTaxable
+        model.amountOtherWithholdingTaxTaxable(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTaxTaxable());
+        model.setAmountOtherWithholdingTaxTaxable(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTaxTaxable());
     }
 
     /**
@@ -630,7 +831,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiCassaTypeTest() {
-        // TODO: test eiCassaType
+        model.eiCassaType("top");
+        assertEquals("top", model.getEiCassaType());
+        model.setEiCassaType("pot");
+        assertEquals("pot", model.getEiCassaType());
     }
 
     /**
@@ -638,7 +842,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiCassa2TypeTest() {
-        // TODO: test eiCassa2Type
+        model.eiCassa2Type("top");
+        assertEquals("top", model.getEiCassa2Type());
+        model.setEiCassa2Type("pot");
+        assertEquals("pot", model.getEiCassa2Type());
     }
 
     /**
@@ -646,7 +853,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiWithholdingTaxCausalTest() {
-        // TODO: test eiWithholdingTaxCausal
+        model.eiWithholdingTaxCausal("top");
+        assertEquals("top", model.getEiWithholdingTaxCausal());
+        model.setEiWithholdingTaxCausal("pot");
+        assertEquals("pot", model.getEiWithholdingTaxCausal());
     }
 
     /**
@@ -654,7 +864,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiOtherWithholdingTaxTypeTest() {
-        // TODO: test eiOtherWithholdingTaxType
+        model.eiOtherWithholdingTaxType("string");
+        assertEquals("string", model.getEiOtherWithholdingTaxType());
+        model.setEiOtherWithholdingTaxType("siring");
+        assertEquals("siring", model.getEiOtherWithholdingTaxType());
     }
 
     /**
@@ -662,7 +875,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void eiOtherWithholdingTaxCausalTest() {
-        // TODO: test eiOtherWithholdingTaxCausal
+        model.eiOtherWithholdingTaxCausal("string");
+        assertEquals("string", model.getEiOtherWithholdingTaxCausal());
+        model.setEiOtherWithholdingTaxCausal("siring");
+        assertEquals("siring", model.getEiOtherWithholdingTaxCausal());
     }
 
     /**
@@ -670,7 +886,10 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountDueDiscountTest() {
-        // TODO: test amountDueDiscount
+        model.amountDueDiscount(BigDecimal.valueOf(10));
+        assertEquals(BigDecimal.valueOf(10), model.getAmountDueDiscount());
+        model.setAmountDueDiscount(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAmountDueDiscount());
     }
 
 }

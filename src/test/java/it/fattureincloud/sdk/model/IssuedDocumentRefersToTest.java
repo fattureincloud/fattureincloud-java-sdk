@@ -13,31 +13,50 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentRefersTo
  */
 public class IssuedDocumentRefersToTest {
-    private final IssuedDocumentRefersTo model = new IssuedDocumentRefersTo();
+    private IssuedDocumentRefersTo model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+    }
 
     /**
      * Model tests for IssuedDocumentRefersTo
      */
     @Test
     public void testIssuedDocumentRefersTo() {
-        // TODO: test IssuedDocumentRefersTo
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"date\":\"2021-12-25\",\"number\":1,\"numeration\":\"num\",\"description\":\"desc\"}";
+        assertEquals(str, json);
+        IssuedDocumentRefersTo generated = gson.fromJson(str, IssuedDocumentRefersTo.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +64,18 @@ public class IssuedDocumentRefersToTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
+
+        IssuedDocumentRefersTo i = model.id(1);
+        IssuedDocumentRefersTo expected = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+        assertEquals(expected, i);
     }
 
     /**
@@ -53,7 +83,18 @@ public class IssuedDocumentRefersToTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
+        model.setDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
+
+        IssuedDocumentRefersTo i = model.date(LocalDate.of(2021, 12, 25));
+        IssuedDocumentRefersTo expected = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+        assertEquals(expected, i);
     }
 
     /**
@@ -61,7 +102,18 @@ public class IssuedDocumentRefersToTest {
      */
     @Test
     public void numberTest() {
-        // TODO: test number
+        assertEquals(1, model.getNumber());
+        model.setNumber(2);
+        assertEquals(2, model.getNumber());
+
+        IssuedDocumentRefersTo i = model.number(1);
+        IssuedDocumentRefersTo expected = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+        assertEquals(expected, i);
     }
 
     /**
@@ -69,7 +121,18 @@ public class IssuedDocumentRefersToTest {
      */
     @Test
     public void numerationTest() {
-        // TODO: test numeration
+        assertEquals("num", model.getNumeration());
+        model.setNumeration("2");
+        assertEquals("2", model.getNumeration());
+
+        IssuedDocumentRefersTo i = model.numeration("num");
+        IssuedDocumentRefersTo expected = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+        assertEquals(expected, i);
     }
 
     /**
@@ -77,7 +140,18 @@ public class IssuedDocumentRefersToTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("desc", model.getDescription());
+        model.setDescription("2");
+        assertEquals("2", model.getDescription());
+
+        IssuedDocumentRefersTo i = model.description("desc");
+        IssuedDocumentRefersTo expected = new IssuedDocumentRefersTo()
+                .id(1)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(1)
+                .numeration("num")
+                .description("desc");
+        assertEquals(expected, i);
     }
 
 }

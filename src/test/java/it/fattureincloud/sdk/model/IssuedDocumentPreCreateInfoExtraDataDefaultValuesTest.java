@@ -13,30 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues
  */
 public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
-    private final IssuedDocumentPreCreateInfoExtraDataDefaultValues model = new IssuedDocumentPreCreateInfoExtraDataDefaultValues();
+    private IssuedDocumentPreCreateInfoExtraDataDefaultValues model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true);
+    }
+
 
     /**
      * Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues
      */
     @Test
     public void testIssuedDocumentPreCreateInfoExtraDataDefaultValues() {
-        // TODO: test IssuedDocumentPreCreateInfoExtraDataDefaultValues
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true}";
+        assertEquals(str, json);
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues generated = gson.fromJson(str, IssuedDocumentPreCreateInfoExtraDataDefaultValues.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +62,17 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
      */
     @Test
     public void tsCommunicationTest() {
-        // TODO: test tsCommunication
+        assertEquals(true, model.getTsCommunication());
+        model.setTsCommunication(false);
+        assertEquals(false, model.getTsCommunication());
+
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsCommunication(true);
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true);
+        assertEquals(expected, i);
     }
 
     /**
@@ -52,7 +80,17 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
      */
     @Test
     public void tsTipoSpesaTest() {
-        // TODO: test tsTipoSpesa
+        assertEquals("ts", model.getTsTipoSpesa());
+        model.setTsTipoSpesa("tsts");
+        assertEquals("tsts", model.getTsTipoSpesa());
+
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsTipoSpesa("ts");
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true);
+        assertEquals(expected, i);
     }
 
     /**
@@ -60,7 +98,17 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
      */
     @Test
     public void tsFlagTipoSpesaTest() {
-        // TODO: test tsFlagTipoSpesa
+        assertEquals(1, model.getTsFlagTipoSpesa());
+        model.setTsFlagTipoSpesa(2);
+        assertEquals(2, model.getTsFlagTipoSpesa());
+
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsFlagTipoSpesa(1);
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true);
+        assertEquals(expected, i);
     }
 
     /**
@@ -68,7 +116,17 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
      */
     @Test
     public void tsPagamentoTracciatoTest() {
-        // TODO: test tsPagamentoTracciato
+        assertEquals(true, model.getTsPagamentoTracciato());
+        model.setTsPagamentoTracciato(false);
+        assertEquals(false, model.getTsPagamentoTracciato());
+
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsPagamentoTracciato(true);
+        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true);
+        assertEquals(expected, i);
     }
 
 }

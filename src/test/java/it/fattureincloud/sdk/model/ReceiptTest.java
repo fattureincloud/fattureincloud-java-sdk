@@ -13,39 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.ReceiptItemsListItem;
-import it.fattureincloud.sdk.model.ReceiptType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for Receipt
  */
 public class ReceiptTest {
-    private final Receipt model = new Receipt();
+    private Receipt model;
+
+    @BeforeEach
+    public void init() {
+        model = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+
+    }
 
     /**
      * Model tests for Receipt
      */
     @Test
     public void testReceipt() {
-        // TODO: test Receipt
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":10,\"date\":\"2021-12-25\",\"number\":10,\"numeration\":\"num\",\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"use_gross_prices\":true,\"type\":\"till_receipt\",\"description\":\"descr\",\"rc_center\":\"bg\",\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\",\"payment_account\":{\"id\":1,\"type\":\"standard\"},\"items_list\":[{\"id\":1}]}";
+        assertEquals(str, json);
+        Receipt generated = gson.fromJson(str, Receipt.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -53,7 +77,28 @@ public class ReceiptTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(10, model.getId());
+        model.setId(11);
+        assertEquals(11, model.getId());
+
+        Receipt a = model.id(10);
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -61,7 +106,28 @@ public class ReceiptTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
+        model.setDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
+
+        Receipt a = model.date(LocalDate.of(2021, 12, 25));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -69,7 +135,28 @@ public class ReceiptTest {
      */
     @Test
     public void numberTest() {
-        // TODO: test number
+        assertEquals(BigDecimal.valueOf(10), model.getNumber());
+        model.setNumber(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getNumber());
+
+        Receipt a = model.number(BigDecimal.valueOf(10));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -77,7 +164,28 @@ public class ReceiptTest {
      */
     @Test
     public void numerationTest() {
-        // TODO: test numeration
+        assertEquals("num", model.getNumeration());
+        model.setNumeration("numV2");
+        assertEquals("numV2", model.getNumeration());
+
+        Receipt a = model.numeration("num");
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -85,7 +193,28 @@ public class ReceiptTest {
      */
     @Test
     public void amountNetTest() {
-        // TODO: test amountNet
+        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+        model.setAmountNet(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getAmountNet());
+
+        Receipt a = model.amountNet(BigDecimal.valueOf(10));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -93,7 +222,28 @@ public class ReceiptTest {
      */
     @Test
     public void amountVatTest() {
-        // TODO: test amountVat
+        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
+        model.setAmountVat(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getAmountVat());
+
+        Receipt a = model.amountVat(BigDecimal.valueOf(10));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -101,7 +251,28 @@ public class ReceiptTest {
      */
     @Test
     public void amountGrossTest() {
-        // TODO: test amountGross
+        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
+        model.setAmountGross(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getAmountGross());
+
+        Receipt a = model.amountGross(BigDecimal.valueOf(10));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -109,7 +280,28 @@ public class ReceiptTest {
      */
     @Test
     public void useGrossPricesTest() {
-        // TODO: test useGrossPrices
+        assertEquals(true, model.getUseGrossPrices());
+        model.setUseGrossPrices(false);
+        assertEquals(false, model.getUseGrossPrices());
+
+        Receipt a = model.useGrossPrices(true);
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -117,7 +309,28 @@ public class ReceiptTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(ReceiptType.TILL_RECEIPT, model.getType());
+        model.setType(ReceiptType.SALES_RECEIPT);
+        assertEquals(ReceiptType.SALES_RECEIPT, model.getType());
+
+        Receipt a = model.type(ReceiptType.TILL_RECEIPT);
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -125,7 +338,28 @@ public class ReceiptTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("descr", model.getDescription());
+        model.setDescription("descrV2");
+        assertEquals("descrV2", model.getDescription());
+
+        Receipt a = model.description("descr");
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -133,7 +367,28 @@ public class ReceiptTest {
      */
     @Test
     public void rcCenterTest() {
-        // TODO: test rcCenter
+        assertEquals("bg", model.getRcCenter());
+        model.setRcCenter("mi");
+        assertEquals("mi", model.getRcCenter());
+
+        Receipt a = model.rcCenter("bg");
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -141,7 +396,28 @@ public class ReceiptTest {
      */
     @Test
     public void createdAtTest() {
-        // TODO: test createdAt
+        assertEquals("2021-10-10", model.getCreatedAt());
+        model.setCreatedAt("2021-10-11");
+        assertEquals("2021-10-11", model.getCreatedAt());
+
+        Receipt a = model.createdAt("2021-10-10");
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -149,7 +425,28 @@ public class ReceiptTest {
      */
     @Test
     public void updatedAtTest() {
-        // TODO: test updatedAt
+        assertEquals("2021-10-10", model.getUpdatedAt());
+        model.setUpdatedAt("2021-10-11");
+        assertEquals("2021-10-11", model.getUpdatedAt());
+
+        Receipt a = model.updatedAt("2021-10-10");
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -157,7 +454,28 @@ public class ReceiptTest {
      */
     @Test
     public void paymentAccountTest() {
-        // TODO: test paymentAccount
+        assertEquals(new PaymentAccount().id(1), model.getPaymentAccount());
+        model.setPaymentAccount(new PaymentAccount().id(2));
+        assertEquals(new PaymentAccount().id(2), model.getPaymentAccount());
+
+        Receipt a = model.paymentAccount(new PaymentAccount().id(1));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+        assertEquals(expected, a);
     }
 
     /**
@@ -165,7 +483,30 @@ public class ReceiptTest {
      */
     @Test
     public void itemsListTest() {
-        // TODO: test itemsList
+        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(1))), model.getItemsList());
+        model.addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(2)));
+        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)), new ReceiptItemsListItem().id(BigDecimal.valueOf(2))), model.getItemsList());
+
+        model.setItemsList(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(3)), new ReceiptItemsListItem().id(BigDecimal.valueOf(4))));
+        Receipt a = model.paymentAccount(new PaymentAccount().id(1));
+        Receipt expected = new Receipt()
+                .id(10)
+                .date(LocalDate.of(2021, 12, 25))
+                .number(BigDecimal.valueOf(10))
+                .numeration("num")
+                .amountNet(BigDecimal.valueOf(10))
+                .amountVat(BigDecimal.valueOf(10))
+                .amountGross(BigDecimal.valueOf(10))
+                .useGrossPrices(true)
+                .type(ReceiptType.TILL_RECEIPT)
+                .description("descr")
+                .rcCenter("bg")
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10")
+                .paymentAccount(new PaymentAccount().id(1))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(3)))
+                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(4)));
+        assertEquals(expected, a);
     }
 
 }

@@ -13,31 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.IssuedDocumentTotalsVatListVatItem;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentTotalsVatList
  */
 public class IssuedDocumentTotalsVatListTest {
-    private final IssuedDocumentTotalsVatList model = new IssuedDocumentTotalsVatList();
+    private IssuedDocumentTotalsVatList model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentTotalsVatList()
+                .vatItem(new IssuedDocumentTotalsVatListVatItem()
+                        .amountVat(BigDecimal.valueOf(10)));
+    }
 
     /**
      * Model tests for IssuedDocumentTotalsVatList
      */
     @Test
     public void testIssuedDocumentTotalsVatList() {
-        // TODO: test IssuedDocumentTotalsVatList
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"vat_item\":{\"amount_vat\":10}}";
+        assertEquals(str, json);
+        IssuedDocumentTotalsVatList generated = gson.fromJson(str, IssuedDocumentTotalsVatList.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +61,19 @@ public class IssuedDocumentTotalsVatListTest {
      */
     @Test
     public void vatItemTest() {
-        // TODO: test vatItem
+        assertEquals(new IssuedDocumentTotalsVatListVatItem()
+                .amountVat(BigDecimal.valueOf(10)), model.getVatItem());
+        model.setVatItem(new IssuedDocumentTotalsVatListVatItem()
+                .amountVat(BigDecimal.valueOf(22)));
+        assertEquals(new IssuedDocumentTotalsVatListVatItem()
+                .amountVat(BigDecimal.valueOf(22)), model.getVatItem());
+
+        IssuedDocumentTotalsVatList a = model.vatItem(new IssuedDocumentTotalsVatListVatItem()
+                .amountVat(BigDecimal.valueOf(10)));
+        IssuedDocumentTotalsVatList expected = new IssuedDocumentTotalsVatList()
+                .vatItem(new IssuedDocumentTotalsVatListVatItem()
+                        .amountVat(BigDecimal.valueOf(10)));
+        assertEquals(expected, a);
     }
 
 }
