@@ -296,7 +296,7 @@ public class ClientTest {
      */
     @Test
     public void countryTest() {
-        assertNull(model.getCountry());
+        assertEquals("Italia", model.getCountry());
         model.setCountry("Venezuela");
         assertEquals("Venezuela", model.getCountry());
         Client c = model.country("Colombia");
