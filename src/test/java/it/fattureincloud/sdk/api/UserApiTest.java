@@ -23,7 +23,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,14 +55,13 @@ public class UserApiTest {
         return new UserApi(client);
     }
 
-    
+
     /**
      * Get User Info
-     *
+     * <p>
      * Gets the current user&#39;s info.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getUserInfoTest() throws ApiException, IOException {
@@ -86,14 +84,13 @@ public class UserApiTest {
         assertEquals(expected, user);
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * List User Companies
-     *
+     * <p>
      * Lists the companies controlled by the current user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listUserCompaniesTest() throws ApiException, IOException {
