@@ -17,16 +17,13 @@ import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
 import okhttp3.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -61,14 +58,13 @@ public class ClientsApiTest {
         return new ClientsApi(client);
     }
 
-    
+
     /**
      * Create Client
-     *
+     * <p>
      * Creates a new client.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createClientTest() throws ApiException, IOException {
@@ -134,11 +130,10 @@ public class ClientsApiTest {
 
     /**
      * Delete Client
-     *
+     * <p>
      * Deletes the specified client.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteClientTest() throws ApiException, IOException {
@@ -150,14 +145,13 @@ public class ClientsApiTest {
         api.deleteClient(companyId, clientId);
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Get Client
-     *
+     * <p>
      * Gets the specified client.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getClientTest() throws ApiException, IOException {
@@ -218,14 +212,13 @@ public class ClientsApiTest {
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * List Clients
-     *
+     * <p>
      * Lists the clients.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listClientsTest() throws ApiException, IOException {
@@ -288,18 +281,13 @@ public class ClientsApiTest {
                 .type(ClientType.PERSON)
                 .country("Italia")
                 .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
+                        .id(66)
+                        .value(new BigDecimal(22))
                         .description("")
                         .isDisabled(false)
                 )
                 .defaultPaymentTermsType(DefaultPaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
+                .eInvoice(false)
                 .code("BG00")
                 .name("Mario Rossi")
                 .firstName("Mario")
@@ -312,6 +300,72 @@ public class ClientsApiTest {
                 .addressCity("Bergamo")
                 .addressProvince("BG")
                 .addressExtra("")
+                .email("info@mariorossi.it")
+                .certifiedEmail("info@pec.mariorossi.it")
+                .phone("012345678")
+                .fax("012345678")
+                .notes("")
+                .defaultPaymentTerms(0)
+                .bankName("Monte dei Pascoli")
+                .bankIban("IT00P123456781000000123456")
+                .bankSwiftCode("APL86PCT")
+                .shippingAddress("Via Miilano 4")
+                .eiCode("7654321")
+                .id(25330696)
+                .createdAt("2021-04-29 08:53:07");
+
+        List<Client> expected = Arrays.asList(client16451, client25330696);
+
+        ListClientsResponse response = api.listClients(companyId, fields, fieldset, sort, page, perPage);
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+    }
+
+    /**
+     * Modify Client
+     * <p>
+     * Modifies the specified client.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void modifyClientTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        ClientsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+        Integer clientId = 2;
+
+        Client client = new Client()
+                .type(ClientType.PERSON)
+                .country("Italia")
+                .defaultVat(new VatType()
+                        .id(54321)
+                        .value(new BigDecimal(45))
+                        .description("")
+                        .isDisabled(false)
+                )
+                .defaultPaymentTermsType(DefaultPaymentTermsType.STANDARD)
+                .defaultPaymentMethod(new PaymentMethod()
+                        .id(386092)
+                        .name("Credit card")
+                        .type(PaymentMethodType.STANDARD)
+                )
+                .eInvoice(true)
+                .code("AE86")
+                .name("Avv. Maria Rossi")
+                .firstName("Maria")
+                .lastName("Rossi")
+                .contactPerson("")
+                .vatNumber("IT12345640962")
+                .taxCode("BLTGNI5ABCDA794E")
+                .addressStreet("Via Roma, 1")
+                .addressPostalCode("20900")
+                .addressCity("Milano")
+                .addressProvince("MI")
+                .addressExtra("")
                 .email("maria.rossi@example.com")
                 .certifiedEmail("maria.rossi@pec.example.com")
                 .phone("1234567890")
@@ -322,32 +376,19 @@ public class ClientsApiTest {
                 .bankIban("IT40P123456781000000123456")
                 .bankSwiftCode("AK86PCT")
                 .shippingAddress("Corso Magellano 4")
-                .eiCode("111111")
-                .id(25330696)
+                .eiCode("111111");
+
+        Client expected = client
+                .id(16451)
                 .createdAt("2021-04-29 08:53:07")
                 .updatedAt("2021-04-29 08:53:07");
 
-        ListClientsResponse response = api.listClients(companyId, fields, fieldset, sort, page, perPage);
-        // TODO: test validations
+        ModifyClientRequest modifyClientRequest = new ModifyClientRequest().data(client);
+
+        ModifyClientResponse response = api.modifyClient(companyId, clientId, modifyClientRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
-    /**
-     * Modify Client
-     *
-     * Modifies the specified client.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void modifyClientTest() throws ApiException, IOException {
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi("", mockCall);
-        Integer companyId = 2;
-        Integer clientId = 2;
-        ModifyClientRequest modifyClientRequest = null;
-                ModifyClientResponse response = api.modifyClient(companyId, clientId, modifyClientRequest);
-        // TODO: test validations
-    }
-    
+
 }

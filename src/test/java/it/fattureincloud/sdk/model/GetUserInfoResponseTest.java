@@ -13,33 +13,60 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.GetUserInfoResponseEmailConfirmationState;
-import it.fattureincloud.sdk.model.GetUserInfoResponseInfo;
-import it.fattureincloud.sdk.model.User;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetUserInfoResponse
  */
 public class GetUserInfoResponseTest {
-    private final GetUserInfoResponse model = new GetUserInfoResponse();
+    private GetUserInfoResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetUserInfoResponse()
+                .data(new User()
+                        .id(12345)
+                        .name("Mario Rossi")
+                        .firstName("Mario")
+                        .lastName("Rossi")
+                        .email("mario.rossi@example.com")
+                        .hash("5add29e1234532a1bf2ed7b612043029")
+                        .picture("picture.jpg")
+                )
+                .info(new GetUserInfoResponseInfo()
+                        .needMarketingConsentsConfirmation(false)
+                        .needPasswordChange(false)
+                        .needTermsOfServiceConfirmation(false)
+                )
+                .emailConfirmationState(new GetUserInfoResponseEmailConfirmationState()
+                        .needConfirmation(true)
+                );
+    }
 
     /**
      * Model tests for GetUserInfoResponse
      */
     @Test
     public void testGetUserInfoResponse() {
-        // TODO: test GetUserInfoResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"name\":\"Mario Rossi\",\"first_name\":\"Mario\",\"last_name\":\"Rossi\",\"email\":\"mario.rossi@example.com\",\"hash\":\"5add29e1234532a1bf2ed7b612043029\",\"picture\":\"picture.jpg\"},\"info\":{\"need_marketing_consents_confirmation\":false,\"need_password_change\":false,\"need_terms_of_service_confirmation\":false},\"email_confirmation_state\":{\"need_confirmation\":true}}";
+        assertEquals(str, json);
+        GetUserInfoResponse generated = gson.fromJson(str, GetUserInfoResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +74,48 @@ public class GetUserInfoResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        User u1 = new User()
+                .id(12345)
+                .name("Mario Rossi")
+                .firstName("Mario")
+                .lastName("Rossi")
+                .email("mario.rossi@example.com")
+                .hash("5add29e1234532a1bf2ed7b612043029")
+                .picture("picture.jpg");
+
+        User u2 = new User()
+                .id(78901)
+                .name("Pippo Franco")
+                .firstName("Pippo")
+                .lastName("Franco")
+                .email("pippo.franco@example.com")
+                .hash("40771deeded8d044715fe002cdfaca0c")
+                .picture("bagaglino.jpg");
+
+        assertEquals(u1, model.getData());
+        model.setData(u2);
+        assertEquals(u2, model.getData());
+
+        GetUserInfoResponse u = model.data(u1);
+        GetUserInfoResponse expected = new GetUserInfoResponse()
+                .data(new User()
+                        .id(12345)
+                        .name("Mario Rossi")
+                        .firstName("Mario")
+                        .lastName("Rossi")
+                        .email("mario.rossi@example.com")
+                        .hash("5add29e1234532a1bf2ed7b612043029")
+                        .picture("picture.jpg")
+                )
+                .info(new GetUserInfoResponseInfo()
+                        .needMarketingConsentsConfirmation(false)
+                        .needPasswordChange(false)
+                        .needTermsOfServiceConfirmation(false)
+                )
+                .emailConfirmationState(new GetUserInfoResponseEmailConfirmationState()
+                        .needConfirmation(true)
+                );
+        assertEquals(expected, u);
     }
 
     /**
@@ -55,7 +123,40 @@ public class GetUserInfoResponseTest {
      */
     @Test
     public void infoTest() {
-        // TODO: test info
+        GetUserInfoResponseInfo i1 = new GetUserInfoResponseInfo()
+                .needMarketingConsentsConfirmation(false)
+                .needPasswordChange(false)
+                .needTermsOfServiceConfirmation(false);
+
+        GetUserInfoResponseInfo i2 = new GetUserInfoResponseInfo()
+                .needMarketingConsentsConfirmation(true)
+                .needPasswordChange(true)
+                .needTermsOfServiceConfirmation(true);
+
+        assertEquals(i1, model.getInfo());
+        model.setInfo(i2);
+        assertEquals(i2, model.getInfo());
+
+        GetUserInfoResponse u = model.info(i1);
+        GetUserInfoResponse expected = new GetUserInfoResponse()
+                .data(new User()
+                        .id(12345)
+                        .name("Mario Rossi")
+                        .firstName("Mario")
+                        .lastName("Rossi")
+                        .email("mario.rossi@example.com")
+                        .hash("5add29e1234532a1bf2ed7b612043029")
+                        .picture("picture.jpg")
+                )
+                .info(new GetUserInfoResponseInfo()
+                        .needMarketingConsentsConfirmation(false)
+                        .needPasswordChange(false)
+                        .needTermsOfServiceConfirmation(false)
+                )
+                .emailConfirmationState(new GetUserInfoResponseEmailConfirmationState()
+                        .needConfirmation(true)
+                );
+        assertEquals(expected, u);
     }
 
     /**
@@ -63,7 +164,36 @@ public class GetUserInfoResponseTest {
      */
     @Test
     public void emailConfirmationStateTest() {
-        // TODO: test emailConfirmationState
+        GetUserInfoResponseEmailConfirmationState ec1 = new GetUserInfoResponseEmailConfirmationState()
+                .needConfirmation(true);
+
+        GetUserInfoResponseEmailConfirmationState ec2 = new GetUserInfoResponseEmailConfirmationState()
+                .needConfirmation(false);
+
+        assertEquals(ec1, model.getEmailConfirmationState());
+        model.setEmailConfirmationState(ec2);
+        assertEquals(ec2, model.getEmailConfirmationState());
+
+        GetUserInfoResponse u = model.emailConfirmationState(ec1);
+        GetUserInfoResponse expected = new GetUserInfoResponse()
+                .data(new User()
+                        .id(12345)
+                        .name("Mario Rossi")
+                        .firstName("Mario")
+                        .lastName("Rossi")
+                        .email("mario.rossi@example.com")
+                        .hash("5add29e1234532a1bf2ed7b612043029")
+                        .picture("picture.jpg")
+                )
+                .info(new GetUserInfoResponseInfo()
+                        .needMarketingConsentsConfirmation(false)
+                        .needPasswordChange(false)
+                        .needTermsOfServiceConfirmation(false)
+                )
+                .emailConfirmationState(new GetUserInfoResponseEmailConfirmationState()
+                        .needConfirmation(true)
+                );
+        assertEquals(expected, u);
     }
 
 }

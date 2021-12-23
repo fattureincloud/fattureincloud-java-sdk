@@ -13,30 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for GetUserInfoResponseInfo
  */
 public class GetUserInfoResponseInfoTest {
-    private final GetUserInfoResponseInfo model = new GetUserInfoResponseInfo();
+    private GetUserInfoResponseInfo model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetUserInfoResponseInfo();
+    }
 
     /**
      * Model tests for GetUserInfoResponseInfo
      */
     @Test
     public void testGetUserInfoResponseInfo() {
-        // TODO: test GetUserInfoResponseInfo
+        GetUserInfoResponseInfo u = new GetUserInfoResponseInfo()
+                .needMarketingConsentsConfirmation(false)
+                .needPasswordChange(true)
+                .needTermsOfServiceConfirmation(false);
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(u);
+        String str = "{\"need_marketing_consents_confirmation\":false,\"need_password_change\":true,\"need_terms_of_service_confirmation\":false}";
+        assertEquals(str, json);
+        GetUserInfoResponseInfo generated = gson.fromJson(str, GetUserInfoResponseInfo.class);
+        assertEquals(u, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +61,14 @@ public class GetUserInfoResponseInfoTest {
      */
     @Test
     public void needMarketingConsentsConfirmationTest() {
-        // TODO: test needMarketingConsentsConfirmation
+        assertNull(model.getNeedMarketingConsentsConfirmation());
+        model.setNeedMarketingConsentsConfirmation(false);
+        assertEquals(false, model.getNeedMarketingConsentsConfirmation());
+
+        GetUserInfoResponseInfo u = model.needMarketingConsentsConfirmation(true);
+        GetUserInfoResponseInfo expected = new GetUserInfoResponseInfo();
+        expected.setNeedMarketingConsentsConfirmation(true);
+        assertEquals(expected, u);
     }
 
     /**
@@ -52,7 +76,14 @@ public class GetUserInfoResponseInfoTest {
      */
     @Test
     public void needPasswordChangeTest() {
-        // TODO: test needPasswordChange
+        assertNull(model.getNeedPasswordChange());
+        model.setNeedPasswordChange(false);
+        assertEquals(false, model.getNeedPasswordChange());
+
+        GetUserInfoResponseInfo u = model.needPasswordChange(true);
+        GetUserInfoResponseInfo expected = new GetUserInfoResponseInfo();
+        expected.setNeedPasswordChange(true);
+        assertEquals(expected, u);
     }
 
     /**
@@ -60,7 +91,14 @@ public class GetUserInfoResponseInfoTest {
      */
     @Test
     public void needTermsOfServiceConfirmationTest() {
-        // TODO: test needTermsOfServiceConfirmation
+        assertNull(model.getNeedTermsOfServiceConfirmation());
+        model.setNeedTermsOfServiceConfirmation(false);
+        assertEquals(false, model.getNeedTermsOfServiceConfirmation());
+
+        GetUserInfoResponseInfo u = model.needTermsOfServiceConfirmation(true);
+        GetUserInfoResponseInfo expected = new GetUserInfoResponseInfo();
+        expected.setNeedTermsOfServiceConfirmation(true);
+        assertEquals(expected, u);
     }
 
 }
