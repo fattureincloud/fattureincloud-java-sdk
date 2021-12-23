@@ -13,9 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +30,27 @@ public class DefaultPaymentTermsTypeTest {
      */
     @Test
     public void testDefaultPaymentTermsType() {
-        // TODO: test DefaultPaymentTermsType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"standard\"", gson.toJson(DefaultPaymentTermsType.STANDARD));
+        assertEquals("\"end_of_month\"", gson.toJson(DefaultPaymentTermsType.END_OF_MONTH));
+
+        assertEquals(DefaultPaymentTermsType.STANDARD, gson.fromJson("\"standard\"", DefaultPaymentTermsType.class));
+        assertEquals(DefaultPaymentTermsType.END_OF_MONTH, gson.fromJson("\"end_of_month\"", DefaultPaymentTermsType.class));
+
+        assertEquals("standard", DefaultPaymentTermsType.STANDARD.getValue());
+        assertEquals("end_of_month", DefaultPaymentTermsType.END_OF_MONTH.getValue());
+
+        assertEquals("standard", DefaultPaymentTermsType.STANDARD.toString());
+        assertEquals("end_of_month", DefaultPaymentTermsType.END_OF_MONTH.toString());
+
+        assertEquals(DefaultPaymentTermsType.STANDARD, DefaultPaymentTermsType.fromValue("standard"));
+        assertEquals(DefaultPaymentTermsType.END_OF_MONTH, DefaultPaymentTermsType.fromValue("end_of_month"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            DefaultPaymentTermsType.fromValue("Evil Joshua");
+        });
     }
 
 }

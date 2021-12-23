@@ -13,31 +13,53 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for VatType
  */
 public class VatTypeTest {
-    private final VatType model = new VatType();
+    private VatType model;
+
+    @BeforeEach
+    public void init() {
+        model = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+    }
 
     /**
      * Model tests for VatType
      */
     @Test
     public void testVatType() {
-        // TODO: test VatType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}";
+        assertEquals(str, json);
+        VatType generated = gson.fromJson(str, VatType.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +67,21 @@ public class VatTypeTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(0, model.getId());
+        model.setId(33333);
+        assertEquals(33333, model.getId());
+
+        VatType v = model.id(69);
+        VatType expected = new VatType()
+                .id(69)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -53,7 +89,21 @@ public class VatTypeTest {
      */
     @Test
     public void valueTest() {
-        // TODO: test value
+        assertEquals(BigDecimal.valueOf(22), model.getValue());
+        model.setValue(BigDecimal.valueOf(44));
+        assertEquals(BigDecimal.valueOf(44), model.getValue());
+
+        VatType v = model.value(BigDecimal.valueOf(55));
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(55))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -61,7 +111,21 @@ public class VatTypeTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("Non imponibile art. 123", model.getDescription());
+        model.setDescription("string");
+        assertEquals("string", model.getDescription());
+
+        VatType v = model.description("testo lungo");
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("testo lungo")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -69,7 +133,21 @@ public class VatTypeTest {
      */
     @Test
     public void notesTest() {
-        // TODO: test notes
+        assertEquals("IVA non imponibile", model.getNotes());
+        model.setNotes("notes");
+        assertEquals("notes", model.getNotes());
+
+        VatType v = model.notes("Join the dark side");
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("Join the dark side")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -77,7 +155,21 @@ public class VatTypeTest {
      */
     @Test
     public void eInvoiceTest() {
-        // TODO: test eInvoice
+        assertEquals(true, model.geteInvoice());
+        model.seteInvoice(false);
+        assertEquals(false, model.geteInvoice());
+
+        VatType v = model.eInvoice(true);
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -85,7 +177,21 @@ public class VatTypeTest {
      */
     @Test
     public void eiTypeTest() {
-        // TODO: test eiType
+        assertEquals("2", model.getEiType());
+        model.setEiType("3");
+        assertEquals("3", model.getEiType());
+
+        VatType v = model.eiType("4");
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("4")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -93,7 +199,21 @@ public class VatTypeTest {
      */
     @Test
     public void eiDescriptionTest() {
-        // TODO: test eiDescription
+        assertEquals("desc", model.getEiDescription());
+        model.setEiDescription("desc più lunga");
+        assertEquals("desc più lunga", model.getEiDescription());
+
+        VatType v = model.eiDescription("desc lunghissima");
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc lunghissima")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
     /**
@@ -101,7 +221,14 @@ public class VatTypeTest {
      */
     @Test
     public void editableTest() {
-        // TODO: test editable
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String str = "{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}";
+        VatType generated = gson.fromJson(str, VatType.class);
+        assertEquals(true, generated.getEditable());
+        String str2 = "{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":false,\"is_disabled\":false}";
+        VatType generated2 = gson.fromJson(str2, VatType.class);
+        assertEquals(false, generated2.getEditable());
     }
 
     /**
@@ -109,7 +236,21 @@ public class VatTypeTest {
      */
     @Test
     public void isDisabledTest() {
-        // TODO: test isDisabled
+        assertEquals(false, model.getIsDisabled());
+        model.setIsDisabled(true);
+        assertEquals(true, model.getIsDisabled());
+
+        VatType v = model.isDisabled(false);
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+        assertEquals(expected, v);
     }
 
 }
