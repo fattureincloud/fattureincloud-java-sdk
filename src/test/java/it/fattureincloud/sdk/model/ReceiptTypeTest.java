@@ -13,9 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +29,24 @@ public class ReceiptTypeTest {
      */
     @Test
     public void testReceiptType() {
-        // TODO: test ReceiptType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"till_receipt\"", gson.toJson(ReceiptType.TILL_RECEIPT));
+        assertEquals("\"sales_receipt\"", gson.toJson(ReceiptType.SALES_RECEIPT));
+
+        assertEquals(ReceiptType.TILL_RECEIPT, gson.fromJson("\"till_receipt\"", ReceiptType.class));
+        assertEquals(ReceiptType.SALES_RECEIPT, gson.fromJson("\"sales_receipt\"", ReceiptType.class));
+
+
+        assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.getValue());
+        assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.getValue());
+
+        assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.toString());
+        assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.toString());
+
+        assertEquals(ReceiptType.TILL_RECEIPT, ReceiptType.fromValue("till_receipt"));
+        assertEquals(ReceiptType.SALES_RECEIPT, ReceiptType.fromValue("sales_receipt"));
     }
 
 }
