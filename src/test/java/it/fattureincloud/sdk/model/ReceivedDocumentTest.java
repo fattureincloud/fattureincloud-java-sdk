@@ -44,10 +44,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -120,10 +116,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -178,10 +170,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -245,10 +233,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -303,10 +287,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -361,10 +341,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -419,10 +395,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -477,10 +449,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -535,10 +503,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -593,10 +557,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -651,10 +611,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -722,10 +678,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -780,10 +732,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -838,10 +786,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -896,10 +840,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -954,10 +894,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1012,10 +948,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1091,10 +1023,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1149,10 +1077,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1207,10 +1131,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1271,10 +1191,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1370,10 +1286,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))
@@ -1466,10 +1378,6 @@ public class ReceivedDocumentTest {
                 .category("cat6")
                 .description("Ricarica")
                 .amountNet(new BigDecimal(10))
-                //amountGross
-                //nextDueDate
-                //attachmentUrl
-                //attachmentPreviewUrl
                 .amortization(new BigDecimal(10))
                 .rcCenter("bg")
                 .amountVat(new BigDecimal(0))

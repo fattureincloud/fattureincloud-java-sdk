@@ -18,7 +18,9 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -36,6 +38,7 @@ public class ReceivedDocumentInfoTest {
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addCategoriesListItem("cat6")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
                 .addVatTypesListItem(new VatType().id(1));
@@ -49,7 +52,7 @@ public class ReceivedDocumentInfoTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}";
+        String str = "{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}";
         assertEquals(str, json);
         ReceivedDocumentInfo generated = gson.fromJson(str, ReceivedDocumentInfo.class);
         assertEquals(model, generated);
@@ -75,6 +78,7 @@ public class ReceivedDocumentInfoTest {
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
                 .addVatTypesListItem(new VatType().id(1));
         assertEquals(expected, a);
@@ -95,6 +99,7 @@ public class ReceivedDocumentInfoTest {
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
                 .addVatTypesListItem(new VatType().id(1));
         assertEquals(expected, a);
@@ -109,12 +114,14 @@ public class ReceivedDocumentInfoTest {
         model.addCountriesListItem("Albania");
         assertEquals(Arrays.asList("Italia", "Albania"), model.getCountriesList());
 
+        model.setCountriesList(Arrays.asList("Spagna", "Malta"));
         ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10));
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
-                .addCountriesListItem("Italia")
-                .addCountriesListItem("Albania")
+                .addCountriesListItem("Spagna")
+                .addCountriesListItem("Malta")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addCategoriesListItem("cat6")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
                 .addVatTypesListItem(new VatType().id(1));
@@ -126,9 +133,13 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void currenciesListTest() {
-        assertEquals(Arrays.asList(new VatType().id(1)), model.getVatTypesList());
-        model.addVatTypesListItem(new VatType().id(2));
-        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+        assertEquals(Arrays.asList(new Currency().id("EUR")), model.getCurrenciesList());
+        model.addCurrenciesListItem(new Currency().id("USD"));
+        assertEquals(Arrays.asList(new Currency().id("EUR"), new Currency().id("USD")), model.getCurrenciesList());
+        List<Currency> currencyList = new ArrayList<Currency>();
+        currencyList.add(new Currency().id("DNR"));
+        currencyList.add(new Currency().id("AMR"));
+        model.setCurrenciesList(currencyList);
 
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
@@ -136,9 +147,10 @@ public class ReceivedDocumentInfoTest {
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
+                .addCurrenciesListItem(new Currency().id("DNR"))
+                .addCurrenciesListItem(new Currency().id("AMR"))
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
-                .addVatTypesListItem(new VatType().id(1))
-                .addVatTypesListItem(new VatType().id(2));
+                .addVatTypesListItem(new VatType().id(1));
         assertEquals(expected, a);
     }
 
@@ -151,13 +163,15 @@ public class ReceivedDocumentInfoTest {
         model.addCategoriesListItem("cat5");
         assertEquals(Arrays.asList("cat6", "cat5"), model.getCategoriesList());
 
+        model.setCategoriesList(Arrays.asList("cat7", "cat6"));
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
-                .addCategoriesListItem("cat6")
-                .addCategoriesListItem("cat5")
+                .addCategoriesListItem("cat7")
+                .addCategoriesListItem("cat8")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
                 .addVatTypesListItem(new VatType().id(1));
         assertEquals(expected, a);
@@ -172,14 +186,16 @@ public class ReceivedDocumentInfoTest {
         model.addPaymentAccountsListItem(new PaymentAccount().id(2));
         assertEquals(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)), model.getPaymentAccountsList());
 
+        model.setPaymentAccountsList(Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)));
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
-                .addPaymentAccountsListItem(new PaymentAccount().id(1))
-                .addPaymentAccountsListItem(new PaymentAccount().id(2))
+                .addCurrenciesListItem(new Currency().id("EUR"))
+                .addPaymentAccountsListItem(new PaymentAccount().id(3))
+                .addPaymentAccountsListItem(new PaymentAccount().id(4))
                 .addVatTypesListItem(new VatType().id(1));
         assertEquals(expected, a);
     }
@@ -193,15 +209,17 @@ public class ReceivedDocumentInfoTest {
         model.addVatTypesListItem(new VatType().id(2));
         assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
 
+        model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
                 .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
+                .addCurrenciesListItem(new Currency().id("EUR"))
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
-                .addVatTypesListItem(new VatType().id(1))
-                .addVatTypesListItem(new VatType().id(2));
+                .addVatTypesListItem(new VatType().id(3))
+                .addVatTypesListItem(new VatType().id(4));
         assertEquals(expected, a);
     }
 
