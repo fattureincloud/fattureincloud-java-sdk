@@ -163,7 +163,7 @@ public class ReceivedDocumentInfoTest {
         model.addCategoriesListItem("cat5");
         assertEquals(Arrays.asList("cat6", "cat5"), model.getCategoriesList());
 
-        model.setCategoriesList(Arrays.asList("cat7", "cat6"));
+        model.setCategoriesList(Arrays.asList("cat7", "cat8"));
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
