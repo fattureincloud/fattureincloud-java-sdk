@@ -13,40 +13,76 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Currency;
-import it.fattureincloud.sdk.model.DocumentTemplate;
-import it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoDefaultValues;
-import it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoExtraDataDefaultValues;
-import it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoItemsDefaultValues;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.PaymentMethod;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPreCreateInfo
  */
 public class IssuedDocumentPreCreateInfoTest {
-    private final IssuedDocumentPreCreateInfo model = new IssuedDocumentPreCreateInfo();
+    private IssuedDocumentPreCreateInfo model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+
+    }
 
     /**
      * Model tests for IssuedDocumentPreCreateInfo
      */
     @Test
     public void testIssuedDocumentPreCreateInfo() {
-        // TODO: test IssuedDocumentPreCreateInfo
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1,\"editable\":true}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true},{\"id\":2,\"editable\":true}]}";
+        assertEquals(str, json);
+        IssuedDocumentPreCreateInfo generated = gson.fromJson(str, IssuedDocumentPreCreateInfo.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -54,7 +90,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void numerationsTest() {
-        // TODO: test numerations
+        assertEquals(null, model.getNumerations());
+        model.setNumerations(null);
+        assertEquals(null, model.getNumerations());
+
+        IssuedDocumentPreCreateInfo i = model.numerations(null);
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -62,7 +133,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void dnNumerationsTest() {
-        // TODO: test dnNumerations
+        assertEquals(null, model.getDnNumerations());
+        model.setDnNumerations(null);
+        assertEquals(null, model.getDnNumerations());
+
+        IssuedDocumentPreCreateInfo i = model.dnNumerations(null);
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -70,7 +176,87 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void defaultValuesTest() {
-        // TODO: test defaultValues
+        assertEquals(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)), model.getDefaultValues());
+        model.setDefaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("uop")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1)));
+        assertEquals(new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("uop")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1)), model.getDefaultValues());
+
+        IssuedDocumentPreCreateInfo i = model.defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                .defaultTemplate(new DocumentTemplate().id(1))
+                .dnTemplate(new DocumentTemplate().id(1))
+                .aiTemplate(new DocumentTemplate().id(1))
+                .notes("notes")
+                .rivalsa(BigDecimal.valueOf(1))
+                .cassa(BigDecimal.valueOf(1))
+                .withholdingTax(BigDecimal.valueOf(1))
+                .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                .otherWithholdingTax(BigDecimal.valueOf(1))
+                .useGrossPrices(true)
+                .paymentMethod(new PaymentMethod().id(1)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -78,7 +264,61 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void extraDataDefaultValuesTest() {
-        // TODO: test extraDataDefaultValues
+        assertEquals(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                .tsCommunication(true)
+                .tsTipoSpesa("ts")
+                .tsFlagTipoSpesa(1)
+                .tsPagamentoTracciato(true), model.getExtraDataDefaultValues());
+        model.setExtraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("tsi")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true));
+        assertEquals(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("tsi")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true), model.getExtraDataDefaultValues());
+
+        IssuedDocumentPreCreateInfo i = model.extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -86,7 +326,46 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void itemsDefaultValuesTest() {
-        // TODO: test itemsDefaultValues
+        assertEquals(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(1)), model.getItemsDefaultValues());
+        model.setItemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(11)));
+        assertEquals(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(11)), model.getItemsDefaultValues());
+
+        IssuedDocumentPreCreateInfo i = model.itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(1)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -94,7 +373,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void countriesListTest() {
-        // TODO: test countriesList
+        assertEquals(Arrays.asList("Italia", "Marocco"), model.getCountriesList());
+        model.setCountriesList(Arrays.asList("Albania", "Polonia"));
+        assertEquals(Arrays.asList("Albania", "Polonia"), model.getCountriesList());
+
+        IssuedDocumentPreCreateInfo i = model.countriesList(Arrays.asList("Italia", "Marocco"));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -102,7 +416,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void currenciesListTest() {
-        // TODO: test currenciesList
+        assertEquals(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")), model.getCurrenciesList());
+        model.setCurrenciesList(Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")));
+        assertEquals(Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")), model.getCurrenciesList());
+
+        IssuedDocumentPreCreateInfo i = model.currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -110,7 +459,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void templatesListTest() {
-        // TODO: test templatesList
+        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getTemplatesList());
+        model.setTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getTemplatesList());
+
+        IssuedDocumentPreCreateInfo i = model.templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -118,7 +502,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void dnTemplatesListTest() {
-        // TODO: test dnTemplatesList
+        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getDnTemplatesList());
+        model.setDnTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getDnTemplatesList());
+
+        IssuedDocumentPreCreateInfo i = model.dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -126,7 +545,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void aiTemplatesListTest() {
-        // TODO: test aiTemplatesList
+        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getAiTemplatesList());
+        model.setAiTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getAiTemplatesList());
+
+        IssuedDocumentPreCreateInfo i = model.aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -134,7 +588,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void paymentMethodsListTest() {
-        // TODO: test paymentMethodsList
+        assertEquals(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)), model.getPaymentMethodsList());
+        model.setPaymentMethodsList(Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)));
+        assertEquals(Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)), model.getPaymentMethodsList());
+
+        IssuedDocumentPreCreateInfo i = model.paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -142,7 +631,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void paymentAccountsListTest() {
-        // TODO: test paymentAccountsList
+        assertEquals(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)), model.getPaymentAccountsList());
+        model.setPaymentAccountsList(Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)));
+        assertEquals(Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)), model.getPaymentAccountsList());
+
+        IssuedDocumentPreCreateInfo i = model.paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
     /**
@@ -150,7 +674,42 @@ public class IssuedDocumentPreCreateInfoTest {
      */
     @Test
     public void vatTypesListTest() {
-        // TODO: test vatTypesList
+        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+        model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
+        assertEquals(Arrays.asList(new VatType().id(3), new VatType().id(4)), model.getVatTypesList());
+
+        IssuedDocumentPreCreateInfo i = model.vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
+                .numerations(null)
+                .dnNumerations(null)
+                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+                        .defaultTemplate(new DocumentTemplate().id(1))
+                        .dnTemplate(new DocumentTemplate().id(1))
+                        .aiTemplate(new DocumentTemplate().id(1))
+                        .notes("notes")
+                        .rivalsa(BigDecimal.valueOf(1))
+                        .cassa(BigDecimal.valueOf(1))
+                        .withholdingTax(BigDecimal.valueOf(1))
+                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                        .otherWithholdingTax(BigDecimal.valueOf(1))
+                        .useGrossPrices(true)
+                        .paymentMethod(new PaymentMethod().id(1)))
+                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                        .tsCommunication(true)
+                        .tsTipoSpesa("ts")
+                        .tsFlagTipoSpesa(1)
+                        .tsPagamentoTracciato(true))
+                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                        .vat(new VatType().id(1)))
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        assertEquals(expected, i);
     }
 
 }

@@ -13,34 +13,51 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceiptPreCreateInfo
  */
 public class ReceiptPreCreateInfoTest {
-    private final ReceiptPreCreateInfo model = new ReceiptPreCreateInfo();
+    private ReceiptPreCreateInfo model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bg")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(1));
+    }
 
     /**
      * Model tests for ReceiptPreCreateInfo
      */
     @Test
     public void testReceiptPreCreateInfo() {
-        // TODO: test ReceiptPreCreateInfo
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}";
+        assertEquals(str, json);
+        ReceiptPreCreateInfo generated = gson.fromJson(str, ReceiptPreCreateInfo.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +65,19 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void numerationsTest() {
-        // TODO: test numerations
+        assertEquals(null, model.getNumerations());
+        model.setNumerations(null);
+        assertEquals(null, model.getNumerations());
+
+        ReceiptPreCreateInfo a = model.numerations(null);
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bg")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -56,7 +85,21 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void numerationsListTest() {
-        // TODO: test numerationsList
+        assertEquals(Arrays.asList("num"), model.getNumerationsList());
+        model.addNumerationsListItem("mun");
+        assertEquals(Arrays.asList("num", "mun"), model.getNumerationsList());
+
+        model.setNumerationsList(Arrays.asList("sum", "mus"));
+        ReceiptPreCreateInfo a = model;
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("sum")
+                .addNumerationsListItem("mus")
+                .addRcCentersListItem("bg")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -64,7 +107,21 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void rcCentersListTest() {
-        // TODO: test rcCentersList
+        assertEquals(Arrays.asList("bg"), model.getRcCentersList());
+        model.addRcCentersListItem("mi");
+        assertEquals(Arrays.asList("bg", "mi"), model.getRcCentersList());
+
+        model.setRcCentersList(Arrays.asList("bs", "sb"));
+        ReceiptPreCreateInfo a = model;
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bs")
+                .addRcCentersListItem("sb")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -72,7 +129,21 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void paymentAccountsListTest() {
-        // TODO: test paymentAccountsList
+        assertEquals(Arrays.asList("bg"), model.getRcCentersList());
+        model.addRcCentersListItem("mi");
+        assertEquals(Arrays.asList("bg", "mi"), model.getRcCentersList());
+
+        model.setRcCentersList(Arrays.asList("bs", "sb"));
+        ReceiptPreCreateInfo a = model;
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bs")
+                .addRcCentersListItem("sb")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -80,7 +151,21 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void categoriesListTest() {
-        // TODO: test categoriesList
+        assertEquals(Arrays.asList("cat6"), model.getCategoriesList());
+        model.addCategoriesListItem("cat5");
+        assertEquals(Arrays.asList("cat6", "cat5"), model.getCategoriesList());
+
+        model.setCategoriesList(Arrays.asList("cat7", "cat8"));
+        ReceiptPreCreateInfo a = model;
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bg")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat7")
+                .addCategoriesListItem("cat8")
+                .addVatTypesListItem(new VatType().id(1));
+        assertEquals(expected, a);
     }
 
     /**
@@ -88,7 +173,21 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void vatTypesListTest() {
-        // TODO: test vatTypesList
+        assertEquals(Arrays.asList(new VatType().id(1)), model.getVatTypesList());
+        model.addVatTypesListItem(new VatType().id(2));
+        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+
+        model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
+        ReceiptPreCreateInfo a = model;
+        ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
+                .numerations(null)
+                .addNumerationsListItem("num")
+                .addRcCentersListItem("bg")
+                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                .addCategoriesListItem("cat6")
+                .addVatTypesListItem(new VatType().id(3))
+                .addVatTypesListItem(new VatType().id(4));
+        assertEquals(expected, a);
     }
 
 }

@@ -13,9 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +29,30 @@ public class IssuedDocumentStatusTest {
      */
     @Test
     public void testIssuedDocumentStatus() {
-        // TODO: test IssuedDocumentStatus
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"paid\"", gson.toJson(IssuedDocumentStatus.PAID));
+        assertEquals("\"not_paid\"", gson.toJson(IssuedDocumentStatus.NOT_PAID));
+        assertEquals("\"reversed\"", gson.toJson(IssuedDocumentStatus.REVERSED));
+
+
+        assertEquals(IssuedDocumentStatus.PAID, gson.fromJson("\"paid\"", IssuedDocumentStatus.class));
+        assertEquals(IssuedDocumentStatus.NOT_PAID, gson.fromJson("\"not_paid\"", IssuedDocumentStatus.class));
+        assertEquals(IssuedDocumentStatus.REVERSED, gson.fromJson("\"reversed\"", IssuedDocumentStatus.class));
+
+
+        assertEquals("paid", IssuedDocumentStatus.PAID.getValue());
+        assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.getValue());
+        assertEquals("reversed", IssuedDocumentStatus.REVERSED.getValue());
+
+        assertEquals("paid", IssuedDocumentStatus.PAID.toString());
+        assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.toString());
+        assertEquals("reversed", IssuedDocumentStatus.REVERSED.toString());
+
+        assertEquals(IssuedDocumentStatus.PAID, IssuedDocumentStatus.fromValue("paid"));
+        assertEquals(IssuedDocumentStatus.NOT_PAID, IssuedDocumentStatus.fromValue("not_paid"));
+        assertEquals(IssuedDocumentStatus.REVERSED, IssuedDocumentStatus.fromValue("reversed"));
     }
 
 }

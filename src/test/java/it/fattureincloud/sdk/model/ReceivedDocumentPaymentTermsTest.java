@@ -13,31 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentPaymentTerms
  */
 public class ReceivedDocumentPaymentTermsTest {
-    private final ReceivedDocumentPaymentTerms model = new ReceivedDocumentPaymentTerms();
+    private ReceivedDocumentPaymentTerms model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentPaymentTerms()
+                .days(BigDecimal.valueOf(10))
+                .type("taip");
+    }
 
     /**
      * Model tests for ReceivedDocumentPaymentTerms
      */
     @Test
     public void testReceivedDocumentPaymentTerms() {
-        // TODO: test ReceivedDocumentPaymentTerms
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"days\":10,\"type\":\"taip\"}";
+        assertEquals(str, json);
+        ReceivedDocumentPaymentTerms generated = gson.fromJson(str, ReceivedDocumentPaymentTerms.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +61,15 @@ public class ReceivedDocumentPaymentTermsTest {
      */
     @Test
     public void daysTest() {
-        // TODO: test days
+        assertEquals(BigDecimal.valueOf(10), model.getDays());
+        model.setDays(BigDecimal.valueOf(11));
+        assertEquals(BigDecimal.valueOf(11), model.getDays());
+
+        ReceivedDocumentPaymentTerms i = model.days(BigDecimal.valueOf(10));
+        ReceivedDocumentPaymentTerms expected = new ReceivedDocumentPaymentTerms()
+                .days(BigDecimal.valueOf(10))
+                .type("taip");
+        assertEquals(expected, i);
     }
 
     /**
@@ -53,7 +77,15 @@ public class ReceivedDocumentPaymentTermsTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals("taip", model.getType());
+        model.setType("taipV2");
+        assertEquals("taipV2", model.getType());
+
+        ReceivedDocumentPaymentTerms i = model.type("taip");
+        ReceivedDocumentPaymentTerms expected = new ReceivedDocumentPaymentTerms()
+                .days(BigDecimal.valueOf(10))
+                .type("taip");
+        assertEquals(expected, i);
     }
 
 }

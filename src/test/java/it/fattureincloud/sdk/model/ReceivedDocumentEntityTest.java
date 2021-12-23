@@ -13,32 +13,45 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ReceivedDocumentEntity
  */
 public class ReceivedDocumentEntityTest {
-    private final ReceivedDocumentEntity model = new ReceivedDocumentEntity();
+    private ReceivedDocumentEntity model;
+
+    @BeforeEach
+    public void init() {
+        model = new ReceivedDocumentEntity()
+                .id(1)
+                .name("ame");
+    }
 
     /**
      * Model tests for ReceivedDocumentEntity
      */
     @Test
     public void testReceivedDocumentEntity() {
-        // TODO: test ReceivedDocumentEntity
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"name\":\"ame\"}";
+        assertEquals(str, json);
+        ReceivedDocumentEntity generated = gson.fromJson(str, ReceivedDocumentEntity.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +59,15 @@ public class ReceivedDocumentEntityTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
+
+        ReceivedDocumentEntity i = model.id(1);
+        ReceivedDocumentEntity expected = new ReceivedDocumentEntity()
+                .id(1)
+                .name("ame");
+        assertEquals(expected, i);
     }
 
     /**
@@ -54,7 +75,15 @@ public class ReceivedDocumentEntityTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("ame", model.getName());
+        model.setName("2");
+        assertEquals("2", model.getName());
+
+        ReceivedDocumentEntity i = model.name("ame");
+        ReceivedDocumentEntity expected = new ReceivedDocumentEntity()
+                .id(1)
+                .name("ame");
+        assertEquals(expected, i);
     }
 
 }

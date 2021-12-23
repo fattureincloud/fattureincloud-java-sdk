@@ -13,33 +13,44 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPreCreateInfoItemsDefaultValues
  */
 public class IssuedDocumentPreCreateInfoItemsDefaultValuesTest {
-    private final IssuedDocumentPreCreateInfoItemsDefaultValues model = new IssuedDocumentPreCreateInfoItemsDefaultValues();
+    private IssuedDocumentPreCreateInfoItemsDefaultValues model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(1));
+    }
 
     /**
      * Model tests for IssuedDocumentPreCreateInfoItemsDefaultValues
      */
     @Test
     public void testIssuedDocumentPreCreateInfoItemsDefaultValues() {
-        // TODO: test IssuedDocumentPreCreateInfoItemsDefaultValues
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"vat\":{\"id\":1,\"editable\":true}}";
+        assertEquals(str, json);
+        IssuedDocumentPreCreateInfoItemsDefaultValues generated = gson.fromJson(str, IssuedDocumentPreCreateInfoItemsDefaultValues.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +58,14 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValuesTest {
      */
     @Test
     public void vatTest() {
-        // TODO: test vat
+        assertEquals(new VatType().id(1), model.getVat());
+        model.setVat(new VatType().id(11));
+        assertEquals(new VatType().id(11), model.getVat());
+
+        IssuedDocumentPreCreateInfoItemsDefaultValues i = model.vat(new VatType().id(1));
+        IssuedDocumentPreCreateInfoItemsDefaultValues expected = new IssuedDocumentPreCreateInfoItemsDefaultValues()
+                .vat(new VatType().id(1));
+        assertEquals(expected, i);
     }
 
 }

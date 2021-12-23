@@ -13,35 +13,58 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.OriginalDocumentType;
-import it.fattureincloud.sdk.model.VatKind;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentEiData
  */
 public class IssuedDocumentEiDataTest {
-    private final IssuedDocumentEiData model = new IssuedDocumentEiData();
+    private IssuedDocumentEiData model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+    }
+
 
     /**
      * Model tests for IssuedDocumentEiData
      */
     @Test
     public void testIssuedDocumentEiData() {
-        // TODO: test IssuedDocumentEiData
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"vat_kind\":\"D\",\"original_document_type\":\"contratto\",\"od_number\":\"odnum\",\"od_date\":\"2021-12-25\",\"cig\":\"string\",\"cup\":\"string\",\"payment_method\":\"EC21\",\"bank_name\":\"nome bancala\",\"bank_iban\":\"ITP00001231248137y41\",\"bank_beneficiary\":\"bank beneficiary\",\"invoice_number\":\"123\",\"invoice_date\":\"2021-12-25\"}";
+        assertEquals(str, json);
+        IssuedDocumentEiData generated = gson.fromJson(str, IssuedDocumentEiData.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -49,7 +72,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void vatKindTest() {
-        // TODO: test vatKind
+        assertEquals(VatKind.D, model.getVatKind());
+        model.setVatKind(VatKind.I);
+        assertEquals(VatKind.I, model.getVatKind());
+
+        IssuedDocumentEiData i = model.vatKind(VatKind.S);
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.S)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -57,7 +98,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void originalDocumentTypeTest() {
-        // TODO: test originalDocumentType
+        assertEquals(OriginalDocumentType.CONTRATTO, model.getOriginalDocumentType());
+        model.setOriginalDocumentType(OriginalDocumentType.ORDINE);
+        assertEquals(OriginalDocumentType.ORDINE, model.getOriginalDocumentType());
+
+        IssuedDocumentEiData i = model.originalDocumentType(OriginalDocumentType.CONVENZIONE);
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONVENZIONE)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -65,7 +124,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void odNumberTest() {
-        // TODO: test odNumber
+        assertEquals("odnum", model.getOdNumber());
+        model.setOdNumber("odmod");
+        assertEquals("odmod", model.getOdNumber());
+
+        IssuedDocumentEiData i = model.odNumber("odmod2");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odmod2")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -73,7 +150,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void odDateTest() {
-        // TODO: test odDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getOdDate());
+        model.setOdDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getOdDate());
+
+        IssuedDocumentEiData i = model.odDate(LocalDate.of(2021, 12, 27));
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 27))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -81,7 +176,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void cigTest() {
-        // TODO: test cig
+        assertEquals("string", model.getCig());
+        model.setCig("cig");
+        assertEquals("cig", model.getCig());
+
+        IssuedDocumentEiData i = model.cig("ciogan");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("ciogan")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -89,7 +202,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void cupTest() {
-        // TODO: test cup
+        assertEquals("string", model.getCup());
+        model.setCup("cup");
+        assertEquals("cup", model.getCup());
+
+        IssuedDocumentEiData i = model.cup("cup of tea");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("cup of tea")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -97,7 +228,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void paymentMethodTest() {
-        // TODO: test paymentMethod
+        assertEquals("EC21", model.getPaymentMethod());
+        model.setPaymentMethod("EZ66");
+        assertEquals("EZ66", model.getPaymentMethod());
+
+        IssuedDocumentEiData i = model.paymentMethod("FF00");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("FF00")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -105,7 +254,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void bankNameTest() {
-        // TODO: test bankName
+        assertEquals("nome bancala", model.getBankName());
+        model.setBankName("banc1 (aka bancone)");
+        assertEquals("banc1 (aka bancone)", model.getBankName());
+
+        IssuedDocumentEiData i = model.bankName("lollipoppi");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("lollipoppi")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -113,7 +280,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void bankIbanTest() {
-        // TODO: test bankIban
+        assertEquals("ITP00001231248137y41", model.getBankIban());
+        model.setBankIban("IT00000837246238");
+        assertEquals("IT00000837246238", model.getBankIban());
+
+        IssuedDocumentEiData i = model.bankIban("IT000074526948562");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("IT000074526948562")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -121,7 +306,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void bankBeneficiaryTest() {
-        // TODO: test bankBeneficiary
+        assertEquals("bank beneficiary", model.getBankBeneficiary());
+        model.setBankBeneficiary("v2");
+        assertEquals("v2", model.getBankBeneficiary());
+
+        IssuedDocumentEiData i = model.bankBeneficiary("v2");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("v2")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -129,7 +332,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void invoiceNumberTest() {
-        // TODO: test invoiceNumber
+        assertEquals("123", model.getInvoiceNumber());
+        model.setInvoiceNumber("321");
+        assertEquals("321", model.getInvoiceNumber());
+
+        IssuedDocumentEiData i = model.invoiceNumber("321");
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("321")
+                .invoiceDate(LocalDate.of(2021, 12, 25));
+        assertEquals(expected, i);
     }
 
     /**
@@ -137,7 +358,25 @@ public class IssuedDocumentEiDataTest {
      */
     @Test
     public void invoiceDateTest() {
-        // TODO: test invoiceDate
+        assertEquals(LocalDate.of(2021, 12, 25), model.getInvoiceDate());
+        model.setInvoiceDate(LocalDate.of(2021, 12, 26));
+        assertEquals(LocalDate.of(2021, 12, 26), model.getInvoiceDate());
+
+        IssuedDocumentEiData i = model.invoiceDate(LocalDate.of(2021, 12, 27));
+        IssuedDocumentEiData expected = new IssuedDocumentEiData()
+                .vatKind(VatKind.D)
+                .originalDocumentType(OriginalDocumentType.CONTRATTO)
+                .odNumber("odnum")
+                .odDate(LocalDate.of(2021, 12, 25))
+                .cup("string")
+                .cig("string")
+                .paymentMethod("EC21")
+                .bankName("nome bancala")
+                .bankIban("ITP00001231248137y41")
+                .bankBeneficiary("bank beneficiary")
+                .invoiceNumber("123")
+                .invoiceDate(LocalDate.of(2021, 12, 27));
+        assertEquals(expected, i);
     }
 
 }
