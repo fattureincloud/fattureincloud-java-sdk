@@ -13,20 +13,14 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.EmailDataDefaultSenderEmail;
-import it.fattureincloud.sdk.model.EmailDataSenderEmailsList;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -40,7 +34,41 @@ public class EmailDataTest {
      */
     @Test
     public void testEmailData() {
-        // TODO: test EmailData
+        EmailData e = new EmailData()
+                .recipientEmail("mary.red@example.com")
+                .recipientEmail("m.rossi@exxample.com")
+                .subject("Nostra pro forma nr. 1")
+                .body("Pro forma body")
+                .documentExists(true)
+                .deliveryNoteExists(false)
+                .attachmentExists(false)
+                .accompanyingInvoiceExists(false)
+                .defaultAttachPdf(false)
+                .defaultSenderEmail(new EmailDataDefaultSenderEmail()
+                        .id(0)
+                        .email("no-reply@fattureincloud.it")
+                )
+                .senderEmailsList(Arrays.asList(
+                        new EmailDataSenderEmailsList()
+                                .id(0)
+                                .email("no-reply@fattureincloud.it"),
+                        new EmailDataSenderEmailsList()
+                                .id(888)
+                                .email("mariorossi@fattureincloud.it")
+                ));
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(e);
+        String str = "{\"recipient_email\":\"m.rossi@exxample.com\",\"default_sender_email\":{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"},\"sender_emails_list\":[{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"},{\"id\":888,\"email\":\"mariorossi@fattureincloud.it\"}],\"subject\":\"Nostra pro forma nr. 1\",\"body\":\"Pro forma body\",\"document_exists\":true,\"delivery_note_exists\":false,\"attachment_exists\":false,\"accompanying_invoice_exists\":false,\"default_attach_pdf\":false}";
+        assertEquals(str, json);
+        EmailData generated = gson.fromJson(str, EmailData.class);
+        assertEquals(e, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +76,14 @@ public class EmailDataTest {
      */
     @Test
     public void recipientEmailTest() {
-        // TODO: test recipientEmail
+        assertNull(model.getRecipientEmail());
+        model.setRecipientEmail("no-reply@fattureincloud.it");
+        assertEquals("no-reply@fattureincloud.it", model.getRecipientEmail());
+
+        EmailData e = model.recipientEmail("info@fattureincloud.it");
+        EmailData expected = new EmailData();
+        expected.setRecipientEmail("info@fattureincloud.it");
+        assertEquals(expected, e);
     }
 
     /**
@@ -56,7 +91,22 @@ public class EmailDataTest {
      */
     @Test
     public void defaultSenderEmailTest() {
-        // TODO: test defaultSenderEmail
+        EmailDataDefaultSenderEmail e1 = new EmailDataDefaultSenderEmail()
+                .id(1)
+                .email("no-reply@fattureincloud.it");
+
+        EmailDataDefaultSenderEmail e2 = new EmailDataDefaultSenderEmail()
+                .id(2)
+                .email("info@fattureincloud.it");
+
+        assertNull(model.getDefaultSenderEmail());
+        model.setDefaultSenderEmail(e1);
+        assertEquals(e1, model.getDefaultSenderEmail());
+
+        EmailData e = model.defaultSenderEmail(e2);
+        EmailData expected = new EmailData();
+        expected.setDefaultSenderEmail(e2);
+        assertEquals(expected, e);
     }
 
     /**
@@ -64,7 +114,24 @@ public class EmailDataTest {
      */
     @Test
     public void senderEmailsListTest() {
-        // TODO: test senderEmailsList
+        EmailDataSenderEmailsList e1 = new EmailDataSenderEmailsList()
+                .id(1)
+                .email("no-reply@fattureincloud.it");
+
+        EmailDataSenderEmailsList e2 = new EmailDataSenderEmailsList()
+                .id(2)
+                .email("info@fattureincloud.it");
+
+        assertEquals(new ArrayList<>(), model.getSenderEmailsList());
+        model.setSenderEmailsList(Arrays.asList(e1, e2));
+        assertEquals(Arrays.asList(e1, e2), model.getSenderEmailsList());
+
+        EmailData e = model.senderEmailsList(new ArrayList<>());
+        EmailData expected = new EmailData();
+        expected.setSenderEmailsList(new ArrayList<>());
+        assertEquals(expected, e);
+        e.addSenderEmailsListItem(e2);
+        assertEquals(Arrays.asList(e2), model.getSenderEmailsList());
     }
 
     /**
@@ -72,7 +139,14 @@ public class EmailDataTest {
      */
     @Test
     public void ccEmailTest() {
-        // TODO: test ccEmail
+        assertNull(model.getCcEmail());
+        model.setCcEmail("no-reply@fattureincloud.it");
+        assertEquals("no-reply@fattureincloud.it", model.getCcEmail());
+
+        EmailData e = model.ccEmail("info@fattureincloud.it");
+        EmailData expected = new EmailData();
+        expected.setCcEmail("info@fattureincloud.it");
+        assertEquals(expected, e);
     }
 
     /**
@@ -80,7 +154,14 @@ public class EmailDataTest {
      */
     @Test
     public void subjectTest() {
-        // TODO: test subject
+        assertNull(model.getSubject());
+        model.setSubject("Nostra pro forma nr. 1");
+        assertEquals("Nostra pro forma nr. 1", model.getSubject());
+
+        EmailData e = model.subject("Nostra pro forma nr. 2");
+        EmailData expected = new EmailData();
+        expected.setSubject("Nostra pro forma nr. 2");
+        assertEquals(expected, e);
     }
 
     /**
@@ -88,7 +169,14 @@ public class EmailDataTest {
      */
     @Test
     public void bodyTest() {
-        // TODO: test body
+        assertNull(model.getBody());
+        model.setBody("Gentile Mario Rossi,<br>per vedere la nostra pro forma di  o per scaricarne una copia in versione PDF prema sul bottone sottoastante.<br><br>{{allegati}}<br><br>Cordiali saluti,<br><b>Mario Rossi</b>");
+        assertEquals("Gentile Mario Rossi,<br>per vedere la nostra pro forma di  o per scaricarne una copia in versione PDF prema sul bottone sottoastante.<br><br>{{allegati}}<br><br>Cordiali saluti,<br><b>Mario Rossi</b>", model.getBody());
+
+        EmailData e = model.body("Bla bla");
+        EmailData expected = new EmailData();
+        expected.setBody("Bla bla");
+        assertEquals(expected, e);
     }
 
     /**
@@ -96,7 +184,14 @@ public class EmailDataTest {
      */
     @Test
     public void documentExistsTest() {
-        // TODO: test documentExists
+        assertNull(model.getDocumentExists());
+        model.setDocumentExists(true);
+        assertEquals(true, model.getDocumentExists());
+
+        EmailData e = model.documentExists(false);
+        EmailData expected = new EmailData();
+        expected.setDocumentExists(false);
+        assertEquals(expected, e);
     }
 
     /**
@@ -104,7 +199,14 @@ public class EmailDataTest {
      */
     @Test
     public void deliveryNoteExistsTest() {
-        // TODO: test deliveryNoteExists
+        assertNull(model.getDeliveryNoteExists());
+        model.setDeliveryNoteExists(true);
+        assertEquals(true, model.getDeliveryNoteExists());
+
+        EmailData e = model.deliveryNoteExists(false);
+        EmailData expected = new EmailData();
+        expected.setDeliveryNoteExists(false);
+        assertEquals(expected, e);
     }
 
     /**
@@ -112,7 +214,14 @@ public class EmailDataTest {
      */
     @Test
     public void attachmentExistsTest() {
-        // TODO: test attachmentExists
+        assertNull(model.getAttachmentExists());
+        model.setAttachmentExists(true);
+        assertEquals(true, model.getAttachmentExists());
+
+        EmailData e = model.attachmentExists(false);
+        EmailData expected = new EmailData();
+        expected.setAttachmentExists(false);
+        assertEquals(expected, e);
     }
 
     /**
@@ -120,7 +229,14 @@ public class EmailDataTest {
      */
     @Test
     public void accompanyingInvoiceExistsTest() {
-        // TODO: test accompanyingInvoiceExists
+        assertNull(model.getAccompanyingInvoiceExists());
+        model.setAccompanyingInvoiceExists(true);
+        assertEquals(true, model.getAccompanyingInvoiceExists());
+
+        EmailData e = model.accompanyingInvoiceExists(false);
+        EmailData expected = new EmailData();
+        expected.setAccompanyingInvoiceExists(false);
+        assertEquals(expected, e);
     }
 
     /**
@@ -128,7 +244,14 @@ public class EmailDataTest {
      */
     @Test
     public void defaultAttachPdfTest() {
-        // TODO: test defaultAttachPdf
+        assertNull(model.getDefaultAttachPdf());
+        model.setDefaultAttachPdf(true);
+        assertEquals(true, model.getDefaultAttachPdf());
+
+        EmailData e = model.defaultAttachPdf(false);
+        EmailData expected = new EmailData();
+        expected.setDefaultAttachPdf(false);
+        assertEquals(expected, e);
     }
 
 }
