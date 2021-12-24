@@ -13,30 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for DocumentTemplate
  */
 public class DocumentTemplateTest {
-    private final DocumentTemplate model = new DocumentTemplate();
+    private DocumentTemplate model;
+
+    @BeforeEach
+    public void init() {
+        model = new DocumentTemplate();
+    }
 
     /**
      * Model tests for DocumentTemplate
      */
     @Test
     public void testDocumentTemplate() {
-        // TODO: test DocumentTemplate
+        DocumentTemplate d = new DocumentTemplate()
+                .id(10)
+                .name("New Standard S1")
+                .type("Tipo 1");
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(d);
+        String str = "{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}";
+        assertEquals(str, json);
+        DocumentTemplate generated = gson.fromJson(str, DocumentTemplate.class);
+        assertEquals(d, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +61,14 @@ public class DocumentTemplateTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertNull(model.getId());
+        model.setId(10);
+        assertEquals(10, model.getId());
+
+        DocumentTemplate c = model.id(11);
+        DocumentTemplate expected = new DocumentTemplate();
+        expected.setId(11);
+        assertEquals(expected, c);
     }
 
     /**
@@ -52,7 +76,14 @@ public class DocumentTemplateTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertNull(model.getName());
+        model.setName("New standard 51");
+        assertEquals("New standard 51", model.getName());
+
+        DocumentTemplate c = model.name("Template 45");
+        DocumentTemplate expected = new DocumentTemplate();
+        expected.setName("Template 45");
+        assertEquals(expected, c);
     }
 
     /**
@@ -60,7 +91,14 @@ public class DocumentTemplateTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertNull(model.getType());
+        model.setType("Tipo 1");
+        assertEquals("Tipo 1", model.getType());
+
+        DocumentTemplate c = model.type("Tipo 2");
+        DocumentTemplate expected = new DocumentTemplate();
+        expected.setType("Tipo 2");
+        assertEquals(expected, c);
     }
 
 }

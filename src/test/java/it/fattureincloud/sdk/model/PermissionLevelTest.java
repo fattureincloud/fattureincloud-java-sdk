@@ -13,9 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +30,37 @@ public class PermissionLevelTest {
      */
     @Test
     public void testPermissionLevel() {
-        // TODO: test PermissionLevel
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"none\"", gson.toJson(PermissionLevel.NONE));
+        assertEquals("\"read\"", gson.toJson(PermissionLevel.READ));
+        assertEquals("\"write\"", gson.toJson(PermissionLevel.WRITE));
+        assertEquals("\"detailed\"", gson.toJson(PermissionLevel.DETAILED));
+
+        assertEquals(PermissionLevel.NONE, gson.fromJson("\"none\"", PermissionLevel.class));
+        assertEquals(PermissionLevel.READ, gson.fromJson("\"read\"", PermissionLevel.class));
+        assertEquals(PermissionLevel.WRITE, gson.fromJson("\"write\"", PermissionLevel.class));
+        assertEquals(PermissionLevel.DETAILED, gson.fromJson("\"detailed\"", PermissionLevel.class));
+
+        assertEquals("none", PermissionLevel.NONE.getValue());
+        assertEquals("read", PermissionLevel.READ.getValue());
+        assertEquals("write", PermissionLevel.WRITE.getValue());
+        assertEquals("detailed", PermissionLevel.DETAILED.getValue());
+
+        assertEquals("none", PermissionLevel.NONE.toString());
+        assertEquals("read", PermissionLevel.READ.toString());
+        assertEquals("write", PermissionLevel.WRITE.toString());
+        assertEquals("detailed", PermissionLevel.DETAILED.toString());
+
+        assertEquals(PermissionLevel.NONE, PermissionLevel.fromValue("none"));
+        assertEquals(PermissionLevel.READ, PermissionLevel.fromValue("read"));
+        assertEquals(PermissionLevel.WRITE, PermissionLevel.fromValue("write"));
+        assertEquals(PermissionLevel.DETAILED, PermissionLevel.fromValue("detailed"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            PermissionLevel.fromValue("Evil Joshua");
+        });
     }
 
 }

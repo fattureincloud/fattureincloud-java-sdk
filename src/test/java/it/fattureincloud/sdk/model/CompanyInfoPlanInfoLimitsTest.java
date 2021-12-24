@@ -13,30 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for CompanyInfoPlanInfoLimits
  */
 public class CompanyInfoPlanInfoLimitsTest {
-    private final CompanyInfoPlanInfoLimits model = new CompanyInfoPlanInfoLimits();
+    private CompanyInfoPlanInfoLimits model;
+
+    @BeforeEach
+    public void init() {
+        model = new CompanyInfoPlanInfoLimits();
+    }
 
     /**
      * Model tests for CompanyInfoPlanInfoLimits
      */
     @Test
     public void testCompanyInfoPlanInfoLimits() {
-        // TODO: test CompanyInfoPlanInfoLimits
+        CompanyInfoPlanInfoLimits c = new CompanyInfoPlanInfoLimits()
+                .clients(5000)
+                .suppliers(5000)
+                .products(5000)
+                .documents(3000);
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(c);
+        String str = "{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000}";
+        assertEquals(str, json);
+        CompanyInfoPlanInfoLimits generated = gson.fromJson(str, CompanyInfoPlanInfoLimits.class);
+        assertEquals(c, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +62,14 @@ public class CompanyInfoPlanInfoLimitsTest {
      */
     @Test
     public void clientsTest() {
-        // TODO: test clients
+        assertNull(model.getClients());
+        model.setClients(1);
+        assertEquals(1, model.getClients());
+
+        CompanyInfoPlanInfoLimits c = model.clients(2);
+        CompanyInfoPlanInfoLimits expected = new CompanyInfoPlanInfoLimits();
+        expected.setClients(2);
+        assertEquals(expected, c);
     }
 
     /**
@@ -52,7 +77,14 @@ public class CompanyInfoPlanInfoLimitsTest {
      */
     @Test
     public void suppliersTest() {
-        // TODO: test suppliers
+        assertNull(model.getSuppliers());
+        model.setSuppliers(1);
+        assertEquals(1, model.getSuppliers());
+
+        CompanyInfoPlanInfoLimits c = model.suppliers(2);
+        CompanyInfoPlanInfoLimits expected = new CompanyInfoPlanInfoLimits();
+        expected.setSuppliers(2);
+        assertEquals(expected, c);
     }
 
     /**
@@ -60,7 +92,14 @@ public class CompanyInfoPlanInfoLimitsTest {
      */
     @Test
     public void productsTest() {
-        // TODO: test products
+        assertNull(model.getProducts());
+        model.setProducts(1);
+        assertEquals(1, model.getProducts());
+
+        CompanyInfoPlanInfoLimits c = model.products(2);
+        CompanyInfoPlanInfoLimits expected = new CompanyInfoPlanInfoLimits();
+        expected.setProducts(2);
+        assertEquals(expected, c);
     }
 
     /**
@@ -68,7 +107,14 @@ public class CompanyInfoPlanInfoLimitsTest {
      */
     @Test
     public void documentsTest() {
-        // TODO: test documents
+        assertNull(model.getDocuments());
+        model.setDocuments(1);
+        assertEquals(1, model.getDocuments());
+
+        CompanyInfoPlanInfoLimits c = model.documents(2);
+        CompanyInfoPlanInfoLimits expected = new CompanyInfoPlanInfoLimits();
+        expected.setDocuments(2);
+        assertEquals(expected, c);
     }
 
 }

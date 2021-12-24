@@ -13,32 +13,62 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for CompanyInfoPlanInfoFunctions
  */
 public class CompanyInfoPlanInfoFunctionsTest {
-    private final CompanyInfoPlanInfoFunctions model = new CompanyInfoPlanInfoFunctions();
+    private CompanyInfoPlanInfoFunctions model;
+
+    @BeforeEach
+    public void init() {
+        model = new CompanyInfoPlanInfoFunctions();
+    }
 
     /**
      * Model tests for CompanyInfoPlanInfoFunctions
      */
     @Test
     public void testCompanyInfoPlanInfoFunctions() {
-        // TODO: test CompanyInfoPlanInfoFunctions
+        CompanyInfoPlanInfoFunctions c = new CompanyInfoPlanInfoFunctions()
+                .documentAttachments(true)
+                .archive(true)
+                .paymentNotifications(true)
+                .paypal(true)
+                .receipts(true)
+                .eInvoice(true)
+                .genius(true)
+                .stock(true)
+                .smtp(true)
+                .mailTracking(true)
+                .subaccounts(true)
+                .tesseraSanitaria(true)
+                .recurring(true)
+                .sofort(false)
+                .cerved(true)
+                .tsDigital(true)
+                .tsPay(true)
+                .tsInvoiceTrading(true);
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(c);
+        String str = "{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true}";
+        assertEquals(str, json);
+        CompanyInfoPlanInfoFunctions generated = gson.fromJson(str, CompanyInfoPlanInfoFunctions.class);
+        assertEquals(c, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +76,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void archiveTest() {
-        // TODO: test archive
+        assertNull(model.getArchive());
+        model.setArchive(true);
+        assertEquals(true, model.getArchive());
+
+        CompanyInfoPlanInfoFunctions c = model.archive(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setArchive(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -54,7 +91,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void cervedTest() {
-        // TODO: test cerved
+        assertNull(model.getCerved());
+        model.setCerved(true);
+        assertEquals(true, model.getCerved());
+
+        CompanyInfoPlanInfoFunctions c = model.cerved(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setCerved(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -62,7 +106,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void documentAttachmentsTest() {
-        // TODO: test documentAttachments
+        assertNull(model.getDocumentAttachments());
+        model.setDocumentAttachments(true);
+        assertEquals(true, model.getDocumentAttachments());
+
+        CompanyInfoPlanInfoFunctions c = model.documentAttachments(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setDocumentAttachments(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -70,7 +121,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void eInvoiceTest() {
-        // TODO: test eInvoice
+        assertNull(model.geteInvoice());
+        model.seteInvoice(true);
+        assertEquals(true, model.geteInvoice());
+
+        CompanyInfoPlanInfoFunctions c = model.eInvoice(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.seteInvoice(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -78,7 +136,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void geniusTest() {
-        // TODO: test genius
+        assertNull(model.getGenius());
+        model.setGenius(true);
+        assertEquals(true, model.getGenius());
+
+        CompanyInfoPlanInfoFunctions c = model.genius(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setGenius(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -86,7 +151,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void mailTrackingTest() {
-        // TODO: test mailTracking
+        assertNull(model.getMailTracking());
+        model.setMailTracking(true);
+        assertEquals(true, model.getMailTracking());
+
+        CompanyInfoPlanInfoFunctions c = model.mailTracking(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setMailTracking(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -94,7 +166,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void paymentNotificationsTest() {
-        // TODO: test paymentNotifications
+        assertNull(model.getPaymentNotifications());
+        model.setPaymentNotifications(true);
+        assertEquals(true, model.getPaymentNotifications());
+
+        CompanyInfoPlanInfoFunctions c = model.paymentNotifications(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setPaymentNotifications(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -102,7 +181,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void paypalTest() {
-        // TODO: test paypal
+        assertNull(model.getPaypal());
+        model.setPaypal(true);
+        assertEquals(true, model.getPaypal());
+
+        CompanyInfoPlanInfoFunctions c = model.paypal(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setPaypal(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -110,7 +196,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void receiptsTest() {
-        // TODO: test receipts
+        assertNull(model.getReceipts());
+        model.setReceipts(true);
+        assertEquals(true, model.getReceipts());
+
+        CompanyInfoPlanInfoFunctions c = model.receipts(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setReceipts(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -118,7 +211,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void recurringTest() {
-        // TODO: test recurring
+        assertNull(model.getRecurring());
+        model.setRecurring(true);
+        assertEquals(true, model.getRecurring());
+
+        CompanyInfoPlanInfoFunctions c = model.recurring(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setRecurring(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -126,7 +226,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void smtpTest() {
-        // TODO: test smtp
+        assertNull(model.getSmtp());
+        model.setSmtp(true);
+        assertEquals(true, model.getSmtp());
+
+        CompanyInfoPlanInfoFunctions c = model.smtp(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setSmtp(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -134,7 +241,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void sofortTest() {
-        // TODO: test sofort
+        assertNull(model.getSofort());
+        model.setSofort(true);
+        assertEquals(true, model.getSofort());
+
+        CompanyInfoPlanInfoFunctions c = model.sofort(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setSofort(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -142,7 +256,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void stockTest() {
-        // TODO: test stock
+        assertNull(model.getStock());
+        model.setStock(true);
+        assertEquals(true, model.getStock());
+
+        CompanyInfoPlanInfoFunctions c = model.stock(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setStock(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -150,7 +271,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void subaccountsTest() {
-        // TODO: test subaccounts
+        assertNull(model.getSubaccounts());
+        model.setSubaccounts(true);
+        assertEquals(true, model.getSubaccounts());
+
+        CompanyInfoPlanInfoFunctions c = model.subaccounts(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setSubaccounts(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -158,7 +286,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void tesseraSanitariaTest() {
-        // TODO: test tesseraSanitaria
+        assertNull(model.getTesseraSanitaria());
+        model.setTesseraSanitaria(true);
+        assertEquals(true, model.getTesseraSanitaria());
+
+        CompanyInfoPlanInfoFunctions c = model.tesseraSanitaria(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setTesseraSanitaria(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -166,7 +301,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void tsDigitalTest() {
-        // TODO: test tsDigital
+        assertNull(model.getTsDigital());
+        model.setTsDigital(true);
+        assertEquals(true, model.getTsDigital());
+
+        CompanyInfoPlanInfoFunctions c = model.tsDigital(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setTsDigital(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -174,7 +316,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void tsInvoiceTradingTest() {
-        // TODO: test tsInvoiceTrading
+        assertNull(model.getTsInvoiceTrading());
+        model.setTsInvoiceTrading(true);
+        assertEquals(true, model.getTsInvoiceTrading());
+
+        CompanyInfoPlanInfoFunctions c = model.tsInvoiceTrading(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setTsInvoiceTrading(false);
+        assertEquals(expected, c);
     }
 
     /**
@@ -182,7 +331,14 @@ public class CompanyInfoPlanInfoFunctionsTest {
      */
     @Test
     public void tsPayTest() {
-        // TODO: test tsPay
+        assertNull(model.getTsPay());
+        model.setTsPay(true);
+        assertEquals(true, model.getTsPay());
+
+        CompanyInfoPlanInfoFunctions c = model.tsPay(false);
+        CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
+        expected.setTsPay(false);
+        assertEquals(expected, c);
     }
 
 }

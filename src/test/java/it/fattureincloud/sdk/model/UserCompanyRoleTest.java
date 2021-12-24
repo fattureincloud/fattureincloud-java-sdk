@@ -13,9 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +30,32 @@ public class UserCompanyRoleTest {
      */
     @Test
     public void testUserCompanyRole() {
-        // TODO: test UserCompanyRole
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"master\"", gson.toJson(UserCompanyRole.MASTER));
+        assertEquals("\"subaccount\"", gson.toJson(UserCompanyRole.SUBACCOUNT));
+        assertEquals("\"employee\"", gson.toJson(UserCompanyRole.EMPLOYEE));
+
+        assertEquals(UserCompanyRole.MASTER, gson.fromJson("\"master\"", UserCompanyRole.class));
+        assertEquals(UserCompanyRole.SUBACCOUNT, gson.fromJson("\"subaccount\"", UserCompanyRole.class));
+        assertEquals(UserCompanyRole.EMPLOYEE, gson.fromJson("\"employee\"", UserCompanyRole.class));
+
+        assertEquals("master", UserCompanyRole.MASTER.getValue());
+        assertEquals("subaccount", UserCompanyRole.SUBACCOUNT.getValue());
+        assertEquals("employee", UserCompanyRole.EMPLOYEE.getValue());
+
+        assertEquals("master", UserCompanyRole.MASTER.toString());
+        assertEquals("subaccount", UserCompanyRole.SUBACCOUNT.toString());
+        assertEquals("employee", UserCompanyRole.EMPLOYEE.toString());
+
+        assertEquals(UserCompanyRole.MASTER, UserCompanyRole.fromValue("master"));
+        assertEquals(UserCompanyRole.SUBACCOUNT, UserCompanyRole.fromValue("subaccount"));
+        assertEquals(UserCompanyRole.EMPLOYEE, UserCompanyRole.fromValue("employee"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            UserCompanyRole.fromValue("Evil Joshua");
+        });
     }
 
 }

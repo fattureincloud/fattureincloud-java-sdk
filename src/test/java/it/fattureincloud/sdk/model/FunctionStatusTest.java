@@ -13,30 +13,45 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for FunctionStatus
  */
 public class FunctionStatusTest {
-    private final FunctionStatus model = new FunctionStatus();
+    private FunctionStatus model;
+
+    @BeforeEach
+    public void init() {
+        model = new FunctionStatus();
+    }
 
     /**
      * Model tests for FunctionStatus
      */
     @Test
     public void testFunctionStatus() {
-        // TODO: test FunctionStatus
+        FunctionStatus f = new FunctionStatus()
+                .active(true);
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(f);
+        String str = "{\"active\":true}";
+        assertEquals(str, json);
+        FunctionStatus generated = gson.fromJson(str, FunctionStatus.class);
+        assertEquals(f, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +59,14 @@ public class FunctionStatusTest {
      */
     @Test
     public void activeTest() {
-        // TODO: test active
+        assertNull(model.getActive());
+        model.setActive(true);
+        assertEquals(true, model.getActive());
+
+        FunctionStatus c = model.active(false);
+        FunctionStatus expected = new FunctionStatus();
+        expected.setActive(false);
+        assertEquals(expected, c);
     }
 
 }

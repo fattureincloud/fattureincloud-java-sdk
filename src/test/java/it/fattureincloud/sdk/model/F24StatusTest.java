@@ -14,9 +14,8 @@
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,8 +40,7 @@ public class F24StatusTest {
         assertEquals(F24Status.PAID, gson.fromJson("\"paid\"", F24Status.class));
         assertEquals(F24Status.NOT_PAID, gson.fromJson("\"not_paid\"", F24Status.class));
         assertEquals(F24Status.REVERSED, gson.fromJson("\"reversed\"", F24Status.class));
-
-
+      
         assertEquals("paid", F24Status.PAID.getValue());
         assertEquals("not_paid", F24Status.NOT_PAID.getValue());
         assertEquals("reversed", F24Status.REVERSED.getValue());
@@ -54,6 +52,10 @@ public class F24StatusTest {
         assertEquals(F24Status.PAID, F24Status.fromValue("paid"));
         assertEquals(F24Status.NOT_PAID, F24Status.fromValue("not_paid"));
         assertEquals(F24Status.REVERSED, F24Status.fromValue("reversed"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            F24Status.fromValue("Evil Joshua");
+        });
     }
 
 }

@@ -13,30 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for City
  */
 public class CityTest {
-    private final City model = new City();
+    private City model;
+
+    @BeforeEach
+    public void init() {
+        model = new City();
+    }
 
     /**
      * Model tests for City
      */
     @Test
     public void testCity() {
-        // TODO: test City
+        City city = new City()
+                .city("San Pellegrino Terme")
+                .province("BG")
+                .postalCode("24016");
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(city);
+        String str = "{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"}";
+        assertEquals(str, json);
+        City generated = gson.fromJson(str, City.class);
+        assertEquals(city, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +61,14 @@ public class CityTest {
      */
     @Test
     public void postalCodeTest() {
-        // TODO: test postalCode
+        assertNull(model.getPostalCode());
+        model.setPostalCode("24044");
+        assertEquals("24044", model.getPostalCode());
+
+        City c = model.postalCode("24016");
+        City expected = new City();
+        expected.setPostalCode("24016");
+        assertEquals(expected, c);
     }
 
     /**
@@ -52,7 +76,14 @@ public class CityTest {
      */
     @Test
     public void cityTest() {
-        // TODO: test city
+        assertNull(model.getCity());
+        model.setCity("Dalmine");
+        assertEquals("Dalmine", model.getCity());
+
+        City c = model.city("San Pellegrino Terme");
+        City expected = new City();
+        expected.setCity("San Pellegrino Terme");
+        assertEquals(expected, c);
     }
 
     /**
@@ -60,7 +91,14 @@ public class CityTest {
      */
     @Test
     public void provinceTest() {
-        // TODO: test province
+        assertNull(model.getProvince());
+        model.setProvince("BG");
+        assertEquals("BG", model.getProvince());
+
+        City c = model.province("RM");
+        City expected = new City();
+        expected.setProvince("RM");
+        assertEquals(expected, c);
     }
 
 }
