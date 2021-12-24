@@ -40,7 +40,7 @@ public class F24StatusTest {
         assertEquals(F24Status.PAID, gson.fromJson("\"paid\"", F24Status.class));
         assertEquals(F24Status.NOT_PAID, gson.fromJson("\"not_paid\"", F24Status.class));
         assertEquals(F24Status.REVERSED, gson.fromJson("\"reversed\"", F24Status.class));
-
+      
         assertEquals("paid", F24Status.PAID.getValue());
         assertEquals("not_paid", F24Status.NOT_PAID.getValue());
         assertEquals("reversed", F24Status.REVERSED.getValue());
