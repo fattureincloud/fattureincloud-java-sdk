@@ -13,17 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.FunctionStatus;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -37,7 +31,26 @@ public class CompanyInfoPlanInfoFunctionsStatusTest {
      */
     @Test
     public void testCompanyInfoPlanInfoFunctionsStatus() {
-        // TODO: test CompanyInfoPlanInfoFunctionsStatus
+        CompanyInfoPlanInfoFunctionsStatus c = new CompanyInfoPlanInfoFunctionsStatus()
+                .tsDigital(new FunctionStatus()
+                        .active(true)
+                )
+                .tsPay(new FunctionStatus()
+                        .active(false)
+                );
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(c);
+        String str = "{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":false}}";
+        assertEquals(str, json);
+        CompanyInfoPlanInfoFunctionsStatus generated = gson.fromJson(str, CompanyInfoPlanInfoFunctionsStatus.class);
+        assertEquals(c, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +58,20 @@ public class CompanyInfoPlanInfoFunctionsStatusTest {
      */
     @Test
     public void tsDigitalTest() {
-        // TODO: test tsDigital
+        FunctionStatus fs1 = new FunctionStatus()
+                .active(true);
+
+        FunctionStatus fs2 = new FunctionStatus()
+                .active(false);
+
+        assertNull(model.getTsDigital());
+        model.setTsDigital(fs1);
+        assertEquals(fs1, model.getTsDigital());
+
+        CompanyInfoPlanInfoFunctionsStatus c = model.tsDigital(fs2);
+        CompanyInfoPlanInfoFunctionsStatus expected = new CompanyInfoPlanInfoFunctionsStatus();
+        expected.setTsDigital(fs2);
+        assertEquals(expected, c);
     }
 
     /**
@@ -53,7 +79,20 @@ public class CompanyInfoPlanInfoFunctionsStatusTest {
      */
     @Test
     public void tsPayTest() {
-        // TODO: test tsPay
+        FunctionStatus fs1 = new FunctionStatus()
+                .active(true);
+
+        FunctionStatus fs2 = new FunctionStatus()
+                .active(false);
+
+        assertNull(model.getTsPay());
+        model.setTsPay(fs1);
+        assertEquals(fs1, model.getTsPay());
+
+        CompanyInfoPlanInfoFunctionsStatus c = model.tsPay(fs2);
+        CompanyInfoPlanInfoFunctionsStatus expected = new CompanyInfoPlanInfoFunctionsStatus();
+        expected.setTsPay(fs2);
+        assertEquals(expected, c);
     }
 
 }

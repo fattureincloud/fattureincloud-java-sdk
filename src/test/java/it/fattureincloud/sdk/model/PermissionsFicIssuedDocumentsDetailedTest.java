@@ -13,31 +13,54 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PermissionLevel;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Model tests for PermissionsFicIssuedDocumentsDetailed
  */
 public class PermissionsFicIssuedDocumentsDetailedTest {
-    private final PermissionsFicIssuedDocumentsDetailed model = new PermissionsFicIssuedDocumentsDetailed();
+    private PermissionsFicIssuedDocumentsDetailed model;
+
+    @BeforeEach
+    public void init() {
+        model = new PermissionsFicIssuedDocumentsDetailed();
+    }
 
     /**
      * Model tests for PermissionsFicIssuedDocumentsDetailed
      */
     @Test
     public void testPermissionsFicIssuedDocumentsDetailed() {
-        // TODO: test PermissionsFicIssuedDocumentsDetailed
+        PermissionsFicIssuedDocumentsDetailed p = new PermissionsFicIssuedDocumentsDetailed()
+                .quotes(PermissionLevel.WRITE)
+                .proformas(PermissionLevel.WRITE)
+                .invoices(PermissionLevel.WRITE)
+                .receipts(PermissionLevel.WRITE)
+                .deliveryNotes(PermissionLevel.WRITE)
+                .creditNotes(PermissionLevel.WRITE)
+                .orders(PermissionLevel.WRITE)
+                .workReports(PermissionLevel.WRITE)
+                .supplierOrders(PermissionLevel.WRITE)
+                .selfInvoices(PermissionLevel.WRITE);
+
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(p);
+        String str = "{\"quotes\":\"write\",\"proformas\":\"write\",\"invoices\":\"write\",\"receipts\":\"write\",\"delivery_notes\":\"write\",\"credit_notes\":\"write\",\"orders\":\"write\",\"work_reports\":\"write\",\"supplier_orders\":\"write\",\"self_invoices\":\"write\"}";
+        assertEquals(str, json);
+        PermissionsFicIssuedDocumentsDetailed generated = gson.fromJson(str, PermissionsFicIssuedDocumentsDetailed.class);
+        assertEquals(p, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +68,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void quotesTest() {
-        // TODO: test quotes
+        assertNull(model.getQuotes());
+        model.setQuotes(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getQuotes());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.quotes(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setQuotes(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -53,7 +83,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void proformasTest() {
-        // TODO: test proformas
+        assertNull(model.getProformas());
+        model.setProformas(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getProformas());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.proformas(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setProformas(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -61,7 +98,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void invoicesTest() {
-        // TODO: test invoices
+        assertNull(model.getInvoices());
+        model.setInvoices(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getInvoices());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.invoices(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setInvoices(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -69,7 +113,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void receiptsTest() {
-        // TODO: test receipts
+        assertNull(model.getReceipts());
+        model.setReceipts(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getReceipts());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.receipts(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setReceipts(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -77,7 +128,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void deliveryNotesTest() {
-        // TODO: test deliveryNotes
+        assertNull(model.getDeliveryNotes());
+        model.setDeliveryNotes(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getDeliveryNotes());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.deliveryNotes(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setDeliveryNotes(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -85,7 +143,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void creditNotesTest() {
-        // TODO: test creditNotes
+        assertNull(model.getCreditNotes());
+        model.setCreditNotes(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getCreditNotes());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.creditNotes(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setCreditNotes(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -93,7 +158,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void ordersTest() {
-        // TODO: test orders
+        assertNull(model.getOrders());
+        model.setOrders(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getOrders());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.orders(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setOrders(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -101,7 +173,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void workReportsTest() {
-        // TODO: test workReports
+        assertNull(model.getWorkReports());
+        model.setWorkReports(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getWorkReports());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.workReports(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setWorkReports(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -109,7 +188,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void supplierOrdersTest() {
-        // TODO: test supplierOrders
+        assertNull(model.getSupplierOrders());
+        model.setSupplierOrders(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getSupplierOrders());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.supplierOrders(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setSupplierOrders(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
     /**
@@ -117,7 +203,14 @@ public class PermissionsFicIssuedDocumentsDetailedTest {
      */
     @Test
     public void selfInvoicesTest() {
-        // TODO: test selfInvoices
+        assertNull(model.getSelfInvoices());
+        model.setSelfInvoices(PermissionLevel.READ);
+        assertEquals(PermissionLevel.READ, model.getSelfInvoices());
+
+        PermissionsFicIssuedDocumentsDetailed p = model.selfInvoices(PermissionLevel.WRITE);
+        PermissionsFicIssuedDocumentsDetailed expected = new PermissionsFicIssuedDocumentsDetailed();
+        expected.setSelfInvoices(PermissionLevel.WRITE);
+        assertEquals(expected, p);
     }
 
 }

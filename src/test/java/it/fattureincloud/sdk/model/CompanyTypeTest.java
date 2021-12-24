@@ -13,9 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +30,27 @@ public class CompanyTypeTest {
      */
     @Test
     public void testCompanyType() {
-        // TODO: test CompanyType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"company\"", gson.toJson(CompanyType.COMPANY));
+        assertEquals("\"accountant\"", gson.toJson(CompanyType.ACCOUNTANT));
+
+        assertEquals(CompanyType.COMPANY, gson.fromJson("\"company\"", CompanyType.class));
+        assertEquals(CompanyType.ACCOUNTANT, gson.fromJson("\"accountant\"", CompanyType.class));
+
+        assertEquals("company", CompanyType.COMPANY.getValue());
+        assertEquals("accountant", CompanyType.ACCOUNTANT.getValue());
+
+        assertEquals("company", CompanyType.COMPANY.toString());
+        assertEquals("accountant", CompanyType.ACCOUNTANT.toString());
+
+        assertEquals(CompanyType.COMPANY, CompanyType.fromValue("company"));
+        assertEquals(CompanyType.ACCOUNTANT, CompanyType.fromValue("accountant"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CompanyType.fromValue("Evil Joshua");
+        });
     }
 
 }
