@@ -13,236 +13,449 @@
 
 package it.fattureincloud.sdk.api;
 
+import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.model.CreatePaymentAccountRequest;
-import it.fattureincloud.sdk.model.CreatePaymentAccountResponse;
-import it.fattureincloud.sdk.model.CreatePaymentMethodRequest;
-import it.fattureincloud.sdk.model.CreatePaymentMethodResponse;
-import it.fattureincloud.sdk.model.CreateVatTypeRequest;
-import it.fattureincloud.sdk.model.CreateVatTypeResponse;
-import it.fattureincloud.sdk.model.GetPaymentAccountResponse;
-import it.fattureincloud.sdk.model.GetPaymentMethodResponse;
-import it.fattureincloud.sdk.model.GetVatTypeResponse;
-import it.fattureincloud.sdk.model.ModifyPaymentAccountRequest;
-import it.fattureincloud.sdk.model.ModifyPaymentAccountResponse;
-import it.fattureincloud.sdk.model.ModifyPaymentMethodRequest;
-import it.fattureincloud.sdk.model.ModifyPaymentMethodResponse;
-import it.fattureincloud.sdk.model.ModifyVatTypeRequest;
-import it.fattureincloud.sdk.model.ModifyVatTypeResponse;
-import org.junit.jupiter.api.Disabled;
+import it.fattureincloud.sdk.model.*;
+import okhttp3.*;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * API tests for SettingsApi
  */
-@Disabled
 public class SettingsApiTest {
 
-    private final SettingsApi api = new SettingsApi();
+    private static SettingsApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
+        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-    
+        Response.Builder builder = new Response.Builder()
+                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("");
+        if (serializedBody != null) {
+            builder = builder.body(
+                    ResponseBody.create(
+                            serializedBody,
+                            MediaType.parse("application/json")
+                    ));
+        }
+
+        final Response response = builder.build();
+
+        Mockito.when(remoteCall.execute()).thenReturn(response);
+        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
+
+        ApiClient client = new ApiClient(okHttpClient);
+
+        return new SettingsApi(client);
+    }
+
+
     /**
      * Create Payment Account
-     *
+     * <p>
      * Creates a new payment account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void createPaymentAccountTest() throws ApiException {
-        Integer companyId = null;
-        CreatePaymentAccountRequest createPaymentAccountRequest = null;
-                CreatePaymentAccountResponse response = api.createPaymentAccount(companyId, createPaymentAccountRequest);
-        // TODO: test validations
+    public void createPaymentAccountTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+
+        PaymentAccount paymentAccount = new PaymentAccount()
+                .id(221)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount expected = paymentAccount
+                .id(21);
+
+        CreatePaymentAccountRequest createPaymentAccountRequest = new CreatePaymentAccountRequest().data(paymentAccount);
+
+        CreatePaymentAccountResponse response = api.createPaymentAccount(companyId, createPaymentAccountRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Create Payment Method
-     *
+     * <p>
      * Creates a new payment method.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void createPaymentMethodTest() throws ApiException {
-        Integer companyId = null;
-        CreatePaymentMethodRequest createPaymentMethodRequest = null;
-                CreatePaymentMethodResponse response = api.createPaymentMethod(companyId, createPaymentMethodRequest);
-        // TODO: test validations
+    public void createPaymentMethodTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12346,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+
+        PaymentMethod paymentMethod = new PaymentMethod()
+                .id(1)
+                .name("Bonifico sbancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+
+        PaymentMethod expected = paymentMethod
+                .id(12346)
+                .name("Bonifico bancario");
+
+        CreatePaymentMethodRequest createPaymentMethodRequest = new CreatePaymentMethodRequest().data(paymentMethod);
+
+        CreatePaymentMethodResponse response = api.createPaymentMethod(companyId, createPaymentMethodRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Create Vat Type
-     *
+     * <p>
      * Creates a vat type.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void createVatTypeTest() throws ApiException {
-        Integer companyId = null;
-        CreateVatTypeRequest createVatTypeRequest = null;
-                CreateVatTypeResponse response = api.createVatType(companyId, createVatTypeRequest);
-        // TODO: test validations
+    public void createVatTypeTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+
+        VatType vatType = new VatType()
+                .id(1)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non disimponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+
+        VatType expected = vatType
+                .id(0)
+                .notes("IVA non imponibile");
+
+        CreateVatTypeRequest createVatTypeRequest = new CreateVatTypeRequest().data(vatType);
+
+        CreateVatTypeResponse response = api.createVatType(companyId, createVatTypeRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Delete Payment Account
-     *
+     * <p>
      * Deletes the specified payment account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void deletePaymentAccountTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentAccountId = null;
-                api.deletePaymentAccount(companyId, paymentAccountId);
-        // TODO: test validations
+    public void deletePaymentAccountTest() throws ApiException, IOException {
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(null, mockCall);
+
+        Integer companyId = 11111;
+        Integer paymentAccountId = 16451;
+        api.deletePaymentAccount(companyId, paymentAccountId);
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Delete Payment Method
-     *
+     * <p>
      * Deletes the specified payment method.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void deletePaymentMethodTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentMethodId = null;
-                api.deletePaymentMethod(companyId, paymentMethodId);
-        // TODO: test validations
+    public void deletePaymentMethodTest() throws ApiException, IOException {
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(null, mockCall);
+
+        Integer companyId = 11111;
+        Integer paymentMethodId = 16451;
+        api.deletePaymentMethod(companyId, paymentMethodId);
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Delete Vat Type
-     *
+     * <p>
      * Deletes the specified vat type.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void deleteVatTypeTest() throws ApiException {
-        Integer companyId = null;
-        Integer vatTypeId = null;
-                api.deleteVatType(companyId, vatTypeId);
-        // TODO: test validations
+    public void deleteVatTypeTest() throws ApiException, IOException {
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(null, mockCall);
+
+        Integer companyId = 11111;
+        Integer vatTypeId = 16451;
+        api.deleteVatType(companyId, vatTypeId);
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Get Payment Account
-     *
+     * <p>
      * Gets the specified payment account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPaymentAccountTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentAccountId = null;
+    public void getPaymentAccountTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer paymentAccountId = 16451;
         String fields = null;
         String fieldset = null;
-                GetPaymentAccountResponse response = api.getPaymentAccount(companyId, paymentAccountId, fields, fieldset);
-        // TODO: test validations
+
+        PaymentAccount expected = new PaymentAccount()
+                .id(21)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        GetPaymentAccountResponse response = api.getPaymentAccount(companyId, paymentAccountId, fields, fieldset);
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Get Payment Method
-     *
+     * <p>
      * Gets the specified payment method.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPaymentMethodTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentMethodId = null;
+    public void getPaymentMethodTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12346,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer paymentMethodId = 16451;
         String fields = null;
         String fieldset = null;
-                GetPaymentMethodResponse response = api.getPaymentMethod(companyId, paymentMethodId, fields, fieldset);
-        // TODO: test validations
+
+        PaymentMethod expected = new PaymentMethod()
+                .id(12346)
+                .name("Bonifico bancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+
+        GetPaymentMethodResponse response = api.getPaymentMethod(companyId, paymentMethodId, fields, fieldset);
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Get Vat Type
-     *
+     * <p>
      * Gets the specified vat type.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void getVatTypeTest() throws ApiException {
-        Integer companyId = null;
-        Integer vatTypeId = null;
-                GetVatTypeResponse response = api.getVatType(companyId, vatTypeId);
-        // TODO: test validations
+    public void getVatTypeTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer vatTypeId = 16451;
+        VatType expected = new VatType()
+                .id(0)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non imponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+
+        GetVatTypeResponse response = api.getVatType(companyId, vatTypeId);
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Modify Payment Account
-     *
+     * <p>
      * Modifies the specified payment account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void modifyPaymentAccountTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentAccountId = null;
-        ModifyPaymentAccountRequest modifyPaymentAccountRequest = null;
-                ModifyPaymentAccountResponse response = api.modifyPaymentAccount(companyId, paymentAccountId, modifyPaymentAccountRequest);
-        // TODO: test validations
+    public void modifyPaymentAccountTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+        Integer paymentAccountId = 2;
+
+        PaymentAccount paymentAccount = new PaymentAccount()
+                .id(221)
+                .name("Indesa - Carta conto")
+                .type(PaymentAccountType.STANDARD)
+                .iban("IT84Y0300203280294126225888")
+                .sia("sai")
+                .cuc("cuc")
+                .virtual(false);
+
+        PaymentAccount expected = paymentAccount
+                .id(21);
+
+        ModifyPaymentAccountRequest modifyPaymentAccountRequest = new ModifyPaymentAccountRequest().data(paymentAccount);
+
+        ModifyPaymentAccountResponse response = api.modifyPaymentAccount(companyId, paymentAccountId, modifyPaymentAccountRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Modify Payment Method
-     *
+     * <p>
      * Modifies the specified payment method.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void modifyPaymentMethodTest() throws ApiException {
-        Integer companyId = null;
-        Integer paymentMethodId = null;
-        ModifyPaymentMethodRequest modifyPaymentMethodRequest = null;
-                ModifyPaymentMethodResponse response = api.modifyPaymentMethod(companyId, paymentMethodId, modifyPaymentMethodRequest);
-        // TODO: test validations
+    public void modifyPaymentMethodTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12346,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+        Integer paymentMethodId = 2;
+
+        PaymentMethod paymentMethod = new PaymentMethod()
+                .id(1)
+                .name("Bonifico sbancario")
+                .type(PaymentMethodType.STANDARD)
+                .isDefault(true)
+                .details(Arrays.asList(new PaymentMethodDetails()
+                        .title("t1")
+                ))
+                .defaultPaymentAccount(new PaymentAccount()
+                        .id(21)
+                        .name("n1")
+                )
+                .bankIban("IT62W0300203280486429468578")
+                .bankName("Indesa")
+                .bankBeneficiary("mamma")
+                .eiPaymentMethod("2");
+
+        PaymentMethod expected = paymentMethod
+                .id(12346)
+                .name("Bonifico bancario");
+
+        ModifyPaymentMethodRequest modifyPaymentMethodRequest = new ModifyPaymentMethodRequest().data(paymentMethod);
+
+        ModifyPaymentMethodResponse response = api.modifyPaymentMethod(companyId, paymentMethodId, modifyPaymentMethodRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Modify Vat Type
-     *
+     * <p>
      * Modifies the specified vat type.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void modifyVatTypeTest() throws ApiException {
-        Integer companyId = null;
-        Integer vatTypeId = null;
-        ModifyVatTypeRequest modifyVatTypeRequest = null;
-                ModifyVatTypeResponse response = api.modifyVatType(companyId, vatTypeId, modifyVatTypeRequest);
-        // TODO: test validations
+    public void modifyVatTypeTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        SettingsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+        Integer vatTypeId = 2;
+
+        VatType vatType = new VatType()
+                .id(1)
+                .value(BigDecimal.valueOf(22))
+                .description("Non imponibile art. 123")
+                .notes("IVA non disimponibile")
+                .eInvoice(true)
+                .eiType("2")
+                .eiDescription("desc")
+                .isDisabled(false);
+
+        VatType expected = vatType
+                .id(0)
+                .notes("IVA non imponibile");
+
+        ModifyVatTypeRequest modifyVatTypeRequest = new ModifyVatTypeRequest().data(vatType);
+
+        ModifyVatTypeResponse response = api.modifyVatType(companyId, vatTypeId, modifyVatTypeRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
 }
