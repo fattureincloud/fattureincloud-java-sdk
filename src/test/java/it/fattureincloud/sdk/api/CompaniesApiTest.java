@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class CompaniesApiTest {
 
-    private CompaniesApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
+    private static CompaniesApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
         final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
         Response.Builder builder = new Response.Builder()

@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class CashbookApiTest {
 
-    private CashbookApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
+    private static CashbookApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
         final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
         Response.Builder builder = new Response.Builder()
