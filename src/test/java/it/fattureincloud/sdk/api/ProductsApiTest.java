@@ -17,7 +17,6 @@ import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
 import okhttp3.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -31,7 +30,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * API tests for ProductsApi
  */
-@Disabled
 public class ProductsApiTest {
 
     private static ProductsApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
