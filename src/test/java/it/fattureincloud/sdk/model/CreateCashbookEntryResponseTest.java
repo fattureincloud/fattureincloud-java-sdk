@@ -13,31 +13,80 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.CashbookEntryInOut;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for CreateCashbookEntryResponse
  */
 public class CreateCashbookEntryResponseTest {
-    private final CreateCashbookEntryResponse model = new CreateCashbookEntryResponse();
+    private CreateCashbookEntryResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new CreateCashbookEntryResponse()
+                .data(
+                        new CashbookEntryInOut()
+                                .id("1")
+                                .date(LocalDate.parse("2021-12-19"))
+                                .description("Fattura n. 201/2021")
+                                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+                                .type(CashbookEntryType.IN)
+                                .entityName("Rossi S.r.l.")
+                                .document(new CashbookEntryDataDocument()
+                                        .id(12345)
+                                        .type("issued_document")
+                                        .path("/doc1.pdf")
+                                )
+                                .amountIn(BigDecimal.valueOf(10))
+                                .paymentAccountIn(new PaymentAccount()
+                                        .id(21)
+                                        .name("Indesa - Carta conto")
+                                        .type(PaymentAccountType.STANDARD)
+                                        .iban("IT84Y0300203280294126225888")
+                                        .sia("sai")
+                                        .cuc("cuc")
+                                        .virtual(false)
+                                )
+                                .amountOut(BigDecimal.valueOf(10))
+                                .paymentAccountOut(new PaymentAccount()
+                                        .id(21)
+                                        .name("Indesa - Carta conto")
+                                        .type(PaymentAccountType.STANDARD)
+                                        .iban("IT84Y0300203280294126225888")
+                                        .sia("sai")
+                                        .cuc("cuc")
+                                        .virtual(false)
+                                )
+                );
+    }
 
     /**
      * Model tests for CreateCashbookEntryResponse
      */
     @Test
     public void testCreateCashbookEntryResponse() {
-        // TODO: test CreateCashbookEntryResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
+        assertEquals(str, json);
+        CreateCashbookEntryResponse generated = gson.fromJson(str, CreateCashbookEntryResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +94,14 @@ public class CreateCashbookEntryResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("1", model.getData().getId());
+        model.setData(new CashbookEntryInOut().id("2"));
+        assertEquals("2", model.getData().getId());
+
+        model.data(new CashbookEntryInOut().id("1"));
+        CreateCashbookEntryResponse actual = new CreateCashbookEntryResponse();
+        actual.setData(new CashbookEntryInOut().id("1"));
+        assertEquals(model, actual);
     }
 
 }
