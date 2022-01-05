@@ -13,31 +13,47 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VerifyEInvoiceXmlResponseData;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for VerifyEInvoiceXmlResponse
  */
 public class VerifyEInvoiceXmlResponseTest {
-    private final VerifyEInvoiceXmlResponse model = new VerifyEInvoiceXmlResponse();
+    private VerifyEInvoiceXmlResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new VerifyEInvoiceXmlResponse()
+                .data(
+                        new VerifyEInvoiceXmlResponseData()
+                                .success(true)
+                );
+    }
 
     /**
      * Model tests for VerifyEInvoiceXmlResponse
      */
     @Test
     public void testVerifyEInvoiceXmlResponse() {
-        // TODO: test VerifyEInvoiceXmlResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"success\":true}}";
+        assertEquals(str, json);
+        VerifyEInvoiceXmlResponse generated = gson.fromJson(str, VerifyEInvoiceXmlResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +61,14 @@ public class VerifyEInvoiceXmlResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(true, model.getData().getSuccess());
+        model.setData(new VerifyEInvoiceXmlResponseData().success(false));
+        assertEquals(false, model.getData().getSuccess());
+
+        model.data(new VerifyEInvoiceXmlResponseData().success(true));
+        VerifyEInvoiceXmlResponse actual = new VerifyEInvoiceXmlResponse();
+        actual.setData(new VerifyEInvoiceXmlResponseData().success(true));
+        assertEquals(model, actual);
     }
 
 }

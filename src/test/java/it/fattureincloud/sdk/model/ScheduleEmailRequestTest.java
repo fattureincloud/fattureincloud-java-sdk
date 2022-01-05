@@ -13,31 +13,61 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.EmailSchedule;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ScheduleEmailRequest
  */
 public class ScheduleEmailRequestTest {
-    private final ScheduleEmailRequest model = new ScheduleEmailRequest();
+    private ScheduleEmailRequest model;
+
+    @BeforeEach
+    public void init() {
+        model = new ScheduleEmailRequest()
+                .data(
+                        new EmailSchedule()
+                                .senderEmail("mariorossi@fattureincloud.it")
+                                .senderId(BigDecimal.valueOf(12345))
+                                .recipientEmail("mary.red@example.com")
+                                .subject("Nostra pro forma nr. 1")
+                                .body("Pro forma body")
+                                .attachPdf(true)
+                                .include(new EmailScheduleInclude()
+                                        .document(false)
+                                        .deliveryNote(false)
+                                        .attachment(false)
+                                        .accompanyingInvoice(false)
+                                )
+                                .sendCopy(false)
+                );
+    }
 
     /**
      * Model tests for ScheduleEmailRequest
      */
     @Test
     public void testScheduleEmailRequest() {
-        // TODO: test ScheduleEmailRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"sender_id\":12345,\"sender_email\":\"mariorossi@fattureincloud.it\",\"recipient_email\":\"mary.red@example.com\",\"subject\":\"Nostra pro forma nr. 1\",\"body\":\"Pro forma body\",\"include\":{\"document\":false,\"delivery_note\":false,\"attachment\":false,\"accompanying_invoice\":false},\"attach_pdf\":true,\"send_copy\":false}}";
+        assertEquals(str, json);
+        ScheduleEmailRequest generated = gson.fromJson(str, ScheduleEmailRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +75,14 @@ public class ScheduleEmailRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(BigDecimal.valueOf(12345), model.getData().getSenderId());
+        model.setData(new EmailSchedule().senderId(BigDecimal.valueOf(2)));
+        assertEquals(BigDecimal.valueOf(2), model.getData().getSenderId());
+
+        model.data(new EmailSchedule().senderId(BigDecimal.valueOf(12345)));
+        ScheduleEmailRequest actual = new ScheduleEmailRequest();
+        actual.setData(new EmailSchedule().senderId(BigDecimal.valueOf(12345)));
+        assertEquals(model, actual);
     }
 
 }
