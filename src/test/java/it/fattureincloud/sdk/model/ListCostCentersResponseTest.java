@@ -13,32 +13,46 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListCostCentersResponse
  */
 public class ListCostCentersResponseTest {
-    private final ListCostCentersResponse model = new ListCostCentersResponse();
+    private ListCostCentersResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListCostCentersResponse()
+                .addDataItem("bg");
+    }
 
     /**
      * Model tests for ListCostCentersResponse
      */
     @Test
     public void testListCostCentersResponse() {
-        // TODO: test ListCostCentersResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[\"bg\"]}";
+        assertEquals(str, json);
+        ListCostCentersResponse generated = gson.fromJson(str, ListCostCentersResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +60,14 @@ public class ListCostCentersResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("bg", model.getData().get(0));
+        model.setData(Arrays.asList("mi"));
+        assertEquals("mi", model.getData().get(0));
+
+        model.data(Arrays.asList("bg"));
+        ListCostCentersResponse actual = new ListCostCentersResponse();
+        actual.setData(Arrays.asList("bg"));
+        assertEquals(model, actual);
     }
 
 }

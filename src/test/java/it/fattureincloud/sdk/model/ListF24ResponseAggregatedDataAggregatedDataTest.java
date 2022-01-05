@@ -13,31 +13,46 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListF24ResponseAggregatedDataAggregatedData
  */
 public class ListF24ResponseAggregatedDataAggregatedDataTest {
-    private final ListF24ResponseAggregatedDataAggregatedData model = new ListF24ResponseAggregatedDataAggregatedData();
+    private ListF24ResponseAggregatedDataAggregatedData model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListF24ResponseAggregatedDataAggregatedData()
+                .amount(new BigDecimal(10));
+    }
 
     /**
      * Model tests for ListF24ResponseAggregatedDataAggregatedData
      */
     @Test
     public void testListF24ResponseAggregatedDataAggregatedData() {
-        // TODO: test ListF24ResponseAggregatedDataAggregatedData
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"amount\":10}";
+        assertEquals(str, json);
+        ListF24ResponseAggregatedDataAggregatedData generated = gson.fromJson(str, ListF24ResponseAggregatedDataAggregatedData.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +60,14 @@ public class ListF24ResponseAggregatedDataAggregatedDataTest {
      */
     @Test
     public void amountTest() {
-        // TODO: test amount
+        assertEquals(new BigDecimal(10), model.getAmount());
+        model.setAmount(new BigDecimal(130));
+        assertEquals(new BigDecimal(130), model.getAmount());
+
+        ListF24ResponseAggregatedDataAggregatedData i = model;
+        ListF24ResponseAggregatedDataAggregatedData expected = new ListF24ResponseAggregatedDataAggregatedData()
+                .amount(new BigDecimal(130));
+        assertEquals(expected, model);
     }
 
 }
