@@ -13,10 +13,15 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
@@ -41,7 +46,18 @@ public class CreateArchiveDocumentRequestTest {
      */
     @Test
     public void testCreateArchiveDocumentRequest() {
-        // TODO: test CreateArchiveDocumentRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}}";
+        assertEquals(str, json);
+        CreateArchiveDocumentRequest generated = gson.fromJson(str, CreateArchiveDocumentRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -49,7 +65,14 @@ public class CreateArchiveDocumentRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new ArchiveDocument().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new ArchiveDocument().id(2));
+        CreateArchiveDocumentRequest actual = new CreateArchiveDocumentRequest();
+        actual.setData(new ArchiveDocument().id(2));
+        assertEquals(model, actual);
     }
 
 }

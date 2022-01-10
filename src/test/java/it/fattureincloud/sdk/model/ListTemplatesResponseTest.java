@@ -13,33 +13,51 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.DocumentTemplate;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListTemplatesResponse
  */
 public class ListTemplatesResponseTest {
-    private final ListTemplatesResponse model = new ListTemplatesResponse();
+    private ListTemplatesResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListTemplatesResponse()
+                .addDataItem(
+                        new DocumentTemplate()
+                                .id(12345)
+                                .name("New Standard S1")
+                                .type("Tipo 1")
+                );
+    }
 
     /**
      * Model tests for ListTemplatesResponse
      */
     @Test
     public void testListTemplatesResponse() {
-        // TODO: test ListTemplatesResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[{\"id\":12345,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}]}";
+        assertEquals(str, json);
+        ListTemplatesResponse generated = gson.fromJson(str, ListTemplatesResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +65,14 @@ public class ListTemplatesResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().get(0).getId());
+        model.setData(Arrays.asList(new DocumentTemplate().id(1)));
+        assertEquals(1, model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new DocumentTemplate().id(2)));
+        ListTemplatesResponse actual = new ListTemplatesResponse();
+        actual.setData(Arrays.asList(new DocumentTemplate().id(2)));
+        assertEquals(model, actual);
     }
 
 }

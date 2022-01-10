@@ -13,31 +13,51 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ArchiveDocument;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetArchiveDocumentResponse
  */
 public class GetArchiveDocumentResponseTest {
-    private final GetArchiveDocumentResponse model = new GetArchiveDocumentResponse();
+    private GetArchiveDocumentResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetArchiveDocumentResponse()
+                .data(new ArchiveDocument()
+                        .id(12345)
+                        .date(LocalDate.parse("2021-08-20"))
+                        .category("Altri documenti")
+                        .description("spesa 2")
+                        .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we"));
+    }
 
     /**
      * Model tests for GetArchiveDocumentResponse
      */
     @Test
     public void testGetArchiveDocumentResponse() {
-        // TODO: test GetArchiveDocumentResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}}";
+        assertEquals(str, json);
+        GetArchiveDocumentResponse generated = gson.fromJson(str, GetArchiveDocumentResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +65,14 @@ public class GetArchiveDocumentResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new ArchiveDocument().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new ArchiveDocument().id(2));
+        GetArchiveDocumentResponse actual = new GetArchiveDocumentResponse();
+        actual.setData(new ArchiveDocument().id(2));
+        assertEquals(model, actual);
     }
 
 }

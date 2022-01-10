@@ -48,9 +48,6 @@ public class CashbookEntryTypeTest {
         assertEquals(CashbookEntryType.IN, CashbookEntryType.fromValue("in"));
         assertEquals(CashbookEntryType.OUT, CashbookEntryType.fromValue("out"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CashbookEntryType.fromValue("Evil Joshua");
-        });
     }
 
 }

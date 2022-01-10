@@ -13,31 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for MonthlyTotal
  */
 public class MonthlyTotalTest {
-    private final MonthlyTotal model = new MonthlyTotal();
+    private MonthlyTotal model;
+
+    @BeforeEach
+    public void init() {
+        model = new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10));
+    }
 
     /**
      * Model tests for MonthlyTotal
      */
     @Test
     public void testMonthlyTotal() {
-        // TODO: test MonthlyTotal
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"net\":10,\"gross\":10,\"count\":10}";
+        assertEquals(str, json);
+        MonthlyTotal generated = gson.fromJson(str, MonthlyTotal.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +62,17 @@ public class MonthlyTotalTest {
      */
     @Test
     public void netTest() {
-        // TODO: test net
+        assertEquals(BigDecimal.valueOf(10), model.getNet());
+        model.setNet(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getNet());
+
+        MonthlyTotal i = model.net(BigDecimal.valueOf(10));
+        MonthlyTotal expected = new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10));
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -53,7 +80,17 @@ public class MonthlyTotalTest {
      */
     @Test
     public void grossTest() {
-        // TODO: test gross
+        assertEquals(BigDecimal.valueOf(10), model.getGross());
+        model.setGross(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getGross());
+
+        MonthlyTotal i = model.gross(BigDecimal.valueOf(10));
+        MonthlyTotal expected = new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10));
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -61,7 +98,17 @@ public class MonthlyTotalTest {
      */
     @Test
     public void countTest() {
-        // TODO: test count
+        assertEquals(BigDecimal.valueOf(10), model.getCount());
+        model.setCount(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getCount());
+
+        MonthlyTotal i = model.count(BigDecimal.valueOf(10));
+        MonthlyTotal expected = new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10));
+
+        assertEquals(expected, i);
     }
 
 }

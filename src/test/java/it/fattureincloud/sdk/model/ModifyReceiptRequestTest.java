@@ -13,31 +13,64 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Receipt;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ModifyReceiptRequest
  */
 public class ModifyReceiptRequestTest {
-    private final ModifyReceiptRequest model = new ModifyReceiptRequest();
+    private ModifyReceiptRequest model;
+
+    @BeforeEach
+    public void init() {
+        model = new ModifyReceiptRequest()
+                .data(
+                        new Receipt()
+                                .id(12345)
+                                .date(LocalDate.of(2021, 12, 25))
+                                .number(BigDecimal.valueOf(10))
+                                .numeration("num")
+                                .amountNet(BigDecimal.valueOf(10))
+                                .amountVat(BigDecimal.valueOf(10))
+                                .amountGross(BigDecimal.valueOf(10))
+                                .useGrossPrices(true)
+                                .type(ReceiptType.TILL_RECEIPT)
+                                .description("descr")
+                                .rcCenter("bg")
+                                .createdAt("2021-10-10")
+                                .updatedAt("2021-10-10")
+                                .paymentAccount(new PaymentAccount().id(1))
+                                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)))
+                );
+    }
 
     /**
      * Model tests for ModifyReceiptRequest
      */
     @Test
     public void testModifyReceiptRequest() {
-        // TODO: test ModifyReceiptRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"date\":\"2021-12-25\",\"number\":10,\"numeration\":\"num\",\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"use_gross_prices\":true,\"type\":\"till_receipt\",\"description\":\"descr\",\"rc_center\":\"bg\",\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\",\"payment_account\":{\"id\":1,\"type\":\"standard\"},\"items_list\":[{\"id\":1}]}}";
+        assertEquals(str, json);
+        ModifyReceiptRequest generated = gson.fromJson(str, ModifyReceiptRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +78,14 @@ public class ModifyReceiptRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new Receipt().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new Receipt().id(2));
+        ModifyReceiptRequest actual = new ModifyReceiptRequest();
+        actual.setData(new Receipt().id(2));
+        assertEquals(model, actual);
     }
 
 }

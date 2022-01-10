@@ -13,38 +13,66 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ArchiveDocument;
-import it.fattureincloud.sdk.model.ListArchiveDocumentsResponsePage;
-import it.fattureincloud.sdk.model.Pagination;
-
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import java.net.URI;
+import java.time.LocalDate;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListArchiveDocumentsResponse
  */
 public class ListArchiveDocumentsResponseTest {
-    private final ListArchiveDocumentsResponse model = new ListArchiveDocumentsResponse();
+    private ListArchiveDocumentsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListArchiveDocumentsResponse()
+                .addDataItem(
+                        new ArchiveDocument()
+                                .id(12345)
+                                .date(LocalDate.parse("2021-08-20"))
+                                .category("Altri documenti")
+                                .description("spesa 2")
+                                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we")
+                )
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+    }
 
     /**
      * Model tests for ListArchiveDocumentsResponse
      */
     @Test
     public void testListArchiveDocumentsResponse() {
-        // TODO: test ListArchiveDocumentsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}]}";
+        assertEquals(str, json);
+        ListArchiveDocumentsResponse generated = gson.fromJson(str, ListArchiveDocumentsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -52,7 +80,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void currentPageTest() {
-        // TODO: test currentPage
+        assertEquals(10, model.getCurrentPage());
+        model.setCurrentPage(1);
+        assertEquals(1, model.getCurrentPage());
     }
 
     /**
@@ -60,7 +90,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void firstPageUrlTest() {
-        // TODO: test firstPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
+        model.setFirstPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
     }
 
     /**
@@ -68,7 +100,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void fromTest() {
-        // TODO: test from
+        assertEquals(10, model.getFrom());
+        model.setFrom(1);
+        assertEquals(1, model.getFrom());
     }
 
     /**
@@ -76,7 +110,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void lastPageTest() {
-        // TODO: test lastPage
+        assertEquals(10, model.getLastPage());
+        model.setLastPage(1);
+        assertEquals(1, model.getLastPage());
     }
 
     /**
@@ -84,7 +120,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void lastPageUrlTest() {
-        // TODO: test lastPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
+        model.setLastPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
     }
 
     /**
@@ -92,7 +130,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void nextPageUrlTest() {
-        // TODO: test nextPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
+        model.setNextPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
     }
 
     /**
@@ -100,7 +140,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void pathTest() {
-        // TODO: test path
+        assertEquals(URI.create("https://www.page.url/"), model.getPath());
+        model.setPath(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPath());
     }
 
     /**
@@ -108,7 +150,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void perPageTest() {
-        // TODO: test perPage
+        assertEquals(10, model.getPerPage());
+        model.setPerPage(1);
+        assertEquals(1, model.getPerPage());
     }
 
     /**
@@ -116,7 +160,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void prevPageUrlTest() {
-        // TODO: test prevPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
+        model.setPrevPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
     }
 
     /**
@@ -124,7 +170,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void toTest() {
-        // TODO: test to
+        assertEquals(10, model.getTo());
+        model.setTo(1);
+        assertEquals(1, model.getTo());
     }
 
     /**
@@ -132,7 +180,9 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void totalTest() {
-        // TODO: test total
+        assertEquals(10, model.getTotal());
+        model.setTotal(1);
+        assertEquals(1, model.getTotal());
     }
 
     /**
@@ -140,7 +190,25 @@ public class ListArchiveDocumentsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().get(0).getId());
+        model.setData(Arrays.asList(new ArchiveDocument().id(1)));
+        assertEquals(1, model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new ArchiveDocument().id(2)));
+        ListArchiveDocumentsResponse actual = new ListArchiveDocumentsResponse();
+        actual.setData(Arrays.asList(new ArchiveDocument().id(2)));
+        actual.currentPage(10)
+            .firstPageUrl(URI.create("https://www.page.url/"))
+            .from(10)
+            .lastPage(10)
+            .lastPageUrl(URI.create("https://www.page.url/"))
+            .nextPageUrl(URI.create("https://www.page.url/"))
+            .path(URI.create("https://www.page.url/"))
+            .perPage(10)
+            .prevPageUrl(URI.create("https://www.page.url/"))
+            .to(10)
+            .total(10);
+        assertEquals(model, actual);
     }
 
 }

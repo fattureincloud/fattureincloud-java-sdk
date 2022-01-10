@@ -13,9 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +29,29 @@ public class VatKindTest {
      */
     @Test
     public void testVatKind() {
-        // TODO: test VatKind
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"I\"", gson.toJson(VatKind.I));
+        assertEquals("\"D\"", gson.toJson(VatKind.D));
+        assertEquals("\"S\"", gson.toJson(VatKind.S));
+
+        assertEquals(VatKind.I, gson.fromJson("\"I\"", VatKind.class));
+        assertEquals(VatKind.D, gson.fromJson("\"D\"", VatKind.class));
+        assertEquals(VatKind.S, gson.fromJson("\"S\"", VatKind.class));
+
+        assertEquals("I", VatKind.I.getValue());
+        assertEquals("D", VatKind.D.getValue());
+        assertEquals("S", VatKind.S.getValue());
+
+        assertEquals("I", VatKind.I.toString());
+        assertEquals("D", VatKind.D.toString());
+        assertEquals("S", VatKind.S.toString());
+
+        assertEquals(VatKind.I, VatKind.fromValue("I"));
+        assertEquals(VatKind.D, VatKind.fromValue("D"));
+        assertEquals(VatKind.S, VatKind.fromValue("S"));
+
     }
 
 }

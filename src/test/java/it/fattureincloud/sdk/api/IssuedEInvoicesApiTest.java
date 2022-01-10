@@ -13,59 +13,107 @@
 
 package it.fattureincloud.sdk.api;
 
+import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.model.SendEInvoiceRequest;
-import it.fattureincloud.sdk.model.SendEInvoiceResponse;
-import it.fattureincloud.sdk.model.VerifyEInvoiceXmlErrorResponse;
-import it.fattureincloud.sdk.model.VerifyEInvoiceXmlResponse;
-import org.junit.jupiter.api.Disabled;
+import it.fattureincloud.sdk.model.*;
+import okhttp3.*;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * API tests for IssuedEInvoicesApi
  */
-@Disabled
 public class IssuedEInvoicesApiTest {
 
-    private final IssuedEInvoicesApi api = new IssuedEInvoicesApi();
+    private static IssuedEInvoicesApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
+        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-    
+        Response.Builder builder = new Response.Builder()
+                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("");
+        if (serializedBody != null) {
+            builder = builder.body(
+                    ResponseBody.create(
+                            serializedBody,
+                            MediaType.parse("application/json")
+                    ));
+        }
+
+        final Response response = builder.build();
+
+        Mockito.when(remoteCall.execute()).thenReturn(response);
+        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
+
+        ApiClient client = new ApiClient(okHttpClient);
+
+        return new IssuedEInvoicesApi(client);
+    }
+
+
     /**
      * Send the e-invoice
-     *
+     * <p>
      * Sends the e-invoice to SDI.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void sendEInvoiceTest() throws ApiException {
-        Integer companyId = null;
-        Integer documentId = null;
-        SendEInvoiceRequest sendEInvoiceRequest = null;
-                SendEInvoiceResponse response = api.sendEInvoice(companyId, documentId, sendEInvoiceRequest);
-        // TODO: test validations
+    public void sendEInvoiceTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"name\":\"neim\",\"date\":\"2021-12-31\"}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        IssuedEInvoicesApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer documentId = 12345;
+
+        SendEInvoiceRequestData sendEInvoiceRequestData = new SendEInvoiceRequestData()
+                .cassaType("cassa taip")
+                .withholdingTaxCausal("scausal");
+
+        SendEInvoiceResponseData expected = new SendEInvoiceResponseData()
+                .name("neim")
+                .date("2021-12-31");
+
+        SendEInvoiceRequest sendEInvoiceRequest = new SendEInvoiceRequest().data(sendEInvoiceRequestData);
+
+        SendEInvoiceResponse response = api.sendEInvoice(companyId, documentId, sendEInvoiceRequest);
+
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
     /**
      * Verify e-invoice xml
-     *
+     * <p>
      * Verifies the e-invoice xml format. Checks if all of the mandatory fields are filled and compliant to the right format.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
-    public void verifyEInvoiceXmlTest() throws ApiException {
-        Integer companyId = null;
-        Integer documentId = null;
-                VerifyEInvoiceXmlResponse response = api.verifyEInvoiceXml(companyId, documentId);
-        // TODO: test validations
+    public void verifyEInvoiceXmlTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"success\":true}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        IssuedEInvoicesApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer documentId = 16451;
+
+        VerifyEInvoiceXmlResponse expected = new VerifyEInvoiceXmlResponse()
+                .data(
+                        new VerifyEInvoiceXmlResponseData().success(true)
+                );
+
+        VerifyEInvoiceXmlResponse response = api.verifyEInvoiceXml(companyId, documentId);
+        assertEquals(expected.getData(), response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
     }
-    
+
 }

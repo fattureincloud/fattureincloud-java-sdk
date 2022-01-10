@@ -13,31 +13,59 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.F24;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ModifyF24Request
  */
 public class ModifyF24RequestTest {
-    private final ModifyF24Request model = new ModifyF24Request();
+    private ModifyF24Request model;
+
+    @BeforeEach
+    public void init() {
+        model = new ModifyF24Request()
+                .data(
+                        new F24()
+                                .id(12345)
+                                .amount(BigDecimal.valueOf(840.36))
+                                .description("PAGAMENTO IVA 2021")
+                                .dueDate(LocalDate.parse("2021-12-31"))
+                                .status(F24Status.PAID)
+                                .paymentAccount(new PaymentAccount()
+                                        .id(111)
+                                        .name("Indesa - Carta conto")
+                                )
+                                .attachmentToken("Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879")
+                );
+    }
 
     /**
      * Model tests for ModifyF24Request
      */
     @Test
     public void testModifyF24Request() {
-        // TODO: test ModifyF24Request
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"due_date\":\"2021-12-31\",\"status\":\"paid\",\"payment_account\":{\"id\":111,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\"},\"amount\":840.36,\"attachment_token\":\"Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879\",\"description\":\"PAGAMENTO IVA 2021\"}}";
+        assertEquals(str, json);
+        ModifyF24Request generated = gson.fromJson(str, ModifyF24Request.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +73,14 @@ public class ModifyF24RequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new F24().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new F24().id(2));
+        ModifyF24Request actual = new ModifyF24Request();
+        actual.setData(new F24().id(2));
+        assertEquals(model, actual);
     }
 
 }
