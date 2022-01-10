@@ -13,31 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.SendEInvoiceResponseData;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for SendEInvoiceResponse
  */
 public class SendEInvoiceResponseTest {
-    private final SendEInvoiceResponse model = new SendEInvoiceResponse();
+    private SendEInvoiceResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new SendEInvoiceResponse()
+                .data(
+                        new SendEInvoiceResponseData()
+                                .name("neim")
+                                .date("2021-12-31")
+                );
+    }
 
     /**
      * Model tests for SendEInvoiceResponse
      */
     @Test
     public void testSendEInvoiceResponse() {
-        // TODO: test SendEInvoiceResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"name\":\"neim\",\"date\":\"2021-12-31\"}}";
+        assertEquals(str, json);
+        SendEInvoiceResponse generated = gson.fromJson(str, SendEInvoiceResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +62,14 @@ public class SendEInvoiceResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("neim", model.getData().getName());
+        model.setData(new SendEInvoiceResponseData().name("lausac"));
+        assertEquals("lausac", model.getData().getName());
+
+        model.data(new SendEInvoiceResponseData().name("neim"));
+        SendEInvoiceResponse actual = new SendEInvoiceResponse();
+        actual.setData(new SendEInvoiceResponseData().name("neim"));
+        assertEquals(model, actual);
     }
 
 }

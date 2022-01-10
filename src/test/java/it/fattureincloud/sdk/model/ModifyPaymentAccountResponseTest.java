@@ -13,33 +13,53 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentAccount;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ModifyPaymentAccountResponse
  */
 public class ModifyPaymentAccountResponseTest {
-    private final ModifyPaymentAccountResponse model = new ModifyPaymentAccountResponse();
+    private ModifyPaymentAccountResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ModifyPaymentAccountResponse()
+                .data(
+                        new PaymentAccount()
+                                .id(12345)
+                                .name("Indesa - Carta conto")
+                                .type(PaymentAccountType.STANDARD)
+                                .iban("IT84Y0300203280294126225888")
+                                .sia("sai")
+                                .cuc("cuc")
+                                .virtual(false)
+                );
+    }
 
     /**
      * Model tests for ModifyPaymentAccountResponse
      */
     @Test
     public void testModifyPaymentAccountResponse() {
-        // TODO: test ModifyPaymentAccountResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+        assertEquals(str, json);
+        ModifyPaymentAccountResponse generated = gson.fromJson(str, ModifyPaymentAccountResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +67,14 @@ public class ModifyPaymentAccountResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new PaymentAccount().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new PaymentAccount().id(2));
+        ModifyPaymentAccountResponse actual = new ModifyPaymentAccountResponse();
+        actual.setData(new PaymentAccount().id(2));
+        assertEquals(model, actual);
     }
 
 }

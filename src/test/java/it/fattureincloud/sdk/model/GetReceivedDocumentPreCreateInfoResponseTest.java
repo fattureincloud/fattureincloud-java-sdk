@@ -13,31 +13,55 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ReceivedDocumentInfo;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetReceivedDocumentPreCreateInfoResponse
  */
 public class GetReceivedDocumentPreCreateInfoResponseTest {
-    private final GetReceivedDocumentPreCreateInfoResponse model = new GetReceivedDocumentPreCreateInfoResponse();
+    private GetReceivedDocumentPreCreateInfoResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetReceivedDocumentPreCreateInfoResponse()
+                .data(
+                        new ReceivedDocumentInfo()
+                                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                                .addCountriesListItem("Italia")
+                                .addCurrenciesListItem(new Currency().id("EUR"))
+                                .addCategoriesListItem("cat6")
+                                .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                                .addVatTypesListItem(new VatType().id(1))
+                );
+    }
 
     /**
      * Model tests for GetReceivedDocumentPreCreateInfoResponse
      */
     @Test
     public void testGetReceivedDocumentPreCreateInfoResponse() {
-        // TODO: test GetReceivedDocumentPreCreateInfoResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}}";
+        assertEquals(str, json);
+        GetReceivedDocumentPreCreateInfoResponse generated = gson.fromJson(str, GetReceivedDocumentPreCreateInfoResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +69,9 @@ public class GetReceivedDocumentPreCreateInfoResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(Arrays.asList("Italia"), model.getData().getCountriesList());
+        model.getData().setCountriesList(Arrays.asList("Spagna", "Francia"));
+        assertEquals(Arrays.asList("Spagna", "Francia"), model.getData().getCountriesList());
     }
 
 }

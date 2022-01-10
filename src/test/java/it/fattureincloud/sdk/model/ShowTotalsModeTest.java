@@ -13,9 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +29,28 @@ public class ShowTotalsModeTest {
      */
     @Test
     public void testShowTotalsMode() {
-        // TODO: test ShowTotalsMode
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"all\"", gson.toJson(ShowTotalsMode.ALL));
+        assertEquals("\"nets\"", gson.toJson(ShowTotalsMode.NETS));
+        assertEquals("\"none\"", gson.toJson(ShowTotalsMode.NONE));
+
+        assertEquals(ShowTotalsMode.ALL, gson.fromJson("\"all\"", ShowTotalsMode.class));
+        assertEquals(ShowTotalsMode.NETS, gson.fromJson("\"nets\"", ShowTotalsMode.class));
+        assertEquals(ShowTotalsMode.NONE, gson.fromJson("\"none\"", ShowTotalsMode.class));
+
+        assertEquals("all", ShowTotalsMode.ALL.getValue());
+        assertEquals("nets", ShowTotalsMode.NETS.getValue());
+        assertEquals("none", ShowTotalsMode.NONE.getValue());
+
+        assertEquals("all", ShowTotalsMode.ALL.toString());
+        assertEquals("nets", ShowTotalsMode.NETS.toString());
+        assertEquals("none", ShowTotalsMode.NONE.toString());
+
+        assertEquals(ShowTotalsMode.ALL, ShowTotalsMode.fromValue("all"));
+        assertEquals(ShowTotalsMode.NETS, ShowTotalsMode.fromValue("nets"));
+        assertEquals(ShowTotalsMode.NONE, ShowTotalsMode.fromValue("none"));
     }
 
 }

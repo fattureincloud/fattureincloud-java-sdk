@@ -13,33 +13,52 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.MonthlyTotal;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetReceiptsMonthlyTotalsResponse
  */
 public class GetReceiptsMonthlyTotalsResponseTest {
-    private final GetReceiptsMonthlyTotalsResponse model = new GetReceiptsMonthlyTotalsResponse();
+    private GetReceiptsMonthlyTotalsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetReceiptsMonthlyTotalsResponse()
+                .addDataItem(
+                        new MonthlyTotal()
+                                .net(BigDecimal.valueOf(10))
+                                .gross(BigDecimal.valueOf(10))
+                                .count(BigDecimal.valueOf(10))
+                );
+    }
 
     /**
      * Model tests for GetReceiptsMonthlyTotalsResponse
      */
     @Test
     public void testGetReceiptsMonthlyTotalsResponse() {
-        // TODO: test GetReceiptsMonthlyTotalsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[{\"net\":10,\"gross\":10,\"count\":10}]}";
+        assertEquals(str, json);
+        GetReceiptsMonthlyTotalsResponse generated = gson.fromJson(str, GetReceiptsMonthlyTotalsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +66,14 @@ public class GetReceiptsMonthlyTotalsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(BigDecimal.valueOf(10), model.getData().get(0).getNet());
+        model.setData(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))));
+        assertEquals(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))), model.getData());
+
+        model.data(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(10)).gross(BigDecimal.valueOf(10)).count(BigDecimal.valueOf(10))));
+        GetReceiptsMonthlyTotalsResponse actual = new GetReceiptsMonthlyTotalsResponse();
+        actual.setData(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(10)).gross(BigDecimal.valueOf(10)).count(BigDecimal.valueOf(10))));
+        assertEquals(model, actual);
     }
 
 }

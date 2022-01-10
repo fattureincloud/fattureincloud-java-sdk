@@ -13,38 +13,82 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ListSuppliersResponsePage;
-import it.fattureincloud.sdk.model.Pagination;
-import it.fattureincloud.sdk.model.Supplier;
-
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import java.net.URI;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListSuppliersResponse
  */
 public class ListSuppliersResponseTest {
-    private final ListSuppliersResponse model = new ListSuppliersResponse();
+    private ListSuppliersResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListSuppliersResponse()
+                .addDataItem(
+                        new Supplier()
+                                .id(12345)
+                                .code("AE86")
+                                .name("Mario Rossi S.R.L.")
+                                .type(SupplierType.COMPANY)
+                                .firstName("Mario")
+                                .lastName("Rossi")
+                                .contactPerson("")
+                                .vatNumber("111222333")
+                                .taxCode("111122233")
+                                .addressStreet("Corso Magellano, 46")
+                                .addressPostalCode("20146")
+                                .addressCity("Milano")
+                                .addressProvince("MI")
+                                .addressExtra("")
+                                .country("Italia")
+                                .email("mario.rossi@example.com")
+                                .certifiedEmail("mario.rossi@pec.example.com")
+                                .phone("1234567890")
+                                .fax("123456789")
+                                .notes("")
+                                .createdAt("2021-15-08")
+                                .updatedAt("2021-15-08")
+                )
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+    }
 
     /**
      * Model tests for ListSuppliersResponse
      */
     @Test
     public void testListSuppliersResponse() {
-        // TODO: test ListSuppliersResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"code\":\"AE86\",\"name\":\"Mario Rossi S.R.L.\",\"type\":\"company\",\"first_name\":\"Mario\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"111222333\",\"tax_code\":\"111122233\",\"address_street\":\"Corso Magellano, 46\",\"address_postal_code\":\"20146\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"mario.rossi@example.com\",\"certified_email\":\"mario.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"123456789\",\"notes\":\"\",\"created_at\":\"2021-15-08\",\"updated_at\":\"2021-15-08\"}]}";
+        assertEquals(str, json);
+        ListSuppliersResponse generated = gson.fromJson(str, ListSuppliersResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -52,7 +96,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void currentPageTest() {
-        // TODO: test currentPage
+        assertEquals(10, model.getCurrentPage());
+        model.setCurrentPage(1);
+        assertEquals(1, model.getCurrentPage());
     }
 
     /**
@@ -60,7 +106,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void firstPageUrlTest() {
-        // TODO: test firstPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
+        model.setFirstPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
     }
 
     /**
@@ -68,7 +116,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void fromTest() {
-        // TODO: test from
+        assertEquals(10, model.getFrom());
+        model.setFrom(1);
+        assertEquals(1, model.getFrom());
     }
 
     /**
@@ -76,7 +126,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void lastPageTest() {
-        // TODO: test lastPage
+        assertEquals(10, model.getLastPage());
+        model.setLastPage(1);
+        assertEquals(1, model.getLastPage());
     }
 
     /**
@@ -84,7 +136,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void lastPageUrlTest() {
-        // TODO: test lastPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
+        model.setLastPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
     }
 
     /**
@@ -92,7 +146,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void nextPageUrlTest() {
-        // TODO: test nextPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
+        model.setNextPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
     }
 
     /**
@@ -100,7 +156,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void pathTest() {
-        // TODO: test path
+        assertEquals(URI.create("https://www.page.url/"), model.getPath());
+        model.setPath(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPath());
     }
 
     /**
@@ -108,7 +166,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void perPageTest() {
-        // TODO: test perPage
+        assertEquals(10, model.getPerPage());
+        model.setPerPage(1);
+        assertEquals(1, model.getPerPage());
     }
 
     /**
@@ -116,7 +176,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void prevPageUrlTest() {
-        // TODO: test prevPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
+        model.setPrevPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
     }
 
     /**
@@ -124,7 +186,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void toTest() {
-        // TODO: test to
+        assertEquals(10, model.getTo());
+        model.setTo(1);
+        assertEquals(1, model.getTo());
     }
 
     /**
@@ -132,7 +196,9 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void totalTest() {
-        // TODO: test total
+        assertEquals(10, model.getTotal());
+        model.setTotal(1);
+        assertEquals(1, model.getTotal());
     }
 
     /**
@@ -140,7 +206,25 @@ public class ListSuppliersResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().get(0).getId());
+        model.setData(Arrays.asList(new Supplier().id(1)));
+        assertEquals(1, model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new Supplier().id(2)));
+        ListSuppliersResponse actual = new ListSuppliersResponse();
+        actual.setData(Arrays.asList(new Supplier().id(2)));
+        actual.currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+        assertEquals(model, actual);
     }
 
 }

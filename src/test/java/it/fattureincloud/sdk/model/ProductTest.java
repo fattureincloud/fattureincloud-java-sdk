@@ -13,34 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for Product
  */
 public class ProductTest {
-    private final Product model = new Product();
+    private Product model;
+
+    @BeforeEach
+    public void init() {
+        model = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+    }
 
     /**
      * Model tests for Product
      */
     @Test
     public void testProduct() {
-        // TODO: test Product
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1,\"editable\":true},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}";
+        assertEquals(str, json);
+        Product generated = gson.fromJson(str, Product.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -48,7 +77,32 @@ public class ProductTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(2);
+        assertEquals(2, model.getId());
+
+        Product i = model.id(1);
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -56,7 +110,32 @@ public class ProductTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("neim", model.getName());
+        model.setName("niu neim");
+        assertEquals("niu neim", model.getName());
+
+        Product i = model.name("neim");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -64,7 +143,32 @@ public class ProductTest {
      */
     @Test
     public void codeTest() {
-        // TODO: test code
+        assertEquals("cod", model.getCode());
+        model.setCode("doc");
+        assertEquals("doc", model.getCode());
+
+        Product i = model.code("cod");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -72,7 +176,32 @@ public class ProductTest {
      */
     @Test
     public void netPriceTest() {
-        // TODO: test netPrice
+        assertEquals(BigDecimal.valueOf(10), model.getNetPrice());
+        model.setNetPrice(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getNetPrice());
+
+        Product i = model.netPrice(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -80,7 +209,32 @@ public class ProductTest {
      */
     @Test
     public void grossPriceTest() {
-        // TODO: test grossPrice
+        assertEquals(BigDecimal.valueOf(10), model.getGrossPrice());
+        model.setGrossPrice(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getGrossPrice());
+
+        Product i = model.grossPrice(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -88,7 +242,32 @@ public class ProductTest {
      */
     @Test
     public void useGrossPriceTest() {
-        // TODO: test useGrossPrice
+        assertEquals(true, model.getUseGrossPrice());
+        model.setUseGrossPrice(false);
+        assertEquals(false, model.getUseGrossPrice());
+
+        Product i = model.useGrossPrice(true);
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -96,7 +275,32 @@ public class ProductTest {
      */
     @Test
     public void defaultVatTest() {
-        // TODO: test defaultVat
+        assertEquals(new VatType().id(1), model.getDefaultVat());
+        model.setDefaultVat(new VatType().id(2));
+        assertEquals(new VatType().id(2), model.getDefaultVat());
+
+        Product i = model.defaultVat(new VatType().id(1));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -104,7 +308,32 @@ public class ProductTest {
      */
     @Test
     public void netCostTest() {
-        // TODO: test netCost
+        assertEquals(BigDecimal.valueOf(10), model.getNetCost());
+        model.setNetCost(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getNetCost());
+
+        Product i = model.netCost(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -112,7 +341,32 @@ public class ProductTest {
      */
     @Test
     public void measureTest() {
-        // TODO: test measure
+        assertEquals("big", model.getMeasure());
+        model.setMeasure("super big");
+        assertEquals("super big", model.getMeasure());
+
+        Product i = model.measure("big");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -120,7 +374,32 @@ public class ProductTest {
      */
     @Test
     public void descriptionTest() {
-        // TODO: test description
+        assertEquals("desc", model.getDescription());
+        model.setDescription("descv2");
+        assertEquals("descv2", model.getDescription());
+
+        Product i = model.description("desc");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -128,7 +407,32 @@ public class ProductTest {
      */
     @Test
     public void categoryTest() {
-        // TODO: test category
+        assertEquals("cat6", model.getCategory());
+        model.setCategory("cat5");
+        assertEquals("cat5", model.getCategory());
+
+        Product i = model.category("cat6");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -136,7 +440,32 @@ public class ProductTest {
      */
     @Test
     public void notesTest() {
-        // TODO: test notes
+        assertEquals("nots", model.getNotes());
+        model.setNotes("ston");
+        assertEquals("ston", model.getNotes());
+
+        Product i = model.notes("nots");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -144,7 +473,32 @@ public class ProductTest {
      */
     @Test
     public void inStockTest() {
-        // TODO: test inStock
+        assertEquals(true, model.getInStock());
+        model.setInStock(false);
+        assertEquals(false, model.getInStock());
+
+        Product i = model.inStock(true);
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -152,7 +506,32 @@ public class ProductTest {
      */
     @Test
     public void stockInitialTest() {
-        // TODO: test stockInitial
+        assertEquals(BigDecimal.valueOf(10), model.getStockInitial());
+        model.setStockInitial(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getStockInitial());
+
+        Product i = model.stockInitial(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -160,7 +539,12 @@ public class ProductTest {
      */
     @Test
     public void stockCurrentTest() {
-        // TODO: test stockCurrent
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String str = "{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1,\"editable\":true},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"stock_current\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}";
+
+        Product generated = gson.fromJson(str, Product.class);
+        assertEquals(BigDecimal.valueOf(10), generated.getStockCurrent());
     }
 
     /**
@@ -168,7 +552,32 @@ public class ProductTest {
      */
     @Test
     public void averageCostTest() {
-        // TODO: test averageCost
+        assertEquals(BigDecimal.valueOf(10), model.getAverageCost());
+        model.setAverageCost(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAverageCost());
+
+        Product i = model.averageCost(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -176,7 +585,32 @@ public class ProductTest {
      */
     @Test
     public void averagePriceTest() {
-        // TODO: test averagePrice
+        assertEquals(BigDecimal.valueOf(10), model.getAveragePrice());
+        model.setAveragePrice(BigDecimal.valueOf(100));
+        assertEquals(BigDecimal.valueOf(100), model.getAveragePrice());
+
+        Product i = model.averagePrice(BigDecimal.valueOf(10));
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -184,7 +618,32 @@ public class ProductTest {
      */
     @Test
     public void createdAtTest() {
-        // TODO: test createdAt
+        assertEquals("2021-10-10", model.getCreatedAt());
+        model.setCreatedAt("2021-12-31");
+        assertEquals("2021-12-31", model.getCreatedAt());
+
+        Product i = model.createdAt("2021-10-10");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -192,7 +651,32 @@ public class ProductTest {
      */
     @Test
     public void updatedAtTest() {
-        // TODO: test updatedAt
+        assertEquals("2021-10-10", model.getUpdatedAt());
+        model.setUpdatedAt("2021-12-31");
+        assertEquals("2021-12-31", model.getUpdatedAt());
+
+        Product i = model.updatedAt("2021-10-10");
+        Product expected = new Product()
+                .id(1)
+                .name("neim")
+                .code("cod")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .useGrossPrice(true)
+                .defaultVat(new VatType().id(1))
+                .netCost(BigDecimal.valueOf(10))
+                .measure("big")
+                .description("desc")
+                .category("cat6")
+                .notes("nots")
+                .inStock(true)
+                .stockInitial(BigDecimal.valueOf(10))
+                .averageCost(BigDecimal.valueOf(10))
+                .averagePrice(BigDecimal.valueOf(10))
+                .createdAt("2021-10-10")
+                .updatedAt("2021-10-10");
+
+        assertEquals(expected, i);
     }
 
 }

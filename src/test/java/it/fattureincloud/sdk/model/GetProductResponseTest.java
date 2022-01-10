@@ -13,31 +13,66 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Product;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetProductResponse
  */
 public class GetProductResponseTest {
-    private final GetProductResponse model = new GetProductResponse();
+    private GetProductResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetProductResponse()
+                .data(
+                        new Product()
+                                .id(12345)
+                                .name("neim")
+                                .code("cod")
+                                .netPrice(BigDecimal.valueOf(10))
+                                .grossPrice(BigDecimal.valueOf(10))
+                                .useGrossPrice(true)
+                                .defaultVat(new VatType().id(1))
+                                .netCost(BigDecimal.valueOf(10))
+                                .measure("big")
+                                .description("desc")
+                                .category("cat6")
+                                .notes("nots")
+                                .inStock(true)
+                                .stockInitial(BigDecimal.valueOf(10))
+                                .averageCost(BigDecimal.valueOf(10))
+                                .averagePrice(BigDecimal.valueOf(10))
+                                .createdAt("2021-10-10")
+                                .updatedAt("2021-10-10")
+                );
+    }
 
     /**
      * Model tests for GetProductResponse
      */
     @Test
     public void testGetProductResponse() {
-        // TODO: test GetProductResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1,\"editable\":true},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
+        assertEquals(str, json);
+        GetProductResponse generated = gson.fromJson(str, GetProductResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +80,14 @@ public class GetProductResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new Product().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new Product().id(2));
+        GetProductResponse actual = new GetProductResponse();
+        actual.setData(new Product().id(2));
+        assertEquals(model, actual);
     }
 
 }

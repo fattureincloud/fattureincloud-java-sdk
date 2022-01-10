@@ -13,31 +13,69 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.EmailData;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetEmailDataResponse
  */
 public class GetEmailDataResponseTest {
-    private final GetEmailDataResponse model = new GetEmailDataResponse();
+    private GetEmailDataResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetEmailDataResponse()
+                .data(
+                        new EmailData()
+                                .recipientEmail("mary.red@example.com")
+                                .recipientEmail("m.rossi@exxample.com")
+                                .subject("Nostra pro forma nr. 1")
+                                .body("Pro forma body")
+                                .documentExists(true)
+                                .deliveryNoteExists(false)
+                                .attachmentExists(false)
+                                .accompanyingInvoiceExists(false)
+                                .defaultAttachPdf(false)
+                                .defaultSenderEmail(new EmailDataDefaultSenderEmail()
+                                        .id(0)
+                                        .email("no-reply@fattureincloud.it")
+                                )
+                                .senderEmailsList(Arrays.asList(
+                                        new EmailDataSenderEmailsList()
+                                                .id(0)
+                                                .email("no-reply@fattureincloud.it"),
+                                        new EmailDataSenderEmailsList()
+                                                .id(888)
+                                                .email("mariorossi@fattureincloud.it")
+                                ))
+                );
+    }
 
     /**
      * Model tests for GetEmailDataResponse
      */
     @Test
     public void testGetEmailDataResponse() {
-        // TODO: test GetEmailDataResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"recipient_email\":\"m.rossi@exxample.com\",\"default_sender_email\":{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"},\"sender_emails_list\":[{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"},{\"id\":888,\"email\":\"mariorossi@fattureincloud.it\"}],\"subject\":\"Nostra pro forma nr. 1\",\"body\":\"Pro forma body\",\"document_exists\":true,\"delivery_note_exists\":false,\"attachment_exists\":false,\"accompanying_invoice_exists\":false,\"default_attach_pdf\":false}}";
+        assertEquals(str, json);
+        GetEmailDataResponse generated = gson.fromJson(str, GetEmailDataResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +83,14 @@ public class GetEmailDataResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("m.rossi@exxample.com", model.getData().getRecipientEmail());
+        model.setData(new EmailData().recipientEmail("m.orossi@exxample.com"));
+        assertEquals("m.orossi@exxample.com", model.getData().getRecipientEmail());
+
+        model.data(new EmailData().recipientEmail("m.rossi@exxample.com"));
+        GetEmailDataResponse actual = new GetEmailDataResponse();
+        actual.setData(new EmailData().recipientEmail("m.rossi@exxample.com"));
+        assertEquals(model, actual);
     }
 
 }

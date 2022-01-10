@@ -13,31 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.IssuedDocument;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ModifyIssuedDocumentResponse
  */
 public class ModifyIssuedDocumentResponseTest {
-    private final ModifyIssuedDocumentResponse model = new ModifyIssuedDocumentResponse();
+    private ModifyIssuedDocumentResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ModifyIssuedDocumentResponse()
+                .data(
+                        new IssuedDocument()
+                                .id(12345)
+                                .notes("bando")
+                );
+    }
 
     /**
      * Model tests for ModifyIssuedDocumentResponse
      */
     @Test
     public void testModifyIssuedDocumentResponse() {
-        // TODO: test ModifyIssuedDocumentResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"use_split_payment\":false,\"use_gross_prices\":false,\"e_invoice\":false,\"show_totals\":\"all\",\"show_paypal_button\":false,\"show_notification_button\":false,\"accompanying_invoice\":false}}";
+        assertEquals(str, json);
+        ModifyIssuedDocumentResponse generated = gson.fromJson(str, ModifyIssuedDocumentResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +62,14 @@ public class ModifyIssuedDocumentResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new IssuedDocument().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new IssuedDocument().id(2));
+        ModifyIssuedDocumentResponse actual = new ModifyIssuedDocumentResponse();
+        actual.setData(new IssuedDocument().id(2));
+        assertEquals(model, actual);
     }
 
 }
