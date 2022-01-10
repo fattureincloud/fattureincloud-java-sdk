@@ -22,44 +22,43 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.IssuedDocument;
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * ModifyIssuedDocumentResponse
+ * AttachmentData
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-10T08:42:12.104Z[Etc/UTC]")
-public class ModifyIssuedDocumentResponse implements Serializable {
+public class AttachmentData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private IssuedDocument data;
+  public static final String SERIALIZED_NAME_ATTACHMENT_TOKEN = "attachment_token";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_TOKEN)
+  private String attachmentToken;
 
-  public ModifyIssuedDocumentResponse() { 
+  public AttachmentData() { 
   }
 
-  public ModifyIssuedDocumentResponse data(IssuedDocument data) {
+  public AttachmentData attachmentToken(String attachmentToken) {
     
-    this.data = data;
+    this.attachmentToken = attachmentToken;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Uploaded attachment token.
+   * @return attachmentToken
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw", required = true, value = "Uploaded attachment token.")
 
-  public IssuedDocument getData() {
-    return data;
+  public String getAttachmentToken() {
+    return attachmentToken;
   }
 
 
-  public void setData(IssuedDocument data) {
-    this.data = data;
+  public void setAttachmentToken(String attachmentToken) {
+    this.attachmentToken = attachmentToken;
   }
 
 
@@ -71,20 +70,20 @@ public class ModifyIssuedDocumentResponse implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyIssuedDocumentResponse modifyIssuedDocumentResponse = (ModifyIssuedDocumentResponse) o;
-    return Objects.equals(this.data, modifyIssuedDocumentResponse.data);
+    AttachmentData attachmentData = (AttachmentData) o;
+    return Objects.equals(this.attachmentToken, attachmentData.attachmentToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(attachmentToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyIssuedDocumentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class AttachmentData {\n");
+    sb.append("    attachmentToken: ").append(toIndentedString(attachmentToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

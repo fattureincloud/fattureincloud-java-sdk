@@ -1,13 +1,13 @@
 
 
-# UploadIssuedDocumentAttachmentResponse
+# AttachmentData
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**AttachmentData**](AttachmentData.md) |  |  [optional]
+**attachmentToken** | **String** | Uploaded attachment token. | 
 
 
 ## Implemented Interfaces

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **amountOtherWithholdingTax** | **BigDecimal** | Other withholding tax amount. |  [optional]
 **stampDuty** | **BigDecimal** | Stamp duty value [0 if not present]. |  [optional]
 **amountDue** | **BigDecimal** | Total amount due. | 
-**isEnasarcoMaximalExceeded** | **Boolean** |  | 
+**isEnasarcoMaximalExceeded** | **Boolean** |  |  [optional]
 **paymentsSum** | **BigDecimal** | Payments sum. | 
 **vatList** | [**IssuedDocumentTotalsVatList**](IssuedDocumentTotalsVatList.md) |  |  [optional]
 

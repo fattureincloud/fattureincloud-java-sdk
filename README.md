@@ -2,9 +2,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.7
+- API version: 2.0.8
 
-- Build date: 2021-12-16T15:17:24.788Z[GMT]
+- Build date: 2022-01-10T08:42:12.104Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
 </dependency>
 ```
 
@@ -45,7 +45,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.1"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.2"
   }
 ```
 
@@ -193,6 +193,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [ArchiveDocument](docs/ArchiveDocument.md)
+ - [AttachmentData](docs/AttachmentData.md)
  - [CashbookEntry](docs/CashbookEntry.md)
  - [CashbookEntryData](docs/CashbookEntryData.md)
  - [CashbookEntryDataDocument](docs/CashbookEntryDataDocument.md)
@@ -392,9 +393,7 @@ Class | Method | HTTP request | Description
  - [UploadArchiveAttachmentResponse](docs/UploadArchiveAttachmentResponse.md)
  - [UploadF24AttachmentResponse](docs/UploadF24AttachmentResponse.md)
  - [UploadIssuedDocumentAttachmentResponse](docs/UploadIssuedDocumentAttachmentResponse.md)
- - [UploadIssuedDocumentAttachmentResponseData](docs/UploadIssuedDocumentAttachmentResponseData.md)
  - [UploadReceivedDocumentAttachmentResponse](docs/UploadReceivedDocumentAttachmentResponse.md)
- - [UploadReceivedDocumentAttachmentResponseData](docs/UploadReceivedDocumentAttachmentResponseData.md)
  - [User](docs/User.md)
  - [UserCompanyRole](docs/UserCompanyRole.md)
  - [VatKind](docs/VatKind.md)
