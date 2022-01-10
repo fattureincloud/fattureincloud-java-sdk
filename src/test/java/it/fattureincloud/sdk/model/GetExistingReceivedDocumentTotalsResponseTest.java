@@ -13,31 +13,55 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ReceivedDocumentTotals;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetExistingReceivedDocumentTotalsResponse
  */
 public class GetExistingReceivedDocumentTotalsResponseTest {
-    private final GetExistingReceivedDocumentTotalsResponse model = new GetExistingReceivedDocumentTotalsResponse();
+    private GetExistingReceivedDocumentTotalsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetExistingReceivedDocumentTotalsResponse()
+                .data(
+                        new ReceivedDocumentTotals()
+                                .amountNet(BigDecimal.valueOf(10))
+                                .amountVat(BigDecimal.valueOf(10))
+                                .amountGross(BigDecimal.valueOf(10))
+                                .amountWithholdingTax(BigDecimal.valueOf(10))
+                                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                                .amountDue((BigDecimal.valueOf(10)))
+                                .paymentsSum((BigDecimal.valueOf(10)))
+                );
+    }
 
     /**
      * Model tests for GetExistingReceivedDocumentTotalsResponse
      */
     @Test
     public void testGetExistingReceivedDocumentTotalsResponse() {
-        // TODO: test GetExistingReceivedDocumentTotalsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"amount_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"amount_due\":10,\"payments_sum\":10}}";
+        assertEquals(str, json);
+        GetExistingReceivedDocumentTotalsResponse generated = gson.fromJson(str, GetExistingReceivedDocumentTotalsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +69,14 @@ public class GetExistingReceivedDocumentTotalsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(BigDecimal.valueOf(10), model.getData().getAmountNet());
+        model.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(100)));
+        assertEquals(BigDecimal.valueOf(100), model.getData().getAmountNet());
+
+        model.data(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+        GetExistingReceivedDocumentTotalsResponse actual = new GetExistingReceivedDocumentTotalsResponse();
+        actual.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+        assertEquals(model, actual);
     }
 
 }

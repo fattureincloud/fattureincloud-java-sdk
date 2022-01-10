@@ -13,33 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.PaymentMethod;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListPaymentMethodsResponse
  */
 public class ListPaymentMethodsResponseTest {
-    private final ListPaymentMethodsResponse model = new ListPaymentMethodsResponse();
+    private ListPaymentMethodsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListPaymentMethodsResponse()
+                .addDataItem(
+                        new PaymentMethod()
+                                .id(12345)
+                                .name("Bonifico bancario")
+                                .type(PaymentMethodType.STANDARD)
+                                .isDefault(true)
+                                .details(Arrays.asList(new PaymentMethodDetails()
+                                        .title("t1")
+                                ))
+                                .defaultPaymentAccount(new PaymentAccount()
+                                        .id(21)
+                                        .name("n1")
+                                )
+                                .bankIban("IT62W0300203280486429468578")
+                                .bankName("Indesa")
+                                .bankBeneficiary("mamma")
+                                .eiPaymentMethod("2")
+                );
+    }
 
     /**
      * Model tests for ListPaymentMethodsResponse
      */
     @Test
     public void testListPaymentMethodsResponse() {
-        // TODO: test ListPaymentMethodsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[{\"id\":12345,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}]}";
+        assertEquals(str, json);
+        ListPaymentMethodsResponse generated = gson.fromJson(str, ListPaymentMethodsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +77,14 @@ public class ListPaymentMethodsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().get(0).getId());
+        model.setData(Arrays.asList(new PaymentMethod().id(1)));
+        assertEquals(1, model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new PaymentMethod().id(2)));
+        ListPaymentMethodsResponse actual = new ListPaymentMethodsResponse();
+        actual.setData(Arrays.asList(new PaymentMethod().id(2)));
+        assertEquals(model, actual);
     }
 
 }

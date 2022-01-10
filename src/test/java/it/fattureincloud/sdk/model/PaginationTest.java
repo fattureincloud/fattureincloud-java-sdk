@@ -13,33 +13,56 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.net.URI;
 
-import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for Pagination
  */
 public class PaginationTest {
-    private final Pagination model = new Pagination();
+    private Pagination model;
+
+    @BeforeEach
+    public void init() {
+        model = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+    }
 
     /**
      * Model tests for Pagination
      */
     @Test
     public void testPagination() {
-        // TODO: test Pagination
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10}";
+        assertEquals(str, json);
+        Pagination generated = gson.fromJson(str, Pagination.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +70,25 @@ public class PaginationTest {
      */
     @Test
     public void currentPageTest() {
-        // TODO: test currentPage
+        assertEquals(10, model.getCurrentPage());
+        model.setCurrentPage(1);
+        assertEquals(1, model.getCurrentPage());
+
+        Pagination i = model.currentPage(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -55,7 +96,25 @@ public class PaginationTest {
      */
     @Test
     public void firstPageUrlTest() {
-        // TODO: test firstPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
+        model.setFirstPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
+
+        Pagination i = model.firstPageUrl(URI.create("https://www.page.url/"));
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -63,7 +122,25 @@ public class PaginationTest {
      */
     @Test
     public void fromTest() {
-        // TODO: test from
+        assertEquals(10, model.getFrom());
+        model.setFrom(1);
+        assertEquals(1, model.getFrom());
+
+        Pagination i = model.from(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -71,7 +148,25 @@ public class PaginationTest {
      */
     @Test
     public void lastPageTest() {
-        // TODO: test lastPage
+        assertEquals(10, model.getLastPage());
+        model.setLastPage(1);
+        assertEquals(1, model.getLastPage());
+
+        Pagination i = model.lastPage(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -79,7 +174,25 @@ public class PaginationTest {
      */
     @Test
     public void lastPageUrlTest() {
-        // TODO: test lastPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
+        model.setLastPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
+
+        Pagination i = model.lastPageUrl(URI.create("https://www.page.url/"));
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -87,7 +200,25 @@ public class PaginationTest {
      */
     @Test
     public void nextPageUrlTest() {
-        // TODO: test nextPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
+        model.setNextPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
+
+        Pagination i = model.nextPageUrl(URI.create("https://www.page.url/"));
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -95,7 +226,25 @@ public class PaginationTest {
      */
     @Test
     public void pathTest() {
-        // TODO: test path
+        assertEquals(URI.create("https://www.page.url/"), model.getPath());
+        model.setPath(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPath());
+
+        Pagination i = model.path(URI.create("https://www.page.url/"));
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -103,7 +252,25 @@ public class PaginationTest {
      */
     @Test
     public void perPageTest() {
-        // TODO: test perPage
+        assertEquals(10, model.getPerPage());
+        model.setPerPage(1);
+        assertEquals(1, model.getPerPage());
+
+        Pagination i = model.perPage(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -111,7 +278,25 @@ public class PaginationTest {
      */
     @Test
     public void prevPageUrlTest() {
-        // TODO: test prevPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
+        model.setPrevPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
+
+        Pagination i = model.prevPageUrl(URI.create("https://www.page.url/"));
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -119,7 +304,25 @@ public class PaginationTest {
      */
     @Test
     public void toTest() {
-        // TODO: test to
+        assertEquals(10, model.getTo());
+        model.setTo(1);
+        assertEquals(1, model.getTo());
+
+        Pagination i = model.to(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -127,7 +330,25 @@ public class PaginationTest {
      */
     @Test
     public void totalTest() {
-        // TODO: test total
+        assertEquals(10, model.getTotal());
+        model.setTotal(1);
+        assertEquals(1, model.getTotal());
+
+        Pagination i = model.total(10);
+        Pagination expected = new Pagination()
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+
+        assertEquals(expected, i);
     }
 
 }

@@ -13,31 +13,48 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.SendEInvoiceRequestData;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for SendEInvoiceRequest
  */
 public class SendEInvoiceRequestTest {
-    private final SendEInvoiceRequest model = new SendEInvoiceRequest();
+    private SendEInvoiceRequest model;
+
+    @BeforeEach
+    public void init() {
+        model = new SendEInvoiceRequest()
+                .data(
+                        new SendEInvoiceRequestData()
+                                .cassaType("cassa taip")
+                                .withholdingTaxCausal("causal")
+                );
+    }
 
     /**
      * Model tests for SendEInvoiceRequest
      */
     @Test
     public void testSendEInvoiceRequest() {
-        // TODO: test SendEInvoiceRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"cassa_type\":\"cassa taip\",\"withholding_tax_causal\":\"causal\"}}";
+        assertEquals(str, json);
+        SendEInvoiceRequest generated = gson.fromJson(str, SendEInvoiceRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +62,14 @@ public class SendEInvoiceRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("causal", model.getData().getWithholdingTaxCausal());
+        model.setData(new SendEInvoiceRequestData().withholdingTaxCausal("lausac"));
+        assertEquals("lausac", model.getData().getWithholdingTaxCausal());
+
+        model.data(new SendEInvoiceRequestData().withholdingTaxCausal("causal"));
+        SendEInvoiceRequest actual = new SendEInvoiceRequest();
+        actual.setData(new SendEInvoiceRequestData().withholdingTaxCausal("causal"));
+        assertEquals(model, actual);
     }
 
 }

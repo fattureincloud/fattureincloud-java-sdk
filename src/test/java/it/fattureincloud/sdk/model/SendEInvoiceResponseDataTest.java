@@ -13,30 +13,45 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for SendEInvoiceResponseData
  */
 public class SendEInvoiceResponseDataTest {
-    private final SendEInvoiceResponseData model = new SendEInvoiceResponseData();
+    private SendEInvoiceResponseData model;
+
+    @BeforeEach
+    public void init() {
+        model = new SendEInvoiceResponseData()
+                .name("neim")
+                .date("2021-12-31");
+    }
 
     /**
      * Model tests for SendEInvoiceResponseData
      */
     @Test
     public void testSendEInvoiceResponseData() {
-        // TODO: test SendEInvoiceResponseData
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"name\":\"neim\",\"date\":\"2021-12-31\"}";
+        assertEquals(str, json);
+        SendEInvoiceResponseData generated = gson.fromJson(str, SendEInvoiceResponseData.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +59,16 @@ public class SendEInvoiceResponseDataTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals("neim", model.getName());
+        model.setName("niu neim");
+        assertEquals("niu neim", model.getName());
+
+        SendEInvoiceResponseData i = model.name("neim");
+        SendEInvoiceResponseData expected = new SendEInvoiceResponseData()
+                .name("neim")
+                .date("2021-12-31");
+
+        assertEquals(expected, i);
     }
 
     /**
@@ -52,7 +76,16 @@ public class SendEInvoiceResponseDataTest {
      */
     @Test
     public void dateTest() {
-        // TODO: test date
+        assertEquals("2021-12-31", model.getDate());
+        model.setDate("2021-31-12");
+        assertEquals("2021-31-12", model.getDate());
+
+        SendEInvoiceResponseData i = model.date("2021-12-31");
+        SendEInvoiceResponseData expected = new SendEInvoiceResponseData()
+                .name("neim")
+                .date("2021-12-31");
+
+        assertEquals(expected, i);
     }
 
 }

@@ -13,33 +13,56 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
-
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openapitools.jackson.nullable.JsonNullable;
+
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetVatTypeResponse
  */
 public class GetVatTypeResponseTest {
-    private final GetVatTypeResponse model = new GetVatTypeResponse();
+    private GetVatTypeResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new GetVatTypeResponse()
+                .data(
+                        new VatType()
+                                .id(12345)
+                                .value(BigDecimal.valueOf(22))
+                                .description("Non imponibile art. 123")
+                                .notes("IVA non imponibile")
+                                .eInvoice(true)
+                                .eiType("2")
+                                .eiDescription("desc")
+                                .isDisabled(false)
+                );
+    }
 
     /**
      * Model tests for GetVatTypeResponse
      */
     @Test
     public void testGetVatTypeResponse() {
-        // TODO: test GetVatTypeResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":12345,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+        assertEquals(str, json);
+        GetVatTypeResponse generated = gson.fromJson(str, GetVatTypeResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +70,14 @@ public class GetVatTypeResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new VatType().id(2));
+        assertEquals(2, model.getData().getId());
+
+        model.data(new VatType().id(12345));
+        GetVatTypeResponse actual = new GetVatTypeResponse();
+        actual.setData(new VatType().id(12345));
+        assertEquals(model, actual);
     }
 
 }
