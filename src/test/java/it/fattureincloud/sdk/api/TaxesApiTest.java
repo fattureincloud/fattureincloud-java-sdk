@@ -281,7 +281,7 @@ public class TaxesApiTest {
 
         Integer companyId = 11111;
         UploadF24AttachmentResponse expected = new UploadF24AttachmentResponse()
-                .data(new UploadIssuedDocumentAttachmentResponseData()
+                .data(new AttachmentData()
                         .attachmentToken("YmMyNWYxYzIwMTU3N212ABCDZjZiMzg5OWY0ODNkZDQveXl5LmRvYw")
                 );
 

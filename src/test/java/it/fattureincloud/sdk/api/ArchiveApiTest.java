@@ -236,7 +236,7 @@ public class ArchiveApiTest {
 
         Integer companyId = 11111;
         UploadArchiveAttachmentResponse expected = new UploadArchiveAttachmentResponse()
-                .data(new UploadIssuedDocumentAttachmentResponseData()
+                .data(new AttachmentData()
                         .attachmentToken("YmMyNWYxYzIwMTU3N212ABCDZjZiMzg5OWY0ODNkZDQveXl5LmRvYw")
                 );
 

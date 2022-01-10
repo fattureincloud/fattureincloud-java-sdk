@@ -395,7 +395,7 @@ public class IssuedDocumentsApiTest {
 
         Integer companyId = 11111;
         UploadIssuedDocumentAttachmentResponse expected = new UploadIssuedDocumentAttachmentResponse()
-                .data(new UploadIssuedDocumentAttachmentResponseData()
+                .data(new AttachmentData()
                         .attachmentToken("YmMyNWYxYzIwMTU3N212ABCDZjZiMzg5OWY0ODNkZDQveXl5LmRvYw")
                 );
 
