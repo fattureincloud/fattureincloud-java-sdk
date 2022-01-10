@@ -103,5 +103,5 @@ jobs:
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           GPG_KEY: ${{ secrets.GPG_KEY }}
         run: |
-          ./gradlew build
-          ./gradlew publish
+          ./gradlew build --stacktrace
+          ./gradlew publish --stacktrace
