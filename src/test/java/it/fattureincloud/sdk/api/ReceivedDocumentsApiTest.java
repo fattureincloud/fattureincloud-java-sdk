@@ -581,7 +581,7 @@ public class ReceivedDocumentsApiTest {
         ReceivedDocumentsApi api = mockApi(result, mockCall);
 
         Integer companyId = 11111;
-        UploadReceivedDocumentAttachmentResponseData expected = new UploadReceivedDocumentAttachmentResponseData()
+        AttachmentData expected = new AttachmentData()
                 .attachmentToken("YmMyNWYxYzIwMTU3N212ABCDZjZiMzg5OWY0ODNkZDQveXl5LmRvYw");
 
         UploadReceivedDocumentAttachmentResponse response = api.uploadReceivedDocumentAttachment(companyId, "filename", null);
