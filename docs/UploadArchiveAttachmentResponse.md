@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UploadIssuedDocumentAttachmentResponseData**](UploadIssuedDocumentAttachmentResponseData.md) |  |  [optional]
+**data** | [**AttachmentData**](AttachmentData.md) |  |  [optional]
 
 
 ## Implemented Interfaces

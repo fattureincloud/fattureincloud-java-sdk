@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 /**
@@ -48,9 +49,7 @@ public class CashbookEntryTypeTest {
         assertEquals(CashbookEntryType.IN, CashbookEntryType.fromValue("in"));
         assertEquals(CashbookEntryType.OUT, CashbookEntryType.fromValue("out"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CashbookEntryType.fromValue("Evil Joshua");
-        });
+        assertNull(CashbookEntryType.fromValue("Evil Joshua"));
     }
 
 }

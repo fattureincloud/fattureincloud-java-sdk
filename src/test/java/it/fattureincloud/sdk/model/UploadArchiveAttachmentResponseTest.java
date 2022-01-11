@@ -32,7 +32,7 @@ public class UploadArchiveAttachmentResponseTest {
     public void init() {
         model = new UploadArchiveAttachmentResponse()
                 .data(
-                        new UploadIssuedDocumentAttachmentResponseData()
+                        new AttachmentData()
                                 .attachmentToken("posdiuajgd98we7ogqwo0fgweF")
                 );
     }
@@ -62,12 +62,12 @@ public class UploadArchiveAttachmentResponseTest {
     @Test
     public void dataTest() {
         assertEquals("posdiuajgd98we7ogqwo0fgweF", model.getData().getAttachmentToken());
-        model.setData(new UploadIssuedDocumentAttachmentResponseData().attachmentToken("lausac"));
+        model.setData(new AttachmentData().attachmentToken("lausac"));
         assertEquals("lausac", model.getData().getAttachmentToken());
 
-        model.data(new UploadIssuedDocumentAttachmentResponseData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
+        model.data(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
         UploadArchiveAttachmentResponse actual = new UploadArchiveAttachmentResponse();
-        actual.setData(new UploadIssuedDocumentAttachmentResponseData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
+        actual.setData(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
         assertEquals(model, actual);
     }
 
