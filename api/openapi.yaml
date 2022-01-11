@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.7
+  version: 2.0.8
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -7880,9 +7880,6 @@ paths:
                       attachment_url: spesa2.pdf
               schema:
                 $ref: '#/components/schemas/GetArchiveDocumentResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/GetArchiveDocumentResponse'
           description: Archive Document Details
         "401":
           description: Unauthorized
@@ -9466,14 +9463,6 @@ paths:
                     is_disabled: true
             schema:
               $ref: '#/components/schemas/CreateVatTypeRequest'
-          application/xml:
-            schema:
-              properties: {}
-              type: object
-          multipart/form-data:
-            schema:
-              properties: {}
-              type: object
       responses:
         "200":
           content:
@@ -14423,9 +14412,6 @@ components:
                   attachment_url: spesa2.pdf
           schema:
             $ref: '#/components/schemas/GetArchiveDocumentResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/GetArchiveDocumentResponse'
       description: Archive Document Details
     ModifyArchiveDocumentResponse:
       content:
@@ -17376,13 +17362,12 @@ components:
       title: Attachment
       type: object
     UploadIssuedDocumentAttachmentResponse:
-      description: ""
       example:
         data:
-          attachment_token: attachment_token
+          attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
       properties:
         data:
-          $ref: '#/components/schemas/UploadIssuedDocumentAttachmentResponse_data'
+          $ref: '#/components/schemas/AttachmentData'
       title: UploadIssuedDocumentAttachmentResponse
       type: object
     GetIssuedDocumentPreCreateInfoResponse:
@@ -18460,15 +18445,12 @@ components:
     UploadReceivedDocumentAttachmentRequest:
       $ref: '#/components/schemas/Attachment'
     UploadReceivedDocumentAttachmentResponse:
-      description: ""
       example:
         data:
           attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
       properties:
         data:
-          $ref: '#/components/schemas/UploadReceivedDocumentAttachmentResponse_data'
-      required:
-      - data
+          $ref: '#/components/schemas/AttachmentData'
       title: UploadReceivedDocumentAttachmentResponse
       type: object
     GetReceivedDocumentPreCreateInfoResponse:
@@ -19013,13 +18995,12 @@ components:
     UploadF24AttachmentRequest:
       $ref: '#/components/schemas/Attachment'
     UploadF24AttachmentResponse:
-      description: ""
       example:
         data:
-          attachment_token: attachment_token
+          attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
       properties:
         data:
-          $ref: '#/components/schemas/UploadIssuedDocumentAttachmentResponse_data'
+          $ref: '#/components/schemas/AttachmentData'
       title: UploadF24AttachmentResponse
       type: object
     ListArchiveDocumentsResponse:
@@ -19108,10 +19089,10 @@ components:
     UploadArchiveAttachmentResponse:
       example:
         data:
-          attachment_token: attachment_token
+          attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
       properties:
         data:
-          $ref: '#/components/schemas/UploadIssuedDocumentAttachmentResponse_data'
+          $ref: '#/components/schemas/AttachmentData'
       title: UploadArchiveAttachmentResponse
       type: object
     ListCashbookEntriesResponse:
@@ -20962,6 +20943,7 @@ components:
           description: Total amount due.
           type: number
         is_enasarco_maximal_exceeded:
+          nullable: true
           type: boolean
         payments_sum:
           description: Payments sum.
@@ -20973,9 +20955,20 @@ components:
       - amount_gross
       - amount_net
       - amount_vat
-      - is_enasarco_maximal_exceeded
       - payments_sum
       title: IssuedDocumentTotals
+      type: object
+    AttachmentData:
+      example:
+        attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
+      properties:
+        attachment_token:
+          description: Uploaded attachment token.
+          example: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
+          type: string
+      required:
+      - attachment_token
+      title: AttachmentData
       type: object
     IssuedDocumentPreCreateInfo:
       example:
@@ -21238,6 +21231,7 @@ components:
       properties:
         recipient_email:
           description: Recipient's email
+          nullable: true
           type: string
         default_sender_email:
           $ref: '#/components/schemas/EmailData_default_sender_email'
@@ -22359,7 +22353,6 @@ components:
     SupplierType:
       description: Supplier type.
       enum:
-      - null
       - company
       - person
       - pa
@@ -22543,7 +22536,6 @@ components:
       - description
       - id
       - kind
-      - type
       title: CashbookEntryData
       type: object
     CashbookEntryInData:
@@ -22579,6 +22571,7 @@ components:
       enum:
       - in
       - out
+      nullable: true
       title: CashbookEntryType
       type: string
     GetUserInfoResponse_info:
@@ -22625,14 +22618,6 @@ components:
           items:
             $ref: '#/components/schemas/Company'
           type: array
-      type: object
-    UploadIssuedDocumentAttachmentResponse_data:
-      example:
-        attachment_token: attachment_token
-      properties:
-        attachment_token:
-          description: Uploaded attachment token.
-          type: string
       type: object
     SendEInvoiceRequest_data:
       example:
@@ -22681,17 +22666,6 @@ components:
           items:
             type: string
           type: array
-      type: object
-    UploadReceivedDocumentAttachmentResponse_data:
-      example:
-        attachment_token: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
-      properties:
-        attachment_token:
-          description: Uploaded attachment token.
-          example: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
-          type: string
-      required:
-      - attachment_token
       type: object
     CompanyInfo_access_info:
       example:

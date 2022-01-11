@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **date** | **LocalDate** | Cashbook date. | 
 **description** | **String** | Cashbook description. | 
 **kind** | **CashbookEntryKind** |  | 
-**type** | **CashbookEntryType** |  | 
+**type** | **CashbookEntryType** |  |  [optional]
 **entityName** | **String** | Entity name. |  [optional]
 **document** | [**CashbookEntryDataDocument**](CashbookEntryDataDocument.md) |  |  [optional]
 

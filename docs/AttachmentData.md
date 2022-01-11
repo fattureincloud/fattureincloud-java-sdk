@@ -1,6 +1,6 @@
 
 
-# UploadReceivedDocumentAttachmentResponseData
+# AttachmentData
 
 
 ## Properties
