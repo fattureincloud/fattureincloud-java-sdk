@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**senderId** | **BigDecimal** | Sender id. Required if &#x60;sender_email&#x60; is not specified |  [optional]
+**senderId** | **Integer** | Sender id. Required if &#x60;sender_email&#x60; is not specified |  [optional]
 **senderEmail** | **String** | Sender email. Required if &#x60;sender_id&#x60; is not specified |  [optional]
 **recipientEmail** | **String** | One or more comma separated recipient emails | 
 **subject** | **String** | Email subject | 
