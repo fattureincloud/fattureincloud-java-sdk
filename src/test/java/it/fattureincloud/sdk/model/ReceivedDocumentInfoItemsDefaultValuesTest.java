@@ -18,6 +18,8 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -31,7 +33,7 @@ public class ReceivedDocumentInfoItemsDefaultValuesTest {
     @BeforeEach
     public void init() {
         model = new ReceivedDocumentInfoItemsDefaultValues()
-                .vat(10);
+                .vat(BigDecimal.valueOf(10));
     }
 
     /**
@@ -58,13 +60,13 @@ public class ReceivedDocumentInfoItemsDefaultValuesTest {
      */
     @Test
     public void vatTest() {
-        assertEquals(10, model.getVat());
-        model.setVat(22);
-        assertEquals(22, model.getVat());
+        assertEquals(BigDecimal.valueOf(10), model.getVat());
+        model.setVat(BigDecimal.valueOf(22));
+        assertEquals(BigDecimal.valueOf(22), model.getVat());
 
-        ReceivedDocumentInfoItemsDefaultValues i = model.vat(10);
+        ReceivedDocumentInfoItemsDefaultValues i = model.vat(BigDecimal.valueOf(10));
         ReceivedDocumentInfoItemsDefaultValues expected = new ReceivedDocumentInfoItemsDefaultValues()
-                .vat(10);
+                .vat(BigDecimal.valueOf(10));
         assertEquals(expected, i);
     }
 

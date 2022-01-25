@@ -91,7 +91,7 @@ public class ReceiptsApiTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
         Receipt expected = receipt
                 .id(10)
@@ -157,7 +157,7 @@ public class ReceiptsApiTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
         GetReceiptResponse response = api.getReceipt(companyId, receiptId, fields, fieldset);
         assertEquals(expected, response.getData());
@@ -257,7 +257,7 @@ public class ReceiptsApiTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
         Receipt receipt2 = new Receipt()
                 .id(100)
@@ -274,7 +274,7 @@ public class ReceiptsApiTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
         List<Receipt> expected = Arrays.asList(receipt1, receipt2);
 
@@ -315,7 +315,7 @@ public class ReceiptsApiTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
         Receipt expected = receipt
                 .id(10)

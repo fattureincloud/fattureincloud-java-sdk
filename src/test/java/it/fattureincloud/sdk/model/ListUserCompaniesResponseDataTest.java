@@ -48,7 +48,7 @@ public class ListUserCompaniesResponseDataTest {
                         .taxCode("ABCSFN94T17A794K")
                         .type(CompanyType.ACCOUNTANT)
                         .accessToken("fc3c89ba29a926f9ef20203577c00ada")
-                        .connectionId(BigDecimal.valueOf(94566))
+                        .connectionId(94566)
                         .controlledCompanies(new ArrayList<>())
                 ));
 

@@ -776,10 +776,11 @@ public class IssuedDocumentTest {
      */
     @Test
     public void amountCassa2Test() {
-        model.amountCassa2(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa2());
-        model.setAmountCassa2(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountCassa2());
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = "{\"amount_cassa2\":10.0}";
+        model = gson.fromJson(json, IssuedDocument.class);
+        assertEquals(BigDecimal.valueOf(10.0), model.getAmountCassa2());
     }
 
     /**
