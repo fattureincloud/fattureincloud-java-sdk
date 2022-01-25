@@ -108,11 +108,11 @@ public class UserApiTest {
 
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
-        Company company5 = gson.fromJson("{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]}", Company.class);
+        ControlledCompany company5 = gson.fromJson("{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]}", ControlledCompany.class);
 
-        Company company16 = gson.fromJson("{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}", Company.class);
+        ControlledCompany company16 = gson.fromJson("{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}", ControlledCompany.class);
 
-        ArrayList<Company> controlledCompanies = new ArrayList<>();
+        ArrayList<ControlledCompany> controlledCompanies = new ArrayList<>();
         controlledCompanies.add(company5);
         controlledCompanies.add(company16);
 

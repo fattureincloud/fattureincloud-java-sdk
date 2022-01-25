@@ -18,6 +18,7 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +37,7 @@ public class ReceivedDocumentInfoTest {
     public void init() {
         model = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCurrenciesListItem(new Currency().id("EUR"))
                 .addCategoriesListItem("cat6")
@@ -75,7 +76,7 @@ public class ReceivedDocumentInfoTest {
         ReceivedDocumentInfo a = model.defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false));
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
                 .addCurrenciesListItem(new Currency().id("EUR"))
@@ -89,14 +90,14 @@ public class ReceivedDocumentInfoTest {
      */
     @Test
     public void itemsDefaultValuesTest() {
-        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(10), model.getItemsDefaultValues());
-        model.setItemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(101));
-        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(101), model.getItemsDefaultValues());
+        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)), model.getItemsDefaultValues());
+        model.setItemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(101)));
+        assertEquals(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(101)), model.getItemsDefaultValues());
 
-        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10));
+        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)));
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
                 .addCurrenciesListItem(new Currency().id("EUR"))
@@ -115,10 +116,10 @@ public class ReceivedDocumentInfoTest {
         assertEquals(Arrays.asList("Italia", "Albania"), model.getCountriesList());
 
         model.setCountriesList(Arrays.asList("Spagna", "Malta"));
-        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10));
+        ReceivedDocumentInfo a = model.itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)));
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Spagna")
                 .addCountriesListItem("Malta")
                 .addCurrenciesListItem(new Currency().id("EUR"))
@@ -144,7 +145,7 @@ public class ReceivedDocumentInfoTest {
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
                 .addCurrenciesListItem(new Currency().id("DNR"))
@@ -167,7 +168,7 @@ public class ReceivedDocumentInfoTest {
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat7")
                 .addCategoriesListItem("cat8")
@@ -190,7 +191,7 @@ public class ReceivedDocumentInfoTest {
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
                 .addCurrenciesListItem(new Currency().id("EUR"))
@@ -213,7 +214,7 @@ public class ReceivedDocumentInfoTest {
         ReceivedDocumentInfo a = model;
         ReceivedDocumentInfo expected = new ReceivedDocumentInfo()
                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                 .addCountriesListItem("Italia")
                 .addCategoriesListItem("cat6")
                 .addCurrenciesListItem(new Currency().id("EUR"))

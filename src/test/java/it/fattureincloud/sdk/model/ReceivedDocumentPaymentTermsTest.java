@@ -33,7 +33,7 @@ public class ReceivedDocumentPaymentTermsTest {
     @BeforeEach
     public void init() {
         model = new ReceivedDocumentPaymentTerms()
-                .days(BigDecimal.valueOf(10))
+                .days(10)
                 .type("taip");
     }
 
@@ -61,13 +61,13 @@ public class ReceivedDocumentPaymentTermsTest {
      */
     @Test
     public void daysTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getDays());
-        model.setDays(BigDecimal.valueOf(11));
-        assertEquals(BigDecimal.valueOf(11), model.getDays());
+        assertEquals(10, model.getDays());
+        model.setDays(11);
+        assertEquals(11, model.getDays());
 
-        ReceivedDocumentPaymentTerms i = model.days(BigDecimal.valueOf(10));
+        ReceivedDocumentPaymentTerms i = model.days(10);
         ReceivedDocumentPaymentTerms expected = new ReceivedDocumentPaymentTerms()
-                .days(BigDecimal.valueOf(10))
+                .days(10)
                 .type("taip");
         assertEquals(expected, i);
     }
@@ -83,7 +83,7 @@ public class ReceivedDocumentPaymentTermsTest {
 
         ReceivedDocumentPaymentTerms i = model.type("taip");
         ReceivedDocumentPaymentTerms expected = new ReceivedDocumentPaymentTerms()
-                .days(BigDecimal.valueOf(10))
+                .days(10)
                 .type("taip");
         assertEquals(expected, i);
     }

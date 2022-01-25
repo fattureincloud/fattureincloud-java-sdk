@@ -49,7 +49,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
 
     }
 
@@ -97,7 +97,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -126,7 +126,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -155,7 +155,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -184,7 +184,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -213,7 +213,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -242,7 +242,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -271,7 +271,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -300,7 +300,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -329,7 +329,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -358,7 +358,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -387,7 +387,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -416,7 +416,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -445,7 +445,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -474,7 +474,7 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)));
+                .addItemsListItem(new ReceiptItemsListItem().id(1));
         assertEquals(expected, a);
     }
 
@@ -483,11 +483,11 @@ public class ReceiptTest {
      */
     @Test
     public void itemsListTest() {
-        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(1))), model.getItemsList());
-        model.addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(2)));
-        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)), new ReceiptItemsListItem().id(BigDecimal.valueOf(2))), model.getItemsList());
+        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(1)), model.getItemsList());
+        model.addItemsListItem(new ReceiptItemsListItem().id(2));
+        assertEquals(Arrays.asList(new ReceiptItemsListItem().id(1), new ReceiptItemsListItem().id(2)), model.getItemsList());
 
-        model.setItemsList(Arrays.asList(new ReceiptItemsListItem().id(BigDecimal.valueOf(3)), new ReceiptItemsListItem().id(BigDecimal.valueOf(4))));
+        model.setItemsList(Arrays.asList(new ReceiptItemsListItem().id(3), new ReceiptItemsListItem().id(4)));
         Receipt a = model.paymentAccount(new PaymentAccount().id(1));
         Receipt expected = new Receipt()
                 .id(10)
@@ -504,8 +504,8 @@ public class ReceiptTest {
                 .createdAt("2021-10-10")
                 .updatedAt("2021-10-10")
                 .paymentAccount(new PaymentAccount().id(1))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(3)))
-                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(4)));
+                .addItemsListItem(new ReceiptItemsListItem().id(3))
+                .addItemsListItem(new ReceiptItemsListItem().id(4));
         assertEquals(expected, a);
     }
 
