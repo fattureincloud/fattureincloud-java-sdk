@@ -116,4 +116,29 @@ public class IssuedEInvoicesApiTest {
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
 
+    /**
+     * Get the e-invoice xml
+     * <p>
+     * Retreives the e-invoice xml.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getEInvoiceXmlTest() throws ApiException, IOException {
+        String result = "<xml-fattura>fields</xml-fattura>";
+
+        Call mockCall = Mockito.mock(Call.class);
+        IssuedEInvoicesApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        Integer documentId = 16451;
+        Boolean includeAttachment = true;
+
+        String expected = "<xml-fattura>fields</xml-fattura>";
+
+        String response = api.getEInvoiceXml(companyId, documentId, includeAttachment);
+        assertEquals(expected, response);
+        Mockito.verify(mockCall, Mockito.only()).execute();
+    }
+
 }

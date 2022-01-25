@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Item unique identifier. |  [optional]
+**id** | **Integer** | Item unique identifier. |  [optional]
 **amountNet** | **BigDecimal** | Item total net amount. |  [optional]
 **amountGross** | **BigDecimal** | Item total gross amount. |  [optional]
 **category** | **String** | Item category. |  [optional]

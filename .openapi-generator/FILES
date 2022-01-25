@@ -30,6 +30,7 @@ docs/CompanyInfoPlanInfoFunctions.md
 docs/CompanyInfoPlanInfoFunctionsStatus.md
 docs/CompanyInfoPlanInfoLimits.md
 docs/CompanyType.md
+docs/ControlledCompany.md
 docs/CreateArchiveDocumentRequest.md
 docs/CreateArchiveDocumentResponse.md
 docs/CreateCashbookEntryRequest.md
@@ -294,6 +295,7 @@ src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoFunctions.java
 src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoFunctionsStatus.java
 src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoLimits.java
 src/main/java/it/fattureincloud/sdk/model/CompanyType.java
+src/main/java/it/fattureincloud/sdk/model/ControlledCompany.java
 src/main/java/it/fattureincloud/sdk/model/CreateArchiveDocumentRequest.java
 src/main/java/it/fattureincloud/sdk/model/CreateArchiveDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/CreateCashbookEntryRequest.java
@@ -482,3 +484,4 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
+src/test/java/it/fattureincloud/sdk/model/ControlledCompanyTest.java

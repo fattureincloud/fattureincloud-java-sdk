@@ -18,6 +18,7 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +37,7 @@ public class GetReceivedDocumentPreCreateInfoResponseTest {
                 .data(
                         new ReceivedDocumentInfo()
                                 .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(10))
+                                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
                                 .addCountriesListItem("Italia")
                                 .addCurrenciesListItem(new Currency().id("EUR"))
                                 .addCategoriesListItem("cat6")

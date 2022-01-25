@@ -37,6 +37,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -61,7 +62,7 @@ public class IssuedDocumentItemsListTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"product_id\":12345,\"code\":\"cod3\",\"name\":\"prodott1\",\"description\":\"primo\",\"qty\":99,\"measure\":\"big\",\"net_price\":10,\"gross_price\":10,\"vat\":{\"id\":1,\"editable\":true},\"not_taxable\":true,\"apply_withholding_taxes\":true,\"discount\":0,\"discount_highlight\":true,\"in_ddt\":true,\"stock\":true}";
+        String str = "{\"product_id\":12345,\"code\":\"cod3\",\"name\":\"prodott1\",\"category\":\"cat5\",\"description\":\"primo\",\"qty\":99,\"measure\":\"big\",\"net_price\":10,\"gross_price\":10,\"vat\":{\"id\":1,\"editable\":true},\"not_taxable\":true,\"apply_withholding_taxes\":true,\"discount\":0,\"discount_highlight\":true,\"in_ddt\":true,\"stock\":true}";
         assertEquals(str, json);
         IssuedDocumentItemsList generated = gson.fromJson(str, IssuedDocumentItemsList.class);
         assertEquals(model, generated);
@@ -87,6 +88,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -119,6 +121,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -151,6 +154,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -183,6 +187,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -201,6 +206,39 @@ public class IssuedDocumentItemsListTest {
     }
 
     /**
+     * Test the property 'category'
+     */
+    @Test
+    public void categoryTest() {
+        assertEquals("cat5", model.getCategory());
+        model.setCategory("cat6");
+        assertEquals("cat6", model.getCategory());
+
+        IssuedDocumentItemsList a = model.category("cat5");
+        IssuedDocumentItemsList expected = new IssuedDocumentItemsList()
+                .productId(12345)
+                .code("cod3")
+                .name("prodott1")
+                .description("primo")
+                .category("cat5")
+                .qty(BigDecimal.valueOf(99))
+                .measure("big")
+                .netPrice(BigDecimal.valueOf(10))
+                .grossPrice(BigDecimal.valueOf(10))
+                .notTaxable(true)
+                .applyWithholdingTaxes(true)
+                .discount(BigDecimal.valueOf(0))
+                .discountHighlight(true)
+                .inDdt(true)
+                .stock(true)
+                .vat(new VatType()
+                        .id(1)
+                )
+                .eiRaw(null);
+        assertEquals(expected, a);
+    }
+    
+    /**
      * Test the property 'qty'
      */
     @Test
@@ -215,6 +253,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -247,6 +286,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -279,6 +319,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -311,6 +352,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -343,6 +385,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -375,6 +418,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -407,6 +451,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -439,6 +484,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -471,6 +517,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -503,6 +550,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -535,6 +583,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))
@@ -567,6 +616,7 @@ public class IssuedDocumentItemsListTest {
                 .code("cod3")
                 .name("prodott1")
                 .description("primo")
+                .category("cat5")
                 .qty(BigDecimal.valueOf(99))
                 .measure("big")
                 .netPrice(BigDecimal.valueOf(10))

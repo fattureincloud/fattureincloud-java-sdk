@@ -33,7 +33,7 @@ public class ReceiptItemsListItemTest {
     @BeforeEach
     public void init() {
         model = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")
@@ -65,13 +65,13 @@ public class ReceiptItemsListItemTest {
      */
     @Test
     public void idTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getId());
-        model.setId(BigDecimal.valueOf(1));
-        assertEquals(BigDecimal.valueOf(1), model.getId());
+        assertEquals(10, model.getId());
+        model.setId(1);
+        assertEquals(1, model.getId());
 
-        ReceiptItemsListItem a = model.id(BigDecimal.valueOf(10));
+        ReceiptItemsListItem a = model.id(10);
         ReceiptItemsListItem expected = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")
@@ -90,7 +90,7 @@ public class ReceiptItemsListItemTest {
 
         ReceiptItemsListItem a = model.amountNet(BigDecimal.valueOf(10));
         ReceiptItemsListItem expected = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")
@@ -109,7 +109,7 @@ public class ReceiptItemsListItemTest {
 
         ReceiptItemsListItem a = model.amountGross(BigDecimal.valueOf(10));
         ReceiptItemsListItem expected = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")
@@ -128,7 +128,7 @@ public class ReceiptItemsListItemTest {
 
         ReceiptItemsListItem a = model.category("cat6");
         ReceiptItemsListItem expected = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")
@@ -147,7 +147,7 @@ public class ReceiptItemsListItemTest {
 
         ReceiptItemsListItem a = model.vat(new VatType().id(1));
         ReceiptItemsListItem expected = new ReceiptItemsListItem()
-                .id(BigDecimal.valueOf(10))
+                .id(10)
                 .amountNet(BigDecimal.valueOf(10))
                 .amountGross(BigDecimal.valueOf(10))
                 .category("cat6")

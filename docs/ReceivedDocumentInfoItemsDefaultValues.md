@@ -8,7 +8,7 @@ Default values for the document items.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vat** | **Integer** | Default vat value. |  [optional]
+**vat** | **BigDecimal** | Default vat value. |  [optional]
 
 
 ## Implemented Interfaces

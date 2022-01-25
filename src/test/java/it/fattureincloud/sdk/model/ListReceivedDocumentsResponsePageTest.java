@@ -68,7 +68,7 @@ public class ListReceivedDocumentsResponsePageTest {
                                                 .dueDate(LocalDate.of(2021, 12, 25))
                                                 .paidDate(LocalDate.of(2021, 12, 25))
                                                 .paymentTerms(new ReceivedDocumentPaymentTerms()
-                                                        .days(new BigDecimal(0))
+                                                        .days(0)
                                                         .type("standard"))
                                                 .status("paid")
                                                 .paymentAccount(new PaymentAccount()

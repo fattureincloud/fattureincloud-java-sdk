@@ -23,10 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.model.CompanyType;
-import it.fattureincloud.sdk.model.ControlledCompany;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 import java.io.Serializable;
 
 /**
@@ -34,7 +32,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-24T15:38:03.260Z[Etc/UTC]")
-public class Company implements Serializable {
+public class ControlledCompany implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ID = "id";
@@ -53,22 +51,18 @@ public class Company implements Serializable {
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
   private String accessToken;
 
-  public static final String SERIALIZED_NAME_CONTROLLED_COMPANIES = "controlled_companies";
-  @SerializedName(SERIALIZED_NAME_CONTROLLED_COMPANIES)
-  private List<ControlledCompany> controlledCompanies = null;
-
   public static final String SERIALIZED_NAME_CONNECTION_ID = "connection_id";
   @SerializedName(SERIALIZED_NAME_CONNECTION_ID)
-  private Integer connectionId;
+  private BigDecimal connectionId;
 
   public static final String SERIALIZED_NAME_TAX_CODE = "tax_code";
   @SerializedName(SERIALIZED_NAME_TAX_CODE)
   private String taxCode;
 
-  public Company() { 
+  public ControlledCompany() { 
   }
 
-  public Company id(Integer id) {
+  public ControlledCompany id(Integer id) {
     
     this.id = id;
     return this;
@@ -91,7 +85,7 @@ public class Company implements Serializable {
   }
 
 
-  public Company name(String name) {
+  public ControlledCompany name(String name) {
     
     this.name = name;
     return this;
@@ -114,7 +108,7 @@ public class Company implements Serializable {
   }
 
 
-  public Company type(CompanyType type) {
+  public ControlledCompany type(CompanyType type) {
     
     this.type = type;
     return this;
@@ -137,7 +131,7 @@ public class Company implements Serializable {
   }
 
 
-  public Company accessToken(String accessToken) {
+  public ControlledCompany accessToken(String accessToken) {
     
     this.accessToken = accessToken;
     return this;
@@ -160,38 +154,7 @@ public class Company implements Serializable {
   }
 
 
-  public Company controlledCompanies(List<ControlledCompany> controlledCompanies) {
-    
-    this.controlledCompanies = controlledCompanies;
-    return this;
-  }
-
-  public Company addControlledCompaniesItem(ControlledCompany controlledCompaniesItem) {
-    if (this.controlledCompanies == null) {
-      this.controlledCompanies = new ArrayList<>();
-    }
-    this.controlledCompanies.add(controlledCompaniesItem);
-    return this;
-  }
-
-   /**
-   * List of controlled companies. [Only if type&#x3D;accountant]
-   * @return controlledCompanies
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of controlled companies. [Only if type=accountant]")
-
-  public List<ControlledCompany> getControlledCompanies() {
-    return controlledCompanies;
-  }
-
-
-  public void setControlledCompanies(List<ControlledCompany> controlledCompanies) {
-    this.controlledCompanies = controlledCompanies;
-  }
-
-
-  public Company connectionId(Integer connectionId) {
+  public ControlledCompany connectionId(BigDecimal connectionId) {
     
     this.connectionId = connectionId;
     return this;
@@ -204,17 +167,17 @@ public class Company implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Company connection id.")
 
-  public Integer getConnectionId() {
+  public BigDecimal getConnectionId() {
     return connectionId;
   }
 
 
-  public void setConnectionId(Integer connectionId) {
+  public void setConnectionId(BigDecimal connectionId) {
     this.connectionId = connectionId;
   }
 
 
-  public Company taxCode(String taxCode) {
+  public ControlledCompany taxCode(String taxCode) {
     
     this.taxCode = taxCode;
     return this;
@@ -245,30 +208,28 @@ public class Company implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Company company = (Company) o;
-    return Objects.equals(this.id, company.id) &&
-        Objects.equals(this.name, company.name) &&
-        Objects.equals(this.type, company.type) &&
-        Objects.equals(this.accessToken, company.accessToken) &&
-        Objects.equals(this.controlledCompanies, company.controlledCompanies) &&
-        Objects.equals(this.connectionId, company.connectionId) &&
-        Objects.equals(this.taxCode, company.taxCode);
+    ControlledCompany controlledCompany = (ControlledCompany) o;
+    return Objects.equals(this.id, controlledCompany.id) &&
+        Objects.equals(this.name, controlledCompany.name) &&
+        Objects.equals(this.type, controlledCompany.type) &&
+        Objects.equals(this.accessToken, controlledCompany.accessToken) &&
+        Objects.equals(this.connectionId, controlledCompany.connectionId) &&
+        Objects.equals(this.taxCode, controlledCompany.taxCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, accessToken, controlledCompanies, connectionId, taxCode);
+    return Objects.hash(id, name, type, accessToken, connectionId, taxCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Company {\n");
+    sb.append("class ControlledCompany {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    controlledCompanies: ").append(toIndentedString(controlledCompanies)).append("\n");
     sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    taxCode: ").append(toIndentedString(taxCode)).append("\n");
     sb.append("}");

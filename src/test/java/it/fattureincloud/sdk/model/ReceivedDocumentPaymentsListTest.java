@@ -38,7 +38,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
     }
@@ -77,7 +77,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -98,7 +98,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -119,7 +119,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -140,7 +140,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -151,17 +151,17 @@ public class ReceivedDocumentPaymentsListTest {
      */
     @Test
     public void paymentTermsTest() {
-        assertEquals(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)), model.getPaymentTerms());
-        model.setPaymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(11)));
-        assertEquals(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(11)), model.getPaymentTerms());
+        assertEquals(new ReceivedDocumentPaymentTerms().days(10), model.getPaymentTerms());
+        model.setPaymentTerms(new ReceivedDocumentPaymentTerms().days(11));
+        assertEquals(new ReceivedDocumentPaymentTerms().days(11), model.getPaymentTerms());
 
-        ReceivedDocumentPaymentsList i = model.paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)));
+        ReceivedDocumentPaymentsList i = model.paymentTerms(new ReceivedDocumentPaymentTerms().days(10));
         ReceivedDocumentPaymentsList expected = new ReceivedDocumentPaymentsList()
                 .id(1)
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -182,7 +182,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);
@@ -203,7 +203,7 @@ public class ReceivedDocumentPaymentsListTest {
                 .amount(BigDecimal.valueOf(10))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentTerms().days(BigDecimal.valueOf(10)))
+                .paymentTerms(new ReceivedDocumentPaymentTerms().days(10))
                 .status("oks")
                 .paymentAccount(new PaymentAccount().id(1));
         assertEquals(expected, i);

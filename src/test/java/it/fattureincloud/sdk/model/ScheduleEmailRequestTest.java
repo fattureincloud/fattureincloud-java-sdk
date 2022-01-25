@@ -36,7 +36,7 @@ public class ScheduleEmailRequestTest {
                 .data(
                         new EmailSchedule()
                                 .senderEmail("mariorossi@fattureincloud.it")
-                                .senderId(BigDecimal.valueOf(12345))
+                                .senderId(12345)
                                 .recipientEmail("mary.red@example.com")
                                 .subject("Nostra pro forma nr. 1")
                                 .body("Pro forma body")
@@ -75,13 +75,13 @@ public class ScheduleEmailRequestTest {
      */
     @Test
     public void dataTest() {
-        assertEquals(BigDecimal.valueOf(12345), model.getData().getSenderId());
-        model.setData(new EmailSchedule().senderId(BigDecimal.valueOf(2)));
-        assertEquals(BigDecimal.valueOf(2), model.getData().getSenderId());
+        assertEquals(12345, model.getData().getSenderId());
+        model.setData(new EmailSchedule().senderId(2));
+        assertEquals(2, model.getData().getSenderId());
 
-        model.data(new EmailSchedule().senderId(BigDecimal.valueOf(12345)));
+        model.data(new EmailSchedule().senderId(12345));
         ScheduleEmailRequest actual = new ScheduleEmailRequest();
-        actual.setData(new EmailSchedule().senderId(BigDecimal.valueOf(12345)));
+        actual.setData(new EmailSchedule().senderId(12345));
         assertEquals(model, actual);
     }
 

@@ -41,7 +41,7 @@ public class EmailScheduleTest {
     public void testEmailSchedule() {
         EmailSchedule e = new EmailSchedule()
                 .senderEmail("mariorossi@fattureincloud.it")
-                .senderId(BigDecimal.valueOf(5))
+                .senderId(5)
                 .recipientEmail("mary.red@example.com")
                 .subject("Nostra pro forma nr. 1")
                 .body("Pro forma body")
@@ -74,12 +74,12 @@ public class EmailScheduleTest {
     @Test
     public void senderIdTest() {
         assertNull(model.getSenderId());
-        model.setSenderId(BigDecimal.valueOf(1));
-        assertEquals(BigDecimal.valueOf(1), model.getSenderId());
+        model.setSenderId(1);
+        assertEquals(1, model.getSenderId());
 
-        EmailSchedule e = model.senderId(BigDecimal.valueOf(2));
+        EmailSchedule e = model.senderId(2);
         EmailSchedule expected = new EmailSchedule();
-        expected.setSenderId(BigDecimal.valueOf(2));
+        expected.setSenderId(2);
         assertEquals(expected, e);
     }
 

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**days** | **BigDecimal** | Number of days. |  [optional]
+**days** | **Integer** | Number of days. |  [optional]
 **type** | **String** |  |  [optional]
 
 

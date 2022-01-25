@@ -2,9 +2,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.8
+- API version: 2.0.9
 
-- Build date: 2022-01-11T09:47:17.167Z[Etc/UTC]
+- Build date: 2022-01-24T15:38:03.260Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
 </dependency>
 ```
 
@@ -45,7 +45,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.1"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.2"
   }
 ```
 
@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
+*IssuedEInvoicesApi* | [**getEInvoiceXml**](docs/IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 *IssuedEInvoicesApi* | [**sendEInvoice**](docs/IssuedEInvoicesApi.md#sendEInvoice) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send the e-invoice
 *IssuedEInvoicesApi* | [**verifyEInvoiceXml**](docs/IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /c/{company_id}/products | Create Product
@@ -215,6 +216,7 @@ Class | Method | HTTP request | Description
  - [CompanyInfoPlanInfoFunctionsStatus](docs/CompanyInfoPlanInfoFunctionsStatus.md)
  - [CompanyInfoPlanInfoLimits](docs/CompanyInfoPlanInfoLimits.md)
  - [CompanyType](docs/CompanyType.md)
+ - [ControlledCompany](docs/ControlledCompany.md)
  - [CreateArchiveDocumentRequest](docs/CreateArchiveDocumentRequest.md)
  - [CreateArchiveDocumentResponse](docs/CreateArchiveDocumentResponse.md)
  - [CreateCashbookEntryRequest](docs/CreateCashbookEntryRequest.md)

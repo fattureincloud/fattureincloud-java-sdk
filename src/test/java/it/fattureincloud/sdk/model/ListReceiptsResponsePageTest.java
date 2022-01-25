@@ -51,7 +51,7 @@ public class ListReceiptsResponsePageTest {
                                 .createdAt("2021-10-10")
                                 .updatedAt("2021-10-10")
                                 .paymentAccount(new PaymentAccount().id(1))
-                                .addItemsListItem(new ReceiptItemsListItem().id(BigDecimal.valueOf(1)))
+                                .addItemsListItem(new ReceiptItemsListItem().id(1))
                 );
     }
 
