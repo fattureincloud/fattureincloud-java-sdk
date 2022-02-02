@@ -4,6 +4,8 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getEInvoiceRejectionReason**](IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get EInvoice rejection reason
+[**getEInvoiceRejectionReasonWithHttpInfo**](IssuedEInvoicesApi.md#getEInvoiceRejectionReasonWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get EInvoice rejection reason
 [**getEInvoiceXml**](IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 [**getEInvoiceXmlWithHttpInfo**](IssuedEInvoicesApi.md#getEInvoiceXmlWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 [**sendEInvoice**](IssuedEInvoicesApi.md#sendEInvoice) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send the e-invoice
@@ -11,6 +13,154 @@ Method | HTTP request | Description
 [**verifyEInvoiceXml**](IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
 [**verifyEInvoiceXmlWithHttpInfo**](IssuedEInvoicesApi.md#verifyEInvoiceXmlWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
 
+
+
+## getEInvoiceRejectionReason
+
+> GetEInvoiceRejectionReasonResponse getEInvoiceRejectionReason(companyId, documentId)
+
+Get EInvoice rejection reason
+
+Get EInvoice rejection reason
+
+### Example
+
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.model.*;
+import it.fattureincloud.sdk.api.IssuedEInvoicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+        
+        // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+        OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+        OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+        IssuedEInvoicesApi apiInstance = new IssuedEInvoicesApi(defaultClient);
+        Integer companyId = 12345; // Integer | The ID of the company.
+        Integer documentId = 56; // Integer | The ID of the document.
+        try {
+            GetEInvoiceRejectionReasonResponse result = apiInstance.getEInvoiceRejectionReason(companyId, documentId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssuedEInvoicesApi#getEInvoiceRejectionReason");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **documentId** | **Integer**| The ID of the document. |
+
+### Return type
+
+[**GetEInvoiceRejectionReasonResponse**](GetEInvoiceRejectionReasonResponse.md)
+
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Example response |  -  |
+
+## getEInvoiceRejectionReasonWithHttpInfo
+
+> ApiResponse<GetEInvoiceRejectionReasonResponse> getEInvoiceRejectionReason getEInvoiceRejectionReasonWithHttpInfo(companyId, documentId)
+
+Get EInvoice rejection reason
+
+Get EInvoice rejection reason
+
+### Example
+
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.ApiResponse;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.model.*;
+import it.fattureincloud.sdk.api.IssuedEInvoicesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+        
+        // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+        OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+        OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+        IssuedEInvoicesApi apiInstance = new IssuedEInvoicesApi(defaultClient);
+        Integer companyId = 12345; // Integer | The ID of the company.
+        Integer documentId = 56; // Integer | The ID of the document.
+        try {
+            ApiResponse<GetEInvoiceRejectionReasonResponse> response = apiInstance.getEInvoiceRejectionReasonWithHttpInfo(companyId, documentId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssuedEInvoicesApi#getEInvoiceRejectionReason");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **Integer**| The ID of the company. |
+ **documentId** | **Integer**| The ID of the document. |
+
+### Return type
+
+ApiResponse<[**GetEInvoiceRejectionReasonResponse**](GetEInvoiceRejectionReasonResponse.md)>
+
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Example response |  -  |
 
 
 ## getEInvoiceXml
