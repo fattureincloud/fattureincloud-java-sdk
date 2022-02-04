@@ -1,13 +1,13 @@
 
 
-# ListF24ResponseAggregatedDataAggregatedData
+# ListF24ResponseAggregation
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **BigDecimal** | Total amount. |  [optional]
+**aggregatedData** | [**ListF24ResponseAggregatedData**](ListF24ResponseAggregatedData.md) |  |  [optional]
 
 
 ## Implemented Interfaces

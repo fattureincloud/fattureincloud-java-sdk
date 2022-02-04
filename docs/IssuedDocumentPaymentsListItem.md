@@ -1,12 +1,13 @@
 
 
-# IssuedDocumentPaymentsList
+# IssuedDocumentPaymentsListItem
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **Integer** | Unique identifier. |  [optional]
 **dueDate** | **LocalDate** | Due date. |  [optional]
 **amount** | **BigDecimal** | Payment amount. |  [optional]
 **status** | **IssuedDocumentStatus** |  |  [optional]

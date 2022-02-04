@@ -1,6 +1,6 @@
 
 
-# EmailDataSenderEmailsList
+# SenderEmail
 
 
 ## Properties

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregatedData** | [**ListF24ResponseAggregatedDataAggregatedData**](ListF24ResponseAggregatedDataAggregatedData.md) |  |  [optional]
+**amount** | **BigDecimal** | Total amount. |  [optional]
 
 
 ## Implemented Interfaces
