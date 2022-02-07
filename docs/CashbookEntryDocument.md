@@ -1,6 +1,6 @@
 
 
-# CashbookEntryDataDocument
+# CashbookEntryDocument
 
 
 ## Properties

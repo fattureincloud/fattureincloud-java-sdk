@@ -1,13 +1,13 @@
 
 
-# ReceivedDocumentItemsList
+# ReceivedDocumentItemsListItem
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  |  [optional]
+**id** | **Integer** | Unique identifier. |  [optional]
 **productId** | **Integer** | Unique identifier of the product |  [optional]
 **code** | **String** | Product code. |  [optional]
 **name** | **String** | Product name. |  [optional]
