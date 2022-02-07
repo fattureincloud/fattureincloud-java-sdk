@@ -13,32 +13,49 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.ListF24ResponseAggregatedData;
-import java.io.IOException;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListF24ResponseAggregation
  */
 public class ListF24ResponseAggregationTest {
-    private final ListF24ResponseAggregation model = new ListF24ResponseAggregation();
+    private ListF24ResponseAggregation model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListF24ResponseAggregation()
+                .aggregatedData(
+                        new ListF24ResponseAggregatedData()
+                                .amount(new BigDecimal(10))
+                );
+    }
 
     /**
      * Model tests for ListF24ResponseAggregation
      */
     @Test
     public void testListF24ResponseAggregation() {
-        // TODO: test ListF24ResponseAggregation
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"aggregated_data\":{\"amount\":10}}";
+        assertEquals(str, json);
+        ListF24ResponseAggregation generated = gson.fromJson(str, ListF24ResponseAggregation.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +63,16 @@ public class ListF24ResponseAggregationTest {
      */
     @Test
     public void aggregatedDataTest() {
-        // TODO: test aggregatedData
+        assertEquals(new BigDecimal(10), model.getAggregatedData().getAmount());
+        model.getAggregatedData().setAmount(new BigDecimal(130));
+        assertEquals(new BigDecimal(130), model.getAggregatedData().getAmount());
+
+        ListF24ResponseAggregation expected = new ListF24ResponseAggregation()
+                .aggregatedData(
+                        new ListF24ResponseAggregatedData()
+                                .amount(new BigDecimal(130))
+                );
+        assertEquals(expected, model);
     }
 
 }
