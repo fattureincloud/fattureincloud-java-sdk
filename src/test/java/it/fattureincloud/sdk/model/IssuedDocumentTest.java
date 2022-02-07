@@ -297,9 +297,9 @@ public class IssuedDocumentTest {
      */
     @Test
     public void itemsListTest() {
-        model.addItemsListItem(new IssuedDocumentItemsList().name("item1"));
-        model.addItemsListItem(new IssuedDocumentItemsList().name("item2"));
-        assertEquals(Arrays.asList(new IssuedDocumentItemsList().name("item1"), new IssuedDocumentItemsList().name("item2")), model.getItemsList());
+        model.addItemsListItem(new IssuedDocumentItemsListItem().name("item1"));
+        model.addItemsListItem(new IssuedDocumentItemsListItem().name("item2"));
+        assertEquals(Arrays.asList(new IssuedDocumentItemsListItem().name("item1"), new IssuedDocumentItemsListItem().name("item2")), model.getItemsList());
     }
 
     /**
@@ -307,9 +307,9 @@ public class IssuedDocumentTest {
      */
     @Test
     public void paymentsListTest() {
-        model.addPaymentsListItem(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(100)));
-        model.addPaymentsListItem(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(10)));
-        assertEquals(Arrays.asList(new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(100)), new IssuedDocumentPaymentsList().amount(BigDecimal.valueOf(10))), model.getPaymentsList());
+        model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)));
+        model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10)));
+        assertEquals(Arrays.asList(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)), new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10))), model.getPaymentsList());
     }
 
     /**
@@ -530,17 +530,6 @@ public class IssuedDocumentTest {
         assertEquals("ottantotto", model.getDnAiNotes());
         model.setDnAiNotes("ottantottolo");
         assertEquals("ottantottolo", model.getDnAiNotes());
-    }
-
-    /**
-     * Test the property 'refersTo'
-     */
-    @Test
-    public void refersToTest() {
-        model.refersTo(new IssuedDocumentRefersTo().id(1));
-        assertEquals(new IssuedDocumentRefersTo().id(1), model.getRefersTo());
-        model.setRefersTo(new IssuedDocumentRefersTo().id(2));
-        assertEquals(new IssuedDocumentRefersTo().id(2), model.getRefersTo());
     }
 
     /**

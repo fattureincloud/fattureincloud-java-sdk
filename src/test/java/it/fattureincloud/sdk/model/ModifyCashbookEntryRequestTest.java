@@ -42,20 +42,10 @@ public class ModifyCashbookEntryRequestTest {
                                 .kind(CashbookEntryKind.ISSUED_DOCUMENT)
                                 .type(CashbookEntryType.IN)
                                 .entityName("Rossi S.r.l.")
-                                .document(new CashbookEntryDataDocument()
+                                .document(new CashbookEntryDocument()
                                         .id(12345)
                                         .type("issued_document")
                                         .path("/doc1.pdf")
-                                )
-                                .amountOut(BigDecimal.valueOf(10))
-                                .paymentAccountOut(new PaymentAccount()
-                                        .id(21)
-                                        .name("Indesa - Carta conto")
-                                        .type(PaymentAccountType.STANDARD)
-                                        .iban("IT84Y0300203280294126225888")
-                                        .sia("sai")
-                                        .cuc("cuc")
-                                        .virtual(false)
                                 )
                                 .amountIn(BigDecimal.valueOf(10))
                                 .paymentAccountIn(new PaymentAccount()
@@ -78,7 +68,7 @@ public class ModifyCashbookEntryRequestTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
+        String str = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
         assertEquals(str, json);
         ModifyCashbookEntryRequest generated = gson.fromJson(str, ModifyCashbookEntryRequest.class);
         assertEquals(model, generated);

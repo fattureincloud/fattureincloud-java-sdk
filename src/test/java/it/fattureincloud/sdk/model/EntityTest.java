@@ -43,7 +43,7 @@ public class EntityTest {
                 .id(16451)
                 .code("AE86")
                 .name("Avv. Maria Rossi")
-                .type(SupplierType.PERSON)
+                .type(EntityType.PERSON)
                 .firstName("Maria")
                 .lastName("Rossi")
                 .contactPerson("")
@@ -143,11 +143,11 @@ public class EntityTest {
     @Test
     public void typeTest() {
         assertNull(model.getType());
-        model.setType(SupplierType.PERSON);
-        assertEquals(SupplierType.PERSON, model.getType());
-        Entity e = model.type(SupplierType.CONDO);
+        model.setType(EntityType.PERSON);
+        assertEquals(EntityType.PERSON, model.getType());
+        Entity e = model.type(EntityType.CONDO);
         Entity expected = new Entity();
-        expected.setType(SupplierType.CONDO);
+        expected.setType(EntityType.CONDO);
         assertEquals(expected, e);
     }
 

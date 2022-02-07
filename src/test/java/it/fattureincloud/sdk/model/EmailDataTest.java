@@ -49,10 +49,10 @@ public class EmailDataTest {
                         .email("no-reply@fattureincloud.it")
                 )
                 .senderEmailsList(Arrays.asList(
-                        new EmailDataSenderEmailsList()
+                        new SenderEmail()
                                 .id(0)
                                 .email("no-reply@fattureincloud.it"),
-                        new EmailDataSenderEmailsList()
+                        new SenderEmail()
                                 .id(888)
                                 .email("mariorossi@fattureincloud.it")
                 ));
@@ -114,11 +114,11 @@ public class EmailDataTest {
      */
     @Test
     public void senderEmailsListTest() {
-        EmailDataSenderEmailsList e1 = new EmailDataSenderEmailsList()
+        SenderEmail e1 = new SenderEmail()
                 .id(1)
                 .email("no-reply@fattureincloud.it");
 
-        EmailDataSenderEmailsList e2 = new EmailDataSenderEmailsList()
+        SenderEmail e2 = new SenderEmail()
                 .id(2)
                 .email("info@fattureincloud.it");
 

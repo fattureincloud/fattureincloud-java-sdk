@@ -49,10 +49,10 @@ public class GetEmailDataResponseTest {
                                         .email("no-reply@fattureincloud.it")
                                 )
                                 .senderEmailsList(Arrays.asList(
-                                        new EmailDataSenderEmailsList()
+                                        new SenderEmail()
                                                 .id(0)
                                                 .email("no-reply@fattureincloud.it"),
-                                        new EmailDataSenderEmailsList()
+                                        new SenderEmail()
                                                 .id(888)
                                                 .email("mariorossi@fattureincloud.it")
                                 ))

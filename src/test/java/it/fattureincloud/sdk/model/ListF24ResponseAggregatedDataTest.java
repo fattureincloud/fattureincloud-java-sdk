@@ -33,10 +33,7 @@ public class ListF24ResponseAggregatedDataTest {
     @BeforeEach
     public void init() {
         model = new ListF24ResponseAggregatedData()
-                .aggregatedData(
-                    new ListF24ResponseAggregatedDataAggregatedData()
-                            .amount(new BigDecimal(10))
-                );
+                .amount(new BigDecimal(10));
     }
 
     /**
@@ -47,7 +44,7 @@ public class ListF24ResponseAggregatedDataTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"aggregated_data\":{\"amount\":10}}";
+        String str = "{\"amount\":10}";
         assertEquals(str, json);
         ListF24ResponseAggregatedData generated = gson.fromJson(str, ListF24ResponseAggregatedData.class);
         assertEquals(model, generated);
@@ -59,19 +56,17 @@ public class ListF24ResponseAggregatedDataTest {
     }
 
     /**
-     * Test the property 'aggregatedData'
+     * Test the property 'amount'
      */
     @Test
-    public void aggregatedDataTest() {
-        assertEquals(new BigDecimal(10), model.getAggregatedData().getAmount());
-        model.getAggregatedData().setAmount(new BigDecimal(130));
-        assertEquals(new BigDecimal(130), model.getAggregatedData().getAmount());
+    public void amountTest() {
+        assertEquals(new BigDecimal(10), model.getAmount());
+        model.setAmount(new BigDecimal(130));
+        assertEquals(new BigDecimal(130), model.getAmount());
 
+        ListF24ResponseAggregatedData i = model;
         ListF24ResponseAggregatedData expected = new ListF24ResponseAggregatedData()
-                .aggregatedData(
-                        new ListF24ResponseAggregatedDataAggregatedData()
-                                .amount(new BigDecimal(130))
-                );
+                .amount(new BigDecimal(130));
         assertEquals(expected, model);
     }
 
