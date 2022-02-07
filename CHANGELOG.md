@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.3 (2022-02-07)
+
+
+### Bug Fixes
+
+* added endpoint and updated model ([50cb48f](https://github.com/fattureincloud/fattureincloud-java-sdk/commit/50cb48ffbbd6a94745237a14309f4758bf32738e))
+
 ### 2.0.2 (2022-01-25)
 
 
