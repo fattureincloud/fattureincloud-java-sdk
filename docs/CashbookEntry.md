@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **kind** | **CashbookEntryKind** |  | 
 **type** | **CashbookEntryType** |  |  [optional]
 **entityName** | **String** | Entity name. |  [optional]
-**document** | [**CashbookEntryDataDocument**](CashbookEntryDataDocument.md) |  |  [optional]
-**amountIn** | **BigDecimal** | Total amount in. |  [optional]
+**document** | [**CashbookEntryDocument**](CashbookEntryDocument.md) |  |  [optional]
+**amountIn** | **BigDecimal** | [Only for cashbook entry in] Total amount in. |  [optional]
 **paymentAccountIn** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional]
-**amountOut** | **BigDecimal** | Total amount out. |  [optional]
+**amountOut** | **BigDecimal** | [Only for cashbook entry out] Total amount out. |  [optional]
 **paymentAccountOut** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional]
 
 
