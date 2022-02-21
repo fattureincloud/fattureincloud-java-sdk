@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.11
+  version: 2.0.12
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -15167,7 +15167,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -15241,7 +15241,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -15315,7 +15315,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -15390,7 +15390,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -15464,7 +15464,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -15821,13 +15821,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -15845,7 +15845,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -15857,8 +15857,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -15872,7 +15872,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -15884,8 +15884,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -15938,32 +15938,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -15993,8 +15993,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -16007,7 +16007,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -16031,7 +16031,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -16094,15 +16094,19 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
+        options:
+          fix_payments: true
       properties:
         data:
           $ref: '#/components/schemas/IssuedDocument'
+        options:
+          $ref: '#/components/schemas/IssuedDocumentOptions'
       title: CreateIssuedDocumentRequest
       type: object
     CreateIssuedDocumentResponse:
@@ -16113,13 +16117,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -16137,7 +16141,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16149,8 +16153,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16164,7 +16168,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16176,8 +16180,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16230,32 +16234,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -16285,8 +16289,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -16299,7 +16303,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -16323,7 +16327,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -16386,7 +16390,7 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
@@ -16405,13 +16409,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -16429,7 +16433,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16441,8 +16445,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16456,7 +16460,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16468,8 +16472,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16522,32 +16526,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -16577,8 +16581,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -16591,7 +16595,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -16615,7 +16619,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -16678,7 +16682,7 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
@@ -16698,13 +16702,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -16722,7 +16726,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16734,8 +16738,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16749,7 +16753,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -16761,8 +16765,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -16815,32 +16819,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -16870,8 +16874,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -16884,7 +16888,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -16908,7 +16912,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -16971,15 +16975,22 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
+        option:
+          entity_search_fields: entity.id,tax_code,vat_number,code
+          entity_update: entity_update
+          entity_create: true
+          entity_autocomplete: true
       properties:
         data:
           $ref: '#/components/schemas/IssuedDocument'
+        option:
+          $ref: '#/components/schemas/EntityOptions'
       title: ModifyIssuedDocumentRequest
       type: object
     ModifyIssuedDocumentResponse:
@@ -16990,13 +17001,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -17014,7 +17025,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17026,8 +17037,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17041,7 +17052,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17053,8 +17064,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17107,32 +17118,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -17162,8 +17173,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -17176,7 +17187,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17200,7 +17211,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -17263,7 +17274,7 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
@@ -17282,13 +17293,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -17306,7 +17317,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17318,8 +17329,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17333,7 +17344,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17345,8 +17356,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17399,32 +17410,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -17454,8 +17465,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -17468,7 +17479,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17492,7 +17503,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -17555,7 +17566,7 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
@@ -17580,7 +17591,7 @@ components:
           stamp_duty: 1.2315135367772556
           amount_withholding_tax: 2.027123023002322
           vat_list:
-            vat_item:
+            key:
               amount_net: 6.84685269835264
               amount_vat: 7.457744773683766
           not_taxable_amount: 2.3021358869347655
@@ -17603,13 +17614,13 @@ components:
           notes: notes
           year: 1
           subject: subject
-          rivalsa: 59.621339166831824
+          rivalsa: 5.962133916683182
           dn_ai_causal: dn_ai_causal
           language:
             code: code
             name: name
           show_payments: true
-          show_paypal_button: false
+          show_paypal_button: true
           ei_data:
             cig: cig
             bank_name: bank_name
@@ -17627,7 +17638,7 @@ components:
           items_list:
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17639,8 +17650,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17654,7 +17665,7 @@ components:
             in_ddt: true
           - code: "239874892374982"
             ei_raw: '{}'
-            discount_highlight: false
+            discount_highlight: true
             vat:
               ei_description: ei_description
               notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -17666,8 +17677,8 @@ components:
               id: 6
               value: 22
             description: description
-            not_taxable: false
-            discount: 99.65781217890562
+            not_taxable: true
+            discount: 9.965781217890562
             net_price: 1.23
             apply_withholding_taxes: true
             measure: measure
@@ -17720,32 +17731,32 @@ components:
           amount_net: 6.438423552598547
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
-          cassa2_taxable: 41.45608029883936
+          cassa2_taxable: 4.145608029883936
           v_margins: 8
           amount_cassa2: 2.027123023002322
-          accompanying_invoice: false
+          accompanying_invoice: true
           amount_rivalsa_taxable: 6.778324963048013
           amount_rivalsa: 2.8841621266687802
           stamp_duty: 1.1730742509559433
-          use_gross_prices: false
-          global_cassa_taxable: 12.315135367772555
-          e_invoice: false
+          use_gross_prices: true
+          global_cassa_taxable: 1.2315135367772556
+          e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
-          withholding_tax: 14.894159098541703
+          withholding_tax: 1.4894159098541704
           amount_withholding_tax_taxable: 5.944895607614016
-          other_withholding_tax: 74.57744773683766
+          other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
             name: Light Smoke
             id: 123
             type: type
-          cassa: 56.37376656633328
+          cassa: 5.637376656633329
           ei_raw: '{}'
           amount_global_cassa_taxable: 1.0246457001441578
           amount_due_discount: 1.284659006116532
           amount_enasarco_taxable: 3.0937452626664474
           visible_subject: visible_subject
-          use_split_payment: false
+          use_split_payment: true
           payments_list:
           - amount: 1.45
             payment_account:
@@ -17775,8 +17786,8 @@ components:
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
-          cassa2: 36.160767492519106
-          withholding_tax_taxable: 68.4685269835264
+          cassa2: 3.616076749251911
+          withholding_tax_taxable: 6.84685269835264
           is_marked: true
           amount_vat: 3.5571952270680973
           amount_other_withholding_tax_taxable: 3.353193347011243
@@ -17789,7 +17800,7 @@ components:
           amount_other_withholding_tax: 6.704019297950036
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
-          show_notification_button: false
+          show_notification_button: true
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17813,7 +17824,7 @@ components:
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
-          cassa_taxable: 70.61401241503108
+          cassa_taxable: 7.061401241503109
           amount_gross: 6.965117697638846
           entity:
             country: Italia
@@ -17876,7 +17887,7 @@ components:
             tax_code: RSSMRA44A12E890Q
             phone: phone
             address_street: Via dei tigli, 12
-            e_invoice: false
+            e_invoice: true
             name: Rossi S.r.l.
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
@@ -17901,7 +17912,7 @@ components:
           stamp_duty: 1.2315135367772556
           amount_withholding_tax: 2.027123023002322
           vat_list:
-            vat_item:
+            key:
               amount_net: 6.84685269835264
               amount_vat: 7.457744773683766
           not_taxable_amount: 2.3021358869347655
@@ -17924,15 +17935,14 @@ components:
         filename:
           description: Name of the file.
           example: attachment.pdf
+          nullable: true
           type: string
         attachment:
           description: 'Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc,
             .docx'
           format: binary
+          nullable: true
           type: string
-      required:
-      - attachment
-      - filename
       title: Attachment
       type: object
     UploadIssuedDocumentAttachmentResponse:
@@ -17947,7 +17957,7 @@ components:
     GetIssuedDocumentPreCreateInfoResponse:
       example:
         data:
-          numerations: '{}'
+          numerations: {}
           payment_methods_list:
           - default_payment_account:
               cuc: cuc
@@ -18107,7 +18117,7 @@ components:
               is_default: true
               ei_payment_method: ei_payment_method
               bank_iban: bank_iban
-          dn_numerations: '{}'
+          dn_numerations: {}
           vat_types_list:
           - ei_description: ei_description
             notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -18244,7 +18254,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18330,7 +18340,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18346,11 +18356,10 @@ components:
         pending_id:
           description: Pending received document id of the document from which the
             new document is created.
+          nullable: true
           type: integer
         data:
           $ref: '#/components/schemas/ReceivedDocument'
-      required:
-      - data
       title: CreateReceivedDocumentRequest
       type: object
     CreateReceivedDocumentResponse:
@@ -18359,7 +18368,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18445,7 +18454,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18467,7 +18476,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18553,7 +18562,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18575,7 +18584,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18661,7 +18670,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18683,7 +18692,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18769,7 +18778,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18791,7 +18800,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -18877,7 +18886,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -18915,7 +18924,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
-          tax_deductibility: 36.160767492519106
+          tax_deductibility: 3.616076749251911
           description: description
           amortization: 9.301444243932576
           payments_list:
@@ -19001,7 +19010,7 @@ components:
           id: 0
           amount_other_withholding_tax: 2.3021358869347655
           invoice_number: invoice_number
-          vat_deductibility: 20.271230230023217
+          vat_deductibility: 2.027123023002322
           attachment_token: attachment_token
           amount_net: 1.4658129805029452
           attachment_url: attachment_url
@@ -19121,7 +19130,7 @@ components:
           description: description
           created_at: created_at
           number: 6.027456183070403
-          use_gross_prices: false
+          use_gross_prices: true
           rc_center: rc_center
           payment_account:
             cuc: cuc
@@ -19168,6 +19177,7 @@ components:
           $ref: '#/components/schemas/Receipt'
         autocomplete_number:
           description: If true, the number is autocompleted progressively.
+          nullable: true
           type: boolean
       title: CreateReceiptRequest
       type: object
@@ -19181,7 +19191,7 @@ components:
           description: description
           created_at: created_at
           number: 6.027456183070403
-          use_gross_prices: false
+          use_gross_prices: true
           rc_center: rc_center
           payment_account:
             cuc: cuc
@@ -19238,7 +19248,7 @@ components:
           description: description
           created_at: created_at
           number: 6.027456183070403
-          use_gross_prices: false
+          use_gross_prices: true
           rc_center: rc_center
           payment_account:
             cuc: cuc
@@ -19295,7 +19305,7 @@ components:
           description: description
           created_at: created_at
           number: 6.027456183070403
-          use_gross_prices: false
+          use_gross_prices: true
           rc_center: rc_center
           payment_account:
             cuc: cuc
@@ -19352,7 +19362,7 @@ components:
           description: description
           created_at: created_at
           number: 6.027456183070403
-          use_gross_prices: false
+          use_gross_prices: true
           rc_center: rc_center
           payment_account:
             cuc: cuc
@@ -19406,7 +19416,7 @@ components:
           numerations_list:
           - numerations_list
           - numerations_list
-          numerations: '{}'
+          numerations: {}
           rc_centers_list:
           - rc_centers_list
           - rc_centers_list
@@ -19464,6 +19474,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/MonthlyTotal'
+          nullable: true
           type: array
       title: GetReceiptsMonthlyTotalsResponse
       type: object
@@ -19742,6 +19753,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/CashbookEntry'
+          nullable: true
           type: array
       title: ListCashbookEntriesResponse
       type: object
@@ -19920,6 +19932,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListCountriesResponse
       type: object
@@ -19937,6 +19950,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/City'
+          nullable: true
           type: array
       title: ListCitiesResponse
       type: object
@@ -19952,6 +19966,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Language'
+          nullable: true
           type: array
       title: ListLanguagesResponse
       type: object
@@ -19969,6 +19984,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/DocumentTemplate'
+          nullable: true
           type: array
       title: ListTemplatesResponse
       type: object
@@ -19988,6 +20004,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Currency'
+          nullable: true
           type: array
       title: ListCurrenciesResponse
       type: object
@@ -20001,6 +20018,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListUnitsOfMeasureResponse
       type: object
@@ -20014,9 +20032,8 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
-      required:
-      - data
       title: ListDeliveryNotesDefaultCasualsResponse
       type: object
     ListVatTypesResponse:
@@ -20045,6 +20062,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/VatType'
+          nullable: true
           type: array
       title: ListVatTypesResponse
       type: object
@@ -20106,6 +20124,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/PaymentMethod'
+          nullable: true
           type: array
       title: ListPaymentMethodsResponse
       type: object
@@ -20129,6 +20148,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/PaymentAccount'
+          nullable: true
           type: array
       title: ListPaymentAccountsResponse
       type: object
@@ -20142,6 +20162,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListRevenueCentersResponse
       type: object
@@ -20154,6 +20175,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListCostCentersResponse
       type: object
@@ -20167,6 +20189,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListProductCategoriesResponse
       type: object
@@ -20180,6 +20203,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListReceivedDocumentCategoriesResponse
       type: object
@@ -20192,6 +20216,7 @@ components:
         data:
           items:
             type: string
+          nullable: true
           type: array
       title: ListArchiveCategoriesResponse
       type: object
@@ -20528,6 +20553,7 @@ components:
         id:
           description: User identifier.
           example: 12345
+          nullable: true
           type: integer
         name:
           description: Full name of the user.
@@ -20551,6 +20577,7 @@ components:
           type: string
         hash:
           example: 5add29e1234532a1bf2ed7b612043029
+          nullable: true
           type: string
         picture:
           description: Picture of the user.
@@ -20582,10 +20609,12 @@ components:
         id:
           description: Company unique identifier.
           example: 12345
+          nullable: true
           type: integer
         name:
           description: Company name.
           example: Rossi S.r.l.
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/CompanyType'
@@ -20594,6 +20623,7 @@ components:
             CompanyAuthentication token for this company.
             [Only if type=company]
           example: fd015011d2dbf8a9d38e810b325b11b56d02e51688e5261a245933b8e677b8b44ff5f0fe5ccaaf1d7157fa13ca72ab62b6183db0667a576a0e19164801c18c4fd81273fc1f95bf460b869015cf99acba
+          nullable: true
           type: string
         controlled_companies:
           description: |-
@@ -20601,12 +20631,15 @@ components:
             [Only if type=accountant]
           items:
             $ref: '#/components/schemas/ControlledCompany'
+          nullable: true
           type: array
         connection_id:
           description: Company connection id.
+          nullable: true
           type: integer
         tax_code:
           description: Tax code.
+          nullable: true
           type: string
       title: Company
       type: object
@@ -20656,14 +20689,17 @@ components:
         id:
           description: Company unique identifier.
           example: 12345
+          nullable: true
           type: integer
         name:
           description: Company name.
           example: Mario Rossi S.r.l.
+          nullable: true
           type: string
         email:
           description: Company email.
           example: mario@rossi-example.it
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/CompanyType'
@@ -20677,6 +20713,7 @@ components:
           type: integer
         is_accountant:
           description: Determine if the logged account is an accountant.
+          nullable: true
           type: boolean
       title: CompanyInfo
       type: object
@@ -20685,10 +20722,12 @@ components:
       properties:
         current_page:
           description: Current page number.
+          nullable: true
           type: integer
         first_page_url:
           description: First page url.
           format: uri
+          nullable: true
           type: string
         from:
           description: First result of the page.
@@ -20696,10 +20735,12 @@ components:
           type: integer
         last_page:
           description: Last page number.
+          nullable: true
           type: integer
         last_page_url:
           description: Last page url.
           format: uri
+          nullable: true
           type: string
         next_page_url:
           description: Next page url
@@ -20709,9 +20750,11 @@ components:
         path:
           description: Request path.
           format: uri
+          nullable: true
           type: string
         per_page:
           description: Number of result per page.
+          nullable: true
           type: integer
         prev_page_url:
           description: Previous page url.
@@ -20724,6 +20767,7 @@ components:
           type: integer
         total:
           description: Total number of results
+          nullable: true
           type: integer
       title: Pagination
       type: object
@@ -20732,6 +20776,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Client'
+          nullable: true
           type: array
       title: ListClientsResponsePage
       type: object
@@ -20800,85 +20845,104 @@ components:
         tax_code: RSSMRA44A12E890Q
         phone: phone
         address_street: Via dei tigli, 12
-        e_invoice: false
+        e_invoice: true
         name: Rossi S.r.l.
         default_payment_terms: 30
         certified_email: mario.rossi@pec.example.it
       properties:
         id:
           description: Unique identifier
+          nullable: true
           type: integer
         code:
           description: Client code.
           example: "123"
+          nullable: true
           type: string
         name:
           description: Client name
           example: Rossi S.r.l.
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/ClientType'
         first_name:
           description: Client first name.
+          nullable: true
           type: string
         last_name:
           description: Client last name.
+          nullable: true
           type: string
         contact_person:
+          nullable: true
           type: string
         vat_number:
           description: Client vat number
           example: IT01234567890
+          nullable: true
           type: string
         tax_code:
           description: Client tax code.
           example: RSSMRA44A12E890Q
+          nullable: true
           type: string
         address_street:
           description: Client street address.
           example: Via dei tigli, 12
+          nullable: true
           type: string
         address_postal_code:
           description: Client postal code.
           example: "24010"
+          nullable: true
           type: string
         address_city:
           description: Client city.
           example: Bergamo
+          nullable: true
           type: string
         address_province:
           description: Client province.
           example: BG
+          nullable: true
           type: string
         address_extra:
           description: Client address extra info.
+          nullable: true
           type: string
         country:
-          default: Italia
           description: Client country
           example: Italia
+          nullable: true
           type: string
         email:
           description: Client email.
           example: mario.rossi@example.it
+          nullable: true
           type: string
         certified_email:
           description: Client certified email.
           example: mario.rossi@pec.example.it
+          nullable: true
           type: string
         phone:
           description: Client phone.
+          nullable: true
           type: string
         fax:
           description: Client fax.
+          nullable: true
           type: string
         notes:
           description: Extra notes.
+          nullable: true
           type: string
         default_vat:
           $ref: '#/components/schemas/VatType'
         default_payment_terms:
           example: 30
+          nullable: true
           type: integer
         default_payment_terms_type:
           $ref: '#/components/schemas/DefaultPaymentTermsType'
@@ -20886,28 +20950,35 @@ components:
           $ref: '#/components/schemas/PaymentMethod'
         bank_name:
           description: Client bank name.
+          nullable: true
           type: string
         bank_iban:
           description: Client iban.
+          nullable: true
           type: string
         bank_swift_code:
           description: Client bank swift code.
+          nullable: true
           type: string
         shipping_address:
           description: Client shipping address.
+          nullable: true
           type: string
         e_invoice:
-          default: false
           description: Use e-invoices for this entity
+          nullable: true
           type: boolean
         ei_code:
           description: E-invoice code
+          nullable: true
           type: string
         discount_highlight:
           description: Discount Highlight.
+          nullable: true
           type: boolean
         default_discount:
           description: Default discount.
+          nullable: true
           type: number
         created_at:
           nullable: true
@@ -20915,8 +20986,6 @@ components:
         updated_at:
           nullable: true
           type: string
-      required:
-      - name
       title: Client
       type: object
     ListSuppliersResponsePage:
@@ -20924,6 +20993,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Supplier'
+          nullable: true
           type: array
       title: ListSuppliersResponsePage
       type: object
@@ -20954,73 +21024,91 @@ components:
       properties:
         id:
           description: Unique identifier
+          nullable: true
           type: integer
         code:
           description: Supplier code.
           example: "123"
+          nullable: true
           type: string
         name:
           description: Supplier name.
           example: Rossi S.r.l.
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/SupplierType'
         first_name:
           description: Supplier first name.
+          nullable: true
           type: string
         last_name:
           description: Supplier last name.
+          nullable: true
           type: string
         contact_person:
+          nullable: true
           type: string
         vat_number:
           description: Supplier vat number.
           example: IT01234567890
+          nullable: true
           type: string
         tax_code:
           description: Supplier tax code.
           example: RSSMRA44A12E890Q
+          nullable: true
           type: string
         address_street:
           description: Supplier street address.
           example: Via dei tigli, 12
+          nullable: true
           type: string
         address_postal_code:
           description: Supplier postal code.
           example: "24010"
+          nullable: true
           type: string
         address_city:
           description: Supplier city.
           example: Bergamo
+          nullable: true
           type: string
         address_province:
           description: Supplier province.
           example: BG
+          nullable: true
           type: string
         address_extra:
           description: Supplier address extra info.
+          nullable: true
           type: string
         country:
-          default: Italia
           description: Supplier country.
           example: Italia
+          nullable: true
           type: string
         email:
           description: Supplier email.
           example: mario.rossi@example.it
+          nullable: true
           type: string
         certified_email:
           description: Supplier certified email.
           example: mario.rossi@pec.example.it
+          nullable: true
           type: string
         phone:
           description: Supplier phone.
+          nullable: true
           type: string
         fax:
           description: Supplier fax.
+          nullable: true
           type: string
         notes:
           description: Supplier extra notes.
+          nullable: true
           type: string
         created_at:
           nullable: true
@@ -21028,8 +21116,6 @@ components:
         updated_at:
           nullable: true
           type: string
-      required:
-      - name
       title: Supplier
       type: object
     ListProductsResponsePage:
@@ -21037,6 +21123,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Product'
+          nullable: true
           type: array
       title: ListProductsResponsePage
       type: object
@@ -21073,9 +21160,11 @@ components:
       properties:
         id:
           description: Unique identifier.
+          nullable: true
           type: integer
         name:
           description: Product name.
+          nullable: true
           type: string
         code:
           description: Product code.
@@ -21093,6 +21182,7 @@ components:
           type: number
         use_gross_price:
           description: Determine which price to use for calculations.
+          nullable: true
           type: boolean
         default_vat:
           $ref: '#/components/schemas/VatType'
@@ -21110,6 +21200,7 @@ components:
           type: string
         category:
           description: Product category.
+          nullable: true
           type: string
         notes:
           description: Extra notes.
@@ -21117,21 +21208,26 @@ components:
           type: string
         in_stock:
           description: Determine if the product is in stock.
+          nullable: true
           type: boolean
         stock_initial:
           description: Product initial stock.
+          nullable: true
           type: number
         stock_current:
           description: |-
             [Read Only]
             Product current stock.
+          nullable: true
           readOnly: true
           type: number
         average_cost:
           description: Product average cost.
+          nullable: true
           type: number
         average_price:
           description: Product average price.
+          nullable: true
           type: number
         created_at:
           nullable: true
@@ -21139,8 +21235,6 @@ components:
         updated_at:
           nullable: true
           type: string
-      required:
-      - name
       title: Product
       type: object
     ListIssuedDocumentsResponsePage:
@@ -21148,6 +21242,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/IssuedDocument'
+          nullable: true
           type: array
       title: ListIssuedDocumentResponsePage
       type: object
@@ -21159,13 +21254,13 @@ components:
         notes: notes
         year: 1
         subject: subject
-        rivalsa: 59.621339166831824
+        rivalsa: 5.962133916683182
         dn_ai_causal: dn_ai_causal
         language:
           code: code
           name: name
         show_payments: true
-        show_paypal_button: false
+        show_paypal_button: true
         ei_data:
           cig: cig
           bank_name: bank_name
@@ -21183,7 +21278,7 @@ components:
         items_list:
         - code: "239874892374982"
           ei_raw: '{}'
-          discount_highlight: false
+          discount_highlight: true
           vat:
             ei_description: ei_description
             notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -21195,8 +21290,8 @@ components:
             id: 6
             value: 22
           description: description
-          not_taxable: false
-          discount: 99.65781217890562
+          not_taxable: true
+          discount: 9.965781217890562
           net_price: 1.23
           apply_withholding_taxes: true
           measure: measure
@@ -21210,7 +21305,7 @@ components:
           in_ddt: true
         - code: "239874892374982"
           ei_raw: '{}'
-          discount_highlight: false
+          discount_highlight: true
           vat:
             ei_description: ei_description
             notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -21222,8 +21317,8 @@ components:
             id: 6
             value: 22
           description: description
-          not_taxable: false
-          discount: 99.65781217890562
+          not_taxable: true
+          discount: 9.965781217890562
           net_price: 1.23
           apply_withholding_taxes: true
           measure: measure
@@ -21276,32 +21371,32 @@ components:
         amount_net: 6.438423552598547
         dn_ai_destination: dn_ai_destination
         amount_cassa: 2.3021358869347655
-        cassa2_taxable: 41.45608029883936
+        cassa2_taxable: 4.145608029883936
         v_margins: 8
         amount_cassa2: 2.027123023002322
-        accompanying_invoice: false
+        accompanying_invoice: true
         amount_rivalsa_taxable: 6.778324963048013
         amount_rivalsa: 2.8841621266687802
         stamp_duty: 1.1730742509559433
-        use_gross_prices: false
-        global_cassa_taxable: 12.315135367772555
-        e_invoice: false
+        use_gross_prices: true
+        global_cassa_taxable: 1.2315135367772556
+        e_invoice: true
         dn_ai_packages_number: dn_ai_packages_number
-        withholding_tax: 14.894159098541703
+        withholding_tax: 1.4894159098541704
         amount_withholding_tax_taxable: 5.944895607614016
-        other_withholding_tax: 74.57744773683766
+        other_withholding_tax: 7.457744773683766
         ei_other_withholding_tax_type: ei_other_withholding_tax_type
         template:
           name: Light Smoke
           id: 123
           type: type
-        cassa: 56.37376656633328
+        cassa: 5.637376656633329
         ei_raw: '{}'
         amount_global_cassa_taxable: 1.0246457001441578
         amount_due_discount: 1.284659006116532
         amount_enasarco_taxable: 3.0937452626664474
         visible_subject: visible_subject
-        use_split_payment: false
+        use_split_payment: true
         payments_list:
         - amount: 1.45
           payment_account:
@@ -21331,8 +21426,8 @@ components:
         dn_date: 2000-01-23
         ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
         next_due_date: 2000-01-23
-        cassa2: 36.160767492519106
-        withholding_tax_taxable: 68.4685269835264
+        cassa2: 3.616076749251911
+        withholding_tax_taxable: 6.84685269835264
         is_marked: true
         amount_vat: 3.5571952270680973
         amount_other_withholding_tax_taxable: 3.353193347011243
@@ -21345,7 +21440,7 @@ components:
         amount_other_withholding_tax: 6.704019297950036
         ei_cassa_type: ei_cassa_type
         dn_ai_transporter: dn_ai_transporter
-        show_notification_button: false
+        show_notification_button: true
         show_payment_method: true
         delivery_note: true
         url: url
@@ -21369,7 +21464,7 @@ components:
         seen_date: 2000-01-23
         ei_cassa2_type: ei_cassa2_type
         ei_withholding_tax_causal: ei_withholding_tax_causal
-        cassa_taxable: 70.61401241503108
+        cassa_taxable: 7.061401241503109
         amount_gross: 6.965117697638846
         entity:
           country: Italia
@@ -21432,7 +21527,7 @@ components:
           tax_code: RSSMRA44A12E890Q
           phone: phone
           address_street: Via dei tigli, 12
-          e_invoice: false
+          e_invoice: true
           name: Rossi S.r.l.
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
@@ -21441,6 +21536,7 @@ components:
       properties:
         id:
           description: Unique identifier of the document.
+          nullable: true
           type: integer
         entity:
           $ref: '#/components/schemas/Entity'
@@ -21451,21 +21547,25 @@ components:
             Number of the document
             [If not specified, next number is used]
           example: 1
+          nullable: true
           type: integer
         numeration:
           description: |-
             Numeration of the document
             [Not available if type=delivery_note]
           example: /A
+          nullable: true
           type: string
         date:
           description: |-
             Date of the document
             [If not specified, today date is used]
           format: date
+          nullable: true
           type: string
         year:
           description: Invoice year.
+          nullable: true
           type: integer
         currency:
           $ref: '#/components/schemas/Currency'
@@ -21473,36 +21573,38 @@ components:
           $ref: '#/components/schemas/Language'
         subject:
           description: Issued document subject.
+          nullable: true
           type: string
         visible_subject:
           description: Issued document visible subject.
+          nullable: true
           type: string
         rc_center:
           description: Revenue center [or cost center if type=supplier_order].
+          nullable: true
           type: string
         notes:
           description: Issued document extra notes.
+          nullable: true
           type: string
         rivalsa:
           description: '"Rivalsa INPS" percentual value'
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         cassa:
           description: '"Cassa previdenziale" percentual value'
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         amount_cassa:
           description: |-
             [Read Only]
             Cassa amount.
+          nullable: true
           readOnly: true
           type: number
         cassa_taxable:
           description: Cassa taxable percentage
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         amount_cassa_taxable:
           description: |-
@@ -21512,8 +21614,7 @@ components:
           type: number
         cassa2:
           description: '"Cassa previdenziale 2" percentual value'
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         amount_cassa2:
           description: |-
@@ -21524,8 +21625,7 @@ components:
           type: number
         cassa2_taxable:
           description: Cassa2 taxable percentage
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         amount_cassa2_taxable:
           description: |-
@@ -21535,8 +21635,7 @@ components:
           type: number
         global_cassa_taxable:
           description: Global cassa taxable percentage
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         amount_global_cassa_taxable:
           description: |-
@@ -21546,37 +21645,35 @@ components:
           type: number
         withholding_tax:
           description: Withholding tax (ritenuta d'acconto) percentual value
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         withholding_tax_taxable:
           description: Withholding tax taxable (imponibile) percentual value
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         other_withholding_tax:
           description: Other withholding tax (altra ritenuta) percentual value
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         stamp_duty:
           description: |-
             Stamp duty value
             [0 if not present]
+          nullable: true
           type: number
         payment_method:
           $ref: '#/components/schemas/PaymentMethod'
         use_split_payment:
-          default: false
           description: Use split payment
+          nullable: true
           type: boolean
         use_gross_prices:
-          default: false
           description: Use gross prices
+          nullable: true
           type: boolean
         e_invoice:
-          default: false
           description: Indicates if this is an e-invoice.
+          nullable: true
           type: boolean
         ei_data:
           $ref: '#/components/schemas/IssuedDocument_ei_data'
@@ -21618,42 +21715,49 @@ components:
           $ref: '#/components/schemas/DocumentTemplate'
         h_margins:
           description: Horizontal margins.
+          nullable: true
           type: integer
         v_margins:
           description: Vertical margins.
+          nullable: true
           type: integer
         show_payments:
           description: Shows the expiration dates of the payments on the document.
+          nullable: true
           type: boolean
         show_payment_method:
           description: Show the payment method details on the document.
+          nullable: true
           type: boolean
         show_totals:
           $ref: '#/components/schemas/ShowTotalsMode'
         show_paypal_button:
-          default: false
           description: Show paypal button
+          nullable: true
           type: boolean
         show_notification_button:
-          default: false
           description: Show notification button
+          nullable: true
           type: boolean
         show_tspay_button:
           description: Show ts pay button.
           nullable: true
           type: boolean
         delivery_note:
+          nullable: true
           type: boolean
         accompanying_invoice:
-          default: false
           description: Attach an accompanying invoice.
+          nullable: true
           type: boolean
         dn_number:
           description: Number (for the attached delivery note).
+          nullable: true
           type: integer
         dn_date:
           description: Date (for the attached delivery note).
           format: date
+          nullable: true
           type: string
         dn_ai_packages_number:
           description: Number of packages (for the attached delivery note).
@@ -21681,32 +21785,38 @@ components:
           type: string
         is_marked:
           description: This is true if the document is marked.
+          nullable: true
           type: boolean
         amount_net:
           description: |-
             [Read Only]
             Total net amount (competenze).
+          nullable: true
           readOnly: true
           type: number
         amount_vat:
           description: |-
             [Read Only]
             Total vat amount (IVA).
+          nullable: true
           readOnly: true
           type: number
         amount_gross:
           description: |-
             [Read Only]
             Total gross amount (totale documento).
+          nullable: true
           readOnly: true
           type: number
         amount_due_discount:
           description: Amount due discount
+          nullable: true
           type: number
         amount_rivalsa:
           description: |-
             [Read Only]
             Rivalsa amount.
+          nullable: true
           readOnly: true
           type: number
         amount_rivalsa_taxable:
@@ -21717,6 +21827,7 @@ components:
           description: |-
             [Read Only]
             Withholding tax amount (ritenuta d'acconto).
+          nullable: true
           readOnly: true
           type: number
         amount_withholding_tax_taxable:
@@ -21727,6 +21838,7 @@ components:
           description: |-
             [Read Only]
             Other withholding tax amount (altra ritenuta).
+          nullable: true
           readOnly: true
           type: number
         amount_other_withholding_tax_taxable:
@@ -21751,11 +21863,13 @@ components:
           type: string
         url:
           description: Public url of the document PDF file.
+          nullable: true
           type: string
         attachment_url:
           description: |-
             [Read Only]
             Public url of the attached file. Authomatically set if a valid attachment token is passed via POST /issued_documents or PUT /issued_documents/{documentId}.
+          nullable: true
           readOnly: true
           type: string
         attachment_token:
@@ -21795,8 +21909,41 @@ components:
           - accepted
           - rejected
           - no_response
+          nullable: true
           type: string
       title: IssuedDocument
+      type: object
+    IssuedDocumentOptions:
+      example:
+        fix_payments: true
+      properties:
+        fix_payments:
+          description: Fixes your last payment amount to match your document total
+          nullable: true
+          type: boolean
+      title: IssuedDocumentOptions
+      type: object
+    EntityOptions:
+      example:
+        entity_search_fields: entity.id,tax_code,vat_number,code
+        entity_update: entity_update
+        entity_create: true
+        entity_autocomplete: true
+      properties:
+        entity_search_fields:
+          example: entity.id,tax_code,vat_number,code
+          nullable: true
+          type: string
+        entity_autocomplete:
+          nullable: true
+          type: boolean
+        entity_create:
+          nullable: true
+          type: boolean
+        entity_update:
+          nullable: true
+          type: string
+      title: EntityOptions
       type: object
     IssuedDocumentTotals:
       example:
@@ -21810,7 +21957,7 @@ components:
         stamp_duty: 1.2315135367772556
         amount_withholding_tax: 2.027123023002322
         vat_list:
-          vat_item:
+          key:
             amount_net: 6.84685269835264
             amount_vat: 7.457744773683766
         not_taxable_amount: 2.3021358869347655
@@ -21823,60 +21970,72 @@ components:
       properties:
         amount_net:
           description: Total net amount.
+          nullable: true
           type: number
         amount_rivalsa:
           description: Rivalsa amount.
+          nullable: true
           type: number
         amount_net_with_rivalsa:
           description: Net amount with rivalsa.
+          nullable: true
           type: number
         amount_cassa:
           description: Cassa amount.
+          nullable: true
           type: number
         taxable_amount:
           description: Taxable amount.
+          nullable: true
           type: number
         not_taxable_amount:
           description: Not taxable amount.
+          nullable: true
           type: number
         amount_vat:
           description: Total vat amount.
+          nullable: true
           type: number
         amount_gross:
           description: Total grosas amount.
+          nullable: true
           type: number
         taxable_amount_withholding_tax:
           description: Taxable withholding tax amount.
+          nullable: true
           type: number
         amount_withholding_tax:
           description: Withholding tax amount.
+          nullable: true
           type: number
         taxable_amount_other_withholding_tax:
           description: Other withholding tax taxable amount.
+          nullable: true
           type: number
         amount_other_withholding_tax:
           description: Other withholding tax amount.
+          nullable: true
           type: number
         stamp_duty:
           description: Stamp duty value [0 if not present].
+          nullable: true
           type: number
         amount_due:
           description: Total amount due.
+          nullable: true
           type: number
         is_enasarco_maximal_exceeded:
           nullable: true
           type: boolean
         payments_sum:
           description: Payments sum.
+          nullable: true
           type: number
         vat_list:
-          $ref: '#/components/schemas/IssuedDocumentTotals_vat_list'
-      required:
-      - amount_due
-      - amount_gross
-      - amount_net
-      - amount_vat
-      - payments_sum
+          additionalProperties:
+            $ref: '#/components/schemas/VatItem'
+          title: VatList
+          type: object
       title: IssuedDocumentTotals
       type: object
     AttachmentData:
@@ -21886,14 +22045,13 @@ components:
         attachment_token:
           description: Uploaded attachment token.
           example: YmMyNWYxYzIwMTU3N2Y4ZGE3ZjZiMzg5OWY0ODNkZDQveXl5LmRvYw
+          nullable: true
           type: string
-      required:
-      - attachment_token
       title: AttachmentData
       type: object
     IssuedDocumentPreCreateInfo:
       example:
-        numerations: '{}'
+        numerations: {}
         payment_methods_list:
         - default_payment_account:
             cuc: cuc
@@ -22053,7 +22211,7 @@ components:
             is_default: true
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
-        dn_numerations: '{}'
+        dn_numerations: {}
         vat_types_list:
         - ei_description: ei_description
           notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -22075,11 +22233,14 @@ components:
           value: 22
       properties:
         numerations:
-          description: Next numbers by year and numeration name (for the given document
-            type).
+          additionalProperties:
+            $ref: '#/components/schemas/NumerationItem'
+          title: Numeration
           type: object
         dn_numerations:
-          description: Next numbers by year and numeration name (for delivery_notes).
+          additionalProperties:
+            $ref: '#/components/schemas/NumerationItem'
+          title: Numeration
           type: object
         default_values:
           $ref: '#/components/schemas/IssuedDocumentPreCreateInfo_default_values'
@@ -22091,41 +22252,49 @@ components:
           description: Countries list.
           items:
             type: string
+          nullable: true
           type: array
         currencies_list:
           description: Currencies list.
           items:
             $ref: '#/components/schemas/Currency'
+          nullable: true
           type: array
         templates_list:
           description: Document templates list.
           items:
             $ref: '#/components/schemas/DocumentTemplate'
+          nullable: true
           type: array
         dn_templates_list:
           description: Delivery note templates list.
           items:
             $ref: '#/components/schemas/DocumentTemplate'
+          nullable: true
           type: array
         ai_templates_list:
           description: Accompanying invoice templates list.
           items:
             $ref: '#/components/schemas/DocumentTemplate'
+          nullable: true
           type: array
         payment_methods_list:
           description: Payment methods list.
           items:
             $ref: '#/components/schemas/PaymentMethod'
+          nullable: true
           type: array
         payment_accounts_list:
           description: Payment accounts list.
           items:
             $ref: '#/components/schemas/PaymentAccount'
+          nullable: true
           type: array
         vat_types_list:
           description: Vat types list.
           items:
             $ref: '#/components/schemas/VatType'
+          nullable: true
           type: array
       title: IssuedDocumentPreCreateInfo
       type: object
@@ -22160,48 +22329,45 @@ components:
           description: List of all emails from which the document can be sent
           items:
             $ref: '#/components/schemas/SenderEmail'
+          nullable: true
           type: array
         cc_email:
           description: By default is the logged company email. This is the email address
             to which a copy will be sent.
+          nullable: true
           type: string
         subject:
           description: Email subject
+          nullable: true
           type: string
         body:
           description: Email body
+          nullable: true
           type: string
         document_exists:
           description: If the document is not a delivery note, this flag will be set
             to true
+          nullable: true
           type: boolean
         delivery_note_exists:
           description: If the document is a delivery note, this flag will be set to
             true
+          nullable: true
           type: boolean
         attachment_exists:
           description: If the document has one or more attachments, this flag will
             be set to true
+          nullable: true
           type: boolean
         accompanying_invoice_exists:
           description: If an accompanying invoice exists, this flag will be set to
             true
+          nullable: true
           type: boolean
         default_attach_pdf:
           description: If a pdf is attached, this flag will be set to true
+          nullable: true
           type: boolean
-      required:
-      - accompanying_invoice_exists
-      - attachment_exists
-      - body
-      - cc_email
-      - default_attach_pdf
-      - default_sender_email
-      - delivery_note_exists
-      - document_exists
-      - recipient_email
-      - sender_emails_list
-      - subject
       title: EmailData
       type: object
     EmailSchedule:
@@ -22221,35 +22387,35 @@ components:
       properties:
         sender_id:
           description: Sender id. Required if `sender_email` is not specified
+          nullable: true
           type: integer
         sender_email:
           description: Sender email. Required if `sender_id` is not specified
+          nullable: true
           type: string
         recipient_email:
           description: One or more comma separated recipient emails
+          nullable: true
           type: string
         subject:
           description: Email subject
+          nullable: true
           type: string
         body:
           description: Email body
+          nullable: true
           type: string
         include:
           $ref: '#/components/schemas/EmailSchedule_include'
         attach_pdf:
           description: If set to true, documents will be sent as PDF attachments too
+          nullable: true
           type: boolean
         send_copy:
           description: If set to true, a copy of the email will be sent to the `cc_email`
             specified by `Get email data`
+          nullable: true
           type: boolean
-      required:
-      - attach_pdf
-      - body
-      - include
-      - recipient_email
-      - send_copy
-      - subject
       title: EmailSchedule
       type: object
     EinvoiceRejectionReason:
@@ -22288,6 +22454,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/ReceivedDocument'
+          nullable: true
           type: array
       title: ListReceivedDocumentsResponsePage
       type: object
@@ -22295,7 +22462,7 @@ components:
       example:
         date: 2000-01-23
         attachment_preview_url: attachment_preview_url
-        tax_deductibility: 36.160767492519106
+        tax_deductibility: 3.616076749251911
         description: description
         amortization: 9.301444243932576
         payments_list:
@@ -22381,7 +22548,7 @@ components:
         id: 0
         amount_other_withholding_tax: 2.3021358869347655
         invoice_number: invoice_number
-        vat_deductibility: 20.271230230023217
+        vat_deductibility: 2.027123023002322
         attachment_token: attachment_token
         amount_net: 1.4658129805029452
         attachment_url: attachment_url
@@ -22395,6 +22562,7 @@ components:
       properties:
         id:
           description: Unique identifier of the document.
+          nullable: true
           type: integer
         type:
           $ref: '#/components/schemas/ReceivedDocumentType'
@@ -22403,6 +22571,7 @@ components:
         date:
           description: Date of the document [If not specified, today date is used].
           format: date
+          nullable: true
           type: string
         category:
           description: Document category.
@@ -22410,42 +22579,54 @@ components:
           type: string
         description:
           description: Document description.
+          nullable: true
           type: string
         amount_net:
           description: Total net amount.
+          nullable: true
           type: number
         amount_vat:
           description: Total vat amount.
+          nullable: true
           type: number
         amount_withholding_tax:
           description: Withholding tax amount.
+          nullable: true
           type: number
         amount_other_withholding_tax:
           description: Other withholding tax amount.
+          nullable: true
           type: number
         amount_gross:
           description: |-
             [Read Only]
             Total gross amount.
+          nullable: true
           readOnly: true
           type: number
         amortization:
           description: Amortization value
+          nullable: true
           type: number
         rc_center:
           description: Revenue center.
+          nullable: true
           type: string
         invoice_number:
           description: Invoice number
+          nullable: true
           type: string
         is_marked:
+          nullable: true
           type: boolean
         is_detailed:
+          nullable: true
           type: boolean
         e_invoice:
           description: |-
             [Read Only]
             Indicates if this is an e-invoice.
+          nullable: true
           type: boolean
         next_due_date:
           description: |-
@@ -22459,13 +22640,11 @@ components:
           $ref: '#/components/schemas/Currency'
         tax_deductibility:
           description: Tax deducibility percentage.
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         vat_deductibility:
           description: Vat deducibility percentage.
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         items_list:
           items:
@@ -22475,25 +22654,26 @@ components:
         payments_list:
           items:
             $ref: '#/components/schemas/ReceivedDocumentPaymentsListItem'
+          nullable: true
           type: array
         attachment_url:
           description: |-
             [Read Only]
             Attachment url.
+          nullable: true
           readOnly: true
           type: string
         attachment_preview_url:
           description: |-
             [Read Only]
             Attachment preview url.
+          nullable: true
           readOnly: true
           type: string
         attachment_token:
           description: Uploaded attachement token.
           nullable: true
           type: string
-      required:
-      - entity
       title: ReceivedDocument
       type: object
     ReceivedDocumentTotals:
@@ -22509,31 +22689,32 @@ components:
       properties:
         amount_net:
           description: Total net amount.
+          nullable: true
           type: number
         amount_vat:
           description: Total vat amount.
+          nullable: true
           type: number
         amount_gross:
           description: Total gross amount.
+          nullable: true
           type: number
         amount_withholding_tax:
           description: Total withholding tax amount.
+          nullable: true
           type: number
         amount_other_withholding_tax:
           description: Total other withholding tax amount.
+          nullable: true
           type: number
         amount_due:
           description: Total amount due.
+          nullable: true
           type: number
         payments_sum:
           description: Payments sum.
+          nullable: true
           type: number
-      required:
-      - amount_due
-      - amount_gross
-      - amount_net
-      - amount_vat
-      - payments_sum
       title: ReceivedDocumentTotals
       type: object
     ReceivedDocumentInfo:
@@ -22598,22 +22779,27 @@ components:
         countries_list:
           items:
             type: string
+          nullable: true
           type: array
         currencies_list:
           items:
             $ref: '#/components/schemas/Currency'
+          nullable: true
           type: array
         categories_list:
           items:
             type: string
+          nullable: true
           type: array
         payment_accounts_list:
           items:
             $ref: '#/components/schemas/PaymentAccount'
+          nullable: true
           type: array
         vat_types_list:
           items:
             $ref: '#/components/schemas/VatType'
+          nullable: true
           type: array
       title: ReceivedDocumentInfo
       type: object
@@ -22622,6 +22808,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Receipt'
+          nullable: true
           type: array
       title: ListReceiptsResponsePage
       type: object
@@ -22634,7 +22821,7 @@ components:
         description: description
         created_at: created_at
         number: 6.027456183070403
-        use_gross_prices: false
+        use_gross_prices: true
         rc_center: rc_center
         payment_account:
           cuc: cuc
@@ -22679,10 +22866,12 @@ components:
       properties:
         id:
           description: Receipt unique identifier.
+          nullable: true
           type: integer
         date:
           description: Receipt date.
           format: date
+          nullable: true
           type: string
         number:
           description: Receipt number.
@@ -22690,30 +22879,38 @@ components:
           type: number
         numeration:
           description: If it's null or empty string use the default numeration.
+          nullable: true
           type: string
         amount_net:
           description: Total net amount.
+          nullable: true
           type: number
         amount_vat:
           description: Total vat amount.
+          nullable: true
           type: number
         amount_gross:
           description: Total gross amount.
+          nullable: true
           type: number
         use_gross_prices:
-          default: false
+          nullable: true
           type: boolean
         type:
           $ref: '#/components/schemas/ReceiptType'
         description:
           description: Receipt description.
+          nullable: true
           type: string
         rc_center:
           description: Revenue center.
+          nullable: true
           type: string
         created_at:
+          nullable: true
           type: string
         updated_at:
+          nullable: true
           type: string
         payment_account:
           $ref: '#/components/schemas/PaymentAccount'
@@ -22722,10 +22919,6 @@ components:
             $ref: '#/components/schemas/ReceiptItemsListItem'
           nullable: true
           type: array
-      required:
-      - date
-      - payment_account
-      - type
       title: Receipt
       type: object
     ReceiptPreCreateInfo:
@@ -22734,7 +22927,7 @@ components:
         numerations_list:
         - numerations_list
         - numerations_list
-        numerations: '{}'
+        numerations: {}
         rc_centers_list:
         - rc_centers_list
         - rc_centers_list
@@ -22775,41 +22968,41 @@ components:
           value: 22
       properties:
         numerations:
-          description: Next number by year, receipt type and numeration name.
+          additionalProperties:
+            $ref: '#/components/schemas/NumerationItem'
+          title: Numeration
           type: object
         numerations_list:
           description: List of series used in the past.
           items:
             type: string
+          nullable: true
           type: array
         rc_centers_list:
           description: List of revenue centers used in the past.
           items:
             type: string
+          nullable: true
           type: array
         payment_accounts_list:
           description: User payment accounts list.
           items:
             $ref: '#/components/schemas/PaymentAccount'
+          nullable: true
           type: array
         categories_list:
           description: List of categories used in the past.
           items:
             type: string
+          nullable: true
           type: array
         vat_types_list:
           description: List of user vat types with the default 22%, 10%, 4% and 0%
             vats.
           items:
             $ref: '#/components/schemas/VatType'
+          nullable: true
           type: array
-      required:
-      - categories_list
-      - numerations
-      - numerations_list
-      - payment_accounts_list
-      - rc_centers_list
-      - vat_types_list
       title: ReceiptPreCreateInfo
       type: object
     MonthlyTotal:
@@ -22821,17 +23014,16 @@ components:
       properties:
         net:
           description: Monthly total net amount.
+          nullable: true
           type: number
         gross:
           description: Monthly total gross amount.
+          nullable: true
           type: number
         count:
           description: Monthly total receipt number.
+          nullable: true
           type: number
-      required:
-      - count
-      - gross
-      - net
       title: MonthlyTotal
       type: object
     ListF24ResponsePage:
@@ -22839,6 +23031,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/F24'
+          nullable: true
           type: array
       title: ListF24ResponsePage
       type: object
@@ -22866,11 +23059,13 @@ components:
       properties:
         id:
           description: Unique F24 identifier.
+          nullable: true
           type: integer
         due_date:
           description: Due date.
           example: 2018-02-12
           format: date
+          nullable: true
           type: string
         status:
           $ref: '#/components/schemas/F24Status'
@@ -22879,6 +23074,7 @@ components:
         amount:
           description: Taxes amount.
           example: 300
+          nullable: true
           type: number
         attachment_url:
           description: |-
@@ -22896,11 +23092,8 @@ components:
           writeOnly: true
         description:
           description: Name or brief description.
+          nullable: true
           type: string
-      required:
-      - amount
-      - description
-      - due_date
       title: F24
       type: object
     ListArchiveDocumentsResponsePage:
@@ -22908,6 +23101,7 @@ components:
         data:
           items:
             $ref: '#/components/schemas/ArchiveDocument'
+          nullable: true
           type: array
       title: ListArchiveDocumentsResponsePage
       type: object
@@ -22922,32 +23116,34 @@ components:
       properties:
         id:
           description: Archive document unique identifier.
+          nullable: true
           type: integer
         date:
           description: Archive document date.
           format: date
+          nullable: true
           type: string
         description:
           description: Archive Document description.
+          nullable: true
           type: string
         attachment_url:
           description: |-
             [Read Only]
             Absolute url of the attached file. Authomatically set if a valid attachment token is passed via POST /archive or PUT /archive/{documentId}.
+          nullable: true
           readOnly: true
           type: string
         category:
           description: Archive document category.
+          nullable: true
           type: string
         attachment_token:
           description: "[Write Only] \n[Required]\nAttachment token returned by POST\
             \ /archive/attachment. Used to attach the file already uploaded."
+          nullable: true
           type: string
           writeOnly: true
-      required:
-      - category
-      - date
-      - description
       title: ArchiveDocument
       type: object
     CashbookEntry:
@@ -22979,13 +23175,16 @@ components:
       properties:
         id:
           description: Cashbook unique identifier.
+          nullable: true
           type: string
         date:
           description: Cashbook date.
           format: date
+          nullable: true
           type: string
         description:
           description: Cashbook description.
+          nullable: true
           type: string
         kind:
           $ref: '#/components/schemas/CashbookEntryKind'
@@ -23013,11 +23212,6 @@ components:
           type: number
         payment_account_out:
           $ref: '#/components/schemas/PaymentAccount'
-      required:
-      - date
-      - description
-      - id
-      - kind
       title: CashbookEntry
       type: object
     City:
@@ -23028,17 +23222,16 @@ components:
       properties:
         postal_code:
           description: City postal code.
+          nullable: true
           type: string
         city:
           description: City name.
+          nullable: true
           type: string
         province:
           description: Province.
+          nullable: true
           type: string
-      required:
-      - city
-      - postal_code
-      - province
       title: City
       type: object
     Language:
@@ -23048,13 +23241,12 @@ components:
       properties:
         code:
           description: Language code.
+          nullable: true
           type: string
         name:
           description: Language extended name.
+          nullable: true
           type: string
-      required:
-      - code
-      - name
       title: Language
       type: object
     DocumentTemplate:
@@ -23066,13 +23258,16 @@ components:
         id:
           description: Unique identifier.
           example: 123
+          nullable: true
           type: integer
         name:
           description: Template name.
           example: Light Smoke
+          nullable: true
           type: string
         type:
           description: Template type.
+          nullable: true
           type: string
       title: DocumentTemplate
       type: object
@@ -23087,10 +23282,12 @@ components:
         id:
           description: Currency code.
           example: EUR
+          nullable: true
           type: string
         symbol:
           description: Currency symbol.
           example: €
+          nullable: true
           type: string
         exchange_rate:
           description: Currency exchange rate (EUR to this).
@@ -23100,6 +23297,7 @@ components:
         html_symbol:
           description: Currency html code.
           example: EUR
+          nullable: true
           type: string
       title: Currency
       type: object
@@ -23119,43 +23317,47 @@ components:
       properties:
         id:
           description: Unique identifier
+          nullable: true
           type: integer
         value:
           description: '[Read Only] Percentual value.'
           example: 22
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         description:
           description: Short description.
           example: Non imponibile art. 123
+          nullable: true
           type: string
         notes:
           description: Long description and notes shown in documents.
           example: IVA non imponibile ai sensi dell'articolo 123, comma 2
+          nullable: true
           type: string
         e_invoice:
           description: Usable for e-invoices.
+          nullable: true
           type: boolean
         ei_type:
           description: E-invoice type (natura).
           example: "2"
+          nullable: true
           type: string
         ei_description:
           description: E-invoice description.
+          nullable: true
           type: string
         editable:
-          default: true
           description: |-
             [Read Only]
             Determine if this vat type is editable.
+          nullable: true
           readOnly: true
           type: boolean
         is_disabled:
           description: Determine if the vat type is disabled.
+          nullable: true
           type: boolean
-      required:
-      - value
       title: VatType
       type: object
     PaymentMethod:
@@ -23192,11 +23394,13 @@ components:
           type: integer
         name:
           description: Name of the payment method
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/PaymentMethodType'
         is_default:
           description: Determines if this is the default payment method.
+          nullable: true
           type: boolean
         default_payment_account:
           $ref: '#/components/schemas/PaymentAccount'
@@ -23221,9 +23425,8 @@ components:
           type: string
         ei_payment_method:
           description: EInvoice payment method
+          nullable: true
           type: string
-      required:
-      - name
       title: PaymentMethod
       type: object
     PaymentAccount:
@@ -23239,10 +23442,12 @@ components:
       properties:
         id:
           description: Unique identifier
+          nullable: true
           type: integer
         name:
           description: Payment account name.
           example: Conto Banca Intesa
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/PaymentAccountType'
@@ -23256,12 +23461,12 @@ components:
           type: string
         cuc:
           description: Payment account cuc.
+          nullable: true
           type: string
         virtual:
           description: Determine if the payment method is virtual.
+          nullable: true
           type: boolean
-      required:
-      - name
       title: PaymentAccount
       type: object
     CompanyType:
@@ -23283,10 +23488,12 @@ components:
         id:
           description: Company unique identifier.
           example: 12345
+          nullable: true
           type: integer
         name:
           description: Company name.
           example: Rossi S.r.l.
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/CompanyType'
@@ -23295,12 +23502,15 @@ components:
             CompanyAuthentication token for this company.
             [Only if type=company]
           example: fd015011d2dbf8a9d38e810b325b11b56d02e51688e5261a245933b8e677b8b44ff5f0fe5ccaaf1d7157fa13ca72ab62b6183db0667a576a0e19164801c18c4fd81273fc1f95bf460b869015cf99acba
+          nullable: true
           type: string
         connection_id:
           description: Company connection id.
+          nullable: true
           type: number
         tax_code:
           description: Tax code.
+          nullable: true
           type: string
       title: Controlled Company
       type: object
@@ -23374,6 +23584,7 @@ components:
         active: true
       properties:
         active:
+          nullable: true
           type: boolean
       title: FunctionStatus
       type: object
@@ -23468,80 +23679,98 @@ components:
         tax_code: RSSMRA44A12E890Q
         phone: phone
         address_street: Via dei tigli, 12
-        e_invoice: false
+        e_invoice: true
         name: Rossi S.r.l.
         default_payment_terms: 30
         certified_email: mario.rossi@pec.example.it
       properties:
         id:
           description: Unique identifier
+          nullable: true
           type: integer
         code:
           description: Code.
           example: "123"
+          nullable: true
           type: string
         name:
           description: Name
           example: Rossi S.r.l.
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/EntityType'
         first_name:
           description: First name.
+          nullable: true
           type: string
         last_name:
           description: Last name.
+          nullable: true
           type: string
         contact_person:
+          nullable: true
           type: string
         vat_number:
           description: Vat number
           example: IT01234567890
+          nullable: true
           type: string
         tax_code:
           description: Tax code.
           example: RSSMRA44A12E890Q
+          nullable: true
           type: string
         address_street:
           description: Street address.
           example: Via dei tigli, 12
+          nullable: true
           type: string
         address_postal_code:
           description: Postal code.
           example: "24010"
+          nullable: true
           type: string
         address_city:
           description: City.
           example: Bergamo
+          nullable: true
           type: string
         address_province:
           description: Province.
           example: BG
+          nullable: true
           type: string
         address_extra:
           description: Address extra info.
+          nullable: true
           type: string
         country:
-          default: Italia
           description: Country
           example: Italia
+          nullable: true
           type: string
         email:
           description: Email.
           example: mario.rossi@example.it
+          nullable: true
           type: string
         certified_email:
           description: Certified email.
           example: mario.rossi@pec.example.it
+          nullable: true
           type: string
         phone:
           description: Phone.
+          nullable: true
           type: string
         fax:
           description: Fax.
+          nullable: true
           type: string
         notes:
           description: Extra notes.
+          nullable: true
           type: string
         default_vat:
           $ref: '#/components/schemas/VatType'
@@ -23581,7 +23810,6 @@ components:
           nullable: true
           type: string
         e_invoice:
-          default: false
           description: |-
             [Only for client]
             Use e-invoices.
@@ -23599,8 +23827,6 @@ components:
         updated_at:
           nullable: true
           type: string
-      required:
-      - name
       title: Entity
       type: object
     IssuedDocumentType:
@@ -23641,7 +23867,7 @@ components:
       example:
         code: "239874892374982"
         ei_raw: '{}'
-        discount_highlight: false
+        discount_highlight: true
         vat:
           ei_description: ei_description
           notes: IVA non imponibile ai sensi dell'articolo 123, comma 2
@@ -23653,8 +23879,8 @@ components:
           id: 6
           value: 22
         description: description
-        not_taxable: false
-        discount: 99.65781217890562
+        not_taxable: true
+        discount: 9.965781217890562
         net_price: 1.23
         apply_withholding_taxes: true
         measure: measure
@@ -23669,6 +23895,7 @@ components:
       properties:
         id:
           description: Unique identifier.
+          nullable: true
           type: integer
         product_id:
           description: Unique identifier of the product.
@@ -23678,26 +23905,33 @@ components:
         code:
           description: Product code.
           example: "239874892374982"
+          nullable: true
           type: string
         name:
           description: Product name.
           example: Water bottle
+          nullable: true
           type: string
         category:
           description: Product category
+          nullable: true
           type: string
         description:
           description: Product description.
+          nullable: true
           type: string
         qty:
           description: Items quantity,
+          nullable: true
           type: number
         measure:
           description: Item measure.
+          nullable: true
           type: string
         net_price:
           description: Net price.
           example: 1.23
+          nullable: true
           type: number
         gross_price:
           description: Gross price.
@@ -23707,28 +23941,28 @@ components:
         vat:
           $ref: '#/components/schemas/VatType'
         not_taxable:
-          default: false
+          nullable: true
           type: boolean
         apply_withholding_taxes:
-          default: true
           description: Apply withholding taxes, rivalsa and cassa.
+          nullable: true
           type: boolean
         discount:
           description: Discount percentual value.
-          maximum: 100
-          minimum: 0
+          nullable: true
           type: number
         discount_highlight:
-          default: false
+          nullable: true
           type: boolean
         in_ddt:
-          default: true
+          nullable: true
           type: boolean
         stock:
           nullable: true
           type: boolean
         ei_raw:
           description: Advanced raw attributes for e-invoices.
+          nullable: true
           type: object
       title: IssuedDocumentItemsListItem
       type: object
@@ -23749,15 +23983,18 @@ components:
       properties:
         id:
           description: Unique identifier.
+          nullable: true
           type: integer
         due_date:
           description: Due date.
           example: 2018-04-03
           format: date
+          nullable: true
           type: string
         amount:
           description: Payment amount.
           example: 1.45
+          nullable: true
           type: number
         status:
           $ref: '#/components/schemas/IssuedDocumentStatus'
@@ -23769,6 +24006,7 @@ components:
             [Only if status is paid]
           example: 2018-04-03
           format: date
+          nullable: true
           type: string
         ei_raw:
           description: Advanced raw attributes for e-invoices.
@@ -23785,6 +24023,16 @@ components:
       - all
       title: ShowTotalsMode
       type: string
+    VatList:
+      additionalProperties:
+        $ref: '#/components/schemas/VatItem'
+      title: VatList
+      type: object
+    Numeration:
+      additionalProperties:
+        $ref: '#/components/schemas/NumerationItem'
+      title: Numeration
+      type: object
     SenderEmail:
       example:
         id: 6
@@ -23792,13 +24040,12 @@ components:
       properties:
         id:
           description: Id
+          nullable: true
           type: integer
         email:
           description: Email address
+          nullable: true
           type: string
-      required:
-      - email
-      - id
       title: SenderEmail
       type: object
     ReceivedDocumentType:
@@ -23834,32 +24081,41 @@ components:
       properties:
         id:
           description: Unique identifier.
+          nullable: true
           type: integer
         product_id:
           description: Unique identifier of the product
+          nullable: true
           type: integer
         code:
           description: Product code.
+          nullable: true
           type: string
         name:
           description: Product name.
+          nullable: true
           type: string
         measure:
           description: Product measure.
+          nullable: true
           type: string
         net_price:
           description: Product net price.
+          nullable: true
           type: number
         category:
           description: Product category.
+          nullable: true
           type: string
         qty:
           description: Product quantity.
+          nullable: true
           type: number
         vat:
           $ref: '#/components/schemas/VatType'
         stock:
           description: Number of items in stock
+          nullable: true
           type: number
       title: ItemsListItem
       type: object
@@ -23883,22 +24139,27 @@ components:
       properties:
         id:
           description: Unique identifier.
+          nullable: true
           type: integer
         amount:
           description: Amount of items.
+          nullable: true
           type: number
         due_date:
           description: Due date
           format: date
+          nullable: true
           type: string
         paid_date:
           description: Paid date
           format: date
+          nullable: true
           type: string
         payment_terms:
           $ref: '#/components/schemas/ReceivedDocumentPaymentsListItem_payment_terms'
         status:
           description: Payment status.
+          nullable: true
           type: string
         payment_account:
           $ref: '#/components/schemas/PaymentAccount'
@@ -23930,15 +24191,19 @@ components:
       properties:
         id:
           description: Item unique identifier.
+          nullable: true
           type: integer
         amount_net:
           description: Item total net amount.
+          nullable: true
           type: number
         amount_gross:
           description: Item total gross amount.
+          nullable: true
           type: number
         category:
           description: Item category.
+          nullable: true
           type: string
         vat:
           $ref: '#/components/schemas/VatType'
@@ -23948,6 +24213,7 @@ components:
       properties:
         amount:
           description: Total amount.
+          nullable: true
           type: number
       title: ListF24ResponseAggregatedData
       type: object
@@ -24021,24 +24287,48 @@ components:
       - reversed
       title: IssuedDocumentStatus
       type: string
+    VatItem:
+      example:
+        amount_net: 6.84685269835264
+        amount_vat: 7.457744773683766
+      properties:
+        amount_net:
+          nullable: true
+          type: number
+        amount_vat:
+          nullable: true
+          type: number
+      title: VatItem
+      type: object
+    NumerationItem:
+      additionalProperties:
+        type: integer
+      title: NumerationItem
+      type: object
     GetUserInfoResponse_info:
       example:
         need_password_change: true
         need_marketing_consents_confirmation: true
         need_terms_of_service_confirmation: true
+      nullable: true
       properties:
         need_marketing_consents_confirmation:
+          nullable: true
           type: boolean
         need_password_change:
+          nullable: true
           type: boolean
         need_terms_of_service_confirmation:
+          nullable: true
           type: boolean
       type: object
     GetUserInfoResponse_email_confirmation_state:
       example:
         need_confirmation: true
+      nullable: true
       properties:
         need_confirmation:
+          nullable: true
           type: boolean
       type: object
     ListUserCompaniesResponse_data:
@@ -24076,58 +24366,73 @@ components:
             connection_id: 0.8008281904610115
             name: Rossi S.r.l.
             id: 12345
+      nullable: true
       properties:
         companies:
           items:
             $ref: '#/components/schemas/Company'
+          nullable: true
           type: array
       type: object
     SendEInvoiceRequest_data:
       example:
         withholding_tax_causal: withholding_tax_causal
         cassa_type: cassa_type
+      nullable: true
       properties:
         cassa_type:
           description: Value of TipoCassa used (optional, override the company default
             value).
+          nullable: true
           type: string
         withholding_tax_causal:
           description: Value of CausalePagamento used (optional, override the company
             default value).
+          nullable: true
           type: string
       type: object
     SendEInvoiceResponse_data:
       example:
         date: date
         name: name
+      nullable: true
       properties:
         name:
           description: Response message.
+          nullable: true
           type: string
         date:
           description: E-invoice sent date.
+          nullable: true
           type: string
       type: object
     VerifyEInvoiceXmlResponse_data:
       example:
         success: true
+      nullable: true
       properties:
         success:
           description: Determine if the invoice XML is valid.
+          nullable: true
           type: boolean
       type: object
     VerifyEInvoiceXmlErrorResponse_error:
+      nullable: true
       properties:
         message:
+          nullable: true
           type: string
         validation_result:
+          nullable: true
           type: object
       type: object
     VerifyEInvoiceXmlErrorResponse_extra:
+      nullable: true
       properties:
         errors:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     CompanyInfo_access_info:
@@ -24135,12 +24440,14 @@ components:
         through_accountant: true
         permissions:
           fic_issued_documents_detailed: {}
+      nullable: true
       properties:
         role:
           $ref: '#/components/schemas/UserCompanyRole'
         permissions:
           $ref: '#/components/schemas/Permissions'
         through_accountant:
+          nullable: true
           type: boolean
       type: object
     CompanyInfo_plan_info_limits:
@@ -24150,14 +24457,19 @@ components:
         suppliers: 6
         documents: 5
         products: 1
+      nullable: true
       properties:
         clients:
+          nullable: true
           type: integer
         suppliers:
+          nullable: true
           type: integer
         products:
+          nullable: true
           type: integer
         documents:
+          nullable: true
           type: integer
       type: object
     CompanyInfo_plan_info_functions:
@@ -24181,43 +24493,61 @@ components:
         paypal: true
         mail_tracking: true
         tessera_sanitaria: true
+      nullable: true
       properties:
         archive:
+          nullable: true
           type: boolean
         cerved:
+          nullable: true
           type: boolean
         document_attachments:
+          nullable: true
           type: boolean
         e_invoice:
+          nullable: true
           type: boolean
         genius:
+          nullable: true
           type: boolean
         mail_tracking:
+          nullable: true
           type: boolean
         payment_notifications:
+          nullable: true
           type: boolean
         paypal:
+          nullable: true
           type: boolean
         receipts:
+          nullable: true
           type: boolean
         recurring:
+          nullable: true
           type: boolean
         smtp:
+          nullable: true
           type: boolean
         sofort:
+          nullable: true
           type: boolean
         stock:
+          nullable: true
           type: boolean
         subaccounts:
+          nullable: true
           type: boolean
         tessera_sanitaria:
+          nullable: true
           type: boolean
         ts_digital:
+          nullable: true
           type: boolean
         ts_invoice_trading:
           nullable: true
           type: boolean
         ts_pay:
+          nullable: true
           type: boolean
       type: object
     CompanyInfo_plan_info_functions_status:
@@ -24226,6 +24556,7 @@ components:
           active: true
         ts_pay:
           active: true
+      nullable: true
       properties:
         ts_digital:
           $ref: '#/components/schemas/FunctionStatus'
@@ -24263,6 +24594,7 @@ components:
           suppliers: 6
           documents: 5
           products: 1
+      nullable: true
       properties:
         limits:
           $ref: '#/components/schemas/CompanyInfo_plan_info_limits'
@@ -24400,26 +24732,6 @@ components:
           nullable: true
           type: boolean
       type: object
-    IssuedDocumentTotals_vat_list_vat_item:
-      example:
-        amount_net: 6.84685269835264
-        amount_vat: 7.457744773683766
-      properties:
-        amount_net:
-          type: number
-        amount_vat:
-          type: number
-      type: object
-    IssuedDocumentTotals_vat_list:
-      example:
-        vat_item:
-          amount_net: 6.84685269835264
-          amount_vat: 7.457744773683766
-      nullable: true
-      properties:
-        vat_item:
-          $ref: '#/components/schemas/IssuedDocumentTotals_vat_list_vat_item'
-      type: object
     IssuedDocumentPreCreateInfo_default_values:
       description: Default values for the document.
       example:
@@ -24468,6 +24780,7 @@ components:
           is_default: true
           ei_payment_method: ei_payment_method
           bank_iban: bank_iban
+      nullable: true
       properties:
         default_template:
           $ref: '#/components/schemas/DocumentTemplate'
@@ -24477,24 +24790,31 @@ components:
           $ref: '#/components/schemas/DocumentTemplate'
         notes:
           description: Default notes.
+          nullable: true
           type: string
         rivalsa:
           description: Default rivalsa percentage.
+          nullable: true
           type: number
         cassa:
           description: Default cassa percentage.
+          nullable: true
           type: number
         withholding_tax:
           description: Default withholding tax percentage.
+          nullable: true
           type: number
         withholding_tax_taxable:
           description: Default withholding tax taxable percentage.
+          nullable: true
           type: number
         other_withholding_tax:
           description: Default other withholding tax percentage.
+          nullable: true
           type: number
         use_gross_prices:
           description: Use gross price by default.
+          nullable: true
           type: boolean
         payment_method:
           $ref: '#/components/schemas/PaymentMethod'
@@ -24505,14 +24825,19 @@ components:
         ts_pagamento_tracciato: true
         ts_communication: true
         ts_tipo_spesa: ts_tipo_spesa
+      nullable: true
       properties:
         ts_communication:
+          nullable: true
           type: boolean
         ts_tipo_spesa:
+          nullable: true
           type: string
         ts_flag_tipo_spesa:
+          nullable: true
           type: integer
         ts_pagamento_tracciato:
+          nullable: true
           type: boolean
       type: object
     IssuedDocumentPreCreateInfo_items_default_values:
@@ -24528,6 +24853,7 @@ components:
           description: Non imponibile art. 123
           id: 6
           value: 22
+      nullable: true
       properties:
         vat:
           $ref: '#/components/schemas/VatType'
@@ -24537,16 +24863,16 @@ components:
       example:
         id: 0
         email: email
+      nullable: true
       properties:
         id:
           description: Id
+          nullable: true
           type: integer
         email:
           description: Email address
+          nullable: true
           type: string
-      required:
-      - email
-      - id
       type: object
     EmailSchedule_include:
       example:
@@ -24554,31 +24880,32 @@ components:
         document: true
         accompanying_invoice: true
         delivery_note: true
+      nullable: true
       properties:
         document:
           description: If set to true, the email will have a button to view the document
+          nullable: true
           type: boolean
         delivery_note:
           description: If set to true, the email will have a button to view the delivery
             note
+          nullable: true
           type: boolean
         attachment:
           description: If set to true, the email will have a button to view the attachment
+          nullable: true
           type: boolean
         accompanying_invoice:
           description: If set to true, the email will have a button to view the accompanying
             invoice
+          nullable: true
           type: boolean
-      required:
-      - accompanying_invoice
-      - attachment
-      - delivery_note
-      - document
       type: object
     ReceivedDocument_entity:
       example:
         name: name
         id: 6
+      nullable: true
       properties:
         id:
           description: Entity unique identifier.
@@ -24586,20 +24913,24 @@ components:
           type: integer
         name:
           description: Entity name.
+          nullable: true
           type: string
       type: object
     ReceivedDocumentInfo_default_values:
       description: Default values for the document.
       example:
         detailed: true
+      nullable: true
       properties:
         detailed:
+          nullable: true
           type: boolean
       type: object
     ReceivedDocumentInfo_items_default_values:
       description: Default values for the document items.
       example:
         vat: 0.8008281904610115
+      nullable: true
       properties:
         vat:
           description: Default vat value.
@@ -24611,15 +24942,19 @@ components:
         path: path
         id: 0
         type: type
+      nullable: true
       properties:
         id:
           description: Document unique identifier.
+          nullable: true
           type: integer
         type:
           description: Document type.
+          nullable: true
           type: string
         path:
           description: Document path.
+          nullable: true
           type: string
       type: object
     PaymentMethod_details:
@@ -24636,6 +24971,7 @@ components:
       type: object
     Permissions_fic_issued_documents_detailed:
       example: {}
+      nullable: true
       properties:
         quotes:
           $ref: '#/components/schemas/PermissionLevel'
@@ -24662,11 +24998,14 @@ components:
       example:
         days: 1
         type: type
+      nullable: true
       properties:
         days:
           description: Number of days.
+          nullable: true
           type: integer
         type:
+          nullable: true
           type: string
       type: object
   securitySchemes:

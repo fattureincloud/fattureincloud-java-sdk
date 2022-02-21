@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier |  [optional]
 **code** | **String** | Client code. |  [optional]
-**name** | **String** | Client name | 
+**name** | **String** | Client name |  [optional]
 **type** | **ClientType** |  |  [optional]
 **firstName** | **String** | Client first name. |  [optional]
 **lastName** | **String** | Client last name. |  [optional]

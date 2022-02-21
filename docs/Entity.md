@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier |  [optional]
 **code** | **String** | Code. |  [optional]
-**name** | **String** | Name | 
+**name** | **String** | Name |  [optional]
 **type** | **EntityType** |  |  [optional]
 **firstName** | **String** | First name. |  [optional]
 **lastName** | **String** | Last name. |  [optional]

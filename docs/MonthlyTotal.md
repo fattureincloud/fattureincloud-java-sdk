@@ -8,9 +8,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**net** | **BigDecimal** | Monthly total net amount. | 
-**gross** | **BigDecimal** | Monthly total gross amount. | 
-**count** | **BigDecimal** | Monthly total receipt number. | 
+**net** | **BigDecimal** | Monthly total net amount. |  [optional]
+**gross** | **BigDecimal** | Monthly total gross amount. |  [optional]
+**count** | **BigDecimal** | Monthly total receipt number. |  [optional]
 
 
 ## Implemented Interfaces

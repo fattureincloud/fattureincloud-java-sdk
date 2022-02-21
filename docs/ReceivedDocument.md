@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier of the document. |  [optional]
 **type** | **ReceivedDocumentType** |  |  [optional]
-**entity** | [**ReceivedDocumentEntity**](ReceivedDocumentEntity.md) |  | 
+**entity** | [**ReceivedDocumentEntity**](ReceivedDocumentEntity.md) |  |  [optional]
 **date** | **LocalDate** | Date of the document [If not specified, today date is used]. |  [optional]
 **category** | **String** | Document category. |  [optional]
 **description** | **String** | Document description. |  [optional]

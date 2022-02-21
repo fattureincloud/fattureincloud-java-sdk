@@ -2,9 +2,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.11
+- API version: 2.0.12
 
-- Build date: 2022-02-07T11:20:58.969Z[Etc/UTC]
+- Build date: 2022-02-21T14:15:24.489Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.3</version>
+  <version>2.0.4</version>
 </dependency>
 ```
 
@@ -45,7 +45,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.3"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.4"
   }
 ```
 
@@ -245,6 +245,7 @@ Class | Method | HTTP request | Description
  - [EmailSchedule](docs/EmailSchedule.md)
  - [EmailScheduleInclude](docs/EmailScheduleInclude.md)
  - [Entity](docs/Entity.md)
+ - [EntityOptions](docs/EntityOptions.md)
  - [EntityType](docs/EntityType.md)
  - [F24](docs/F24.md)
  - [F24Status](docs/F24Status.md)
@@ -283,6 +284,7 @@ Class | Method | HTTP request | Description
  - [IssuedDocumentEiData](docs/IssuedDocumentEiData.md)
  - [IssuedDocumentExtraData](docs/IssuedDocumentExtraData.md)
  - [IssuedDocumentItemsListItem](docs/IssuedDocumentItemsListItem.md)
+ - [IssuedDocumentOptions](docs/IssuedDocumentOptions.md)
  - [IssuedDocumentPaymentsListItem](docs/IssuedDocumentPaymentsListItem.md)
  - [IssuedDocumentPreCreateInfo](docs/IssuedDocumentPreCreateInfo.md)
  - [IssuedDocumentPreCreateInfoDefaultValues](docs/IssuedDocumentPreCreateInfoDefaultValues.md)
@@ -290,8 +292,6 @@ Class | Method | HTTP request | Description
  - [IssuedDocumentPreCreateInfoItemsDefaultValues](docs/IssuedDocumentPreCreateInfoItemsDefaultValues.md)
  - [IssuedDocumentStatus](docs/IssuedDocumentStatus.md)
  - [IssuedDocumentTotals](docs/IssuedDocumentTotals.md)
- - [IssuedDocumentTotalsVatList](docs/IssuedDocumentTotalsVatList.md)
- - [IssuedDocumentTotalsVatListVatItem](docs/IssuedDocumentTotalsVatListVatItem.md)
  - [IssuedDocumentType](docs/IssuedDocumentType.md)
  - [Language](docs/Language.md)
  - [ListArchiveCategoriesResponse](docs/ListArchiveCategoriesResponse.md)
@@ -395,6 +395,7 @@ Class | Method | HTTP request | Description
  - [UploadReceivedDocumentAttachmentResponse](docs/UploadReceivedDocumentAttachmentResponse.md)
  - [User](docs/User.md)
  - [UserCompanyRole](docs/UserCompanyRole.md)
+ - [VatItem](docs/VatItem.md)
  - [VatKind](docs/VatKind.md)
  - [VatType](docs/VatType.md)
  - [VerifyEInvoiceXmlErrorResponse](docs/VerifyEInvoiceXmlErrorResponse.md)
