@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**numerations** | **Object** | Next numbers by year and numeration name (for the given document type). |  [optional]
-**dnNumerations** | **Object** | Next numbers by year and numeration name (for delivery_notes). |  [optional]
+**numerations** | **Map&lt;String, Map&lt;String, Integer&gt;&gt;** |  |  [optional]
+**dnNumerations** | **Map&lt;String, Map&lt;String, Integer&gt;&gt;** |  |  [optional]
 **defaultValues** | [**IssuedDocumentPreCreateInfoDefaultValues**](IssuedDocumentPreCreateInfoDefaultValues.md) |  |  [optional]
 **extraDataDefaultValues** | [**IssuedDocumentPreCreateInfoExtraDataDefaultValues**](IssuedDocumentPreCreateInfoExtraDataDefaultValues.md) |  |  [optional]
 **itemsDefaultValues** | [**IssuedDocumentPreCreateInfoItemsDefaultValues**](IssuedDocumentPreCreateInfoItemsDefaultValues.md) |  |  [optional]

@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** | Id | 
-**email** | **String** | Email address | 
+**id** | **Integer** | Id |  [optional]
+**email** | **String** | Email address |  [optional]
 
 
 ## Implemented Interfaces

@@ -8,7 +8,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **List&lt;String&gt;** |  | 
+**data** | **List&lt;String&gt;** |  |  [optional]
 
 
 ## Implemented Interfaces

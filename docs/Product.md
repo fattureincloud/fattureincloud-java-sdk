@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier. |  [optional]
-**name** | **String** | Product name. | 
+**name** | **String** | Product name. |  [optional]
 **code** | **String** | Product code. |  [optional]
 **netPrice** | **BigDecimal** | Net sale price (used if use_gross_price is false, otherwise it&#39;s competed automatically). |  [optional]
 **grossPrice** | **BigDecimal** | Gross sale price (used if use_gross_price is false, otherwise it&#39;s competed automatically). |  [optional]
