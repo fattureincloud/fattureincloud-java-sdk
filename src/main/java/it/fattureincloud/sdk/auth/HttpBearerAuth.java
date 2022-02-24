@@ -17,8 +17,8 @@ import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.Pair;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-22T10:45:37.104Z[Etc/UTC]")
 public class HttpBearerAuth implements Authentication {

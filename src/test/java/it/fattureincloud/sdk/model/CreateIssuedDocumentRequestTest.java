@@ -35,6 +35,9 @@ public class CreateIssuedDocumentRequestTest {
                         new IssuedDocument()
                                 .id(12345)
                                 .notes("bando")
+                )
+                .options(
+                        new IssuedDocumentOptions().fixPayments(true)
                 );
     }
 
@@ -46,7 +49,7 @@ public class CreateIssuedDocumentRequestTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"use_split_payment\":false,\"use_gross_prices\":false,\"e_invoice\":false,\"show_totals\":\"all\",\"show_paypal_button\":false,\"show_notification_button\":false,\"accompanying_invoice\":false}}";
+        String str = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"show_totals\":\"all\"},\"options\":{\"fix_payments\":true}}";
         assertEquals(str, json);
         CreateIssuedDocumentRequest generated = gson.fromJson(str, CreateIssuedDocumentRequest.class);
         assertEquals(model, generated);
@@ -69,6 +72,23 @@ public class CreateIssuedDocumentRequestTest {
         model.data(new IssuedDocument().id(2));
         CreateIssuedDocumentRequest actual = new CreateIssuedDocumentRequest();
         actual.setData(new IssuedDocument().id(2));
+        actual.setOptions(new IssuedDocumentOptions().fixPayments(true));
+        assertEquals(model, actual);
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        assertEquals(true, model.getOptions().getFixPayments());
+        model.setOptions(new IssuedDocumentOptions().fixPayments(false));
+        assertEquals(false, model.getOptions().getFixPayments());
+
+        model.options(new IssuedDocumentOptions().fixPayments(true));
+        CreateIssuedDocumentRequest actual = new CreateIssuedDocumentRequest();
+        actual.setData(new IssuedDocument().id(12345).notes("bando"));
+        actual.setOptions(new IssuedDocumentOptions().fixPayments(true));
         assertEquals(model, actual);
     }
 

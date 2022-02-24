@@ -13,34 +13,11 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreateReceivedDocumentRequest;
-import it.fattureincloud.sdk.model.CreateReceivedDocumentResponse;
 import java.io.File;
-import it.fattureincloud.sdk.model.GetExistingReceivedDocumentTotalsRequest;
-import it.fattureincloud.sdk.model.GetExistingReceivedDocumentTotalsResponse;
-import it.fattureincloud.sdk.model.GetNewReceivedDocumentTotalsRequest;
-import it.fattureincloud.sdk.model.GetNewReceivedDocumentTotalsResponse;
-import it.fattureincloud.sdk.model.GetReceivedDocumentPreCreateInfoResponse;
-import it.fattureincloud.sdk.model.GetReceivedDocumentResponse;
-import it.fattureincloud.sdk.model.ListReceivedDocumentsResponse;
-import it.fattureincloud.sdk.model.ModifyReceivedDocumentRequest;
-import it.fattureincloud.sdk.model.ModifyReceivedDocumentResponse;
-import it.fattureincloud.sdk.model.UploadReceivedDocumentAttachmentResponse;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;

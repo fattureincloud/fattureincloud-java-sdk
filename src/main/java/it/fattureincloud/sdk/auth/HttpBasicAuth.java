@@ -13,16 +13,13 @@
 
 package it.fattureincloud.sdk.auth;
 
-import it.fattureincloud.sdk.Pair;
 import it.fattureincloud.sdk.ApiException;
-
+import it.fattureincloud.sdk.Pair;
 import okhttp3.Credentials;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
-
-import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 public class HttpBasicAuth implements Authentication {
     private String username;

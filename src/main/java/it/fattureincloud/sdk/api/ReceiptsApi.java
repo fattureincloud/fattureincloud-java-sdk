@@ -13,28 +13,9 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreateReceiptRequest;
-import it.fattureincloud.sdk.model.CreateReceiptResponse;
-import it.fattureincloud.sdk.model.GetReceiptPreCreateInfoResponse;
-import it.fattureincloud.sdk.model.GetReceiptResponse;
-import it.fattureincloud.sdk.model.GetReceiptsMonthlyTotalsResponse;
-import it.fattureincloud.sdk.model.ListReceiptsResponse;
-import it.fattureincloud.sdk.model.ModifyReceiptRequest;
-import it.fattureincloud.sdk.model.ModifyReceiptResponse;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

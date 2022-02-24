@@ -15,7 +15,6 @@ package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

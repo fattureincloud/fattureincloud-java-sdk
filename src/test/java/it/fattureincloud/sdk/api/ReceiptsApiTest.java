@@ -173,7 +173,7 @@ public class ReceiptsApiTest {
      */
     @Test
     public void getReceiptPreCreateInfoTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}}";
+        String result = "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
 
         Call mockCall = Mockito.mock(Call.class);
         ReceiptsApi api = mockApi(result, mockCall);

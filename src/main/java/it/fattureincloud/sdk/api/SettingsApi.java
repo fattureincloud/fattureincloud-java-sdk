@@ -13,35 +13,9 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreatePaymentAccountRequest;
-import it.fattureincloud.sdk.model.CreatePaymentAccountResponse;
-import it.fattureincloud.sdk.model.CreatePaymentMethodRequest;
-import it.fattureincloud.sdk.model.CreatePaymentMethodResponse;
-import it.fattureincloud.sdk.model.CreateVatTypeRequest;
-import it.fattureincloud.sdk.model.CreateVatTypeResponse;
-import it.fattureincloud.sdk.model.GetPaymentAccountResponse;
-import it.fattureincloud.sdk.model.GetPaymentMethodResponse;
-import it.fattureincloud.sdk.model.GetVatTypeResponse;
-import it.fattureincloud.sdk.model.ModifyPaymentAccountRequest;
-import it.fattureincloud.sdk.model.ModifyPaymentAccountResponse;
-import it.fattureincloud.sdk.model.ModifyPaymentMethodRequest;
-import it.fattureincloud.sdk.model.ModifyPaymentMethodResponse;
-import it.fattureincloud.sdk.model.ModifyVatTypeRequest;
-import it.fattureincloud.sdk.model.ModifyVatTypeResponse;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

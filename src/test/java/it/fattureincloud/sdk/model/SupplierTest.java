@@ -276,7 +276,7 @@ public class SupplierTest {
      */
     @Test
     public void countryTest() {
-        assertEquals("Italia", model.getCountry());
+        assertEquals(null, model.getCountry());
         model.setCountry("Venezuela");
         assertEquals("Venezuela", model.getCountry());
         Supplier s = model.country("Colombia");

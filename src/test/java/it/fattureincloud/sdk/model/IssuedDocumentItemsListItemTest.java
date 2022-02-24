@@ -62,7 +62,7 @@ public class IssuedDocumentItemsListItemTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"product_id\":12345,\"code\":\"cod3\",\"name\":\"prodott1\",\"category\":\"cat5\",\"description\":\"primo\",\"qty\":99,\"measure\":\"big\",\"net_price\":10,\"gross_price\":10,\"vat\":{\"id\":1,\"editable\":true},\"not_taxable\":true,\"apply_withholding_taxes\":true,\"discount\":0,\"discount_highlight\":true,\"in_ddt\":true,\"stock\":true}";
+        String str = "{\"product_id\":12345,\"code\":\"cod3\",\"name\":\"prodott1\",\"category\":\"cat5\",\"description\":\"primo\",\"qty\":99,\"measure\":\"big\",\"net_price\":10,\"gross_price\":10,\"vat\":{\"id\":1},\"not_taxable\":true,\"apply_withholding_taxes\":true,\"discount\":0,\"discount_highlight\":true,\"in_ddt\":true,\"stock\":true}";
         assertEquals(str, json);
         IssuedDocumentItemsListItem generated = gson.fromJson(str, IssuedDocumentItemsListItem.class);
         assertEquals(model, generated);

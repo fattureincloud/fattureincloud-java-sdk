@@ -2,12 +2,10 @@ package it.fattureincloud.sdk.auth;
 
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.Pair;
-
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import org.apache.oltu.oauth2.client.OAuthClient;
 import org.apache.oltu.oauth2.client.request.OAuthBearerClientRequest;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
@@ -20,8 +18,8 @@ import org.apache.oltu.oauth2.common.message.types.GrantType;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 public class RetryingOAuth extends OAuth implements Interceptor {
     private OAuthClient oAuthClient;

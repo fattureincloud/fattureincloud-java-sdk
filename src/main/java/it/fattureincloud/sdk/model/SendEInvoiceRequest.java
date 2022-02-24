@@ -13,19 +13,13 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.SendEInvoiceRequestData;
-import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * SendEInvoiceRequest

@@ -352,7 +352,7 @@ public class ReceivedDocumentsApiTest {
      */
     @Test
     public void getReceivedDocumentPreCreateInfoTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}}";
+        String result = "{\"data\":{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1}]}}";
 
         Call mockCall = Mockito.mock(Call.class);
         ReceivedDocumentsApi api = mockApi(result, mockCall);

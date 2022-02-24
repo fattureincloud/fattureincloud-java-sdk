@@ -52,7 +52,7 @@ public class GetReceiptPreCreateInfoResponseTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}}";
+        String str = "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
         assertEquals(str, json);
         GetReceiptPreCreateInfoResponse generated = gson.fromJson(str, GetReceiptPreCreateInfoResponse.class);
         assertEquals(model, generated);

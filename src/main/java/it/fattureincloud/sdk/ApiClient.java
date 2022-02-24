@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk;
 
+import it.fattureincloud.sdk.auth.*;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -22,7 +23,6 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
-import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import javax.net.ssl.*;
 import java.io.File;
@@ -41,7 +41,6 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -51,14 +50,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import it.fattureincloud.sdk.auth.Authentication;
-import it.fattureincloud.sdk.auth.HttpBasicAuth;
-import it.fattureincloud.sdk.auth.HttpBearerAuth;
-import it.fattureincloud.sdk.auth.ApiKeyAuth;
-import it.fattureincloud.sdk.auth.OAuth;
-import it.fattureincloud.sdk.auth.RetryingOAuth;
-import it.fattureincloud.sdk.auth.OAuthFlow;
 
 /**
  * <p>ApiClient class.</p>

@@ -13,29 +13,11 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreateArchiveDocumentRequest;
-import it.fattureincloud.sdk.model.CreateArchiveDocumentResponse;
 import java.io.File;
-import it.fattureincloud.sdk.model.GetArchiveDocumentResponse;
-import it.fattureincloud.sdk.model.ListArchiveDocumentsResponse;
-import it.fattureincloud.sdk.model.ModifyArchiveDocumentRequest;
-import it.fattureincloud.sdk.model.ModifyArchiveDocumentResponse;
-import it.fattureincloud.sdk.model.UploadArchiveAttachmentResponse;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;

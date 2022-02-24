@@ -148,7 +148,7 @@ public class SettingsApiTest {
      */
     @Test
     public void createVatTypeTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}}";
 
         Call mockCall = Mockito.mock(Call.class);
         SettingsApi api = mockApi(result, mockCall);
@@ -314,7 +314,7 @@ public class SettingsApiTest {
      */
     @Test
     public void getVatTypeTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}}";
 
         Call mockCall = Mockito.mock(Call.class);
         SettingsApi api = mockApi(result, mockCall);
@@ -428,7 +428,7 @@ public class SettingsApiTest {
      */
     @Test
     public void modifyVatTypeTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}}";
+        String result = "{\"data\":{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}}";
 
         Call mockCall = Mockito.mock(Call.class);
         SettingsApi api = mockApi(result, mockCall);

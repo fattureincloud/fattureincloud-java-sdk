@@ -60,7 +60,7 @@ public class ListIssuedDocumentsResponseTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"use_split_payment\":false,\"use_gross_prices\":false,\"e_invoice\":false,\"show_totals\":\"all\",\"show_paypal_button\":false,\"show_notification_button\":false,\"accompanying_invoice\":false}]}";
+        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"show_totals\":\"all\"}]}";
         assertEquals(str, json);
         ListIssuedDocumentsResponse generated = gson.fromJson(str, ListIssuedDocumentsResponse.class);
         assertEquals(model, generated);
