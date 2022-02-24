@@ -48,7 +48,7 @@ public class HttpBasicAuth implements Authentication {
             return;
         }
         headerParams.put("Authorization", Credentials.basic(
-            username == null ? "" : username,
-            password == null ? "" : password));
+                username == null ? "" : username,
+                password == null ? "" : password));
     }
 }

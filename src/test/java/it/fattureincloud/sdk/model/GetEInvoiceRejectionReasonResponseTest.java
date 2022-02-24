@@ -34,12 +34,12 @@ public class GetEInvoiceRejectionReasonResponseTest {
     public void init() {
         model = new GetEInvoiceRejectionReasonResponse()
                 .data(
-                    new EinvoiceRejectionReason()
-                    .reason("invalid date")
-                    .eiStatus("rejected")
-                    .solution("set a valid date")
-                    .code("c01")
-                    .date(LocalDate.of(2022,01,10))
+                        new EinvoiceRejectionReason()
+                                .reason("invalid date")
+                                .eiStatus("rejected")
+                                .solution("set a valid date")
+                                .code("c01")
+                                .date(LocalDate.of(2022, 01, 10))
                 );
     }
 

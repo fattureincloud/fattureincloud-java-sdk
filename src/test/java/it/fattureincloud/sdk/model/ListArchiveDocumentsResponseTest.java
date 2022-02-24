@@ -198,16 +198,16 @@ public class ListArchiveDocumentsResponseTest {
         ListArchiveDocumentsResponse actual = new ListArchiveDocumentsResponse();
         actual.setData(Arrays.asList(new ArchiveDocument().id(2)));
         actual.currentPage(10)
-            .firstPageUrl(URI.create("https://www.page.url/"))
-            .from(10)
-            .lastPage(10)
-            .lastPageUrl(URI.create("https://www.page.url/"))
-            .nextPageUrl(URI.create("https://www.page.url/"))
-            .path(URI.create("https://www.page.url/"))
-            .perPage(10)
-            .prevPageUrl(URI.create("https://www.page.url/"))
-            .to(10)
-            .total(10);
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
         assertEquals(model, actual);
     }
 

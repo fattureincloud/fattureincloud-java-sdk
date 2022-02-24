@@ -63,29 +63,29 @@ public class IssuedDocumentsApi {
 
     /**
      * Build call for createIssuedDocument
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
      * @param createIssuedDocumentRequest The Issued Document (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback                   Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createIssuedDocumentCall(Integer companyId, CreateIssuedDocumentRequest createIssuedDocumentRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -95,7 +95,7 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -104,7 +104,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -112,25 +112,25 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createIssuedDocumentValidateBeforeCall(Integer companyId, CreateIssuedDocumentRequest createIssuedDocumentRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createIssuedDocument(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createIssuedDocumentCall(companyId, createIssuedDocumentRequest, _callback);
         return localVarCall;
@@ -140,17 +140,17 @@ public class IssuedDocumentsApi {
     /**
      * Create Issued Document
      * Creates a new document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
      * @param createIssuedDocumentRequest The Issued Document (optional)
      * @return CreateIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public CreateIssuedDocumentResponse createIssuedDocument(Integer companyId, CreateIssuedDocumentRequest createIssuedDocumentRequest) throws ApiException {
         ApiResponse<CreateIssuedDocumentResponse> localVarResp = createIssuedDocumentWithHttpInfo(companyId, createIssuedDocumentRequest);
@@ -160,73 +160,76 @@ public class IssuedDocumentsApi {
     /**
      * Create Issued Document
      * Creates a new document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
      * @param createIssuedDocumentRequest The Issued Document (optional)
      * @return ApiResponse&lt;CreateIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreateIssuedDocumentResponse> createIssuedDocumentWithHttpInfo(Integer companyId, CreateIssuedDocumentRequest createIssuedDocumentRequest) throws ApiException {
         okhttp3.Call localVarCall = createIssuedDocumentValidateBeforeCall(companyId, createIssuedDocumentRequest, null);
-        Type localVarReturnType = new TypeToken<CreateIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateIssuedDocumentResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Issued Document (asynchronously)
      * Creates a new document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
      * @param createIssuedDocumentRequest The Issued Document (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback                   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createIssuedDocumentAsync(Integer companyId, CreateIssuedDocumentRequest createIssuedDocumentRequest, final ApiCallback<CreateIssuedDocumentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createIssuedDocumentValidateBeforeCall(companyId, createIssuedDocumentRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateIssuedDocumentResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteIssuedDocument
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteIssuedDocumentCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -236,8 +239,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -246,7 +249,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -254,30 +257,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteIssuedDocumentValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteIssuedDocument(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling deleteIssuedDocument(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteIssuedDocumentCall(companyId, documentId, _callback);
         return localVarCall;
@@ -287,17 +290,17 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document
      * Deletes the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteIssuedDocument(Integer companyId, Integer documentId) throws ApiException {
         deleteIssuedDocumentWithHttpInfo(companyId, documentId);
@@ -306,18 +309,18 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document
      * Deletes the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteIssuedDocumentWithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = deleteIssuedDocumentValidateBeforeCall(companyId, documentId, null);
@@ -327,19 +330,19 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document (asynchronously)
      * Deletes the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteIssuedDocumentAsync(Integer companyId, Integer documentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -347,32 +350,33 @@ public class IssuedDocumentsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteIssuedDocumentAttachment
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteIssuedDocumentAttachmentCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -382,8 +386,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}/attachment"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -392,7 +396,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -400,30 +404,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteIssuedDocumentAttachmentValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteIssuedDocumentAttachment(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling deleteIssuedDocumentAttachment(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteIssuedDocumentAttachmentCall(companyId, documentId, _callback);
         return localVarCall;
@@ -433,17 +437,17 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document Attachment
      * Removes the attachment of the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteIssuedDocumentAttachment(Integer companyId, Integer documentId) throws ApiException {
         deleteIssuedDocumentAttachmentWithHttpInfo(companyId, documentId);
@@ -452,18 +456,18 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document Attachment
      * Removes the attachment of the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteIssuedDocumentAttachmentWithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = deleteIssuedDocumentAttachmentValidateBeforeCall(companyId, documentId, null);
@@ -473,19 +477,19 @@ public class IssuedDocumentsApi {
     /**
      * Delete Issued Document Attachment (asynchronously)
      * Removes the attachment of the specified document.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteIssuedDocumentAttachmentAsync(Integer companyId, Integer documentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -493,30 +497,31 @@ public class IssuedDocumentsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getEmailData
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getEmailDataCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -526,8 +531,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}/email"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -536,7 +541,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -544,30 +549,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEmailDataValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getEmailData(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling getEmailData(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getEmailDataCall(companyId, documentId, _callback);
         return localVarCall;
@@ -577,16 +582,16 @@ public class IssuedDocumentsApi {
     /**
      * Get Email Data
      * Gets the pre-compiled email details.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return GetEmailDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
+     * </table>
      */
     public GetEmailDataResponse getEmailData(Integer companyId, Integer documentId) throws ApiException {
         ApiResponse<GetEmailDataResponse> localVarResp = getEmailDataWithHttpInfo(companyId, documentId);
@@ -596,72 +601,75 @@ public class IssuedDocumentsApi {
     /**
      * Get Email Data
      * Gets the pre-compiled email details.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;GetEmailDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetEmailDataResponse> getEmailDataWithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = getEmailDataValidateBeforeCall(companyId, documentId, null);
-        Type localVarReturnType = new TypeToken<GetEmailDataResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailDataResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Email Data (asynchronously)
      * Gets the pre-compiled email details.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> EmailData </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getEmailDataAsync(Integer companyId, Integer documentId, final ApiCallback<GetEmailDataResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailDataValidateBeforeCall(companyId, documentId, _callback);
-        Type localVarReturnType = new TypeToken<GetEmailDataResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailDataResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getExistingIssuedDocumentTotals
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
-     * @param getExistingIssuedDocumentTotalsRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                              The ID of the company. (required)
+     * @param documentId                             The ID of the document. (required)
+     * @param getExistingIssuedDocumentTotalsRequest (optional)
+     * @param _callback                              Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getExistingIssuedDocumentTotalsCall(Integer companyId, Integer documentId, GetExistingIssuedDocumentTotalsRequest getExistingIssuedDocumentTotalsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -671,8 +679,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}/totals"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -681,7 +689,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -689,30 +697,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getExistingIssuedDocumentTotalsValidateBeforeCall(Integer companyId, Integer documentId, GetExistingIssuedDocumentTotalsRequest getExistingIssuedDocumentTotalsRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getExistingIssuedDocumentTotals(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling getExistingIssuedDocumentTotals(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getExistingIssuedDocumentTotalsCall(companyId, documentId, getExistingIssuedDocumentTotalsRequest, _callback);
         return localVarCall;
@@ -722,19 +730,19 @@ public class IssuedDocumentsApi {
     /**
      * Get Existing Issued Document Totals
      * Returns the totals for a specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
-     * @param getExistingIssuedDocumentTotalsRequest  (optional)
+     *
+     * @param companyId                              The ID of the company. (required)
+     * @param documentId                             The ID of the document. (required)
+     * @param getExistingIssuedDocumentTotalsRequest (optional)
      * @return GetExistingIssuedDocumentTotalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetExistingIssuedDocumentTotalsResponse getExistingIssuedDocumentTotals(Integer companyId, Integer documentId, GetExistingIssuedDocumentTotalsRequest getExistingIssuedDocumentTotalsRequest) throws ApiException {
         ApiResponse<GetExistingIssuedDocumentTotalsResponse> localVarResp = getExistingIssuedDocumentTotalsWithHttpInfo(companyId, documentId, getExistingIssuedDocumentTotalsRequest);
@@ -744,79 +752,82 @@ public class IssuedDocumentsApi {
     /**
      * Get Existing Issued Document Totals
      * Returns the totals for a specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
-     * @param getExistingIssuedDocumentTotalsRequest  (optional)
+     *
+     * @param companyId                              The ID of the company. (required)
+     * @param documentId                             The ID of the document. (required)
+     * @param getExistingIssuedDocumentTotalsRequest (optional)
      * @return ApiResponse&lt;GetExistingIssuedDocumentTotalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetExistingIssuedDocumentTotalsResponse> getExistingIssuedDocumentTotalsWithHttpInfo(Integer companyId, Integer documentId, GetExistingIssuedDocumentTotalsRequest getExistingIssuedDocumentTotalsRequest) throws ApiException {
         okhttp3.Call localVarCall = getExistingIssuedDocumentTotalsValidateBeforeCall(companyId, documentId, getExistingIssuedDocumentTotalsRequest, null);
-        Type localVarReturnType = new TypeToken<GetExistingIssuedDocumentTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetExistingIssuedDocumentTotalsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Existing Issued Document Totals (asynchronously)
      * Returns the totals for a specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
-     * @param getExistingIssuedDocumentTotalsRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                              The ID of the company. (required)
+     * @param documentId                             The ID of the document. (required)
+     * @param getExistingIssuedDocumentTotalsRequest (optional)
+     * @param _callback                              The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getExistingIssuedDocumentTotalsAsync(Integer companyId, Integer documentId, GetExistingIssuedDocumentTotalsRequest getExistingIssuedDocumentTotalsRequest, final ApiCallback<GetExistingIssuedDocumentTotalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getExistingIssuedDocumentTotalsValidateBeforeCall(companyId, documentId, getExistingIssuedDocumentTotalsRequest, _callback);
-        Type localVarReturnType = new TypeToken<GetExistingIssuedDocumentTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetExistingIssuedDocumentTotalsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getIssuedDocument
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getIssuedDocumentCall(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -826,8 +837,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -844,7 +855,7 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -852,30 +863,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getIssuedDocumentValidateBeforeCall(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getIssuedDocument(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling getIssuedDocument(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getIssuedDocumentCall(companyId, documentId, fields, fieldset, _callback);
         return localVarCall;
@@ -884,21 +895,21 @@ public class IssuedDocumentsApi {
 
     /**
      * Get Issued Document
-     * Gets the specified document. 
-     * @param companyId The ID of the company. (required)
+     * Gets the specified document.
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return GetIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetIssuedDocumentResponse getIssuedDocument(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetIssuedDocumentResponse> localVarResp = getIssuedDocumentWithHttpInfo(companyId, documentId, fields, fieldset);
@@ -907,78 +918,81 @@ public class IssuedDocumentsApi {
 
     /**
      * Get Issued Document
-     * Gets the specified document. 
-     * @param companyId The ID of the company. (required)
+     * Gets the specified document.
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetIssuedDocumentResponse> getIssuedDocumentWithHttpInfo(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getIssuedDocumentValidateBeforeCall(companyId, documentId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuedDocumentResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Issued Document (asynchronously)
-     * Gets the specified document. 
-     * @param companyId The ID of the company. (required)
+     * Gets the specified document.
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getIssuedDocumentAsync(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback<GetIssuedDocumentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIssuedDocumentValidateBeforeCall(companyId, documentId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuedDocumentResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getIssuedDocumentPreCreateInfo
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
+     * @param type      The type of the issued document. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getIssuedDocumentPreCreateInfoCall(Integer companyId, String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -988,7 +1002,7 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/info"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1001,7 +1015,7 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1009,30 +1023,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getIssuedDocumentPreCreateInfoValidateBeforeCall(Integer companyId, String type, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getIssuedDocumentPreCreateInfo(Async)");
         }
-        
+
         // verify the required parameter 'type' is set
         if (type == null) {
             throw new ApiException("Missing the required parameter 'type' when calling getIssuedDocumentPreCreateInfo(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getIssuedDocumentPreCreateInfoCall(companyId, type, _callback);
         return localVarCall;
@@ -1042,16 +1056,16 @@ public class IssuedDocumentsApi {
     /**
      * Get Issued Document Pre-create info
      * Retrieves the information useful while creating a new document.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
+     * @param type      The type of the issued document. (required)
      * @return GetIssuedDocumentPreCreateInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * </table>
      */
     public GetIssuedDocumentPreCreateInfoResponse getIssuedDocumentPreCreateInfo(Integer companyId, String type) throws ApiException {
         ApiResponse<GetIssuedDocumentPreCreateInfoResponse> localVarResp = getIssuedDocumentPreCreateInfoWithHttpInfo(companyId, type);
@@ -1061,70 +1075,73 @@ public class IssuedDocumentsApi {
     /**
      * Get Issued Document Pre-create info
      * Retrieves the information useful while creating a new document.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
+     * @param type      The type of the issued document. (required)
      * @return ApiResponse&lt;GetIssuedDocumentPreCreateInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetIssuedDocumentPreCreateInfoResponse> getIssuedDocumentPreCreateInfoWithHttpInfo(Integer companyId, String type) throws ApiException {
         okhttp3.Call localVarCall = getIssuedDocumentPreCreateInfoValidateBeforeCall(companyId, type, null);
-        Type localVarReturnType = new TypeToken<GetIssuedDocumentPreCreateInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuedDocumentPreCreateInfoResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Issued Document Pre-create info (asynchronously)
      * Retrieves the information useful while creating a new document.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
+     * @param type      The type of the issued document. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getIssuedDocumentPreCreateInfoAsync(Integer companyId, String type, final ApiCallback<GetIssuedDocumentPreCreateInfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIssuedDocumentPreCreateInfoValidateBeforeCall(companyId, type, _callback);
-        Type localVarReturnType = new TypeToken<GetIssuedDocumentPreCreateInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetIssuedDocumentPreCreateInfoResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getNewIssuedDocumentTotals
-     * @param companyId The ID of the company. (required)
-     * @param getNewIssuedDocumentTotalsRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                         The ID of the company. (required)
+     * @param getNewIssuedDocumentTotalsRequest (optional)
+     * @param _callback                         Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getNewIssuedDocumentTotalsCall(Integer companyId, GetNewIssuedDocumentTotalsRequest getNewIssuedDocumentTotalsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1134,7 +1151,7 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/totals"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1143,7 +1160,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1151,25 +1168,25 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getNewIssuedDocumentTotalsValidateBeforeCall(Integer companyId, GetNewIssuedDocumentTotalsRequest getNewIssuedDocumentTotalsRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getNewIssuedDocumentTotals(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getNewIssuedDocumentTotalsCall(companyId, getNewIssuedDocumentTotalsRequest, _callback);
         return localVarCall;
@@ -1179,17 +1196,17 @@ public class IssuedDocumentsApi {
     /**
      * Get New Issued Document Totals
      * Returns the totals for a new document.
-     * @param companyId The ID of the company. (required)
-     * @param getNewIssuedDocumentTotalsRequest  (optional)
+     *
+     * @param companyId                         The ID of the company. (required)
+     * @param getNewIssuedDocumentTotalsRequest (optional)
      * @return GetNewIssuedDocumentTotalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public GetNewIssuedDocumentTotalsResponse getNewIssuedDocumentTotals(Integer companyId, GetNewIssuedDocumentTotalsRequest getNewIssuedDocumentTotalsRequest) throws ApiException {
         ApiResponse<GetNewIssuedDocumentTotalsResponse> localVarResp = getNewIssuedDocumentTotalsWithHttpInfo(companyId, getNewIssuedDocumentTotalsRequest);
@@ -1199,78 +1216,81 @@ public class IssuedDocumentsApi {
     /**
      * Get New Issued Document Totals
      * Returns the totals for a new document.
-     * @param companyId The ID of the company. (required)
-     * @param getNewIssuedDocumentTotalsRequest  (optional)
+     *
+     * @param companyId                         The ID of the company. (required)
+     * @param getNewIssuedDocumentTotalsRequest (optional)
      * @return ApiResponse&lt;GetNewIssuedDocumentTotalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetNewIssuedDocumentTotalsResponse> getNewIssuedDocumentTotalsWithHttpInfo(Integer companyId, GetNewIssuedDocumentTotalsRequest getNewIssuedDocumentTotalsRequest) throws ApiException {
         okhttp3.Call localVarCall = getNewIssuedDocumentTotalsValidateBeforeCall(companyId, getNewIssuedDocumentTotalsRequest, null);
-        Type localVarReturnType = new TypeToken<GetNewIssuedDocumentTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNewIssuedDocumentTotalsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get New Issued Document Totals (asynchronously)
      * Returns the totals for a new document.
-     * @param companyId The ID of the company. (required)
-     * @param getNewIssuedDocumentTotalsRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                         The ID of the company. (required)
+     * @param getNewIssuedDocumentTotalsRequest (optional)
+     * @param _callback                         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getNewIssuedDocumentTotalsAsync(Integer companyId, GetNewIssuedDocumentTotalsRequest getNewIssuedDocumentTotalsRequest, final ApiCallback<GetNewIssuedDocumentTotalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNewIssuedDocumentTotalsValidateBeforeCall(companyId, getNewIssuedDocumentTotalsRequest, _callback);
-        Type localVarReturnType = new TypeToken<GetNewIssuedDocumentTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNewIssuedDocumentTotalsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listIssuedDocuments
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param type      The type of the issued document. (required)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listIssuedDocumentsCall(Integer companyId, String type, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1280,7 +1300,7 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1313,7 +1333,7 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1321,30 +1341,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listIssuedDocumentsValidateBeforeCall(Integer companyId, String type, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listIssuedDocuments(Async)");
         }
-        
+
         // verify the required parameter 'type' is set
         if (type == null) {
             throw new ApiException("Missing the required parameter 'type' when calling listIssuedDocuments(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listIssuedDocumentsCall(companyId, type, fields, fieldset, sort, page, perPage, _callback);
         return localVarCall;
@@ -1354,23 +1374,23 @@ public class IssuedDocumentsApi {
     /**
      * List Issued Documents
      * Lists the issued documents.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param type      The type of the issued document. (required)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @return ListIssuedDocumentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ListIssuedDocumentsResponse listIssuedDocuments(Integer companyId, String type, String fields, String fieldset, String sort, Integer page, Integer perPage) throws ApiException {
         ApiResponse<ListIssuedDocumentsResponse> localVarResp = listIssuedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage);
@@ -1380,86 +1400,89 @@ public class IssuedDocumentsApi {
     /**
      * List Issued Documents
      * Lists the issued documents.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param type      The type of the issued document. (required)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @return ApiResponse&lt;ListIssuedDocumentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListIssuedDocumentsResponse> listIssuedDocumentsWithHttpInfo(Integer companyId, String type, String fields, String fieldset, String sort, Integer page, Integer perPage) throws ApiException {
         okhttp3.Call localVarCall = listIssuedDocumentsValidateBeforeCall(companyId, type, fields, fieldset, sort, page, perPage, null);
-        Type localVarReturnType = new TypeToken<ListIssuedDocumentsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListIssuedDocumentsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Issued Documents (asynchronously)
      * Lists the issued documents.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type The type of the issued document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param type      The type of the issued document. (required)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listIssuedDocumentsAsync(Integer companyId, String type, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback<ListIssuedDocumentsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listIssuedDocumentsValidateBeforeCall(companyId, type, fields, fieldset, sort, page, perPage, _callback);
-        Type localVarReturnType = new TypeToken<ListIssuedDocumentsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListIssuedDocumentsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyIssuedDocument
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param documentId                  The ID of the document. (required)
      * @param modifyIssuedDocumentRequest The modified document (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback                   Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyIssuedDocumentCall(Integer companyId, Integer documentId, ModifyIssuedDocumentRequest modifyIssuedDocumentRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1469,8 +1492,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1479,7 +1502,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1487,30 +1510,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyIssuedDocumentValidateBeforeCall(Integer companyId, Integer documentId, ModifyIssuedDocumentRequest modifyIssuedDocumentRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyIssuedDocument(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling modifyIssuedDocument(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyIssuedDocumentCall(companyId, documentId, modifyIssuedDocumentRequest, _callback);
         return localVarCall;
@@ -1520,19 +1543,19 @@ public class IssuedDocumentsApi {
     /**
      * Modify Issued Document
      * Modifies the specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param documentId                  The ID of the document. (required)
      * @param modifyIssuedDocumentRequest The modified document (optional)
      * @return ModifyIssuedDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyIssuedDocumentResponse modifyIssuedDocument(Integer companyId, Integer documentId, ModifyIssuedDocumentRequest modifyIssuedDocumentRequest) throws ApiException {
         ApiResponse<ModifyIssuedDocumentResponse> localVarResp = modifyIssuedDocumentWithHttpInfo(companyId, documentId, modifyIssuedDocumentRequest);
@@ -1542,78 +1565,81 @@ public class IssuedDocumentsApi {
     /**
      * Modify Issued Document
      * Modifies the specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param documentId                  The ID of the document. (required)
      * @param modifyIssuedDocumentRequest The modified document (optional)
      * @return ApiResponse&lt;ModifyIssuedDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyIssuedDocumentResponse> modifyIssuedDocumentWithHttpInfo(Integer companyId, Integer documentId, ModifyIssuedDocumentRequest modifyIssuedDocumentRequest) throws ApiException {
         okhttp3.Call localVarCall = modifyIssuedDocumentValidateBeforeCall(companyId, documentId, modifyIssuedDocumentRequest, null);
-        Type localVarReturnType = new TypeToken<ModifyIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyIssuedDocumentResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Issued Document (asynchronously)
      * Modifies the specified document.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param documentId                  The ID of the document. (required)
      * @param modifyIssuedDocumentRequest The modified document (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback                   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document edited </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyIssuedDocumentAsync(Integer companyId, Integer documentId, ModifyIssuedDocumentRequest modifyIssuedDocumentRequest, final ApiCallback<ModifyIssuedDocumentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyIssuedDocumentValidateBeforeCall(companyId, documentId, modifyIssuedDocumentRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifyIssuedDocumentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyIssuedDocumentResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for scheduleEmail
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param scheduleEmailRequest Email Schedule (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback            Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call scheduleEmailCall(Integer companyId, Integer documentId, ScheduleEmailRequest scheduleEmailRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1623,8 +1649,8 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/{document_id}/email"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1633,7 +1659,7 @@ public class IssuedDocumentsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1641,30 +1667,30 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call scheduleEmailValidateBeforeCall(Integer companyId, Integer documentId, ScheduleEmailRequest scheduleEmailRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling scheduleEmail(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling scheduleEmail(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = scheduleEmailCall(companyId, documentId, scheduleEmailRequest, _callback);
         return localVarCall;
@@ -1674,18 +1700,18 @@ public class IssuedDocumentsApi {
     /**
      * Schedule Email
      * Schedules the sending of a document by email.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param scheduleEmailRequest Email Schedule (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void scheduleEmail(Integer companyId, Integer documentId, ScheduleEmailRequest scheduleEmailRequest) throws ApiException {
         scheduleEmailWithHttpInfo(companyId, documentId, scheduleEmailRequest);
@@ -1694,19 +1720,19 @@ public class IssuedDocumentsApi {
     /**
      * Schedule Email
      * Schedules the sending of a document by email.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param scheduleEmailRequest Email Schedule (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> scheduleEmailWithHttpInfo(Integer companyId, Integer documentId, ScheduleEmailRequest scheduleEmailRequest) throws ApiException {
         okhttp3.Call localVarCall = scheduleEmailValidateBeforeCall(companyId, documentId, scheduleEmailRequest, null);
@@ -1716,20 +1742,20 @@ public class IssuedDocumentsApi {
     /**
      * Schedule Email (asynchronously)
      * Schedules the sending of a document by email.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param scheduleEmailRequest Email Schedule (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback            The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call scheduleEmailAsync(Integer companyId, Integer documentId, ScheduleEmailRequest scheduleEmailRequest, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1737,32 +1763,33 @@ public class IssuedDocumentsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for uploadIssuedDocumentAttachment
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call uploadIssuedDocumentAttachmentCall(Integer companyId, String filename, File attachment, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1772,7 +1799,7 @@ public class IssuedDocumentsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/issued_documents/attachment"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1789,7 +1816,7 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1797,25 +1824,25 @@ public class IssuedDocumentsApi {
         }
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+                "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call uploadIssuedDocumentAttachmentValidateBeforeCall(Integer companyId, String filename, File attachment, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling uploadIssuedDocumentAttachment(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = uploadIssuedDocumentAttachmentCall(companyId, filename, attachment, _callback);
         return localVarCall;
@@ -1825,18 +1852,18 @@ public class IssuedDocumentsApi {
     /**
      * Upload Issued Document Attachment
      * Uploads an attachment destined to an issued document. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
      * @return UploadIssuedDocumentAttachmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public UploadIssuedDocumentAttachmentResponse uploadIssuedDocumentAttachment(Integer companyId, String filename, File attachment) throws ApiException {
         ApiResponse<UploadIssuedDocumentAttachmentResponse> localVarResp = uploadIssuedDocumentAttachmentWithHttpInfo(companyId, filename, attachment);
@@ -1846,46 +1873,48 @@ public class IssuedDocumentsApi {
     /**
      * Upload Issued Document Attachment
      * Uploads an attachment destined to an issued document. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
      * @return ApiResponse&lt;UploadIssuedDocumentAttachmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<UploadIssuedDocumentAttachmentResponse> uploadIssuedDocumentAttachmentWithHttpInfo(Integer companyId, String filename, File attachment) throws ApiException {
         okhttp3.Call localVarCall = uploadIssuedDocumentAttachmentValidateBeforeCall(companyId, filename, attachment, null);
-        Type localVarReturnType = new TypeToken<UploadIssuedDocumentAttachmentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UploadIssuedDocumentAttachmentResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Upload Issued Document Attachment (asynchronously)
      * Uploads an attachment destined to an issued document. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call uploadIssuedDocumentAttachmentAsync(Integer companyId, String filename, File attachment, final ApiCallback<UploadIssuedDocumentAttachmentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadIssuedDocumentAttachmentValidateBeforeCall(companyId, filename, attachment, _callback);
-        Type localVarReturnType = new TypeToken<UploadIssuedDocumentAttachmentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UploadIssuedDocumentAttachmentResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

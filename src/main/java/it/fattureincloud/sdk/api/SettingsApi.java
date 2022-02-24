@@ -62,28 +62,28 @@ public class SettingsApi {
 
     /**
      * Build call for createPaymentAccount
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentAccountRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param createPaymentAccountRequest (optional)
+     * @param _callback                   Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createPaymentAccountCall(Integer companyId, CreatePaymentAccountRequest createPaymentAccountRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -93,7 +93,7 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_accounts"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -102,7 +102,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -110,25 +110,25 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPaymentAccountValidateBeforeCall(Integer companyId, CreatePaymentAccountRequest createPaymentAccountRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createPaymentAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createPaymentAccountCall(companyId, createPaymentAccountRequest, _callback);
         return localVarCall;
@@ -138,16 +138,16 @@ public class SettingsApi {
     /**
      * Create Payment Account
      * Creates a new payment account.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentAccountRequest  (optional)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param createPaymentAccountRequest (optional)
      * @return CreatePaymentAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public CreatePaymentAccountResponse createPaymentAccount(Integer companyId, CreatePaymentAccountRequest createPaymentAccountRequest) throws ApiException {
         ApiResponse<CreatePaymentAccountResponse> localVarResp = createPaymentAccountWithHttpInfo(companyId, createPaymentAccountRequest);
@@ -157,69 +157,72 @@ public class SettingsApi {
     /**
      * Create Payment Account
      * Creates a new payment account.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentAccountRequest  (optional)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param createPaymentAccountRequest (optional)
      * @return ApiResponse&lt;CreatePaymentAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreatePaymentAccountResponse> createPaymentAccountWithHttpInfo(Integer companyId, CreatePaymentAccountRequest createPaymentAccountRequest) throws ApiException {
         okhttp3.Call localVarCall = createPaymentAccountValidateBeforeCall(companyId, createPaymentAccountRequest, null);
-        Type localVarReturnType = new TypeToken<CreatePaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePaymentAccountResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Payment Account (asynchronously)
      * Creates a new payment account.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentAccountRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param createPaymentAccountRequest (optional)
+     * @param _callback                   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createPaymentAccountAsync(Integer companyId, CreatePaymentAccountRequest createPaymentAccountRequest, final ApiCallback<CreatePaymentAccountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPaymentAccountValidateBeforeCall(companyId, createPaymentAccountRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreatePaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePaymentAccountResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createPaymentMethod
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentMethodRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param createPaymentMethodRequest (optional)
+     * @param _callback                  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createPaymentMethodCall(Integer companyId, CreatePaymentMethodRequest createPaymentMethodRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -229,7 +232,7 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_methods"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -238,7 +241,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -246,25 +249,25 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPaymentMethodValidateBeforeCall(Integer companyId, CreatePaymentMethodRequest createPaymentMethodRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createPaymentMethod(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createPaymentMethodCall(companyId, createPaymentMethodRequest, _callback);
         return localVarCall;
@@ -274,16 +277,16 @@ public class SettingsApi {
     /**
      * Create Payment Method
      * Creates a new payment method.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentMethodRequest  (optional)
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param createPaymentMethodRequest (optional)
      * @return CreatePaymentMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public CreatePaymentMethodResponse createPaymentMethod(Integer companyId, CreatePaymentMethodRequest createPaymentMethodRequest) throws ApiException {
         ApiResponse<CreatePaymentMethodResponse> localVarResp = createPaymentMethodWithHttpInfo(companyId, createPaymentMethodRequest);
@@ -293,69 +296,72 @@ public class SettingsApi {
     /**
      * Create Payment Method
      * Creates a new payment method.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentMethodRequest  (optional)
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param createPaymentMethodRequest (optional)
      * @return ApiResponse&lt;CreatePaymentMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreatePaymentMethodResponse> createPaymentMethodWithHttpInfo(Integer companyId, CreatePaymentMethodRequest createPaymentMethodRequest) throws ApiException {
         okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(companyId, createPaymentMethodRequest, null);
-        Type localVarReturnType = new TypeToken<CreatePaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePaymentMethodResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Payment Method (asynchronously)
      * Creates a new payment method.
-     * @param companyId The ID of the company. (required)
-     * @param createPaymentMethodRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param createPaymentMethodRequest (optional)
+     * @param _callback                  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createPaymentMethodAsync(Integer companyId, CreatePaymentMethodRequest createPaymentMethodRequest, final ApiCallback<CreatePaymentMethodResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(companyId, createPaymentMethodRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreatePaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreatePaymentMethodResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createVatType
-     * @param companyId The ID of the company. (required)
-     * @param createVatTypeRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param createVatTypeRequest (optional)
+     * @param _callback            Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createVatTypeCall(Integer companyId, CreateVatTypeRequest createVatTypeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -365,7 +371,7 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/vat_types"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -374,7 +380,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -382,25 +388,25 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createVatTypeValidateBeforeCall(Integer companyId, CreateVatTypeRequest createVatTypeRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createVatType(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createVatTypeCall(companyId, createVatTypeRequest, _callback);
         return localVarCall;
@@ -410,16 +416,16 @@ public class SettingsApi {
     /**
      * Create Vat Type
      * Creates a vat type.
-     * @param companyId The ID of the company. (required)
-     * @param createVatTypeRequest  (optional)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param createVatTypeRequest (optional)
      * @return CreateVatTypeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public CreateVatTypeResponse createVatType(Integer companyId, CreateVatTypeRequest createVatTypeRequest) throws ApiException {
         ApiResponse<CreateVatTypeResponse> localVarResp = createVatTypeWithHttpInfo(companyId, createVatTypeRequest);
@@ -429,69 +435,72 @@ public class SettingsApi {
     /**
      * Create Vat Type
      * Creates a vat type.
-     * @param companyId The ID of the company. (required)
-     * @param createVatTypeRequest  (optional)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param createVatTypeRequest (optional)
      * @return ApiResponse&lt;CreateVatTypeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreateVatTypeResponse> createVatTypeWithHttpInfo(Integer companyId, CreateVatTypeRequest createVatTypeRequest) throws ApiException {
         okhttp3.Call localVarCall = createVatTypeValidateBeforeCall(companyId, createVatTypeRequest, null);
-        Type localVarReturnType = new TypeToken<CreateVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateVatTypeResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Vat Type (asynchronously)
      * Creates a vat type.
-     * @param companyId The ID of the company. (required)
-     * @param createVatTypeRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param createVatTypeRequest (optional)
+     * @param _callback            The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createVatTypeAsync(Integer companyId, CreateVatTypeRequest createVatTypeRequest, final ApiCallback<CreateVatTypeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createVatTypeValidateBeforeCall(companyId, createVatTypeRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateVatTypeResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deletePaymentAccount
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback        Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deletePaymentAccountCall(Integer companyId, Integer paymentAccountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -501,8 +510,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_accounts/{payment_account_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -511,7 +520,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -519,30 +528,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deletePaymentAccountValidateBeforeCall(Integer companyId, Integer paymentAccountId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deletePaymentAccount(Async)");
         }
-        
+
         // verify the required parameter 'paymentAccountId' is set
         if (paymentAccountId == null) {
             throw new ApiException("Missing the required parameter 'paymentAccountId' when calling deletePaymentAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deletePaymentAccountCall(companyId, paymentAccountId, _callback);
         return localVarCall;
@@ -552,15 +561,15 @@ public class SettingsApi {
     /**
      * Delete Payment Account
      * Deletes the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public void deletePaymentAccount(Integer companyId, Integer paymentAccountId) throws ApiException {
         deletePaymentAccountWithHttpInfo(companyId, paymentAccountId);
@@ -569,16 +578,16 @@ public class SettingsApi {
     /**
      * Delete Payment Account
      * Deletes the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deletePaymentAccountWithHttpInfo(Integer companyId, Integer paymentAccountId) throws ApiException {
         okhttp3.Call localVarCall = deletePaymentAccountValidateBeforeCall(companyId, paymentAccountId, null);
@@ -588,17 +597,17 @@ public class SettingsApi {
     /**
      * Delete Payment Account (asynchronously)
      * Deletes the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback        The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deletePaymentAccountAsync(Integer companyId, Integer paymentAccountId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -606,30 +615,31 @@ public class SettingsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deletePaymentMethod
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback       Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deletePaymentMethodCall(Integer companyId, Integer paymentMethodId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -639,8 +649,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_methods/{payment_method_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -649,7 +659,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -657,30 +667,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deletePaymentMethodValidateBeforeCall(Integer companyId, Integer paymentMethodId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deletePaymentMethod(Async)");
         }
-        
+
         // verify the required parameter 'paymentMethodId' is set
         if (paymentMethodId == null) {
             throw new ApiException("Missing the required parameter 'paymentMethodId' when calling deletePaymentMethod(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deletePaymentMethodCall(companyId, paymentMethodId, _callback);
         return localVarCall;
@@ -690,15 +700,15 @@ public class SettingsApi {
     /**
      * Delete Payment Method
      * Deletes the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public void deletePaymentMethod(Integer companyId, Integer paymentMethodId) throws ApiException {
         deletePaymentMethodWithHttpInfo(companyId, paymentMethodId);
@@ -707,16 +717,16 @@ public class SettingsApi {
     /**
      * Delete Payment Method
      * Deletes the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deletePaymentMethodWithHttpInfo(Integer companyId, Integer paymentMethodId) throws ApiException {
         okhttp3.Call localVarCall = deletePaymentMethodValidateBeforeCall(companyId, paymentMethodId, null);
@@ -726,17 +736,17 @@ public class SettingsApi {
     /**
      * Delete Payment Method (asynchronously)
      * Deletes the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback       The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deletePaymentMethodAsync(Integer companyId, Integer paymentMethodId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -744,30 +754,31 @@ public class SettingsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteVatType
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteVatTypeCall(Integer companyId, Integer vatTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -777,8 +788,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/vat_types/{vat_type_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -787,7 +798,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -795,30 +806,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteVatTypeValidateBeforeCall(Integer companyId, Integer vatTypeId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteVatType(Async)");
         }
-        
+
         // verify the required parameter 'vatTypeId' is set
         if (vatTypeId == null) {
             throw new ApiException("Missing the required parameter 'vatTypeId' when calling deleteVatType(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteVatTypeCall(companyId, vatTypeId, _callback);
         return localVarCall;
@@ -828,15 +839,15 @@ public class SettingsApi {
     /**
      * Delete Vat Type
      * Deletes the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteVatType(Integer companyId, Integer vatTypeId) throws ApiException {
         deleteVatTypeWithHttpInfo(companyId, vatTypeId);
@@ -845,16 +856,16 @@ public class SettingsApi {
     /**
      * Delete Vat Type
      * Deletes the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteVatTypeWithHttpInfo(Integer companyId, Integer vatTypeId) throws ApiException {
         okhttp3.Call localVarCall = deleteVatTypeValidateBeforeCall(companyId, vatTypeId, null);
@@ -864,17 +875,17 @@ public class SettingsApi {
     /**
      * Delete Vat Type (asynchronously)
      * Deletes the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteVatTypeAsync(Integer companyId, Integer vatTypeId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -882,32 +893,33 @@ public class SettingsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getPaymentAccount
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param fields           List of comma-separated fields. (optional)
+     * @param fieldset         Name of the fieldset. (optional)
+     * @param _callback        Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getPaymentAccountCall(Integer companyId, Integer paymentAccountId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -917,8 +929,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_accounts/{payment_account_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -935,7 +947,7 @@ public class SettingsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -943,30 +955,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getPaymentAccountValidateBeforeCall(Integer companyId, Integer paymentAccountId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getPaymentAccount(Async)");
         }
-        
+
         // verify the required parameter 'paymentAccountId' is set
         if (paymentAccountId == null) {
             throw new ApiException("Missing the required parameter 'paymentAccountId' when calling getPaymentAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getPaymentAccountCall(companyId, paymentAccountId, fields, fieldset, _callback);
         return localVarCall;
@@ -976,18 +988,18 @@ public class SettingsApi {
     /**
      * Get Payment Account
      * Gets the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields           List of comma-separated fields. (optional)
+     * @param fieldset         Name of the fieldset. (optional)
      * @return GetPaymentAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public GetPaymentAccountResponse getPaymentAccount(Integer companyId, Integer paymentAccountId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetPaymentAccountResponse> localVarResp = getPaymentAccountWithHttpInfo(companyId, paymentAccountId, fields, fieldset);
@@ -997,75 +1009,78 @@ public class SettingsApi {
     /**
      * Get Payment Account
      * Gets the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields           List of comma-separated fields. (optional)
+     * @param fieldset         Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetPaymentAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetPaymentAccountResponse> getPaymentAccountWithHttpInfo(Integer companyId, Integer paymentAccountId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getPaymentAccountValidateBeforeCall(companyId, paymentAccountId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetPaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPaymentAccountResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Payment Account (asynchronously)
      * Gets the specified payment account.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param fields           List of comma-separated fields. (optional)
+     * @param fieldset         Name of the fieldset. (optional)
+     * @param _callback        The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getPaymentAccountAsync(Integer companyId, Integer paymentAccountId, String fields, String fieldset, final ApiCallback<GetPaymentAccountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPaymentAccountValidateBeforeCall(companyId, paymentAccountId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetPaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPaymentAccountResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getPaymentMethod
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param fields          List of comma-separated fields. (optional)
+     * @param fieldset        Name of the fieldset. (optional)
+     * @param _callback       Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getPaymentMethodCall(Integer companyId, Integer paymentMethodId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1075,8 +1090,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_methods/{payment_method_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1093,7 +1108,7 @@ public class SettingsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1101,30 +1116,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getPaymentMethodValidateBeforeCall(Integer companyId, Integer paymentMethodId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getPaymentMethod(Async)");
         }
-        
+
         // verify the required parameter 'paymentMethodId' is set
         if (paymentMethodId == null) {
             throw new ApiException("Missing the required parameter 'paymentMethodId' when calling getPaymentMethod(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getPaymentMethodCall(companyId, paymentMethodId, fields, fieldset, _callback);
         return localVarCall;
@@ -1134,18 +1149,18 @@ public class SettingsApi {
     /**
      * Get Payment Method
      * Gets the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields          List of comma-separated fields. (optional)
+     * @param fieldset        Name of the fieldset. (optional)
      * @return GetPaymentMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public GetPaymentMethodResponse getPaymentMethod(Integer companyId, Integer paymentMethodId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetPaymentMethodResponse> localVarResp = getPaymentMethodWithHttpInfo(companyId, paymentMethodId, fields, fieldset);
@@ -1155,73 +1170,76 @@ public class SettingsApi {
     /**
      * Get Payment Method
      * Gets the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields          List of comma-separated fields. (optional)
+     * @param fieldset        Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetPaymentMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetPaymentMethodResponse> getPaymentMethodWithHttpInfo(Integer companyId, Integer paymentMethodId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(companyId, paymentMethodId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetPaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPaymentMethodResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Payment Method (asynchronously)
      * Gets the specified payment method.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId       The ID of the company. (required)
      * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param fields          List of comma-separated fields. (optional)
+     * @param fieldset        Name of the fieldset. (optional)
+     * @param _callback       The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getPaymentMethodAsync(Integer companyId, Integer paymentMethodId, String fields, String fieldset, final ApiCallback<GetPaymentMethodResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(companyId, paymentMethodId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetPaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPaymentMethodResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getVatType
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getVatTypeCall(Integer companyId, Integer vatTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1231,8 +1249,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/vat_types/{vat_type_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1241,7 +1259,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1249,30 +1267,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getVatTypeValidateBeforeCall(Integer companyId, Integer vatTypeId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getVatType(Async)");
         }
-        
+
         // verify the required parameter 'vatTypeId' is set
         if (vatTypeId == null) {
             throw new ApiException("Missing the required parameter 'vatTypeId' when calling getVatType(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getVatTypeCall(companyId, vatTypeId, _callback);
         return localVarCall;
@@ -1282,16 +1300,16 @@ public class SettingsApi {
     /**
      * Get Vat Type
      * Gets the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @return GetVatTypeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public GetVatTypeResponse getVatType(Integer companyId, Integer vatTypeId) throws ApiException {
         ApiResponse<GetVatTypeResponse> localVarResp = getVatTypeWithHttpInfo(companyId, vatTypeId);
@@ -1301,70 +1319,73 @@ public class SettingsApi {
     /**
      * Get Vat Type
      * Gets the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @return ApiResponse&lt;GetVatTypeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetVatTypeResponse> getVatTypeWithHttpInfo(Integer companyId, Integer vatTypeId) throws ApiException {
         okhttp3.Call localVarCall = getVatTypeValidateBeforeCall(companyId, vatTypeId, null);
-        Type localVarReturnType = new TypeToken<GetVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVatTypeResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Vat Type (asynchronously)
      * Gets the specified vat type.
+     *
      * @param companyId The ID of the company. (required)
      * @param vatTypeId The Referred Vat Type Id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getVatTypeAsync(Integer companyId, Integer vatTypeId, final ApiCallback<GetVatTypeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVatTypeValidateBeforeCall(companyId, vatTypeId, _callback);
-        Type localVarReturnType = new TypeToken<GetVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVatTypeResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyPaymentAccount
-     * @param companyId The ID of the company. (required)
-     * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param modifyPaymentAccountRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param paymentAccountId            The Referred Payment Account Id. (required)
+     * @param modifyPaymentAccountRequest (optional)
+     * @param _callback                   Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyPaymentAccountCall(Integer companyId, Integer paymentAccountId, ModifyPaymentAccountRequest modifyPaymentAccountRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1374,8 +1395,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_accounts/{payment_account_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_account_id" + "\\}", localVarApiClient.escapeString(paymentAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1384,7 +1405,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1392,30 +1413,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyPaymentAccountValidateBeforeCall(Integer companyId, Integer paymentAccountId, ModifyPaymentAccountRequest modifyPaymentAccountRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyPaymentAccount(Async)");
         }
-        
+
         // verify the required parameter 'paymentAccountId' is set
         if (paymentAccountId == null) {
             throw new ApiException("Missing the required parameter 'paymentAccountId' when calling modifyPaymentAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyPaymentAccountCall(companyId, paymentAccountId, modifyPaymentAccountRequest, _callback);
         return localVarCall;
@@ -1425,17 +1446,17 @@ public class SettingsApi {
     /**
      * Modify Payment Account
      * Modifies the specified payment account.
-     * @param companyId The ID of the company. (required)
-     * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param modifyPaymentAccountRequest  (optional)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param paymentAccountId            The Referred Payment Account Id. (required)
+     * @param modifyPaymentAccountRequest (optional)
      * @return ModifyPaymentAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyPaymentAccountResponse modifyPaymentAccount(Integer companyId, Integer paymentAccountId, ModifyPaymentAccountRequest modifyPaymentAccountRequest) throws ApiException {
         ApiResponse<ModifyPaymentAccountResponse> localVarResp = modifyPaymentAccountWithHttpInfo(companyId, paymentAccountId, modifyPaymentAccountRequest);
@@ -1445,72 +1466,75 @@ public class SettingsApi {
     /**
      * Modify Payment Account
      * Modifies the specified payment account.
-     * @param companyId The ID of the company. (required)
-     * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param modifyPaymentAccountRequest  (optional)
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param paymentAccountId            The Referred Payment Account Id. (required)
+     * @param modifyPaymentAccountRequest (optional)
      * @return ApiResponse&lt;ModifyPaymentAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyPaymentAccountResponse> modifyPaymentAccountWithHttpInfo(Integer companyId, Integer paymentAccountId, ModifyPaymentAccountRequest modifyPaymentAccountRequest) throws ApiException {
         okhttp3.Call localVarCall = modifyPaymentAccountValidateBeforeCall(companyId, paymentAccountId, modifyPaymentAccountRequest, null);
-        Type localVarReturnType = new TypeToken<ModifyPaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyPaymentAccountResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Payment Account (asynchronously)
      * Modifies the specified payment account.
-     * @param companyId The ID of the company. (required)
-     * @param paymentAccountId The Referred Payment Account Id. (required)
-     * @param modifyPaymentAccountRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                   The ID of the company. (required)
+     * @param paymentAccountId            The Referred Payment Account Id. (required)
+     * @param modifyPaymentAccountRequest (optional)
+     * @param _callback                   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyPaymentAccountAsync(Integer companyId, Integer paymentAccountId, ModifyPaymentAccountRequest modifyPaymentAccountRequest, final ApiCallback<ModifyPaymentAccountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyPaymentAccountValidateBeforeCall(companyId, paymentAccountId, modifyPaymentAccountRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifyPaymentAccountResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyPaymentAccountResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyPaymentMethod
-     * @param companyId The ID of the company. (required)
-     * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param modifyPaymentMethodRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param paymentMethodId            The Referred Payment Method Id. (required)
+     * @param modifyPaymentMethodRequest (optional)
+     * @param _callback                  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyPaymentMethodCall(Integer companyId, Integer paymentMethodId, ModifyPaymentMethodRequest modifyPaymentMethodRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1520,8 +1544,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/payment_methods/{payment_method_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "payment_method_id" + "\\}", localVarApiClient.escapeString(paymentMethodId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1530,7 +1554,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1538,30 +1562,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyPaymentMethodValidateBeforeCall(Integer companyId, Integer paymentMethodId, ModifyPaymentMethodRequest modifyPaymentMethodRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyPaymentMethod(Async)");
         }
-        
+
         // verify the required parameter 'paymentMethodId' is set
         if (paymentMethodId == null) {
             throw new ApiException("Missing the required parameter 'paymentMethodId' when calling modifyPaymentMethod(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyPaymentMethodCall(companyId, paymentMethodId, modifyPaymentMethodRequest, _callback);
         return localVarCall;
@@ -1571,17 +1595,17 @@ public class SettingsApi {
     /**
      * Modify Payment Method
      * Modifies the specified payment method.
-     * @param companyId The ID of the company. (required)
-     * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param modifyPaymentMethodRequest  (optional)
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param paymentMethodId            The Referred Payment Method Id. (required)
+     * @param modifyPaymentMethodRequest (optional)
      * @return ModifyPaymentMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyPaymentMethodResponse modifyPaymentMethod(Integer companyId, Integer paymentMethodId, ModifyPaymentMethodRequest modifyPaymentMethodRequest) throws ApiException {
         ApiResponse<ModifyPaymentMethodResponse> localVarResp = modifyPaymentMethodWithHttpInfo(companyId, paymentMethodId, modifyPaymentMethodRequest);
@@ -1591,72 +1615,75 @@ public class SettingsApi {
     /**
      * Modify Payment Method
      * Modifies the specified payment method.
-     * @param companyId The ID of the company. (required)
-     * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param modifyPaymentMethodRequest  (optional)
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param paymentMethodId            The Referred Payment Method Id. (required)
+     * @param modifyPaymentMethodRequest (optional)
      * @return ApiResponse&lt;ModifyPaymentMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyPaymentMethodResponse> modifyPaymentMethodWithHttpInfo(Integer companyId, Integer paymentMethodId, ModifyPaymentMethodRequest modifyPaymentMethodRequest) throws ApiException {
         okhttp3.Call localVarCall = modifyPaymentMethodValidateBeforeCall(companyId, paymentMethodId, modifyPaymentMethodRequest, null);
-        Type localVarReturnType = new TypeToken<ModifyPaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyPaymentMethodResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Payment Method (asynchronously)
      * Modifies the specified payment method.
-     * @param companyId The ID of the company. (required)
-     * @param paymentMethodId The Referred Payment Method Id. (required)
-     * @param modifyPaymentMethodRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId                  The ID of the company. (required)
+     * @param paymentMethodId            The Referred Payment Method Id. (required)
+     * @param modifyPaymentMethodRequest (optional)
+     * @param _callback                  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyPaymentMethodAsync(Integer companyId, Integer paymentMethodId, ModifyPaymentMethodRequest modifyPaymentMethodRequest, final ApiCallback<ModifyPaymentMethodResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyPaymentMethodValidateBeforeCall(companyId, paymentMethodId, modifyPaymentMethodRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifyPaymentMethodResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyPaymentMethodResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyVatType
-     * @param companyId The ID of the company. (required)
-     * @param vatTypeId The Referred Vat Type Id. (required)
-     * @param modifyVatTypeRequest  (optional)
-     * @param _callback Callback for upload/download progress
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param vatTypeId            The Referred Vat Type Id. (required)
+     * @param modifyVatTypeRequest (optional)
+     * @param _callback            Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyVatTypeCall(Integer companyId, Integer vatTypeId, ModifyVatTypeRequest modifyVatTypeRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1666,8 +1693,8 @@ public class SettingsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/settings/vat_types/{vat_type_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "vat_type_id" + "\\}", localVarApiClient.escapeString(vatTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1676,7 +1703,7 @@ public class SettingsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1684,30 +1711,30 @@ public class SettingsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyVatTypeValidateBeforeCall(Integer companyId, Integer vatTypeId, ModifyVatTypeRequest modifyVatTypeRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyVatType(Async)");
         }
-        
+
         // verify the required parameter 'vatTypeId' is set
         if (vatTypeId == null) {
             throw new ApiException("Missing the required parameter 'vatTypeId' when calling modifyVatType(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyVatTypeCall(companyId, vatTypeId, modifyVatTypeRequest, _callback);
         return localVarCall;
@@ -1717,17 +1744,17 @@ public class SettingsApi {
     /**
      * Modify Vat Type
      * Modifies the specified vat type.
-     * @param companyId The ID of the company. (required)
-     * @param vatTypeId The Referred Vat Type Id. (required)
-     * @param modifyVatTypeRequest  (optional)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param vatTypeId            The Referred Vat Type Id. (required)
+     * @param modifyVatTypeRequest (optional)
      * @return ModifyVatTypeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyVatTypeResponse modifyVatType(Integer companyId, Integer vatTypeId, ModifyVatTypeRequest modifyVatTypeRequest) throws ApiException {
         ApiResponse<ModifyVatTypeResponse> localVarResp = modifyVatTypeWithHttpInfo(companyId, vatTypeId, modifyVatTypeRequest);
@@ -1737,44 +1764,46 @@ public class SettingsApi {
     /**
      * Modify Vat Type
      * Modifies the specified vat type.
-     * @param companyId The ID of the company. (required)
-     * @param vatTypeId The Referred Vat Type Id. (required)
-     * @param modifyVatTypeRequest  (optional)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param vatTypeId            The Referred Vat Type Id. (required)
+     * @param modifyVatTypeRequest (optional)
      * @return ApiResponse&lt;ModifyVatTypeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyVatTypeResponse> modifyVatTypeWithHttpInfo(Integer companyId, Integer vatTypeId, ModifyVatTypeRequest modifyVatTypeRequest) throws ApiException {
         okhttp3.Call localVarCall = modifyVatTypeValidateBeforeCall(companyId, vatTypeId, modifyVatTypeRequest, null);
-        Type localVarReturnType = new TypeToken<ModifyVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyVatTypeResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Vat Type (asynchronously)
      * Modifies the specified vat type.
-     * @param companyId The ID of the company. (required)
-     * @param vatTypeId The Referred Vat Type Id. (required)
-     * @param modifyVatTypeRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param vatTypeId            The Referred Vat Type Id. (required)
+     * @param modifyVatTypeRequest (optional)
+     * @param _callback            The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyVatTypeAsync(Integer companyId, Integer vatTypeId, ModifyVatTypeRequest modifyVatTypeRequest, final ApiCallback<ModifyVatTypeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyVatTypeValidateBeforeCall(companyId, vatTypeId, modifyVatTypeRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifyVatTypeResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyVatTypeResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

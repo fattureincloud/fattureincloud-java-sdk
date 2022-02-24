@@ -36,7 +36,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
     }
 
     /**
@@ -73,7 +73,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
         assertEquals(expected, c);
     }
 
@@ -92,7 +92,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
         assertEquals(expected, c);
     }
 
@@ -111,7 +111,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
         assertEquals(expected, c);
     }
 
@@ -130,7 +130,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
         assertEquals(expected, c);
     }
 
@@ -149,7 +149,7 @@ public class EinvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022,01,10));
+                .date(LocalDate.of(2022, 01, 10));
         assertEquals(expected, c);
     }
 

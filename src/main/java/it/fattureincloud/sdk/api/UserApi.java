@@ -63,27 +63,27 @@ public class UserApi {
 
     /**
      * Build call for getUserInfo
+     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getUserInfoCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -101,7 +101,7 @@ public class UserApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -109,20 +109,20 @@ public class UserApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserInfoValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = getUserInfoCall(_callback);
         return localVarCall;
@@ -132,15 +132,15 @@ public class UserApi {
     /**
      * Get User Info
      * Gets the current user&#39;s info.
+     *
      * @return GetUserInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public GetUserInfoResponse getUserInfo() throws ApiException {
         ApiResponse<GetUserInfoResponse> localVarResp = getUserInfoWithHttpInfo();
@@ -150,66 +150,69 @@ public class UserApi {
     /**
      * Get User Info
      * Gets the current user&#39;s info.
+     *
      * @return ApiResponse&lt;GetUserInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetUserInfoResponse> getUserInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<GetUserInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserInfoResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get User Info (asynchronously)
      * Gets the current user&#39;s info.
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getUserInfoAsync(final ApiCallback<GetUserInfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<GetUserInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserInfoResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listUserCompanies
+     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listUserCompaniesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -227,7 +230,7 @@ public class UserApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -235,20 +238,20 @@ public class UserApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUserCompaniesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listUserCompaniesCall(_callback);
         return localVarCall;
@@ -258,15 +261,15 @@ public class UserApi {
     /**
      * List User Companies
      * Lists the companies controlled by the current user.
+     *
      * @return ListUserCompaniesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ListUserCompaniesResponse listUserCompanies() throws ApiException {
         ApiResponse<ListUserCompaniesResponse> localVarResp = listUserCompaniesWithHttpInfo();
@@ -276,40 +279,42 @@ public class UserApi {
     /**
      * List User Companies
      * Lists the companies controlled by the current user.
+     *
      * @return ApiResponse&lt;ListUserCompaniesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListUserCompaniesResponse> listUserCompaniesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listUserCompaniesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListUserCompaniesResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListUserCompaniesResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List User Companies (asynchronously)
      * Lists the companies controlled by the current user.
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-         <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> User Companies. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listUserCompaniesAsync(final ApiCallback<ListUserCompaniesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listUserCompaniesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListUserCompaniesResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListUserCompaniesResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
