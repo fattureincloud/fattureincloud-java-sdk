@@ -13,28 +13,9 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreateReceiptRequest;
-import it.fattureincloud.sdk.model.CreateReceiptResponse;
-import it.fattureincloud.sdk.model.GetReceiptPreCreateInfoResponse;
-import it.fattureincloud.sdk.model.GetReceiptResponse;
-import it.fattureincloud.sdk.model.GetReceiptsMonthlyTotalsResponse;
-import it.fattureincloud.sdk.model.ListReceiptsResponse;
-import it.fattureincloud.sdk.model.ModifyReceiptRequest;
-import it.fattureincloud.sdk.model.ModifyReceiptResponse;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -81,28 +62,29 @@ public class ReceiptsApi {
 
     /**
      * Build call for createReceipt
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId            The ID of the company. (required)
      * @param createReceiptRequest The Receipt to create. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback            Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createReceiptCall(Integer companyId, CreateReceiptRequest createReceiptRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -112,7 +94,7 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -121,7 +103,7 @@ public class ReceiptsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -129,25 +111,25 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createReceiptValidateBeforeCall(Integer companyId, CreateReceiptRequest createReceiptRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createReceipt(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createReceiptCall(companyId, createReceiptRequest, _callback);
         return localVarCall;
@@ -157,16 +139,17 @@ public class ReceiptsApi {
     /**
      * Create Receipt
      * Creates a new receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId            The ID of the company. (required)
      * @param createReceiptRequest The Receipt to create. (optional)
      * @return CreateReceiptResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public CreateReceiptResponse createReceipt(Integer companyId, CreateReceiptRequest createReceiptRequest) throws ApiException {
         ApiResponse<CreateReceiptResponse> localVarResp = createReceiptWithHttpInfo(companyId, createReceiptRequest);
@@ -176,70 +159,76 @@ public class ReceiptsApi {
     /**
      * Create Receipt
      * Creates a new receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId            The ID of the company. (required)
      * @param createReceiptRequest The Receipt to create. (optional)
      * @return ApiResponse&lt;CreateReceiptResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreateReceiptResponse> createReceiptWithHttpInfo(Integer companyId, CreateReceiptRequest createReceiptRequest) throws ApiException {
         okhttp3.Call localVarCall = createReceiptValidateBeforeCall(companyId, createReceiptRequest, null);
-        Type localVarReturnType = new TypeToken<CreateReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateReceiptResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Receipt (asynchronously)
      * Creates a new receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId            The ID of the company. (required)
      * @param createReceiptRequest The Receipt to create. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback            The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Created Receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createReceiptAsync(Integer companyId, CreateReceiptRequest createReceiptRequest, final ApiCallback<CreateReceiptResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createReceiptValidateBeforeCall(companyId, createReceiptRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateReceiptResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteReceipt
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteReceiptCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -249,8 +238,8 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -259,7 +248,7 @@ public class ReceiptsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -267,30 +256,30 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteReceiptValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteReceipt(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling deleteReceipt(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteReceiptCall(companyId, documentId, _callback);
         return localVarCall;
@@ -300,16 +289,17 @@ public class ReceiptsApi {
     /**
      * Delete Receipt
      * Deletes the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteReceipt(Integer companyId, Integer documentId) throws ApiException {
         deleteReceiptWithHttpInfo(companyId, documentId);
@@ -318,17 +308,18 @@ public class ReceiptsApi {
     /**
      * Delete Receipt
      * Deletes the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteReceiptWithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = deleteReceiptValidateBeforeCall(companyId, documentId, null);
@@ -338,18 +329,19 @@ public class ReceiptsApi {
     /**
      * Delete Receipt (asynchronously)
      * Deletes the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteReceiptAsync(Integer companyId, Integer documentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -357,33 +349,35 @@ public class ReceiptsApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getReceipt
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptCall(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -393,8 +387,8 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -411,7 +405,7 @@ public class ReceiptsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -419,30 +413,30 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getReceiptValidateBeforeCall(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getReceipt(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling getReceipt(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getReceiptCall(companyId, documentId, fields, fieldset, _callback);
         return localVarCall;
@@ -452,19 +446,20 @@ public class ReceiptsApi {
     /**
      * Get Receipt
      * Gets the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return GetReceiptResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetReceiptResponse getReceipt(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetReceiptResponse> localVarResp = getReceiptWithHttpInfo(companyId, documentId, fields, fieldset);
@@ -474,75 +469,81 @@ public class ReceiptsApi {
     /**
      * Get Receipt
      * Gets the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetReceiptResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetReceiptResponse> getReceiptWithHttpInfo(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getReceiptValidateBeforeCall(companyId, documentId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Receipt (asynchronously)
      * Gets the specified receipt.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipt Details. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptAsync(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback<GetReceiptResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getReceiptValidateBeforeCall(companyId, documentId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getReceiptPreCreateInfo
+     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptPreCreateInfoCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -552,7 +553,7 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts/info"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -561,7 +562,7 @@ public class ReceiptsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -569,25 +570,25 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getReceiptPreCreateInfoValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getReceiptPreCreateInfo(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getReceiptPreCreateInfoCall(companyId, _callback);
         return localVarCall;
@@ -597,16 +598,17 @@ public class ReceiptsApi {
     /**
      * Get Receipt Pre-Create Info
      * Retrieves the information useful while creating a new receipt.
+     *
      * @param companyId The ID of the company. (required)
      * @return GetReceiptPreCreateInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetReceiptPreCreateInfoResponse getReceiptPreCreateInfo(Integer companyId) throws ApiException {
         ApiResponse<GetReceiptPreCreateInfoResponse> localVarResp = getReceiptPreCreateInfoWithHttpInfo(companyId);
@@ -616,71 +618,77 @@ public class ReceiptsApi {
     /**
      * Get Receipt Pre-Create Info
      * Retrieves the information useful while creating a new receipt.
+     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;GetReceiptPreCreateInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetReceiptPreCreateInfoResponse> getReceiptPreCreateInfoWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = getReceiptPreCreateInfoValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<GetReceiptPreCreateInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptPreCreateInfoResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Receipt Pre-Create Info (asynchronously)
      * Retrieves the information useful while creating a new receipt.
+     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pre-create info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptPreCreateInfoAsync(Integer companyId, final ApiCallback<GetReceiptPreCreateInfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getReceiptPreCreateInfoValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<GetReceiptPreCreateInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptPreCreateInfoResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getReceiptsMonthlyTotals
+     *
      * @param companyId The ID of the company. (required)
-     * @param type Receipt Type (required)
-     * @param year Year for which you want monthly totals (required)
+     * @param type      Receipt Type (required)
+     * @param year      Year for which you want monthly totals (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptsMonthlyTotalsCall(Integer companyId, String type, String year, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -690,7 +698,7 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts/monthly_totals"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -707,7 +715,7 @@ public class ReceiptsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -715,35 +723,35 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getReceiptsMonthlyTotalsValidateBeforeCall(Integer companyId, String type, String year, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getReceiptsMonthlyTotals(Async)");
         }
-        
+
         // verify the required parameter 'type' is set
         if (type == null) {
             throw new ApiException("Missing the required parameter 'type' when calling getReceiptsMonthlyTotals(Async)");
         }
-        
+
         // verify the required parameter 'year' is set
         if (year == null) {
             throw new ApiException("Missing the required parameter 'year' when calling getReceiptsMonthlyTotals(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getReceiptsMonthlyTotalsCall(companyId, type, year, _callback);
         return localVarCall;
@@ -753,18 +761,19 @@ public class ReceiptsApi {
     /**
      * Get Receipts Monthly Totals
      * Returns the monthly totals by year and receipt type.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type Receipt Type (required)
-     * @param year Year for which you want monthly totals (required)
+     * @param type      Receipt Type (required)
+     * @param year      Year for which you want monthly totals (required)
      * @return GetReceiptsMonthlyTotalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetReceiptsMonthlyTotalsResponse getReceiptsMonthlyTotals(Integer companyId, String type, String year) throws ApiException {
         ApiResponse<GetReceiptsMonthlyTotalsResponse> localVarResp = getReceiptsMonthlyTotalsWithHttpInfo(companyId, type, year);
@@ -774,77 +783,83 @@ public class ReceiptsApi {
     /**
      * Get Receipts Monthly Totals
      * Returns the monthly totals by year and receipt type.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type Receipt Type (required)
-     * @param year Year for which you want monthly totals (required)
+     * @param type      Receipt Type (required)
+     * @param year      Year for which you want monthly totals (required)
      * @return ApiResponse&lt;GetReceiptsMonthlyTotalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetReceiptsMonthlyTotalsResponse> getReceiptsMonthlyTotalsWithHttpInfo(Integer companyId, String type, String year) throws ApiException {
         okhttp3.Call localVarCall = getReceiptsMonthlyTotalsValidateBeforeCall(companyId, type, year, null);
-        Type localVarReturnType = new TypeToken<GetReceiptsMonthlyTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptsMonthlyTotalsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Receipts Monthly Totals (asynchronously)
      * Returns the monthly totals by year and receipt type.
+     *
      * @param companyId The ID of the company. (required)
-     * @param type Receipt Type (required)
-     * @param year Year for which you want monthly totals (required)
+     * @param type      Receipt Type (required)
+     * @param year      Year for which you want monthly totals (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Monthly Totals. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getReceiptsMonthlyTotalsAsync(Integer companyId, String type, String year, final ApiCallback<GetReceiptsMonthlyTotalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getReceiptsMonthlyTotalsValidateBeforeCall(companyId, type, year, _callback);
-        Type localVarReturnType = new TypeToken<GetReceiptsMonthlyTotalsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetReceiptsMonthlyTotalsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listReceipts
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listReceiptsCall(Integer companyId, String fields, String fieldset, Integer page, Integer perPage, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -854,7 +869,7 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -883,7 +898,7 @@ public class ReceiptsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -891,25 +906,25 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listReceiptsValidateBeforeCall(Integer companyId, String fields, String fieldset, Integer page, Integer perPage, String sort, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listReceipts(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listReceiptsCall(companyId, fields, fieldset, page, perPage, sort, _callback);
         return localVarCall;
@@ -919,20 +934,21 @@ public class ReceiptsApi {
     /**
      * List Receipts
      * Lists the receipts.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ListReceiptsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ListReceiptsResponse listReceipts(Integer companyId, String fields, String fieldset, Integer page, Integer perPage, String sort) throws ApiException {
         ApiResponse<ListReceiptsResponse> localVarResp = listReceiptsWithHttpInfo(companyId, fields, fieldset, page, perPage, sort);
@@ -942,79 +958,85 @@ public class ReceiptsApi {
     /**
      * List Receipts
      * Lists the receipts.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ApiResponse&lt;ListReceiptsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListReceiptsResponse> listReceiptsWithHttpInfo(Integer companyId, String fields, String fieldset, Integer page, Integer perPage, String sort) throws ApiException {
         okhttp3.Call localVarCall = listReceiptsValidateBeforeCall(companyId, fields, fieldset, page, perPage, sort, null);
-        Type localVarReturnType = new TypeToken<ListReceiptsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListReceiptsResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Receipts (asynchronously)
      * Lists the receipts.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Receipts list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listReceiptsAsync(Integer companyId, String fields, String fieldset, Integer page, Integer perPage, String sort, final ApiCallback<ListReceiptsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listReceiptsValidateBeforeCall(companyId, fields, fieldset, page, perPage, sort, _callback);
-        Type localVarReturnType = new TypeToken<ListReceiptsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListReceiptsResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyReceipt
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param modifyReceiptRequest Modified receipt. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback            Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyReceiptCall(Integer companyId, Integer documentId, ModifyReceiptRequest modifyReceiptRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1024,8 +1046,8 @@ public class ReceiptsApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/receipts/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1034,7 +1056,7 @@ public class ReceiptsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1042,30 +1064,30 @@ public class ReceiptsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyReceiptValidateBeforeCall(Integer companyId, Integer documentId, ModifyReceiptRequest modifyReceiptRequest, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyReceipt(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling modifyReceipt(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyReceiptCall(companyId, documentId, modifyReceiptRequest, _callback);
         return localVarCall;
@@ -1075,18 +1097,19 @@ public class ReceiptsApi {
     /**
      * Modify Receipt
      * Modifies the specified receipt.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param modifyReceiptRequest Modified receipt. (optional)
      * @return ModifyReceiptResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyReceiptResponse modifyReceipt(Integer companyId, Integer documentId, ModifyReceiptRequest modifyReceiptRequest) throws ApiException {
         ApiResponse<ModifyReceiptResponse> localVarResp = modifyReceiptWithHttpInfo(companyId, documentId, modifyReceiptRequest);
@@ -1096,46 +1119,50 @@ public class ReceiptsApi {
     /**
      * Modify Receipt
      * Modifies the specified receipt.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param modifyReceiptRequest Modified receipt. (optional)
      * @return ApiResponse&lt;ModifyReceiptResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyReceiptResponse> modifyReceiptWithHttpInfo(Integer companyId, Integer documentId, ModifyReceiptRequest modifyReceiptRequest) throws ApiException {
         okhttp3.Call localVarCall = modifyReceiptValidateBeforeCall(companyId, documentId, modifyReceiptRequest, null);
-        Type localVarReturnType = new TypeToken<ModifyReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyReceiptResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Receipt (asynchronously)
      * Modifies the specified receipt.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId            The ID of the company. (required)
+     * @param documentId           The ID of the document. (required)
      * @param modifyReceiptRequest Modified receipt. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback            The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Modified receipt. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyReceiptAsync(Integer companyId, Integer documentId, ModifyReceiptRequest modifyReceiptRequest, final ApiCallback<ModifyReceiptResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyReceiptValidateBeforeCall(companyId, documentId, modifyReceiptRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifyReceiptResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyReceiptResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

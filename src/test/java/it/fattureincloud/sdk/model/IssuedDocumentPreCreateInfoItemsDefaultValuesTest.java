@@ -42,7 +42,7 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValuesTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"vat\":{\"id\":1,\"editable\":true}}";
+        String str = "{\"vat\":{\"id\":1}}";
         assertEquals(str, json);
         IssuedDocumentPreCreateInfoItemsDefaultValues generated = gson.fromJson(str, IssuedDocumentPreCreateInfoItemsDefaultValues.class);
         assertEquals(model, generated);

@@ -19,6 +19,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -32,8 +34,20 @@ public class ReceiptPreCreateInfoTest {
 
     @BeforeEach
     public void init() {
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bg")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
@@ -49,7 +63,7 @@ public class ReceiptPreCreateInfoTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1,\"editable\":true}]}";
+        String str = "{\"numerations\":{\"2022\":{\"cloud\":1988,\"in\":2,\"fatture\":22},\"2021\":{\"a\":1,\"b\":2,\"c\":3}},\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}";
         assertEquals(str, json);
         ReceiptPreCreateInfo generated = gson.fromJson(str, ReceiptPreCreateInfo.class);
         assertEquals(model, generated);
@@ -65,13 +79,38 @@ public class ReceiptPreCreateInfoTest {
      */
     @Test
     public void numerationsTest() {
-        assertEquals(null, model.getNumerations());
-        model.setNumerations(null);
-        assertEquals(null, model.getNumerations());
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
 
-        ReceiptPreCreateInfo a = model.numerations(null);
+        HashMap<String, Integer> n2019 = new HashMap<>();
+        n2019.put("a", 1);
+
+        HashMap<String, Map<String, Integer>> numerationsTest2 = new HashMap<>();
+        numerationsTest2.put("2019", n2019);
+
+        HashMap<String, Integer> n2018 = new HashMap<>();
+        n2018.put("b", 999);
+
+        HashMap<String, Map<String, Integer>> numerationsTest3 = new HashMap<>();
+        numerationsTest3.put("2018", n2018);
+
+
+        assertEquals(numerationsTest, model.getNumerations());
+        model.setNumerations(numerationsTest2);
+        assertEquals(numerationsTest2, model.getNumerations());
+
+        ReceiptPreCreateInfo a = model.numerations(numerationsTest3);
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest3)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bg")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
@@ -89,10 +128,22 @@ public class ReceiptPreCreateInfoTest {
         model.addNumerationsListItem("mun");
         assertEquals(Arrays.asList("num", "mun"), model.getNumerationsList());
 
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model.setNumerationsList(Arrays.asList("sum", "mus"));
         ReceiptPreCreateInfo a = model;
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("sum")
                 .addNumerationsListItem("mus")
                 .addRcCentersListItem("bg")
@@ -111,10 +162,22 @@ public class ReceiptPreCreateInfoTest {
         model.addRcCentersListItem("mi");
         assertEquals(Arrays.asList("bg", "mi"), model.getRcCentersList());
 
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model.setRcCentersList(Arrays.asList("bs", "sb"));
         ReceiptPreCreateInfo a = model;
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bs")
                 .addRcCentersListItem("sb")
@@ -133,10 +196,22 @@ public class ReceiptPreCreateInfoTest {
         model.addRcCentersListItem("mi");
         assertEquals(Arrays.asList("bg", "mi"), model.getRcCentersList());
 
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model.setRcCentersList(Arrays.asList("bs", "sb"));
         ReceiptPreCreateInfo a = model;
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bs")
                 .addRcCentersListItem("sb")
@@ -155,10 +230,22 @@ public class ReceiptPreCreateInfoTest {
         model.addCategoriesListItem("cat5");
         assertEquals(Arrays.asList("cat6", "cat5"), model.getCategoriesList());
 
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model.setCategoriesList(Arrays.asList("cat7", "cat8"));
         ReceiptPreCreateInfo a = model;
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bg")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))
@@ -177,10 +264,22 @@ public class ReceiptPreCreateInfoTest {
         model.addVatTypesListItem(new VatType().id(2));
         assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
 
+        HashMap<String, Integer> n2022 = new HashMap<>();
+        n2022.put("fatture", 22);
+        n2022.put("in", 2);
+        n2022.put("cloud", 1988);
+        HashMap<String, Integer> n2021 = new HashMap<>();
+        n2021.put("a", 1);
+        n2021.put("b", 2);
+        n2021.put("c", 3);
+        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+        numerationsTest.put("2022", n2022);
+        numerationsTest.put("2021", n2021);
+
         model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
         ReceiptPreCreateInfo a = model;
         ReceiptPreCreateInfo expected = new ReceiptPreCreateInfo()
-                .numerations(null)
+                .numerations(numerationsTest)
                 .addNumerationsListItem("num")
                 .addRcCentersListItem("bg")
                 .addPaymentAccountsListItem(new PaymentAccount().id(1))

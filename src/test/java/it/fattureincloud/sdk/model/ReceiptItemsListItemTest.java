@@ -49,7 +49,7 @@ public class ReceiptItemsListItemTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"id\":10,\"amount_net\":10,\"amount_gross\":10,\"category\":\"cat6\",\"vat\":{\"id\":1,\"editable\":true}}";
+        String str = "{\"id\":10,\"amount_net\":10,\"amount_gross\":10,\"category\":\"cat6\",\"vat\":{\"id\":1}}";
         assertEquals(str, json);
         ReceiptItemsListItem generated = gson.fromJson(str, ReceiptItemsListItem.class);
         assertEquals(model, generated);

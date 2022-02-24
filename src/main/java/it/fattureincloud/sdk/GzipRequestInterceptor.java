@@ -23,7 +23,7 @@ import java.io.IOException;
 
 /**
  * Encodes request bodies using gzip.
- *
+ * <p>
  * Taken from https://github.com/square/okhttp/issues/350
  */
 class GzipRequestInterceptor implements Interceptor {
@@ -35,9 +35,9 @@ class GzipRequestInterceptor implements Interceptor {
         }
 
         Request compressedRequest = originalRequest.newBuilder()
-                                                   .header("Content-Encoding", "gzip")
-                                                   .method(originalRequest.method(), forceContentLength(gzip(originalRequest.body())))
-                                                   .build();
+                .header("Content-Encoding", "gzip")
+                .method(originalRequest.method(), forceContentLength(gzip(originalRequest.body())))
+                .build();
         return chain.proceed(compressedRequest);
     }
 

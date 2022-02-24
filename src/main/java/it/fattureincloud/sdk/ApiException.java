@@ -13,8 +13,8 @@
 
 package it.fattureincloud.sdk;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>ApiException class.</p>
@@ -25,11 +25,12 @@ public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
- 
+
     /**
      * <p>Constructor for ApiException.</p>
      */
-    public ApiException() {}
+    public ApiException() {
+    }
 
     /**
      * <p>Constructor for ApiException.</p>
@@ -52,11 +53,11 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param message the error message
-     * @param throwable a {@link java.lang.Throwable} object
-     * @param code HTTP status code
+     * @param message         the error message
+     * @param throwable       a {@link java.lang.Throwable} object
+     * @param code            HTTP status code
      * @param responseHeaders a {@link java.util.Map} of HTTP response headers
-     * @param responseBody the response body
+     * @param responseBody    the response body
      */
     public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody) {
         super(message, throwable);
@@ -68,10 +69,10 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param message the error message
-     * @param code HTTP status code
+     * @param message         the error message
+     * @param code            HTTP status code
      * @param responseHeaders a {@link java.util.Map} of HTTP response headers
-     * @param responseBody the response body
+     * @param responseBody    the response body
      */
     public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {
         this(message, (Throwable) null, code, responseHeaders, responseBody);
@@ -80,9 +81,9 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param message the error message
-     * @param throwable a {@link java.lang.Throwable} object
-     * @param code HTTP status code
+     * @param message         the error message
+     * @param throwable       a {@link java.lang.Throwable} object
+     * @param code            HTTP status code
      * @param responseHeaders a {@link java.util.Map} of HTTP response headers
      */
     public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders) {
@@ -92,9 +93,9 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param code HTTP status code
+     * @param code            HTTP status code
      * @param responseHeaders a {@link java.util.Map} of HTTP response headers
-     * @param responseBody the response body
+     * @param responseBody    the response body
      */
     public ApiException(int code, Map<String, List<String>> responseHeaders, String responseBody) {
         this((String) null, (Throwable) null, code, responseHeaders, responseBody);
@@ -103,7 +104,7 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param code HTTP status code
+     * @param code    HTTP status code
      * @param message a {@link java.lang.String} object
      */
     public ApiException(int code, String message) {
@@ -114,10 +115,10 @@ public class ApiException extends Exception {
     /**
      * <p>Constructor for ApiException.</p>
      *
-     * @param code HTTP status code
-     * @param message the error message
+     * @param code            HTTP status code
+     * @param message         the error message
      * @param responseHeaders a {@link java.util.Map} of HTTP response headers
-     * @param responseBody the response body
+     * @param responseBody    the response body
      */
     public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody) {
         this(code, message);

@@ -51,7 +51,7 @@ public class VatTypeTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}";
+        String str = "{\"id\":0,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}";
         assertEquals(str, json);
         VatType generated = gson.fromJson(str, VatType.class);
         assertEquals(model, generated);

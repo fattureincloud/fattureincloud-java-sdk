@@ -48,7 +48,7 @@ public class ListIssuedDocumentsResponsePageTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":[{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"use_split_payment\":false,\"use_gross_prices\":false,\"e_invoice\":false,\"show_totals\":\"all\",\"show_paypal_button\":false,\"show_notification_button\":false,\"accompanying_invoice\":false}]}";
+        String str = "{\"data\":[{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"show_totals\":\"all\"}]}";
         assertEquals(str, json);
         ListIssuedDocumentsResponsePage generated = gson.fromJson(str, ListIssuedDocumentsResponsePage.class);
         assertEquals(model, generated);

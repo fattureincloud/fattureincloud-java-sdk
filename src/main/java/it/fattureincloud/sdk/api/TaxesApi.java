@@ -13,29 +13,11 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import it.fattureincloud.sdk.*;
+import it.fattureincloud.sdk.model.*;
 
-import java.io.IOException;
-
-
-import it.fattureincloud.sdk.model.CreateF24Request;
-import it.fattureincloud.sdk.model.CreateF24Response;
 import java.io.File;
-import it.fattureincloud.sdk.model.GetF24Response;
-import it.fattureincloud.sdk.model.ListF24Response;
-import it.fattureincloud.sdk.model.ModifyF24Request;
-import it.fattureincloud.sdk.model.ModifyF24Response;
-import it.fattureincloud.sdk.model.UploadF24AttachmentResponse;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,29 +63,30 @@ public class TaxesApi {
 
     /**
      * Build call for createF24
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param createF24Request The F24 to create (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback        Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createF24Call(Integer companyId, CreateF24Request createF24Request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -113,7 +96,7 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -122,7 +105,7 @@ public class TaxesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -130,25 +113,25 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createF24ValidateBeforeCall(Integer companyId, CreateF24Request createF24Request, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createF24(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createF24Call(companyId, createF24Request, _callback);
         return localVarCall;
@@ -158,17 +141,18 @@ public class TaxesApi {
     /**
      * Create F24
      * Creates a new F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param createF24Request The F24 to create (optional)
      * @return CreateF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public CreateF24Response createF24(Integer companyId, CreateF24Request createF24Request) throws ApiException {
         ApiResponse<CreateF24Response> localVarResp = createF24WithHttpInfo(companyId, createF24Request);
@@ -178,72 +162,78 @@ public class TaxesApi {
     /**
      * Create F24
      * Creates a new F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param createF24Request The F24 to create (optional)
      * @return ApiResponse&lt;CreateF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<CreateF24Response> createF24WithHttpInfo(Integer companyId, CreateF24Request createF24Request) throws ApiException {
         okhttp3.Call localVarCall = createF24ValidateBeforeCall(companyId, createF24Request, null);
-        Type localVarReturnType = new TypeToken<CreateF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateF24Response>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create F24 (asynchronously)
      * Creates a new F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId        The ID of the company. (required)
      * @param createF24Request The F24 to create (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback        The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The created F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call createF24Async(Integer companyId, CreateF24Request createF24Request, final ApiCallback<CreateF24Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createF24ValidateBeforeCall(companyId, createF24Request, _callback);
-        Type localVarReturnType = new TypeToken<CreateF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateF24Response>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteF24
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteF24Call(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -253,8 +243,8 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -263,7 +253,7 @@ public class TaxesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -271,30 +261,30 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteF24ValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteF24(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling deleteF24(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteF24Call(companyId, documentId, _callback);
         return localVarCall;
@@ -304,16 +294,17 @@ public class TaxesApi {
     /**
      * Delete F24
      * Removes the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteF24(Integer companyId, Integer documentId) throws ApiException {
         deleteF24WithHttpInfo(companyId, documentId);
@@ -322,17 +313,18 @@ public class TaxesApi {
     /**
      * Delete F24
      * Removes the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteF24WithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = deleteF24ValidateBeforeCall(companyId, documentId, null);
@@ -342,18 +334,19 @@ public class TaxesApi {
     /**
      * Delete F24 (asynchronously)
      * Removes the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteF24Async(Integer companyId, Integer documentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -361,31 +354,33 @@ public class TaxesApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteF24Attachment
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteF24AttachmentCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -395,8 +390,8 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes/{document_id}/attachment"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -405,7 +400,7 @@ public class TaxesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -413,30 +408,30 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteF24AttachmentValidateBeforeCall(Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteF24Attachment(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling deleteF24Attachment(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteF24AttachmentCall(companyId, documentId, _callback);
         return localVarCall;
@@ -446,16 +441,17 @@ public class TaxesApi {
     /**
      * Delete F24 Attachment
      * Removes the attachment of the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public void deleteF24Attachment(Integer companyId, Integer documentId) throws ApiException {
         deleteF24AttachmentWithHttpInfo(companyId, documentId);
@@ -464,17 +460,18 @@ public class TaxesApi {
     /**
      * Delete F24 Attachment
      * Removes the attachment of the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Void> deleteF24AttachmentWithHttpInfo(Integer companyId, Integer documentId) throws ApiException {
         okhttp3.Call localVarCall = deleteF24AttachmentValidateBeforeCall(companyId, documentId, null);
@@ -484,18 +481,19 @@ public class TaxesApi {
     /**
      * Delete F24 Attachment (asynchronously)
      * Removes the attachment of the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File Removed. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call deleteF24AttachmentAsync(Integer companyId, Integer documentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -503,33 +501,35 @@ public class TaxesApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getF24
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback Callback for upload/download progress
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getF24Call(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -539,8 +539,8 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -557,7 +557,7 @@ public class TaxesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -565,30 +565,30 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getF24ValidateBeforeCall(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getF24(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling getF24(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getF24Call(companyId, documentId, fields, fieldset, _callback);
         return localVarCall;
@@ -598,19 +598,20 @@ public class TaxesApi {
     /**
      * Get F24
      * Gets the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return GetF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public GetF24Response getF24(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetF24Response> localVarResp = getF24WithHttpInfo(companyId, documentId, fields, fieldset);
@@ -620,79 +621,85 @@ public class TaxesApi {
     /**
      * Get F24
      * Gets the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetF24Response> getF24WithHttpInfo(Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getF24ValidateBeforeCall(companyId, documentId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetF24Response>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get F24 (asynchronously)
      * Gets the specified F24.
-     * @param companyId The ID of the company. (required)
+     *
+     * @param companyId  The ID of the company. (required)
      * @param documentId The ID of the document. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param fields     List of comma-separated fields. (optional)
+     * @param fieldset   Name of the fieldset. (optional)
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getF24Async(Integer companyId, Integer documentId, String fields, String fieldset, final ApiCallback<GetF24Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getF24ValidateBeforeCall(companyId, documentId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetF24Response>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listF24
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listF24Call(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -702,7 +709,7 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -731,7 +738,7 @@ public class TaxesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -739,25 +746,25 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listF24ValidateBeforeCall(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listF24(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listF24Call(companyId, fields, fieldset, sort, page, perPage, _callback);
         return localVarCall;
@@ -767,20 +774,21 @@ public class TaxesApi {
     /**
      * List F24
      * Lists the F24s.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @return ListF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ListF24Response listF24(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage) throws ApiException {
         ApiResponse<ListF24Response> localVarResp = listF24WithHttpInfo(companyId, fields, fieldset, sort, page, perPage);
@@ -790,79 +798,85 @@ public class TaxesApi {
     /**
      * List F24
      * Lists the F24s.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @return ApiResponse&lt;ListF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ListF24Response> listF24WithHttpInfo(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage) throws ApiException {
         okhttp3.Call localVarCall = listF24ValidateBeforeCall(companyId, fields, fieldset, sort, page, perPage, null);
-        Type localVarReturnType = new TypeToken<ListF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListF24Response>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List F24 (asynchronously)
      * Lists the F24s.
+     *
      * @param companyId The ID of the company. (required)
-     * @param fields List of comma-separated fields. (optional)
-     * @param fieldset Name of the fieldset. (optional)
-     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page The page to retrieve. (optional, default to 1)
-     * @param perPage The size of the page. (optional, default to 5)
+     * @param fields    List of comma-separated fields. (optional)
+     * @param fieldset  Name of the fieldset. (optional)
+     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page      The page to retrieve. (optional, default to 1)
+     * @param perPage   The size of the page. (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call listF24Async(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, final ApiCallback<ListF24Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listF24ValidateBeforeCall(companyId, fields, fieldset, sort, page, perPage, _callback);
-        Type localVarReturnType = new TypeToken<ListF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListF24Response>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for modifyF24
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId        The ID of the company. (required)
+     * @param documentId       The ID of the document. (required)
      * @param modifyF24Request The F24 (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback        Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyF24Call(Integer companyId, Integer documentId, ModifyF24Request modifyF24Request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -872,8 +886,8 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes/{document_id}"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-            .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+                .replaceAll("\\{" + "document_id" + "\\}", localVarApiClient.escapeString(documentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -882,7 +896,7 @@ public class TaxesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -890,30 +904,30 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifyF24ValidateBeforeCall(Integer companyId, Integer documentId, ModifyF24Request modifyF24Request, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifyF24(Async)");
         }
-        
+
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling modifyF24(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = modifyF24Call(companyId, documentId, modifyF24Request, _callback);
         return localVarCall;
@@ -923,18 +937,19 @@ public class TaxesApi {
     /**
      * Modify F24
      * Modifies the specified F24.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId        The ID of the company. (required)
+     * @param documentId       The ID of the document. (required)
      * @param modifyF24Request The F24 (optional)
      * @return ModifyF24Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ModifyF24Response modifyF24(Integer companyId, Integer documentId, ModifyF24Request modifyF24Request) throws ApiException {
         ApiResponse<ModifyF24Response> localVarResp = modifyF24WithHttpInfo(companyId, documentId, modifyF24Request);
@@ -944,73 +959,79 @@ public class TaxesApi {
     /**
      * Modify F24
      * Modifies the specified F24.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId        The ID of the company. (required)
+     * @param documentId       The ID of the document. (required)
      * @param modifyF24Request The F24 (optional)
      * @return ApiResponse&lt;ModifyF24Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<ModifyF24Response> modifyF24WithHttpInfo(Integer companyId, Integer documentId, ModifyF24Request modifyF24Request) throws ApiException {
         okhttp3.Call localVarCall = modifyF24ValidateBeforeCall(companyId, documentId, modifyF24Request, null);
-        Type localVarReturnType = new TypeToken<ModifyF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyF24Response>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify F24 (asynchronously)
      * Modifies the specified F24.
-     * @param companyId The ID of the company. (required)
-     * @param documentId The ID of the document. (required)
+     *
+     * @param companyId        The ID of the company. (required)
+     * @param documentId       The ID of the document. (required)
      * @param modifyF24Request The F24 (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback        The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The modified F24 </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call modifyF24Async(Integer companyId, Integer documentId, ModifyF24Request modifyF24Request, final ApiCallback<ModifyF24Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifyF24ValidateBeforeCall(companyId, documentId, modifyF24Request, _callback);
-        Type localVarReturnType = new TypeToken<ModifyF24Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModifyF24Response>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for uploadF24Attachment
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
-     * @param _callback Callback for upload/download progress
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call uploadF24AttachmentCall(Integer companyId, String filename, File attachment, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1020,7 +1041,7 @@ public class TaxesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/taxes/attachment"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1037,7 +1058,7 @@ public class TaxesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1045,25 +1066,25 @@ public class TaxesApi {
         }
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+                "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call uploadF24AttachmentValidateBeforeCall(Integer companyId, String filename, File attachment, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling uploadF24Attachment(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = uploadF24AttachmentCall(companyId, filename, attachment, _callback);
         return localVarCall;
@@ -1073,16 +1094,17 @@ public class TaxesApi {
     /**
      * Upload F24 Attachment
      * Uploads an attachment destined to a F24. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
      * @return UploadF24AttachmentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * </table>
      */
     public UploadF24AttachmentResponse uploadF24Attachment(Integer companyId, String filename, File attachment) throws ApiException {
         ApiResponse<UploadF24AttachmentResponse> localVarResp = uploadF24AttachmentWithHttpInfo(companyId, filename, attachment);
@@ -1092,42 +1114,46 @@ public class TaxesApi {
     /**
      * Upload F24 Attachment
      * Uploads an attachment destined to a F24. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
      * @return ApiResponse&lt;UploadF24AttachmentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<UploadF24AttachmentResponse> uploadF24AttachmentWithHttpInfo(Integer companyId, String filename, File attachment) throws ApiException {
         okhttp3.Call localVarCall = uploadF24AttachmentValidateBeforeCall(companyId, filename, attachment, null);
-        Type localVarReturnType = new TypeToken<UploadF24AttachmentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UploadF24AttachmentResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Upload F24 Attachment (asynchronously)
      * Uploads an attachment destined to a F24. The actual association between the document and the attachment must be implemented separately, using the returned token.
-     * @param companyId The ID of the company. (required)
-     * @param filename Name of the file. (optional)
+     *
+     * @param companyId  The ID of the company. (required)
+     * @param filename   Name of the file. (optional)
      * @param attachment Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call uploadF24AttachmentAsync(Integer companyId, String filename, File attachment, final ApiCallback<UploadF24AttachmentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadF24AttachmentValidateBeforeCall(companyId, filename, attachment, _callback);
-        Type localVarReturnType = new TypeToken<UploadF24AttachmentResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<UploadF24AttachmentResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

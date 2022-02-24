@@ -14,19 +14,10 @@
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import it.fattureincloud.sdk.JSON;
-import it.fattureincloud.sdk.model.EinvoiceRejectionReason;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,12 +34,12 @@ public class GetEInvoiceRejectionReasonResponseTest {
     public void init() {
         model = new GetEInvoiceRejectionReasonResponse()
                 .data(
-                    new EinvoiceRejectionReason()
-                    .reason("invalid date")
-                    .eiStatus("rejected")
-                    .solution("set a valid date")
-                    .code("c01")
-                    .date(LocalDate.of(2022,01,10))
+                        new EinvoiceRejectionReason()
+                                .reason("invalid date")
+                                .eiStatus("rejected")
+                                .solution("set a valid date")
+                                .code("c01")
+                                .date(LocalDate.of(2022, 01, 10))
                 );
     }
 
