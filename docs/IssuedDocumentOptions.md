@@ -1,14 +1,13 @@
 
 
-# IssuedDocumentTotalsVatListVatItem
+# IssuedDocumentOptions
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amountNet** | **BigDecimal** |  |  [optional]
-**amountVat** | **BigDecimal** |  |  [optional]
+**fixPayments** | **Boolean** | Fixes your last payment amount to match your document total |  [optional]
 
 
 ## Implemented Interfaces

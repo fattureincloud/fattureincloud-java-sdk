@@ -455,7 +455,7 @@ public class InfoApiTest {
      */
     @Test
     public void listVatTypesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":1,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false},{\"id\":2,\"value\":33,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"editable\":true,\"is_disabled\":false}]}";
+        String result = "{\"data\":[{\"id\":1,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false},{\"id\":2,\"value\":33,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}]}";
 
         Call mockCall = Mockito.mock(Call.class);
         InfoApi api = mockApi(result, mockCall);

@@ -1,13 +1,14 @@
 
 
-# IssuedDocumentTotalsVatList
+# VatItem
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vatItem** | [**IssuedDocumentTotalsVatListVatItem**](IssuedDocumentTotalsVatListVatItem.md) |  |  [optional]
+**amountNet** | **BigDecimal** |  |  [optional]
+**amountVat** | **BigDecimal** |  |  [optional]
 
 
 ## Implemented Interfaces

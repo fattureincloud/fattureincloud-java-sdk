@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier |  [optional]
 **code** | **String** | Supplier code. |  [optional]
-**name** | **String** | Supplier name. | 
+**name** | **String** | Supplier name. |  [optional]
 **type** | **SupplierType** |  |  [optional]
 **firstName** | **String** | Supplier first name. |  [optional]
 **lastName** | **String** | Supplier last name. |  [optional]

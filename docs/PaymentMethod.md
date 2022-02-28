@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier |  [optional]
-**name** | **String** | Name of the payment method | 
+**name** | **String** | Name of the payment method |  [optional]
 **type** | **PaymentMethodType** |  |  [optional]
 **isDefault** | **Boolean** | Determines if this is the default payment method. |  [optional]
 **defaultPaymentAccount** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional]

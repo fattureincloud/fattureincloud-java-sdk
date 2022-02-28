@@ -9,7 +9,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | Unique identifier |  [optional]
-**value** | **BigDecimal** | [Read Only] Percentual value. | 
+**value** | **BigDecimal** | [Read Only] Percentual value. |  [optional]
 **description** | **String** | Short description. |  [optional]
 **notes** | **String** | Long description and notes shown in documents. |  [optional]
 **eInvoice** | **Boolean** | Usable for e-invoices. |  [optional]

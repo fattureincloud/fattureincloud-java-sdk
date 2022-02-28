@@ -122,7 +122,7 @@ public class EmailDataTest {
                 .id(2)
                 .email("info@fattureincloud.it");
 
-        assertEquals(new ArrayList<>(), model.getSenderEmailsList());
+        assertEquals(null, model.getSenderEmailsList());
         model.setSenderEmailsList(Arrays.asList(e1, e2));
         assertEquals(Arrays.asList(e1, e2), model.getSenderEmailsList());
 

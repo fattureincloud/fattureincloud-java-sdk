@@ -97,6 +97,7 @@ docs/IssuedDocument.md
 docs/IssuedDocumentEiData.md
 docs/IssuedDocumentExtraData.md
 docs/IssuedDocumentItemsListItem.md
+docs/IssuedDocumentOptions.md
 docs/IssuedDocumentPaymentsListItem.md
 docs/IssuedDocumentPreCreateInfo.md
 docs/IssuedDocumentPreCreateInfoDefaultValues.md
@@ -104,8 +105,6 @@ docs/IssuedDocumentPreCreateInfoExtraDataDefaultValues.md
 docs/IssuedDocumentPreCreateInfoItemsDefaultValues.md
 docs/IssuedDocumentStatus.md
 docs/IssuedDocumentTotals.md
-docs/IssuedDocumentTotalsVatList.md
-docs/IssuedDocumentTotalsVatListVatItem.md
 docs/IssuedDocumentType.md
 docs/IssuedDocumentsApi.md
 docs/IssuedEInvoicesApi.md
@@ -218,6 +217,7 @@ docs/UploadReceivedDocumentAttachmentResponse.md
 docs/User.md
 docs/UserApi.md
 docs/UserCompanyRole.md
+docs/VatItem.md
 docs/VatKind.md
 docs/VatType.md
 docs/VerifyEInvoiceXmlErrorResponse.md
@@ -357,6 +357,7 @@ src/main/java/it/fattureincloud/sdk/model/IssuedDocument.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentEiData.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentExtraData.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentItemsListItem.java
+src/main/java/it/fattureincloud/sdk/model/IssuedDocumentOptions.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPaymentsListItem.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfo.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoDefaultValues.java
@@ -364,8 +365,6 @@ src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoExtraDataDe
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoItemsDefaultValues.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentStatus.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentTotals.java
-src/main/java/it/fattureincloud/sdk/model/IssuedDocumentTotalsVatList.java
-src/main/java/it/fattureincloud/sdk/model/IssuedDocumentTotalsVatListVatItem.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentType.java
 src/main/java/it/fattureincloud/sdk/model/Language.java
 src/main/java/it/fattureincloud/sdk/model/ListArchiveCategoriesResponse.java
@@ -469,6 +468,7 @@ src/main/java/it/fattureincloud/sdk/model/UploadIssuedDocumentAttachmentResponse
 src/main/java/it/fattureincloud/sdk/model/UploadReceivedDocumentAttachmentResponse.java
 src/main/java/it/fattureincloud/sdk/model/User.java
 src/main/java/it/fattureincloud/sdk/model/UserCompanyRole.java
+src/main/java/it/fattureincloud/sdk/model/VatItem.java
 src/main/java/it/fattureincloud/sdk/model/VatKind.java
 src/main/java/it/fattureincloud/sdk/model/VatType.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponse.java
@@ -476,14 +476,5 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
-src/test/java/it/fattureincloud/sdk/model/CashbookEntryDocumentTest.java
-src/test/java/it/fattureincloud/sdk/model/EinvoiceRejectionReasonTest.java
-src/test/java/it/fattureincloud/sdk/model/EntityTypeTest.java
-src/test/java/it/fattureincloud/sdk/model/GetEInvoiceRejectionReasonResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/IssuedDocumentItemsListItemTest.java
-src/test/java/it/fattureincloud/sdk/model/IssuedDocumentPaymentsListItemTest.java
-src/test/java/it/fattureincloud/sdk/model/ListF24ResponseAggregationTest.java
-src/test/java/it/fattureincloud/sdk/model/ReceivedDocumentItemsListItemTest.java
-src/test/java/it/fattureincloud/sdk/model/ReceivedDocumentPaymentsListItemPaymentTermsTest.java
-src/test/java/it/fattureincloud/sdk/model/ReceivedDocumentPaymentsListItemTest.java
-src/test/java/it/fattureincloud/sdk/model/SenderEmailTest.java
+src/test/java/it/fattureincloud/sdk/model/IssuedDocumentOptionsTest.java
+src/test/java/it/fattureincloud/sdk/model/VatItemTest.java

@@ -18,51 +18,41 @@ import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 /**
- * ListSuppliersResponsePage
+ * IssuedDocumentOptions
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-22T10:45:37.104Z[Etc/UTC]")
-public class ListSuppliersResponsePage implements Serializable {
+public class IssuedDocumentOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Supplier> data = null;
+  public static final String SERIALIZED_NAME_FIX_PAYMENTS = "fix_payments";
+  @SerializedName(SERIALIZED_NAME_FIX_PAYMENTS)
+  private Boolean fixPayments;
 
 
-  public ListSuppliersResponsePage data(List<Supplier> data) {
+  public IssuedDocumentOptions fixPayments(Boolean fixPayments) {
     
-    this.data = data;
-    return this;
-  }
-
-  public ListSuppliersResponsePage addDataItem(Supplier dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+    this.fixPayments = fixPayments;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Fixes your last payment amount to match your document total
+   * @return fixPayments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Fixes your last payment amount to match your document total")
 
-  public List<Supplier> getData() {
-    return data;
+  public Boolean getFixPayments() {
+    return fixPayments;
   }
 
 
-  public void setData(List<Supplier> data) {
-    this.data = data;
+  public void setFixPayments(Boolean fixPayments) {
+    this.fixPayments = fixPayments;
   }
 
 
@@ -74,8 +64,8 @@ public class ListSuppliersResponsePage implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSuppliersResponsePage listSuppliersResponsePage = (ListSuppliersResponsePage) o;
-    return Objects.equals(this.data, listSuppliersResponsePage.data);
+    IssuedDocumentOptions issuedDocumentOptions = (IssuedDocumentOptions) o;
+    return Objects.equals(this.fixPayments, issuedDocumentOptions.fixPayments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -84,7 +74,7 @@ public class ListSuppliersResponsePage implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(fixPayments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -97,8 +87,8 @@ public class ListSuppliersResponsePage implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSuppliersResponsePage {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class IssuedDocumentOptions {\n");
+    sb.append("    fixPayments: ").append(toIndentedString(fixPayments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
