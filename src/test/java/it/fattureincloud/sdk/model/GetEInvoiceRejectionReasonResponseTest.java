@@ -34,7 +34,7 @@ public class GetEInvoiceRejectionReasonResponseTest {
     public void init() {
         model = new GetEInvoiceRejectionReasonResponse()
                 .data(
-                        new EinvoiceRejectionReason()
+                        new EInvoiceRejectionReason()
                                 .reason("invalid date")
                                 .eiStatus("rejected")
                                 .solution("set a valid date")
@@ -68,12 +68,12 @@ public class GetEInvoiceRejectionReasonResponseTest {
     @Test
     public void dataTest() {
         assertEquals("invalid date", model.getData().getReason());
-        model.setData(new EinvoiceRejectionReason().reason("invalid date2"));
+        model.setData(new EInvoiceRejectionReason().reason("invalid date2"));
         assertEquals("invalid date2", model.getData().getReason());
 
-        model.data(new EinvoiceRejectionReason().reason("invalid date"));
+        model.data(new EInvoiceRejectionReason().reason("invalid date"));
         GetEInvoiceRejectionReasonResponse actual = new GetEInvoiceRejectionReasonResponse();
-        actual.setData(new EinvoiceRejectionReason().reason("invalid date"));
+        actual.setData(new EInvoiceRejectionReason().reason("invalid date"));
         assertEquals(model, actual);
     }
 

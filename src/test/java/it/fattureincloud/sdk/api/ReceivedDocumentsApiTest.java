@@ -490,7 +490,7 @@ public class ReceivedDocumentsApiTest {
                 .addDataItem(receivedDocument1)
                 .addDataItem(receivedDocument2);
 
-        ListReceivedDocumentsResponse response = api.listReceivedDocuments(companyId, "invoice", null, null, null, null, null);
+        ListReceivedDocumentsResponse response = api.listReceivedDocuments(companyId, "invoice", null, null, null, null, null, null);
 
         assertEquals(expected.getData(), response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
