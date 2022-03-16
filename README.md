@@ -1,10 +1,12 @@
 # FattureInCloud Java SDK
 
+[![Maven Central](https://img.shields.io/maven-central/v/it.fattureincloud/fattureincloud-java-sdk?color=g)](https://search.maven.org/artifact/it.fattureincloud/fattureincloud-java-sdk) ![unit tests](https://github.com/fattureincloud/fattureincloud-java-sdk/actions/workflows/validate.yaml/badge.svg)
+
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.13
+- API version: 2.0.14
 
-- Build date: 2022-02-22T10:45:37.104Z[Etc/UTC]
+- Build date: 2022-03-16T10:27:27.647Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -31,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.4</version>
+  <version>2.0.5</version>
 </dependency>
 ```
 
@@ -45,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.4"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.5"
   }
 ```
 
@@ -117,6 +119,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**listCountries**](docs/InfoApi.md#listCountries) | **GET** /info/countries | List Countries
 *InfoApi* | [**listCurrencies**](docs/InfoApi.md#listCurrencies) | **GET** /info/currencies | List Currencies
 *InfoApi* | [**listDeliveryNotesDefaultCausals**](docs/InfoApi.md#listDeliveryNotesDefaultCausals) | **GET** /info/dn_causals | List Delivery Notes Default Causals
+*InfoApi* | [**listDetailedCountries**](docs/InfoApi.md#listDetailedCountries) | **GET** /info/detailed_countries | List Detailed Countries
 *InfoApi* | [**listLanguages**](docs/InfoApi.md#listLanguages) | **GET** /info/languages | List Languages
 *InfoApi* | [**listPaymentAccounts**](docs/InfoApi.md#listPaymentAccounts) | **GET** /c/{company_id}/info/payment_accounts | List Payment Accounts
 *InfoApi* | [**listPaymentMethods**](docs/InfoApi.md#listPaymentMethods) | **GET** /c/{company_id}/info/payment_methods | List Payment Methods
@@ -138,10 +141,10 @@ Class | Method | HTTP request | Description
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
-*IssuedEInvoicesApi* | [**getEInvoiceRejectionReason**](docs/IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get EInvoice rejection reason
+*IssuedEInvoicesApi* | [**getEInvoiceRejectionReason**](docs/IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get e-invoice rejection reason
 *IssuedEInvoicesApi* | [**getEInvoiceXml**](docs/IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 *IssuedEInvoicesApi* | [**sendEInvoice**](docs/IssuedEInvoicesApi.md#sendEInvoice) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send the e-invoice
-*IssuedEInvoicesApi* | [**verifyEInvoiceXml**](docs/IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
+*IssuedEInvoicesApi* | [**verifyEInvoiceXml**](docs/IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice XML
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /c/{company_id}/products | Create Product
 *ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /c/{company_id}/products/{product_id} | Delete Product
 *ProductsApi* | [**getProduct**](docs/ProductsApi.md#getProduct) | **GET** /c/{company_id}/products/{product_id} | Get Product
@@ -238,8 +241,9 @@ Class | Method | HTTP request | Description
  - [CreateVatTypeResponse](docs/CreateVatTypeResponse.md)
  - [Currency](docs/Currency.md)
  - [DefaultPaymentTermsType](docs/DefaultPaymentTermsType.md)
+ - [DetailedCountry](docs/DetailedCountry.md)
  - [DocumentTemplate](docs/DocumentTemplate.md)
- - [EinvoiceRejectionReason](docs/EinvoiceRejectionReason.md)
+ - [EInvoiceRejectionReason](docs/EInvoiceRejectionReason.md)
  - [EmailData](docs/EmailData.md)
  - [EmailDataDefaultSenderEmail](docs/EmailDataDefaultSenderEmail.md)
  - [EmailSchedule](docs/EmailSchedule.md)
@@ -304,6 +308,7 @@ Class | Method | HTTP request | Description
  - [ListCountriesResponse](docs/ListCountriesResponse.md)
  - [ListCurrenciesResponse](docs/ListCurrenciesResponse.md)
  - [ListDeliveryNotesDefaultCausalsResponse](docs/ListDeliveryNotesDefaultCausalsResponse.md)
+ - [ListDetailedCountriesResponse](docs/ListDetailedCountriesResponse.md)
  - [ListF24Response](docs/ListF24Response.md)
  - [ListF24ResponseAggregatedData](docs/ListF24ResponseAggregatedData.md)
  - [ListF24ResponseAggregation](docs/ListF24ResponseAggregation.md)

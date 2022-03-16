@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**listCurrenciesWithHttpInfo**](InfoApi.md#listCurrenciesWithHttpInfo) | **GET** /info/currencies | List Currencies
 [**listDeliveryNotesDefaultCausals**](InfoApi.md#listDeliveryNotesDefaultCausals) | **GET** /info/dn_causals | List Delivery Notes Default Causals
 [**listDeliveryNotesDefaultCausalsWithHttpInfo**](InfoApi.md#listDeliveryNotesDefaultCausalsWithHttpInfo) | **GET** /info/dn_causals | List Delivery Notes Default Causals
+[**listDetailedCountries**](InfoApi.md#listDetailedCountries) | **GET** /info/detailed_countries | List Detailed Countries
+[**listDetailedCountriesWithHttpInfo**](InfoApi.md#listDetailedCountriesWithHttpInfo) | **GET** /info/detailed_countries | List Detailed Countries
 [**listLanguages**](InfoApi.md#listLanguages) | **GET** /info/languages | List Languages
 [**listLanguagesWithHttpInfo**](InfoApi.md#listLanguagesWithHttpInfo) | **GET** /info/languages | List Languages
 [**listPaymentAccounts**](InfoApi.md#listPaymentAccounts) | **GET** /c/{company_id}/info/payment_accounts | List Payment Accounts
@@ -892,6 +894,144 @@ ApiResponse<[**ListDeliveryNotesDefaultCausalsResponse**](ListDeliveryNotesDefau
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of Delivery Notes Default Causals |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## listDetailedCountries
+
+> ListDetailedCountriesResponse listDetailedCountries()
+
+List Detailed Countries
+
+Lists the supported countries.
+
+### Example
+
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.model.*;
+import it.fattureincloud.sdk.api.InfoApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+        
+        // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+        OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+        OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+        InfoApi apiInstance = new InfoApi(defaultClient);
+        try {
+            ListDetailedCountriesResponse result = apiInstance.listDetailedCountries();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling InfoApi#listDetailedCountries");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListDetailedCountriesResponse**](ListDetailedCountriesResponse.md)
+
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of detailed countries |  -  |
+| **401** | Unauthorized |  -  |
+
+## listDetailedCountriesWithHttpInfo
+
+> ApiResponse<ListDetailedCountriesResponse> listDetailedCountries listDetailedCountriesWithHttpInfo()
+
+List Detailed Countries
+
+Lists the supported countries.
+
+### Example
+
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.ApiResponse;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.model.*;
+import it.fattureincloud.sdk.api.InfoApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+        
+        // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+        OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+        OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+        InfoApi apiInstance = new InfoApi(defaultClient);
+        try {
+            ApiResponse<ListDetailedCountriesResponse> response = apiInstance.listDetailedCountriesWithHttpInfo();
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling InfoApi#listDetailedCountries");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListDetailedCountriesResponse**](ListDetailedCountriesResponse.md)>
+
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of detailed countries |  -  |
 | **401** | Unauthorized |  -  |
 
 

@@ -41,11 +41,11 @@ Name | Type | Description | Notes
 **useGrossPrices** | **Boolean** | Use gross prices |  [optional]
 **eInvoice** | **Boolean** | Indicates if this is an e-invoice. |  [optional]
 **eiData** | [**IssuedDocumentEiData**](IssuedDocumentEiData.md) |  |  [optional]
-**eiCassaType** | **String** | Einvoice cassa type |  [optional]
-**eiCassa2Type** | **String** | Einvoice cassa2 type |  [optional]
-**eiWithholdingTaxCausal** | **String** | Einvoice withholding tax causal |  [optional]
-**eiOtherWithholdingTaxType** | **String** | Einvoice other withholding tax type |  [optional]
-**eiOtherWithholdingTaxCausal** | **String** | Einvoice other withholding tax causal |  [optional]
+**eiCassaType** | **String** | E-invoice cassa type |  [optional]
+**eiCassa2Type** | **String** | E-invoice cassa2 type |  [optional]
+**eiWithholdingTaxCausal** | **String** | E-invoice withholding tax causal |  [optional]
+**eiOtherWithholdingTaxType** | **String** | E-invoice other withholding tax type |  [optional]
+**eiOtherWithholdingTaxCausal** | **String** | E-invoice other withholding tax causal |  [optional]
 **itemsList** | [**List&lt;IssuedDocumentItemsListItem&gt;**](IssuedDocumentItemsListItem.md) |  |  [optional]
 **paymentsList** | [**List&lt;IssuedDocumentPaymentsListItem&gt;**](IssuedDocumentPaymentsListItem.md) |  |  [optional]
 **template** | [**DocumentTemplate**](DocumentTemplate.md) |  |  [optional]
@@ -88,7 +88,7 @@ Name | Type | Description | Notes
 **attachmentUrl** | **String** | [Read Only] Public url of the attached file. Authomatically set if a valid attachment token is passed via POST /issued_documents or PUT /issued_documents/{documentId}. |  [optional] [readonly]
 **attachmentToken** | **String** | [Write Only] Attachment token returned by POST /issued_documents/attachment. Used to attach the file already uploaded. |  [optional]
 **eiRaw** | **Object** | Advanced raw attributes for e-invoices. |  [optional]
-**eiStatus** | [**EiStatusEnum**](#EiStatusEnum) | [Read only] Status of the e-invoice.   * &#x60;attempt&#x60; - We are trying to send the invoice, please wait up to 2 hours   * &#x60;missing&#x60; - The invoice is missing   * &#x60;not_sent&#x60; - The invoice has yet to be sent   * &#x60;pending&#x60; - The checks for the digital signature and sending are in progress   * &#x60;processing&#x60; - The SDI is delivering the invoice to the customer   * &#x60;error&#x60; - An error occurred while handling the invoice, please try to resend it or contact support   * &#x60;discarded&#x60; - The invoice has been rejected by the SDI, so it must be corrected and re-sent   * &#x60;not_delivered&#x60; - The SDI was unable to deliver the invoice   * &#x60;accepted&#x60; - The customer accepted the invoice   * &#x60;rejected&#x60; - The customer rejected the invoice, so it must be corrected   * &#x60;no_response&#x60; - A response has not yet been received whithin the deadline, contact the customer to ascertain the status of the invoice  |  [optional]
+**eiStatus** | [**EiStatusEnum**](#EiStatusEnum) | [Read only] Status of the e-invoice.   * &#x60;attempt&#x60; - We are trying to send the invoice, please wait up to 2 hours   * &#x60;missing&#x60; - The invoice is missing   * &#x60;not_sent&#x60; - The invoice has yet to be sent   * &#x60;sent&#x60; - The invoice was sent   * &#x60;pending&#x60; - The checks for the digital signature and sending are in progress   * &#x60;processing&#x60; - The SDI is delivering the invoice to the customer   * &#x60;error&#x60; - An error occurred while handling the invoice, please try to resend it or contact support   * &#x60;discarded&#x60; - The invoice has been rejected by the SDI, so it must be corrected and re-sent   * &#x60;not_delivered&#x60; - The SDI was unable to deliver the invoice   * &#x60;accepted&#x60; - The customer accepted the invoice   * &#x60;rejected&#x60; - The customer rejected the invoice, so it must be corrected   * &#x60;no_response&#x60; - A response has not yet been received whithin the deadline, contact the customer to ascertain the status of the invoice  |  [optional]
 
 
 
@@ -99,6 +99,7 @@ Name | Value
 ATTEMPT | &quot;attempt&quot;
 MISSING | &quot;missing&quot;
 NOT_SENT | &quot;not_sent&quot;
+SENT | &quot;sent&quot;
 PENDING | &quot;pending&quot;
 PROCESSING | &quot;processing&quot;
 ERROR | &quot;error&quot;

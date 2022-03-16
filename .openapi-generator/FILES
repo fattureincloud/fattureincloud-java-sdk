@@ -51,8 +51,9 @@ docs/CreateVatTypeRequest.md
 docs/CreateVatTypeResponse.md
 docs/Currency.md
 docs/DefaultPaymentTermsType.md
+docs/DetailedCountry.md
 docs/DocumentTemplate.md
-docs/EinvoiceRejectionReason.md
+docs/EInvoiceRejectionReason.md
 docs/EmailData.md
 docs/EmailDataDefaultSenderEmail.md
 docs/EmailSchedule.md
@@ -120,6 +121,7 @@ docs/ListCostCentersResponse.md
 docs/ListCountriesResponse.md
 docs/ListCurrenciesResponse.md
 docs/ListDeliveryNotesDefaultCausalsResponse.md
+docs/ListDetailedCountriesResponse.md
 docs/ListF24Response.md
 docs/ListF24ResponseAggregatedData.md
 docs/ListF24ResponseAggregation.md
@@ -312,8 +314,9 @@ src/main/java/it/fattureincloud/sdk/model/CreateVatTypeRequest.java
 src/main/java/it/fattureincloud/sdk/model/CreateVatTypeResponse.java
 src/main/java/it/fattureincloud/sdk/model/Currency.java
 src/main/java/it/fattureincloud/sdk/model/DefaultPaymentTermsType.java
+src/main/java/it/fattureincloud/sdk/model/DetailedCountry.java
 src/main/java/it/fattureincloud/sdk/model/DocumentTemplate.java
-src/main/java/it/fattureincloud/sdk/model/EinvoiceRejectionReason.java
+src/main/java/it/fattureincloud/sdk/model/EInvoiceRejectionReason.java
 src/main/java/it/fattureincloud/sdk/model/EmailData.java
 src/main/java/it/fattureincloud/sdk/model/EmailDataDefaultSenderEmail.java
 src/main/java/it/fattureincloud/sdk/model/EmailSchedule.java
@@ -378,6 +381,7 @@ src/main/java/it/fattureincloud/sdk/model/ListCostCentersResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListCountriesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListCurrenciesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListDeliveryNotesDefaultCausalsResponse.java
+src/main/java/it/fattureincloud/sdk/model/ListDetailedCountriesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListF24Response.java
 src/main/java/it/fattureincloud/sdk/model/ListF24ResponseAggregatedData.java
 src/main/java/it/fattureincloud/sdk/model/ListF24ResponseAggregation.java
@@ -476,5 +480,6 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
-src/test/java/it/fattureincloud/sdk/model/IssuedDocumentOptionsTest.java
-src/test/java/it/fattureincloud/sdk/model/VatItemTest.java
+src/test/java/it/fattureincloud/sdk/model/DetailedCountryTest.java
+src/test/java/it/fattureincloud/sdk/model/EInvoiceRejectionReasonTest.java
+src/test/java/it/fattureincloud/sdk/model/ListDetailedCountriesResponseTest.java
