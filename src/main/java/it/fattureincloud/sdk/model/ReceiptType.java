@@ -13,63 +13,58 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Receipt type.
  */
 @JsonAdapter(ReceiptType.Adapter.class)
 public enum ReceiptType {
-  
-  TILL_RECEIPT("till_receipt"),
-  
-  SALES_RECEIPT("sales_receipt");
 
-  private String value;
+    TILL_RECEIPT("till_receipt"),
 
-  ReceiptType(String value) {
-    this.value = value;
-  }
+    SALES_RECEIPT("sales_receipt");
 
-  public String getValue() {
-    return value;
-  }
+    private final String value;
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  public static ReceiptType fromValue(String value) {
-    for (ReceiptType b : ReceiptType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    ReceiptType(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<ReceiptType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ReceiptType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public ReceiptType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ReceiptType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static ReceiptType fromValue(String value) {
+        for (ReceiptType b : ReceiptType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ReceiptType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final ReceiptType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public ReceiptType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return ReceiptType.fromValue(value);
+        }
+    }
 }
 

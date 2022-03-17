@@ -13,19 +13,14 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.VatType;
-import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Default values for the document items.
@@ -33,85 +28,86 @@ import java.io.Serializable;
 @ApiModel(description = "Default values for the document items.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
 public class IssuedDocumentPreCreateInfoItemsDefaultValues implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_VAT = "vat";
-  @SerializedName(SERIALIZED_NAME_VAT)
-  private VatType vat;
+    public static final String SERIALIZED_NAME_VAT = "vat";
+    @SerializedName(SERIALIZED_NAME_VAT)
+    private VatType vat;
 
-  public IssuedDocumentPreCreateInfoItemsDefaultValues() { 
-  }
-
-  public IssuedDocumentPreCreateInfoItemsDefaultValues vat(VatType vat) {
-    
-    this.vat = vat;
-    return this;
-  }
-
-   /**
-   * Get vat
-   * @return vat
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public VatType getVat() {
-    return vat;
-  }
-
-
-  public void setVat(VatType vat) {
-    this.vat = vat;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public IssuedDocumentPreCreateInfoItemsDefaultValues() {
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IssuedDocumentPreCreateInfoItemsDefaultValues vat(VatType vat) {
+
+        this.vat = vat;
+        return this;
     }
-    IssuedDocumentPreCreateInfoItemsDefaultValues issuedDocumentPreCreateInfoItemsDefaultValues = (IssuedDocumentPreCreateInfoItemsDefaultValues) o;
-    return Objects.equals(this.vat, issuedDocumentPreCreateInfoItemsDefaultValues.vat);
-  }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
+    /**
+     * Get vat
+     *
+     * @return vat
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(vat);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
+    public VatType getVat() {
+        return vat;
     }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IssuedDocumentPreCreateInfoItemsDefaultValues {\n");
-    sb.append("    vat: ").append(toIndentedString(vat)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setVat(VatType vat) {
+        this.vat = vat;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IssuedDocumentPreCreateInfoItemsDefaultValues issuedDocumentPreCreateInfoItemsDefaultValues = (IssuedDocumentPreCreateInfoItemsDefaultValues) o;
+        return Objects.equals(this.vat, issuedDocumentPreCreateInfoItemsDefaultValues.vat);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vat);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IssuedDocumentPreCreateInfoItemsDefaultValues {\n");
+        sb.append("    vat: ").append(toIndentedString(vat)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

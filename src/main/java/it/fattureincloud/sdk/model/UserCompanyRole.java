@@ -13,65 +13,60 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Role of the user in this company.
  */
 @JsonAdapter(UserCompanyRole.Adapter.class)
 public enum UserCompanyRole {
-  
-  MASTER("master"),
-  
-  SUBACCOUNT("subaccount"),
-  
-  EMPLOYEE("employee");
 
-  private String value;
+    MASTER("master"),
 
-  UserCompanyRole(String value) {
-    this.value = value;
-  }
+    SUBACCOUNT("subaccount"),
 
-  public String getValue() {
-    return value;
-  }
+    EMPLOYEE("employee");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private final String value;
 
-  public static UserCompanyRole fromValue(String value) {
-    for (UserCompanyRole b : UserCompanyRole.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    UserCompanyRole(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<UserCompanyRole> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final UserCompanyRole enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public UserCompanyRole read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return UserCompanyRole.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static UserCompanyRole fromValue(String value) {
+        for (UserCompanyRole b : UserCompanyRole.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UserCompanyRole> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final UserCompanyRole enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public UserCompanyRole read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return UserCompanyRole.fromValue(value);
+        }
+    }
 }
 

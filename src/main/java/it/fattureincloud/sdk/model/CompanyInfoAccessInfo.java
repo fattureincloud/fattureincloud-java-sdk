@@ -13,163 +13,159 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Permissions;
-import it.fattureincloud.sdk.model.UserCompanyRole;
-import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * CompanyInfoAccessInfo
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
 public class CompanyInfoAccessInfo implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private UserCompanyRole role;
+    public static final String SERIALIZED_NAME_ROLE = "role";
+    @SerializedName(SERIALIZED_NAME_ROLE)
+    private UserCompanyRole role;
 
-  public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
-  @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private Permissions permissions;
+    public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+    @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+    private Permissions permissions;
 
-  public static final String SERIALIZED_NAME_THROUGH_ACCOUNTANT = "through_accountant";
-  @SerializedName(SERIALIZED_NAME_THROUGH_ACCOUNTANT)
-  private Boolean throughAccountant;
+    public static final String SERIALIZED_NAME_THROUGH_ACCOUNTANT = "through_accountant";
+    @SerializedName(SERIALIZED_NAME_THROUGH_ACCOUNTANT)
+    private Boolean throughAccountant;
 
-  public CompanyInfoAccessInfo() { 
-  }
-
-  public CompanyInfoAccessInfo role(UserCompanyRole role) {
-    
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserCompanyRole getRole() {
-    return role;
-  }
-
-
-  public void setRole(UserCompanyRole role) {
-    this.role = role;
-  }
-
-
-  public CompanyInfoAccessInfo permissions(Permissions permissions) {
-    
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * Get permissions
-   * @return permissions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Permissions getPermissions() {
-    return permissions;
-  }
-
-
-  public void setPermissions(Permissions permissions) {
-    this.permissions = permissions;
-  }
-
-
-  public CompanyInfoAccessInfo throughAccountant(Boolean throughAccountant) {
-    
-    this.throughAccountant = throughAccountant;
-    return this;
-  }
-
-   /**
-   * Get throughAccountant
-   * @return throughAccountant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getThroughAccountant() {
-    return throughAccountant;
-  }
-
-
-  public void setThroughAccountant(Boolean throughAccountant) {
-    this.throughAccountant = throughAccountant;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public CompanyInfoAccessInfo() {
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public CompanyInfoAccessInfo role(UserCompanyRole role) {
+
+        this.role = role;
+        return this;
     }
-    CompanyInfoAccessInfo companyInfoAccessInfo = (CompanyInfoAccessInfo) o;
-    return Objects.equals(this.role, companyInfoAccessInfo.role) &&
-        Objects.equals(this.permissions, companyInfoAccessInfo.permissions) &&
-        Objects.equals(this.throughAccountant, companyInfoAccessInfo.throughAccountant);
-  }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
+    /**
+     * Get role
+     *
+     * @return role
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(role, permissions, throughAccountant);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
+    public UserCompanyRole getRole() {
+        return role;
     }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CompanyInfoAccessInfo {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    throughAccountant: ").append(toIndentedString(throughAccountant)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setRole(UserCompanyRole role) {
+        this.role = role;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public CompanyInfoAccessInfo permissions(Permissions permissions) {
+
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return permissions
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Permissions getPermissions() {
+        return permissions;
+    }
+
+
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+
+    public CompanyInfoAccessInfo throughAccountant(Boolean throughAccountant) {
+
+        this.throughAccountant = throughAccountant;
+        return this;
+    }
+
+    /**
+     * Get throughAccountant
+     *
+     * @return throughAccountant
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+
+    public Boolean getThroughAccountant() {
+        return throughAccountant;
+    }
+
+
+    public void setThroughAccountant(Boolean throughAccountant) {
+        this.throughAccountant = throughAccountant;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CompanyInfoAccessInfo companyInfoAccessInfo = (CompanyInfoAccessInfo) o;
+        return Objects.equals(this.role, companyInfoAccessInfo.role) &&
+                Objects.equals(this.permissions, companyInfoAccessInfo.permissions) &&
+                Objects.equals(this.throughAccountant, companyInfoAccessInfo.throughAccountant);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(role, permissions, throughAccountant);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CompanyInfoAccessInfo {\n");
+        sb.append("    role: ").append(toIndentedString(role)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    throughAccountant: ").append(toIndentedString(throughAccountant)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

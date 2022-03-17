@@ -13,65 +13,60 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Type of document followed by the the current invoice.
  */
 @JsonAdapter(OriginalDocumentType.Adapter.class)
 public enum OriginalDocumentType {
-  
-  ORDINE("ordine"),
-  
-  CONTRATTO("contratto"),
-  
-  CONVENZIONE("convenzione");
 
-  private String value;
+    ORDINE("ordine"),
 
-  OriginalDocumentType(String value) {
-    this.value = value;
-  }
+    CONTRATTO("contratto"),
 
-  public String getValue() {
-    return value;
-  }
+    CONVENZIONE("convenzione");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private final String value;
 
-  public static OriginalDocumentType fromValue(String value) {
-    for (OriginalDocumentType b : OriginalDocumentType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OriginalDocumentType(String value) {
+        this.value = value;
     }
-    return null;
-  }
 
-  public static class Adapter extends TypeAdapter<OriginalDocumentType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final OriginalDocumentType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public OriginalDocumentType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return OriginalDocumentType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static OriginalDocumentType fromValue(String value) {
+        for (OriginalDocumentType b : OriginalDocumentType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<OriginalDocumentType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final OriginalDocumentType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public OriginalDocumentType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return OriginalDocumentType.fromValue(value);
+        }
+    }
 }
 

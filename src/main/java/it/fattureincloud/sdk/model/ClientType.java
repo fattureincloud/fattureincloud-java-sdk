@@ -13,67 +13,62 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Client type.
  */
 @JsonAdapter(ClientType.Adapter.class)
 public enum ClientType {
-  
-  COMPANY("company"),
-  
-  PERSON("person"),
-  
-  PA("pa"),
-  
-  CONDO("condo");
 
-  private String value;
+    COMPANY("company"),
 
-  ClientType(String value) {
-    this.value = value;
-  }
+    PERSON("person"),
 
-  public String getValue() {
-    return value;
-  }
+    PA("pa"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    CONDO("condo");
 
-  public static ClientType fromValue(String value) {
-    for (ClientType b : ClientType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    private final String value;
+
+    ClientType(String value) {
+        this.value = value;
     }
-    return null;
-  }
 
-  public static class Adapter extends TypeAdapter<ClientType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ClientType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public ClientType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ClientType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static ClientType fromValue(String value) {
+        for (ClientType b : ClientType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ClientType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final ClientType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public ClientType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return ClientType.fromValue(value);
+        }
+    }
 }
 

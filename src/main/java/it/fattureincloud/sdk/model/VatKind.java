@@ -13,67 +13,62 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Vat kind (esigibilità IVA).
  */
 @JsonAdapter(VatKind.Adapter.class)
 public enum VatKind {
-  
-  NULL("null"),
-  
-  I("I"),
-  
-  D("D"),
-  
-  S("S");
 
-  private String value;
+    NULL("null"),
 
-  VatKind(String value) {
-    this.value = value;
-  }
+    I("I"),
 
-  public String getValue() {
-    return value;
-  }
+    D("D"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    S("S");
 
-  public static VatKind fromValue(String value) {
-    for (VatKind b : VatKind.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    private final String value;
+
+    VatKind(String value) {
+        this.value = value;
     }
-    return null;
-  }
 
-  public static class Adapter extends TypeAdapter<VatKind> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final VatKind enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public VatKind read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return VatKind.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static VatKind fromValue(String value) {
+        for (VatKind b : VatKind.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VatKind> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final VatKind enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public VatKind read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return VatKind.fromValue(value);
+        }
+    }
 }
 

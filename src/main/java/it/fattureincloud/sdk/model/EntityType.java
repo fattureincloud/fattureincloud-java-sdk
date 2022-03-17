@@ -13,67 +13,62 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Entity type.
  */
 @JsonAdapter(EntityType.Adapter.class)
 public enum EntityType {
-  
-  COMPANY("company"),
-  
-  PERSON("person"),
-  
-  PA("pa"),
-  
-  CONDO("condo");
 
-  private String value;
+    COMPANY("company"),
 
-  EntityType(String value) {
-    this.value = value;
-  }
+    PERSON("person"),
 
-  public String getValue() {
-    return value;
-  }
+    PA("pa"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    CONDO("condo");
 
-  public static EntityType fromValue(String value) {
-    for (EntityType b : EntityType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    private final String value;
+
+    EntityType(String value) {
+        this.value = value;
     }
-    return null;
-  }
 
-  public static class Adapter extends TypeAdapter<EntityType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final EntityType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public EntityType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return EntityType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static EntityType fromValue(String value) {
+        for (EntityType b : EntityType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EntityType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final EntityType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public EntityType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return EntityType.fromValue(value);
+        }
+    }
 }
 

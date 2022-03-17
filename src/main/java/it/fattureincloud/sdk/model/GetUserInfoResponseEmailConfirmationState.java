@@ -13,103 +13,99 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * GetUserInfoResponseEmailConfirmationState
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
 public class GetUserInfoResponseEmailConfirmationState implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_NEED_CONFIRMATION = "need_confirmation";
-  @SerializedName(SERIALIZED_NAME_NEED_CONFIRMATION)
-  private Boolean needConfirmation;
+    public static final String SERIALIZED_NAME_NEED_CONFIRMATION = "need_confirmation";
+    @SerializedName(SERIALIZED_NAME_NEED_CONFIRMATION)
+    private Boolean needConfirmation;
 
-  public GetUserInfoResponseEmailConfirmationState() { 
-  }
-
-  public GetUserInfoResponseEmailConfirmationState needConfirmation(Boolean needConfirmation) {
-    
-    this.needConfirmation = needConfirmation;
-    return this;
-  }
-
-   /**
-   * Get needConfirmation
-   * @return needConfirmation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getNeedConfirmation() {
-    return needConfirmation;
-  }
-
-
-  public void setNeedConfirmation(Boolean needConfirmation) {
-    this.needConfirmation = needConfirmation;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public GetUserInfoResponseEmailConfirmationState() {
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public GetUserInfoResponseEmailConfirmationState needConfirmation(Boolean needConfirmation) {
+
+        this.needConfirmation = needConfirmation;
+        return this;
     }
-    GetUserInfoResponseEmailConfirmationState getUserInfoResponseEmailConfirmationState = (GetUserInfoResponseEmailConfirmationState) o;
-    return Objects.equals(this.needConfirmation, getUserInfoResponseEmailConfirmationState.needConfirmation);
-  }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
+    /**
+     * Get needConfirmation
+     *
+     * @return needConfirmation
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(needConfirmation);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
+    public Boolean getNeedConfirmation() {
+        return needConfirmation;
     }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GetUserInfoResponseEmailConfirmationState {\n");
-    sb.append("    needConfirmation: ").append(toIndentedString(needConfirmation)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setNeedConfirmation(Boolean needConfirmation) {
+        this.needConfirmation = needConfirmation;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GetUserInfoResponseEmailConfirmationState getUserInfoResponseEmailConfirmationState = (GetUserInfoResponseEmailConfirmationState) o;
+        return Objects.equals(this.needConfirmation, getUserInfoResponseEmailConfirmationState.needConfirmation);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(needConfirmation);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GetUserInfoResponseEmailConfirmationState {\n");
+        sb.append("    needConfirmation: ").append(toIndentedString(needConfirmation)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

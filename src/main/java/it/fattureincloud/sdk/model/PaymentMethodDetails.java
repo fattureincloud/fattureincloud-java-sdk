@@ -13,120 +13,116 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * PaymentMethodDetails
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
 public class PaymentMethodDetails implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+    public static final String SERIALIZED_NAME_TITLE = "title";
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    private String title;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
 
-  public PaymentMethodDetails() { 
-  }
-
-  public PaymentMethodDetails title(String title) {
-    
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Details title.
-   * @return title
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details title.")
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  public PaymentMethodDetails description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Details description.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Details description.")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public PaymentMethodDetails() {
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public PaymentMethodDetails title(String title) {
+
+        this.title = title;
+        return this;
     }
-    PaymentMethodDetails paymentMethodDetails = (PaymentMethodDetails) o;
-    return Objects.equals(this.title, paymentMethodDetails.title) &&
-        Objects.equals(this.description, paymentMethodDetails.description);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(title, description);
-  }
+    /**
+     * Details title.
+     *
+     * @return title
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Details title.")
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentMethodDetails {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public String getTitle() {
+        return title;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+    public PaymentMethodDetails description(String description) {
+
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Details description.
+     *
+     * @return description
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Details description.")
+
+    public String getDescription() {
+        return description;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PaymentMethodDetails paymentMethodDetails = (PaymentMethodDetails) o;
+        return Objects.equals(this.title, paymentMethodDetails.title) &&
+                Objects.equals(this.description, paymentMethodDetails.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PaymentMethodDetails {\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

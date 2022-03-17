@@ -13,20 +13,8 @@
 
 package it.fattureincloud.sdk.api;
 
-import it.fattureincloud.sdk.ApiCallback;
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.ApiResponse;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.Pair;
-import it.fattureincloud.sdk.ProgressRequestBody;
-import it.fattureincloud.sdk.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import it.fattureincloud.sdk.*;
 import it.fattureincloud.sdk.model.GetCompanyInfoResponse;
 
 import java.lang.reflect.Type;
@@ -74,28 +62,28 @@ public class CompaniesApi {
 
     /**
      * Build call for getCompanyInfo
+     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-          <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getCompanyInfoCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[]{};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -105,7 +93,7 @@ public class CompaniesApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/company/info"
-            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -114,7 +102,7 @@ public class CompaniesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -122,25 +110,25 @@ public class CompaniesApi {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
+        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCompanyInfoValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getCompanyInfo(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getCompanyInfoCall(companyId, _callback);
         return localVarCall;
@@ -150,16 +138,16 @@ public class CompaniesApi {
     /**
      * Get Company Info
      * Gets the company detailed info.
+     *
      * @param companyId The ID of the company. (required)
      * @return GetCompanyInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-          <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public GetCompanyInfoResponse getCompanyInfo(Integer companyId) throws ApiException {
         ApiResponse<GetCompanyInfoResponse> localVarResp = getCompanyInfoWithHttpInfo(companyId);
@@ -169,42 +157,44 @@ public class CompaniesApi {
     /**
      * Get Company Info
      * Gets the company detailed info.
+     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;GetCompanyInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-          <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<GetCompanyInfoResponse> getCompanyInfoWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = getCompanyInfoValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<GetCompanyInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetCompanyInfoResponse>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Company Info (asynchronously)
      * Gets the company detailed info.
+     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-          <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
-     </table>
+     * @http.response.details <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
+     * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
+     * </table>
      */
     public okhttp3.Call getCompanyInfoAsync(Integer companyId, final ApiCallback<GetCompanyInfoResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCompanyInfoValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<GetCompanyInfoResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetCompanyInfoResponse>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

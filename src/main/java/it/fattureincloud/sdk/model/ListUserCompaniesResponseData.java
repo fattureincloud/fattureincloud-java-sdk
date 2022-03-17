@@ -13,114 +13,109 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.Company;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * ListUserCompaniesResponseData
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
 public class ListUserCompaniesResponseData implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_COMPANIES = "companies";
-  @SerializedName(SERIALIZED_NAME_COMPANIES)
-  private List<Company> companies = null;
+    public static final String SERIALIZED_NAME_COMPANIES = "companies";
+    @SerializedName(SERIALIZED_NAME_COMPANIES)
+    private List<Company> companies = null;
 
-  public ListUserCompaniesResponseData() { 
-  }
-
-  public ListUserCompaniesResponseData companies(List<Company> companies) {
-    
-    this.companies = companies;
-    return this;
-  }
-
-  public ListUserCompaniesResponseData addCompaniesItem(Company companiesItem) {
-    if (this.companies == null) {
-      this.companies = new ArrayList<>();
+    public ListUserCompaniesResponseData() {
     }
-    this.companies.add(companiesItem);
-    return this;
-  }
 
-   /**
-   * Get companies
-   * @return companies
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+    public ListUserCompaniesResponseData companies(List<Company> companies) {
 
-  public List<Company> getCompanies() {
-    return companies;
-  }
-
-
-  public void setCompanies(List<Company> companies) {
-    this.companies = companies;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        this.companies = companies;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public ListUserCompaniesResponseData addCompaniesItem(Company companiesItem) {
+        if (this.companies == null) {
+            this.companies = new ArrayList<>();
+        }
+        this.companies.add(companiesItem);
+        return this;
     }
-    ListUserCompaniesResponseData listUserCompaniesResponseData = (ListUserCompaniesResponseData) o;
-    return Objects.equals(this.companies, listUserCompaniesResponseData.companies);
-  }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
+    /**
+     * Get companies
+     *
+     * @return companies
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(companies);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
+    public List<Company> getCompanies() {
+        return companies;
     }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-  }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ListUserCompaniesResponseData {\n");
-    sb.append("    companies: ").append(toIndentedString(companies)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ListUserCompaniesResponseData listUserCompaniesResponseData = (ListUserCompaniesResponseData) o;
+        return Objects.equals(this.companies, listUserCompaniesResponseData.companies);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(companies);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ListUserCompaniesResponseData {\n");
+        sb.append("    companies: ").append(toIndentedString(companies)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

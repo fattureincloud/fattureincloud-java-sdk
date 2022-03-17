@@ -13,77 +13,72 @@
 
 package it.fattureincloud.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
 
 /**
  * Issued document type.
  */
 @JsonAdapter(IssuedDocumentType.Adapter.class)
 public enum IssuedDocumentType {
-  
-  INVOICE("invoice"),
-  
-  QUOTE("quote"),
-  
-  PROFORMA("proforma"),
-  
-  RECEIPT("receipt"),
-  
-  DELIVERY_NOTE("delivery_note"),
-  
-  CREDIT_NOTE("credit_note"),
-  
-  ORDER("order"),
-  
-  WORK_REPORT("work_report"),
-  
-  SUPPLIER_ORDER("supplier_order");
 
-  private String value;
+    INVOICE("invoice"),
 
-  IssuedDocumentType(String value) {
-    this.value = value;
-  }
+    QUOTE("quote"),
 
-  public String getValue() {
-    return value;
-  }
+    PROFORMA("proforma"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    RECEIPT("receipt"),
 
-  public static IssuedDocumentType fromValue(String value) {
-    for (IssuedDocumentType b : IssuedDocumentType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    DELIVERY_NOTE("delivery_note"),
+
+    CREDIT_NOTE("credit_note"),
+
+    ORDER("order"),
+
+    WORK_REPORT("work_report"),
+
+    SUPPLIER_ORDER("supplier_order");
+
+    private final String value;
+
+    IssuedDocumentType(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<IssuedDocumentType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final IssuedDocumentType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public IssuedDocumentType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return IssuedDocumentType.fromValue(value);
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static IssuedDocumentType fromValue(String value) {
+        for (IssuedDocumentType b : IssuedDocumentType.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<IssuedDocumentType> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final IssuedDocumentType enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public IssuedDocumentType read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return IssuedDocumentType.fromValue(value);
+        }
+    }
 }
 
