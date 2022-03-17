@@ -189,6 +189,7 @@ public class ProductsApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         Product product1 = new Product()
                 .id(1)
@@ -232,7 +233,7 @@ public class ProductsApiTest {
 
         List<Product> expected = Arrays.asList(product1, product2);
 
-        ListProductsResponse response = api.listProducts(companyId, fields, fieldset, sort, page, perPage);
+        ListProductsResponse response = api.listProducts(companyId, fields, fieldset, sort, page, perPage, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }

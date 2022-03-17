@@ -233,6 +233,7 @@ public class ClientsApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         Client client16451 = new Client()
                 .type(ClientType.PERSON)
@@ -316,7 +317,7 @@ public class ClientsApiTest {
 
         List<Client> expected = Arrays.asList(client16451, client25330696);
 
-        ListClientsResponse response = api.listClients(companyId, fields, fieldset, sort, page, perPage);
+        ListClientsResponse response = api.listClients(companyId, fields, fieldset, sort, page, perPage, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }

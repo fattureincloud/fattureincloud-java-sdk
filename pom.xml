@@ -248,6 +248,18 @@
         </profile>
     </profiles>
 
+    <dependencyManagement>
+         <dependencies>
+             <dependency>
+                 <groupId>org.junit</groupId>
+                 <artifactId>junit-bom</artifactId>
+                 <version>${junit-version}</version>
+                 <type>pom</type>
+                 <scope>import</scope>
+             </dependency>
+         </dependencies>
+     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>io.swagger</groupId>
@@ -303,8 +315,8 @@
         </dependency>
         <!-- test dependencies -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
@@ -326,7 +338,7 @@
         <commons-lang3-version>3.12.0</commons-lang3-version>
         <jackson-databind-nullable-version>0.2.2</jackson-databind-nullable-version>
         <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
-        <junit-version>4.13.2</junit-version>
+        <junit-version>5.8.2</junit-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spotless.version>2.17.3</spotless.version>
     </properties>

@@ -321,7 +321,7 @@ public class IssuedDocumentsApiTest {
         Gson gson = jsonManager.getGson();
         ListIssuedDocumentsResponse listIssuedDocumentsResponse = gson.fromJson(result, ListIssuedDocumentsResponse.class);
 
-        ListIssuedDocumentsResponse response = api.listIssuedDocuments(companyId, "invoice", fields, fieldset, null, null, null);
+        ListIssuedDocumentsResponse response = api.listIssuedDocuments(companyId, "invoice", fields, fieldset, null, null, null, null);
         assertEquals(listIssuedDocumentsResponse.getData(), response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }

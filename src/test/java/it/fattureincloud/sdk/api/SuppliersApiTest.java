@@ -197,6 +197,7 @@ public class SuppliersApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         Supplier supplier1 = new Supplier()
                 .id(12345)
@@ -248,7 +249,7 @@ public class SuppliersApiTest {
 
         List<Supplier> expected = Arrays.asList(supplier1, supplier2);
 
-        ListSuppliersResponse response = api.listSuppliers(companyId, fields, fieldset, sort, page, perPage);
+        ListSuppliersResponse response = api.listSuppliers(companyId, fields, fieldset, sort, page, perPage, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
