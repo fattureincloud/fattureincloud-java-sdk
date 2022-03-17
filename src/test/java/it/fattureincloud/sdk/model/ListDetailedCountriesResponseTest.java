@@ -13,33 +13,61 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.fattureincloud.sdk.model.DetailedCountry;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListDetailedCountriesResponse
  */
 public class ListDetailedCountriesResponseTest {
-    private final ListDetailedCountriesResponse model = new ListDetailedCountriesResponse();
+    private ListDetailedCountriesResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListDetailedCountriesResponse()
+                .addDataItem(
+                        new DetailedCountry()
+                                .name("Italia")
+                                .settingsName("Italia")
+                                .iso("IT")
+                                .fiscalIso("IT")
+                                .uic("086")
+                )
+                .addDataItem(
+                        new DetailedCountry()
+                                .name("Albania")
+                                .settingsName("Albania")
+                                .iso("AL")
+                                .fiscalIso("AL")
+                                .uic("087")
+                );
+    }
 
     /**
      * Model tests for ListDetailedCountriesResponse
      */
     @Test
     public void testListDetailedCountriesResponse() {
-        // TODO: test ListDetailedCountriesResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"},{\"name\":\"Albania\",\"settings_name\":\"Albania\",\"iso\":\"AL\",\"fiscal_iso\":\"AL\",\"uic\":\"087\"}]}";
+        assertEquals(str, json);
+        ListDetailedCountriesResponse generated = gson.fromJson(str, ListDetailedCountriesResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +75,14 @@ public class ListDetailedCountriesResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("Italia", model.getData().get(0).getName());
+        model.setData(Arrays.asList(new DetailedCountry().name("Albania")));
+        assertEquals("Albania", model.getData().get(0).getName());
+
+        model.data(Arrays.asList(new DetailedCountry().name("Spagna")));
+        ListDetailedCountriesResponse actual = new ListDetailedCountriesResponse();
+        actual.setData(Arrays.asList(new DetailedCountry().name("Spagna")));
+        assertEquals(model, actual);
     }
 
 }
