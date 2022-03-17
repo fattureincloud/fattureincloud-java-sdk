@@ -635,7 +635,7 @@ ApiResponse<[**GetF24Response**](GetF24Response.md)>
 
 ## listF24
 
-> ListF24Response listF24(companyId, fields, fieldset, sort, page, perPage)
+> ListF24Response listF24(companyId, fields, fieldset, sort, page, perPage, q)
 
 List F24
 
@@ -668,8 +668,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ListF24Response result = apiInstance.listF24(companyId, fields, fieldset, sort, page, perPage);
+            ListF24Response result = apiInstance.listF24(companyId, fields, fieldset, sort, page, perPage, q);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TaxesApi#listF24");
@@ -693,6 +694,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 
@@ -716,7 +718,7 @@ Name | Type | Description  | Notes
 
 ## listF24WithHttpInfo
 
-> ApiResponse<ListF24Response> listF24 listF24WithHttpInfo(companyId, fields, fieldset, sort, page, perPage)
+> ApiResponse<ListF24Response> listF24 listF24WithHttpInfo(companyId, fields, fieldset, sort, page, perPage, q)
 
 List F24
 
@@ -750,8 +752,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ApiResponse<ListF24Response> response = apiInstance.listF24WithHttpInfo(companyId, fields, fieldset, sort, page, perPage);
+            ApiResponse<ListF24Response> response = apiInstance.listF24WithHttpInfo(companyId, fields, fieldset, sort, page, perPage, q);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -777,6 +780,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 

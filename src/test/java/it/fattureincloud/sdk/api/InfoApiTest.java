@@ -156,6 +156,39 @@ public class InfoApiTest {
     }
 
     /**
+     * List Detailed Countries
+     * <p>
+     * Lists the supported countries.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listDetailedCountriesTest() throws ApiException, IOException {
+        String result = "{\"data\":[{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"},{\"name\":\"Albania\",\"settings_name\":\"Albania\",\"iso\":\"AL\",\"fiscal_iso\":\"AL\",\"uic\":\"087\"}]}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        InfoApi api = mockApi(result, mockCall);
+
+        DetailedCountry d1 = new DetailedCountry()
+                .name("Italia")
+                .settingsName("Italia")
+                .iso("IT")
+                .fiscalIso("IT")
+                .uic("086");
+        DetailedCountry d2 = new DetailedCountry()
+                .name("Albania")
+                .settingsName("Albania")
+                .iso("AL")
+                .fiscalIso("AL")
+                .uic("087");
+        List<DetailedCountry> expected = Arrays.asList(d1, d2);
+
+        ListDetailedCountriesResponse response = api.listDetailedCountries();
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+    }
+
+    /**
      * List Currencies
      * <p>
      * Lists the supported currencies.

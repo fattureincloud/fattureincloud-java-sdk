@@ -192,6 +192,7 @@ public class TaxesApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         F24 f241 = new F24()
                 .id(12345)
@@ -219,7 +220,7 @@ public class TaxesApiTest {
 
         List<F24> expected = Arrays.asList(f241, f242);
 
-        ListF24Response response = api.listF24(companyId, fields, fieldset, sort, page, perPage);
+        ListF24Response response = api.listF24(companyId, fields, fieldset, sort, page, perPage, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }

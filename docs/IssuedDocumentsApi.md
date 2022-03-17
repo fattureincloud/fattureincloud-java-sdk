@@ -1245,7 +1245,7 @@ ApiResponse<[**GetNewIssuedDocumentTotalsResponse**](GetNewIssuedDocumentTotalsR
 
 ## listIssuedDocuments
 
-> ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage)
+> ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q)
 
 List Issued Documents
 
@@ -1279,8 +1279,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ListIssuedDocumentsResponse result = apiInstance.listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage);
+            ListIssuedDocumentsResponse result = apiInstance.listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IssuedDocumentsApi#listIssuedDocuments");
@@ -1305,6 +1306,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 
@@ -1329,7 +1331,7 @@ Name | Type | Description  | Notes
 
 ## listIssuedDocumentsWithHttpInfo
 
-> ApiResponse<ListIssuedDocumentsResponse> listIssuedDocuments listIssuedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage)
+> ApiResponse<ListIssuedDocumentsResponse> listIssuedDocuments listIssuedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage, q)
 
 List Issued Documents
 
@@ -1364,8 +1366,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ApiResponse<ListIssuedDocumentsResponse> response = apiInstance.listIssuedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage);
+            ApiResponse<ListIssuedDocumentsResponse> response = apiInstance.listIssuedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage, q);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -1392,6 +1395,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 

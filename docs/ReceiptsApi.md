@@ -787,7 +787,7 @@ ApiResponse<[**GetReceiptsMonthlyTotalsResponse**](GetReceiptsMonthlyTotalsRespo
 
 ## listReceipts
 
-> ListReceiptsResponse listReceipts(companyId, fields, fieldset, page, perPage, sort)
+> ListReceiptsResponse listReceipts(companyId, fields, fieldset, page, perPage, sort, q)
 
 List Receipts
 
@@ -820,8 +820,9 @@ public class Example {
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ListReceiptsResponse result = apiInstance.listReceipts(companyId, fields, fieldset, page, perPage, sort);
+            ListReceiptsResponse result = apiInstance.listReceipts(companyId, fields, fieldset, page, perPage, sort, q);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReceiptsApi#listReceipts");
@@ -845,6 +846,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 
@@ -868,7 +870,7 @@ Name | Type | Description  | Notes
 
 ## listReceiptsWithHttpInfo
 
-> ApiResponse<ListReceiptsResponse> listReceipts listReceiptsWithHttpInfo(companyId, fields, fieldset, page, perPage, sort)
+> ApiResponse<ListReceiptsResponse> listReceipts listReceiptsWithHttpInfo(companyId, fields, fieldset, page, perPage, sort, q)
 
 List Receipts
 
@@ -902,8 +904,9 @@ public class Example {
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ApiResponse<ListReceiptsResponse> response = apiInstance.listReceiptsWithHttpInfo(companyId, fields, fieldset, page, perPage, sort);
+            ApiResponse<ListReceiptsResponse> response = apiInstance.listReceiptsWithHttpInfo(companyId, fields, fieldset, page, perPage, sort, q);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -929,6 +932,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 

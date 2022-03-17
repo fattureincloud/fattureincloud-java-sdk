@@ -1089,7 +1089,7 @@ ApiResponse<[**GetReceivedDocumentPreCreateInfoResponse**](GetReceivedDocumentPr
 
 ## listReceivedDocuments
 
-> ListReceivedDocumentsResponse listReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage)
+> ListReceivedDocumentsResponse listReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q)
 
 List Received Documents
 
@@ -1123,8 +1123,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ListReceivedDocumentsResponse result = apiInstance.listReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage);
+            ListReceivedDocumentsResponse result = apiInstance.listReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReceivedDocumentsApi#listReceivedDocuments");
@@ -1149,6 +1150,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 
@@ -1172,7 +1174,7 @@ Name | Type | Description  | Notes
 
 ## listReceivedDocumentsWithHttpInfo
 
-> ApiResponse<ListReceivedDocumentsResponse> listReceivedDocuments listReceivedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage)
+> ApiResponse<ListReceivedDocumentsResponse> listReceivedDocuments listReceivedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage, q)
 
 List Received Documents
 
@@ -1207,8 +1209,9 @@ public class Example {
         String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
         Integer page = 1; // Integer | The page to retrieve.
         Integer perPage = 5; // Integer | The size of the page.
+        String q = "q_example"; // String | Query for filtering the results.
         try {
-            ApiResponse<ListReceivedDocumentsResponse> response = apiInstance.listReceivedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage);
+            ApiResponse<ListReceivedDocumentsResponse> response = apiInstance.listReceivedDocumentsWithHttpInfo(companyId, type, fields, fieldset, sort, page, perPage, q);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -1235,6 +1238,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional]
  **page** | **Integer**| The page to retrieve. | [optional] [default to 1]
  **perPage** | **Integer**| The size of the page. | [optional] [default to 5]
+ **q** | **String**| Query for filtering the results. | [optional]
 
 ### Return type
 

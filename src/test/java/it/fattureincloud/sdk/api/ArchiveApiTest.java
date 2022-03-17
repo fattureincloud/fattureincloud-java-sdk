@@ -162,6 +162,7 @@ public class ArchiveApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         ArchiveDocument archiveDocument1 = new ArchiveDocument()
                 .id(12345)
@@ -179,7 +180,7 @@ public class ArchiveApiTest {
 
         List<ArchiveDocument> expected = Arrays.asList(archiveDocument1, archiveDocument2);
 
-        ListArchiveDocumentsResponse response = api.listArchiveDocuments(companyId, fields, fieldset, sort, page, perPage);
+        ListArchiveDocumentsResponse response = api.listArchiveDocuments(companyId, fields, fieldset, sort, page, perPage, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }

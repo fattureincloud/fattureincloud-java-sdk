@@ -24,14 +24,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
- * Model tests for EinvoiceRejectionReason
+ * Model tests for EInvoiceRejectionReason
  */
-public class EinvoiceRejectionReasonTest {
-    private EinvoiceRejectionReason model;
+public class EInvoiceRejectionReasonTest {
+    private EInvoiceRejectionReason model;
 
     @BeforeEach
     public void init() {
-        model = new EinvoiceRejectionReason()
+        model = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
@@ -40,16 +40,16 @@ public class EinvoiceRejectionReasonTest {
     }
 
     /**
-     * Model tests for EinvoiceRejectionReason
+     * Model tests for EInvoiceRejectionReason
      */
     @Test
-    public void testEinvoiceRejectionReason() {
+    public void testEInvoiceRejectionReason() {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
         String str = "{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-01-10\"}";
         assertEquals(str, json);
-        EinvoiceRejectionReason generated = gson.fromJson(str, EinvoiceRejectionReason.class);
+        EInvoiceRejectionReason generated = gson.fromJson(str, EInvoiceRejectionReason.class);
         assertEquals(model, generated);
 
         Object o = model;
@@ -67,8 +67,8 @@ public class EinvoiceRejectionReasonTest {
         model.setReason("invalid qualcosa");
         assertEquals("invalid qualcosa", model.getReason());
 
-        EinvoiceRejectionReason c = model.reason("invalid date");
-        EinvoiceRejectionReason expected = new EinvoiceRejectionReason()
+        EInvoiceRejectionReason c = model.reason("invalid date");
+        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
@@ -86,8 +86,8 @@ public class EinvoiceRejectionReasonTest {
         model.setEiStatus("error");
         assertEquals("error", model.getEiStatus());
 
-        EinvoiceRejectionReason c = model.eiStatus("rejected");
-        EinvoiceRejectionReason expected = new EinvoiceRejectionReason()
+        EInvoiceRejectionReason c = model.eiStatus("rejected");
+        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
@@ -105,8 +105,8 @@ public class EinvoiceRejectionReasonTest {
         model.setSolution("set a valid qualcosa");
         assertEquals("set a valid qualcosa", model.getSolution());
 
-        EinvoiceRejectionReason c = model.solution("set a valid date");
-        EinvoiceRejectionReason expected = new EinvoiceRejectionReason()
+        EInvoiceRejectionReason c = model.solution("set a valid date");
+        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
@@ -124,8 +124,8 @@ public class EinvoiceRejectionReasonTest {
         model.setCode("c02");
         assertEquals("c02", model.getCode());
 
-        EinvoiceRejectionReason c = model.code("c01");
-        EinvoiceRejectionReason expected = new EinvoiceRejectionReason()
+        EInvoiceRejectionReason c = model.code("c01");
+        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
@@ -143,8 +143,8 @@ public class EinvoiceRejectionReasonTest {
         model.setDate(LocalDate.of(2022, 01, 12));
         assertEquals(LocalDate.of(2022, 01, 12), model.getDate());
 
-        EinvoiceRejectionReason c = model.date(LocalDate.of(2022, 01, 10));
-        EinvoiceRejectionReason expected = new EinvoiceRejectionReason()
+        EInvoiceRejectionReason c = model.date(LocalDate.of(2022, 01, 10));
+        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")

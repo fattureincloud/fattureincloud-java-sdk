@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.13
+  version: 2.0.14
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -343,6 +343,14 @@ paths:
         schema:
           default: 5
           type: integer
+        style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -869,6 +877,14 @@ paths:
           default: 5
           type: integer
         style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1304,6 +1320,14 @@ paths:
           default: 5
           type: integer
         style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1731,6 +1755,14 @@ paths:
         schema:
           default: 5
           type: integer
+        style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -4740,7 +4772,7 @@ paths:
       x-accepts: application/json
   /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify:
     get:
-      description: Verifies the e-invoice xml format. Checks if all of the mandatory
+      description: Verifies the e-invoice XML format. Checks if all of the mandatory
         fields are filled and compliant to the right format.
       operationId: verifyEInvoiceXml
       parameters:
@@ -4785,7 +4817,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Verify e-invoice xml
+      summary: Verify e-invoice XML
       tags:
       - Issued e-invoices
       x-accepts: application/json
@@ -4837,7 +4869,7 @@ paths:
       x-accepts: text/xml
   /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason:
     get:
-      description: Get EInvoice rejection reason
+      description: Get e-invoice rejection reason
       operationId: getEInvoiceRejectionReason
       parameters:
       - description: The ID of the company.
@@ -4864,7 +4896,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetEInvoiceRejectionReasonResponse'
           description: Example response
-      summary: Get EInvoice rejection reason
+      summary: Get e-invoice rejection reason
       tags:
       - Issued e-invoices
       x-accepts: application/json
@@ -4939,6 +4971,14 @@ paths:
         schema:
           default: 5
           type: integer
+        style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -6572,6 +6612,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7299,6 +7347,14 @@ paths:
           default: 5
           type: integer
         style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7730,6 +7786,14 @@ paths:
         schema:
           default: 5
           type: integer
+        style: form
+      - description: Query for filtering the results.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -8391,6 +8455,45 @@ paths:
       security:
       - OAuth2AuthenticationCodeFlow: []
       summary: List Countries
+      tags:
+      - Info
+      x-accepts: application/json
+  /info/detailed_countries:
+    get:
+      description: Lists the supported countries.
+      operationId: listDetailedCountries
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - name: Italia
+                      settings_name: Italia
+                      iso: IT
+                      fiscal_iso: IT
+                      uic: "086"
+                    - name: Afghanistan
+                      settings_name: Afghanistan
+                      iso: AF
+                      fiscal_iso: AF
+                      uic: "002"
+                    - name: Albania
+                      settings_name: Albania
+                      iso: AL
+                      fiscal_iso: AL
+                      uic: "087"
+              schema:
+                $ref: '#/components/schemas/ListDetailedCountriesResponse'
+          description: List of detailed countries
+        "401":
+          description: Unauthorized
+      security:
+      - OAuth2AuthenticationCodeFlow: []
+      summary: List Detailed Countries
       tags:
       - Info
       x-accepts: application/json
@@ -9807,6 +9910,15 @@ components:
         - expense
         - passive_credit_note
         - passive_delivery_note
+        type: string
+      style: form
+    q:
+      description: Query for filtering the results.
+      explode: true
+      in: query
+      name: q
+      required: false
+      schema:
         type: string
       style: form
     include_attachment:
@@ -14980,6 +15092,31 @@ components:
           schema:
             $ref: '#/components/schemas/GetEInvoiceRejectionReasonResponse'
       description: Example response
+    ListDetailedCountriesResponse:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                data:
+                - name: Italia
+                  settings_name: Italia
+                  iso: IT
+                  fiscal_iso: IT
+                  uic: "086"
+                - name: Afghanistan
+                  settings_name: Afghanistan
+                  iso: AF
+                  fiscal_iso: AF
+                  uic: "002"
+                - name: Albania
+                  settings_name: Albania
+                  iso: AL
+                  fiscal_iso: AL
+                  uic: "087"
+          schema:
+            $ref: '#/components/schemas/ListDetailedCountriesResponse'
+      description: List of detailed countries
   schemas:
     GetUserInfoResponse:
       description: ""
@@ -18236,7 +18373,7 @@ components:
           ei_status: ei_status
       properties:
         data:
-          $ref: '#/components/schemas/EinvoiceRejectionReason'
+          $ref: '#/components/schemas/EInvoiceRejectionReason'
       title: GetEInvoiceRejectionReason
       type: object
     ListReceivedDocumentsResponse:
@@ -19932,6 +20069,26 @@ components:
           nullable: true
           type: array
       title: ListCountriesResponse
+      type: object
+    ListDetailedCountriesResponse:
+      example:
+        data:
+        - iso: iso
+          name: name
+          settings_name: settings_name
+          fiscal_iso: fiscal_iso
+          uic: uic
+        - iso: iso
+          name: name
+          settings_name: settings_name
+          fiscal_iso: fiscal_iso
+          uic: uic
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DetailedCountry'
+          type: array
+      title: ListDetailedCountriesResponse
       type: object
     ListCitiesResponse:
       description: ""
@@ -21675,23 +21832,23 @@ components:
         ei_data:
           $ref: '#/components/schemas/IssuedDocument_ei_data'
         ei_cassa_type:
-          description: Einvoice cassa type
+          description: E-invoice cassa type
           nullable: true
           type: string
         ei_cassa2_type:
-          description: Einvoice cassa2 type
+          description: E-invoice cassa2 type
           nullable: true
           type: string
         ei_withholding_tax_causal:
-          description: Einvoice withholding tax causal
+          description: E-invoice withholding tax causal
           nullable: true
           type: string
         ei_other_withholding_tax_type:
-          description: Einvoice other withholding tax type
+          description: E-invoice other withholding tax type
           nullable: true
           type: string
         ei_other_withholding_tax_causal:
-          description: Einvoice other withholding tax causal
+          description: E-invoice other withholding tax causal
           nullable: true
           type: string
         items_list:
@@ -21886,6 +22043,7 @@ components:
               * `attempt` - We are trying to send the invoice, please wait up to 2 hours
               * `missing` - The invoice is missing
               * `not_sent` - The invoice has yet to be sent
+              * `sent` - The invoice was sent
               * `pending` - The checks for the digital signature and sending are in progress
               * `processing` - The SDI is delivering the invoice to the customer
               * `error` - An error occurred while handling the invoice, please try to resend it or contact support
@@ -21898,6 +22056,7 @@ components:
           - attempt
           - missing
           - not_sent
+          - sent
           - pending
           - processing
           - error
@@ -22393,7 +22552,7 @@ components:
           type: boolean
       title: EmailSchedule
       type: object
-    EinvoiceRejectionReason:
+    EInvoiceRejectionReason:
       example:
         date: 2000-01-23
         reason: reason
@@ -22406,7 +22565,7 @@ components:
           nullable: true
           type: string
         ei_status:
-          description: EInvoice status.
+          description: E-invoice status.
           nullable: true
           type: string
         solution:
@@ -22422,7 +22581,7 @@ components:
           format: date
           nullable: true
           type: string
-      title: EinvoiceRejectionReason
+      title: EInvoiceRejectionReason
       type: object
     ListReceivedDocumentsResponsePage:
       properties:
@@ -23189,6 +23348,34 @@ components:
           $ref: '#/components/schemas/PaymentAccount'
       title: CashbookEntry
       type: object
+    DetailedCountry:
+      example:
+        iso: iso
+        name: name
+        settings_name: settings_name
+        fiscal_iso: fiscal_iso
+        uic: uic
+      properties:
+        name:
+          description: Country name.
+          nullable: true
+          type: string
+        settings_name:
+          nullable: true
+          type: string
+        iso:
+          description: Country iso.
+          nullable: true
+          type: string
+        fiscal_iso:
+          nullable: true
+          type: string
+        uic:
+          description: Country uic.
+          nullable: true
+          type: string
+      title: DetailedCountry
+      type: object
     City:
       example:
         province: province
@@ -23399,7 +23586,7 @@ components:
           nullable: true
           type: string
         ei_payment_method:
-          description: EInvoice payment method
+          description: E-invoice payment method
           nullable: true
           type: string
       title: PaymentMethod

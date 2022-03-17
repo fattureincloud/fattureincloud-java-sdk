@@ -4,14 +4,14 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEInvoiceRejectionReason**](IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get EInvoice rejection reason
-[**getEInvoiceRejectionReasonWithHttpInfo**](IssuedEInvoicesApi.md#getEInvoiceRejectionReasonWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get EInvoice rejection reason
+[**getEInvoiceRejectionReason**](IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get e-invoice rejection reason
+[**getEInvoiceRejectionReasonWithHttpInfo**](IssuedEInvoicesApi.md#getEInvoiceRejectionReasonWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get e-invoice rejection reason
 [**getEInvoiceXml**](IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 [**getEInvoiceXmlWithHttpInfo**](IssuedEInvoicesApi.md#getEInvoiceXmlWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
 [**sendEInvoice**](IssuedEInvoicesApi.md#sendEInvoice) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send the e-invoice
 [**sendEInvoiceWithHttpInfo**](IssuedEInvoicesApi.md#sendEInvoiceWithHttpInfo) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send the e-invoice
-[**verifyEInvoiceXml**](IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
-[**verifyEInvoiceXmlWithHttpInfo**](IssuedEInvoicesApi.md#verifyEInvoiceXmlWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice xml
+[**verifyEInvoiceXml**](IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice XML
+[**verifyEInvoiceXmlWithHttpInfo**](IssuedEInvoicesApi.md#verifyEInvoiceXmlWithHttpInfo) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify e-invoice XML
 
 
 
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 
 > GetEInvoiceRejectionReasonResponse getEInvoiceRejectionReason(companyId, documentId)
 
-Get EInvoice rejection reason
+Get e-invoice rejection reason
 
-Get EInvoice rejection reason
+Get e-invoice rejection reason
 
 ### Example
 
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 
 > ApiResponse<GetEInvoiceRejectionReasonResponse> getEInvoiceRejectionReason getEInvoiceRejectionReasonWithHttpInfo(companyId, documentId)
 
-Get EInvoice rejection reason
+Get e-invoice rejection reason
 
-Get EInvoice rejection reason
+Get e-invoice rejection reason
 
 ### Example
 
@@ -479,9 +479,9 @@ ApiResponse<[**SendEInvoiceResponse**](SendEInvoiceResponse.md)>
 
 > VerifyEInvoiceXmlResponse verifyEInvoiceXml(companyId, documentId)
 
-Verify e-invoice xml
+Verify e-invoice XML
 
-Verifies the e-invoice xml format. Checks if all of the mandatory fields are filled and compliant to the right format.
+Verifies the e-invoice XML format. Checks if all of the mandatory fields are filled and compliant to the right format.
 
 ### Example
 
@@ -554,9 +554,9 @@ Name | Type | Description  | Notes
 
 > ApiResponse<VerifyEInvoiceXmlResponse> verifyEInvoiceXml verifyEInvoiceXmlWithHttpInfo(companyId, documentId)
 
-Verify e-invoice xml
+Verify e-invoice XML
 
-Verifies the e-invoice xml format. Checks if all of the mandatory fields are filled and compliant to the right format.
+Verifies the e-invoice XML format. Checks if all of the mandatory fields are filled and compliant to the right format.
 
 ### Example
 

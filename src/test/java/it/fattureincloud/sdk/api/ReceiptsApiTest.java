@@ -241,6 +241,7 @@ public class ReceiptsApiTest {
         String sort = null;
         Integer page = 1;
         Integer perPage = 5;
+        String q = null;
 
         Receipt receipt1 = new Receipt()
                 .id(10)
@@ -278,7 +279,7 @@ public class ReceiptsApiTest {
 
         List<Receipt> expected = Arrays.asList(receipt1, receipt2);
 
-        ListReceiptsResponse response = api.listReceipts(companyId, fields, fieldset, page, perPage, sort);
+        ListReceiptsResponse response = api.listReceipts(companyId, fields, fieldset, page, perPage, sort, q);
         assertEquals(expected, response.getData());
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
