@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.5 (2022-03-17)
+
+
+### Bug Fixes
+
+* added filter parameter and detailed countries method ([#33](https://github.com/fattureincloud/fattureincloud-java-sdk/issues/33)) ([a34ff5e](https://github.com/fattureincloud/fattureincloud-java-sdk/commit/a34ff5e5efeff5035d291a7d7481c32aebed10ae))
+
 ### 2.0.4 (2022-02-28)
 
 
