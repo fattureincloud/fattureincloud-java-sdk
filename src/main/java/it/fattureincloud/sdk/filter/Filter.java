@@ -83,7 +83,7 @@ public class Filter {
     }
 
     public Filter orFilter(Filter filter) throws Exception {
-        if (this.expression == null || filter == null  || !filter.getExpression().isPresent()) {
+        if (this.expression == null || filter == null || !filter.getExpression().isPresent()) {
             throw new Exception("Cannot create a disjunction for an empty expression.");
         }
         Expression left = this.expression;
