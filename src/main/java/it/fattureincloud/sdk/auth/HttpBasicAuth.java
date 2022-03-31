@@ -13,13 +13,16 @@
 
 package it.fattureincloud.sdk.auth;
 
-import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.Pair;
+import it.fattureincloud.sdk.ApiException;
+
 import okhttp3.Credentials;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
+
+import java.io.UnsupportedEncodingException;
 
 public class HttpBasicAuth implements Authentication {
     private String username;
@@ -48,7 +51,7 @@ public class HttpBasicAuth implements Authentication {
             return;
         }
         headerParams.put("Authorization", Credentials.basic(
-                username == null ? "" : username,
-                password == null ? "" : password));
+            username == null ? "" : username,
+            password == null ? "" : password));
     }
 }

@@ -1,6 +1,11 @@
 package it.fattureincloud.sdk.auth;
 
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 import org.apache.oltu.oauth2.client.HttpClient;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 import org.apache.oltu.oauth2.client.response.OAuthClientResponse;
@@ -13,7 +18,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class OAuthOkHttpClient implements HttpClient {
-    private final OkHttpClient client;
+    private OkHttpClient client;
 
     public OAuthOkHttpClient() {
         this.client = new OkHttpClient();
@@ -31,7 +36,7 @@ public class OAuthOkHttpClient implements HttpClient {
         MediaType mediaType = MediaType.parse("application/json");
         Request.Builder requestBuilder = new Request.Builder().url(request.getLocationUri());
 
-        if (headers != null) {
+        if(headers != null) {
             for (Entry<String, String> entry : headers.entrySet()) {
                 if (entry.getKey().equalsIgnoreCase("Content-Type")) {
                     mediaType = MediaType.parse(entry.getValue());

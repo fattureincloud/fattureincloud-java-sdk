@@ -13,62 +13,67 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Level of the permission.
  */
 @JsonAdapter(PermissionLevel.Adapter.class)
 public enum PermissionLevel {
+  
+  NONE("none"),
+  
+  READ("read"),
+  
+  WRITE("write"),
+  
+  DETAILED("detailed");
 
-    NONE("none"),
+  private String value;
 
-    READ("read"),
+  PermissionLevel(String value) {
+    this.value = value;
+  }
 
-    WRITE("write"),
+  public String getValue() {
+    return value;
+  }
 
-    DETAILED("detailed");
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    private final String value;
-
-    PermissionLevel(String value) {
-        this.value = value;
+  public static PermissionLevel fromValue(String value) {
+    for (PermissionLevel b : PermissionLevel.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<PermissionLevel> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final PermissionLevel enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public PermissionLevel read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return PermissionLevel.fromValue(value);
     }
-
-    public static PermissionLevel fromValue(String value) {
-        for (PermissionLevel b : PermissionLevel.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<PermissionLevel> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final PermissionLevel enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public PermissionLevel read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return PermissionLevel.fromValue(value);
-        }
-    }
+  }
 }
 

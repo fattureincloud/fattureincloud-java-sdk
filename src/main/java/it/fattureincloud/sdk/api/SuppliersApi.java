@@ -13,9 +13,26 @@
 
 package it.fattureincloud.sdk.api;
 
+import it.fattureincloud.sdk.ApiCallback;
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.ApiResponse;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.Pair;
+import it.fattureincloud.sdk.ProgressRequestBody;
+import it.fattureincloud.sdk.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import it.fattureincloud.sdk.*;
-import it.fattureincloud.sdk.model.*;
+
+import java.io.IOException;
+
+
+import it.fattureincloud.sdk.model.CreateSupplierRequest;
+import it.fattureincloud.sdk.model.CreateSupplierResponse;
+import it.fattureincloud.sdk.model.GetSupplierResponse;
+import it.fattureincloud.sdk.model.ListSuppliersResponse;
+import it.fattureincloud.sdk.model.ModifySupplierRequest;
+import it.fattureincloud.sdk.model.ModifySupplierResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,28 +79,27 @@ public class SuppliersApi {
 
     /**
      * Build call for createSupplier
-     *
-     * @param companyId             The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param createSupplierRequest The supplier to create (optional)
-     * @param _callback             Callback for upload/download progress
+     * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createSupplierCall(Integer companyId, CreateSupplierRequest createSupplierRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -93,7 +109,7 @@ public class SuppliersApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/entities/suppliers"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -102,7 +118,7 @@ public class SuppliersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -110,25 +126,25 @@ public class SuppliersApi {
         }
 
         final String[] localVarContentTypes = {
-                "application/json"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSupplierValidateBeforeCall(Integer companyId, CreateSupplierRequest createSupplierRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling createSupplier(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = createSupplierCall(companyId, createSupplierRequest, _callback);
         return localVarCall;
@@ -138,16 +154,15 @@ public class SuppliersApi {
     /**
      * Create Supplier
      * Creates a new supplier.
-     *
-     * @param companyId             The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param createSupplierRequest The supplier to create (optional)
      * @return CreateSupplierResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     </table>
      */
     public CreateSupplierResponse createSupplier(Integer companyId, CreateSupplierRequest createSupplierRequest) throws ApiException {
         ApiResponse<CreateSupplierResponse> localVarResp = createSupplierWithHttpInfo(companyId, createSupplierRequest);
@@ -157,74 +172,68 @@ public class SuppliersApi {
     /**
      * Create Supplier
      * Creates a new supplier.
-     *
-     * @param companyId             The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param createSupplierRequest The supplier to create (optional)
      * @return ApiResponse&lt;CreateSupplierResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<CreateSupplierResponse> createSupplierWithHttpInfo(Integer companyId, CreateSupplierRequest createSupplierRequest) throws ApiException {
         okhttp3.Call localVarCall = createSupplierValidateBeforeCall(companyId, createSupplierRequest, null);
-        Type localVarReturnType = new TypeToken<CreateSupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<CreateSupplierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Supplier (asynchronously)
      * Creates a new supplier.
-     *
-     * @param companyId             The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param createSupplierRequest The supplier to create (optional)
-     * @param _callback             The callback to be executed when the API call finishes
+     * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createSupplierAsync(Integer companyId, CreateSupplierRequest createSupplierRequest, final ApiCallback<CreateSupplierResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSupplierValidateBeforeCall(companyId, createSupplierRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateSupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<CreateSupplierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteSupplier
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param _callback  Callback for upload/download progress
+     * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteSupplierCall(Integer companyId, Integer supplierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -234,8 +243,8 @@ public class SuppliersApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/entities/suppliers/{supplier_id}"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-                .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+            .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -244,7 +253,7 @@ public class SuppliersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-
+            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -252,30 +261,30 @@ public class SuppliersApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSupplierValidateBeforeCall(Integer companyId, Integer supplierId, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling deleteSupplier(Async)");
         }
-
+        
         // verify the required parameter 'supplierId' is set
         if (supplierId == null) {
             throw new ApiException("Missing the required parameter 'supplierId' when calling deleteSupplier(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = deleteSupplierCall(companyId, supplierId, _callback);
         return localVarCall;
@@ -285,17 +294,16 @@ public class SuppliersApi {
     /**
      * Delete Supplier
      * Deletes the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteSupplier(Integer companyId, Integer supplierId) throws ApiException {
         deleteSupplierWithHttpInfo(companyId, supplierId);
@@ -304,18 +312,17 @@ public class SuppliersApi {
     /**
      * Delete Supplier
      * Deletes the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteSupplierWithHttpInfo(Integer companyId, Integer supplierId) throws ApiException {
         okhttp3.Call localVarCall = deleteSupplierValidateBeforeCall(companyId, supplierId, null);
@@ -325,19 +332,18 @@ public class SuppliersApi {
     /**
      * Delete Supplier (asynchronously)
      * Deletes the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param _callback  The callback to be executed when the API call finishes
+     * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Entity Removed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteSupplierAsync(Integer companyId, Integer supplierId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -345,35 +351,33 @@ public class SuppliersApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getSupplier
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param fields     List of comma-separated fields. (optional)
-     * @param fieldset   Name of the fieldset. (optional)
-     * @param _callback  Callback for upload/download progress
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getSupplierCall(Integer companyId, Integer supplierId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -383,8 +387,8 @@ public class SuppliersApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/entities/suppliers/{supplier_id}"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-                .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+            .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -401,7 +405,7 @@ public class SuppliersApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -409,30 +413,30 @@ public class SuppliersApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSupplierValidateBeforeCall(Integer companyId, Integer supplierId, String fields, String fieldset, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling getSupplier(Async)");
         }
-
+        
         // verify the required parameter 'supplierId' is set
         if (supplierId == null) {
             throw new ApiException("Missing the required parameter 'supplierId' when calling getSupplier(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = getSupplierCall(companyId, supplierId, fields, fieldset, _callback);
         return localVarCall;
@@ -442,20 +446,19 @@ public class SuppliersApi {
     /**
      * Get Supplier
      * Gets the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param fields     List of comma-separated fields. (optional)
-     * @param fieldset   Name of the fieldset. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @return GetSupplierResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public GetSupplierResponse getSupplier(Integer companyId, Integer supplierId, String fields, String fieldset) throws ApiException {
         ApiResponse<GetSupplierResponse> localVarResp = getSupplierWithHttpInfo(companyId, supplierId, fields, fieldset);
@@ -465,86 +468,80 @@ public class SuppliersApi {
     /**
      * Get Supplier
      * Gets the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param fields     List of comma-separated fields. (optional)
-     * @param fieldset   Name of the fieldset. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @return ApiResponse&lt;GetSupplierResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<GetSupplierResponse> getSupplierWithHttpInfo(Integer companyId, Integer supplierId, String fields, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = getSupplierValidateBeforeCall(companyId, supplierId, fields, fieldset, null);
-        Type localVarReturnType = new TypeToken<GetSupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<GetSupplierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Supplier (asynchronously)
      * Gets the specified supplier.
-     *
-     * @param companyId  The ID of the company. (required)
+     * @param companyId The ID of the company. (required)
      * @param supplierId The ID of the supplier. (required)
-     * @param fields     List of comma-separated fields. (optional)
-     * @param fieldset   Name of the fieldset. (optional)
-     * @param _callback  The callback to be executed when the API call finishes
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getSupplierAsync(Integer companyId, Integer supplierId, String fields, String fieldset, final ApiCallback<GetSupplierResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSupplierValidateBeforeCall(companyId, supplierId, fields, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<GetSupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<GetSupplierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSuppliers
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page      The page to retrieve. (optional, default to 1)
-     * @param perPage   The size of the page. (optional, default to 5)
-     * @param q         Query for filtering the results. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page The page to retrieve. (optional, default to 1)
+     * @param perPage The size of the page. (optional, default to 5)
+     * @param q Query for filtering the results. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listSuppliersCall(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, String q, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -554,7 +551,7 @@ public class SuppliersApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/entities/suppliers"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -587,7 +584,7 @@ public class SuppliersApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -595,25 +592,25 @@ public class SuppliersApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSuppliersValidateBeforeCall(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, String q, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listSuppliers(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listSuppliersCall(companyId, fields, fieldset, sort, page, perPage, q, _callback);
         return localVarCall;
@@ -623,22 +620,21 @@ public class SuppliersApi {
     /**
      * List Suppliers
      * Lists the suppliers.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page      The page to retrieve. (optional, default to 1)
-     * @param perPage   The size of the page. (optional, default to 5)
-     * @param q         Query for filtering the results. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page The page to retrieve. (optional, default to 1)
+     * @param perPage The size of the page. (optional, default to 5)
+     * @param q Query for filtering the results. (optional)
      * @return ListSuppliersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListSuppliersResponse listSuppliers(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, String q) throws ApiException {
         ApiResponse<ListSuppliersResponse> localVarResp = listSuppliersWithHttpInfo(companyId, fields, fieldset, sort, page, perPage, q);
@@ -648,87 +644,81 @@ public class SuppliersApi {
     /**
      * List Suppliers
      * Lists the suppliers.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page      The page to retrieve. (optional, default to 1)
-     * @param perPage   The size of the page. (optional, default to 5)
-     * @param q         Query for filtering the results. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page The page to retrieve. (optional, default to 1)
+     * @param perPage The size of the page. (optional, default to 5)
+     * @param q Query for filtering the results. (optional)
      * @return ApiResponse&lt;ListSuppliersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListSuppliersResponse> listSuppliersWithHttpInfo(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, String q) throws ApiException {
         okhttp3.Call localVarCall = listSuppliersValidateBeforeCall(companyId, fields, fieldset, sort, page, perPage, q, null);
-        Type localVarReturnType = new TypeToken<ListSuppliersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListSuppliersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Suppliers (asynchronously)
      * Lists the suppliers.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
-     * @param page      The page to retrieve. (optional, default to 1)
-     * @param perPage   The size of the page. (optional, default to 5)
-     * @param q         Query for filtering the results. (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param page The page to retrieve. (optional, default to 1)
+     * @param perPage The size of the page. (optional, default to 5)
+     * @param q Query for filtering the results. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listSuppliersAsync(Integer companyId, String fields, String fieldset, String sort, Integer page, Integer perPage, String q, final ApiCallback<ListSuppliersResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listSuppliersValidateBeforeCall(companyId, fields, fieldset, sort, page, perPage, q, _callback);
-        Type localVarReturnType = new TypeToken<ListSuppliersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListSuppliersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for modifySupplier
-     *
-     * @param companyId             The ID of the company. (required)
-     * @param supplierId            The ID of the supplier. (required)
+     * @param companyId The ID of the company. (required)
+     * @param supplierId The ID of the supplier. (required)
      * @param modifySupplierRequest The modified Supplier. First level parameters are managed in delta mode. (optional)
-     * @param _callback             Callback for upload/download progress
+     * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call modifySupplierCall(Integer companyId, Integer supplierId, ModifySupplierRequest modifySupplierRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -738,8 +728,8 @@ public class SuppliersApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/entities/suppliers/{supplier_id}"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
-                .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()))
+            .replaceAll("\\{" + "supplier_id" + "\\}", localVarApiClient.escapeString(supplierId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -748,7 +738,7 @@ public class SuppliersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -756,30 +746,30 @@ public class SuppliersApi {
         }
 
         final String[] localVarContentTypes = {
-                "application/json"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call modifySupplierValidateBeforeCall(Integer companyId, Integer supplierId, ModifySupplierRequest modifySupplierRequest, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling modifySupplier(Async)");
         }
-
+        
         // verify the required parameter 'supplierId' is set
         if (supplierId == null) {
             throw new ApiException("Missing the required parameter 'supplierId' when calling modifySupplier(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = modifySupplierCall(companyId, supplierId, modifySupplierRequest, _callback);
         return localVarCall;
@@ -789,19 +779,18 @@ public class SuppliersApi {
     /**
      * Modify Supplier
      * Modifies the specified supplier.
-     *
-     * @param companyId             The ID of the company. (required)
-     * @param supplierId            The ID of the supplier. (required)
+     * @param companyId The ID of the company. (required)
+     * @param supplierId The ID of the supplier. (required)
      * @param modifySupplierRequest The modified Supplier. First level parameters are managed in delta mode. (optional)
      * @return ModifySupplierResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ModifySupplierResponse modifySupplier(Integer companyId, Integer supplierId, ModifySupplierRequest modifySupplierRequest) throws ApiException {
         ApiResponse<ModifySupplierResponse> localVarResp = modifySupplierWithHttpInfo(companyId, supplierId, modifySupplierRequest);
@@ -811,50 +800,46 @@ public class SuppliersApi {
     /**
      * Modify Supplier
      * Modifies the specified supplier.
-     *
-     * @param companyId             The ID of the company. (required)
-     * @param supplierId            The ID of the supplier. (required)
+     * @param companyId The ID of the company. (required)
+     * @param supplierId The ID of the supplier. (required)
      * @param modifySupplierRequest The modified Supplier. First level parameters are managed in delta mode. (optional)
      * @return ApiResponse&lt;ModifySupplierResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ModifySupplierResponse> modifySupplierWithHttpInfo(Integer companyId, Integer supplierId, ModifySupplierRequest modifySupplierRequest) throws ApiException {
         okhttp3.Call localVarCall = modifySupplierValidateBeforeCall(companyId, supplierId, modifySupplierRequest, null);
-        Type localVarReturnType = new TypeToken<ModifySupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ModifySupplierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Modify Supplier (asynchronously)
      * Modifies the specified supplier.
-     *
-     * @param companyId             The ID of the company. (required)
-     * @param supplierId            The ID of the supplier. (required)
+     * @param companyId The ID of the company. (required)
+     * @param supplierId The ID of the supplier. (required)
      * @param modifySupplierRequest The modified Supplier. First level parameters are managed in delta mode. (optional)
-     * @param _callback             The callback to be executed when the API call finishes
+     * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call modifySupplierAsync(Integer companyId, Integer supplierId, ModifySupplierRequest modifySupplierRequest, final ApiCallback<ModifySupplierResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = modifySupplierValidateBeforeCall(companyId, supplierId, modifySupplierRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModifySupplierResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ModifySupplierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

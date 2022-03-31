@@ -13,130 +13,133 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.io.Serializable;
 
 /**
  * VatItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class VatItem implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public static final String SERIALIZED_NAME_AMOUNT_NET = "amount_net";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_NET)
-    private BigDecimal amountNet;
+  public static final String SERIALIZED_NAME_AMOUNT_NET = "amount_net";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_NET)
+  private BigDecimal amountNet;
 
-    public static final String SERIALIZED_NAME_AMOUNT_VAT = "amount_vat";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_VAT)
-    private BigDecimal amountVat;
+  public static final String SERIALIZED_NAME_AMOUNT_VAT = "amount_vat";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_VAT)
+  private BigDecimal amountVat;
 
-    public VatItem() {
+  public VatItem() { 
+  }
+
+  public VatItem amountNet(BigDecimal amountNet) {
+    
+    this.amountNet = amountNet;
+    return this;
+  }
+
+   /**
+   * Get amountNet
+   * @return amountNet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public BigDecimal getAmountNet() {
+    return amountNet;
+  }
+
+
+  public void setAmountNet(BigDecimal amountNet) {
+    this.amountNet = amountNet;
+  }
+
+
+  public VatItem amountVat(BigDecimal amountVat) {
+    
+    this.amountVat = amountVat;
+    return this;
+  }
+
+   /**
+   * Get amountVat
+   * @return amountVat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public BigDecimal getAmountVat() {
+    return amountVat;
+  }
+
+
+  public void setAmountVat(BigDecimal amountVat) {
+    this.amountVat = amountVat;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public VatItem amountNet(BigDecimal amountNet) {
-
-        this.amountNet = amountNet;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    VatItem vatItem = (VatItem) o;
+    return Objects.equals(this.amountNet, vatItem.amountNet) &&
+        Objects.equals(this.amountVat, vatItem.amountVat);
+  }
 
-    /**
-     * Get amountNet
-     *
-     * @return amountNet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
 
-    public BigDecimal getAmountNet() {
-        return amountNet;
+  @Override
+  public int hashCode() {
+    return Objects.hash(amountNet, amountVat);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
     }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class VatItem {\n");
+    sb.append("    amountNet: ").append(toIndentedString(amountNet)).append("\n");
+    sb.append("    amountVat: ").append(toIndentedString(amountVat)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setAmountNet(BigDecimal amountNet) {
-        this.amountNet = amountNet;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    public VatItem amountVat(BigDecimal amountVat) {
-
-        this.amountVat = amountVat;
-        return this;
-    }
-
-    /**
-     * Get amountVat
-     *
-     * @return amountVat
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public BigDecimal getAmountVat() {
-        return amountVat;
-    }
-
-
-    public void setAmountVat(BigDecimal amountVat) {
-        this.amountVat = amountVat;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        VatItem vatItem = (VatItem) o;
-        return Objects.equals(this.amountNet, vatItem.amountNet) &&
-                Objects.equals(this.amountVat, vatItem.amountVat);
-    }
-
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(amountNet, amountVat);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class VatItem {\n");
-        sb.append("    amountNet: ").append(toIndentedString(amountNet)).append("\n");
-        sb.append("    amountVat: ").append(toIndentedString(amountVat)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

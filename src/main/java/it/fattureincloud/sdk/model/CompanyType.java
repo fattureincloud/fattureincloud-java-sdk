@@ -13,58 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Company type.
  */
 @JsonAdapter(CompanyType.Adapter.class)
 public enum CompanyType {
+  
+  COMPANY("company"),
+  
+  ACCOUNTANT("accountant");
 
-    COMPANY("company"),
+  private String value;
 
-    ACCOUNTANT("accountant");
+  CompanyType(String value) {
+    this.value = value;
+  }
 
-    private final String value;
+  public String getValue() {
+    return value;
+  }
 
-    CompanyType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  public static CompanyType fromValue(String value) {
+    for (CompanyType b : CompanyType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<CompanyType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final CompanyType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public CompanyType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return CompanyType.fromValue(value);
     }
-
-    public static CompanyType fromValue(String value) {
-        for (CompanyType b : CompanyType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<CompanyType> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final CompanyType enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public CompanyType read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return CompanyType.fromValue(value);
-        }
-    }
+  }
 }
 

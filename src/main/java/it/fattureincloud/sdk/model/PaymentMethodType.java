@@ -13,58 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Method type.
  */
 @JsonAdapter(PaymentMethodType.Adapter.class)
 public enum PaymentMethodType {
+  
+  STANDARD("standard"),
+  
+  RIBA("riba");
 
-    STANDARD("standard"),
+  private String value;
 
-    RIBA("riba");
+  PaymentMethodType(String value) {
+    this.value = value;
+  }
 
-    private final String value;
+  public String getValue() {
+    return value;
+  }
 
-    PaymentMethodType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  public static PaymentMethodType fromValue(String value) {
+    for (PaymentMethodType b : PaymentMethodType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<PaymentMethodType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final PaymentMethodType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public PaymentMethodType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return PaymentMethodType.fromValue(value);
     }
-
-    public static PaymentMethodType fromValue(String value) {
-        for (PaymentMethodType b : PaymentMethodType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<PaymentMethodType> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final PaymentMethodType enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public PaymentMethodType read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return PaymentMethodType.fromValue(value);
-        }
-    }
+  }
 }
 

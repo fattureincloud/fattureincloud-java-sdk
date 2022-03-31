@@ -6,7 +6,7 @@ Fatture in Cloud API v2 - API Reference
 
 - API version: 2.0.14
 
-- Build date: 2022-03-16T10:27:27.647Z[Etc/UTC]
+- Build date: 2022-03-31T13:16:33.658Z[GMT]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.5</version>
+  <version>0.0.0</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.5"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:0.0.0"
   }
 ```
 
@@ -419,41 +419,41 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://api-v2.fattureincloud.it/oauth/authorize
 - **Scopes**: 
-  - **entity.clients:r**: 
-  - **entity.clients:a**: 
-  - **entity.suppliers:r**: 
-  - **entity.suppliers:a**: 
-  - **products:r**: 
-  - **products:a**: 
-  - **issued_documents.invoice:r**: 
-  - **issued_documents.credit_note:r**: 
-  - **issued_documents.receipt:r**: 
-  - **issued_documents.order:r**: 
-  - **issued_documents.quote:r**: 
-  - **issued_documents.proforma:r**: 
-  - **issued_documents.delivery_note:r**: 
-  - **issued_documents.invoice:a**: 
-  - **issued_documents.credit_note:a**: 
-  - **issued_documents.receipt:a**: 
-  - **issued_documents.order:a**: 
-  - **issued_documents.quote:a**: 
-  - **issued_documents.proforma:a**: 
-  - **issued_documents.delivery_note:a**: 
-  - **received_documents:r**: 
-  - **received_documents:a**: 
-  - **stock:r**: 
-  - **stock:a**: 
-  - **receipts:r**: 
-  - **receipts:a**: 
-  - **taxes:r**: 
-  - **taxes:a**: 
-  - **archive:r**: 
-  - **archive:a**: 
-  - **cashbook:r**: 
-  - **cashbook:a**: 
-  - **settings:r**: 
-  - **settings:a**: 
-  - **situation:r**: 
+  - **entity.clients:r**: Read permission to the Clients registry
+  - **entity.clients:a**: Write permission to the Clients registry
+  - **entity.suppliers:r**: Read permission to the Suppliers registry
+  - **entity.suppliers:a**: Write permission to the Suppliers registry
+  - **products:r**: Read permission to the Products
+  - **products:a**: Write permission to the Products
+  - **issued_documents.invoice:r**: Read permission to the issued Invoices
+  - **issued_documents.credit_note:r**: Read permission to the issued Credit Notes
+  - **issued_documents.receipt:r**: Read permission to the issued Receipts
+  - **issued_documents.order:r**: Read permission to the issued Orders
+  - **issued_documents.quote:r**: Read permission to the issued Quotes
+  - **issued_documents.proforma:r**: Read permission to the issued Proformas
+  - **issued_documents.delivery_note:r**: Read permission to the issued Delivery Notes
+  - **issued_documents.invoice:a**: Write permission to the issued Invoices
+  - **issued_documents.credit_note:a**: Write permission to the issued Credit Notes
+  - **issued_documents.receipt:a**: Write permission to the issued issued Receipts
+  - **issued_documents.order:a**: Write permission to the issued Orders
+  - **issued_documents.quote:a**: Write permission to the issued Quotes
+  - **issued_documents.proforma:a**: Write permission to the issued Proformas
+  - **issued_documents.delivery_note:a**: Write permission to the issued Delivery Notes
+  - **received_documents:r**: Read permission to the issued Received Documents
+  - **received_documents:a**: Write permission to the issued Received Documents
+  - **stock:r**: Read permission to the Stock movements
+  - **stock:a**: Write permission to the Stock movements
+  - **receipts:r**: Read permission to the Receipts
+  - **receipts:a**: Write permission to the Receipts
+  - **taxes:r**: Read permission to the Taxes
+  - **taxes:a**: Write permission to the Taxes
+  - **archive:r**: Read permission to the Archive Documents
+  - **archive:a**: Read permission to the Archive Documents
+  - **cashbook:r**: Read permission to the Cashbook
+  - **cashbook:a**: Write permission to the Cashbook
+  - **settings:r**: Read permission to the Settings
+  - **settings:a**: Write permission to the Settings
+  - **situation:r**: Read permission to the company Situation
 
 
 ## Recommendation

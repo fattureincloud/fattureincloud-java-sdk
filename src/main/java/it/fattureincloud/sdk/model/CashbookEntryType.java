@@ -13,58 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Cashbook type.
  */
 @JsonAdapter(CashbookEntryType.Adapter.class)
 public enum CashbookEntryType {
+  
+  IN("in"),
+  
+  OUT("out");
 
-    IN("in"),
+  private String value;
 
-    OUT("out");
+  CashbookEntryType(String value) {
+    this.value = value;
+  }
 
-    private final String value;
+  public String getValue() {
+    return value;
+  }
 
-    CashbookEntryType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  public static CashbookEntryType fromValue(String value) {
+    for (CashbookEntryType b : CashbookEntryType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    return null;
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<CashbookEntryType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final CashbookEntryType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public CashbookEntryType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return CashbookEntryType.fromValue(value);
     }
-
-    public static CashbookEntryType fromValue(String value) {
-        for (CashbookEntryType b : CashbookEntryType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<CashbookEntryType> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final CashbookEntryType enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public CashbookEntryType read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return CashbookEntryType.fromValue(value);
-        }
-    }
+  }
 }
 

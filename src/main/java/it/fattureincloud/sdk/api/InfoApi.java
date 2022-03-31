@@ -13,9 +13,36 @@
 
 package it.fattureincloud.sdk.api;
 
+import it.fattureincloud.sdk.ApiCallback;
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.ApiResponse;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.Pair;
+import it.fattureincloud.sdk.ProgressRequestBody;
+import it.fattureincloud.sdk.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import it.fattureincloud.sdk.*;
-import it.fattureincloud.sdk.model.*;
+
+import java.io.IOException;
+
+
+import it.fattureincloud.sdk.model.ListArchiveCategoriesResponse;
+import it.fattureincloud.sdk.model.ListCitiesResponse;
+import it.fattureincloud.sdk.model.ListCostCentersResponse;
+import it.fattureincloud.sdk.model.ListCountriesResponse;
+import it.fattureincloud.sdk.model.ListCurrenciesResponse;
+import it.fattureincloud.sdk.model.ListDeliveryNotesDefaultCausalsResponse;
+import it.fattureincloud.sdk.model.ListDetailedCountriesResponse;
+import it.fattureincloud.sdk.model.ListLanguagesResponse;
+import it.fattureincloud.sdk.model.ListPaymentAccountsResponse;
+import it.fattureincloud.sdk.model.ListPaymentMethodsResponse;
+import it.fattureincloud.sdk.model.ListProductCategoriesResponse;
+import it.fattureincloud.sdk.model.ListReceivedDocumentCategoriesResponse;
+import it.fattureincloud.sdk.model.ListRevenueCentersResponse;
+import it.fattureincloud.sdk.model.ListTemplatesResponse;
+import it.fattureincloud.sdk.model.ListUnitsOfMeasureResponse;
+import it.fattureincloud.sdk.model.ListVatTypesResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,29 +89,28 @@ public class InfoApi {
 
     /**
      * Build call for listArchiveCategories
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listArchiveCategoriesCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -94,7 +120,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/archive_categories"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -103,7 +129,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -111,25 +137,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listArchiveCategoriesValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listArchiveCategories(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listArchiveCategoriesCall(companyId, _callback);
         return localVarCall;
@@ -139,17 +165,16 @@ public class InfoApi {
     /**
      * List Archive Categories
      * Lists the archive categories.
-     *
      * @param companyId The ID of the company. (required)
      * @return ListArchiveCategoriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListArchiveCategoriesResponse listArchiveCategories(Integer companyId) throws ApiException {
         ApiResponse<ListArchiveCategoriesResponse> localVarResp = listArchiveCategoriesWithHttpInfo(companyId);
@@ -159,74 +184,68 @@ public class InfoApi {
     /**
      * List Archive Categories
      * Lists the archive categories.
-     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;ListArchiveCategoriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListArchiveCategoriesResponse> listArchiveCategoriesWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = listArchiveCategoriesValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<ListArchiveCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListArchiveCategoriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Archive Categories (asynchronously)
      * Lists the archive categories.
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Archive Categories list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listArchiveCategoriesAsync(Integer companyId, final ApiCallback<ListArchiveCategoriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listArchiveCategoriesValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<ListArchiveCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListArchiveCategoriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listCities
-     *
      * @param postalCode Postal code for filtering. (optional)
-     * @param city       City for filtering (ignored if postal_code is passed). (optional)
-     * @param _callback  Callback for upload/download progress
+     * @param city City for filtering (ignored if postal_code is passed). (optional)
+     * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCitiesCall(String postalCode, String city, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -252,7 +271,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -260,20 +279,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCitiesValidateBeforeCall(String postalCode, String city, final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listCitiesCall(postalCode, city, _callback);
         return localVarCall;
@@ -283,16 +302,15 @@ public class InfoApi {
     /**
      * List Cities
      * Lists the Italian cities.
-     *
      * @param postalCode Postal code for filtering. (optional)
-     * @param city       City for filtering (ignored if postal_code is passed). (optional)
+     * @param city City for filtering (ignored if postal_code is passed). (optional)
      * @return ListCitiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
+     </table>
      */
     public ListCitiesResponse listCities(String postalCode, String city) throws ApiException {
         ApiResponse<ListCitiesResponse> localVarResp = listCitiesWithHttpInfo(postalCode, city);
@@ -302,73 +320,67 @@ public class InfoApi {
     /**
      * List Cities
      * Lists the Italian cities.
-     *
      * @param postalCode Postal code for filtering. (optional)
-     * @param city       City for filtering (ignored if postal_code is passed). (optional)
+     * @param city City for filtering (ignored if postal_code is passed). (optional)
      * @return ApiResponse&lt;ListCitiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListCitiesResponse> listCitiesWithHttpInfo(String postalCode, String city) throws ApiException {
         okhttp3.Call localVarCall = listCitiesValidateBeforeCall(postalCode, city, null);
-        Type localVarReturnType = new TypeToken<ListCitiesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCitiesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Cities (asynchronously)
      * Lists the Italian cities.
-     *
      * @param postalCode Postal code for filtering. (optional)
-     * @param city       City for filtering (ignored if postal_code is passed). (optional)
-     * @param _callback  The callback to be executed when the API call finishes
+     * @param city City for filtering (ignored if postal_code is passed). (optional)
+     * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Cities List. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCitiesAsync(String postalCode, String city, final ApiCallback<ListCitiesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCitiesValidateBeforeCall(postalCode, city, _callback);
-        Type localVarReturnType = new TypeToken<ListCitiesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCitiesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listCostCenters
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCostCentersCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -378,7 +390,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/cost_centers"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -387,7 +399,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -395,25 +407,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCostCentersValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listCostCenters(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listCostCentersCall(companyId, _callback);
         return localVarCall;
@@ -423,17 +435,16 @@ public class InfoApi {
     /**
      * List Cost Centers
      * Lists the cost centers.
-     *
      * @param companyId The ID of the company. (required)
      * @return ListCostCentersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListCostCentersResponse listCostCenters(Integer companyId) throws ApiException {
         ApiResponse<ListCostCentersResponse> localVarResp = listCostCentersWithHttpInfo(companyId);
@@ -443,73 +454,67 @@ public class InfoApi {
     /**
      * List Cost Centers
      * Lists the cost centers.
-     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;ListCostCentersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListCostCentersResponse> listCostCentersWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = listCostCentersValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<ListCostCentersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCostCentersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Cost Centers (asynchronously)
      * Lists the cost centers.
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Cost Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCostCentersAsync(Integer companyId, final ApiCallback<ListCostCentersResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCostCentersValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<ListCostCentersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCostCentersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listCountries
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCountriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -527,7 +532,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -535,20 +540,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCountriesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listCountriesCall(_callback);
         return localVarCall;
@@ -558,15 +563,14 @@ public class InfoApi {
     /**
      * List Countries
      * Lists the supported countries.
-     *
      * @return ListCountriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListCountriesResponse listCountries() throws ApiException {
         ApiResponse<ListCountriesResponse> localVarResp = listCountriesWithHttpInfo();
@@ -576,69 +580,63 @@ public class InfoApi {
     /**
      * List Countries
      * Lists the supported countries.
-     *
      * @return ApiResponse&lt;ListCountriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListCountriesResponse> listCountriesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listCountriesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListCountriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCountriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Countries (asynchronously)
      * Lists the supported countries.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCountriesAsync(final ApiCallback<ListCountriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCountriesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListCountriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCountriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listCurrencies
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCurrenciesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -656,7 +654,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -664,20 +662,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCurrenciesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listCurrenciesCall(_callback);
         return localVarCall;
@@ -687,15 +685,14 @@ public class InfoApi {
     /**
      * List Currencies
      * Lists the supported currencies.
-     *
      * @return ListCurrenciesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListCurrenciesResponse listCurrencies() throws ApiException {
         ApiResponse<ListCurrenciesResponse> localVarResp = listCurrenciesWithHttpInfo();
@@ -705,69 +702,63 @@ public class InfoApi {
     /**
      * List Currencies
      * Lists the supported currencies.
-     *
      * @return ApiResponse&lt;ListCurrenciesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListCurrenciesResponse> listCurrenciesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listCurrenciesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListCurrenciesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCurrenciesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Currencies (asynchronously)
      * Lists the supported currencies.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Currencies List. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listCurrenciesAsync(final ApiCallback<ListCurrenciesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCurrenciesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListCurrenciesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListCurrenciesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listDeliveryNotesDefaultCausals
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listDeliveryNotesDefaultCausalsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -785,7 +776,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -793,20 +784,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDeliveryNotesDefaultCausalsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listDeliveryNotesDefaultCausalsCall(_callback);
         return localVarCall;
@@ -816,15 +807,14 @@ public class InfoApi {
     /**
      * List Delivery Notes Default Causals
      * Lists the delivery note default causals.
-     *
      * @return ListDeliveryNotesDefaultCausalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListDeliveryNotesDefaultCausalsResponse listDeliveryNotesDefaultCausals() throws ApiException {
         ApiResponse<ListDeliveryNotesDefaultCausalsResponse> localVarResp = listDeliveryNotesDefaultCausalsWithHttpInfo();
@@ -834,69 +824,63 @@ public class InfoApi {
     /**
      * List Delivery Notes Default Causals
      * Lists the delivery note default causals.
-     *
      * @return ApiResponse&lt;ListDeliveryNotesDefaultCausalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListDeliveryNotesDefaultCausalsResponse> listDeliveryNotesDefaultCausalsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listDeliveryNotesDefaultCausalsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListDeliveryNotesDefaultCausalsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListDeliveryNotesDefaultCausalsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Delivery Notes Default Causals (asynchronously)
      * Lists the delivery note default causals.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Delivery Notes Default Causals </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listDeliveryNotesDefaultCausalsAsync(final ApiCallback<ListDeliveryNotesDefaultCausalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listDeliveryNotesDefaultCausalsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListDeliveryNotesDefaultCausalsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListDeliveryNotesDefaultCausalsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listDetailedCountries
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listDetailedCountriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -914,7 +898,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -922,20 +906,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDetailedCountriesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listDetailedCountriesCall(_callback);
         return localVarCall;
@@ -945,15 +929,14 @@ public class InfoApi {
     /**
      * List Detailed Countries
      * Lists the supported countries.
-     *
      * @return ListDetailedCountriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListDetailedCountriesResponse listDetailedCountries() throws ApiException {
         ApiResponse<ListDetailedCountriesResponse> localVarResp = listDetailedCountriesWithHttpInfo();
@@ -963,69 +946,63 @@ public class InfoApi {
     /**
      * List Detailed Countries
      * Lists the supported countries.
-     *
      * @return ApiResponse&lt;ListDetailedCountriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListDetailedCountriesResponse> listDetailedCountriesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listDetailedCountriesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListDetailedCountriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListDetailedCountriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Detailed Countries (asynchronously)
      * Lists the supported countries.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of detailed countries </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listDetailedCountriesAsync(final ApiCallback<ListDetailedCountriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listDetailedCountriesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListDetailedCountriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListDetailedCountriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listLanguages
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listLanguagesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1043,7 +1020,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1051,20 +1028,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLanguagesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listLanguagesCall(_callback);
         return localVarCall;
@@ -1074,15 +1051,14 @@ public class InfoApi {
     /**
      * List Languages
      * Lists the supported languages.
-     *
      * @return ListLanguagesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListLanguagesResponse listLanguages() throws ApiException {
         ApiResponse<ListLanguagesResponse> localVarResp = listLanguagesWithHttpInfo();
@@ -1092,74 +1068,68 @@ public class InfoApi {
     /**
      * List Languages
      * Lists the supported languages.
-     *
      * @return ApiResponse&lt;ListLanguagesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListLanguagesResponse> listLanguagesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listLanguagesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListLanguagesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListLanguagesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Languages (asynchronously)
      * Lists the supported languages.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> LanguagesList </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listLanguagesAsync(final ApiCallback<ListLanguagesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLanguagesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListLanguagesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListLanguagesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listPaymentAccounts
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listPaymentAccountsCall(Integer companyId, String fields, String fieldset, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1169,7 +1139,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/payment_accounts"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1190,7 +1160,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1198,25 +1168,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPaymentAccountsValidateBeforeCall(Integer companyId, String fields, String fieldset, String sort, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listPaymentAccounts(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listPaymentAccountsCall(companyId, fields, fieldset, sort, _callback);
         return localVarCall;
@@ -1226,20 +1196,19 @@ public class InfoApi {
     /**
      * List Payment Accounts
      * Lists the available payment accounts.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ListPaymentAccountsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListPaymentAccountsResponse listPaymentAccounts(Integer companyId, String fields, String fieldset, String sort) throws ApiException {
         ApiResponse<ListPaymentAccountsResponse> localVarResp = listPaymentAccountsWithHttpInfo(companyId, fields, fieldset, sort);
@@ -1249,84 +1218,78 @@ public class InfoApi {
     /**
      * List Payment Accounts
      * Lists the available payment accounts.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ApiResponse&lt;ListPaymentAccountsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListPaymentAccountsResponse> listPaymentAccountsWithHttpInfo(Integer companyId, String fields, String fieldset, String sort) throws ApiException {
         okhttp3.Call localVarCall = listPaymentAccountsValidateBeforeCall(companyId, fields, fieldset, sort, null);
-        Type localVarReturnType = new TypeToken<ListPaymentAccountsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListPaymentAccountsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Payment Accounts (asynchronously)
      * Lists the available payment accounts.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment accounts list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listPaymentAccountsAsync(Integer companyId, String fields, String fieldset, String sort, final ApiCallback<ListPaymentAccountsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listPaymentAccountsValidateBeforeCall(companyId, fields, fieldset, sort, _callback);
-        Type localVarReturnType = new TypeToken<ListPaymentAccountsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListPaymentAccountsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listPaymentMethods
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listPaymentMethodsCall(Integer companyId, String fields, String fieldset, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1336,7 +1299,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/payment_methods"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1357,7 +1320,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1365,25 +1328,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPaymentMethodsValidateBeforeCall(Integer companyId, String fields, String fieldset, String sort, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listPaymentMethods(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listPaymentMethodsCall(companyId, fields, fieldset, sort, _callback);
         return localVarCall;
@@ -1393,20 +1356,19 @@ public class InfoApi {
     /**
      * List Payment Methods
      * Lists the available payment methods.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ListPaymentMethodsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListPaymentMethodsResponse listPaymentMethods(Integer companyId, String fields, String fieldset, String sort) throws ApiException {
         ApiResponse<ListPaymentMethodsResponse> localVarResp = listPaymentMethodsWithHttpInfo(companyId, fields, fieldset, sort);
@@ -1416,82 +1378,76 @@ public class InfoApi {
     /**
      * List Payment Methods
      * Lists the available payment methods.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @return ApiResponse&lt;ListPaymentMethodsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListPaymentMethodsResponse> listPaymentMethodsWithHttpInfo(Integer companyId, String fields, String fieldset, String sort) throws ApiException {
         okhttp3.Call localVarCall = listPaymentMethodsValidateBeforeCall(companyId, fields, fieldset, sort, null);
-        Type localVarReturnType = new TypeToken<ListPaymentMethodsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListPaymentMethodsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Payment Methods (asynchronously)
      * Lists the available payment methods.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fields    List of comma-separated fields. (optional)
-     * @param fieldset  Name of the fieldset. (optional)
-     * @param sort      List of comma-separated fields for result sorting (minus for desc sorting). (optional)
+     * @param fields List of comma-separated fields. (optional)
+     * @param fieldset Name of the fieldset. (optional)
+     * @param sort List of comma-separated fields for result sorting (minus for desc sorting). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment methods list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listPaymentMethodsAsync(Integer companyId, String fields, String fieldset, String sort, final ApiCallback<ListPaymentMethodsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listPaymentMethodsValidateBeforeCall(companyId, fields, fieldset, sort, _callback);
-        Type localVarReturnType = new TypeToken<ListPaymentMethodsResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListPaymentMethodsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listProductCategories
-     *
      * @param companyId The ID of the company. (required)
-     * @param context   (required)
+     * @param context  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listProductCategoriesCall(Integer companyId, String context, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1501,7 +1457,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/product_categories"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1514,7 +1470,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1522,30 +1478,30 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProductCategoriesValidateBeforeCall(Integer companyId, String context, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listProductCategories(Async)");
         }
-
+        
         // verify the required parameter 'context' is set
         if (context == null) {
             throw new ApiException("Missing the required parameter 'context' when calling listProductCategories(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listProductCategoriesCall(companyId, context, _callback);
         return localVarCall;
@@ -1555,18 +1511,17 @@ public class InfoApi {
     /**
      * List Product Categories
      * Lists the product categories.
-     *
      * @param companyId The ID of the company. (required)
-     * @param context   (required)
+     * @param context  (required)
      * @return ListProductCategoriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListProductCategoriesResponse listProductCategories(Integer companyId, String context) throws ApiException {
         ApiResponse<ListProductCategoriesResponse> localVarResp = listProductCategoriesWithHttpInfo(companyId, context);
@@ -1576,75 +1531,69 @@ public class InfoApi {
     /**
      * List Product Categories
      * Lists the product categories.
-     *
      * @param companyId The ID of the company. (required)
-     * @param context   (required)
+     * @param context  (required)
      * @return ApiResponse&lt;ListProductCategoriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListProductCategoriesResponse> listProductCategoriesWithHttpInfo(Integer companyId, String context) throws ApiException {
         okhttp3.Call localVarCall = listProductCategoriesValidateBeforeCall(companyId, context, null);
-        Type localVarReturnType = new TypeToken<ListProductCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListProductCategoriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Product Categories (asynchronously)
      * Lists the product categories.
-     *
      * @param companyId The ID of the company. (required)
-     * @param context   (required)
+     * @param context  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Product Categories List </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listProductCategoriesAsync(Integer companyId, String context, final ApiCallback<ListProductCategoriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listProductCategoriesValidateBeforeCall(companyId, context, _callback);
-        Type localVarReturnType = new TypeToken<ListProductCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListProductCategoriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listReceivedDocumentCategories
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listReceivedDocumentCategoriesCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1654,7 +1603,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/received_document_categories"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1663,7 +1612,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1671,25 +1620,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listReceivedDocumentCategoriesValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listReceivedDocumentCategories(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listReceivedDocumentCategoriesCall(companyId, _callback);
         return localVarCall;
@@ -1699,15 +1648,14 @@ public class InfoApi {
     /**
      * List Received Document Categories
      * Lists the received document categories.
-     *
      * @param companyId The ID of the company. (required)
      * @return ListReceivedDocumentCategoriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
+     </table>
      */
     public ListReceivedDocumentCategoriesResponse listReceivedDocumentCategories(Integer companyId) throws ApiException {
         ApiResponse<ListReceivedDocumentCategoriesResponse> localVarResp = listReceivedDocumentCategoriesWithHttpInfo(companyId);
@@ -1717,71 +1665,65 @@ public class InfoApi {
     /**
      * List Received Document Categories
      * Lists the received document categories.
-     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;ListReceivedDocumentCategoriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListReceivedDocumentCategoriesResponse> listReceivedDocumentCategoriesWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = listReceivedDocumentCategoriesValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<ListReceivedDocumentCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListReceivedDocumentCategoriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Received Document Categories (asynchronously)
      * Lists the received document categories.
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Received Document Categories List </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listReceivedDocumentCategoriesAsync(Integer companyId, final ApiCallback<ListReceivedDocumentCategoriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listReceivedDocumentCategoriesValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<ListReceivedDocumentCategoriesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListReceivedDocumentCategoriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listRevenueCenters
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listRevenueCentersCall(Integer companyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1791,7 +1733,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/revenue_centers"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1800,7 +1742,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1808,25 +1750,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRevenueCentersValidateBeforeCall(Integer companyId, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listRevenueCenters(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listRevenueCentersCall(companyId, _callback);
         return localVarCall;
@@ -1836,17 +1778,16 @@ public class InfoApi {
     /**
      * List Revenue Centers
      * Lists the revenue centers.
-     *
      * @param companyId The ID of the company. (required)
      * @return ListRevenueCentersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListRevenueCentersResponse listRevenueCenters(Integer companyId) throws ApiException {
         ApiResponse<ListRevenueCentersResponse> localVarResp = listRevenueCentersWithHttpInfo(companyId);
@@ -1856,75 +1797,69 @@ public class InfoApi {
     /**
      * List Revenue Centers
      * Lists the revenue centers.
-     *
      * @param companyId The ID of the company. (required)
      * @return ApiResponse&lt;ListRevenueCentersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListRevenueCentersResponse> listRevenueCentersWithHttpInfo(Integer companyId) throws ApiException {
         okhttp3.Call localVarCall = listRevenueCentersValidateBeforeCall(companyId, null);
-        Type localVarReturnType = new TypeToken<ListRevenueCentersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListRevenueCentersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Revenue Centers (asynchronously)
      * Lists the revenue centers.
-     *
      * @param companyId The ID of the company. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Revenue Centers </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listRevenueCentersAsync(Integer companyId, final ApiCallback<ListRevenueCentersResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listRevenueCentersValidateBeforeCall(companyId, _callback);
-        Type localVarReturnType = new TypeToken<ListRevenueCentersResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListRevenueCentersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listTemplates
-     *
-     * @param type      Type of the templates. (optional, default to all)
-     * @param byType    [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
+     * @param type Type of the templates. (optional, default to all)
+     * @param byType [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listTemplatesCall(String type, Boolean byType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1950,7 +1885,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1958,20 +1893,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTemplatesValidateBeforeCall(String type, Boolean byType, final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listTemplatesCall(type, byType, _callback);
         return localVarCall;
@@ -1981,17 +1916,16 @@ public class InfoApi {
     /**
      * List Templates
      * Lists the available templates.
-     *
-     * @param type   Type of the templates. (optional, default to all)
+     * @param type Type of the templates. (optional, default to all)
      * @param byType [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
      * @return ListTemplatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListTemplatesResponse listTemplates(String type, Boolean byType) throws ApiException {
         ApiResponse<ListTemplatesResponse> localVarResp = listTemplatesWithHttpInfo(type, byType);
@@ -2001,73 +1935,67 @@ public class InfoApi {
     /**
      * List Templates
      * Lists the available templates.
-     *
-     * @param type   Type of the templates. (optional, default to all)
+     * @param type Type of the templates. (optional, default to all)
      * @param byType [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
      * @return ApiResponse&lt;ListTemplatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListTemplatesResponse> listTemplatesWithHttpInfo(String type, Boolean byType) throws ApiException {
         okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(type, byType, null);
-        Type localVarReturnType = new TypeToken<ListTemplatesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListTemplatesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Templates (asynchronously)
      * Lists the available templates.
-     *
-     * @param type      Type of the templates. (optional, default to all)
-     * @param byType    [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
+     * @param type Type of the templates. (optional, default to all)
+     * @param byType [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Templates list. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listTemplatesAsync(String type, Boolean byType, final ApiCallback<ListTemplatesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(type, byType, _callback);
-        Type localVarReturnType = new TypeToken<ListTemplatesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListTemplatesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listUnitsOfMeasure
-     *
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listUnitsOfMeasureCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -2085,7 +2013,7 @@ public class InfoApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2093,20 +2021,20 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUnitsOfMeasureValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
+        
 
         okhttp3.Call localVarCall = listUnitsOfMeasureCall(_callback);
         return localVarCall;
@@ -2116,15 +2044,14 @@ public class InfoApi {
     /**
      * List Units of Measure
      * Lists the units of measure.
-     *
      * @return ListUnitsOfMeasureResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ListUnitsOfMeasureResponse listUnitsOfMeasure() throws ApiException {
         ApiResponse<ListUnitsOfMeasureResponse> localVarResp = listUnitsOfMeasureWithHttpInfo();
@@ -2134,72 +2061,66 @@ public class InfoApi {
     /**
      * List Units of Measure
      * Lists the units of measure.
-     *
      * @return ApiResponse&lt;ListUnitsOfMeasureResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListUnitsOfMeasureResponse> listUnitsOfMeasureWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listUnitsOfMeasureValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ListUnitsOfMeasureResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListUnitsOfMeasureResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Units of Measure (asynchronously)
      * Lists the units of measure.
-     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Units of measure. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listUnitsOfMeasureAsync(final ApiCallback<ListUnitsOfMeasureResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listUnitsOfMeasureValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ListUnitsOfMeasureResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListUnitsOfMeasureResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listVatTypes
-     *
      * @param companyId The ID of the company. (required)
-     * @param fieldset  Name of the fieldset. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listVatTypesCall(Integer companyId, String fieldset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
-        String[] localBasePaths = new String[]{};
+        String[] localBasePaths = new String[] {  };
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
+        if (localCustomBaseUrl != null){
             basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
+        } else if ( localBasePaths.length > 0 ) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -2209,7 +2130,7 @@ public class InfoApi {
 
         // create path and map variables
         String localVarPath = "/c/{company_id}/info/vat_types"
-                .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
+            .replaceAll("\\{" + "company_id" + "\\}", localVarApiClient.escapeString(companyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2222,7 +2143,7 @@ public class InfoApi {
         }
 
         final String[] localVarAccepts = {
-                "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2230,25 +2151,25 @@ public class InfoApi {
         }
 
         final String[] localVarContentTypes = {
-
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[]{"OAuth2AuthenticationCodeFlow"};
+        String[] localVarAuthNames = new String[] { "OAuth2AuthenticationCodeFlow" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listVatTypesValidateBeforeCall(Integer companyId, String fieldset, final ApiCallback _callback) throws ApiException {
-
+        
         // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId' when calling listVatTypes(Async)");
         }
-
+        
 
         okhttp3.Call localVarCall = listVatTypesCall(companyId, fieldset, _callback);
         return localVarCall;
@@ -2258,18 +2179,17 @@ public class InfoApi {
     /**
      * List Vat Types
      * Lists the available vat types.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fieldset  Name of the fieldset. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @return ListVatTypesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ListVatTypesResponse listVatTypes(Integer companyId, String fieldset) throws ApiException {
         ApiResponse<ListVatTypesResponse> localVarResp = listVatTypesWithHttpInfo(companyId, fieldset);
@@ -2279,48 +2199,44 @@ public class InfoApi {
     /**
      * List Vat Types
      * Lists the available vat types.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fieldset  Name of the fieldset. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @return ApiResponse&lt;ListVatTypesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ListVatTypesResponse> listVatTypesWithHttpInfo(Integer companyId, String fieldset) throws ApiException {
         okhttp3.Call localVarCall = listVatTypesValidateBeforeCall(companyId, fieldset, null);
-        Type localVarReturnType = new TypeToken<ListVatTypesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListVatTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List Vat Types (asynchronously)
      * Lists the available vat types.
-     *
      * @param companyId The ID of the company. (required)
-     * @param fieldset  Name of the fieldset. (optional)
+     * @param fieldset Name of the fieldset. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of Vat Types. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call listVatTypesAsync(Integer companyId, String fieldset, final ApiCallback<ListVatTypesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listVatTypesValidateBeforeCall(companyId, fieldset, _callback);
-        Type localVarReturnType = new TypeToken<ListVatTypesResponse>() {
-        }.getType();
+        Type localVarReturnType = new TypeToken<ListVatTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

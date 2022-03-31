@@ -13,189 +13,190 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.io.Serializable;
 
 /**
  * EmailScheduleInclude
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class EmailScheduleInclude implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public static final String SERIALIZED_NAME_DOCUMENT = "document";
-    @SerializedName(SERIALIZED_NAME_DOCUMENT)
-    private Boolean document;
+  public static final String SERIALIZED_NAME_DOCUMENT = "document";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT)
+  private Boolean document;
 
-    public static final String SERIALIZED_NAME_DELIVERY_NOTE = "delivery_note";
-    @SerializedName(SERIALIZED_NAME_DELIVERY_NOTE)
-    private Boolean deliveryNote;
+  public static final String SERIALIZED_NAME_DELIVERY_NOTE = "delivery_note";
+  @SerializedName(SERIALIZED_NAME_DELIVERY_NOTE)
+  private Boolean deliveryNote;
 
-    public static final String SERIALIZED_NAME_ATTACHMENT = "attachment";
-    @SerializedName(SERIALIZED_NAME_ATTACHMENT)
-    private Boolean attachment;
+  public static final String SERIALIZED_NAME_ATTACHMENT = "attachment";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT)
+  private Boolean attachment;
 
-    public static final String SERIALIZED_NAME_ACCOMPANYING_INVOICE = "accompanying_invoice";
-    @SerializedName(SERIALIZED_NAME_ACCOMPANYING_INVOICE)
-    private Boolean accompanyingInvoice;
+  public static final String SERIALIZED_NAME_ACCOMPANYING_INVOICE = "accompanying_invoice";
+  @SerializedName(SERIALIZED_NAME_ACCOMPANYING_INVOICE)
+  private Boolean accompanyingInvoice;
 
-    public EmailScheduleInclude() {
+  public EmailScheduleInclude() { 
+  }
+
+  public EmailScheduleInclude document(Boolean document) {
+    
+    this.document = document;
+    return this;
+  }
+
+   /**
+   * If set to true, the email will have a button to view the document
+   * @return document
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set to true, the email will have a button to view the document")
+
+  public Boolean getDocument() {
+    return document;
+  }
+
+
+  public void setDocument(Boolean document) {
+    this.document = document;
+  }
+
+
+  public EmailScheduleInclude deliveryNote(Boolean deliveryNote) {
+    
+    this.deliveryNote = deliveryNote;
+    return this;
+  }
+
+   /**
+   * If set to true, the email will have a button to view the delivery note
+   * @return deliveryNote
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set to true, the email will have a button to view the delivery note")
+
+  public Boolean getDeliveryNote() {
+    return deliveryNote;
+  }
+
+
+  public void setDeliveryNote(Boolean deliveryNote) {
+    this.deliveryNote = deliveryNote;
+  }
+
+
+  public EmailScheduleInclude attachment(Boolean attachment) {
+    
+    this.attachment = attachment;
+    return this;
+  }
+
+   /**
+   * If set to true, the email will have a button to view the attachment
+   * @return attachment
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set to true, the email will have a button to view the attachment")
+
+  public Boolean getAttachment() {
+    return attachment;
+  }
+
+
+  public void setAttachment(Boolean attachment) {
+    this.attachment = attachment;
+  }
+
+
+  public EmailScheduleInclude accompanyingInvoice(Boolean accompanyingInvoice) {
+    
+    this.accompanyingInvoice = accompanyingInvoice;
+    return this;
+  }
+
+   /**
+   * If set to true, the email will have a button to view the accompanying invoice
+   * @return accompanyingInvoice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set to true, the email will have a button to view the accompanying invoice")
+
+  public Boolean getAccompanyingInvoice() {
+    return accompanyingInvoice;
+  }
+
+
+  public void setAccompanyingInvoice(Boolean accompanyingInvoice) {
+    this.accompanyingInvoice = accompanyingInvoice;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public EmailScheduleInclude document(Boolean document) {
-
-        this.document = document;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    EmailScheduleInclude emailScheduleInclude = (EmailScheduleInclude) o;
+    return Objects.equals(this.document, emailScheduleInclude.document) &&
+        Objects.equals(this.deliveryNote, emailScheduleInclude.deliveryNote) &&
+        Objects.equals(this.attachment, emailScheduleInclude.attachment) &&
+        Objects.equals(this.accompanyingInvoice, emailScheduleInclude.accompanyingInvoice);
+  }
 
-    /**
-     * If set to true, the email will have a button to view the document
-     *
-     * @return document
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If set to true, the email will have a button to view the document")
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
 
-    public Boolean getDocument() {
-        return document;
+  @Override
+  public int hashCode() {
+    return Objects.hash(document, deliveryNote, attachment, accompanyingInvoice);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
     }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class EmailScheduleInclude {\n");
+    sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("    deliveryNote: ").append(toIndentedString(deliveryNote)).append("\n");
+    sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
+    sb.append("    accompanyingInvoice: ").append(toIndentedString(accompanyingInvoice)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setDocument(Boolean document) {
-        this.document = document;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    public EmailScheduleInclude deliveryNote(Boolean deliveryNote) {
-
-        this.deliveryNote = deliveryNote;
-        return this;
-    }
-
-    /**
-     * If set to true, the email will have a button to view the delivery note
-     *
-     * @return deliveryNote
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If set to true, the email will have a button to view the delivery note")
-
-    public Boolean getDeliveryNote() {
-        return deliveryNote;
-    }
-
-
-    public void setDeliveryNote(Boolean deliveryNote) {
-        this.deliveryNote = deliveryNote;
-    }
-
-
-    public EmailScheduleInclude attachment(Boolean attachment) {
-
-        this.attachment = attachment;
-        return this;
-    }
-
-    /**
-     * If set to true, the email will have a button to view the attachment
-     *
-     * @return attachment
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If set to true, the email will have a button to view the attachment")
-
-    public Boolean getAttachment() {
-        return attachment;
-    }
-
-
-    public void setAttachment(Boolean attachment) {
-        this.attachment = attachment;
-    }
-
-
-    public EmailScheduleInclude accompanyingInvoice(Boolean accompanyingInvoice) {
-
-        this.accompanyingInvoice = accompanyingInvoice;
-        return this;
-    }
-
-    /**
-     * If set to true, the email will have a button to view the accompanying invoice
-     *
-     * @return accompanyingInvoice
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If set to true, the email will have a button to view the accompanying invoice")
-
-    public Boolean getAccompanyingInvoice() {
-        return accompanyingInvoice;
-    }
-
-
-    public void setAccompanyingInvoice(Boolean accompanyingInvoice) {
-        this.accompanyingInvoice = accompanyingInvoice;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        EmailScheduleInclude emailScheduleInclude = (EmailScheduleInclude) o;
-        return Objects.equals(this.document, emailScheduleInclude.document) &&
-                Objects.equals(this.deliveryNote, emailScheduleInclude.deliveryNote) &&
-                Objects.equals(this.attachment, emailScheduleInclude.attachment) &&
-                Objects.equals(this.accompanyingInvoice, emailScheduleInclude.accompanyingInvoice);
-    }
-
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(document, deliveryNote, attachment, accompanyingInvoice);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EmailScheduleInclude {\n");
-        sb.append("    document: ").append(toIndentedString(document)).append("\n");
-        sb.append("    deliveryNote: ").append(toIndentedString(deliveryNote)).append("\n");
-        sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
-        sb.append("    accompanyingInvoice: ").append(toIndentedString(accompanyingInvoice)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

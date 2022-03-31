@@ -13,821 +13,802 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import it.fattureincloud.sdk.model.PermissionLevel;
+import it.fattureincloud.sdk.model.PermissionsFicIssuedDocumentsDetailed;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
-
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Objects;
 
 /**
- *
+ * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class Permissions implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    public static final String SERIALIZED_NAME_FIC_SITUATION = "fic_situation";
-    @SerializedName(SERIALIZED_NAME_FIC_SITUATION)
-    private PermissionLevel ficSituation;
+  private static final long serialVersionUID = 1L;
+
+  public static final String SERIALIZED_NAME_FIC_SITUATION = "fic_situation";
+  @SerializedName(SERIALIZED_NAME_FIC_SITUATION)
+  private PermissionLevel ficSituation;
 
-    public static final String SERIALIZED_NAME_FIC_CLIENTS = "fic_clients";
-    @SerializedName(SERIALIZED_NAME_FIC_CLIENTS)
-    private PermissionLevel ficClients;
+  public static final String SERIALIZED_NAME_FIC_CLIENTS = "fic_clients";
+  @SerializedName(SERIALIZED_NAME_FIC_CLIENTS)
+  private PermissionLevel ficClients;
+
+  public static final String SERIALIZED_NAME_FIC_SUPPLIERS = "fic_suppliers";
+  @SerializedName(SERIALIZED_NAME_FIC_SUPPLIERS)
+  private PermissionLevel ficSuppliers;
+
+  public static final String SERIALIZED_NAME_FIC_PRODUCTS = "fic_products";
+  @SerializedName(SERIALIZED_NAME_FIC_PRODUCTS)
+  private PermissionLevel ficProducts;
+
+  public static final String SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS = "fic_issued_documents";
+  @SerializedName(SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS)
+  private PermissionLevel ficIssuedDocuments;
+
+  public static final String SERIALIZED_NAME_FIC_RECEIVED_DOCUMENTS = "fic_received_documents";
+  @SerializedName(SERIALIZED_NAME_FIC_RECEIVED_DOCUMENTS)
+  private PermissionLevel ficReceivedDocuments;
+
+  public static final String SERIALIZED_NAME_FIC_RECEIPTS = "fic_receipts";
+  @SerializedName(SERIALIZED_NAME_FIC_RECEIPTS)
+  private PermissionLevel ficReceipts;
 
-    public static final String SERIALIZED_NAME_FIC_SUPPLIERS = "fic_suppliers";
-    @SerializedName(SERIALIZED_NAME_FIC_SUPPLIERS)
-    private PermissionLevel ficSuppliers;
+  public static final String SERIALIZED_NAME_FIC_CALENDAR = "fic_calendar";
+  @SerializedName(SERIALIZED_NAME_FIC_CALENDAR)
+  private PermissionLevel ficCalendar;
+
+  public static final String SERIALIZED_NAME_FIC_ARCHIVE = "fic_archive";
+  @SerializedName(SERIALIZED_NAME_FIC_ARCHIVE)
+  private PermissionLevel ficArchive;
+
+  public static final String SERIALIZED_NAME_FIC_TAXES = "fic_taxes";
+  @SerializedName(SERIALIZED_NAME_FIC_TAXES)
+  private PermissionLevel ficTaxes;
+
+  public static final String SERIALIZED_NAME_FIC_STOCK = "fic_stock";
+  @SerializedName(SERIALIZED_NAME_FIC_STOCK)
+  private PermissionLevel ficStock;
+
+  public static final String SERIALIZED_NAME_FIC_CASHBOOK = "fic_cashbook";
+  @SerializedName(SERIALIZED_NAME_FIC_CASHBOOK)
+  private PermissionLevel ficCashbook;
+
+  public static final String SERIALIZED_NAME_FIC_SETTINGS = "fic_settings";
+  @SerializedName(SERIALIZED_NAME_FIC_SETTINGS)
+  private PermissionLevel ficSettings;
 
-    public static final String SERIALIZED_NAME_FIC_PRODUCTS = "fic_products";
-    @SerializedName(SERIALIZED_NAME_FIC_PRODUCTS)
-    private PermissionLevel ficProducts;
+  public static final String SERIALIZED_NAME_FIC_EMAILS = "fic_emails";
+  @SerializedName(SERIALIZED_NAME_FIC_EMAILS)
+  private PermissionLevel ficEmails;
 
-    public static final String SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS = "fic_issued_documents";
-    @SerializedName(SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS)
-    private PermissionLevel ficIssuedDocuments;
+  public static final String SERIALIZED_NAME_FIC_EXPORT = "fic_export";
+  @SerializedName(SERIALIZED_NAME_FIC_EXPORT)
+  private PermissionLevel ficExport;
+
+  public static final String SERIALIZED_NAME_FIC_IMPORT_BANKSTATEMENTS = "fic_import_bankstatements";
+  @SerializedName(SERIALIZED_NAME_FIC_IMPORT_BANKSTATEMENTS)
+  private PermissionLevel ficImportBankstatements;
+
+  public static final String SERIALIZED_NAME_FIC_IMPORT_CLIENTS_SUPPLIERS = "fic_import_clients_suppliers";
+  @SerializedName(SERIALIZED_NAME_FIC_IMPORT_CLIENTS_SUPPLIERS)
+  private PermissionLevel ficImportClientsSuppliers;
 
-    public static final String SERIALIZED_NAME_FIC_RECEIVED_DOCUMENTS = "fic_received_documents";
-    @SerializedName(SERIALIZED_NAME_FIC_RECEIVED_DOCUMENTS)
-    private PermissionLevel ficReceivedDocuments;
+  public static final String SERIALIZED_NAME_FIC_IMPORT_ISSUED_DOCUMENTS = "fic_import_issued_documents";
+  @SerializedName(SERIALIZED_NAME_FIC_IMPORT_ISSUED_DOCUMENTS)
+  private PermissionLevel ficImportIssuedDocuments;
 
-    public static final String SERIALIZED_NAME_FIC_RECEIPTS = "fic_receipts";
-    @SerializedName(SERIALIZED_NAME_FIC_RECEIPTS)
-    private PermissionLevel ficReceipts;
+  public static final String SERIALIZED_NAME_FIC_IMPORT_PRODUCTS = "fic_import_products";
+  @SerializedName(SERIALIZED_NAME_FIC_IMPORT_PRODUCTS)
+  private PermissionLevel ficImportProducts;
 
-    public static final String SERIALIZED_NAME_FIC_CALENDAR = "fic_calendar";
-    @SerializedName(SERIALIZED_NAME_FIC_CALENDAR)
-    private PermissionLevel ficCalendar;
+  public static final String SERIALIZED_NAME_FIC_RECURRING = "fic_recurring";
+  @SerializedName(SERIALIZED_NAME_FIC_RECURRING)
+  private PermissionLevel ficRecurring;
 
-    public static final String SERIALIZED_NAME_FIC_ARCHIVE = "fic_archive";
-    @SerializedName(SERIALIZED_NAME_FIC_ARCHIVE)
-    private PermissionLevel ficArchive;
+  public static final String SERIALIZED_NAME_FIC_RIBA = "fic_riba";
+  @SerializedName(SERIALIZED_NAME_FIC_RIBA)
+  private PermissionLevel ficRiba;
+
+  public static final String SERIALIZED_NAME_DIC_EMPLOYEES = "dic_employees";
+  @SerializedName(SERIALIZED_NAME_DIC_EMPLOYEES)
+  private PermissionLevel dicEmployees;
+
+  public static final String SERIALIZED_NAME_DIC_SETTINGS = "dic_settings";
+  @SerializedName(SERIALIZED_NAME_DIC_SETTINGS)
+  private PermissionLevel dicSettings;
 
-    public static final String SERIALIZED_NAME_FIC_TAXES = "fic_taxes";
-    @SerializedName(SERIALIZED_NAME_FIC_TAXES)
-    private PermissionLevel ficTaxes;
+  public static final String SERIALIZED_NAME_DIC_TIMESHEET = "dic_timesheet";
+  @SerializedName(SERIALIZED_NAME_DIC_TIMESHEET)
+  private PermissionLevel dicTimesheet;
 
-    public static final String SERIALIZED_NAME_FIC_STOCK = "fic_stock";
-    @SerializedName(SERIALIZED_NAME_FIC_STOCK)
-    private PermissionLevel ficStock;
+  public static final String SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS_DETAILED = "fic_issued_documents_detailed";
+  @SerializedName(SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS_DETAILED)
+  private PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed;
 
-    public static final String SERIALIZED_NAME_FIC_CASHBOOK = "fic_cashbook";
-    @SerializedName(SERIALIZED_NAME_FIC_CASHBOOK)
-    private PermissionLevel ficCashbook;
+  public Permissions() { 
+  }
 
-    public static final String SERIALIZED_NAME_FIC_SETTINGS = "fic_settings";
-    @SerializedName(SERIALIZED_NAME_FIC_SETTINGS)
-    private PermissionLevel ficSettings;
+  public Permissions ficSituation(PermissionLevel ficSituation) {
+    
+    this.ficSituation = ficSituation;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_FIC_EMAILS = "fic_emails";
-    @SerializedName(SERIALIZED_NAME_FIC_EMAILS)
-    private PermissionLevel ficEmails;
+   /**
+   * Get ficSituation
+   * @return ficSituation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public static final String SERIALIZED_NAME_FIC_EXPORT = "fic_export";
-    @SerializedName(SERIALIZED_NAME_FIC_EXPORT)
-    private PermissionLevel ficExport;
+  public PermissionLevel getFicSituation() {
+    return ficSituation;
+  }
 
-    public static final String SERIALIZED_NAME_FIC_IMPORT_BANKSTATEMENTS = "fic_import_bankstatements";
-    @SerializedName(SERIALIZED_NAME_FIC_IMPORT_BANKSTATEMENTS)
-    private PermissionLevel ficImportBankstatements;
 
-    public static final String SERIALIZED_NAME_FIC_IMPORT_CLIENTS_SUPPLIERS = "fic_import_clients_suppliers";
-    @SerializedName(SERIALIZED_NAME_FIC_IMPORT_CLIENTS_SUPPLIERS)
-    private PermissionLevel ficImportClientsSuppliers;
+  public void setFicSituation(PermissionLevel ficSituation) {
+    this.ficSituation = ficSituation;
+  }
 
-    public static final String SERIALIZED_NAME_FIC_IMPORT_ISSUED_DOCUMENTS = "fic_import_issued_documents";
-    @SerializedName(SERIALIZED_NAME_FIC_IMPORT_ISSUED_DOCUMENTS)
-    private PermissionLevel ficImportIssuedDocuments;
 
-    public static final String SERIALIZED_NAME_FIC_IMPORT_PRODUCTS = "fic_import_products";
-    @SerializedName(SERIALIZED_NAME_FIC_IMPORT_PRODUCTS)
-    private PermissionLevel ficImportProducts;
+  public Permissions ficClients(PermissionLevel ficClients) {
+    
+    this.ficClients = ficClients;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_FIC_RECURRING = "fic_recurring";
-    @SerializedName(SERIALIZED_NAME_FIC_RECURRING)
-    private PermissionLevel ficRecurring;
+   /**
+   * Get ficClients
+   * @return ficClients
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public static final String SERIALIZED_NAME_FIC_RIBA = "fic_riba";
-    @SerializedName(SERIALIZED_NAME_FIC_RIBA)
-    private PermissionLevel ficRiba;
+  public PermissionLevel getFicClients() {
+    return ficClients;
+  }
 
-    public static final String SERIALIZED_NAME_DIC_EMPLOYEES = "dic_employees";
-    @SerializedName(SERIALIZED_NAME_DIC_EMPLOYEES)
-    private PermissionLevel dicEmployees;
 
-    public static final String SERIALIZED_NAME_DIC_SETTINGS = "dic_settings";
-    @SerializedName(SERIALIZED_NAME_DIC_SETTINGS)
-    private PermissionLevel dicSettings;
+  public void setFicClients(PermissionLevel ficClients) {
+    this.ficClients = ficClients;
+  }
 
-    public static final String SERIALIZED_NAME_DIC_TIMESHEET = "dic_timesheet";
-    @SerializedName(SERIALIZED_NAME_DIC_TIMESHEET)
-    private PermissionLevel dicTimesheet;
 
-    public static final String SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS_DETAILED = "fic_issued_documents_detailed";
-    @SerializedName(SERIALIZED_NAME_FIC_ISSUED_DOCUMENTS_DETAILED)
-    private PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed;
+  public Permissions ficSuppliers(PermissionLevel ficSuppliers) {
+    
+    this.ficSuppliers = ficSuppliers;
+    return this;
+  }
 
-    public Permissions() {
-    }
-
-    public Permissions ficSituation(PermissionLevel ficSituation) {
-
-        this.ficSituation = ficSituation;
-        return this;
-    }
-
-    /**
-     * Get ficSituation
-     *
-     * @return ficSituation
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicSituation() {
-        return ficSituation;
-    }
-
-
-    public void setFicSituation(PermissionLevel ficSituation) {
-        this.ficSituation = ficSituation;
-    }
-
-
-    public Permissions ficClients(PermissionLevel ficClients) {
-
-        this.ficClients = ficClients;
-        return this;
-    }
-
-    /**
-     * Get ficClients
-     *
-     * @return ficClients
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicClients() {
-        return ficClients;
-    }
-
-
-    public void setFicClients(PermissionLevel ficClients) {
-        this.ficClients = ficClients;
-    }
-
-
-    public Permissions ficSuppliers(PermissionLevel ficSuppliers) {
-
-        this.ficSuppliers = ficSuppliers;
-        return this;
-    }
-
-    /**
-     * Get ficSuppliers
-     *
-     * @return ficSuppliers
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicSuppliers() {
-        return ficSuppliers;
-    }
-
-
-    public void setFicSuppliers(PermissionLevel ficSuppliers) {
-        this.ficSuppliers = ficSuppliers;
-    }
-
+   /**
+   * Get ficSuppliers
+   * @return ficSuppliers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Permissions ficProducts(PermissionLevel ficProducts) {
+  public PermissionLevel getFicSuppliers() {
+    return ficSuppliers;
+  }
 
-        this.ficProducts = ficProducts;
-        return this;
-    }
-
-    /**
-     * Get ficProducts
-     *
-     * @return ficProducts
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicProducts() {
-        return ficProducts;
-    }
-
-
-    public void setFicProducts(PermissionLevel ficProducts) {
-        this.ficProducts = ficProducts;
-    }
-
-
-    public Permissions ficIssuedDocuments(PermissionLevel ficIssuedDocuments) {
-
-        this.ficIssuedDocuments = ficIssuedDocuments;
-        return this;
-    }
-
-    /**
-     * Get ficIssuedDocuments
-     *
-     * @return ficIssuedDocuments
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicIssuedDocuments() {
-        return ficIssuedDocuments;
-    }
-
-
-    public void setFicIssuedDocuments(PermissionLevel ficIssuedDocuments) {
-        this.ficIssuedDocuments = ficIssuedDocuments;
-    }
-
-
-    public Permissions ficReceivedDocuments(PermissionLevel ficReceivedDocuments) {
-
-        this.ficReceivedDocuments = ficReceivedDocuments;
-        return this;
-    }
-
-    /**
-     * Get ficReceivedDocuments
-     *
-     * @return ficReceivedDocuments
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicReceivedDocuments() {
-        return ficReceivedDocuments;
-    }
 
+  public void setFicSuppliers(PermissionLevel ficSuppliers) {
+    this.ficSuppliers = ficSuppliers;
+  }
 
-    public void setFicReceivedDocuments(PermissionLevel ficReceivedDocuments) {
-        this.ficReceivedDocuments = ficReceivedDocuments;
-    }
 
+  public Permissions ficProducts(PermissionLevel ficProducts) {
+    
+    this.ficProducts = ficProducts;
+    return this;
+  }
 
-    public Permissions ficReceipts(PermissionLevel ficReceipts) {
+   /**
+   * Get ficProducts
+   * @return ficProducts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficReceipts = ficReceipts;
-        return this;
-    }
+  public PermissionLevel getFicProducts() {
+    return ficProducts;
+  }
 
-    /**
-     * Get ficReceipts
-     *
-     * @return ficReceipts
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicReceipts() {
-        return ficReceipts;
-    }
 
+  public void setFicProducts(PermissionLevel ficProducts) {
+    this.ficProducts = ficProducts;
+  }
 
-    public void setFicReceipts(PermissionLevel ficReceipts) {
-        this.ficReceipts = ficReceipts;
-    }
 
+  public Permissions ficIssuedDocuments(PermissionLevel ficIssuedDocuments) {
+    
+    this.ficIssuedDocuments = ficIssuedDocuments;
+    return this;
+  }
 
-    public Permissions ficCalendar(PermissionLevel ficCalendar) {
+   /**
+   * Get ficIssuedDocuments
+   * @return ficIssuedDocuments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficCalendar = ficCalendar;
-        return this;
-    }
+  public PermissionLevel getFicIssuedDocuments() {
+    return ficIssuedDocuments;
+  }
 
-    /**
-     * Get ficCalendar
-     *
-     * @return ficCalendar
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicCalendar() {
-        return ficCalendar;
-    }
 
+  public void setFicIssuedDocuments(PermissionLevel ficIssuedDocuments) {
+    this.ficIssuedDocuments = ficIssuedDocuments;
+  }
 
-    public void setFicCalendar(PermissionLevel ficCalendar) {
-        this.ficCalendar = ficCalendar;
-    }
 
+  public Permissions ficReceivedDocuments(PermissionLevel ficReceivedDocuments) {
+    
+    this.ficReceivedDocuments = ficReceivedDocuments;
+    return this;
+  }
 
-    public Permissions ficArchive(PermissionLevel ficArchive) {
+   /**
+   * Get ficReceivedDocuments
+   * @return ficReceivedDocuments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficArchive = ficArchive;
-        return this;
-    }
+  public PermissionLevel getFicReceivedDocuments() {
+    return ficReceivedDocuments;
+  }
 
-    /**
-     * Get ficArchive
-     *
-     * @return ficArchive
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicArchive() {
-        return ficArchive;
-    }
 
+  public void setFicReceivedDocuments(PermissionLevel ficReceivedDocuments) {
+    this.ficReceivedDocuments = ficReceivedDocuments;
+  }
 
-    public void setFicArchive(PermissionLevel ficArchive) {
-        this.ficArchive = ficArchive;
-    }
 
+  public Permissions ficReceipts(PermissionLevel ficReceipts) {
+    
+    this.ficReceipts = ficReceipts;
+    return this;
+  }
 
-    public Permissions ficTaxes(PermissionLevel ficTaxes) {
+   /**
+   * Get ficReceipts
+   * @return ficReceipts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficTaxes = ficTaxes;
-        return this;
-    }
+  public PermissionLevel getFicReceipts() {
+    return ficReceipts;
+  }
 
-    /**
-     * Get ficTaxes
-     *
-     * @return ficTaxes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicTaxes() {
-        return ficTaxes;
-    }
 
+  public void setFicReceipts(PermissionLevel ficReceipts) {
+    this.ficReceipts = ficReceipts;
+  }
 
-    public void setFicTaxes(PermissionLevel ficTaxes) {
-        this.ficTaxes = ficTaxes;
-    }
 
+  public Permissions ficCalendar(PermissionLevel ficCalendar) {
+    
+    this.ficCalendar = ficCalendar;
+    return this;
+  }
 
-    public Permissions ficStock(PermissionLevel ficStock) {
+   /**
+   * Get ficCalendar
+   * @return ficCalendar
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficStock = ficStock;
-        return this;
-    }
+  public PermissionLevel getFicCalendar() {
+    return ficCalendar;
+  }
 
-    /**
-     * Get ficStock
-     *
-     * @return ficStock
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicStock() {
-        return ficStock;
-    }
 
+  public void setFicCalendar(PermissionLevel ficCalendar) {
+    this.ficCalendar = ficCalendar;
+  }
 
-    public void setFicStock(PermissionLevel ficStock) {
-        this.ficStock = ficStock;
-    }
 
+  public Permissions ficArchive(PermissionLevel ficArchive) {
+    
+    this.ficArchive = ficArchive;
+    return this;
+  }
 
-    public Permissions ficCashbook(PermissionLevel ficCashbook) {
+   /**
+   * Get ficArchive
+   * @return ficArchive
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficCashbook = ficCashbook;
-        return this;
-    }
+  public PermissionLevel getFicArchive() {
+    return ficArchive;
+  }
 
-    /**
-     * Get ficCashbook
-     *
-     * @return ficCashbook
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicCashbook() {
-        return ficCashbook;
-    }
 
+  public void setFicArchive(PermissionLevel ficArchive) {
+    this.ficArchive = ficArchive;
+  }
 
-    public void setFicCashbook(PermissionLevel ficCashbook) {
-        this.ficCashbook = ficCashbook;
-    }
 
+  public Permissions ficTaxes(PermissionLevel ficTaxes) {
+    
+    this.ficTaxes = ficTaxes;
+    return this;
+  }
 
-    public Permissions ficSettings(PermissionLevel ficSettings) {
+   /**
+   * Get ficTaxes
+   * @return ficTaxes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficSettings = ficSettings;
-        return this;
-    }
+  public PermissionLevel getFicTaxes() {
+    return ficTaxes;
+  }
 
-    /**
-     * Get ficSettings
-     *
-     * @return ficSettings
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicSettings() {
-        return ficSettings;
-    }
 
+  public void setFicTaxes(PermissionLevel ficTaxes) {
+    this.ficTaxes = ficTaxes;
+  }
 
-    public void setFicSettings(PermissionLevel ficSettings) {
-        this.ficSettings = ficSettings;
-    }
 
+  public Permissions ficStock(PermissionLevel ficStock) {
+    
+    this.ficStock = ficStock;
+    return this;
+  }
 
-    public Permissions ficEmails(PermissionLevel ficEmails) {
+   /**
+   * Get ficStock
+   * @return ficStock
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficEmails = ficEmails;
-        return this;
-    }
+  public PermissionLevel getFicStock() {
+    return ficStock;
+  }
 
-    /**
-     * Get ficEmails
-     *
-     * @return ficEmails
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicEmails() {
-        return ficEmails;
-    }
 
+  public void setFicStock(PermissionLevel ficStock) {
+    this.ficStock = ficStock;
+  }
 
-    public void setFicEmails(PermissionLevel ficEmails) {
-        this.ficEmails = ficEmails;
-    }
 
+  public Permissions ficCashbook(PermissionLevel ficCashbook) {
+    
+    this.ficCashbook = ficCashbook;
+    return this;
+  }
 
-    public Permissions ficExport(PermissionLevel ficExport) {
+   /**
+   * Get ficCashbook
+   * @return ficCashbook
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficExport = ficExport;
-        return this;
-    }
+  public PermissionLevel getFicCashbook() {
+    return ficCashbook;
+  }
 
-    /**
-     * Get ficExport
-     *
-     * @return ficExport
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicExport() {
-        return ficExport;
-    }
 
+  public void setFicCashbook(PermissionLevel ficCashbook) {
+    this.ficCashbook = ficCashbook;
+  }
 
-    public void setFicExport(PermissionLevel ficExport) {
-        this.ficExport = ficExport;
-    }
 
+  public Permissions ficSettings(PermissionLevel ficSettings) {
+    
+    this.ficSettings = ficSettings;
+    return this;
+  }
 
-    public Permissions ficImportBankstatements(PermissionLevel ficImportBankstatements) {
+   /**
+   * Get ficSettings
+   * @return ficSettings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficImportBankstatements = ficImportBankstatements;
-        return this;
-    }
+  public PermissionLevel getFicSettings() {
+    return ficSettings;
+  }
 
-    /**
-     * Get ficImportBankstatements
-     *
-     * @return ficImportBankstatements
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicImportBankstatements() {
-        return ficImportBankstatements;
-    }
 
+  public void setFicSettings(PermissionLevel ficSettings) {
+    this.ficSettings = ficSettings;
+  }
 
-    public void setFicImportBankstatements(PermissionLevel ficImportBankstatements) {
-        this.ficImportBankstatements = ficImportBankstatements;
-    }
 
+  public Permissions ficEmails(PermissionLevel ficEmails) {
+    
+    this.ficEmails = ficEmails;
+    return this;
+  }
 
-    public Permissions ficImportClientsSuppliers(PermissionLevel ficImportClientsSuppliers) {
+   /**
+   * Get ficEmails
+   * @return ficEmails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficImportClientsSuppliers = ficImportClientsSuppliers;
-        return this;
-    }
+  public PermissionLevel getFicEmails() {
+    return ficEmails;
+  }
 
-    /**
-     * Get ficImportClientsSuppliers
-     *
-     * @return ficImportClientsSuppliers
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicImportClientsSuppliers() {
-        return ficImportClientsSuppliers;
-    }
 
+  public void setFicEmails(PermissionLevel ficEmails) {
+    this.ficEmails = ficEmails;
+  }
 
-    public void setFicImportClientsSuppliers(PermissionLevel ficImportClientsSuppliers) {
-        this.ficImportClientsSuppliers = ficImportClientsSuppliers;
-    }
 
+  public Permissions ficExport(PermissionLevel ficExport) {
+    
+    this.ficExport = ficExport;
+    return this;
+  }
 
-    public Permissions ficImportIssuedDocuments(PermissionLevel ficImportIssuedDocuments) {
+   /**
+   * Get ficExport
+   * @return ficExport
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficImportIssuedDocuments = ficImportIssuedDocuments;
-        return this;
-    }
+  public PermissionLevel getFicExport() {
+    return ficExport;
+  }
 
-    /**
-     * Get ficImportIssuedDocuments
-     *
-     * @return ficImportIssuedDocuments
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicImportIssuedDocuments() {
-        return ficImportIssuedDocuments;
-    }
 
+  public void setFicExport(PermissionLevel ficExport) {
+    this.ficExport = ficExport;
+  }
 
-    public void setFicImportIssuedDocuments(PermissionLevel ficImportIssuedDocuments) {
-        this.ficImportIssuedDocuments = ficImportIssuedDocuments;
-    }
 
+  public Permissions ficImportBankstatements(PermissionLevel ficImportBankstatements) {
+    
+    this.ficImportBankstatements = ficImportBankstatements;
+    return this;
+  }
 
-    public Permissions ficImportProducts(PermissionLevel ficImportProducts) {
+   /**
+   * Get ficImportBankstatements
+   * @return ficImportBankstatements
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficImportProducts = ficImportProducts;
-        return this;
-    }
+  public PermissionLevel getFicImportBankstatements() {
+    return ficImportBankstatements;
+  }
 
-    /**
-     * Get ficImportProducts
-     *
-     * @return ficImportProducts
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicImportProducts() {
-        return ficImportProducts;
-    }
 
+  public void setFicImportBankstatements(PermissionLevel ficImportBankstatements) {
+    this.ficImportBankstatements = ficImportBankstatements;
+  }
 
-    public void setFicImportProducts(PermissionLevel ficImportProducts) {
-        this.ficImportProducts = ficImportProducts;
-    }
 
+  public Permissions ficImportClientsSuppliers(PermissionLevel ficImportClientsSuppliers) {
+    
+    this.ficImportClientsSuppliers = ficImportClientsSuppliers;
+    return this;
+  }
 
-    public Permissions ficRecurring(PermissionLevel ficRecurring) {
+   /**
+   * Get ficImportClientsSuppliers
+   * @return ficImportClientsSuppliers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficRecurring = ficRecurring;
-        return this;
-    }
+  public PermissionLevel getFicImportClientsSuppliers() {
+    return ficImportClientsSuppliers;
+  }
 
-    /**
-     * Get ficRecurring
-     *
-     * @return ficRecurring
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicRecurring() {
-        return ficRecurring;
-    }
 
+  public void setFicImportClientsSuppliers(PermissionLevel ficImportClientsSuppliers) {
+    this.ficImportClientsSuppliers = ficImportClientsSuppliers;
+  }
 
-    public void setFicRecurring(PermissionLevel ficRecurring) {
-        this.ficRecurring = ficRecurring;
-    }
 
+  public Permissions ficImportIssuedDocuments(PermissionLevel ficImportIssuedDocuments) {
+    
+    this.ficImportIssuedDocuments = ficImportIssuedDocuments;
+    return this;
+  }
 
-    public Permissions ficRiba(PermissionLevel ficRiba) {
+   /**
+   * Get ficImportIssuedDocuments
+   * @return ficImportIssuedDocuments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficRiba = ficRiba;
-        return this;
-    }
+  public PermissionLevel getFicImportIssuedDocuments() {
+    return ficImportIssuedDocuments;
+  }
 
-    /**
-     * Get ficRiba
-     *
-     * @return ficRiba
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getFicRiba() {
-        return ficRiba;
-    }
 
+  public void setFicImportIssuedDocuments(PermissionLevel ficImportIssuedDocuments) {
+    this.ficImportIssuedDocuments = ficImportIssuedDocuments;
+  }
 
-    public void setFicRiba(PermissionLevel ficRiba) {
-        this.ficRiba = ficRiba;
-    }
 
+  public Permissions ficImportProducts(PermissionLevel ficImportProducts) {
+    
+    this.ficImportProducts = ficImportProducts;
+    return this;
+  }
 
-    public Permissions dicEmployees(PermissionLevel dicEmployees) {
+   /**
+   * Get ficImportProducts
+   * @return ficImportProducts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.dicEmployees = dicEmployees;
-        return this;
-    }
+  public PermissionLevel getFicImportProducts() {
+    return ficImportProducts;
+  }
 
-    /**
-     * Get dicEmployees
-     *
-     * @return dicEmployees
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getDicEmployees() {
-        return dicEmployees;
-    }
 
+  public void setFicImportProducts(PermissionLevel ficImportProducts) {
+    this.ficImportProducts = ficImportProducts;
+  }
 
-    public void setDicEmployees(PermissionLevel dicEmployees) {
-        this.dicEmployees = dicEmployees;
-    }
 
+  public Permissions ficRecurring(PermissionLevel ficRecurring) {
+    
+    this.ficRecurring = ficRecurring;
+    return this;
+  }
 
-    public Permissions dicSettings(PermissionLevel dicSettings) {
+   /**
+   * Get ficRecurring
+   * @return ficRecurring
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.dicSettings = dicSettings;
-        return this;
-    }
+  public PermissionLevel getFicRecurring() {
+    return ficRecurring;
+  }
 
-    /**
-     * Get dicSettings
-     *
-     * @return dicSettings
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getDicSettings() {
-        return dicSettings;
-    }
 
+  public void setFicRecurring(PermissionLevel ficRecurring) {
+    this.ficRecurring = ficRecurring;
+  }
 
-    public void setDicSettings(PermissionLevel dicSettings) {
-        this.dicSettings = dicSettings;
-    }
 
+  public Permissions ficRiba(PermissionLevel ficRiba) {
+    
+    this.ficRiba = ficRiba;
+    return this;
+  }
 
-    public Permissions dicTimesheet(PermissionLevel dicTimesheet) {
+   /**
+   * Get ficRiba
+   * @return ficRiba
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.dicTimesheet = dicTimesheet;
-        return this;
-    }
+  public PermissionLevel getFicRiba() {
+    return ficRiba;
+  }
 
-    /**
-     * Get dicTimesheet
-     *
-     * @return dicTimesheet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionLevel getDicTimesheet() {
-        return dicTimesheet;
-    }
 
+  public void setFicRiba(PermissionLevel ficRiba) {
+    this.ficRiba = ficRiba;
+  }
 
-    public void setDicTimesheet(PermissionLevel dicTimesheet) {
-        this.dicTimesheet = dicTimesheet;
-    }
 
+  public Permissions dicEmployees(PermissionLevel dicEmployees) {
+    
+    this.dicEmployees = dicEmployees;
+    return this;
+  }
 
-    public Permissions ficIssuedDocumentsDetailed(PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed) {
+   /**
+   * Get dicEmployees
+   * @return dicEmployees
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.ficIssuedDocumentsDetailed = ficIssuedDocumentsDetailed;
-        return this;
-    }
+  public PermissionLevel getDicEmployees() {
+    return dicEmployees;
+  }
 
-    /**
-     * Get ficIssuedDocumentsDetailed
-     *
-     * @return ficIssuedDocumentsDetailed
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PermissionsFicIssuedDocumentsDetailed getFicIssuedDocumentsDetailed() {
-        return ficIssuedDocumentsDetailed;
-    }
 
+  public void setDicEmployees(PermissionLevel dicEmployees) {
+    this.dicEmployees = dicEmployees;
+  }
 
-    public void setFicIssuedDocumentsDetailed(PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed) {
-        this.ficIssuedDocumentsDetailed = ficIssuedDocumentsDetailed;
-    }
 
+  public Permissions dicSettings(PermissionLevel dicSettings) {
+    
+    this.dicSettings = dicSettings;
+    return this;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Permissions permissions = (Permissions) o;
-        return Objects.equals(this.ficSituation, permissions.ficSituation) &&
-                Objects.equals(this.ficClients, permissions.ficClients) &&
-                Objects.equals(this.ficSuppliers, permissions.ficSuppliers) &&
-                Objects.equals(this.ficProducts, permissions.ficProducts) &&
-                Objects.equals(this.ficIssuedDocuments, permissions.ficIssuedDocuments) &&
-                Objects.equals(this.ficReceivedDocuments, permissions.ficReceivedDocuments) &&
-                Objects.equals(this.ficReceipts, permissions.ficReceipts) &&
-                Objects.equals(this.ficCalendar, permissions.ficCalendar) &&
-                Objects.equals(this.ficArchive, permissions.ficArchive) &&
-                Objects.equals(this.ficTaxes, permissions.ficTaxes) &&
-                Objects.equals(this.ficStock, permissions.ficStock) &&
-                Objects.equals(this.ficCashbook, permissions.ficCashbook) &&
-                Objects.equals(this.ficSettings, permissions.ficSettings) &&
-                Objects.equals(this.ficEmails, permissions.ficEmails) &&
-                Objects.equals(this.ficExport, permissions.ficExport) &&
-                Objects.equals(this.ficImportBankstatements, permissions.ficImportBankstatements) &&
-                Objects.equals(this.ficImportClientsSuppliers, permissions.ficImportClientsSuppliers) &&
-                Objects.equals(this.ficImportIssuedDocuments, permissions.ficImportIssuedDocuments) &&
-                Objects.equals(this.ficImportProducts, permissions.ficImportProducts) &&
-                Objects.equals(this.ficRecurring, permissions.ficRecurring) &&
-                Objects.equals(this.ficRiba, permissions.ficRiba) &&
-                Objects.equals(this.dicEmployees, permissions.dicEmployees) &&
-                Objects.equals(this.dicSettings, permissions.dicSettings) &&
-                Objects.equals(this.dicTimesheet, permissions.dicTimesheet) &&
-                Objects.equals(this.ficIssuedDocumentsDetailed, permissions.ficIssuedDocumentsDetailed);
-    }
+   /**
+   * Get dicSettings
+   * @return dicSettings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
+  public PermissionLevel getDicSettings() {
+    return dicSettings;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ficSituation, ficClients, ficSuppliers, ficProducts, ficIssuedDocuments, ficReceivedDocuments, ficReceipts, ficCalendar, ficArchive, ficTaxes, ficStock, ficCashbook, ficSettings, ficEmails, ficExport, ficImportBankstatements, ficImportClientsSuppliers, ficImportIssuedDocuments, ficImportProducts, ficRecurring, ficRiba, dicEmployees, dicSettings, dicTimesheet, ficIssuedDocumentsDetailed);
-    }
 
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
+  public void setDicSettings(PermissionLevel dicSettings) {
+    this.dicSettings = dicSettings;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Permissions {\n");
-        sb.append("    ficSituation: ").append(toIndentedString(ficSituation)).append("\n");
-        sb.append("    ficClients: ").append(toIndentedString(ficClients)).append("\n");
-        sb.append("    ficSuppliers: ").append(toIndentedString(ficSuppliers)).append("\n");
-        sb.append("    ficProducts: ").append(toIndentedString(ficProducts)).append("\n");
-        sb.append("    ficIssuedDocuments: ").append(toIndentedString(ficIssuedDocuments)).append("\n");
-        sb.append("    ficReceivedDocuments: ").append(toIndentedString(ficReceivedDocuments)).append("\n");
-        sb.append("    ficReceipts: ").append(toIndentedString(ficReceipts)).append("\n");
-        sb.append("    ficCalendar: ").append(toIndentedString(ficCalendar)).append("\n");
-        sb.append("    ficArchive: ").append(toIndentedString(ficArchive)).append("\n");
-        sb.append("    ficTaxes: ").append(toIndentedString(ficTaxes)).append("\n");
-        sb.append("    ficStock: ").append(toIndentedString(ficStock)).append("\n");
-        sb.append("    ficCashbook: ").append(toIndentedString(ficCashbook)).append("\n");
-        sb.append("    ficSettings: ").append(toIndentedString(ficSettings)).append("\n");
-        sb.append("    ficEmails: ").append(toIndentedString(ficEmails)).append("\n");
-        sb.append("    ficExport: ").append(toIndentedString(ficExport)).append("\n");
-        sb.append("    ficImportBankstatements: ").append(toIndentedString(ficImportBankstatements)).append("\n");
-        sb.append("    ficImportClientsSuppliers: ").append(toIndentedString(ficImportClientsSuppliers)).append("\n");
-        sb.append("    ficImportIssuedDocuments: ").append(toIndentedString(ficImportIssuedDocuments)).append("\n");
-        sb.append("    ficImportProducts: ").append(toIndentedString(ficImportProducts)).append("\n");
-        sb.append("    ficRecurring: ").append(toIndentedString(ficRecurring)).append("\n");
-        sb.append("    ficRiba: ").append(toIndentedString(ficRiba)).append("\n");
-        sb.append("    dicEmployees: ").append(toIndentedString(dicEmployees)).append("\n");
-        sb.append("    dicSettings: ").append(toIndentedString(dicSettings)).append("\n");
-        sb.append("    dicTimesheet: ").append(toIndentedString(dicTimesheet)).append("\n");
-        sb.append("    ficIssuedDocumentsDetailed: ").append(toIndentedString(ficIssuedDocumentsDetailed)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+  public Permissions dicTimesheet(PermissionLevel dicTimesheet) {
+    
+    this.dicTimesheet = dicTimesheet;
+    return this;
+  }
+
+   /**
+   * Get dicTimesheet
+   * @return dicTimesheet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PermissionLevel getDicTimesheet() {
+    return dicTimesheet;
+  }
+
+
+  public void setDicTimesheet(PermissionLevel dicTimesheet) {
+    this.dicTimesheet = dicTimesheet;
+  }
+
+
+  public Permissions ficIssuedDocumentsDetailed(PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed) {
+    
+    this.ficIssuedDocumentsDetailed = ficIssuedDocumentsDetailed;
+    return this;
+  }
+
+   /**
+   * Get ficIssuedDocumentsDetailed
+   * @return ficIssuedDocumentsDetailed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PermissionsFicIssuedDocumentsDetailed getFicIssuedDocumentsDetailed() {
+    return ficIssuedDocumentsDetailed;
+  }
+
+
+  public void setFicIssuedDocumentsDetailed(PermissionsFicIssuedDocumentsDetailed ficIssuedDocumentsDetailed) {
+    this.ficIssuedDocumentsDetailed = ficIssuedDocumentsDetailed;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Permissions permissions = (Permissions) o;
+    return Objects.equals(this.ficSituation, permissions.ficSituation) &&
+        Objects.equals(this.ficClients, permissions.ficClients) &&
+        Objects.equals(this.ficSuppliers, permissions.ficSuppliers) &&
+        Objects.equals(this.ficProducts, permissions.ficProducts) &&
+        Objects.equals(this.ficIssuedDocuments, permissions.ficIssuedDocuments) &&
+        Objects.equals(this.ficReceivedDocuments, permissions.ficReceivedDocuments) &&
+        Objects.equals(this.ficReceipts, permissions.ficReceipts) &&
+        Objects.equals(this.ficCalendar, permissions.ficCalendar) &&
+        Objects.equals(this.ficArchive, permissions.ficArchive) &&
+        Objects.equals(this.ficTaxes, permissions.ficTaxes) &&
+        Objects.equals(this.ficStock, permissions.ficStock) &&
+        Objects.equals(this.ficCashbook, permissions.ficCashbook) &&
+        Objects.equals(this.ficSettings, permissions.ficSettings) &&
+        Objects.equals(this.ficEmails, permissions.ficEmails) &&
+        Objects.equals(this.ficExport, permissions.ficExport) &&
+        Objects.equals(this.ficImportBankstatements, permissions.ficImportBankstatements) &&
+        Objects.equals(this.ficImportClientsSuppliers, permissions.ficImportClientsSuppliers) &&
+        Objects.equals(this.ficImportIssuedDocuments, permissions.ficImportIssuedDocuments) &&
+        Objects.equals(this.ficImportProducts, permissions.ficImportProducts) &&
+        Objects.equals(this.ficRecurring, permissions.ficRecurring) &&
+        Objects.equals(this.ficRiba, permissions.ficRiba) &&
+        Objects.equals(this.dicEmployees, permissions.dicEmployees) &&
+        Objects.equals(this.dicSettings, permissions.dicSettings) &&
+        Objects.equals(this.dicTimesheet, permissions.dicTimesheet) &&
+        Objects.equals(this.ficIssuedDocumentsDetailed, permissions.ficIssuedDocumentsDetailed);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(ficSituation, ficClients, ficSuppliers, ficProducts, ficIssuedDocuments, ficReceivedDocuments, ficReceipts, ficCalendar, ficArchive, ficTaxes, ficStock, ficCashbook, ficSettings, ficEmails, ficExport, ficImportBankstatements, ficImportClientsSuppliers, ficImportIssuedDocuments, ficImportProducts, ficRecurring, ficRiba, dicEmployees, dicSettings, dicTimesheet, ficIssuedDocumentsDetailed);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Permissions {\n");
+    sb.append("    ficSituation: ").append(toIndentedString(ficSituation)).append("\n");
+    sb.append("    ficClients: ").append(toIndentedString(ficClients)).append("\n");
+    sb.append("    ficSuppliers: ").append(toIndentedString(ficSuppliers)).append("\n");
+    sb.append("    ficProducts: ").append(toIndentedString(ficProducts)).append("\n");
+    sb.append("    ficIssuedDocuments: ").append(toIndentedString(ficIssuedDocuments)).append("\n");
+    sb.append("    ficReceivedDocuments: ").append(toIndentedString(ficReceivedDocuments)).append("\n");
+    sb.append("    ficReceipts: ").append(toIndentedString(ficReceipts)).append("\n");
+    sb.append("    ficCalendar: ").append(toIndentedString(ficCalendar)).append("\n");
+    sb.append("    ficArchive: ").append(toIndentedString(ficArchive)).append("\n");
+    sb.append("    ficTaxes: ").append(toIndentedString(ficTaxes)).append("\n");
+    sb.append("    ficStock: ").append(toIndentedString(ficStock)).append("\n");
+    sb.append("    ficCashbook: ").append(toIndentedString(ficCashbook)).append("\n");
+    sb.append("    ficSettings: ").append(toIndentedString(ficSettings)).append("\n");
+    sb.append("    ficEmails: ").append(toIndentedString(ficEmails)).append("\n");
+    sb.append("    ficExport: ").append(toIndentedString(ficExport)).append("\n");
+    sb.append("    ficImportBankstatements: ").append(toIndentedString(ficImportBankstatements)).append("\n");
+    sb.append("    ficImportClientsSuppliers: ").append(toIndentedString(ficImportClientsSuppliers)).append("\n");
+    sb.append("    ficImportIssuedDocuments: ").append(toIndentedString(ficImportIssuedDocuments)).append("\n");
+    sb.append("    ficImportProducts: ").append(toIndentedString(ficImportProducts)).append("\n");
+    sb.append("    ficRecurring: ").append(toIndentedString(ficRecurring)).append("\n");
+    sb.append("    ficRiba: ").append(toIndentedString(ficRiba)).append("\n");
+    sb.append("    dicEmployees: ").append(toIndentedString(dicEmployees)).append("\n");
+    sb.append("    dicSettings: ").append(toIndentedString(dicSettings)).append("\n");
+    sb.append("    dicTimesheet: ").append(toIndentedString(dicTimesheet)).append("\n");
+    sb.append("    ficIssuedDocumentsDetailed: ").append(toIndentedString(ficIssuedDocumentsDetailed)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

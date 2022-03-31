@@ -13,58 +13,63 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Default payment terms.
  */
 @JsonAdapter(DefaultPaymentTermsType.Adapter.class)
 public enum DefaultPaymentTermsType {
+  
+  STANDARD("standard"),
+  
+  END_OF_MONTH("end_of_month");
 
-    STANDARD("standard"),
+  private String value;
 
-    END_OF_MONTH("end_of_month");
+  DefaultPaymentTermsType(String value) {
+    this.value = value;
+  }
 
-    private final String value;
+  public String getValue() {
+    return value;
+  }
 
-    DefaultPaymentTermsType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  public static DefaultPaymentTermsType fromValue(String value) {
+    for (DefaultPaymentTermsType b : DefaultPaymentTermsType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<DefaultPaymentTermsType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final DefaultPaymentTermsType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public DefaultPaymentTermsType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return DefaultPaymentTermsType.fromValue(value);
     }
-
-    public static DefaultPaymentTermsType fromValue(String value) {
-        for (DefaultPaymentTermsType b : DefaultPaymentTermsType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<DefaultPaymentTermsType> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final DefaultPaymentTermsType enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public DefaultPaymentTermsType read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return DefaultPaymentTermsType.fromValue(value);
-        }
-    }
+  }
 }
 

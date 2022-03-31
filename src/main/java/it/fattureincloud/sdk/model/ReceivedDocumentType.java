@@ -13,60 +13,65 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Received document type.
  */
 @JsonAdapter(ReceivedDocumentType.Adapter.class)
 public enum ReceivedDocumentType {
+  
+  EXPENSE("expense"),
+  
+  PASSIVE_CREDIT_NOTE("passive_credit_note"),
+  
+  PASSIVE_DELIVERY_NOTE("passive_delivery_note");
 
-    EXPENSE("expense"),
+  private String value;
 
-    PASSIVE_CREDIT_NOTE("passive_credit_note"),
+  ReceivedDocumentType(String value) {
+    this.value = value;
+  }
 
-    PASSIVE_DELIVERY_NOTE("passive_delivery_note");
+  public String getValue() {
+    return value;
+  }
 
-    private final String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    ReceivedDocumentType(String value) {
-        this.value = value;
+  public static ReceivedDocumentType fromValue(String value) {
+    for (ReceivedDocumentType b : ReceivedDocumentType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<ReceivedDocumentType> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final ReceivedDocumentType enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public ReceivedDocumentType read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return ReceivedDocumentType.fromValue(value);
     }
-
-    public static ReceivedDocumentType fromValue(String value) {
-        for (ReceivedDocumentType b : ReceivedDocumentType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<ReceivedDocumentType> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final ReceivedDocumentType enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public ReceivedDocumentType read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return ReceivedDocumentType.fromValue(value);
-        }
-    }
+  }
 }
 

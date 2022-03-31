@@ -13,731 +13,714 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import it.fattureincloud.sdk.model.SupplierType;
+import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
-
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Objects;
 
 /**
- *
+ * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class Supplier implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private SupplierType type;
 
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Integer id;
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_CONTACT_PERSON = "contact_person";
+  @SerializedName(SERIALIZED_NAME_CONTACT_PERSON)
+  private String contactPerson;
+
+  public static final String SERIALIZED_NAME_VAT_NUMBER = "vat_number";
+  @SerializedName(SERIALIZED_NAME_VAT_NUMBER)
+  private String vatNumber;
+
+  public static final String SERIALIZED_NAME_TAX_CODE = "tax_code";
+  @SerializedName(SERIALIZED_NAME_TAX_CODE)
+  private String taxCode;
+
+  public static final String SERIALIZED_NAME_ADDRESS_STREET = "address_street";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_STREET)
+  private String addressStreet;
 
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private String code;
+  public static final String SERIALIZED_NAME_ADDRESS_POSTAL_CODE = "address_postal_code";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_POSTAL_CODE)
+  private String addressPostalCode;
 
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
+  public static final String SERIALIZED_NAME_ADDRESS_CITY = "address_city";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_CITY)
+  private String addressCity;
+
+  public static final String SERIALIZED_NAME_ADDRESS_PROVINCE = "address_province";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_PROVINCE)
+  private String addressProvince;
+
+  public static final String SERIALIZED_NAME_ADDRESS_EXTRA = "address_extra";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_EXTRA)
+  private String addressExtra;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private SupplierType type;
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private String country;
 
-    public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
-    @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-    private String firstName;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
-    public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-    @SerializedName(SERIALIZED_NAME_LAST_NAME)
-    private String lastName;
+  public static final String SERIALIZED_NAME_CERTIFIED_EMAIL = "certified_email";
+  @SerializedName(SERIALIZED_NAME_CERTIFIED_EMAIL)
+  private String certifiedEmail;
 
-    public static final String SERIALIZED_NAME_CONTACT_PERSON = "contact_person";
-    @SerializedName(SERIALIZED_NAME_CONTACT_PERSON)
-    private String contactPerson;
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
+
+  public static final String SERIALIZED_NAME_FAX = "fax";
+  @SerializedName(SERIALIZED_NAME_FAX)
+  private String fax;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private String notes;
 
-    public static final String SERIALIZED_NAME_VAT_NUMBER = "vat_number";
-    @SerializedName(SERIALIZED_NAME_VAT_NUMBER)
-    private String vatNumber;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private String createdAt;
 
-    public static final String SERIALIZED_NAME_TAX_CODE = "tax_code";
-    @SerializedName(SERIALIZED_NAME_TAX_CODE)
-    private String taxCode;
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private String updatedAt;
 
-    public static final String SERIALIZED_NAME_ADDRESS_STREET = "address_street";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_STREET)
-    private String addressStreet;
+  public Supplier() { 
+  }
 
-    public static final String SERIALIZED_NAME_ADDRESS_POSTAL_CODE = "address_postal_code";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_POSTAL_CODE)
-    private String addressPostalCode;
+  public Supplier id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_ADDRESS_CITY = "address_city";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_CITY)
-    private String addressCity;
+   /**
+   * Unique identifier
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique identifier")
 
-    public static final String SERIALIZED_NAME_ADDRESS_PROVINCE = "address_province";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_PROVINCE)
-    private String addressProvince;
+  public Integer getId() {
+    return id;
+  }
 
-    public static final String SERIALIZED_NAME_ADDRESS_EXTRA = "address_extra";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_EXTRA)
-    private String addressExtra;
 
-    public static final String SERIALIZED_NAME_COUNTRY = "country";
-    @SerializedName(SERIALIZED_NAME_COUNTRY)
-    private String country;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public static final String SERIALIZED_NAME_EMAIL = "email";
-    @SerializedName(SERIALIZED_NAME_EMAIL)
-    private String email;
 
-    public static final String SERIALIZED_NAME_CERTIFIED_EMAIL = "certified_email";
-    @SerializedName(SERIALIZED_NAME_CERTIFIED_EMAIL)
-    private String certifiedEmail;
+  public Supplier code(String code) {
+    
+    this.code = code;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_PHONE = "phone";
-    @SerializedName(SERIALIZED_NAME_PHONE)
-    private String phone;
+   /**
+   * Supplier code.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "123", value = "Supplier code.")
 
-    public static final String SERIALIZED_NAME_FAX = "fax";
-    @SerializedName(SERIALIZED_NAME_FAX)
-    private String fax;
+  public String getCode() {
+    return code;
+  }
 
-    public static final String SERIALIZED_NAME_NOTES = "notes";
-    @SerializedName(SERIALIZED_NAME_NOTES)
-    private String notes;
 
-    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-    @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    private String createdAt;
+  public void setCode(String code) {
+    this.code = code;
+  }
 
-    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    private String updatedAt;
 
-    public Supplier() {
-    }
-
-    public Supplier id(Integer id) {
-
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * Unique identifier
-     *
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Unique identifier")
-
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public Supplier code(String code) {
-
-        this.code = code;
-        return this;
-    }
-
-    /**
-     * Supplier code.
-     *
-     * @return code
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "123", value = "Supplier code.")
-
-    public String getCode() {
-        return code;
-    }
-
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-
-    public Supplier name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Supplier name.
-     *
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Rossi S.r.l.", value = "Supplier name.")
-
-    public String getName() {
-        return name;
-    }
-
+  public Supplier name(String name) {
+    
+    this.name = name;
+    return this;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public Supplier type(SupplierType type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public SupplierType getType() {
-        return type;
-    }
-
-
-    public void setType(SupplierType type) {
-        this.type = type;
-    }
-
-
-    public Supplier firstName(String firstName) {
-
-        this.firstName = firstName;
-        return this;
-    }
-
-    /**
-     * Supplier first name.
-     *
-     * @return firstName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier first name.")
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+   /**
+   * Supplier name.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Rossi S.r.l.", value = "Supplier name.")
 
+  public String getName() {
+    return name;
+  }
 
-    public Supplier lastName(String lastName) {
 
-        this.lastName = lastName;
-        return this;
-    }
-
-    /**
-     * Supplier last name.
-     *
-     * @return lastName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier last name.")
-
-    public String getLastName() {
-        return lastName;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+  public Supplier type(SupplierType type) {
+    
+    this.type = type;
+    return this;
+  }
 
-    public Supplier contactPerson(String contactPerson) {
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.contactPerson = contactPerson;
-        return this;
-    }
+  public SupplierType getType() {
+    return type;
+  }
 
-    /**
-     * Get contactPerson
-     *
-     * @return contactPerson
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getContactPerson() {
-        return contactPerson;
-    }
 
+  public void setType(SupplierType type) {
+    this.type = type;
+  }
 
-    public void setContactPerson(String contactPerson) {
-        this.contactPerson = contactPerson;
-    }
 
+  public Supplier firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
 
-    public Supplier vatNumber(String vatNumber) {
+   /**
+   * Supplier first name.
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier first name.")
 
-        this.vatNumber = vatNumber;
-        return this;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    /**
-     * Supplier vat number.
-     *
-     * @return vatNumber
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "IT01234567890", value = "Supplier vat number.")
-
-    public String getVatNumber() {
-        return vatNumber;
-    }
 
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public void setVatNumber(String vatNumber) {
-        this.vatNumber = vatNumber;
-    }
 
+  public Supplier lastName(String lastName) {
+    
+    this.lastName = lastName;
+    return this;
+  }
 
-    public Supplier taxCode(String taxCode) {
+   /**
+   * Supplier last name.
+   * @return lastName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier last name.")
 
-        this.taxCode = taxCode;
-        return this;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    /**
-     * Supplier tax code.
-     *
-     * @return taxCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "RSSMRA44A12E890Q", value = "Supplier tax code.")
-
-    public String getTaxCode() {
-        return taxCode;
-    }
 
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public void setTaxCode(String taxCode) {
-        this.taxCode = taxCode;
-    }
 
+  public Supplier contactPerson(String contactPerson) {
+    
+    this.contactPerson = contactPerson;
+    return this;
+  }
 
-    public Supplier addressStreet(String addressStreet) {
+   /**
+   * Get contactPerson
+   * @return contactPerson
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-        this.addressStreet = addressStreet;
-        return this;
-    }
+  public String getContactPerson() {
+    return contactPerson;
+  }
 
-    /**
-     * Supplier street address.
-     *
-     * @return addressStreet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Via dei tigli, 12", value = "Supplier street address.")
-
-    public String getAddressStreet() {
-        return addressStreet;
-    }
 
+  public void setContactPerson(String contactPerson) {
+    this.contactPerson = contactPerson;
+  }
 
-    public void setAddressStreet(String addressStreet) {
-        this.addressStreet = addressStreet;
-    }
 
+  public Supplier vatNumber(String vatNumber) {
+    
+    this.vatNumber = vatNumber;
+    return this;
+  }
 
-    public Supplier addressPostalCode(String addressPostalCode) {
+   /**
+   * Supplier vat number.
+   * @return vatNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "IT01234567890", value = "Supplier vat number.")
 
-        this.addressPostalCode = addressPostalCode;
-        return this;
-    }
+  public String getVatNumber() {
+    return vatNumber;
+  }
 
-    /**
-     * Supplier postal code.
-     *
-     * @return addressPostalCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "24010", value = "Supplier postal code.")
-
-    public String getAddressPostalCode() {
-        return addressPostalCode;
-    }
 
+  public void setVatNumber(String vatNumber) {
+    this.vatNumber = vatNumber;
+  }
 
-    public void setAddressPostalCode(String addressPostalCode) {
-        this.addressPostalCode = addressPostalCode;
-    }
 
+  public Supplier taxCode(String taxCode) {
+    
+    this.taxCode = taxCode;
+    return this;
+  }
 
-    public Supplier addressCity(String addressCity) {
+   /**
+   * Supplier tax code.
+   * @return taxCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "RSSMRA44A12E890Q", value = "Supplier tax code.")
 
-        this.addressCity = addressCity;
-        return this;
-    }
+  public String getTaxCode() {
+    return taxCode;
+  }
 
-    /**
-     * Supplier city.
-     *
-     * @return addressCity
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Bergamo", value = "Supplier city.")
-
-    public String getAddressCity() {
-        return addressCity;
-    }
 
+  public void setTaxCode(String taxCode) {
+    this.taxCode = taxCode;
+  }
 
-    public void setAddressCity(String addressCity) {
-        this.addressCity = addressCity;
-    }
 
+  public Supplier addressStreet(String addressStreet) {
+    
+    this.addressStreet = addressStreet;
+    return this;
+  }
 
-    public Supplier addressProvince(String addressProvince) {
+   /**
+   * Supplier street address.
+   * @return addressStreet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Via dei tigli, 12", value = "Supplier street address.")
 
-        this.addressProvince = addressProvince;
-        return this;
-    }
+  public String getAddressStreet() {
+    return addressStreet;
+  }
 
-    /**
-     * Supplier province.
-     *
-     * @return addressProvince
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "BG", value = "Supplier province.")
-
-    public String getAddressProvince() {
-        return addressProvince;
-    }
 
+  public void setAddressStreet(String addressStreet) {
+    this.addressStreet = addressStreet;
+  }
 
-    public void setAddressProvince(String addressProvince) {
-        this.addressProvince = addressProvince;
-    }
 
+  public Supplier addressPostalCode(String addressPostalCode) {
+    
+    this.addressPostalCode = addressPostalCode;
+    return this;
+  }
 
-    public Supplier addressExtra(String addressExtra) {
+   /**
+   * Supplier postal code.
+   * @return addressPostalCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "24010", value = "Supplier postal code.")
 
-        this.addressExtra = addressExtra;
-        return this;
-    }
+  public String getAddressPostalCode() {
+    return addressPostalCode;
+  }
 
-    /**
-     * Supplier address extra info.
-     *
-     * @return addressExtra
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier address extra info.")
-
-    public String getAddressExtra() {
-        return addressExtra;
-    }
 
+  public void setAddressPostalCode(String addressPostalCode) {
+    this.addressPostalCode = addressPostalCode;
+  }
 
-    public void setAddressExtra(String addressExtra) {
-        this.addressExtra = addressExtra;
-    }
 
+  public Supplier addressCity(String addressCity) {
+    
+    this.addressCity = addressCity;
+    return this;
+  }
 
-    public Supplier country(String country) {
+   /**
+   * Supplier city.
+   * @return addressCity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Bergamo", value = "Supplier city.")
 
-        this.country = country;
-        return this;
-    }
+  public String getAddressCity() {
+    return addressCity;
+  }
 
-    /**
-     * Supplier country.
-     *
-     * @return country
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Italia", value = "Supplier country.")
-
-    public String getCountry() {
-        return country;
-    }
 
+  public void setAddressCity(String addressCity) {
+    this.addressCity = addressCity;
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
+  public Supplier addressProvince(String addressProvince) {
+    
+    this.addressProvince = addressProvince;
+    return this;
+  }
 
-    public Supplier email(String email) {
+   /**
+   * Supplier province.
+   * @return addressProvince
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "BG", value = "Supplier province.")
 
-        this.email = email;
-        return this;
-    }
+  public String getAddressProvince() {
+    return addressProvince;
+  }
 
-    /**
-     * Supplier email.
-     *
-     * @return email
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "mario.rossi@example.it", value = "Supplier email.")
-
-    public String getEmail() {
-        return email;
-    }
 
+  public void setAddressProvince(String addressProvince) {
+    this.addressProvince = addressProvince;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
+  public Supplier addressExtra(String addressExtra) {
+    
+    this.addressExtra = addressExtra;
+    return this;
+  }
 
-    public Supplier certifiedEmail(String certifiedEmail) {
+   /**
+   * Supplier address extra info.
+   * @return addressExtra
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier address extra info.")
 
-        this.certifiedEmail = certifiedEmail;
-        return this;
-    }
+  public String getAddressExtra() {
+    return addressExtra;
+  }
 
-    /**
-     * Supplier certified email.
-     *
-     * @return certifiedEmail
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "mario.rossi@pec.example.it", value = "Supplier certified email.")
-
-    public String getCertifiedEmail() {
-        return certifiedEmail;
-    }
 
+  public void setAddressExtra(String addressExtra) {
+    this.addressExtra = addressExtra;
+  }
 
-    public void setCertifiedEmail(String certifiedEmail) {
-        this.certifiedEmail = certifiedEmail;
-    }
 
+  public Supplier country(String country) {
+    
+    this.country = country;
+    return this;
+  }
 
-    public Supplier phone(String phone) {
+   /**
+   * Supplier country.
+   * @return country
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Italia", value = "Supplier country.")
 
-        this.phone = phone;
-        return this;
-    }
+  public String getCountry() {
+    return country;
+  }
 
-    /**
-     * Supplier phone.
-     *
-     * @return phone
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier phone.")
-
-    public String getPhone() {
-        return phone;
-    }
 
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
+  public Supplier email(String email) {
+    
+    this.email = email;
+    return this;
+  }
 
-    public Supplier fax(String fax) {
+   /**
+   * Supplier email.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "mario.rossi@example.it", value = "Supplier email.")
 
-        this.fax = fax;
-        return this;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    /**
-     * Supplier fax.
-     *
-     * @return fax
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier fax.")
-
-    public String getFax() {
-        return fax;
-    }
 
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
 
+  public Supplier certifiedEmail(String certifiedEmail) {
+    
+    this.certifiedEmail = certifiedEmail;
+    return this;
+  }
 
-    public Supplier notes(String notes) {
+   /**
+   * Supplier certified email.
+   * @return certifiedEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "mario.rossi@pec.example.it", value = "Supplier certified email.")
 
-        this.notes = notes;
-        return this;
-    }
+  public String getCertifiedEmail() {
+    return certifiedEmail;
+  }
 
-    /**
-     * Supplier extra notes.
-     *
-     * @return notes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Supplier extra notes.")
-
-    public String getNotes() {
-        return notes;
-    }
 
+  public void setCertifiedEmail(String certifiedEmail) {
+    this.certifiedEmail = certifiedEmail;
+  }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
 
+  public Supplier phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
 
-    public Supplier createdAt(String createdAt) {
+   /**
+   * Supplier phone.
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier phone.")
 
-        this.createdAt = createdAt;
-        return this;
-    }
+  public String getPhone() {
+    return phone;
+  }
 
-    /**
-     * Get createdAt
-     *
-     * @return createdAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
 
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
 
+  public Supplier fax(String fax) {
+    
+    this.fax = fax;
+    return this;
+  }
 
-    public Supplier updatedAt(String updatedAt) {
+   /**
+   * Supplier fax.
+   * @return fax
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier fax.")
 
-        this.updatedAt = updatedAt;
-        return this;
-    }
+  public String getFax() {
+    return fax;
+  }
 
-    /**
-     * Get updatedAt
-     *
-     * @return updatedAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
 
+  public void setFax(String fax) {
+    this.fax = fax;
+  }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
+  public Supplier notes(String notes) {
+    
+    this.notes = notes;
+    return this;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Supplier supplier = (Supplier) o;
-        return Objects.equals(this.id, supplier.id) &&
-                Objects.equals(this.code, supplier.code) &&
-                Objects.equals(this.name, supplier.name) &&
-                Objects.equals(this.type, supplier.type) &&
-                Objects.equals(this.firstName, supplier.firstName) &&
-                Objects.equals(this.lastName, supplier.lastName) &&
-                Objects.equals(this.contactPerson, supplier.contactPerson) &&
-                Objects.equals(this.vatNumber, supplier.vatNumber) &&
-                Objects.equals(this.taxCode, supplier.taxCode) &&
-                Objects.equals(this.addressStreet, supplier.addressStreet) &&
-                Objects.equals(this.addressPostalCode, supplier.addressPostalCode) &&
-                Objects.equals(this.addressCity, supplier.addressCity) &&
-                Objects.equals(this.addressProvince, supplier.addressProvince) &&
-                Objects.equals(this.addressExtra, supplier.addressExtra) &&
-                Objects.equals(this.country, supplier.country) &&
-                Objects.equals(this.email, supplier.email) &&
-                Objects.equals(this.certifiedEmail, supplier.certifiedEmail) &&
-                Objects.equals(this.phone, supplier.phone) &&
-                Objects.equals(this.fax, supplier.fax) &&
-                Objects.equals(this.notes, supplier.notes) &&
-                Objects.equals(this.createdAt, supplier.createdAt) &&
-                Objects.equals(this.updatedAt, supplier.updatedAt);
-    }
+   /**
+   * Supplier extra notes.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier extra notes.")
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
+  public String getNotes() {
+    return notes;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, code, name, type, firstName, lastName, contactPerson, vatNumber, taxCode, addressStreet, addressPostalCode, addressCity, addressProvince, addressExtra, country, email, certifiedEmail, phone, fax, notes, createdAt, updatedAt);
-    }
 
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Supplier {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-        sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("    contactPerson: ").append(toIndentedString(contactPerson)).append("\n");
-        sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
-        sb.append("    taxCode: ").append(toIndentedString(taxCode)).append("\n");
-        sb.append("    addressStreet: ").append(toIndentedString(addressStreet)).append("\n");
-        sb.append("    addressPostalCode: ").append(toIndentedString(addressPostalCode)).append("\n");
-        sb.append("    addressCity: ").append(toIndentedString(addressCity)).append("\n");
-        sb.append("    addressProvince: ").append(toIndentedString(addressProvince)).append("\n");
-        sb.append("    addressExtra: ").append(toIndentedString(addressExtra)).append("\n");
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
-        sb.append("    certifiedEmail: ").append(toIndentedString(certifiedEmail)).append("\n");
-        sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-        sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
-        sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+  public Supplier createdAt(String createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Supplier updatedAt(String updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Supplier supplier = (Supplier) o;
+    return Objects.equals(this.id, supplier.id) &&
+        Objects.equals(this.code, supplier.code) &&
+        Objects.equals(this.name, supplier.name) &&
+        Objects.equals(this.type, supplier.type) &&
+        Objects.equals(this.firstName, supplier.firstName) &&
+        Objects.equals(this.lastName, supplier.lastName) &&
+        Objects.equals(this.contactPerson, supplier.contactPerson) &&
+        Objects.equals(this.vatNumber, supplier.vatNumber) &&
+        Objects.equals(this.taxCode, supplier.taxCode) &&
+        Objects.equals(this.addressStreet, supplier.addressStreet) &&
+        Objects.equals(this.addressPostalCode, supplier.addressPostalCode) &&
+        Objects.equals(this.addressCity, supplier.addressCity) &&
+        Objects.equals(this.addressProvince, supplier.addressProvince) &&
+        Objects.equals(this.addressExtra, supplier.addressExtra) &&
+        Objects.equals(this.country, supplier.country) &&
+        Objects.equals(this.email, supplier.email) &&
+        Objects.equals(this.certifiedEmail, supplier.certifiedEmail) &&
+        Objects.equals(this.phone, supplier.phone) &&
+        Objects.equals(this.fax, supplier.fax) &&
+        Objects.equals(this.notes, supplier.notes) &&
+        Objects.equals(this.createdAt, supplier.createdAt) &&
+        Objects.equals(this.updatedAt, supplier.updatedAt);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, code, name, type, firstName, lastName, contactPerson, vatNumber, taxCode, addressStreet, addressPostalCode, addressCity, addressProvince, addressExtra, country, email, certifiedEmail, phone, fax, notes, createdAt, updatedAt);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Supplier {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    contactPerson: ").append(toIndentedString(contactPerson)).append("\n");
+    sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
+    sb.append("    taxCode: ").append(toIndentedString(taxCode)).append("\n");
+    sb.append("    addressStreet: ").append(toIndentedString(addressStreet)).append("\n");
+    sb.append("    addressPostalCode: ").append(toIndentedString(addressPostalCode)).append("\n");
+    sb.append("    addressCity: ").append(toIndentedString(addressCity)).append("\n");
+    sb.append("    addressProvince: ").append(toIndentedString(addressProvince)).append("\n");
+    sb.append("    addressExtra: ").append(toIndentedString(addressExtra)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    certifiedEmail: ").append(toIndentedString(certifiedEmail)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

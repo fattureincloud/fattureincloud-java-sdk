@@ -13,60 +13,65 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
+import java.io.IOException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 /**
  * Payment status.
  */
 @JsonAdapter(IssuedDocumentStatus.Adapter.class)
 public enum IssuedDocumentStatus {
+  
+  NOT_PAID("not_paid"),
+  
+  PAID("paid"),
+  
+  REVERSED("reversed");
 
-    NOT_PAID("not_paid"),
+  private String value;
 
-    PAID("paid"),
+  IssuedDocumentStatus(String value) {
+    this.value = value;
+  }
 
-    REVERSED("reversed");
+  public String getValue() {
+    return value;
+  }
 
-    private final String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    IssuedDocumentStatus(String value) {
-        this.value = value;
+  public static IssuedDocumentStatus fromValue(String value) {
+    for (IssuedDocumentStatus b : IssuedDocumentStatus.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 
-    public String getValue() {
-        return value;
+  public static class Adapter extends TypeAdapter<IssuedDocumentStatus> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final IssuedDocumentStatus enumeration) throws IOException {
+      jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public IssuedDocumentStatus read(final JsonReader jsonReader) throws IOException {
+      String value = jsonReader.nextString();
+      return IssuedDocumentStatus.fromValue(value);
     }
-
-    public static IssuedDocumentStatus fromValue(String value) {
-        for (IssuedDocumentStatus b : IssuedDocumentStatus.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<IssuedDocumentStatus> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final IssuedDocumentStatus enumeration) throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public IssuedDocumentStatus read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return IssuedDocumentStatus.fromValue(value);
-        }
-    }
+  }
 }
 

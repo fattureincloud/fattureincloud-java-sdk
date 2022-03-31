@@ -13,839 +13,831 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import java.io.Serializable;
+import it.fattureincloud.sdk.model.Currency;
+import it.fattureincloud.sdk.model.ReceivedDocumentEntity;
+import it.fattureincloud.sdk.model.ReceivedDocumentItemsListItem;
+import it.fattureincloud.sdk.model.ReceivedDocumentPaymentsListItem;
+import it.fattureincloud.sdk.model.ReceivedDocumentType;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.io.Serializable;
 
 /**
  * ReceivedDocument
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class ReceivedDocument implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Integer id;
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private ReceivedDocumentType type = ReceivedDocumentType.EXPENSE;
+  private static final long serialVersionUID = 1L;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private ReceivedDocumentType type = ReceivedDocumentType.EXPENSE;
 
-    public static final String SERIALIZED_NAME_ENTITY = "entity";
-    @SerializedName(SERIALIZED_NAME_ENTITY)
-    private ReceivedDocumentEntity entity;
+  public static final String SERIALIZED_NAME_ENTITY = "entity";
+  @SerializedName(SERIALIZED_NAME_ENTITY)
+  private ReceivedDocumentEntity entity;
+
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  private LocalDate date;
+
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private String category;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_AMOUNT_NET = "amount_net";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_NET)
+  private BigDecimal amountNet;
+
+  public static final String SERIALIZED_NAME_AMOUNT_VAT = "amount_vat";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_VAT)
+  private BigDecimal amountVat;
+
+  public static final String SERIALIZED_NAME_AMOUNT_WITHHOLDING_TAX = "amount_withholding_tax";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_WITHHOLDING_TAX)
+  private BigDecimal amountWithholdingTax;
+
+  public static final String SERIALIZED_NAME_AMOUNT_OTHER_WITHHOLDING_TAX = "amount_other_withholding_tax";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_OTHER_WITHHOLDING_TAX)
+  private BigDecimal amountOtherWithholdingTax;
+
+  public static final String SERIALIZED_NAME_AMOUNT_GROSS = "amount_gross";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_GROSS)
+  private BigDecimal amountGross;
+
+  public static final String SERIALIZED_NAME_AMORTIZATION = "amortization";
+  @SerializedName(SERIALIZED_NAME_AMORTIZATION)
+  private BigDecimal amortization;
+
+  public static final String SERIALIZED_NAME_RC_CENTER = "rc_center";
+  @SerializedName(SERIALIZED_NAME_RC_CENTER)
+  private String rcCenter;
+
+  public static final String SERIALIZED_NAME_INVOICE_NUMBER = "invoice_number";
+  @SerializedName(SERIALIZED_NAME_INVOICE_NUMBER)
+  private String invoiceNumber;
+
+  public static final String SERIALIZED_NAME_IS_MARKED = "is_marked";
+  @SerializedName(SERIALIZED_NAME_IS_MARKED)
+  private Boolean isMarked;
+
+  public static final String SERIALIZED_NAME_IS_DETAILED = "is_detailed";
+  @SerializedName(SERIALIZED_NAME_IS_DETAILED)
+  private Boolean isDetailed;
+
+  public static final String SERIALIZED_NAME_E_INVOICE = "e_invoice";
+  @SerializedName(SERIALIZED_NAME_E_INVOICE)
+  private Boolean eInvoice;
+
+  public static final String SERIALIZED_NAME_NEXT_DUE_DATE = "next_due_date";
+  @SerializedName(SERIALIZED_NAME_NEXT_DUE_DATE)
+  private LocalDate nextDueDate;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private Currency currency;
+
+  public static final String SERIALIZED_NAME_TAX_DEDUCTIBILITY = "tax_deductibility";
+  @SerializedName(SERIALIZED_NAME_TAX_DEDUCTIBILITY)
+  private BigDecimal taxDeductibility;
+
+  public static final String SERIALIZED_NAME_VAT_DEDUCTIBILITY = "vat_deductibility";
+  @SerializedName(SERIALIZED_NAME_VAT_DEDUCTIBILITY)
+  private BigDecimal vatDeductibility;
+
+  public static final String SERIALIZED_NAME_ITEMS_LIST = "items_list";
+  @SerializedName(SERIALIZED_NAME_ITEMS_LIST)
+  private List<ReceivedDocumentItemsListItem> itemsList = null;
+
+  public static final String SERIALIZED_NAME_PAYMENTS_LIST = "payments_list";
+  @SerializedName(SERIALIZED_NAME_PAYMENTS_LIST)
+  private List<ReceivedDocumentPaymentsListItem> paymentsList = null;
+
+  public static final String SERIALIZED_NAME_ATTACHMENT_URL = "attachment_url";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_URL)
+  private String attachmentUrl;
+
+  public static final String SERIALIZED_NAME_ATTACHMENT_PREVIEW_URL = "attachment_preview_url";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_PREVIEW_URL)
+  private String attachmentPreviewUrl;
+
+  public static final String SERIALIZED_NAME_ATTACHMENT_TOKEN = "attachment_token";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENT_TOKEN)
+  private String attachmentToken;
+
+  public ReceivedDocument() { 
+  }
+
+  
+  public ReceivedDocument(
+     BigDecimal amountGross, 
+     LocalDate nextDueDate, 
+     String attachmentUrl, 
+     String attachmentPreviewUrl
+  ) {
+    this();
+    this.amountGross = amountGross;
+    this.nextDueDate = nextDueDate;
+    this.attachmentUrl = attachmentUrl;
+    this.attachmentPreviewUrl = attachmentPreviewUrl;
+  }
+
+  public ReceivedDocument id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique identifier of the document.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique identifier of the document.")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public ReceivedDocument type(ReceivedDocumentType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ReceivedDocumentType getType() {
+    return type;
+  }
+
+
+  public void setType(ReceivedDocumentType type) {
+    this.type = type;
+  }
+
+
+  public ReceivedDocument entity(ReceivedDocumentEntity entity) {
+    
+    this.entity = entity;
+    return this;
+  }
+
+   /**
+   * Get entity
+   * @return entity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ReceivedDocumentEntity getEntity() {
+    return entity;
+  }
+
+
+  public void setEntity(ReceivedDocumentEntity entity) {
+    this.entity = entity;
+  }
+
+
+  public ReceivedDocument date(LocalDate date) {
+    
+    this.date = date;
+    return this;
+  }
+
+   /**
+   * Date of the document [If not specified, today date is used].
+   * @return date
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date of the document [If not specified, today date is used].")
+
+  public LocalDate getDate() {
+    return date;
+  }
 
-    public static final String SERIALIZED_NAME_DATE = "date";
-    @SerializedName(SERIALIZED_NAME_DATE)
-    private LocalDate date;
+
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
+
+
+  public ReceivedDocument category(String category) {
+    
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * Document category.
+   * @return category
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Document category.")
+
+  public String getCategory() {
+    return category;
+  }
 
-    public static final String SERIALIZED_NAME_CATEGORY = "category";
-    @SerializedName(SERIALIZED_NAME_CATEGORY)
-    private String category;
 
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
-    public static final String SERIALIZED_NAME_AMOUNT_NET = "amount_net";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_NET)
-    private BigDecimal amountNet;
+
+  public ReceivedDocument description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Document description.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Document description.")
+
+  public String getDescription() {
+    return description;
+  }
 
-    public static final String SERIALIZED_NAME_AMOUNT_VAT = "amount_vat";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_VAT)
-    private BigDecimal amountVat;
 
-    public static final String SERIALIZED_NAME_AMOUNT_WITHHOLDING_TAX = "amount_withholding_tax";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_WITHHOLDING_TAX)
-    private BigDecimal amountWithholdingTax;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
 
-    public static final String SERIALIZED_NAME_AMOUNT_OTHER_WITHHOLDING_TAX = "amount_other_withholding_tax";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_OTHER_WITHHOLDING_TAX)
-    private BigDecimal amountOtherWithholdingTax;
+  public ReceivedDocument amountNet(BigDecimal amountNet) {
+    
+    this.amountNet = amountNet;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_AMOUNT_GROSS = "amount_gross";
-    @SerializedName(SERIALIZED_NAME_AMOUNT_GROSS)
-    private BigDecimal amountGross;
+   /**
+   * Total net amount.
+   * @return amountNet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total net amount.")
 
-    public static final String SERIALIZED_NAME_AMORTIZATION = "amortization";
-    @SerializedName(SERIALIZED_NAME_AMORTIZATION)
-    private BigDecimal amortization;
+  public BigDecimal getAmountNet() {
+    return amountNet;
+  }
 
-    public static final String SERIALIZED_NAME_RC_CENTER = "rc_center";
-    @SerializedName(SERIALIZED_NAME_RC_CENTER)
-    private String rcCenter;
 
-    public static final String SERIALIZED_NAME_INVOICE_NUMBER = "invoice_number";
-    @SerializedName(SERIALIZED_NAME_INVOICE_NUMBER)
-    private String invoiceNumber;
+  public void setAmountNet(BigDecimal amountNet) {
+    this.amountNet = amountNet;
+  }
 
-    public static final String SERIALIZED_NAME_IS_MARKED = "is_marked";
-    @SerializedName(SERIALIZED_NAME_IS_MARKED)
-    private Boolean isMarked;
 
-    public static final String SERIALIZED_NAME_IS_DETAILED = "is_detailed";
-    @SerializedName(SERIALIZED_NAME_IS_DETAILED)
-    private Boolean isDetailed;
+  public ReceivedDocument amountVat(BigDecimal amountVat) {
+    
+    this.amountVat = amountVat;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_E_INVOICE = "e_invoice";
-    @SerializedName(SERIALIZED_NAME_E_INVOICE)
-    private Boolean eInvoice;
+   /**
+   * Total vat amount.
+   * @return amountVat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Total vat amount.")
 
-    public static final String SERIALIZED_NAME_NEXT_DUE_DATE = "next_due_date";
-    @SerializedName(SERIALIZED_NAME_NEXT_DUE_DATE)
-    private LocalDate nextDueDate;
+  public BigDecimal getAmountVat() {
+    return amountVat;
+  }
 
-    public static final String SERIALIZED_NAME_CURRENCY = "currency";
-    @SerializedName(SERIALIZED_NAME_CURRENCY)
-    private Currency currency;
 
-    public static final String SERIALIZED_NAME_TAX_DEDUCTIBILITY = "tax_deductibility";
-    @SerializedName(SERIALIZED_NAME_TAX_DEDUCTIBILITY)
-    private BigDecimal taxDeductibility;
+  public void setAmountVat(BigDecimal amountVat) {
+    this.amountVat = amountVat;
+  }
 
-    public static final String SERIALIZED_NAME_VAT_DEDUCTIBILITY = "vat_deductibility";
-    @SerializedName(SERIALIZED_NAME_VAT_DEDUCTIBILITY)
-    private BigDecimal vatDeductibility;
 
-    public static final String SERIALIZED_NAME_ITEMS_LIST = "items_list";
-    @SerializedName(SERIALIZED_NAME_ITEMS_LIST)
-    private List<ReceivedDocumentItemsListItem> itemsList = null;
+  public ReceivedDocument amountWithholdingTax(BigDecimal amountWithholdingTax) {
+    
+    this.amountWithholdingTax = amountWithholdingTax;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_PAYMENTS_LIST = "payments_list";
-    @SerializedName(SERIALIZED_NAME_PAYMENTS_LIST)
-    private List<ReceivedDocumentPaymentsListItem> paymentsList = null;
+   /**
+   * Withholding tax amount.
+   * @return amountWithholdingTax
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Withholding tax amount.")
 
-    public static final String SERIALIZED_NAME_ATTACHMENT_URL = "attachment_url";
-    @SerializedName(SERIALIZED_NAME_ATTACHMENT_URL)
-    private String attachmentUrl;
+  public BigDecimal getAmountWithholdingTax() {
+    return amountWithholdingTax;
+  }
 
-    public static final String SERIALIZED_NAME_ATTACHMENT_PREVIEW_URL = "attachment_preview_url";
-    @SerializedName(SERIALIZED_NAME_ATTACHMENT_PREVIEW_URL)
-    private String attachmentPreviewUrl;
 
-    public static final String SERIALIZED_NAME_ATTACHMENT_TOKEN = "attachment_token";
-    @SerializedName(SERIALIZED_NAME_ATTACHMENT_TOKEN)
-    private String attachmentToken;
+  public void setAmountWithholdingTax(BigDecimal amountWithholdingTax) {
+    this.amountWithholdingTax = amountWithholdingTax;
+  }
 
-    public ReceivedDocument() {
-    }
-
-
-    public ReceivedDocument(
-            BigDecimal amountGross,
-            LocalDate nextDueDate,
-            String attachmentUrl,
-            String attachmentPreviewUrl
-    ) {
-        this();
-        this.amountGross = amountGross;
-        this.nextDueDate = nextDueDate;
-        this.attachmentUrl = attachmentUrl;
-        this.attachmentPreviewUrl = attachmentPreviewUrl;
-    }
-
-    public ReceivedDocument id(Integer id) {
-
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * Unique identifier of the document.
-     *
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Unique identifier of the document.")
-
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public ReceivedDocument type(ReceivedDocumentType type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public ReceivedDocumentType getType() {
-        return type;
-    }
-
-
-    public void setType(ReceivedDocumentType type) {
-        this.type = type;
-    }
-
-
-    public ReceivedDocument entity(ReceivedDocumentEntity entity) {
-
-        this.entity = entity;
-        return this;
-    }
-
-    /**
-     * Get entity
-     *
-     * @return entity
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public ReceivedDocumentEntity getEntity() {
-        return entity;
-    }
-
-
-    public void setEntity(ReceivedDocumentEntity entity) {
-        this.entity = entity;
-    }
-
-
-    public ReceivedDocument date(LocalDate date) {
-
-        this.date = date;
-        return this;
-    }
-
-    /**
-     * Date of the document [If not specified, today date is used].
-     *
-     * @return date
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Date of the document [If not specified, today date is used].")
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-
-    public ReceivedDocument category(String category) {
-
-        this.category = category;
-        return this;
-    }
-
-    /**
-     * Document category.
-     *
-     * @return category
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Document category.")
-
-    public String getCategory() {
-        return category;
-    }
-
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-
-    public ReceivedDocument description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Document description.
-     *
-     * @return description
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Document description.")
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public ReceivedDocument amountNet(BigDecimal amountNet) {
-
-        this.amountNet = amountNet;
-        return this;
-    }
-
-    /**
-     * Total net amount.
-     *
-     * @return amountNet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Total net amount.")
-
-    public BigDecimal getAmountNet() {
-        return amountNet;
-    }
-
-
-    public void setAmountNet(BigDecimal amountNet) {
-        this.amountNet = amountNet;
-    }
-
-
-    public ReceivedDocument amountVat(BigDecimal amountVat) {
-
-        this.amountVat = amountVat;
-        return this;
-    }
-
-    /**
-     * Total vat amount.
-     *
-     * @return amountVat
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Total vat amount.")
-
-    public BigDecimal getAmountVat() {
-        return amountVat;
-    }
-
-
-    public void setAmountVat(BigDecimal amountVat) {
-        this.amountVat = amountVat;
-    }
-
-
-    public ReceivedDocument amountWithholdingTax(BigDecimal amountWithholdingTax) {
-
-        this.amountWithholdingTax = amountWithholdingTax;
-        return this;
-    }
-
-    /**
-     * Withholding tax amount.
-     *
-     * @return amountWithholdingTax
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Withholding tax amount.")
-
-    public BigDecimal getAmountWithholdingTax() {
-        return amountWithholdingTax;
-    }
-
-
-    public void setAmountWithholdingTax(BigDecimal amountWithholdingTax) {
-        this.amountWithholdingTax = amountWithholdingTax;
-    }
-
-
-    public ReceivedDocument amountOtherWithholdingTax(BigDecimal amountOtherWithholdingTax) {
-
-        this.amountOtherWithholdingTax = amountOtherWithholdingTax;
-        return this;
-    }
 
-    /**
-     * Other withholding tax amount.
-     *
-     * @return amountOtherWithholdingTax
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Other withholding tax amount.")
-
-    public BigDecimal getAmountOtherWithholdingTax() {
-        return amountOtherWithholdingTax;
-    }
-
-
-    public void setAmountOtherWithholdingTax(BigDecimal amountOtherWithholdingTax) {
-        this.amountOtherWithholdingTax = amountOtherWithholdingTax;
-    }
+  public ReceivedDocument amountOtherWithholdingTax(BigDecimal amountOtherWithholdingTax) {
+    
+    this.amountOtherWithholdingTax = amountOtherWithholdingTax;
+    return this;
+  }
 
+   /**
+   * Other withholding tax amount.
+   * @return amountOtherWithholdingTax
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Other withholding tax amount.")
 
-    /**
-     * [Read Only] Total gross amount.
-     *
-     * @return amountGross
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "[Read Only] Total gross amount.")
+  public BigDecimal getAmountOtherWithholdingTax() {
+    return amountOtherWithholdingTax;
+  }
 
-    public BigDecimal getAmountGross() {
-        return amountGross;
-    }
-
 
-    public ReceivedDocument amortization(BigDecimal amortization) {
+  public void setAmountOtherWithholdingTax(BigDecimal amountOtherWithholdingTax) {
+    this.amountOtherWithholdingTax = amountOtherWithholdingTax;
+  }
 
-        this.amortization = amortization;
-        return this;
-    }
 
-    /**
-     * Amortization value
-     *
-     * @return amortization
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Amortization value")
-
-    public BigDecimal getAmortization() {
-        return amortization;
-    }
+   /**
+   * [Read Only] Total gross amount.
+   * @return amountGross
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "[Read Only] Total gross amount.")
 
+  public BigDecimal getAmountGross() {
+    return amountGross;
+  }
 
-    public void setAmortization(BigDecimal amortization) {
-        this.amortization = amortization;
-    }
 
 
-    public ReceivedDocument rcCenter(String rcCenter) {
 
-        this.rcCenter = rcCenter;
-        return this;
-    }
+  public ReceivedDocument amortization(BigDecimal amortization) {
+    
+    this.amortization = amortization;
+    return this;
+  }
 
-    /**
-     * Revenue center.
-     *
-     * @return rcCenter
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Revenue center.")
-
-    public String getRcCenter() {
-        return rcCenter;
-    }
+   /**
+   * Amortization value
+   * @return amortization
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Amortization value")
 
+  public BigDecimal getAmortization() {
+    return amortization;
+  }
 
-    public void setRcCenter(String rcCenter) {
-        this.rcCenter = rcCenter;
-    }
 
+  public void setAmortization(BigDecimal amortization) {
+    this.amortization = amortization;
+  }
 
-    public ReceivedDocument invoiceNumber(String invoiceNumber) {
 
-        this.invoiceNumber = invoiceNumber;
-        return this;
-    }
+  public ReceivedDocument rcCenter(String rcCenter) {
+    
+    this.rcCenter = rcCenter;
+    return this;
+  }
 
-    /**
-     * Invoice number
-     *
-     * @return invoiceNumber
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Invoice number")
-
-    public String getInvoiceNumber() {
-        return invoiceNumber;
-    }
+   /**
+   * Revenue center.
+   * @return rcCenter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Revenue center.")
 
+  public String getRcCenter() {
+    return rcCenter;
+  }
 
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
-    }
 
+  public void setRcCenter(String rcCenter) {
+    this.rcCenter = rcCenter;
+  }
 
-    public ReceivedDocument isMarked(Boolean isMarked) {
 
-        this.isMarked = isMarked;
-        return this;
-    }
+  public ReceivedDocument invoiceNumber(String invoiceNumber) {
+    
+    this.invoiceNumber = invoiceNumber;
+    return this;
+  }
 
-    /**
-     * Get isMarked
-     *
-     * @return isMarked
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public Boolean getIsMarked() {
-        return isMarked;
-    }
+   /**
+   * Invoice number
+   * @return invoiceNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Invoice number")
 
+  public String getInvoiceNumber() {
+    return invoiceNumber;
+  }
 
-    public void setIsMarked(Boolean isMarked) {
-        this.isMarked = isMarked;
-    }
 
+  public void setInvoiceNumber(String invoiceNumber) {
+    this.invoiceNumber = invoiceNumber;
+  }
 
-    public ReceivedDocument isDetailed(Boolean isDetailed) {
 
-        this.isDetailed = isDetailed;
-        return this;
-    }
+  public ReceivedDocument isMarked(Boolean isMarked) {
+    
+    this.isMarked = isMarked;
+    return this;
+  }
 
-    /**
-     * Get isDetailed
-     *
-     * @return isDetailed
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public Boolean getIsDetailed() {
-        return isDetailed;
-    }
+   /**
+   * Get isMarked
+   * @return isMarked
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
+  public Boolean getIsMarked() {
+    return isMarked;
+  }
 
-    public void setIsDetailed(Boolean isDetailed) {
-        this.isDetailed = isDetailed;
-    }
 
+  public void setIsMarked(Boolean isMarked) {
+    this.isMarked = isMarked;
+  }
 
-    public ReceivedDocument eInvoice(Boolean eInvoice) {
 
-        this.eInvoice = eInvoice;
-        return this;
-    }
+  public ReceivedDocument isDetailed(Boolean isDetailed) {
+    
+    this.isDetailed = isDetailed;
+    return this;
+  }
 
-    /**
-     * [Read Only] Indicates if this is an e-invoice.
-     *
-     * @return eInvoice
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "[Read Only] Indicates if this is an e-invoice.")
-
-    public Boolean geteInvoice() {
-        return eInvoice;
-    }
+   /**
+   * Get isDetailed
+   * @return isDetailed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
+  public Boolean getIsDetailed() {
+    return isDetailed;
+  }
 
-    public void seteInvoice(Boolean eInvoice) {
-        this.eInvoice = eInvoice;
-    }
 
+  public void setIsDetailed(Boolean isDetailed) {
+    this.isDetailed = isDetailed;
+  }
 
-    /**
-     * [Read Only] Next due date.
-     *
-     * @return nextDueDate
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "[Read Only] Next due date.")
 
-    public LocalDate getNextDueDate() {
-        return nextDueDate;
-    }
+  public ReceivedDocument eInvoice(Boolean eInvoice) {
+    
+    this.eInvoice = eInvoice;
+    return this;
+  }
 
+   /**
+   * [Read Only] Indicates if this is an e-invoice.
+   * @return eInvoice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "[Read Only] Indicates if this is an e-invoice.")
 
-    public ReceivedDocument currency(Currency currency) {
+  public Boolean geteInvoice() {
+    return eInvoice;
+  }
 
-        this.currency = currency;
-        return this;
-    }
 
-    /**
-     * Get currency
-     *
-     * @return currency
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public Currency getCurrency() {
-        return currency;
-    }
+  public void seteInvoice(Boolean eInvoice) {
+    this.eInvoice = eInvoice;
+  }
 
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
+   /**
+   * [Read Only] Next due date.
+   * @return nextDueDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "[Read Only] Next due date.")
 
+  public LocalDate getNextDueDate() {
+    return nextDueDate;
+  }
 
-    public ReceivedDocument taxDeductibility(BigDecimal taxDeductibility) {
 
-        this.taxDeductibility = taxDeductibility;
-        return this;
-    }
 
-    /**
-     * Tax deducibility percentage.
-     *
-     * @return taxDeductibility
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Tax deducibility percentage.")
-
-    public BigDecimal getTaxDeductibility() {
-        return taxDeductibility;
-    }
 
+  public ReceivedDocument currency(Currency currency) {
+    
+    this.currency = currency;
+    return this;
+  }
 
-    public void setTaxDeductibility(BigDecimal taxDeductibility) {
-        this.taxDeductibility = taxDeductibility;
-    }
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
+  public Currency getCurrency() {
+    return currency;
+  }
 
-    public ReceivedDocument vatDeductibility(BigDecimal vatDeductibility) {
 
-        this.vatDeductibility = vatDeductibility;
-        return this;
-    }
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
 
-    /**
-     * Vat deducibility percentage.
-     *
-     * @return vatDeductibility
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Vat deducibility percentage.")
-
-    public BigDecimal getVatDeductibility() {
-        return vatDeductibility;
-    }
 
+  public ReceivedDocument taxDeductibility(BigDecimal taxDeductibility) {
+    
+    this.taxDeductibility = taxDeductibility;
+    return this;
+  }
 
-    public void setVatDeductibility(BigDecimal vatDeductibility) {
-        this.vatDeductibility = vatDeductibility;
-    }
+   /**
+   * Tax deducibility percentage.
+   * @return taxDeductibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tax deducibility percentage.")
 
+  public BigDecimal getTaxDeductibility() {
+    return taxDeductibility;
+  }
 
-    public ReceivedDocument itemsList(List<ReceivedDocumentItemsListItem> itemsList) {
 
-        this.itemsList = itemsList;
-        return this;
-    }
+  public void setTaxDeductibility(BigDecimal taxDeductibility) {
+    this.taxDeductibility = taxDeductibility;
+  }
 
-    public ReceivedDocument addItemsListItem(ReceivedDocumentItemsListItem itemsListItem) {
-        if (this.itemsList == null) {
-            this.itemsList = new ArrayList<>();
-        }
-        this.itemsList.add(itemsListItem);
-        return this;
-    }
 
-    /**
-     * Get itemsList
-     *
-     * @return itemsList
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public List<ReceivedDocumentItemsListItem> getItemsList() {
-        return itemsList;
-    }
+  public ReceivedDocument vatDeductibility(BigDecimal vatDeductibility) {
+    
+    this.vatDeductibility = vatDeductibility;
+    return this;
+  }
 
+   /**
+   * Vat deducibility percentage.
+   * @return vatDeductibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Vat deducibility percentage.")
 
-    public void setItemsList(List<ReceivedDocumentItemsListItem> itemsList) {
-        this.itemsList = itemsList;
-    }
+  public BigDecimal getVatDeductibility() {
+    return vatDeductibility;
+  }
 
 
-    public ReceivedDocument paymentsList(List<ReceivedDocumentPaymentsListItem> paymentsList) {
+  public void setVatDeductibility(BigDecimal vatDeductibility) {
+    this.vatDeductibility = vatDeductibility;
+  }
 
-        this.paymentsList = paymentsList;
-        return this;
-    }
 
-    public ReceivedDocument addPaymentsListItem(ReceivedDocumentPaymentsListItem paymentsListItem) {
-        if (this.paymentsList == null) {
-            this.paymentsList = new ArrayList<>();
-        }
-        this.paymentsList.add(paymentsListItem);
-        return this;
-    }
+  public ReceivedDocument itemsList(List<ReceivedDocumentItemsListItem> itemsList) {
+    
+    this.itemsList = itemsList;
+    return this;
+  }
 
-    /**
-     * Get paymentsList
-     *
-     * @return paymentsList
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public List<ReceivedDocumentPaymentsListItem> getPaymentsList() {
-        return paymentsList;
+  public ReceivedDocument addItemsListItem(ReceivedDocumentItemsListItem itemsListItem) {
+    if (this.itemsList == null) {
+      this.itemsList = new ArrayList<>();
     }
+    this.itemsList.add(itemsListItem);
+    return this;
+  }
 
+   /**
+   * Get itemsList
+   * @return itemsList
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public void setPaymentsList(List<ReceivedDocumentPaymentsListItem> paymentsList) {
-        this.paymentsList = paymentsList;
-    }
-
+  public List<ReceivedDocumentItemsListItem> getItemsList() {
+    return itemsList;
+  }
 
-    /**
-     * [Read Only] Attachment url.
-     *
-     * @return attachmentUrl
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "[Read Only] Attachment url.")
 
-    public String getAttachmentUrl() {
-        return attachmentUrl;
-    }
+  public void setItemsList(List<ReceivedDocumentItemsListItem> itemsList) {
+    this.itemsList = itemsList;
+  }
 
 
-    /**
-     * [Read Only] Attachment preview url.
-     *
-     * @return attachmentPreviewUrl
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "[Read Only] Attachment preview url.")
+  public ReceivedDocument paymentsList(List<ReceivedDocumentPaymentsListItem> paymentsList) {
+    
+    this.paymentsList = paymentsList;
+    return this;
+  }
 
-    public String getAttachmentPreviewUrl() {
-        return attachmentPreviewUrl;
+  public ReceivedDocument addPaymentsListItem(ReceivedDocumentPaymentsListItem paymentsListItem) {
+    if (this.paymentsList == null) {
+      this.paymentsList = new ArrayList<>();
     }
-
-
-    public ReceivedDocument attachmentToken(String attachmentToken) {
+    this.paymentsList.add(paymentsListItem);
+    return this;
+  }
 
-        this.attachmentToken = attachmentToken;
-        return this;
-    }
+   /**
+   * Get paymentsList
+   * @return paymentsList
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    /**
-     * Uploaded attachement token.
-     *
-     * @return attachmentToken
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Uploaded attachement token.")
-
-    public String getAttachmentToken() {
-        return attachmentToken;
-    }
+  public List<ReceivedDocumentPaymentsListItem> getPaymentsList() {
+    return paymentsList;
+  }
 
 
-    public void setAttachmentToken(String attachmentToken) {
-        this.attachmentToken = attachmentToken;
-    }
+  public void setPaymentsList(List<ReceivedDocumentPaymentsListItem> paymentsList) {
+    this.paymentsList = paymentsList;
+  }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ReceivedDocument receivedDocument = (ReceivedDocument) o;
-        return Objects.equals(this.id, receivedDocument.id) &&
-                Objects.equals(this.type, receivedDocument.type) &&
-                Objects.equals(this.entity, receivedDocument.entity) &&
-                Objects.equals(this.date, receivedDocument.date) &&
-                Objects.equals(this.category, receivedDocument.category) &&
-                Objects.equals(this.description, receivedDocument.description) &&
-                Objects.equals(this.amountNet, receivedDocument.amountNet) &&
-                Objects.equals(this.amountVat, receivedDocument.amountVat) &&
-                Objects.equals(this.amountWithholdingTax, receivedDocument.amountWithholdingTax) &&
-                Objects.equals(this.amountOtherWithholdingTax, receivedDocument.amountOtherWithholdingTax) &&
-                Objects.equals(this.amountGross, receivedDocument.amountGross) &&
-                Objects.equals(this.amortization, receivedDocument.amortization) &&
-                Objects.equals(this.rcCenter, receivedDocument.rcCenter) &&
-                Objects.equals(this.invoiceNumber, receivedDocument.invoiceNumber) &&
-                Objects.equals(this.isMarked, receivedDocument.isMarked) &&
-                Objects.equals(this.isDetailed, receivedDocument.isDetailed) &&
-                Objects.equals(this.eInvoice, receivedDocument.eInvoice) &&
-                Objects.equals(this.nextDueDate, receivedDocument.nextDueDate) &&
-                Objects.equals(this.currency, receivedDocument.currency) &&
-                Objects.equals(this.taxDeductibility, receivedDocument.taxDeductibility) &&
-                Objects.equals(this.vatDeductibility, receivedDocument.vatDeductibility) &&
-                Objects.equals(this.itemsList, receivedDocument.itemsList) &&
-                Objects.equals(this.paymentsList, receivedDocument.paymentsList) &&
-                Objects.equals(this.attachmentUrl, receivedDocument.attachmentUrl) &&
-                Objects.equals(this.attachmentPreviewUrl, receivedDocument.attachmentPreviewUrl) &&
-                Objects.equals(this.attachmentToken, receivedDocument.attachmentToken);
-    }
+   /**
+   * [Read Only] Attachment url.
+   * @return attachmentUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "[Read Only] Attachment url.")
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
+  public String getAttachmentUrl() {
+    return attachmentUrl;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, type, entity, date, category, description, amountNet, amountVat, amountWithholdingTax, amountOtherWithholdingTax, amountGross, amortization, rcCenter, invoiceNumber, isMarked, isDetailed, eInvoice, nextDueDate, currency, taxDeductibility, vatDeductibility, itemsList, paymentsList, attachmentUrl, attachmentPreviewUrl, attachmentToken);
-    }
 
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ReceivedDocument {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
-        sb.append("    date: ").append(toIndentedString(date)).append("\n");
-        sb.append("    category: ").append(toIndentedString(category)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    amountNet: ").append(toIndentedString(amountNet)).append("\n");
-        sb.append("    amountVat: ").append(toIndentedString(amountVat)).append("\n");
-        sb.append("    amountWithholdingTax: ").append(toIndentedString(amountWithholdingTax)).append("\n");
-        sb.append("    amountOtherWithholdingTax: ").append(toIndentedString(amountOtherWithholdingTax)).append("\n");
-        sb.append("    amountGross: ").append(toIndentedString(amountGross)).append("\n");
-        sb.append("    amortization: ").append(toIndentedString(amortization)).append("\n");
-        sb.append("    rcCenter: ").append(toIndentedString(rcCenter)).append("\n");
-        sb.append("    invoiceNumber: ").append(toIndentedString(invoiceNumber)).append("\n");
-        sb.append("    isMarked: ").append(toIndentedString(isMarked)).append("\n");
-        sb.append("    isDetailed: ").append(toIndentedString(isDetailed)).append("\n");
-        sb.append("    eInvoice: ").append(toIndentedString(eInvoice)).append("\n");
-        sb.append("    nextDueDate: ").append(toIndentedString(nextDueDate)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    taxDeductibility: ").append(toIndentedString(taxDeductibility)).append("\n");
-        sb.append("    vatDeductibility: ").append(toIndentedString(vatDeductibility)).append("\n");
-        sb.append("    itemsList: ").append(toIndentedString(itemsList)).append("\n");
-        sb.append("    paymentsList: ").append(toIndentedString(paymentsList)).append("\n");
-        sb.append("    attachmentUrl: ").append(toIndentedString(attachmentUrl)).append("\n");
-        sb.append("    attachmentPreviewUrl: ").append(toIndentedString(attachmentPreviewUrl)).append("\n");
-        sb.append("    attachmentToken: ").append(toIndentedString(attachmentToken)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+   /**
+   * [Read Only] Attachment preview url.
+   * @return attachmentPreviewUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "[Read Only] Attachment preview url.")
+
+  public String getAttachmentPreviewUrl() {
+    return attachmentPreviewUrl;
+  }
+
+
+
+
+  public ReceivedDocument attachmentToken(String attachmentToken) {
+    
+    this.attachmentToken = attachmentToken;
+    return this;
+  }
+
+   /**
+   * Uploaded attachement token.
+   * @return attachmentToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Uploaded attachement token.")
+
+  public String getAttachmentToken() {
+    return attachmentToken;
+  }
+
+
+  public void setAttachmentToken(String attachmentToken) {
+    this.attachmentToken = attachmentToken;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ReceivedDocument receivedDocument = (ReceivedDocument) o;
+    return Objects.equals(this.id, receivedDocument.id) &&
+        Objects.equals(this.type, receivedDocument.type) &&
+        Objects.equals(this.entity, receivedDocument.entity) &&
+        Objects.equals(this.date, receivedDocument.date) &&
+        Objects.equals(this.category, receivedDocument.category) &&
+        Objects.equals(this.description, receivedDocument.description) &&
+        Objects.equals(this.amountNet, receivedDocument.amountNet) &&
+        Objects.equals(this.amountVat, receivedDocument.amountVat) &&
+        Objects.equals(this.amountWithholdingTax, receivedDocument.amountWithholdingTax) &&
+        Objects.equals(this.amountOtherWithholdingTax, receivedDocument.amountOtherWithholdingTax) &&
+        Objects.equals(this.amountGross, receivedDocument.amountGross) &&
+        Objects.equals(this.amortization, receivedDocument.amortization) &&
+        Objects.equals(this.rcCenter, receivedDocument.rcCenter) &&
+        Objects.equals(this.invoiceNumber, receivedDocument.invoiceNumber) &&
+        Objects.equals(this.isMarked, receivedDocument.isMarked) &&
+        Objects.equals(this.isDetailed, receivedDocument.isDetailed) &&
+        Objects.equals(this.eInvoice, receivedDocument.eInvoice) &&
+        Objects.equals(this.nextDueDate, receivedDocument.nextDueDate) &&
+        Objects.equals(this.currency, receivedDocument.currency) &&
+        Objects.equals(this.taxDeductibility, receivedDocument.taxDeductibility) &&
+        Objects.equals(this.vatDeductibility, receivedDocument.vatDeductibility) &&
+        Objects.equals(this.itemsList, receivedDocument.itemsList) &&
+        Objects.equals(this.paymentsList, receivedDocument.paymentsList) &&
+        Objects.equals(this.attachmentUrl, receivedDocument.attachmentUrl) &&
+        Objects.equals(this.attachmentPreviewUrl, receivedDocument.attachmentPreviewUrl) &&
+        Objects.equals(this.attachmentToken, receivedDocument.attachmentToken);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, type, entity, date, category, description, amountNet, amountVat, amountWithholdingTax, amountOtherWithholdingTax, amountGross, amortization, rcCenter, invoiceNumber, isMarked, isDetailed, eInvoice, nextDueDate, currency, taxDeductibility, vatDeductibility, itemsList, paymentsList, attachmentUrl, attachmentPreviewUrl, attachmentToken);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ReceivedDocument {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    amountNet: ").append(toIndentedString(amountNet)).append("\n");
+    sb.append("    amountVat: ").append(toIndentedString(amountVat)).append("\n");
+    sb.append("    amountWithholdingTax: ").append(toIndentedString(amountWithholdingTax)).append("\n");
+    sb.append("    amountOtherWithholdingTax: ").append(toIndentedString(amountOtherWithholdingTax)).append("\n");
+    sb.append("    amountGross: ").append(toIndentedString(amountGross)).append("\n");
+    sb.append("    amortization: ").append(toIndentedString(amortization)).append("\n");
+    sb.append("    rcCenter: ").append(toIndentedString(rcCenter)).append("\n");
+    sb.append("    invoiceNumber: ").append(toIndentedString(invoiceNumber)).append("\n");
+    sb.append("    isMarked: ").append(toIndentedString(isMarked)).append("\n");
+    sb.append("    isDetailed: ").append(toIndentedString(isDetailed)).append("\n");
+    sb.append("    eInvoice: ").append(toIndentedString(eInvoice)).append("\n");
+    sb.append("    nextDueDate: ").append(toIndentedString(nextDueDate)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    taxDeductibility: ").append(toIndentedString(taxDeductibility)).append("\n");
+    sb.append("    vatDeductibility: ").append(toIndentedString(vatDeductibility)).append("\n");
+    sb.append("    itemsList: ").append(toIndentedString(itemsList)).append("\n");
+    sb.append("    paymentsList: ").append(toIndentedString(paymentsList)).append("\n");
+    sb.append("    attachmentUrl: ").append(toIndentedString(attachmentUrl)).append("\n");
+    sb.append("    attachmentPreviewUrl: ").append(toIndentedString(attachmentPreviewUrl)).append("\n");
+    sb.append("    attachmentToken: ").append(toIndentedString(attachmentToken)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

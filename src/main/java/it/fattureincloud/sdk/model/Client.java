@@ -13,1092 +13,1066 @@
 
 package it.fattureincloud.sdk.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import java.io.Serializable;
+import it.fattureincloud.sdk.model.ClientType;
+import it.fattureincloud.sdk.model.DefaultPaymentTermsType;
+import it.fattureincloud.sdk.model.PaymentMethod;
+import it.fattureincloud.sdk.model.VatType;
+import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.io.Serializable;
 
 /**
- *
+ * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-16T10:27:27.647Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-31T13:16:33.658Z[GMT]")
 public class Client implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Integer id;
-
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private String code;
-
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private ClientType type;
-
-    public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
-    @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-    private String firstName;
-
-    public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-    @SerializedName(SERIALIZED_NAME_LAST_NAME)
-    private String lastName;
-
-    public static final String SERIALIZED_NAME_CONTACT_PERSON = "contact_person";
-    @SerializedName(SERIALIZED_NAME_CONTACT_PERSON)
-    private String contactPerson;
-
-    public static final String SERIALIZED_NAME_VAT_NUMBER = "vat_number";
-    @SerializedName(SERIALIZED_NAME_VAT_NUMBER)
-    private String vatNumber;
-
-    public static final String SERIALIZED_NAME_TAX_CODE = "tax_code";
-    @SerializedName(SERIALIZED_NAME_TAX_CODE)
-    private String taxCode;
-
-    public static final String SERIALIZED_NAME_ADDRESS_STREET = "address_street";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_STREET)
-    private String addressStreet;
+  private static final long serialVersionUID = 1L;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private ClientType type;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_CONTACT_PERSON = "contact_person";
+  @SerializedName(SERIALIZED_NAME_CONTACT_PERSON)
+  private String contactPerson;
+
+  public static final String SERIALIZED_NAME_VAT_NUMBER = "vat_number";
+  @SerializedName(SERIALIZED_NAME_VAT_NUMBER)
+  private String vatNumber;
+
+  public static final String SERIALIZED_NAME_TAX_CODE = "tax_code";
+  @SerializedName(SERIALIZED_NAME_TAX_CODE)
+  private String taxCode;
+
+  public static final String SERIALIZED_NAME_ADDRESS_STREET = "address_street";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_STREET)
+  private String addressStreet;
 
-    public static final String SERIALIZED_NAME_ADDRESS_POSTAL_CODE = "address_postal_code";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_POSTAL_CODE)
-    private String addressPostalCode;
+  public static final String SERIALIZED_NAME_ADDRESS_POSTAL_CODE = "address_postal_code";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_POSTAL_CODE)
+  private String addressPostalCode;
+
+  public static final String SERIALIZED_NAME_ADDRESS_CITY = "address_city";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_CITY)
+  private String addressCity;
+
+  public static final String SERIALIZED_NAME_ADDRESS_PROVINCE = "address_province";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_PROVINCE)
+  private String addressProvince;
+
+  public static final String SERIALIZED_NAME_ADDRESS_EXTRA = "address_extra";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_EXTRA)
+  private String addressExtra;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private String country;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
-    public static final String SERIALIZED_NAME_ADDRESS_CITY = "address_city";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_CITY)
-    private String addressCity;
+  public static final String SERIALIZED_NAME_CERTIFIED_EMAIL = "certified_email";
+  @SerializedName(SERIALIZED_NAME_CERTIFIED_EMAIL)
+  private String certifiedEmail;
+
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
+
+  public static final String SERIALIZED_NAME_FAX = "fax";
+  @SerializedName(SERIALIZED_NAME_FAX)
+  private String fax;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private String notes;
+
+  public static final String SERIALIZED_NAME_DEFAULT_VAT = "default_vat";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_VAT)
+  private VatType defaultVat;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS = "default_payment_terms";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS)
+  private Integer defaultPaymentTerms;
 
-    public static final String SERIALIZED_NAME_ADDRESS_PROVINCE = "address_province";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_PROVINCE)
-    private String addressProvince;
+  public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS_TYPE = "default_payment_terms_type";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS_TYPE)
+  private DefaultPaymentTermsType defaultPaymentTermsType = DefaultPaymentTermsType.STANDARD;
 
-    public static final String SERIALIZED_NAME_ADDRESS_EXTRA = "address_extra";
-    @SerializedName(SERIALIZED_NAME_ADDRESS_EXTRA)
-    private String addressExtra;
+  public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_METHOD = "default_payment_method";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_METHOD)
+  private PaymentMethod defaultPaymentMethod;
+
+  public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
+  @SerializedName(SERIALIZED_NAME_BANK_NAME)
+  private String bankName;
+
+  public static final String SERIALIZED_NAME_BANK_IBAN = "bank_iban";
+  @SerializedName(SERIALIZED_NAME_BANK_IBAN)
+  private String bankIban;
 
-    public static final String SERIALIZED_NAME_COUNTRY = "country";
-    @SerializedName(SERIALIZED_NAME_COUNTRY)
-    private String country;
+  public static final String SERIALIZED_NAME_BANK_SWIFT_CODE = "bank_swift_code";
+  @SerializedName(SERIALIZED_NAME_BANK_SWIFT_CODE)
+  private String bankSwiftCode;
 
-    public static final String SERIALIZED_NAME_EMAIL = "email";
-    @SerializedName(SERIALIZED_NAME_EMAIL)
-    private String email;
+  public static final String SERIALIZED_NAME_SHIPPING_ADDRESS = "shipping_address";
+  @SerializedName(SERIALIZED_NAME_SHIPPING_ADDRESS)
+  private String shippingAddress;
 
-    public static final String SERIALIZED_NAME_CERTIFIED_EMAIL = "certified_email";
-    @SerializedName(SERIALIZED_NAME_CERTIFIED_EMAIL)
-    private String certifiedEmail;
+  public static final String SERIALIZED_NAME_E_INVOICE = "e_invoice";
+  @SerializedName(SERIALIZED_NAME_E_INVOICE)
+  private Boolean eInvoice;
 
-    public static final String SERIALIZED_NAME_PHONE = "phone";
-    @SerializedName(SERIALIZED_NAME_PHONE)
-    private String phone;
+  public static final String SERIALIZED_NAME_EI_CODE = "ei_code";
+  @SerializedName(SERIALIZED_NAME_EI_CODE)
+  private String eiCode;
+
+  public static final String SERIALIZED_NAME_DISCOUNT_HIGHLIGHT = "discount_highlight";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT_HIGHLIGHT)
+  private Boolean discountHighlight;
+
+  public static final String SERIALIZED_NAME_DEFAULT_DISCOUNT = "default_discount";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_DISCOUNT)
+  private BigDecimal defaultDiscount;
 
-    public static final String SERIALIZED_NAME_FAX = "fax";
-    @SerializedName(SERIALIZED_NAME_FAX)
-    private String fax;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private String createdAt;
 
-    public static final String SERIALIZED_NAME_NOTES = "notes";
-    @SerializedName(SERIALIZED_NAME_NOTES)
-    private String notes;
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private String updatedAt;
 
-    public static final String SERIALIZED_NAME_DEFAULT_VAT = "default_vat";
-    @SerializedName(SERIALIZED_NAME_DEFAULT_VAT)
-    private VatType defaultVat;
+  public Client() { 
+  }
 
-    public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS = "default_payment_terms";
-    @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS)
-    private Integer defaultPaymentTerms;
+  public Client id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS_TYPE = "default_payment_terms_type";
-    @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_TERMS_TYPE)
-    private DefaultPaymentTermsType defaultPaymentTermsType = DefaultPaymentTermsType.STANDARD;
+   /**
+   * Unique identifier
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique identifier")
 
-    public static final String SERIALIZED_NAME_DEFAULT_PAYMENT_METHOD = "default_payment_method";
-    @SerializedName(SERIALIZED_NAME_DEFAULT_PAYMENT_METHOD)
-    private PaymentMethod defaultPaymentMethod;
+  public Integer getId() {
+    return id;
+  }
 
-    public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
-    @SerializedName(SERIALIZED_NAME_BANK_NAME)
-    private String bankName;
 
-    public static final String SERIALIZED_NAME_BANK_IBAN = "bank_iban";
-    @SerializedName(SERIALIZED_NAME_BANK_IBAN)
-    private String bankIban;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public static final String SERIALIZED_NAME_BANK_SWIFT_CODE = "bank_swift_code";
-    @SerializedName(SERIALIZED_NAME_BANK_SWIFT_CODE)
-    private String bankSwiftCode;
 
-    public static final String SERIALIZED_NAME_SHIPPING_ADDRESS = "shipping_address";
-    @SerializedName(SERIALIZED_NAME_SHIPPING_ADDRESS)
-    private String shippingAddress;
+  public Client code(String code) {
+    
+    this.code = code;
+    return this;
+  }
 
-    public static final String SERIALIZED_NAME_E_INVOICE = "e_invoice";
-    @SerializedName(SERIALIZED_NAME_E_INVOICE)
-    private Boolean eInvoice;
+   /**
+   * Client code.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "123", value = "Client code.")
 
-    public static final String SERIALIZED_NAME_EI_CODE = "ei_code";
-    @SerializedName(SERIALIZED_NAME_EI_CODE)
-    private String eiCode;
+  public String getCode() {
+    return code;
+  }
 
-    public static final String SERIALIZED_NAME_DISCOUNT_HIGHLIGHT = "discount_highlight";
-    @SerializedName(SERIALIZED_NAME_DISCOUNT_HIGHLIGHT)
-    private Boolean discountHighlight;
 
-    public static final String SERIALIZED_NAME_DEFAULT_DISCOUNT = "default_discount";
-    @SerializedName(SERIALIZED_NAME_DEFAULT_DISCOUNT)
-    private BigDecimal defaultDiscount;
+  public void setCode(String code) {
+    this.code = code;
+  }
 
-    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-    @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    private String createdAt;
 
-    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    private String updatedAt;
+  public Client name(String name) {
+    
+    this.name = name;
+    return this;
+  }
 
-    public Client() {
-    }
-
-    public Client id(Integer id) {
-
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * Unique identifier
-     *
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Unique identifier")
-
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public Client code(String code) {
-
-        this.code = code;
-        return this;
-    }
-
-    /**
-     * Client code.
-     *
-     * @return code
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "123", value = "Client code.")
-
-    public String getCode() {
-        return code;
-    }
-
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-
-    public Client name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Client name
-     *
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Rossi S.r.l.", value = "Client name")
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public Client type(ClientType type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public ClientType getType() {
-        return type;
-    }
-
+   /**
+   * Client name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Rossi S.r.l.", value = "Client name")
 
-    public void setType(ClientType type) {
-        this.type = type;
-    }
-
-
-    public Client firstName(String firstName) {
-
-        this.firstName = firstName;
-        return this;
-    }
-
-    /**
-     * Client first name.
-     *
-     * @return firstName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client first name.")
-
-    public String getFirstName() {
-        return firstName;
-    }
-
+  public String getName() {
+    return name;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-
-    public Client lastName(String lastName) {
-
-        this.lastName = lastName;
-        return this;
-    }
 
-    /**
-     * Client last name.
-     *
-     * @return lastName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client last name.")
-
-    public String getLastName() {
-        return lastName;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public Client type(ClientType type) {
+    
+    this.type = type;
+    return this;
+  }
 
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Client contactPerson(String contactPerson) {
+  public ClientType getType() {
+    return type;
+  }
 
-        this.contactPerson = contactPerson;
-        return this;
-    }
 
-    /**
-     * Get contactPerson
-     *
-     * @return contactPerson
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getContactPerson() {
-        return contactPerson;
-    }
+  public void setType(ClientType type) {
+    this.type = type;
+  }
 
 
-    public void setContactPerson(String contactPerson) {
-        this.contactPerson = contactPerson;
-    }
+  public Client firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
 
+   /**
+   * Client first name.
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client first name.")
 
-    public Client vatNumber(String vatNumber) {
+  public String getFirstName() {
+    return firstName;
+  }
 
-        this.vatNumber = vatNumber;
-        return this;
-    }
 
-    /**
-     * Client vat number
-     *
-     * @return vatNumber
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "IT01234567890", value = "Client vat number")
-
-    public String getVatNumber() {
-        return vatNumber;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
 
-    public void setVatNumber(String vatNumber) {
-        this.vatNumber = vatNumber;
-    }
+  public Client lastName(String lastName) {
+    
+    this.lastName = lastName;
+    return this;
+  }
 
+   /**
+   * Client last name.
+   * @return lastName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client last name.")
 
-    public Client taxCode(String taxCode) {
+  public String getLastName() {
+    return lastName;
+  }
 
-        this.taxCode = taxCode;
-        return this;
-    }
 
-    /**
-     * Client tax code.
-     *
-     * @return taxCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "RSSMRA44A12E890Q", value = "Client tax code.")
-
-    public String getTaxCode() {
-        return taxCode;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
 
-    public void setTaxCode(String taxCode) {
-        this.taxCode = taxCode;
-    }
+  public Client contactPerson(String contactPerson) {
+    
+    this.contactPerson = contactPerson;
+    return this;
+  }
 
+   /**
+   * Get contactPerson
+   * @return contactPerson
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Client addressStreet(String addressStreet) {
+  public String getContactPerson() {
+    return contactPerson;
+  }
 
-        this.addressStreet = addressStreet;
-        return this;
-    }
 
-    /**
-     * Client street address.
-     *
-     * @return addressStreet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Via dei tigli, 12", value = "Client street address.")
-
-    public String getAddressStreet() {
-        return addressStreet;
-    }
+  public void setContactPerson(String contactPerson) {
+    this.contactPerson = contactPerson;
+  }
 
 
-    public void setAddressStreet(String addressStreet) {
-        this.addressStreet = addressStreet;
-    }
+  public Client vatNumber(String vatNumber) {
+    
+    this.vatNumber = vatNumber;
+    return this;
+  }
 
+   /**
+   * Client vat number
+   * @return vatNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "IT01234567890", value = "Client vat number")
 
-    public Client addressPostalCode(String addressPostalCode) {
+  public String getVatNumber() {
+    return vatNumber;
+  }
 
-        this.addressPostalCode = addressPostalCode;
-        return this;
-    }
 
-    /**
-     * Client postal code.
-     *
-     * @return addressPostalCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "24010", value = "Client postal code.")
-
-    public String getAddressPostalCode() {
-        return addressPostalCode;
-    }
+  public void setVatNumber(String vatNumber) {
+    this.vatNumber = vatNumber;
+  }
 
 
-    public void setAddressPostalCode(String addressPostalCode) {
-        this.addressPostalCode = addressPostalCode;
-    }
+  public Client taxCode(String taxCode) {
+    
+    this.taxCode = taxCode;
+    return this;
+  }
 
+   /**
+   * Client tax code.
+   * @return taxCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "RSSMRA44A12E890Q", value = "Client tax code.")
 
-    public Client addressCity(String addressCity) {
+  public String getTaxCode() {
+    return taxCode;
+  }
 
-        this.addressCity = addressCity;
-        return this;
-    }
 
-    /**
-     * Client city.
-     *
-     * @return addressCity
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Bergamo", value = "Client city.")
-
-    public String getAddressCity() {
-        return addressCity;
-    }
+  public void setTaxCode(String taxCode) {
+    this.taxCode = taxCode;
+  }
 
 
-    public void setAddressCity(String addressCity) {
-        this.addressCity = addressCity;
-    }
+  public Client addressStreet(String addressStreet) {
+    
+    this.addressStreet = addressStreet;
+    return this;
+  }
 
+   /**
+   * Client street address.
+   * @return addressStreet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Via dei tigli, 12", value = "Client street address.")
 
-    public Client addressProvince(String addressProvince) {
+  public String getAddressStreet() {
+    return addressStreet;
+  }
 
-        this.addressProvince = addressProvince;
-        return this;
-    }
 
-    /**
-     * Client province.
-     *
-     * @return addressProvince
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "BG", value = "Client province.")
-
-    public String getAddressProvince() {
-        return addressProvince;
-    }
+  public void setAddressStreet(String addressStreet) {
+    this.addressStreet = addressStreet;
+  }
 
 
-    public void setAddressProvince(String addressProvince) {
-        this.addressProvince = addressProvince;
-    }
+  public Client addressPostalCode(String addressPostalCode) {
+    
+    this.addressPostalCode = addressPostalCode;
+    return this;
+  }
 
+   /**
+   * Client postal code.
+   * @return addressPostalCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "24010", value = "Client postal code.")
 
-    public Client addressExtra(String addressExtra) {
+  public String getAddressPostalCode() {
+    return addressPostalCode;
+  }
 
-        this.addressExtra = addressExtra;
-        return this;
-    }
 
-    /**
-     * Client address extra info.
-     *
-     * @return addressExtra
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client address extra info.")
-
-    public String getAddressExtra() {
-        return addressExtra;
-    }
+  public void setAddressPostalCode(String addressPostalCode) {
+    this.addressPostalCode = addressPostalCode;
+  }
 
 
-    public void setAddressExtra(String addressExtra) {
-        this.addressExtra = addressExtra;
-    }
+  public Client addressCity(String addressCity) {
+    
+    this.addressCity = addressCity;
+    return this;
+  }
 
+   /**
+   * Client city.
+   * @return addressCity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Bergamo", value = "Client city.")
 
-    public Client country(String country) {
+  public String getAddressCity() {
+    return addressCity;
+  }
 
-        this.country = country;
-        return this;
-    }
 
-    /**
-     * Client country
-     *
-     * @return country
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Italia", value = "Client country")
-
-    public String getCountry() {
-        return country;
-    }
+  public void setAddressCity(String addressCity) {
+    this.addressCity = addressCity;
+  }
 
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+  public Client addressProvince(String addressProvince) {
+    
+    this.addressProvince = addressProvince;
+    return this;
+  }
 
+   /**
+   * Client province.
+   * @return addressProvince
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "BG", value = "Client province.")
 
-    public Client email(String email) {
+  public String getAddressProvince() {
+    return addressProvince;
+  }
 
-        this.email = email;
-        return this;
-    }
 
-    /**
-     * Client email.
-     *
-     * @return email
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "mario.rossi@example.it", value = "Client email.")
-
-    public String getEmail() {
-        return email;
-    }
+  public void setAddressProvince(String addressProvince) {
+    this.addressProvince = addressProvince;
+  }
 
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public Client addressExtra(String addressExtra) {
+    
+    this.addressExtra = addressExtra;
+    return this;
+  }
 
+   /**
+   * Client address extra info.
+   * @return addressExtra
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client address extra info.")
 
-    public Client certifiedEmail(String certifiedEmail) {
+  public String getAddressExtra() {
+    return addressExtra;
+  }
 
-        this.certifiedEmail = certifiedEmail;
-        return this;
-    }
 
-    /**
-     * Client certified email.
-     *
-     * @return certifiedEmail
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "mario.rossi@pec.example.it", value = "Client certified email.")
-
-    public String getCertifiedEmail() {
-        return certifiedEmail;
-    }
+  public void setAddressExtra(String addressExtra) {
+    this.addressExtra = addressExtra;
+  }
 
 
-    public void setCertifiedEmail(String certifiedEmail) {
-        this.certifiedEmail = certifiedEmail;
-    }
+  public Client country(String country) {
+    
+    this.country = country;
+    return this;
+  }
 
+   /**
+   * Client country
+   * @return country
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Italia", value = "Client country")
 
-    public Client phone(String phone) {
+  public String getCountry() {
+    return country;
+  }
 
-        this.phone = phone;
-        return this;
-    }
 
-    /**
-     * Client phone.
-     *
-     * @return phone
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client phone.")
-
-    public String getPhone() {
-        return phone;
-    }
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+  public Client email(String email) {
+    
+    this.email = email;
+    return this;
+  }
 
+   /**
+   * Client email.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "mario.rossi@example.it", value = "Client email.")
 
-    public Client fax(String fax) {
+  public String getEmail() {
+    return email;
+  }
 
-        this.fax = fax;
-        return this;
-    }
 
-    /**
-     * Client fax.
-     *
-     * @return fax
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client fax.")
-
-    public String getFax() {
-        return fax;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
 
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
+  public Client certifiedEmail(String certifiedEmail) {
+    
+    this.certifiedEmail = certifiedEmail;
+    return this;
+  }
 
+   /**
+   * Client certified email.
+   * @return certifiedEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "mario.rossi@pec.example.it", value = "Client certified email.")
 
-    public Client notes(String notes) {
+  public String getCertifiedEmail() {
+    return certifiedEmail;
+  }
 
-        this.notes = notes;
-        return this;
-    }
 
-    /**
-     * Extra notes.
-     *
-     * @return notes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Extra notes.")
-
-    public String getNotes() {
-        return notes;
-    }
+  public void setCertifiedEmail(String certifiedEmail) {
+    this.certifiedEmail = certifiedEmail;
+  }
 
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+  public Client phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
 
+   /**
+   * Client phone.
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client phone.")
 
-    public Client defaultVat(VatType defaultVat) {
+  public String getPhone() {
+    return phone;
+  }
 
-        this.defaultVat = defaultVat;
-        return this;
-    }
 
-    /**
-     * Get defaultVat
-     *
-     * @return defaultVat
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public VatType getDefaultVat() {
-        return defaultVat;
-    }
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
 
 
-    public void setDefaultVat(VatType defaultVat) {
-        this.defaultVat = defaultVat;
-    }
+  public Client fax(String fax) {
+    
+    this.fax = fax;
+    return this;
+  }
 
+   /**
+   * Client fax.
+   * @return fax
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client fax.")
 
-    public Client defaultPaymentTerms(Integer defaultPaymentTerms) {
+  public String getFax() {
+    return fax;
+  }
 
-        this.defaultPaymentTerms = defaultPaymentTerms;
-        return this;
-    }
 
-    /**
-     * Get defaultPaymentTerms
-     *
-     * @return defaultPaymentTerms
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "30", value = "")
-
-    public Integer getDefaultPaymentTerms() {
-        return defaultPaymentTerms;
-    }
+  public void setFax(String fax) {
+    this.fax = fax;
+  }
 
 
-    public void setDefaultPaymentTerms(Integer defaultPaymentTerms) {
-        this.defaultPaymentTerms = defaultPaymentTerms;
-    }
+  public Client notes(String notes) {
+    
+    this.notes = notes;
+    return this;
+  }
 
+   /**
+   * Extra notes.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Extra notes.")
 
-    public Client defaultPaymentTermsType(DefaultPaymentTermsType defaultPaymentTermsType) {
+  public String getNotes() {
+    return notes;
+  }
 
-        this.defaultPaymentTermsType = defaultPaymentTermsType;
-        return this;
-    }
 
-    /**
-     * Get defaultPaymentTermsType
-     *
-     * @return defaultPaymentTermsType
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public DefaultPaymentTermsType getDefaultPaymentTermsType() {
-        return defaultPaymentTermsType;
-    }
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 
 
-    public void setDefaultPaymentTermsType(DefaultPaymentTermsType defaultPaymentTermsType) {
-        this.defaultPaymentTermsType = defaultPaymentTermsType;
-    }
+  public Client defaultVat(VatType defaultVat) {
+    
+    this.defaultVat = defaultVat;
+    return this;
+  }
 
+   /**
+   * Get defaultVat
+   * @return defaultVat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Client defaultPaymentMethod(PaymentMethod defaultPaymentMethod) {
+  public VatType getDefaultVat() {
+    return defaultVat;
+  }
 
-        this.defaultPaymentMethod = defaultPaymentMethod;
-        return this;
-    }
 
-    /**
-     * Get defaultPaymentMethod
-     *
-     * @return defaultPaymentMethod
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public PaymentMethod getDefaultPaymentMethod() {
-        return defaultPaymentMethod;
-    }
+  public void setDefaultVat(VatType defaultVat) {
+    this.defaultVat = defaultVat;
+  }
 
 
-    public void setDefaultPaymentMethod(PaymentMethod defaultPaymentMethod) {
-        this.defaultPaymentMethod = defaultPaymentMethod;
-    }
+  public Client defaultPaymentTerms(Integer defaultPaymentTerms) {
+    
+    this.defaultPaymentTerms = defaultPaymentTerms;
+    return this;
+  }
 
+   /**
+   * Get defaultPaymentTerms
+   * @return defaultPaymentTerms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "30", value = "")
 
-    public Client bankName(String bankName) {
+  public Integer getDefaultPaymentTerms() {
+    return defaultPaymentTerms;
+  }
 
-        this.bankName = bankName;
-        return this;
-    }
 
-    /**
-     * Client bank name.
-     *
-     * @return bankName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client bank name.")
-
-    public String getBankName() {
-        return bankName;
-    }
+  public void setDefaultPaymentTerms(Integer defaultPaymentTerms) {
+    this.defaultPaymentTerms = defaultPaymentTerms;
+  }
 
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
+  public Client defaultPaymentTermsType(DefaultPaymentTermsType defaultPaymentTermsType) {
+    
+    this.defaultPaymentTermsType = defaultPaymentTermsType;
+    return this;
+  }
 
+   /**
+   * Get defaultPaymentTermsType
+   * @return defaultPaymentTermsType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Client bankIban(String bankIban) {
+  public DefaultPaymentTermsType getDefaultPaymentTermsType() {
+    return defaultPaymentTermsType;
+  }
 
-        this.bankIban = bankIban;
-        return this;
-    }
 
-    /**
-     * Client iban.
-     *
-     * @return bankIban
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client iban.")
-
-    public String getBankIban() {
-        return bankIban;
-    }
+  public void setDefaultPaymentTermsType(DefaultPaymentTermsType defaultPaymentTermsType) {
+    this.defaultPaymentTermsType = defaultPaymentTermsType;
+  }
 
 
-    public void setBankIban(String bankIban) {
-        this.bankIban = bankIban;
-    }
+  public Client defaultPaymentMethod(PaymentMethod defaultPaymentMethod) {
+    
+    this.defaultPaymentMethod = defaultPaymentMethod;
+    return this;
+  }
 
+   /**
+   * Get defaultPaymentMethod
+   * @return defaultPaymentMethod
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-    public Client bankSwiftCode(String bankSwiftCode) {
+  public PaymentMethod getDefaultPaymentMethod() {
+    return defaultPaymentMethod;
+  }
 
-        this.bankSwiftCode = bankSwiftCode;
-        return this;
-    }
 
-    /**
-     * Client bank swift code.
-     *
-     * @return bankSwiftCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client bank swift code.")
-
-    public String getBankSwiftCode() {
-        return bankSwiftCode;
-    }
+  public void setDefaultPaymentMethod(PaymentMethod defaultPaymentMethod) {
+    this.defaultPaymentMethod = defaultPaymentMethod;
+  }
 
 
-    public void setBankSwiftCode(String bankSwiftCode) {
-        this.bankSwiftCode = bankSwiftCode;
-    }
+  public Client bankName(String bankName) {
+    
+    this.bankName = bankName;
+    return this;
+  }
 
+   /**
+   * Client bank name.
+   * @return bankName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client bank name.")
 
-    public Client shippingAddress(String shippingAddress) {
+  public String getBankName() {
+    return bankName;
+  }
 
-        this.shippingAddress = shippingAddress;
-        return this;
-    }
 
-    /**
-     * Client shipping address.
-     *
-     * @return shippingAddress
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Client shipping address.")
-
-    public String getShippingAddress() {
-        return shippingAddress;
-    }
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
+  }
 
 
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
-    }
+  public Client bankIban(String bankIban) {
+    
+    this.bankIban = bankIban;
+    return this;
+  }
 
+   /**
+   * Client iban.
+   * @return bankIban
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client iban.")
 
-    public Client eInvoice(Boolean eInvoice) {
+  public String getBankIban() {
+    return bankIban;
+  }
 
-        this.eInvoice = eInvoice;
-        return this;
-    }
 
-    /**
-     * Use e-invoices for this entity
-     *
-     * @return eInvoice
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Use e-invoices for this entity")
-
-    public Boolean geteInvoice() {
-        return eInvoice;
-    }
+  public void setBankIban(String bankIban) {
+    this.bankIban = bankIban;
+  }
 
 
-    public void seteInvoice(Boolean eInvoice) {
-        this.eInvoice = eInvoice;
-    }
+  public Client bankSwiftCode(String bankSwiftCode) {
+    
+    this.bankSwiftCode = bankSwiftCode;
+    return this;
+  }
 
+   /**
+   * Client bank swift code.
+   * @return bankSwiftCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client bank swift code.")
 
-    public Client eiCode(String eiCode) {
+  public String getBankSwiftCode() {
+    return bankSwiftCode;
+  }
 
-        this.eiCode = eiCode;
-        return this;
-    }
 
-    /**
-     * E-invoice code
-     *
-     * @return eiCode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "E-invoice code")
-
-    public String getEiCode() {
-        return eiCode;
-    }
+  public void setBankSwiftCode(String bankSwiftCode) {
+    this.bankSwiftCode = bankSwiftCode;
+  }
 
 
-    public void setEiCode(String eiCode) {
-        this.eiCode = eiCode;
-    }
+  public Client shippingAddress(String shippingAddress) {
+    
+    this.shippingAddress = shippingAddress;
+    return this;
+  }
 
+   /**
+   * Client shipping address.
+   * @return shippingAddress
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Client shipping address.")
 
-    public Client discountHighlight(Boolean discountHighlight) {
+  public String getShippingAddress() {
+    return shippingAddress;
+  }
 
-        this.discountHighlight = discountHighlight;
-        return this;
-    }
 
-    /**
-     * Discount Highlight.
-     *
-     * @return discountHighlight
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Discount Highlight.")
-
-    public Boolean getDiscountHighlight() {
-        return discountHighlight;
-    }
+  public void setShippingAddress(String shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
 
 
-    public void setDiscountHighlight(Boolean discountHighlight) {
-        this.discountHighlight = discountHighlight;
-    }
+  public Client eInvoice(Boolean eInvoice) {
+    
+    this.eInvoice = eInvoice;
+    return this;
+  }
 
+   /**
+   * Use e-invoices for this entity
+   * @return eInvoice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Use e-invoices for this entity")
 
-    public Client defaultDiscount(BigDecimal defaultDiscount) {
+  public Boolean geteInvoice() {
+    return eInvoice;
+  }
 
-        this.defaultDiscount = defaultDiscount;
-        return this;
-    }
 
-    /**
-     * Default discount.
-     *
-     * @return defaultDiscount
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Default discount.")
-
-    public BigDecimal getDefaultDiscount() {
-        return defaultDiscount;
-    }
+  public void seteInvoice(Boolean eInvoice) {
+    this.eInvoice = eInvoice;
+  }
 
 
-    public void setDefaultDiscount(BigDecimal defaultDiscount) {
-        this.defaultDiscount = defaultDiscount;
-    }
+  public Client eiCode(String eiCode) {
+    
+    this.eiCode = eiCode;
+    return this;
+  }
 
+   /**
+   * E-invoice code
+   * @return eiCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "E-invoice code")
 
-    public Client createdAt(String createdAt) {
+  public String getEiCode() {
+    return eiCode;
+  }
 
-        this.createdAt = createdAt;
-        return this;
-    }
 
-    /**
-     * Get createdAt
-     *
-     * @return createdAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
+  public void setEiCode(String eiCode) {
+    this.eiCode = eiCode;
+  }
 
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+  public Client discountHighlight(Boolean discountHighlight) {
+    
+    this.discountHighlight = discountHighlight;
+    return this;
+  }
 
+   /**
+   * Discount Highlight.
+   * @return discountHighlight
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Discount Highlight.")
 
-    public Client updatedAt(String updatedAt) {
+  public Boolean getDiscountHighlight() {
+    return discountHighlight;
+  }
 
-        this.updatedAt = updatedAt;
-        return this;
-    }
 
-    /**
-     * Get updatedAt
-     *
-     * @return updatedAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
+  public void setDiscountHighlight(Boolean discountHighlight) {
+    this.discountHighlight = discountHighlight;
+  }
 
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+  public Client defaultDiscount(BigDecimal defaultDiscount) {
+    
+    this.defaultDiscount = defaultDiscount;
+    return this;
+  }
 
+   /**
+   * Default discount.
+   * @return defaultDiscount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Default discount.")
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Client client = (Client) o;
-        return Objects.equals(this.id, client.id) &&
-                Objects.equals(this.code, client.code) &&
-                Objects.equals(this.name, client.name) &&
-                Objects.equals(this.type, client.type) &&
-                Objects.equals(this.firstName, client.firstName) &&
-                Objects.equals(this.lastName, client.lastName) &&
-                Objects.equals(this.contactPerson, client.contactPerson) &&
-                Objects.equals(this.vatNumber, client.vatNumber) &&
-                Objects.equals(this.taxCode, client.taxCode) &&
-                Objects.equals(this.addressStreet, client.addressStreet) &&
-                Objects.equals(this.addressPostalCode, client.addressPostalCode) &&
-                Objects.equals(this.addressCity, client.addressCity) &&
-                Objects.equals(this.addressProvince, client.addressProvince) &&
-                Objects.equals(this.addressExtra, client.addressExtra) &&
-                Objects.equals(this.country, client.country) &&
-                Objects.equals(this.email, client.email) &&
-                Objects.equals(this.certifiedEmail, client.certifiedEmail) &&
-                Objects.equals(this.phone, client.phone) &&
-                Objects.equals(this.fax, client.fax) &&
-                Objects.equals(this.notes, client.notes) &&
-                Objects.equals(this.defaultVat, client.defaultVat) &&
-                Objects.equals(this.defaultPaymentTerms, client.defaultPaymentTerms) &&
-                Objects.equals(this.defaultPaymentTermsType, client.defaultPaymentTermsType) &&
-                Objects.equals(this.defaultPaymentMethod, client.defaultPaymentMethod) &&
-                Objects.equals(this.bankName, client.bankName) &&
-                Objects.equals(this.bankIban, client.bankIban) &&
-                Objects.equals(this.bankSwiftCode, client.bankSwiftCode) &&
-                Objects.equals(this.shippingAddress, client.shippingAddress) &&
-                Objects.equals(this.eInvoice, client.eInvoice) &&
-                Objects.equals(this.eiCode, client.eiCode) &&
-                Objects.equals(this.discountHighlight, client.discountHighlight) &&
-                Objects.equals(this.defaultDiscount, client.defaultDiscount) &&
-                Objects.equals(this.createdAt, client.createdAt) &&
-                Objects.equals(this.updatedAt, client.updatedAt);
-    }
+  public BigDecimal getDefaultDiscount() {
+    return defaultDiscount;
+  }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, code, name, type, firstName, lastName, contactPerson, vatNumber, taxCode, addressStreet, addressPostalCode, addressCity, addressProvince, addressExtra, country, email, certifiedEmail, phone, fax, notes, defaultVat, defaultPaymentTerms, defaultPaymentTermsType, defaultPaymentMethod, bankName, bankIban, bankSwiftCode, shippingAddress, eInvoice, eiCode, discountHighlight, defaultDiscount, createdAt, updatedAt);
-    }
+  public void setDefaultDiscount(BigDecimal defaultDiscount) {
+    this.defaultDiscount = defaultDiscount;
+  }
 
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
-    }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Client {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-        sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("    contactPerson: ").append(toIndentedString(contactPerson)).append("\n");
-        sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
-        sb.append("    taxCode: ").append(toIndentedString(taxCode)).append("\n");
-        sb.append("    addressStreet: ").append(toIndentedString(addressStreet)).append("\n");
-        sb.append("    addressPostalCode: ").append(toIndentedString(addressPostalCode)).append("\n");
-        sb.append("    addressCity: ").append(toIndentedString(addressCity)).append("\n");
-        sb.append("    addressProvince: ").append(toIndentedString(addressProvince)).append("\n");
-        sb.append("    addressExtra: ").append(toIndentedString(addressExtra)).append("\n");
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
-        sb.append("    certifiedEmail: ").append(toIndentedString(certifiedEmail)).append("\n");
-        sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-        sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
-        sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-        sb.append("    defaultVat: ").append(toIndentedString(defaultVat)).append("\n");
-        sb.append("    defaultPaymentTerms: ").append(toIndentedString(defaultPaymentTerms)).append("\n");
-        sb.append("    defaultPaymentTermsType: ").append(toIndentedString(defaultPaymentTermsType)).append("\n");
-        sb.append("    defaultPaymentMethod: ").append(toIndentedString(defaultPaymentMethod)).append("\n");
-        sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
-        sb.append("    bankIban: ").append(toIndentedString(bankIban)).append("\n");
-        sb.append("    bankSwiftCode: ").append(toIndentedString(bankSwiftCode)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    eInvoice: ").append(toIndentedString(eInvoice)).append("\n");
-        sb.append("    eiCode: ").append(toIndentedString(eiCode)).append("\n");
-        sb.append("    discountHighlight: ").append(toIndentedString(discountHighlight)).append("\n");
-        sb.append("    defaultDiscount: ").append(toIndentedString(defaultDiscount)).append("\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  public Client createdAt(String createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Client updatedAt(String updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Client client = (Client) o;
+    return Objects.equals(this.id, client.id) &&
+        Objects.equals(this.code, client.code) &&
+        Objects.equals(this.name, client.name) &&
+        Objects.equals(this.type, client.type) &&
+        Objects.equals(this.firstName, client.firstName) &&
+        Objects.equals(this.lastName, client.lastName) &&
+        Objects.equals(this.contactPerson, client.contactPerson) &&
+        Objects.equals(this.vatNumber, client.vatNumber) &&
+        Objects.equals(this.taxCode, client.taxCode) &&
+        Objects.equals(this.addressStreet, client.addressStreet) &&
+        Objects.equals(this.addressPostalCode, client.addressPostalCode) &&
+        Objects.equals(this.addressCity, client.addressCity) &&
+        Objects.equals(this.addressProvince, client.addressProvince) &&
+        Objects.equals(this.addressExtra, client.addressExtra) &&
+        Objects.equals(this.country, client.country) &&
+        Objects.equals(this.email, client.email) &&
+        Objects.equals(this.certifiedEmail, client.certifiedEmail) &&
+        Objects.equals(this.phone, client.phone) &&
+        Objects.equals(this.fax, client.fax) &&
+        Objects.equals(this.notes, client.notes) &&
+        Objects.equals(this.defaultVat, client.defaultVat) &&
+        Objects.equals(this.defaultPaymentTerms, client.defaultPaymentTerms) &&
+        Objects.equals(this.defaultPaymentTermsType, client.defaultPaymentTermsType) &&
+        Objects.equals(this.defaultPaymentMethod, client.defaultPaymentMethod) &&
+        Objects.equals(this.bankName, client.bankName) &&
+        Objects.equals(this.bankIban, client.bankIban) &&
+        Objects.equals(this.bankSwiftCode, client.bankSwiftCode) &&
+        Objects.equals(this.shippingAddress, client.shippingAddress) &&
+        Objects.equals(this.eInvoice, client.eInvoice) &&
+        Objects.equals(this.eiCode, client.eiCode) &&
+        Objects.equals(this.discountHighlight, client.discountHighlight) &&
+        Objects.equals(this.defaultDiscount, client.defaultDiscount) &&
+        Objects.equals(this.createdAt, client.createdAt) &&
+        Objects.equals(this.updatedAt, client.updatedAt);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, code, name, type, firstName, lastName, contactPerson, vatNumber, taxCode, addressStreet, addressPostalCode, addressCity, addressProvince, addressExtra, country, email, certifiedEmail, phone, fax, notes, defaultVat, defaultPaymentTerms, defaultPaymentTermsType, defaultPaymentMethod, bankName, bankIban, bankSwiftCode, shippingAddress, eInvoice, eiCode, discountHighlight, defaultDiscount, createdAt, updatedAt);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Client {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    contactPerson: ").append(toIndentedString(contactPerson)).append("\n");
+    sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
+    sb.append("    taxCode: ").append(toIndentedString(taxCode)).append("\n");
+    sb.append("    addressStreet: ").append(toIndentedString(addressStreet)).append("\n");
+    sb.append("    addressPostalCode: ").append(toIndentedString(addressPostalCode)).append("\n");
+    sb.append("    addressCity: ").append(toIndentedString(addressCity)).append("\n");
+    sb.append("    addressProvince: ").append(toIndentedString(addressProvince)).append("\n");
+    sb.append("    addressExtra: ").append(toIndentedString(addressExtra)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    certifiedEmail: ").append(toIndentedString(certifiedEmail)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    defaultVat: ").append(toIndentedString(defaultVat)).append("\n");
+    sb.append("    defaultPaymentTerms: ").append(toIndentedString(defaultPaymentTerms)).append("\n");
+    sb.append("    defaultPaymentTermsType: ").append(toIndentedString(defaultPaymentTermsType)).append("\n");
+    sb.append("    defaultPaymentMethod: ").append(toIndentedString(defaultPaymentMethod)).append("\n");
+    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bankIban: ").append(toIndentedString(bankIban)).append("\n");
+    sb.append("    bankSwiftCode: ").append(toIndentedString(bankSwiftCode)).append("\n");
+    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+    sb.append("    eInvoice: ").append(toIndentedString(eInvoice)).append("\n");
+    sb.append("    eiCode: ").append(toIndentedString(eiCode)).append("\n");
+    sb.append("    discountHighlight: ").append(toIndentedString(discountHighlight)).append("\n");
+    sb.append("    defaultDiscount: ").append(toIndentedString(defaultDiscount)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 
