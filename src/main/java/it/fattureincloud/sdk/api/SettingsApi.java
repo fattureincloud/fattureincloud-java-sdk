@@ -85,8 +85,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -178,8 +178,8 @@ public class SettingsApi {
    * @return CreatePaymentAccountResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -200,8 +200,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;CreatePaymentAccountResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -223,8 +223,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -249,8 +249,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -342,8 +342,8 @@ public class SettingsApi {
    * @return CreatePaymentMethodResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -364,8 +364,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;CreatePaymentMethodResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -387,8 +387,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -413,8 +413,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -501,8 +501,8 @@ public class SettingsApi {
    * @return CreateVatTypeResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -522,8 +522,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;CreateVatTypeResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -544,8 +544,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -570,8 +570,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -669,8 +669,8 @@ public class SettingsApi {
    * @param paymentAccountId The Referred Payment Account Id. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -688,8 +688,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -709,8 +709,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -732,8 +732,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -829,8 +829,8 @@ public class SettingsApi {
    * @param paymentMethodId The Referred Payment Method Id. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -847,8 +847,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -868,8 +868,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -891,8 +891,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -987,8 +987,8 @@ public class SettingsApi {
    * @param vatTypeId The Referred Vat Type Id. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -1005,8 +1005,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -1025,8 +1025,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    * </table>
@@ -1048,8 +1048,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1166,8 +1166,8 @@ public class SettingsApi {
    * @return GetPaymentAccountResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1190,8 +1190,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;GetPaymentAccountResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1215,8 +1215,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1246,8 +1246,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1363,8 +1363,8 @@ public class SettingsApi {
    * @return GetPaymentMethodResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1387,8 +1387,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;GetPaymentMethodResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1412,8 +1412,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1440,8 +1440,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1536,8 +1536,8 @@ public class SettingsApi {
    * @return GetVatTypeResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1555,8 +1555,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;GetVatTypeResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1576,8 +1576,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1600,8 +1600,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1707,8 +1707,8 @@ public class SettingsApi {
    * @return ModifyPaymentAccountResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1732,8 +1732,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;ModifyPaymentAccountResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1759,8 +1759,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1788,8 +1788,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1894,8 +1894,8 @@ public class SettingsApi {
    * @return ModifyPaymentMethodResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1919,8 +1919,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;ModifyPaymentMethodResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1946,8 +1946,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -1975,8 +1975,8 @@ public class SettingsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -2080,8 +2080,8 @@ public class SettingsApi {
    * @return ModifyVatTypeResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -2103,8 +2103,8 @@ public class SettingsApi {
    * @return ApiResponse&lt;ModifyVatTypeResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
@@ -2127,8 +2127,8 @@ public class SettingsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>

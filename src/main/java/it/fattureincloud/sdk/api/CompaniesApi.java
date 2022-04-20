@@ -70,8 +70,8 @@ public class CompaniesApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
@@ -157,8 +157,8 @@ public class CompaniesApi {
    * @return GetCompanyInfoResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
@@ -176,8 +176,8 @@ public class CompaniesApi {
    * @return ApiResponse&lt;GetCompanyInfoResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
@@ -197,8 +197,8 @@ public class CompaniesApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Company info. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized. </td><td>  -  </td></tr>
