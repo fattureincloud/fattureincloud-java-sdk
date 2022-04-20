@@ -362,7 +362,7 @@ public class ApiClient {
   /**
    * Set OffsetDateTimeFormat.
    *
-   * @param dateFormat a {@link org.threeten.bp.format.DateTimeFormatter} object
+   * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
    * @return a {@link it.fattureincloud.sdk.ApiClient} object
    */
   public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
@@ -373,7 +373,7 @@ public class ApiClient {
   /**
    * Set LocalDateFormat.
    *
-   * @param dateFormat a {@link org.threeten.bp.format.DateTimeFormatter} object
+   * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
    * @return a {@link it.fattureincloud.sdk.ApiClient} object
    */
   public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
