@@ -78,8 +78,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The Archive Document. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -173,8 +173,8 @@ public class ArchiveApi {
    * @return CreateArchiveDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The Archive Document. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -197,8 +197,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;CreateArchiveDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The Archive Document. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -222,8 +222,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The Archive Document. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -250,8 +250,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -348,8 +348,8 @@ public class ArchiveApi {
    * @param documentId The ID of the document. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -368,8 +368,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -391,8 +391,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -418,8 +418,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Archive Document Details </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -537,8 +537,8 @@ public class ArchiveApi {
    * @return GetArchiveDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Archive Document Details </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -562,8 +562,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;GetArchiveDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Archive Document Details </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -588,8 +588,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Archive Document Details </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -624,8 +624,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -760,8 +760,8 @@ public class ArchiveApi {
    * @return ListArchiveDocumentsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -796,8 +796,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;ListArchiveDocumentsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -834,8 +834,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -869,8 +869,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The modified Archived Document </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -976,8 +976,8 @@ public class ArchiveApi {
    * @return ModifyArchiveDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The modified Archived Document </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1003,8 +1003,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;ModifyArchiveDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The modified Archived Document </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1032,8 +1032,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> The modified Archived Document </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1064,8 +1064,8 @@ public class ArchiveApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1168,8 +1168,8 @@ public class ArchiveApi {
    * @return UploadArchiveAttachmentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1195,8 +1195,8 @@ public class ArchiveApi {
    * @return ApiResponse&lt;UploadArchiveAttachmentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
@@ -1223,8 +1223,8 @@ public class ArchiveApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
+   * @http.response.details <table border="1">
+   * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
