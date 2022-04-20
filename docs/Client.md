@@ -40,6 +40,9 @@ Name | Type | Description | Notes
 **eiCode** | **String** | E-invoice code |  [optional]
 **discountHighlight** | **Boolean** | Discount Highlight. |  [optional]
 **defaultDiscount** | **BigDecimal** | Default discount. |  [optional]
+**hasIntentDeclaration** | **Boolean** | Has intent declaration. |  [optional]
+**intentDeclarationProtocolNumber** | **LocalDate** | Intent declaration protocol number. |  [optional]
+**intentDeclarationProtocolDate** | **String** | Intent declaration protocol date. |  [optional]
 **createdAt** | **String** |  |  [optional]
 **updatedAt** | **String** |  |  [optional]
 

@@ -38,6 +38,9 @@ Name | Type | Description | Notes
 **shippingAddress** | **String** | [Only for client] Shipping address. |  [optional]
 **eInvoice** | **Boolean** | [Only for client] Use e-invoices. |  [optional]
 **eiCode** | **String** | [Only for client] E-invoices code. |  [optional]
+**hasIntentDeclaration** | **Boolean** | [Only for client] Has intent declaration. |  [optional]
+**intentDeclarationProtocolNumber** | **LocalDate** | [Only for client] Intent declaration protocol number. |  [optional]
+**intentDeclarationProtocolDate** | **String** | [Only for client] Intent declaration protocol date. |  [optional]
 **createdAt** | **String** |  |  [optional]
 **updatedAt** | **String** |  |  [optional]
 
