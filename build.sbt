@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "it.fattureincloud",
     name := "fattureincloud-java-sdk",
-    version := "2.0.5",
+    version := "2.0.6",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
