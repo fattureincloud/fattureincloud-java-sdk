@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.6 (2022-04-21)
+
+
+### Bug Fixes
+
+* added filter helpers ([#37](https://github.com/fattureincloud/fattureincloud-java-sdk/issues/37)) ([d5f98b4](https://github.com/fattureincloud/fattureincloud-java-sdk/commit/d5f98b4a8a84872436f6675dcf251a558ec36d1c))
+
 ### 2.0.5 (2022-03-17)
 
 
