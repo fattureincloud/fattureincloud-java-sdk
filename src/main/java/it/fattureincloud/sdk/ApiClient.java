@@ -12,12 +12,8 @@
 
 package it.fattureincloud.sdk;
 
-import it.fattureincloud.sdk.auth.ApiKeyAuth;
 import it.fattureincloud.sdk.auth.Authentication;
-import it.fattureincloud.sdk.auth.HttpBasicAuth;
 import it.fattureincloud.sdk.auth.OAuth;
-import it.fattureincloud.sdk.auth.OAuthFlow;
-import it.fattureincloud.sdk.auth.RetryingOAuth;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,10 +30,8 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -52,7 +46,6 @@ import okhttp3.logging.HttpLoggingInterceptor.Level;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
-import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
 
 /** ApiClient class. */
 public class ApiClient {
@@ -64,11 +57,6 @@ public class ApiClient {
   private String tempFolderPath = null;
 
   private Map<String, Authentication> authentications;
-
-  private DateFormat dateFormat;
-  private DateFormat datetimeFormat;
-  private boolean lenientDatetimeFormat;
-  private int dateLength;
 
   private InputStream sslCaCert;
   private boolean verifyingSsl;
@@ -102,76 +90,6 @@ public class ApiClient {
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications.put("OAuth2AuthenticationCodeFlow", new OAuth());
-    // Prevent the authentications from being modified.
-    authentications = Collections.unmodifiableMap(authentications);
-  }
-
-  /**
-   * Constructor for ApiClient to support access token retry on 401/403 configured with client ID
-   *
-   * @param clientId client ID
-   */
-  public ApiClient(String clientId) {
-    this(clientId, null, null);
-  }
-
-  /**
-   * Constructor for ApiClient to support access token retry on 401/403 configured with client ID
-   * and additional parameters
-   *
-   * @param clientId client ID
-   * @param parameters a {@link java.util.Map} of parameters
-   */
-  public ApiClient(String clientId, Map<String, String> parameters) {
-    this(clientId, null, parameters);
-  }
-
-  /**
-   * Constructor for ApiClient to support access token retry on 401/403 configured with client ID,
-   * secret, and additional parameters
-   *
-   * @param clientId client ID
-   * @param clientSecret client secret
-   * @param parameters a {@link java.util.Map} of parameters
-   */
-  public ApiClient(String clientId, String clientSecret, Map<String, String> parameters) {
-    this(null, clientId, clientSecret, parameters);
-  }
-
-  /**
-   * Constructor for ApiClient to support access token retry on 401/403 configured with base path,
-   * client ID, secret, and additional parameters
-   *
-   * @param basePath base path
-   * @param clientId client ID
-   * @param clientSecret client secret
-   * @param parameters a {@link java.util.Map} of parameters
-   */
-  public ApiClient(
-      String basePath, String clientId, String clientSecret, Map<String, String> parameters) {
-    init();
-    if (basePath != null) {
-      this.basePath = basePath;
-    }
-
-    String tokenUrl = "https://api-v2.fattureincloud.it/oauth/token";
-    if (!"".equals(tokenUrl) && !URI.create(tokenUrl).isAbsolute()) {
-      URI uri = URI.create(getBasePath());
-      tokenUrl =
-          uri.getScheme()
-              + ":"
-              + (uri.getAuthority() != null ? "//" + uri.getAuthority() : "")
-              + tokenUrl;
-      if (!URI.create(tokenUrl).isAbsolute()) {
-        throw new IllegalArgumentException("OAuth2 token URL must be an absolute URL");
-      }
-    }
-    RetryingOAuth retryingOAuth =
-        new RetryingOAuth(tokenUrl, clientId, OAuthFlow.accessCode, clientSecret, parameters);
-    authentications.put("OAuth2AuthenticationCodeFlow", retryingOAuth);
-    initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
-    // Setup authentications (key: authentication name, value: authentication).
-
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
   }
@@ -329,59 +247,6 @@ public class ApiClient {
   }
 
   /**
-   * Getter for the field <code>dateFormat</code>.
-   *
-   * @return a {@link java.text.DateFormat} object
-   */
-  public DateFormat getDateFormat() {
-    return dateFormat;
-  }
-
-  /**
-   * Setter for the field <code>dateFormat</code>.
-   *
-   * @param dateFormat a {@link java.text.DateFormat} object
-   * @return a {@link it.fattureincloud.sdk.ApiClient} object
-   */
-  public ApiClient setDateFormat(DateFormat dateFormat) {
-    this.json.setDateFormat(dateFormat);
-    return this;
-  }
-
-  /**
-   * Set SqlDateFormat.
-   *
-   * @param dateFormat a {@link java.text.DateFormat} object
-   * @return a {@link it.fattureincloud.sdk.ApiClient} object
-   */
-  public ApiClient setSqlDateFormat(DateFormat dateFormat) {
-    this.json.setSqlDateFormat(dateFormat);
-    return this;
-  }
-
-  /**
-   * Set OffsetDateTimeFormat.
-   *
-   * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
-   * @return a {@link it.fattureincloud.sdk.ApiClient} object
-   */
-  public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-    this.json.setOffsetDateTimeFormat(dateFormat);
-    return this;
-  }
-
-  /**
-   * Set LocalDateFormat.
-   *
-   * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
-   * @return a {@link it.fattureincloud.sdk.ApiClient} object
-   */
-  public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
-    this.json.setLocalDateFormat(dateFormat);
-    return this;
-  }
-
-  /**
    * Set LenientOnJson.
    *
    * @param lenientOnJson a boolean
@@ -409,66 +274,6 @@ public class ApiClient {
    */
   public Authentication getAuthentication(String authName) {
     return authentications.get(authName);
-  }
-
-  /**
-   * Helper method to set username for the first HTTP basic authentication.
-   *
-   * @param username Username
-   */
-  public void setUsername(String username) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof HttpBasicAuth) {
-        ((HttpBasicAuth) auth).setUsername(username);
-        return;
-      }
-    }
-    throw new RuntimeException("No HTTP basic authentication configured!");
-  }
-
-  /**
-   * Helper method to set password for the first HTTP basic authentication.
-   *
-   * @param password Password
-   */
-  public void setPassword(String password) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof HttpBasicAuth) {
-        ((HttpBasicAuth) auth).setPassword(password);
-        return;
-      }
-    }
-    throw new RuntimeException("No HTTP basic authentication configured!");
-  }
-
-  /**
-   * Helper method to set API key value for the first API key authentication.
-   *
-   * @param apiKey API key
-   */
-  public void setApiKey(String apiKey) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKey(apiKey);
-        return;
-      }
-    }
-    throw new RuntimeException("No API key authentication configured!");
-  }
-
-  /**
-   * Helper method to set API key prefix for the first API key authentication.
-   *
-   * @param apiKeyPrefix API key prefix
-   */
-  public void setApiKeyPrefix(String apiKeyPrefix) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
-        return;
-      }
-    }
-    throw new RuntimeException("No API key authentication configured!");
   }
 
   /**
@@ -638,22 +443,6 @@ public class ApiClient {
   public ApiClient setWriteTimeout(int writeTimeout) {
     httpClient = httpClient.newBuilder().writeTimeout(writeTimeout, TimeUnit.MILLISECONDS).build();
     return this;
-  }
-
-  /**
-   * Helper method to configure the token endpoint of the first oauth found in the apiAuthorizations
-   * (there should be only one)
-   *
-   * @return Token request builder
-   */
-  public TokenRequestBuilder getTokenEndPoint() {
-    for (Authentication apiAuth : authentications.values()) {
-      if (apiAuth instanceof RetryingOAuth) {
-        RetryingOAuth retryingOAuth = (RetryingOAuth) apiAuth;
-        return retryingOAuth.getTokenRequestBuilder();
-      }
-    }
-    return null;
   }
 
   /**
@@ -1562,7 +1351,7 @@ public class ApiClient {
   /**
    * Convert the HTTP request body to a string.
    *
-   * @param request The HTTP request object
+   * @param requestBody The HTTP request object
    * @return The string representation of the HTTP request body
    * @throws it.fattureincloud.sdk.ApiException If fail to serialize the request body object into
    *     a string
