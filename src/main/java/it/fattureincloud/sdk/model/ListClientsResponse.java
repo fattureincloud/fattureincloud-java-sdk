@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** ListClientsResponse */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-20T09:41:37.379679Z[Etc/UTC]")
+    date = "2022-05-02T14:07:51.629401Z[GMT]")
 public class ListClientsResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
