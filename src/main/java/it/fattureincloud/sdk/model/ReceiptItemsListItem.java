@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** ReceiptItemsListItem */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-20T09:41:37.379679Z[Etc/UTC]")
+    date = "2022-05-02T13:59:15.798929Z[GMT]")
 public class ReceiptItemsListItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
