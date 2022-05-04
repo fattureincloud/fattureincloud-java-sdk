@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "Default sender email. (Other emails can be found in `sender_emails_list`)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-20T09:41:37.379679Z[Etc/UTC]")
+    date = "2022-05-04T15:24:25.345779Z[GMT]")
 public class EmailDataDefaultSenderEmail implements Serializable {
   private static final long serialVersionUID = 1L;
 

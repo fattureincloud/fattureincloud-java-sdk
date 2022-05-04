@@ -114,7 +114,7 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("FattureInCloud/2.0.6/Java-SDK");
+    setUserAgent("FattureInCloud/5.0.0/Java-SDK");
 
     authentications = new HashMap<String, Authentication>();
   }
@@ -756,8 +756,8 @@ public class ApiClient {
    * Download file from the given response.
    *
    * @param response An instance of the Response object
-   * @throws it.fattureincloud.sdk.ApiException If fail to read file content from response and
-   *     write to disk
+   * @throws it.fattureincloud.sdk.ApiException If fail to read file content from response and write
+   *     to disk
    * @return Downloaded file
    */
   public File downloadFileFromResponse(Response response) throws ApiException {
@@ -1353,8 +1353,8 @@ public class ApiClient {
    *
    * @param requestBody The HTTP request object
    * @return The string representation of the HTTP request body
-   * @throws it.fattureincloud.sdk.ApiException If fail to serialize the request body object into
-   *     a string
+   * @throws it.fattureincloud.sdk.ApiException If fail to serialize the request body object into a
+   *     string
    */
   private String requestBodyToString(RequestBody requestBody) throws ApiException {
     if (requestBody != null) {

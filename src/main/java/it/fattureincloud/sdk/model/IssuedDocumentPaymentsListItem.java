@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** IssuedDocumentPaymentsListItem */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-20T09:41:37.379679Z[Etc/UTC]")
+    date = "2022-05-04T15:24:25.345779Z[GMT]")
 public class IssuedDocumentPaymentsListItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,7 +98,7 @@ public class IssuedDocumentPaymentsListItem implements Serializable {
    * @return dueDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tue Apr 03 00:00:00 UTC 2018", value = "Due date.")
+  @ApiModelProperty(example = "Tue Apr 03 00:00:00 GMT 2018", value = "Due date.")
   public LocalDate getDueDate() {
     return dueDate;
   }
@@ -183,7 +183,7 @@ public class IssuedDocumentPaymentsListItem implements Serializable {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "Tue Apr 03 00:00:00 UTC 2018",
+      example = "Tue Apr 03 00:00:00 GMT 2018",
       value = "Payment date. [Only if status is paid]")
   public LocalDate getPaidDate() {
     return paidDate;

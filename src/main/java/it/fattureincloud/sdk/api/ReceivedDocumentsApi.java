@@ -83,7 +83,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
@@ -176,7 +177,8 @@ public class ReceivedDocumentsApi {
    * @return CreateReceivedDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
@@ -198,7 +200,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;CreateReceivedDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
@@ -221,7 +224,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document created. </td><td>  -  </td></tr>
@@ -248,7 +252,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
@@ -346,7 +351,8 @@ public class ReceivedDocumentsApi {
    * @param documentId The ID of the document. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
@@ -366,7 +372,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
@@ -389,7 +396,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document removed. </td><td>  -  </td></tr>
@@ -414,7 +422,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> File removed </td><td>  -  </td></tr>
@@ -515,7 +524,8 @@ public class ReceivedDocumentsApi {
    * @param documentId The ID of the document. (required)
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> File removed </td><td>  -  </td></tr>
@@ -536,7 +546,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> File removed </td><td>  -  </td></tr>
@@ -560,7 +571,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> File removed </td><td>  -  </td></tr>
@@ -586,7 +598,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -694,7 +707,8 @@ public class ReceivedDocumentsApi {
    * @return GetExistingReceivedDocumentTotalsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -720,7 +734,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;GetExistingReceivedDocumentTotalsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -750,7 +765,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -779,7 +795,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -875,7 +892,8 @@ public class ReceivedDocumentsApi {
    * @return GetNewReceivedDocumentTotalsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -899,7 +917,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;GetNewReceivedDocumentTotalsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -925,7 +944,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document Totals. </td><td>  -  </td></tr>
@@ -956,7 +976,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document details. </td><td>  -  </td></tr>
@@ -1075,7 +1096,8 @@ public class ReceivedDocumentsApi {
    * @return GetReceivedDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document details. </td><td>  -  </td></tr>
@@ -1100,7 +1122,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;GetReceivedDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document details. </td><td>  -  </td></tr>
@@ -1126,7 +1149,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Document details. </td><td>  -  </td></tr>
@@ -1156,7 +1180,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Pre-create info </td><td>  -  </td></tr>
@@ -1256,7 +1281,8 @@ public class ReceivedDocumentsApi {
    * @return GetReceivedDocumentPreCreateInfoResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Pre-create info </td><td>  -  </td></tr>
@@ -1278,7 +1304,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;GetReceivedDocumentPreCreateInfoResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Pre-create info </td><td>  -  </td></tr>
@@ -1303,7 +1330,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Pre-create info </td><td>  -  </td></tr>
@@ -1337,7 +1365,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
@@ -1486,7 +1515,8 @@ public class ReceivedDocumentsApi {
    * @return ListReceivedDocumentsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
@@ -1524,7 +1554,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;ListReceivedDocumentsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
@@ -1563,7 +1594,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Results list. </td><td>  -  </td></tr>
@@ -1598,7 +1630,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Modified document. </td><td>  -  </td></tr>
@@ -1705,7 +1738,8 @@ public class ReceivedDocumentsApi {
    * @return ModifyReceivedDocumentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Modified document. </td><td>  -  </td></tr>
@@ -1732,7 +1766,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;ModifyReceivedDocumentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Modified document. </td><td>  -  </td></tr>
@@ -1761,7 +1796,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Modified document. </td><td>  -  </td></tr>
@@ -1793,7 +1829,8 @@ public class ReceivedDocumentsApi {
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
@@ -1896,7 +1933,8 @@ public class ReceivedDocumentsApi {
    * @return UploadReceivedDocumentAttachmentResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
@@ -1922,7 +1960,8 @@ public class ReceivedDocumentsApi {
    * @return ApiResponse&lt;UploadReceivedDocumentAttachmentResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>
@@ -1951,7 +1990,8 @@ public class ReceivedDocumentsApi {
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-   * @http.response.details <table border="1">
+   * @http.response.details
+   *     <table border="1">
    * <caption>Response Details</caption>
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> Attachment Token. </td><td>  -  </td></tr>

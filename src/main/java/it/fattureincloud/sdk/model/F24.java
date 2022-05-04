@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** F24 */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-20T09:41:37.379679Z[Etc/UTC]")
+    date = "2022-05-04T15:24:25.345779Z[GMT]")
 public class F24 implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,7 +108,7 @@ public class F24 implements Serializable {
    * @return dueDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Mon Feb 12 00:00:00 UTC 2018", value = "Due date.")
+  @ApiModelProperty(example = "Mon Feb 12 00:00:00 GMT 2018", value = "Due date.")
   public LocalDate getDueDate() {
     return dueDate;
   }
