@@ -56,27 +56,6 @@ public class OAuth2AuthorizationCodeManagerTest {
     }
 
     /**
-     * Model tests for OAuth2AuthorizationCodeManager
-     */
-    @Test
-    public void testOAuth2AuthorizationCodeManager() {
-        /*OAuth2AuthorizationCodeResponse response = new OAuth2AuthorizationCodeResponse("bearer", "a/ACCESS_TOKEN", "r/REFRESH_TOKEN", 86400);
-
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(response);
-        String str = "{\"token_type\":\"bearer\",\"access_token\":\"a/ACCESS_TOKEN\",\"refresh_token\":\"r/REFRESH_TOKEN\",\"expires_in\":86400}";
-        assertEquals(str, json);
-        OAuth2AuthorizationCodeResponse generated = gson.fromJson(str, OAuth2AuthorizationCodeResponse.class);
-        assertEquals(response, generated);
-
-        Object o = response;
-        assertEquals(response, o);
-        assertFalse(response.equals(null));
-        assertFalse(response.equals(Integer.getInteger("5")));*/
-    }
-
-    /**
      * Test the property 'clientId'
      */
     @Test
