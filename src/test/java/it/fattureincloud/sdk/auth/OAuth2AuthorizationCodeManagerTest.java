@@ -132,7 +132,7 @@ public class OAuth2AuthorizationCodeManagerTest {
         String exp = "https://api-v2.fattureincloud.it/oauth/authorize?scope=issued_documents.invoices%3Aa+settings%3Ar&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fredirect&state=I_AM_HUNGRY&client_id=CLIENT_ID";
         assertEquals(exp, manager.getAuthorizationUrl(scopes, "I_AM_HUNGRY"));
 
-        List<Scope> scopes2 = Arrays.asList(Scope.ARCHIVE_READ, Scope.CASHBOOK_ALL, Scope.SITUATION);
+        List<Scope> scopes2 = Arrays.asList(Scope.ARCHIVE_READ, Scope.CASHBOOK_ALL, Scope.SITUATION_READ);
         exp = "https://api-v2.fattureincloud.it/oauth/authorize?scope=archive%3Ar+cashbook%3Aa+situation%3Ar&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fredirect&state=I_AM_HUNGRY&client_id=CLIENT_ID";
         assertEquals(exp, manager.getAuthorizationUrl(scopes2, "I_AM_HUNGRY"));
 
