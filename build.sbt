@@ -15,12 +15,12 @@ lazy val root = (project in file(".")).
       "com.google.code.gson" % "gson" % "2.9.0",
       "org.apache.commons" % "commons-lang3" % "3.10",
       "org.openapitools" % "jackson-databind-nullable" % "0.2.2",
-      "org.apache.oltu.oauth2" % "org.apache.oltu.oauth2.client" % "1.0.1",
+      "io.vavr" % "vavr" % "0.10.4",
       "io.gsonfire" % "gson-fire" % "1.8.3" % "compile",
       "jakarta.annotation" % "jakarta.annotation-api" % "1.3.5" % "compile",
       "com.google.code.findbugs" % "jsr305" % "3.0.2" % "compile",
       "jakarta.annotation" % "jakarta.annotation-api" % "1.3.5" % "compile",
       "junit" % "junit" % "4.13.1" % "test",
       "com.novocode" % "junit-interface" % "0.10" % "test"
-    )
+      "com.squareup.okhttp3" % "mockwebserver" % "4.9.3" % "test"
   )
