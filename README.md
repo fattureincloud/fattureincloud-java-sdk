@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.15
+- API version: 2.0.16
 
-- Build date: 2022-04-20T09:41:37.379679Z[Etc/UTC]
+- Build date: 2022-05-12T13:23:15.879179Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.6</version>
+  <version>2.0.7</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.6"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.7"
   }
 ```
 
@@ -425,22 +425,22 @@ Authentication schemes defined for the API:
   - **entity.suppliers:a**: Write permission to the Suppliers registry
   - **products:r**: Read permission to the Products
   - **products:a**: Write permission to the Products
-  - **issued_documents.invoice:r**: Read permission to the issued Invoices
-  - **issued_documents.credit_note:r**: Read permission to the issued Credit Notes
-  - **issued_documents.receipt:r**: Read permission to the issued Receipts
-  - **issued_documents.order:r**: Read permission to the issued Orders
-  - **issued_documents.quote:r**: Read permission to the issued Quotes
-  - **issued_documents.proforma:r**: Read permission to the issued Proformas
-  - **issued_documents.delivery_note:r**: Read permission to the issued Delivery Notes
-  - **issued_documents.invoice:a**: Write permission to the issued Invoices
-  - **issued_documents.credit_note:a**: Write permission to the issued Credit Notes
-  - **issued_documents.receipt:a**: Write permission to the issued issued Receipts
-  - **issued_documents.order:a**: Write permission to the issued Orders
-  - **issued_documents.quote:a**: Write permission to the issued Quotes
-  - **issued_documents.proforma:a**: Write permission to the issued Proformas
-  - **issued_documents.delivery_note:a**: Write permission to the issued Delivery Notes
-  - **received_documents:r**: Read permission to the issued Received Documents
-  - **received_documents:a**: Write permission to the issued Received Documents
+  - **issued_documents.invoices:r**: Read permission to the issued Invoices
+  - **issued_documents.credit_notes:r**: Read permission to the issued Credit Notes
+  - **issued_documents.receipts:r**: Read permission to the issued Receipts
+  - **issued_documents.orders:r**: Read permission to the issued Orders
+  - **issued_documents.quotes:r**: Read permission to the issued Quotes
+  - **issued_documents.proformas:r**: Read permission to the issued Proformas
+  - **issued_documents.delivery_notes:r**: Read permission to the issued Delivery Notes
+  - **issued_documents.invoices:a**: Write permission to the issued Invoices
+  - **issued_documents.credit_notes:a**: Write permission to the issued Credit Notes
+  - **issued_documents.receipts:a**: Write permission to the issued issued Receipts
+  - **issued_documents.orders:a**: Write permission to the issued Orders
+  - **issued_documents.quotes:a**: Write permission to the issued Quotes
+  - **issued_documents.proformas:a**: Write permission to the issued Proformas
+  - **issued_documents.delivery_notes:a**: Write permission to the issued Delivery Notes
+  - **received_documents:r**: Read permission to the Received Documents
+  - **received_documents:a**: Write permission to the Received Documents
   - **stock:r**: Read permission to the Stock movements
   - **stock:a**: Write permission to the Stock movements
   - **receipts:r**: Read permission to the Receipts
