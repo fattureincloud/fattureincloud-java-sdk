@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.16
+  version: 2.0.17
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -1848,13 +1848,13 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:r
-        - issued_documents.credit_note:r
-        - issued_documents.receipt:r
-        - issued_documents.order:r
-        - issued_documents.quote:r
-        - issued_documents.proforma:r
-        - issued_documents.delivery_note:r
+        - issued_documents.invoices:r
+        - issued_documents.credit_notes:r
+        - issued_documents.receipts:r
+        - issued_documents.orders:r
+        - issued_documents.quotes:r
+        - issued_documents.proformas:r
+        - issued_documents.delivery_notes:r
       summary: List Issued Documents
       tags:
       - Issued Documents
@@ -2066,13 +2066,13 @@ paths:
           description: Unauthorized
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:a
-        - issued_documents.credit_note:a
-        - issued_documents.receipt:a
-        - issued_documents.order:a
-        - issued_documents.quote:a
-        - issued_documents.proforma:a
-        - issued_documents.delivery_note:a
+        - issued_documents.invoices:a
+        - issued_documents.credit_notes:a
+        - issued_documents.receipts:a
+        - issued_documents.orders:a
+        - issued_documents.quotes:a
+        - issued_documents.proformas:a
+        - issued_documents.delivery_notes:a
       summary: Create Issued Document
       tags:
       - Issued Documents
@@ -2109,13 +2109,13 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:a
-        - issued_documents.credit_note:a
-        - issued_documents.receipt:a
-        - issued_documents.order:a
-        - issued_documents.quote:a
-        - issued_documents.proforma:a
-        - issued_documents.delivery_note:a
+        - issued_documents.invoices:a
+        - issued_documents.credit_notes:a
+        - issued_documents.receipts:a
+        - issued_documents.orders:a
+        - issued_documents.quotes:a
+        - issued_documents.proformas:a
+        - issued_documents.delivery_notes:a
       summary: Delete Issued Document
       tags:
       - Issued Documents
@@ -2292,13 +2292,13 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:r
-        - issued_documents.credit_note:r
-        - issued_documents.receipt:r
-        - issued_documents.order:r
-        - issued_documents.quote:r
-        - issued_documents.proforma:r
-        - issued_documents.delivery_note:r
+        - issued_documents.invoices:r
+        - issued_documents.credit_notes:r
+        - issued_documents.receipts:r
+        - issued_documents.orders:r
+        - issued_documents.quotes:r
+        - issued_documents.proformas:r
+        - issued_documents.delivery_notes:r
       summary: Get Issued Document
       tags:
       - Issued Documents
@@ -2519,13 +2519,13 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:a
-        - issued_documents.credit_note:a
-        - issued_documents.receipt:a
-        - issued_documents.order:a
-        - issued_documents.quote:a
-        - issued_documents.proforma:a
-        - issued_documents.delivery_note:a
+        - issued_documents.invoices:a
+        - issued_documents.credit_notes:a
+        - issued_documents.receipts:a
+        - issued_documents.orders:a
+        - issued_documents.quotes:a
+        - issued_documents.proformas:a
+        - issued_documents.delivery_notes:a
       summary: Modify Issued Document
       tags:
       - Issued Documents
@@ -4638,13 +4638,13 @@ paths:
           description: EmailData
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:r
-        - issued_documents.credit_note:r
-        - issued_documents.receipt:r
-        - issued_documents.order:r
-        - issued_documents.quote:r
-        - issued_documents.proforma:r
-        - issued_documents.delivery_note:r
+        - issued_documents.invoices:r
+        - issued_documents.credit_notes:r
+        - issued_documents.receipts:r
+        - issued_documents.orders:r
+        - issued_documents.quotes:r
+        - issued_documents.proformas:r
+        - issued_documents.delivery_notes:r
       summary: Get Email Data
       tags:
       - Issued Documents
@@ -4702,13 +4702,13 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow:
-        - issued_documents.invoice:r
-        - issued_documents.credit_note:r
-        - issued_documents.receipt:r
-        - issued_documents.order:r
-        - issued_documents.quote:r
-        - issued_documents.proforma:r
-        - issued_documents.delivery_note:r
+        - issued_documents.invoices:r
+        - issued_documents.credit_notes:r
+        - issued_documents.receipts:r
+        - issued_documents.orders:r
+        - issued_documents.quotes:r
+        - issued_documents.proformas:r
+        - issued_documents.delivery_notes:r
       summary: Schedule Email
       tags:
       - Issued Documents
