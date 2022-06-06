@@ -6,13 +6,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**Client**](Client.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**Client**](Client.md) |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 
