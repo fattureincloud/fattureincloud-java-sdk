@@ -33,6 +33,8 @@ src/main/java/it/fattureincloud/sdk/auth/OAuthFlow.java
 src/main/java/it/fattureincloud/sdk/auth/OAuthOkHttpClient.java
 src/main/java/it/fattureincloud/sdk/auth/RetryingOAuth.java
 
+# Removes Github folder from generation
+.github/
 # Removes build.sbt & pom
 build.sbt
 pom.xml
