@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -28,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public class EInvoiceRejectionReasonTest {
     private EInvoiceRejectionReason model;
+    private final ZoneId zone = ZoneId.of("Europe/Madrid");
 
     @BeforeEach
     public void init() {
@@ -36,7 +38,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
     }
 
     /**
@@ -73,7 +75,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         assertEquals(expected, c);
     }
 
@@ -92,7 +94,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         assertEquals(expected, c);
     }
 
@@ -111,7 +113,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         assertEquals(expected, c);
     }
 
@@ -130,7 +132,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         assertEquals(expected, c);
     }
 
@@ -139,17 +141,17 @@ public class EInvoiceRejectionReasonTest {
      */
     @Test
     public void dateTest() {
-        assertEquals(LocalDate.of(2022, 01, 10), model.getDate());
-        model.setDate(LocalDate.of(2022, 01, 12));
-        assertEquals(LocalDate.of(2022, 01, 12), model.getDate());
+        assertEquals(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime(), model.getDate());
+        model.setDate(LocalDate.of(2022, 06, 07).atStartOfDay(zone).toOffsetDateTime());
+        assertEquals(LocalDate.of(2022, 06, 07).atStartOfDay(zone).toOffsetDateTime(), model.getDate());
 
-        EInvoiceRejectionReason c = model.date(LocalDate.of(2022, 01, 10));
+        EInvoiceRejectionReason c = model.date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime());
         assertEquals(expected, c);
     }
 

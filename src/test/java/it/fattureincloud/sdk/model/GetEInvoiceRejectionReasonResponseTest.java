@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -29,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public class GetEInvoiceRejectionReasonResponseTest {
     private GetEInvoiceRejectionReasonResponse model;
+    private final ZoneId zone = ZoneId.of("Europe/Madrid");
 
     @BeforeEach
     public void init() {
@@ -39,7 +41,7 @@ public class GetEInvoiceRejectionReasonResponseTest {
                                 .eiStatus("rejected")
                                 .solution("set a valid date")
                                 .code("c01")
-                                .date(LocalDate.of(2022, 01, 10))
+                                .date(LocalDate.of(2022, 01, 10).atStartOfDay(zone).toOffsetDateTime())
                 );
     }
 
