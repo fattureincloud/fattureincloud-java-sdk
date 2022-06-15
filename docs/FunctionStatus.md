@@ -5,13 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**active** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**active** | **Boolean** |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

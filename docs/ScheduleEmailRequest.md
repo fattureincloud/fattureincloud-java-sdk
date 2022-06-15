@@ -6,13 +6,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**EmailSchedule**](EmailSchedule.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**EmailSchedule**](EmailSchedule.md) |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 
