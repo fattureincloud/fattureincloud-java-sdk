@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -39,7 +40,7 @@ public class GetEInvoiceRejectionReasonResponseTest {
                                 .eiStatus("rejected")
                                 .solution("set a valid date")
                                 .code("c01")
-                                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()))
+                                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)))
                 );
     }
 

@@ -19,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -36,7 +37,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
     }
 
     /**
@@ -73,7 +74,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         assertEquals(expected, c);
     }
 
@@ -92,7 +93,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         assertEquals(expected, c);
     }
 
@@ -111,7 +112,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         assertEquals(expected, c);
     }
 
@@ -130,7 +131,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         assertEquals(expected, c);
     }
 
@@ -139,17 +140,17 @@ public class EInvoiceRejectionReasonTest {
      */
     @Test
     public void dateTest() {
-        assertEquals(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()), model.getDate());
-        model.setDate(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
-        assertEquals(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, OffsetDateTime.now().getOffset()), model.getDate());
+        assertEquals(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
+        model.setDate(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+        assertEquals(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
 
-        EInvoiceRejectionReason c = model.date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+        EInvoiceRejectionReason c = model.date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
         assertEquals(expected, c);
     }
 
