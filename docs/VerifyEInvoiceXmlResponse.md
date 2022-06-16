@@ -5,13 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**VerifyEInvoiceXmlResponseData**](VerifyEInvoiceXmlResponseData.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**VerifyEInvoiceXmlResponseData**](VerifyEInvoiceXmlResponseData.md) |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

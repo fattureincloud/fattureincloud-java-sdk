@@ -5,14 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**amountNet** | **BigDecimal** |  |  [optional]
-**amountVat** | **BigDecimal** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**amountNet** | **BigDecimal** |  |  [optional] |
+|**amountVat** | **BigDecimal** |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

@@ -5,13 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**attachmentToken** | **String** | Uploaded attachment token. |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**attachmentToken** | **String** | Uploaded attachment token. |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

@@ -5,13 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**EInvoiceRejectionReason**](EInvoiceRejectionReason.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**EInvoiceRejectionReason**](EInvoiceRejectionReason.md) |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 
