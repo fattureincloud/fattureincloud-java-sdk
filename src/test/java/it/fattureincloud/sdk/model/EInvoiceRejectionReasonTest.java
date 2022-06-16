@@ -18,7 +18,7 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -36,7 +36,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
     }
 
     /**
@@ -47,7 +47,7 @@ public class EInvoiceRejectionReasonTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-01-10\"}";
+        String str = "{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}";
         assertEquals(str, json);
         EInvoiceRejectionReason generated = gson.fromJson(str, EInvoiceRejectionReason.class);
         assertEquals(model, generated);
@@ -73,7 +73,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         assertEquals(expected, c);
     }
 
@@ -92,7 +92,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         assertEquals(expected, c);
     }
 
@@ -111,7 +111,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         assertEquals(expected, c);
     }
 
@@ -130,7 +130,7 @@ public class EInvoiceRejectionReasonTest {
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         assertEquals(expected, c);
     }
 
@@ -139,17 +139,17 @@ public class EInvoiceRejectionReasonTest {
      */
     @Test
     public void dateTest() {
-        assertEquals(LocalDate.of(2022, 01, 10), model.getDate());
-        model.setDate(LocalDate.of(2022, 01, 12));
-        assertEquals(LocalDate.of(2022, 01, 12), model.getDate());
+        assertEquals(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()), model.getDate());
+        model.setDate(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
+        assertEquals(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, OffsetDateTime.now().getOffset()), model.getDate());
 
-        EInvoiceRejectionReason c = model.date(LocalDate.of(2022, 01, 10));
+        EInvoiceRejectionReason c = model.date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
                 .reason("invalid date")
                 .eiStatus("rejected")
                 .solution("set a valid date")
                 .code("c01")
-                .date(LocalDate.of(2022, 01, 10));
+                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, OffsetDateTime.now().getOffset()));
         assertEquals(expected, c);
     }
 
