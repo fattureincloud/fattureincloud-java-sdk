@@ -6,13 +6,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**CompanyInfo**](CompanyInfo.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**CompanyInfo**](CompanyInfo.md) |  |  [optional] |
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

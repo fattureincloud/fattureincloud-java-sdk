@@ -18,7 +18,8 @@ import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -39,7 +40,7 @@ public class GetEInvoiceRejectionReasonResponseTest {
                                 .eiStatus("rejected")
                                 .solution("set a valid date")
                                 .code("c01")
-                                .date(LocalDate.of(2022, 01, 10))
+                                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)))
                 );
     }
 
@@ -51,7 +52,7 @@ public class GetEInvoiceRejectionReasonResponseTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-01-10\"}}";
+        String str = "{\"data\":{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}}";
         assertEquals(str, json);
         GetEInvoiceRejectionReasonResponse generated = gson.fromJson(str, GetEInvoiceRejectionReasonResponse.class);
         assertEquals(model, generated);

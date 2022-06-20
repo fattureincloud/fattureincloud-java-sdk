@@ -2,7 +2,6 @@
 README.md
 api/openapi.yaml
 build.gradle
-build.sbt
 docs/ArchiveApi.md
 docs/ArchiveDocument.md
 docs/AttachmentData.md
@@ -232,7 +231,6 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/it/fattureincloud/sdk/ApiCallback.java
@@ -264,6 +262,7 @@ src/main/java/it/fattureincloud/sdk/api/TaxesApi.java
 src/main/java/it/fattureincloud/sdk/api/UserApi.java
 src/main/java/it/fattureincloud/sdk/auth/Authentication.java
 src/main/java/it/fattureincloud/sdk/auth/OAuth.java
+src/main/java/it/fattureincloud/sdk/model/AbstractOpenApiSchema.java
 src/main/java/it/fattureincloud/sdk/model/ArchiveDocument.java
 src/main/java/it/fattureincloud/sdk/model/AttachmentData.java
 src/main/java/it/fattureincloud/sdk/model/CashbookEntry.java

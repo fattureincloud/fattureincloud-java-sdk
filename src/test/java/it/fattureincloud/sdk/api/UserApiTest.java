@@ -94,7 +94,7 @@ public class UserApiTest {
      */
     @Test
     public void listUserCompaniesTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"companies\":[{\"id\":2,\"name\":\"Studio Commercialista\",\"vat_number\":\"IT01111111111\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816,\"controlled_companies\":[{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]},{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}]},{\"id\":11,\"name\":\"Ino S.p.A\",\"vat_number\":\"33333333333\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882,\"controlled_companies\":[]}]}}";
+        String result = "{\"data\":{\"companies\":[{\"id\":2,\"name\":\"Studio Commercialista\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816,\"controlled_companies\":[{\"id\":5,\"name\":\"Azienda 1\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817},{\"id\":16,\"name\":\"Azienda 2\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074}]},{\"id\":11,\"name\":\"Ino S.p.A\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882}]}}";
 
         Call mockCall = Mockito.mock(Call.class);
         UserApi api = mockApi(result, mockCall);
@@ -108,18 +108,18 @@ public class UserApiTest {
 
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
-        ControlledCompany company5 = gson.fromJson("{\"id\":5,\"name\":\"Azienda 1\",\"vat_number\":\"22222222222\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817,\"controlled_companies\":[]}", ControlledCompany.class);
+        ControlledCompany company5 = gson.fromJson("{\"id\":5,\"name\":\"Azienda 1\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"company\",\"connection_id\":94817}", ControlledCompany.class);
 
-        ControlledCompany company16 = gson.fromJson("{\"id\":16,\"name\":\"Azienda 2\",\"vat_number\":\"\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074,\"controlled_companies\":[]}", ControlledCompany.class);
+        ControlledCompany company16 = gson.fromJson("{\"id\":16,\"name\":\"Azienda 2\",\"tax_code\":\"\",\"type\":\"company\",\"connection_id\":95074}", ControlledCompany.class);
 
         ArrayList<ControlledCompany> controlledCompanies = new ArrayList<>();
         controlledCompanies.add(company5);
         controlledCompanies.add(company16);
 
-        Company company2 = gson.fromJson("{\"id\":2,\"name\":\"Studio Commercialista\",\"vat_number\":\"IT01111111111\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816,\"controlled_companies\":[]}", Company.class)
+        Company company2 = gson.fromJson("{\"id\":2,\"name\":\"Studio Commercialista\",\"tax_code\":\"SLVMTT50A01F205L\",\"type\":\"accountant\",\"connection_id\":94816}", Company.class)
                 .controlledCompanies(controlledCompanies);
 
-        Company company11 = gson.fromJson("{\"id\":11,\"name\":\"Ino S.p.A\",\"vat_number\":\"33333333333\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882,\"controlled_companies\":[]}", Company.class);
+        Company company11 = gson.fromJson("{\"id\":11,\"name\":\"Ino S.p.A\",\"tax_code\":\"44444444444\",\"type\":\"company\",\"connection_id\":94882}", Company.class);
 
         List<Company> expected = new ArrayList<>();
         expected.add(company2);
