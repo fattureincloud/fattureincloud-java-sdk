@@ -34,7 +34,7 @@ import java.util.Set;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class CreateReceiptResponse {
   private static final long serialVersionUID = 1L;
 
@@ -127,8 +127,7 @@ public class CreateReceiptResponse {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CreateReceiptResponse is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in CreateReceiptResponse is not found in the empty JSON string",
                 CreateReceiptResponse.openapiRequiredFields.toString()));
       }
     }
@@ -139,8 +138,7 @@ public class CreateReceiptResponse {
       if (!CreateReceiptResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CreateReceiptResponse`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `CreateReceiptResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

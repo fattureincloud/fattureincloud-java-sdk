@@ -36,7 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "Default values for the document items.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class IssuedDocumentPreCreateInfoItemsDefaultValues {
   private static final long serialVersionUID = 1L;
 
@@ -147,8 +147,7 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValues {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentPreCreateInfoItemsDefaultValues is not"
-                    + " found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentPreCreateInfoItemsDefaultValues is not found in the empty JSON string",
                 IssuedDocumentPreCreateInfoItemsDefaultValues.openapiRequiredFields.toString()));
       }
     }
@@ -159,8 +158,7 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValues {
       if (!IssuedDocumentPreCreateInfoItemsDefaultValues.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `IssuedDocumentPreCreateInfoItemsDefaultValues` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPreCreateInfoItemsDefaultValues` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

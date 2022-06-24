@@ -32,7 +32,7 @@ import java.util.Set;
 /** GetEInvoiceRejectionReasonResponse */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class GetEInvoiceRejectionReasonResponse {
   private static final long serialVersionUID = 1L;
 
@@ -127,8 +127,7 @@ public class GetEInvoiceRejectionReasonResponse {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetEInvoiceRejectionReasonResponse is not found in the"
-                    + " empty JSON string",
+                "The required field(s) %s in GetEInvoiceRejectionReasonResponse is not found in the empty JSON string",
                 GetEInvoiceRejectionReasonResponse.openapiRequiredFields.toString()));
       }
     }
@@ -139,8 +138,7 @@ public class GetEInvoiceRejectionReasonResponse {
       if (!GetEInvoiceRejectionReasonResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `GetEInvoiceRejectionReasonResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetEInvoiceRejectionReasonResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

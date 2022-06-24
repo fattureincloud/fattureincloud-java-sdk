@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** CompanyInfoAccessInfo */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class CompanyInfoAccessInfo {
   private static final long serialVersionUID = 1L;
 
@@ -201,8 +201,7 @@ public class CompanyInfoAccessInfo {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CompanyInfoAccessInfo is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in CompanyInfoAccessInfo is not found in the empty JSON string",
                 CompanyInfoAccessInfo.openapiRequiredFields.toString()));
       }
     }
@@ -213,8 +212,7 @@ public class CompanyInfoAccessInfo {
       if (!CompanyInfoAccessInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CompanyInfoAccessInfo`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `CompanyInfoAccessInfo` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

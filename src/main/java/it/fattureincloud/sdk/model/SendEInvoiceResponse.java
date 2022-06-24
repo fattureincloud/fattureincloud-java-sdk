@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** SendEInvoiceResponse */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class SendEInvoiceResponse {
   private static final long serialVersionUID = 1L;
 
@@ -143,8 +143,7 @@ public class SendEInvoiceResponse {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in SendEInvoiceResponse is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in SendEInvoiceResponse is not found in the empty JSON string",
                 SendEInvoiceResponse.openapiRequiredFields.toString()));
       }
     }
@@ -155,8 +154,7 @@ public class SendEInvoiceResponse {
       if (!SendEInvoiceResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `SendEInvoiceResponse`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `SendEInvoiceResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

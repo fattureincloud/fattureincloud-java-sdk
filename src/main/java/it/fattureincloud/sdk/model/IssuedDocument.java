@@ -42,7 +42,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class IssuedDocument {
   private static final long serialVersionUID = 1L;
 
@@ -2129,9 +2129,7 @@ public class IssuedDocument {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "[Read Only] Public url of the attached file. Authomatically set if a valid attachment"
-              + " token is passed via POST /issued_documents or PUT"
-              + " /issued_documents/{documentId}.")
+          "[Read Only] Public url of the attached file. Authomatically set if a valid attachment token is passed via POST /issued_documents or PUT /issued_documents/{documentId}.")
   public String getAttachmentUrl() {
     return attachmentUrl;
   }
@@ -2151,8 +2149,7 @@ public class IssuedDocument {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "[Write Only] Attachment token returned by POST /issued_documents/attachment. Used to"
-              + " attach the file already uploaded.")
+          "[Write Only] Attachment token returned by POST /issued_documents/attachment. Used to attach the file already uploaded.")
   public String getAttachmentToken() {
     return attachmentToken;
   }
@@ -2207,18 +2204,7 @@ public class IssuedDocument {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "[Read only] Status of the e-invoice.   * `attempt` - We are trying to send the invoice,"
-              + " please wait up to 2 hours   * `missing` - The invoice is missing   * `not_sent` -"
-              + " The invoice has yet to be sent   * `sent` - The invoice was sent   * `pending` -"
-              + " The checks for the digital signature and sending are in progress   * `processing`"
-              + " - The SDI is delivering the invoice to the customer   * `error` - An error"
-              + " occurred while handling the invoice, please try to resend it or contact support  "
-              + " * `discarded` - The invoice has been rejected by the SDI, so it must be corrected"
-              + " and re-sent   * `not_delivered` - The SDI was unable to deliver the invoice   *"
-              + " `accepted` - The customer accepted the invoice   * `rejected` - The customer"
-              + " rejected the invoice, so it must be corrected   * `no_response` - A response has"
-              + " not yet been received whithin the deadline, contact the customer to ascertain the"
-              + " status of the invoice ")
+          "[Read only] Status of the e-invoice.   * `attempt` - We are trying to send the invoice, please wait up to 2 hours   * `missing` - The invoice is missing   * `not_sent` - The invoice has yet to be sent   * `sent` - The invoice was sent   * `pending` - The checks for the digital signature and sending are in progress   * `processing` - The SDI is delivering the invoice to the customer   * `error` - An error occurred while handling the invoice, please try to resend it or contact support   * `discarded` - The invoice has been rejected by the SDI, so it must be corrected and re-sent   * `not_delivered` - The SDI was unable to deliver the invoice   * `accepted` - The customer accepted the invoice   * `rejected` - The customer rejected the invoice, so it must be corrected   * `no_response` - A response has not yet been received whithin the deadline, contact the customer to ascertain the status of the invoice ")
   public EiStatusEnum getEiStatus() {
     return eiStatus;
   }
@@ -2671,8 +2657,7 @@ public class IssuedDocument {
       if (!IssuedDocument.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocument`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocument` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -2685,8 +2670,7 @@ public class IssuedDocument {
         && !jsonObj.get("numeration").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `numeration` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `numeration` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("numeration").toString()));
     }
     // validate the optional field `currency`
@@ -2710,16 +2694,14 @@ public class IssuedDocument {
         && !jsonObj.get("visible_subject").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `visible_subject` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `visible_subject` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("visible_subject").toString()));
     }
     if ((jsonObj.get("rc_center") != null && !jsonObj.get("rc_center").isJsonNull())
         && !jsonObj.get("rc_center").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `rc_center` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `rc_center` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("rc_center").toString()));
     }
     if ((jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull())
@@ -2743,16 +2725,14 @@ public class IssuedDocument {
         && !jsonObj.get("ei_cassa_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_cassa_type` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `ei_cassa_type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_cassa_type").toString()));
     }
     if ((jsonObj.get("ei_cassa2_type") != null && !jsonObj.get("ei_cassa2_type").isJsonNull())
         && !jsonObj.get("ei_cassa2_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_cassa2_type` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `ei_cassa2_type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_cassa2_type").toString()));
     }
     if ((jsonObj.get("ei_withholding_tax_causal") != null
@@ -2760,8 +2740,7 @@ public class IssuedDocument {
         && !jsonObj.get("ei_withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_withholding_tax_causal` to be a primitive type in the JSON"
-                  + " string but got `%s`",
+              "Expected the field `ei_withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_withholding_tax_causal").toString()));
     }
     if ((jsonObj.get("ei_other_withholding_tax_type") != null
@@ -2769,8 +2748,7 @@ public class IssuedDocument {
         && !jsonObj.get("ei_other_withholding_tax_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_other_withholding_tax_type` to be a primitive type in the"
-                  + " JSON string but got `%s`",
+              "Expected the field `ei_other_withholding_tax_type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_other_withholding_tax_type").toString()));
     }
     if ((jsonObj.get("ei_other_withholding_tax_causal") != null
@@ -2778,8 +2756,7 @@ public class IssuedDocument {
         && !jsonObj.get("ei_other_withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_other_withholding_tax_causal` to be a primitive type in the"
-                  + " JSON string but got `%s`",
+              "Expected the field `ei_other_withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_other_withholding_tax_causal").toString()));
     }
     JsonArray jsonArrayitemsList = jsonObj.getAsJsonArray("items_list");
@@ -2836,48 +2813,42 @@ public class IssuedDocument {
         && !jsonObj.get("dn_ai_packages_number").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_packages_number` to be a primitive type in the JSON string"
-                  + " but got `%s`",
+              "Expected the field `dn_ai_packages_number` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_packages_number").toString()));
     }
     if ((jsonObj.get("dn_ai_weight") != null && !jsonObj.get("dn_ai_weight").isJsonNull())
         && !jsonObj.get("dn_ai_weight").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_weight` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `dn_ai_weight` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_weight").toString()));
     }
     if ((jsonObj.get("dn_ai_causal") != null && !jsonObj.get("dn_ai_causal").isJsonNull())
         && !jsonObj.get("dn_ai_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_causal` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `dn_ai_causal` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_causal").toString()));
     }
     if ((jsonObj.get("dn_ai_destination") != null && !jsonObj.get("dn_ai_destination").isJsonNull())
         && !jsonObj.get("dn_ai_destination").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_destination` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `dn_ai_destination` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_destination").toString()));
     }
     if ((jsonObj.get("dn_ai_transporter") != null && !jsonObj.get("dn_ai_transporter").isJsonNull())
         && !jsonObj.get("dn_ai_transporter").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_transporter` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `dn_ai_transporter` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_transporter").toString()));
     }
     if ((jsonObj.get("dn_ai_notes") != null && !jsonObj.get("dn_ai_notes").isJsonNull())
         && !jsonObj.get("dn_ai_notes").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_notes` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `dn_ai_notes` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("dn_ai_notes").toString()));
     }
     // validate the optional field `extra_data`
@@ -2896,24 +2867,21 @@ public class IssuedDocument {
         && !jsonObj.get("attachment_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_url` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `attachment_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("attachment_url").toString()));
     }
     if ((jsonObj.get("attachment_token") != null && !jsonObj.get("attachment_token").isJsonNull())
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
     if ((jsonObj.get("ei_status") != null && !jsonObj.get("ei_status").isJsonNull())
         && !jsonObj.get("ei_status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_status` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `ei_status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_status").toString()));
     }
   }

@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** ReceiptItemsListItem */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ReceiptItemsListItem {
   private static final long serialVersionUID = 1L;
 
@@ -260,8 +260,7 @@ public class ReceiptItemsListItem {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ReceiptItemsListItem is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in ReceiptItemsListItem is not found in the empty JSON string",
                 ReceiptItemsListItem.openapiRequiredFields.toString()));
       }
     }
@@ -272,8 +271,7 @@ public class ReceiptItemsListItem {
       if (!ReceiptItemsListItem.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ReceiptItemsListItem`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ReceiptItemsListItem` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -281,8 +279,7 @@ public class ReceiptItemsListItem {
         && !jsonObj.get("category").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `category` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `category` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("category").toString()));
     }
     // validate the optional field `vat`

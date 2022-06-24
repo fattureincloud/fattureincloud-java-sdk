@@ -40,7 +40,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ListArchiveDocumentsResponse {
   private static final long serialVersionUID = 1L;
 
@@ -488,8 +488,7 @@ public class ListArchiveDocumentsResponse {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListArchiveDocumentsResponse is not found in the empty"
-                    + " JSON string",
+                "The required field(s) %s in ListArchiveDocumentsResponse is not found in the empty JSON string",
                 ListArchiveDocumentsResponse.openapiRequiredFields.toString()));
       }
     }
@@ -500,8 +499,7 @@ public class ListArchiveDocumentsResponse {
       if (!ListArchiveDocumentsResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `ListArchiveDocumentsResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ListArchiveDocumentsResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -509,24 +507,21 @@ public class ListArchiveDocumentsResponse {
         && !jsonObj.get("first_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `first_page_url` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `first_page_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("first_page_url").toString()));
     }
     if ((jsonObj.get("last_page_url") != null && !jsonObj.get("last_page_url").isJsonNull())
         && !jsonObj.get("last_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `last_page_url` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `last_page_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("last_page_url").toString()));
     }
     if ((jsonObj.get("next_page_url") != null && !jsonObj.get("next_page_url").isJsonNull())
         && !jsonObj.get("next_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `next_page_url` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `next_page_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("next_page_url").toString()));
     }
     if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull())
@@ -540,8 +535,7 @@ public class ListArchiveDocumentsResponse {
         && !jsonObj.get("prev_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("prev_page_url").toString()));
     }
     JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** City */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class City {
   private static final long serialVersionUID = 1L;
 
@@ -212,8 +212,7 @@ public class City {
       if (!City.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `City` properties. JSON:"
-                    + " %s",
+                "The field `%s` in the JSON string is not defined in the `City` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -221,8 +220,7 @@ public class City {
         && !jsonObj.get("postal_code").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `postal_code` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("postal_code").toString()));
     }
     if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull())
@@ -236,8 +234,7 @@ public class City {
         && !jsonObj.get("province").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `province` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `province` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("province").toString()));
     }
   }

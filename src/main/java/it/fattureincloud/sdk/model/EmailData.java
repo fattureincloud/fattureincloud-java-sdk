@@ -39,7 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class EmailData {
   private static final long serialVersionUID = 1L;
 
@@ -186,8 +186,7 @@ public class EmailData {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "By default is the logged company email. This is the email address to which a copy will"
-              + " be sent.")
+          "By default is the logged company email. This is the email address to which a copy will be sent.")
   public String getCcEmail() {
     return ccEmail;
   }
@@ -475,8 +474,7 @@ public class EmailData {
       if (!EmailData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EmailData` properties."
-                    + " JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EmailData` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -484,8 +482,7 @@ public class EmailData {
         && !jsonObj.get("recipient_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `recipient_email` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `recipient_email` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("recipient_email").toString()));
     }
     // validate the optional field `default_sender_email`
@@ -501,8 +498,7 @@ public class EmailData {
       if (!jsonObj.get("sender_emails_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `sender_emails_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `sender_emails_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("sender_emails_list").toString()));
       }
 
@@ -516,8 +512,7 @@ public class EmailData {
         && !jsonObj.get("cc_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `cc_email` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `cc_email` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cc_email").toString()));
     }
     if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull())

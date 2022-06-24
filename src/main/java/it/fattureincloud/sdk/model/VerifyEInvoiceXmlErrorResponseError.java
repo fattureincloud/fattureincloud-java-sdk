@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** VerifyEInvoiceXmlErrorResponseError */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class VerifyEInvoiceXmlErrorResponseError {
   private static final long serialVersionUID = 1L;
 
@@ -175,8 +175,7 @@ public class VerifyEInvoiceXmlErrorResponseError {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseError is not found in"
-                    + " the empty JSON string",
+                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseError is not found in the empty JSON string",
                 VerifyEInvoiceXmlErrorResponseError.openapiRequiredFields.toString()));
       }
     }
@@ -187,8 +186,7 @@ public class VerifyEInvoiceXmlErrorResponseError {
       if (!VerifyEInvoiceXmlErrorResponseError.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `VerifyEInvoiceXmlErrorResponseError` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `VerifyEInvoiceXmlErrorResponseError` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

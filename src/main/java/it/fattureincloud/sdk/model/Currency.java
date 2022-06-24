@@ -36,7 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class Currency {
   private static final long serialVersionUID = 1L;
 
@@ -243,8 +243,7 @@ public class Currency {
       if (!Currency.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Currency` properties."
-                    + " JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Currency` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -266,16 +265,14 @@ public class Currency {
         && !jsonObj.get("exchange_rate").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `exchange_rate` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `exchange_rate` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("exchange_rate").toString()));
     }
     if ((jsonObj.get("html_symbol") != null && !jsonObj.get("html_symbol").isJsonNull())
         && !jsonObj.get("html_symbol").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `html_symbol` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `html_symbol` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("html_symbol").toString()));
     }
   }

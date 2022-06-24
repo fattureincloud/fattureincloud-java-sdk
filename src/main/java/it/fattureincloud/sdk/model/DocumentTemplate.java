@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** DocumentTemplate */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class DocumentTemplate {
   private static final long serialVersionUID = 1L;
 
@@ -201,8 +201,7 @@ public class DocumentTemplate {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in DocumentTemplate is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in DocumentTemplate is not found in the empty JSON string",
                 DocumentTemplate.openapiRequiredFields.toString()));
       }
     }
@@ -213,8 +212,7 @@ public class DocumentTemplate {
       if (!DocumentTemplate.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `DocumentTemplate`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `DocumentTemplate` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

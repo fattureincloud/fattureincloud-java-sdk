@@ -149,15 +149,13 @@ public class IssuedEInvoicesApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " getEInvoiceRejectionReason(Async)");
+          "Missing the required parameter 'companyId' when calling getEInvoiceRejectionReason(Async)");
     }
 
     // verify the required parameter 'documentId' is set
     if (documentId == null) {
       throw new ApiException(
-          "Missing the required parameter 'documentId' when calling"
-              + " getEInvoiceRejectionReason(Async)");
+          "Missing the required parameter 'documentId' when calling getEInvoiceRejectionReason(Async)");
     }
 
     okhttp3.Call localVarCall = getEInvoiceRejectionReasonCall(companyId, documentId, _callback);

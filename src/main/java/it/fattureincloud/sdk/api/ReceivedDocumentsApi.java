@@ -498,15 +498,13 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " deleteReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'companyId' when calling deleteReceivedDocumentAttachment(Async)");
     }
 
     // verify the required parameter 'documentId' is set
     if (documentId == null) {
       throw new ApiException(
-          "Missing the required parameter 'documentId' when calling"
-              + " deleteReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'documentId' when calling deleteReceivedDocumentAttachment(Async)");
     }
 
     okhttp3.Call localVarCall =
@@ -677,15 +675,13 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " getExistingReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'companyId' when calling getExistingReceivedDocumentTotals(Async)");
     }
 
     // verify the required parameter 'documentId' is set
     if (documentId == null) {
       throw new ApiException(
-          "Missing the required parameter 'documentId' when calling"
-              + " getExistingReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'documentId' when calling getExistingReceivedDocumentTotals(Async)");
     }
 
     okhttp3.Call localVarCall =
@@ -870,8 +866,7 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " getNewReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'companyId' when calling getNewReceivedDocumentTotals(Async)");
     }
 
     okhttp3.Call localVarCall =
@@ -1250,15 +1245,13 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " getReceivedDocumentPreCreateInfo(Async)");
+          "Missing the required parameter 'companyId' when calling getReceivedDocumentPreCreateInfo(Async)");
     }
 
     // verify the required parameter 'type' is set
     if (type == null) {
       throw new ApiException(
-          "Missing the required parameter 'type' when calling"
-              + " getReceivedDocumentPreCreateInfo(Async)");
+          "Missing the required parameter 'type' when calling getReceivedDocumentPreCreateInfo(Async)");
     }
 
     okhttp3.Call localVarCall = getReceivedDocumentPreCreateInfoCall(companyId, type, _callback);
@@ -1902,8 +1895,7 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " uploadReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'companyId' when calling uploadReceivedDocumentAttachment(Async)");
     }
 
     okhttp3.Call localVarCall =

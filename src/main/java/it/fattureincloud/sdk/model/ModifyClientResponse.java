@@ -32,7 +32,7 @@ import java.util.Set;
 /** ModifyClientResponse */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ModifyClientResponse {
   private static final long serialVersionUID = 1L;
 
@@ -125,8 +125,7 @@ public class ModifyClientResponse {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ModifyClientResponse is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in ModifyClientResponse is not found in the empty JSON string",
                 ModifyClientResponse.openapiRequiredFields.toString()));
       }
     }
@@ -137,8 +136,7 @@ public class ModifyClientResponse {
       if (!ModifyClientResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ModifyClientResponse`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ModifyClientResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

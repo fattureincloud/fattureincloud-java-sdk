@@ -32,7 +32,7 @@ import java.util.Set;
 /** PermissionsFicIssuedDocumentsDetailed */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class PermissionsFicIssuedDocumentsDetailed {
   private static final long serialVersionUID = 1L;
 
@@ -398,8 +398,7 @@ public class PermissionsFicIssuedDocumentsDetailed {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in PermissionsFicIssuedDocumentsDetailed is not found in"
-                    + " the empty JSON string",
+                "The required field(s) %s in PermissionsFicIssuedDocumentsDetailed is not found in the empty JSON string",
                 PermissionsFicIssuedDocumentsDetailed.openapiRequiredFields.toString()));
       }
     }
@@ -410,8 +409,7 @@ public class PermissionsFicIssuedDocumentsDetailed {
       if (!PermissionsFicIssuedDocumentsDetailed.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `PermissionsFicIssuedDocumentsDetailed` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `PermissionsFicIssuedDocumentsDetailed` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

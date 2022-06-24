@@ -39,7 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** IssuedDocumentPreCreateInfo */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class IssuedDocumentPreCreateInfo {
   private static final long serialVersionUID = 1L;
 
@@ -605,8 +605,7 @@ public class IssuedDocumentPreCreateInfo {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentPreCreateInfo is not found in the empty"
-                    + " JSON string",
+                "The required field(s) %s in IssuedDocumentPreCreateInfo is not found in the empty JSON string",
                 IssuedDocumentPreCreateInfo.openapiRequiredFields.toString()));
       }
     }
@@ -617,8 +616,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!IssuedDocumentPreCreateInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `IssuedDocumentPreCreateInfo` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPreCreateInfo` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -655,8 +653,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("currencies_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `currencies_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `currencies_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("currencies_list").toString()));
       }
 
@@ -672,8 +669,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("templates_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `templates_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `templates_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("templates_list").toString()));
       }
 
@@ -689,8 +685,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("dn_templates_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `dn_templates_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `dn_templates_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("dn_templates_list").toString()));
       }
 
@@ -706,8 +701,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("ai_templates_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `ai_templates_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `ai_templates_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("ai_templates_list").toString()));
       }
 
@@ -723,8 +717,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("payment_methods_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `payment_methods_list` to be an array in the JSON string but"
-                    + " got `%s`",
+                "Expected the field `payment_methods_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("payment_methods_list").toString()));
       }
 
@@ -740,8 +733,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("payment_accounts_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `payment_accounts_list` to be an array in the JSON string but"
-                    + " got `%s`",
+                "Expected the field `payment_accounts_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("payment_accounts_list").toString()));
       }
 
@@ -757,8 +749,7 @@ public class IssuedDocumentPreCreateInfo {
       if (!jsonObj.get("vat_types_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `vat_types_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `vat_types_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("vat_types_list").toString()));
       }
 

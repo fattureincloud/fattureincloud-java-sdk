@@ -41,7 +41,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ReceiptPreCreateInfo {
   private static final long serialVersionUID = 1L;
 
@@ -351,8 +351,7 @@ public class ReceiptPreCreateInfo {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ReceiptPreCreateInfo is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in ReceiptPreCreateInfo is not found in the empty JSON string",
                 ReceiptPreCreateInfo.openapiRequiredFields.toString()));
       }
     }
@@ -363,8 +362,7 @@ public class ReceiptPreCreateInfo {
       if (!ReceiptPreCreateInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ReceiptPreCreateInfo`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ReceiptPreCreateInfo` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -372,8 +370,7 @@ public class ReceiptPreCreateInfo {
     if (jsonObj.get("numerations_list") != null && !jsonObj.get("numerations_list").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `numerations_list` to be an array in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `numerations_list` to be an array in the JSON string but got `%s`",
               jsonObj.get("numerations_list").toString()));
     }
     // ensure the json data is an array
@@ -389,8 +386,7 @@ public class ReceiptPreCreateInfo {
       if (!jsonObj.get("payment_accounts_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `payment_accounts_list` to be an array in the JSON string but"
-                    + " got `%s`",
+                "Expected the field `payment_accounts_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("payment_accounts_list").toString()));
       }
 
@@ -413,8 +409,7 @@ public class ReceiptPreCreateInfo {
       if (!jsonObj.get("vat_types_list").isJsonArray()) {
         throw new IllegalArgumentException(
             String.format(
-                "Expected the field `vat_types_list` to be an array in the JSON string but got"
-                    + " `%s`",
+                "Expected the field `vat_types_list` to be an array in the JSON string but got `%s`",
                 jsonObj.get("vat_types_list").toString()));
       }
 

@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** SendEInvoiceRequestData */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class SendEInvoiceRequestData {
   private static final long serialVersionUID = 1L;
 
@@ -176,8 +176,7 @@ public class SendEInvoiceRequestData {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in SendEInvoiceRequestData is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in SendEInvoiceRequestData is not found in the empty JSON string",
                 SendEInvoiceRequestData.openapiRequiredFields.toString()));
       }
     }
@@ -188,8 +187,7 @@ public class SendEInvoiceRequestData {
       if (!SendEInvoiceRequestData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestData`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestData` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -197,8 +195,7 @@ public class SendEInvoiceRequestData {
         && !jsonObj.get("cassa_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `cassa_type` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `cassa_type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("cassa_type").toString()));
     }
     if ((jsonObj.get("withholding_tax_causal") != null
@@ -206,8 +203,7 @@ public class SendEInvoiceRequestData {
         && !jsonObj.get("withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `withholding_tax_causal` to be a primitive type in the JSON"
-                  + " string but got `%s`",
+              "Expected the field `withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("withholding_tax_causal").toString()));
     }
   }

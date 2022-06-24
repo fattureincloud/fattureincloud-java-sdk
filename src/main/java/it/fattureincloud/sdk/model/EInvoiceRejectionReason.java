@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** EInvoiceRejectionReason */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class EInvoiceRejectionReason {
   private static final long serialVersionUID = 1L;
 
@@ -260,8 +260,7 @@ public class EInvoiceRejectionReason {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in EInvoiceRejectionReason is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in EInvoiceRejectionReason is not found in the empty JSON string",
                 EInvoiceRejectionReason.openapiRequiredFields.toString()));
       }
     }
@@ -272,8 +271,7 @@ public class EInvoiceRejectionReason {
       if (!EInvoiceRejectionReason.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EInvoiceRejectionReason`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EInvoiceRejectionReason` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -288,16 +286,14 @@ public class EInvoiceRejectionReason {
         && !jsonObj.get("ei_status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_status` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `ei_status` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_status").toString()));
     }
     if ((jsonObj.get("solution") != null && !jsonObj.get("solution").isJsonNull())
         && !jsonObj.get("solution").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `solution` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `solution` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("solution").toString()));
     }
     if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())

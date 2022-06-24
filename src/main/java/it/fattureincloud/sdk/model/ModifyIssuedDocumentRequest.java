@@ -34,7 +34,7 @@ import java.util.Set;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ModifyIssuedDocumentRequest {
   private static final long serialVersionUID = 1L;
 
@@ -156,8 +156,7 @@ public class ModifyIssuedDocumentRequest {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ModifyIssuedDocumentRequest is not found in the empty"
-                    + " JSON string",
+                "The required field(s) %s in ModifyIssuedDocumentRequest is not found in the empty JSON string",
                 ModifyIssuedDocumentRequest.openapiRequiredFields.toString()));
       }
     }
@@ -168,8 +167,7 @@ public class ModifyIssuedDocumentRequest {
       if (!ModifyIssuedDocumentRequest.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `ModifyIssuedDocumentRequest` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ModifyIssuedDocumentRequest` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

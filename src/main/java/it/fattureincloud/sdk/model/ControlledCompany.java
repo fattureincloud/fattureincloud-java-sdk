@@ -37,7 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ControlledCompany {
   private static final long serialVersionUID = 1L;
 
@@ -294,8 +294,7 @@ public class ControlledCompany {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ControlledCompany is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in ControlledCompany is not found in the empty JSON string",
                 ControlledCompany.openapiRequiredFields.toString()));
       }
     }
@@ -306,8 +305,7 @@ public class ControlledCompany {
       if (!ControlledCompany.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ControlledCompany`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ControlledCompany` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -322,16 +320,14 @@ public class ControlledCompany {
         && !jsonObj.get("access_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `access_token` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `access_token` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("access_token").toString()));
     }
     if ((jsonObj.get("tax_code") != null && !jsonObj.get("tax_code").isJsonNull())
         && !jsonObj.get("tax_code").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `tax_code` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `tax_code` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("tax_code").toString()));
     }
   }
