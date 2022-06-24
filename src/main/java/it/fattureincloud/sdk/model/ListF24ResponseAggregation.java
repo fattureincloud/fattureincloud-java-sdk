@@ -32,7 +32,7 @@ import java.util.Set;
 /** ListF24ResponseAggregation */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ListF24ResponseAggregation {
   private static final long serialVersionUID = 1L;
 
@@ -125,8 +125,7 @@ public class ListF24ResponseAggregation {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListF24ResponseAggregation is not found in the empty"
-                    + " JSON string",
+                "The required field(s) %s in ListF24ResponseAggregation is not found in the empty JSON string",
                 ListF24ResponseAggregation.openapiRequiredFields.toString()));
       }
     }
@@ -137,8 +136,7 @@ public class ListF24ResponseAggregation {
       if (!ListF24ResponseAggregation.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the"
-                    + " `ListF24ResponseAggregation` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ListF24ResponseAggregation` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

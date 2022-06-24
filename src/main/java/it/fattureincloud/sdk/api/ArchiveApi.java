@@ -1162,8 +1162,7 @@ public class ArchiveApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " uploadArchiveDocumentAttachment(Async)");
+          "Missing the required parameter 'companyId' when calling uploadArchiveDocumentAttachment(Async)");
     }
 
     okhttp3.Call localVarCall =

@@ -36,7 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** F24 */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class F24 {
   private static final long serialVersionUID = 1L;
 
@@ -201,8 +201,7 @@ public class F24 {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "[Read Only] Absolute url of the attached file. Authomatically set if a valid attachment"
-              + " token is passed via POST /taxes or PUT /taxes/{documentId}.")
+          "[Read Only] Absolute url of the attached file. Authomatically set if a valid attachment token is passed via POST /taxes or PUT /taxes/{documentId}.")
   public String getAttachmentUrl() {
     return attachmentUrl;
   }
@@ -222,8 +221,7 @@ public class F24 {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "[Write Only] Attachment token returned by POST /taxes/attachment. Used to attach the"
-              + " file already uploaded.")
+          "[Write Only] Attachment token returned by POST /taxes/attachment. Used to attach the file already uploaded.")
   public String getAttachmentToken() {
     return attachmentToken;
   }
@@ -363,8 +361,7 @@ public class F24 {
       if (!F24.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `F24` properties. JSON:"
-                    + " %s",
+                "The field `%s` in the JSON string is not defined in the `F24` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -377,24 +374,21 @@ public class F24 {
         && !jsonObj.get("attachment_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_url` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `attachment_url` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("attachment_url").toString()));
     }
     if ((jsonObj.get("attachment_token") != null && !jsonObj.get("attachment_token").isJsonNull())
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
     if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("description").toString()));
     }
   }

@@ -40,11 +40,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @ApiModel(
     description =
-        "Extra data. TS fields follow the technical specifications provided by \"Sistema Tessera"
-            + " Sanitaria\".")
+        "Extra data. TS fields follow the technical specifications provided by \"Sistema Tessera Sanitaria\".")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class IssuedDocumentExtraData {
   private static final long serialVersionUID = 1L;
 
@@ -236,8 +235,7 @@ public class IssuedDocumentExtraData {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Can be [ 'TK', 'FC', 'FV', 'SV', 'SP', 'AD', 'AS', 'SR', 'CT', 'PI', 'IC', 'AA' ]. Refer"
-              + " to the technical specifications to learn more.")
+          "Can be [ 'TK', 'FC', 'FV', 'SV', 'SP', 'AD', 'AS', 'SR', 'CT', 'PI', 'IC', 'AA' ]. Refer to the technical specifications to learn more.")
   public String getTsTipoSpesa() {
     return tsTipoSpesa;
   }
@@ -521,8 +519,7 @@ public class IssuedDocumentExtraData {
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentExtraData is not found in the empty JSON"
-                    + " string",
+                "The required field(s) %s in IssuedDocumentExtraData is not found in the empty JSON string",
                 IssuedDocumentExtraData.openapiRequiredFields.toString()));
       }
     }
@@ -533,8 +530,7 @@ public class IssuedDocumentExtraData {
       if (!IssuedDocumentExtraData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentExtraData`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentExtraData` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -542,24 +538,21 @@ public class IssuedDocumentExtraData {
         && !jsonObj.get("ts_tipo_spesa").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ts_tipo_spesa").toString()));
     }
     if ((jsonObj.get("ts_file_id") != null && !jsonObj.get("ts_file_id").isJsonNull())
         && !jsonObj.get("ts_file_id").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ts_file_id` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `ts_file_id` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ts_file_id").toString()));
     }
     if ((jsonObj.get("imported_by") != null && !jsonObj.get("imported_by").isJsonNull())
         && !jsonObj.get("imported_by").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `imported_by` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `imported_by` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("imported_by").toString()));
     }
   }

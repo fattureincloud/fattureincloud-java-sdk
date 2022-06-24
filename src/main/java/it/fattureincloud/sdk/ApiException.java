@@ -19,7 +19,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class ApiException extends Exception {
   private int code = 0;
   private Map<String, List<String>> responseHeaders = null;

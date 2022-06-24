@@ -34,7 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** AttachmentData */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class AttachmentData {
   private static final long serialVersionUID = 1L;
 
@@ -156,8 +156,7 @@ public class AttachmentData {
       if (!AttachmentData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `AttachmentData`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `AttachmentData` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -165,8 +164,7 @@ public class AttachmentData {
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
   }

@@ -92,6 +92,476 @@ public class JSON {
             .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
             .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
             .registerTypeAdapter(byte[].class, byteArrayAdapter)
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ArchiveDocument.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.AttachmentData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CashbookEntry.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CashbookEntryDocument.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.City.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Client.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Company.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfoAccessInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfoPlanInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfoPlanInfoFunctions
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfoPlanInfoFunctionsStatus
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CompanyInfoPlanInfoLimits
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ControlledCompany.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateArchiveDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateArchiveDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateCashbookEntryRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateCashbookEntryResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateClientRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateClientResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateF24Request.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateF24Response.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateIssuedDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateIssuedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreatePaymentAccountRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreatePaymentAccountResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreatePaymentMethodRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreatePaymentMethodResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateProductRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateProductResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateReceiptRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateReceiptResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateReceivedDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateReceivedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateSupplierRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateSupplierResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateVatTypeRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.CreateVatTypeResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Currency.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.DetailedCountry.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.DocumentTemplate.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.EInvoiceRejectionReason.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.EmailData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.EmailDataDefaultSenderEmail
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.EmailSchedule.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.EmailScheduleInclude.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Entity.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.F24.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.FunctionStatus.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetArchiveDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetCashbookEntryResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetClientResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetCompanyInfoResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetEInvoiceRejectionReasonResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetEmailDataResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetExistingIssuedDocumentTotalsRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetExistingIssuedDocumentTotalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetExistingReceivedDocumentTotalsRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetExistingReceivedDocumentTotalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetF24Response.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetIssuedDocumentPreCreateInfoResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetIssuedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetNewIssuedDocumentTotalsRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetNewIssuedDocumentTotalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetNewReceivedDocumentTotalsRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetNewReceivedDocumentTotalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetPaymentAccountResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetPaymentMethodResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetProductResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetReceiptPreCreateInfoResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetReceiptResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetReceiptsMonthlyTotalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetReceivedDocumentPreCreateInfoResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetReceivedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetSupplierResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetUserInfoResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetUserInfoResponseEmailConfirmationState
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetUserInfoResponseInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.GetVatTypeResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocument.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentEiData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentExtraData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentItemsListItem
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentOptions.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentPaymentsListItem
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfo
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoDefaultValues
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoExtraDataDefaultValues
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentPreCreateInfoItemsDefaultValues
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.IssuedDocumentTotals.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Language.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListArchiveCategoriesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListArchiveDocumentsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListArchiveDocumentsResponsePage
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListCashbookEntriesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListCitiesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListClientsResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListClientsResponsePage.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListCostCentersResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListCountriesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListCurrenciesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListDeliveryNotesDefaultCausalsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListDetailedCountriesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListF24Response.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListF24ResponseAggregatedData
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListF24ResponseAggregation
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListF24ResponsePage.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListIssuedDocumentsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListIssuedDocumentsResponsePage
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListLanguagesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListPaymentAccountsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListPaymentMethodsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListProductCategoriesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListProductsResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListProductsResponsePage.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListReceiptsResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListReceiptsResponsePage.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListReceivedDocumentCategoriesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListReceivedDocumentsResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListReceivedDocumentsResponsePage
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListRevenueCentersResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListSuppliersResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListSuppliersResponsePage
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListTemplatesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListUnitsOfMeasureResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListUserCompaniesResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListUserCompaniesResponseData
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ListVatTypesResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyArchiveDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyArchiveDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyCashbookEntryRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyCashbookEntryResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyClientRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyClientResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyF24Request.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyF24Response.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyIssuedDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyIssuedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyPaymentAccountRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyPaymentAccountResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyPaymentMethodRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyPaymentMethodResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyProductRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyProductResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyReceiptRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyReceiptResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyReceivedDocumentRequest
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyReceivedDocumentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifySupplierRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifySupplierResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyVatTypeRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ModifyVatTypeResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.MonthlyTotal.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Pagination.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.PaymentAccount.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.PaymentMethod.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.PaymentMethodDetails.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Permissions.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.PermissionsFicIssuedDocumentsDetailed
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Product.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Receipt.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceiptItemsListItem.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceiptPreCreateInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocument.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentEntity.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentInfo.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentInfoDefaultValues
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentInfoItemsDefaultValues
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentItemsListItem
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentPaymentsListItem
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentPaymentsListItemPaymentTerms
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ReceivedDocumentTotals.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.ScheduleEmailRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.SendEInvoiceRequest.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.SendEInvoiceRequestData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.SendEInvoiceResponse.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.SendEInvoiceResponseData.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.SenderEmail.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.Supplier.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.UploadArchiveAttachmentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.UploadF24AttachmentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.UploadIssuedDocumentAttachmentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.UploadReceivedDocumentAttachmentResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.User.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VatItem.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VatType.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VerifyEInvoiceXmlErrorResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VerifyEInvoiceXmlErrorResponseError
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VerifyEInvoiceXmlErrorResponseExtra
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VerifyEInvoiceXmlResponse
+                    .CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(
+                new it.fattureincloud.sdk.model.VerifyEInvoiceXmlResponseData
+                    .CustomTypeAdapterFactory())
             .create();
   }
 

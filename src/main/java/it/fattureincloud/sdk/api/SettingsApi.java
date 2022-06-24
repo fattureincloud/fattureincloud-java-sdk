@@ -663,8 +663,7 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling"
-              + " deletePaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling deletePaymentAccount(Async)");
     }
 
     okhttp3.Call localVarCall = deletePaymentAccountCall(companyId, paymentAccountId, _callback);
@@ -826,8 +825,7 @@ public class SettingsApi {
     // verify the required parameter 'paymentMethodId' is set
     if (paymentMethodId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentMethodId' when calling"
-              + " deletePaymentMethod(Async)");
+          "Missing the required parameter 'paymentMethodId' when calling deletePaymentMethod(Async)");
     }
 
     okhttp3.Call localVarCall = deletePaymentMethodCall(companyId, paymentMethodId, _callback);
@@ -1165,8 +1163,7 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling"
-              + " getPaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling getPaymentAccount(Async)");
     }
 
     okhttp3.Call localVarCall =
@@ -1715,8 +1712,7 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling"
-              + " modifyPaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling modifyPaymentAccount(Async)");
     }
 
     okhttp3.Call localVarCall =
@@ -1906,8 +1902,7 @@ public class SettingsApi {
     // verify the required parameter 'paymentMethodId' is set
     if (paymentMethodId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentMethodId' when calling"
-              + " modifyPaymentMethod(Async)");
+          "Missing the required parameter 'paymentMethodId' when calling modifyPaymentMethod(Async)");
     }
 
     okhttp3.Call localVarCall =

@@ -1880,8 +1880,7 @@ public class InfoApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling"
-              + " listReceivedDocumentCategories(Async)");
+          "Missing the required parameter 'companyId' when calling listReceivedDocumentCategories(Async)");
     }
 
     okhttp3.Call localVarCall = listReceivedDocumentCategoriesCall(companyId, _callback);

@@ -37,7 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** PaymentMethod */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-16T10:37:15.055150Z[Etc/UTC]")
+    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
 public class PaymentMethod {
   private static final long serialVersionUID = 1L;
 
@@ -438,8 +438,7 @@ public class PaymentMethod {
       if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `PaymentMethod`"
-                    + " properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `PaymentMethod` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -476,32 +475,28 @@ public class PaymentMethod {
         && !jsonObj.get("bank_iban").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_iban` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `bank_iban` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("bank_iban").toString()));
     }
     if ((jsonObj.get("bank_name") != null && !jsonObj.get("bank_name").isJsonNull())
         && !jsonObj.get("bank_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_name` to be a primitive type in the JSON string but got"
-                  + " `%s`",
+              "Expected the field `bank_name` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("bank_name").toString()));
     }
     if ((jsonObj.get("bank_beneficiary") != null && !jsonObj.get("bank_beneficiary").isJsonNull())
         && !jsonObj.get("bank_beneficiary").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("bank_beneficiary").toString()));
     }
     if ((jsonObj.get("ei_payment_method") != null && !jsonObj.get("ei_payment_method").isJsonNull())
         && !jsonObj.get("ei_payment_method").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_payment_method` to be a primitive type in the JSON string but"
-                  + " got `%s`",
+              "Expected the field `ei_payment_method` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("ei_payment_method").toString()));
     }
   }
