@@ -261,7 +261,7 @@ public class CashbookApi {
    * </table>
    */
   public okhttp3.Call deleteCashbookEntryCall(
-      Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
+      Integer companyId, String documentId, final ApiCallback _callback) throws ApiException {
     String basePath = null;
     // Operation Servers
     String[] localBasePaths = new String[] {};
@@ -324,7 +324,7 @@ public class CashbookApi {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call deleteCashbookEntryValidateBeforeCall(
-      Integer companyId, Integer documentId, final ApiCallback _callback) throws ApiException {
+      Integer companyId, String documentId, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
@@ -358,7 +358,7 @@ public class CashbookApi {
    * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    * </table>
    */
-  public void deleteCashbookEntry(Integer companyId, Integer documentId) throws ApiException {
+  public void deleteCashbookEntry(Integer companyId, String documentId) throws ApiException {
     deleteCashbookEntryWithHttpInfo(companyId, documentId);
   }
 
@@ -379,7 +379,7 @@ public class CashbookApi {
    * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<Void> deleteCashbookEntryWithHttpInfo(Integer companyId, Integer documentId)
+  public ApiResponse<Void> deleteCashbookEntryWithHttpInfo(Integer companyId, String documentId)
       throws ApiException {
     okhttp3.Call localVarCall = deleteCashbookEntryValidateBeforeCall(companyId, documentId, null);
     return localVarApiClient.execute(localVarCall);
@@ -403,8 +403,7 @@ public class CashbookApi {
    * </table>
    */
   public okhttp3.Call deleteCashbookEntryAsync(
-      Integer companyId, Integer documentId, final ApiCallback<Void> _callback)
-      throws ApiException {
+      Integer companyId, String documentId, final ApiCallback<Void> _callback) throws ApiException {
 
     okhttp3.Call localVarCall =
         deleteCashbookEntryValidateBeforeCall(companyId, documentId, _callback);
@@ -432,7 +431,7 @@ public class CashbookApi {
    */
   public okhttp3.Call getCashbookEntryCall(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       String fields,
       String fieldset,
       final ApiCallback _callback)
@@ -507,7 +506,7 @@ public class CashbookApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call getCashbookEntryValidateBeforeCall(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       String fields,
       String fieldset,
       final ApiCallback _callback)
@@ -550,7 +549,7 @@ public class CashbookApi {
    * </table>
    */
   public GetCashbookEntryResponse getCashbookEntry(
-      Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
+      Integer companyId, String documentId, String fields, String fieldset) throws ApiException {
     ApiResponse<GetCashbookEntryResponse> localVarResp =
         getCashbookEntryWithHttpInfo(companyId, documentId, fields, fieldset);
     return localVarResp.getData();
@@ -576,7 +575,7 @@ public class CashbookApi {
    * </table>
    */
   public ApiResponse<GetCashbookEntryResponse> getCashbookEntryWithHttpInfo(
-      Integer companyId, Integer documentId, String fields, String fieldset) throws ApiException {
+      Integer companyId, String documentId, String fields, String fieldset) throws ApiException {
     okhttp3.Call localVarCall =
         getCashbookEntryValidateBeforeCall(companyId, documentId, fields, fieldset, null);
     Type localVarReturnType = new TypeToken<GetCashbookEntryResponse>() {}.getType();
@@ -604,7 +603,7 @@ public class CashbookApi {
    */
   public okhttp3.Call getCashbookEntryAsync(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       String fields,
       String fieldset,
       final ApiCallback<GetCashbookEntryResponse> _callback)
@@ -886,7 +885,7 @@ public class CashbookApi {
    */
   public okhttp3.Call modifyCashbookEntryCall(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       ModifyCashbookEntryRequest modifyCashbookEntryRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -951,7 +950,7 @@ public class CashbookApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call modifyCashbookEntryValidateBeforeCall(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       ModifyCashbookEntryRequest modifyCashbookEntryRequest,
       final ApiCallback _callback)
       throws ApiException {
@@ -992,7 +991,7 @@ public class CashbookApi {
    * </table>
    */
   public ModifyCashbookEntryResponse modifyCashbookEntry(
-      Integer companyId, Integer documentId, ModifyCashbookEntryRequest modifyCashbookEntryRequest)
+      Integer companyId, String documentId, ModifyCashbookEntryRequest modifyCashbookEntryRequest)
       throws ApiException {
     ApiResponse<ModifyCashbookEntryResponse> localVarResp =
         modifyCashbookEntryWithHttpInfo(companyId, documentId, modifyCashbookEntryRequest);
@@ -1018,7 +1017,7 @@ public class CashbookApi {
    * </table>
    */
   public ApiResponse<ModifyCashbookEntryResponse> modifyCashbookEntryWithHttpInfo(
-      Integer companyId, Integer documentId, ModifyCashbookEntryRequest modifyCashbookEntryRequest)
+      Integer companyId, String documentId, ModifyCashbookEntryRequest modifyCashbookEntryRequest)
       throws ApiException {
     okhttp3.Call localVarCall =
         modifyCashbookEntryValidateBeforeCall(
@@ -1047,7 +1046,7 @@ public class CashbookApi {
    */
   public okhttp3.Call modifyCashbookEntryAsync(
       Integer companyId,
-      Integer documentId,
+      String documentId,
       ModifyCashbookEntryRequest modifyCashbookEntryRequest,
       final ApiCallback<ModifyCashbookEntryResponse> _callback)
       throws ApiException {

@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Product */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
+    date = "2022-06-27T13:55:38.073Z[Etc/UTC]")
 public class Product {
   private static final long serialVersionUID = 1L;
 

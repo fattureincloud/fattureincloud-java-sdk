@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -31,91 +32,111 @@ import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** CashbookEntryDocument */
+/** IssuedDocumentPaymentsListItemPaymentTerms */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-06-27T13:55:38.073Z[Etc/UTC]")
-public class CashbookEntryDocument {
+public class IssuedDocumentPaymentsListItemPaymentTerms {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ID = "id";
+  public static final String SERIALIZED_NAME_DAYS = "days";
 
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  @SerializedName(SERIALIZED_NAME_DAYS)
+  private Integer days;
+
+  /** Payment terms type. */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    STANDARD("standard"),
+
+    END_OF_MONTH("end_of_month");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_PATH = "path";
+  public IssuedDocumentPaymentsListItemPaymentTerms() {}
 
-  @SerializedName(SERIALIZED_NAME_PATH)
-  private String path;
+  public IssuedDocumentPaymentsListItemPaymentTerms days(Integer days) {
 
-  public CashbookEntryDocument() {}
-
-  public CashbookEntryDocument id(Integer id) {
-
-    this.id = id;
+    this.days = days;
     return this;
   }
 
   /**
-   * Document unique identifier.
+   * The number of days by which the payment must be made.
    *
-   * @return id
+   * @return days
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Document unique identifier.")
-  public Integer getId() {
-    return id;
+  @ApiModelProperty(value = "The number of days by which the payment must be made.")
+  public Integer getDays() {
+    return days;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setDays(Integer days) {
+    this.days = days;
   }
 
-  public CashbookEntryDocument type(String type) {
+  public IssuedDocumentPaymentsListItemPaymentTerms type(TypeEnum type) {
 
     this.type = type;
     return this;
   }
 
   /**
-   * Document type.
+   * Payment terms type.
    *
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Document type.")
-  public String getType() {
+  @ApiModelProperty(value = "Payment terms type.")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-  public CashbookEntryDocument path(String path) {
-
-    this.path = path;
-    return this;
-  }
-
-  /**
-   * Document path.
-   *
-   * @return path
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Document path.")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
   }
 
   @Override
@@ -126,10 +147,10 @@ public class CashbookEntryDocument {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CashbookEntryDocument cashbookEntryDocument = (CashbookEntryDocument) o;
-    return Objects.equals(this.id, cashbookEntryDocument.id)
-        && Objects.equals(this.type, cashbookEntryDocument.type)
-        && Objects.equals(this.path, cashbookEntryDocument.path);
+    IssuedDocumentPaymentsListItemPaymentTerms issuedDocumentPaymentsListItemPaymentTerms =
+        (IssuedDocumentPaymentsListItemPaymentTerms) o;
+    return Objects.equals(this.days, issuedDocumentPaymentsListItemPaymentTerms.days)
+        && Objects.equals(this.type, issuedDocumentPaymentsListItemPaymentTerms.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -143,7 +164,7 @@ public class CashbookEntryDocument {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, path);
+    return Objects.hash(days, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -156,10 +177,9 @@ public class CashbookEntryDocument {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CashbookEntryDocument {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class IssuedDocumentPaymentsListItemPaymentTerms {\n");
+    sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -180,9 +200,8 @@ public class CashbookEntryDocument {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
+    openapiFields.add("days");
     openapiFields.add("type");
-    openapiFields.add("path");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -192,27 +211,28 @@ public class CashbookEntryDocument {
    * Validates the JSON Object and throws an exception if issues found
    *
    * @param jsonObj JSON Object
-   * @throws IOException if the JSON Object is invalid with respect to CashbookEntryDocument
+   * @throws IOException if the JSON Object is invalid with respect to
+   *     IssuedDocumentPaymentsListItemPaymentTerms
    */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
     if (jsonObj == null) {
-      if (CashbookEntryDocument.openapiRequiredFields.isEmpty()) {
+      if (IssuedDocumentPaymentsListItemPaymentTerms.openapiRequiredFields.isEmpty()) {
         return;
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CashbookEntryDocument is not found in the empty JSON string",
-                CashbookEntryDocument.openapiRequiredFields.toString()));
+                "The required field(s) %s in IssuedDocumentPaymentsListItemPaymentTerms is not found in the empty JSON string",
+                IssuedDocumentPaymentsListItemPaymentTerms.openapiRequiredFields.toString()));
       }
     }
 
     Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
     // check to see if the JSON string contains additional fields
     for (Entry<String, JsonElement> entry : entries) {
-      if (!CashbookEntryDocument.openapiFields.contains(entry.getKey())) {
+      if (!IssuedDocumentPaymentsListItemPaymentTerms.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CashbookEntryDocument` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPaymentsListItemPaymentTerms` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -223,36 +243,33 @@ public class CashbookEntryDocument {
               "Expected the field `type` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("type").toString()));
     }
-    if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull())
-        && !jsonObj.get("path").isJsonPrimitive()) {
-      throw new IllegalArgumentException(
-          String.format(
-              "Expected the field `path` to be a primitive type in the JSON string but got `%s`",
-              jsonObj.get("path").toString()));
-    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!CashbookEntryDocument.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'CashbookEntryDocument' and its subtypes
+      if (!IssuedDocumentPaymentsListItemPaymentTerms.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'IssuedDocumentPaymentsListItemPaymentTerms' and
+                     // its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<CashbookEntryDocument> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(CashbookEntryDocument.class));
+      final TypeAdapter<IssuedDocumentPaymentsListItemPaymentTerms> thisAdapter =
+          gson.getDelegateAdapter(
+              this, TypeToken.get(IssuedDocumentPaymentsListItemPaymentTerms.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<CashbookEntryDocument>() {
+          new TypeAdapter<IssuedDocumentPaymentsListItemPaymentTerms>() {
             @Override
-            public void write(JsonWriter out, CashbookEntryDocument value) throws IOException {
+            public void write(JsonWriter out, IssuedDocumentPaymentsListItemPaymentTerms value)
+                throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public CashbookEntryDocument read(JsonReader in) throws IOException {
+            public IssuedDocumentPaymentsListItemPaymentTerms read(JsonReader in)
+                throws IOException {
               JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
               validateJsonObject(jsonObj);
               return thisAdapter.fromJsonTree(jsonObj);
@@ -262,18 +279,20 @@ public class CashbookEntryDocument {
   }
 
   /**
-   * Create an instance of CashbookEntryDocument given an JSON string
+   * Create an instance of IssuedDocumentPaymentsListItemPaymentTerms given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CashbookEntryDocument
-   * @throws IOException if the JSON string is invalid with respect to CashbookEntryDocument
+   * @return An instance of IssuedDocumentPaymentsListItemPaymentTerms
+   * @throws IOException if the JSON string is invalid with respect to
+   *     IssuedDocumentPaymentsListItemPaymentTerms
    */
-  public static CashbookEntryDocument fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CashbookEntryDocument.class);
+  public static IssuedDocumentPaymentsListItemPaymentTerms fromJson(String jsonString)
+      throws IOException {
+    return JSON.getGson().fromJson(jsonString, IssuedDocumentPaymentsListItemPaymentTerms.class);
   }
 
   /**
-   * Convert an instance of CashbookEntryDocument to an JSON string
+   * Convert an instance of IssuedDocumentPaymentsListItemPaymentTerms to an JSON string
    *
    * @return JSON string
    */

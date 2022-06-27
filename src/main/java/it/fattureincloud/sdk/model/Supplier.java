@@ -36,7 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
+    date = "2022-06-27T13:55:38.073Z[Etc/UTC]")
 public class Supplier {
   private static final long serialVersionUID = 1L;
 
@@ -139,6 +139,11 @@ public class Supplier {
 
   @SerializedName(SERIALIZED_NAME_NOTES)
   private String notes;
+
+  public static final String SERIALIZED_NAME_BANK_IBAN = "bank_iban";
+
+  @SerializedName(SERIALIZED_NAME_BANK_IBAN)
+  private String bankIban;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
@@ -572,6 +577,27 @@ public class Supplier {
     this.notes = notes;
   }
 
+  public Supplier bankIban(String bankIban) {
+
+    this.bankIban = bankIban;
+    return this;
+  }
+
+  /**
+   * Supplier bank IBAN.
+   *
+   * @return bankIban
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Supplier bank IBAN.")
+  public String getBankIban() {
+    return bankIban;
+  }
+
+  public void setBankIban(String bankIban) {
+    this.bankIban = bankIban;
+  }
+
   public Supplier createdAt(String createdAt) {
 
     this.createdAt = createdAt;
@@ -643,6 +669,7 @@ public class Supplier {
         && Objects.equals(this.phone, supplier.phone)
         && Objects.equals(this.fax, supplier.fax)
         && Objects.equals(this.notes, supplier.notes)
+        && Objects.equals(this.bankIban, supplier.bankIban)
         && Objects.equals(this.createdAt, supplier.createdAt)
         && Objects.equals(this.updatedAt, supplier.updatedAt);
   }
@@ -679,6 +706,7 @@ public class Supplier {
         phone,
         fax,
         notes,
+        bankIban,
         createdAt,
         updatedAt);
   }
@@ -714,6 +742,7 @@ public class Supplier {
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    bankIban: ").append(toIndentedString(bankIban)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -756,6 +785,7 @@ public class Supplier {
     openapiFields.add("phone");
     openapiFields.add("fax");
     openapiFields.add("notes");
+    openapiFields.add("bank_iban");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
 
@@ -917,6 +947,13 @@ public class Supplier {
           String.format(
               "Expected the field `notes` to be a primitive type in the JSON string but got `%s`",
               jsonObj.get("notes").toString()));
+    }
+    if ((jsonObj.get("bank_iban") != null && !jsonObj.get("bank_iban").isJsonNull())
+        && !jsonObj.get("bank_iban").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Expected the field `bank_iban` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("bank_iban").toString()));
     }
     if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull())
         && !jsonObj.get("created_at").isJsonPrimitive()) {
