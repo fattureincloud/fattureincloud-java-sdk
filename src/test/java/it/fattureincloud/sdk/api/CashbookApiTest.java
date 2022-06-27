@@ -165,7 +165,7 @@ public class CashbookApiTest {
         CashbookApi api = mockApi(null, mockCall);
 
         Integer companyId = 11111;
-        Integer cashbookId = 16451;
+        String cashbookId = "16451";
         api.deleteCashbookEntry(companyId, cashbookId);
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
@@ -185,7 +185,7 @@ public class CashbookApiTest {
         CashbookApi api = mockApi(result, mockCall);
 
         Integer companyId = 11111;
-        Integer cashbookId = 16451;
+        String cashbookId = "16451";
         String fields = null;
         String fieldset = null;
 
@@ -333,7 +333,7 @@ public class CashbookApiTest {
         CashbookApi api = mockApi(result, mockCall);
 
         Integer companyId = 2;
-        Integer cashbookId = 2;
+        String cashbookId = "2";
 
         CashbookEntry cashbookEntry = new CashbookEntry()
                 .id("1a")
