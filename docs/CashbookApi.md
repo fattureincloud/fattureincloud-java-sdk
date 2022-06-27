@@ -113,7 +113,7 @@ public class Example {
 
     CashbookApi apiInstance = new CashbookApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    Integer documentId = 56; // Integer | The ID of the document.
+    String documentId = "documentId_example"; // String | The ID of the document.
     try {
       apiInstance.deleteCashbookEntry(companyId, documentId);
     } catch (ApiException e) {
@@ -132,7 +132,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **documentId** | **Integer**| The ID of the document. | |
+| **documentId** | **String**| The ID of the document. | |
 
 ### Return type
 
@@ -184,7 +184,7 @@ public class Example {
 
     CashbookApi apiInstance = new CashbookApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    Integer documentId = 56; // Integer | The ID of the document.
+    String documentId = "documentId_example"; // String | The ID of the document.
     String fields = "fields_example"; // String | List of comma-separated fields.
     String fieldset = "basic"; // String | Name of the fieldset.
     try {
@@ -206,7 +206,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **documentId** | **Integer**| The ID of the document. | |
+| **documentId** | **String**| The ID of the document. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
 | **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
 
@@ -340,7 +340,7 @@ public class Example {
 
     CashbookApi apiInstance = new CashbookApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    Integer documentId = 56; // Integer | The ID of the document.
+    String documentId = "documentId_example"; // String | The ID of the document.
     ModifyCashbookEntryRequest modifyCashbookEntryRequest = new ModifyCashbookEntryRequest(); // ModifyCashbookEntryRequest | Cashbook Entry
     try {
       ModifyCashbookEntryResponse result = apiInstance.modifyCashbookEntry(companyId, documentId, modifyCashbookEntryRequest);
@@ -361,7 +361,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **documentId** | **Integer**| The ID of the document. | |
+| **documentId** | **String**| The ID of the document. | |
 | **modifyCashbookEntryRequest** | [**ModifyCashbookEntryRequest**](ModifyCashbookEntryRequest.md)| Cashbook Entry | [optional] |
 
 ### Return type

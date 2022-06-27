@@ -99,6 +99,7 @@ docs/IssuedDocumentExtraData.md
 docs/IssuedDocumentItemsListItem.md
 docs/IssuedDocumentOptions.md
 docs/IssuedDocumentPaymentsListItem.md
+docs/IssuedDocumentPaymentsListItemPaymentTerms.md
 docs/IssuedDocumentPreCreateInfo.md
 docs/IssuedDocumentPreCreateInfoDefaultValues.md
 docs/IssuedDocumentPreCreateInfoExtraDataDefaultValues.md
@@ -355,6 +356,7 @@ src/main/java/it/fattureincloud/sdk/model/IssuedDocumentExtraData.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentItemsListItem.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentOptions.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPaymentsListItem.java
+src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPaymentsListItemPaymentTerms.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfo.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoDefaultValues.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoExtraDataDefaultValues.java
@@ -473,3 +475,4 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
+src/test/java/it/fattureincloud/sdk/model/IssuedDocumentPaymentsListItemPaymentTermsTest.java

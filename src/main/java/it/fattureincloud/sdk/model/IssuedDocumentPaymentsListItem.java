@@ -36,7 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** IssuedDocumentPaymentsListItem */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-06-24T10:16:02.414Z[Etc/UTC]")
+    date = "2022-06-27T13:55:38.073Z[Etc/UTC]")
 public class IssuedDocumentPaymentsListItem {
   private static final long serialVersionUID = 1L;
 
@@ -74,6 +74,11 @@ public class IssuedDocumentPaymentsListItem {
 
   @SerializedName(SERIALIZED_NAME_EI_RAW)
   private Object eiRaw;
+
+  public static final String SERIALIZED_NAME_PAYMENT_TERMS = "payment_terms";
+
+  @SerializedName(SERIALIZED_NAME_PAYMENT_TERMS)
+  private IssuedDocumentPaymentsListItemPaymentTerms paymentTerms;
 
   public IssuedDocumentPaymentsListItem() {}
 
@@ -226,6 +231,28 @@ public class IssuedDocumentPaymentsListItem {
     this.eiRaw = eiRaw;
   }
 
+  public IssuedDocumentPaymentsListItem paymentTerms(
+      IssuedDocumentPaymentsListItemPaymentTerms paymentTerms) {
+
+    this.paymentTerms = paymentTerms;
+    return this;
+  }
+
+  /**
+   * Get paymentTerms
+   *
+   * @return paymentTerms
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public IssuedDocumentPaymentsListItemPaymentTerms getPaymentTerms() {
+    return paymentTerms;
+  }
+
+  public void setPaymentTerms(IssuedDocumentPaymentsListItemPaymentTerms paymentTerms) {
+    this.paymentTerms = paymentTerms;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,7 +269,8 @@ public class IssuedDocumentPaymentsListItem {
         && Objects.equals(this.status, issuedDocumentPaymentsListItem.status)
         && Objects.equals(this.paymentAccount, issuedDocumentPaymentsListItem.paymentAccount)
         && Objects.equals(this.paidDate, issuedDocumentPaymentsListItem.paidDate)
-        && Objects.equals(this.eiRaw, issuedDocumentPaymentsListItem.eiRaw);
+        && Objects.equals(this.eiRaw, issuedDocumentPaymentsListItem.eiRaw)
+        && Objects.equals(this.paymentTerms, issuedDocumentPaymentsListItem.paymentTerms);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -256,7 +284,7 @@ public class IssuedDocumentPaymentsListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, dueDate, amount, status, paymentAccount, paidDate, eiRaw);
+    return Objects.hash(id, dueDate, amount, status, paymentAccount, paidDate, eiRaw, paymentTerms);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -277,6 +305,7 @@ public class IssuedDocumentPaymentsListItem {
     sb.append("    paymentAccount: ").append(toIndentedString(paymentAccount)).append("\n");
     sb.append("    paidDate: ").append(toIndentedString(paidDate)).append("\n");
     sb.append("    eiRaw: ").append(toIndentedString(eiRaw)).append("\n");
+    sb.append("    paymentTerms: ").append(toIndentedString(paymentTerms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -304,6 +333,7 @@ public class IssuedDocumentPaymentsListItem {
     openapiFields.add("payment_account");
     openapiFields.add("paid_date");
     openapiFields.add("ei_raw");
+    openapiFields.add("payment_terms");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -342,6 +372,12 @@ public class IssuedDocumentPaymentsListItem {
     if ((jsonObj.get("payment_account") != null && !jsonObj.get("payment_account").isJsonNull())
         && !jsonObj.get("payment_account").isJsonPrimitive()) {
       PaymentAccount.validateJsonObject(jsonObj.getAsJsonObject("payment_account"));
+    }
+    // validate the optional field `payment_terms`
+    if ((jsonObj.get("payment_terms") != null && !jsonObj.get("payment_terms").isJsonNull())
+        && !jsonObj.get("payment_terms").isJsonPrimitive()) {
+      IssuedDocumentPaymentsListItemPaymentTerms.validateJsonObject(
+          jsonObj.getAsJsonObject("payment_terms"));
     }
   }
 

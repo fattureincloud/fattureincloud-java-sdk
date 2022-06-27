@@ -8310,7 +8310,7 @@ paths:
         name: document_id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       responses:
         "200":
@@ -8345,7 +8345,7 @@ paths:
         name: document_id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       - description: List of comma-separated fields.
         explode: true
@@ -8403,7 +8403,7 @@ paths:
         name: document_id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       requestBody:
         content:
@@ -15741,6 +15741,7 @@ components:
           certified_email: mario.rossi@pec.example.it
           fax: fax
           first_name: first_name
+          bank_iban: bank_iban
           email: mario.rossi@example.it
       properties:
         data:
@@ -15771,6 +15772,7 @@ components:
           certified_email: mario.rossi@pec.example.it
           fax: fax
           first_name: first_name
+          bank_iban: bank_iban
           email: mario.rossi@example.it
       properties:
         data:
@@ -15801,6 +15803,7 @@ components:
           certified_email: mario.rossi@pec.example.it
           fax: fax
           first_name: first_name
+          bank_iban: bank_iban
           email: mario.rossi@example.it
       properties:
         data:
@@ -15831,6 +15834,7 @@ components:
           certified_email: mario.rossi@pec.example.it
           fax: fax
           first_name: first_name
+          bank_iban: bank_iban
           email: mario.rossi@example.it
       properties:
         data:
@@ -15861,6 +15865,7 @@ components:
           certified_email: mario.rossi@pec.example.it
           fax: fax
           first_name: first_name
+          bank_iban: bank_iban
           email: mario.rossi@example.it
       properties:
         data:
@@ -16184,15 +16189,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -16200,7 +16205,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -16210,8 +16215,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -16227,6 +16232,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16241,24 +16249,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -16266,10 +16277,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -16277,16 +16288,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -16497,15 +16508,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -16513,7 +16524,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -16523,8 +16534,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -16540,6 +16551,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16554,24 +16568,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -16579,10 +16596,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -16590,16 +16607,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -16806,15 +16823,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -16822,7 +16839,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -16832,8 +16849,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -16849,6 +16866,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16863,24 +16883,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -16888,10 +16911,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -16899,16 +16922,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -17116,15 +17139,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -17132,7 +17155,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -17142,8 +17165,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -17159,6 +17182,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17173,24 +17199,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -17198,10 +17227,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -17209,16 +17238,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -17429,15 +17458,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -17445,7 +17474,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -17455,8 +17484,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -17472,6 +17501,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17486,24 +17518,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -17511,10 +17546,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -17522,16 +17557,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -17738,15 +17773,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -17754,7 +17789,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -17764,8 +17799,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -17781,6 +17816,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17795,24 +17833,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -17820,10 +17861,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -17831,16 +17872,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -18076,15 +18117,15 @@ components:
             ei_payment_method: ei_payment_method
             bank_iban: bank_iban
           attachment_token: attachment_token
-          amount_net: 6.438423552598547
+          amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
-          v_margins: 8
+          v_margins: 9
           amount_cassa2: 2.027123023002322
           accompanying_invoice: true
-          amount_rivalsa_taxable: 6.778324963048013
-          amount_rivalsa: 2.8841621266687802
+          amount_rivalsa_taxable: 6.878052220127876
+          amount_rivalsa: 6.778324963048013
           show_totals: null
           stamp_duty: 1.1730742509559433
           use_gross_prices: true
@@ -18092,7 +18133,7 @@ components:
           e_invoice: true
           dn_ai_packages_number: dn_ai_packages_number
           withholding_tax: 1.4894159098541704
-          amount_withholding_tax_taxable: 5.944895607614016
+          amount_withholding_tax_taxable: 6.704019297950036
           other_withholding_tax: 7.457744773683766
           ei_other_withholding_tax_type: ei_other_withholding_tax_type
           template:
@@ -18102,8 +18143,8 @@ components:
           cassa: 5.637376656633329
           ei_raw: "{}"
           amount_global_cassa_taxable: 1.0246457001441578
-          amount_due_discount: 1.284659006116532
-          amount_enasarco_taxable: 3.0937452626664474
+          amount_due_discount: 2.8841621266687802
+          amount_enasarco_taxable: 7.143538047012306
           visible_subject: visible_subject
           use_split_payment: true
           payments_list:
@@ -18119,6 +18160,9 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -18133,24 +18177,27 @@ components:
             ei_raw: "{}"
             due_date: 2018-04-03T00:00:00.000+00:00
             id: 9
+            payment_terms:
+              days: 6
+              type: standard
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
-          h_margins: 6
+          h_margins: 8
           dn_date: 2000-01-23
           ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
           next_due_date: 2000-01-23
           cassa2: 3.616076749251911
           withholding_tax_taxable: 6.84685269835264
           is_marked: true
-          amount_vat: 3.5571952270680973
-          amount_other_withholding_tax_taxable: 3.353193347011243
+          amount_vat: 6.965117697638846
+          amount_other_withholding_tax_taxable: 3.0937452626664474
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
-          dn_number: 9
-          amount_other_withholding_tax: 6.704019297950036
+          dn_number: 6
+          amount_other_withholding_tax: 3.353193347011243
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
@@ -18158,10 +18205,10 @@ components:
           delivery_note: true
           url: url
           attachment_url: attachment_url
-          amount_withholding_tax: 6.878052220127876
+          amount_withholding_tax: 5.944895607614016
           extra_data:
             ts_file_id: ts_file_id
-            ts_flag_tipo_spesa: 0.8851374739011653
+            ts_flag_tipo_spesa: 7.058770351582356
             ts_opposizione: true
             show_sofort_button: true
             ts_tipo_spesa: ts_tipo_spesa
@@ -18169,16 +18216,16 @@ components:
             ts_sent_date: 2000-01-23
             ts_single_sending: true
             ts_pagamento_tracciato: true
-            ts_status: 7
+            ts_status: 6
             ts_communication: true
             ts_full_amount: true
-            multifatture_sent: 7
+            multifatture_sent: 0
           ei_status: attempt
           seen_date: 2000-01-23
           ei_cassa2_type: ei_cassa2_type
           ei_withholding_tax_causal: ei_withholding_tax_causal
           cassa_taxable: 7.061401241503109
-          amount_gross: 6.965117697638846
+          amount_gross: 1.284659006116532
           entity:
             country: Italia
             code: "123"
@@ -21561,6 +21608,7 @@ components:
         certified_email: mario.rossi@pec.example.it
         fax: fax
         first_name: first_name
+        bank_iban: bank_iban
         email: mario.rossi@example.it
       properties:
         id:
@@ -21649,6 +21697,10 @@ components:
           type: string
         notes:
           description: Supplier extra notes.
+          nullable: true
+          type: string
+        bank_iban:
+          description: Supplier bank IBAN.
           nullable: true
           type: string
         created_at:
@@ -21912,15 +21964,15 @@ components:
           ei_payment_method: ei_payment_method
           bank_iban: bank_iban
         attachment_token: attachment_token
-        amount_net: 6.438423552598547
+        amount_net: 3.5571952270680973
         dn_ai_destination: dn_ai_destination
         amount_cassa: 2.3021358869347655
         cassa2_taxable: 4.145608029883936
-        v_margins: 8
+        v_margins: 9
         amount_cassa2: 2.027123023002322
         accompanying_invoice: true
-        amount_rivalsa_taxable: 6.778324963048013
-        amount_rivalsa: 2.8841621266687802
+        amount_rivalsa_taxable: 6.878052220127876
+        amount_rivalsa: 6.778324963048013
         show_totals: null
         stamp_duty: 1.1730742509559433
         use_gross_prices: true
@@ -21928,7 +21980,7 @@ components:
         e_invoice: true
         dn_ai_packages_number: dn_ai_packages_number
         withholding_tax: 1.4894159098541704
-        amount_withholding_tax_taxable: 5.944895607614016
+        amount_withholding_tax_taxable: 6.704019297950036
         other_withholding_tax: 7.457744773683766
         ei_other_withholding_tax_type: ei_other_withholding_tax_type
         template:
@@ -21938,8 +21990,8 @@ components:
         cassa: 5.637376656633329
         ei_raw: "{}"
         amount_global_cassa_taxable: 1.0246457001441578
-        amount_due_discount: 1.284659006116532
-        amount_enasarco_taxable: 3.0937452626664474
+        amount_due_discount: 2.8841621266687802
+        amount_enasarco_taxable: 7.143538047012306
         visible_subject: visible_subject
         use_split_payment: true
         payments_list:
@@ -21955,6 +22007,9 @@ components:
           ei_raw: "{}"
           due_date: 2018-04-03T00:00:00.000+00:00
           id: 9
+          payment_terms:
+            days: 6
+            type: standard
           paid_date: 2018-04-03T00:00:00.000+00:00
           status: null
         - amount: 1.45
@@ -21969,24 +22024,27 @@ components:
           ei_raw: "{}"
           due_date: 2018-04-03T00:00:00.000+00:00
           id: 9
+          payment_terms:
+            days: 6
+            type: standard
           paid_date: 2018-04-03T00:00:00.000+00:00
           status: null
-        h_margins: 6
+        h_margins: 8
         dn_date: 2000-01-23
         ei_other_withholding_tax_causal: ei_other_withholding_tax_causal
         next_due_date: 2000-01-23
         cassa2: 3.616076749251911
         withholding_tax_taxable: 6.84685269835264
         is_marked: true
-        amount_vat: 3.5571952270680973
-        amount_other_withholding_tax_taxable: 3.353193347011243
+        amount_vat: 6.965117697638846
+        amount_other_withholding_tax_taxable: 3.0937452626664474
         currency:
           symbol: €
           exchange_rate: "1"
           html_symbol: EUR
           id: EUR
-        dn_number: 9
-        amount_other_withholding_tax: 6.704019297950036
+        dn_number: 6
+        amount_other_withholding_tax: 3.353193347011243
         ei_cassa_type: ei_cassa_type
         dn_ai_transporter: dn_ai_transporter
         show_notification_button: true
@@ -21994,10 +22052,10 @@ components:
         delivery_note: true
         url: url
         attachment_url: attachment_url
-        amount_withholding_tax: 6.878052220127876
+        amount_withholding_tax: 5.944895607614016
         extra_data:
           ts_file_id: ts_file_id
-          ts_flag_tipo_spesa: 0.8851374739011653
+          ts_flag_tipo_spesa: 7.058770351582356
           ts_opposizione: true
           show_sofort_button: true
           ts_tipo_spesa: ts_tipo_spesa
@@ -22005,16 +22063,16 @@ components:
           ts_sent_date: 2000-01-23
           ts_single_sending: true
           ts_pagamento_tracciato: true
-          ts_status: 7
+          ts_status: 6
           ts_communication: true
           ts_full_amount: true
-          multifatture_sent: 7
+          multifatture_sent: 0
         ei_status: attempt
         seen_date: 2000-01-23
         ei_cassa2_type: ei_cassa2_type
         ei_withholding_tax_causal: ei_withholding_tax_causal
         cassa_taxable: 7.061401241503109
-        amount_gross: 6.965117697638846
+        amount_gross: 1.284659006116532
         entity:
           country: Italia
           code: "123"
@@ -24569,6 +24627,9 @@ components:
         ei_raw: "{}"
         due_date: 2018-04-03T00:00:00.000+00:00
         id: 9
+        payment_terms:
+          days: 6
+          type: standard
         paid_date: 2018-04-03T00:00:00.000+00:00
         status: null
       properties:
@@ -24601,6 +24662,8 @@ components:
           description: Advanced raw attributes for e-invoices.
           nullable: true
           type: object
+        payment_terms:
+          $ref: '#/components/schemas/IssuedDocumentPaymentsListItem_payment_terms'
       title: IssuedDocumentPaymentsListItem
       type: object
     ShowTotalsMode:
@@ -25320,7 +25383,7 @@ components:
         TS fields follow the technical specifications provided by "Sistema Tessera Sanitaria".
       example:
         ts_file_id: ts_file_id
-        ts_flag_tipo_spesa: 0.8851374739011653
+        ts_flag_tipo_spesa: 7.058770351582356
         ts_opposizione: true
         show_sofort_button: true
         ts_tipo_spesa: ts_tipo_spesa
@@ -25328,10 +25391,10 @@ components:
         ts_sent_date: 2000-01-23
         ts_single_sending: true
         ts_pagamento_tracciato: true
-        ts_status: 7
+        ts_status: 6
         ts_communication: true
         ts_full_amount: true
-        multifatture_sent: 7
+        multifatture_sent: 0
       nullable: true
       properties:
         show_sofort_button:
@@ -25639,6 +25702,23 @@ components:
           $ref: '#/components/schemas/PermissionLevel'
         self_invoices:
           $ref: '#/components/schemas/PermissionLevel'
+      type: object
+    IssuedDocumentPaymentsListItem_payment_terms:
+      example:
+        days: 6
+        type: standard
+      properties:
+        days:
+          description: The number of days by which the payment must be made.
+          nullable: true
+          type: integer
+        type:
+          description: Payment terms type.
+          enum:
+          - standard
+          - end_of_month
+          nullable: true
+          type: string
       type: object
     ReceivedDocumentPaymentsListItem_payment_terms:
       example:
