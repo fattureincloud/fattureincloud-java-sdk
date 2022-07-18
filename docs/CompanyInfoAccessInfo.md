@@ -12,4 +12,8 @@
 |**throughAccountant** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

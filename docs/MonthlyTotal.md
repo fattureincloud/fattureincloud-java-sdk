@@ -13,4 +13,8 @@
 |**count** | **BigDecimal** | Monthly total receipt number. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -25,4 +25,8 @@
 |**itemsList** | [**List&lt;ReceiptItemsListItem&gt;**](ReceiptItemsListItem.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -16,4 +16,8 @@
 |**vatTypesList** | [**List&lt;VatType&gt;**](VatType.md) | List of user vat types with the default 22%, 10%, 4% and 0% vats. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

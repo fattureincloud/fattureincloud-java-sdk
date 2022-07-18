@@ -14,4 +14,8 @@
 |**htmlSymbol** | **String** | Currency html code. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

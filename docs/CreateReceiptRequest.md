@@ -12,4 +12,8 @@
 |**autocompleteNumber** | **Boolean** | If true, the number is autocompleted progressively. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

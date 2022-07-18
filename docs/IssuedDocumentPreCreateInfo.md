@@ -22,4 +22,8 @@
 |**vatTypesList** | [**List&lt;VatType&gt;**](VatType.md) | Vat types list. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

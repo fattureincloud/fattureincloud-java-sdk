@@ -10,4 +10,8 @@
 |**attachmentToken** | **String** | Uploaded attachment token. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

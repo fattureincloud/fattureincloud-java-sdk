@@ -17,4 +17,8 @@
 |**taxCode** | **String** | Tax code. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -11,4 +11,8 @@ Default values for the document.
 |**detailed** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

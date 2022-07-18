@@ -11,4 +11,8 @@ Default values for the document items.
 |**vat** | [**VatType**](VatType.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

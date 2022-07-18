@@ -10,4 +10,8 @@
 |**needConfirmation** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

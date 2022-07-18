@@ -10,4 +10,8 @@
 |**data** | [**IssuedDocumentPreCreateInfo**](IssuedDocumentPreCreateInfo.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

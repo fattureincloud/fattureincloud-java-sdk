@@ -19,4 +19,8 @@
 |**stock** | **BigDecimal** | Number of items in stock |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

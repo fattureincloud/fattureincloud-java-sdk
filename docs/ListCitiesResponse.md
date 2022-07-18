@@ -11,4 +11,8 @@
 |**data** | [**List&lt;City&gt;**](City.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

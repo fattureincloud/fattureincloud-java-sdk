@@ -13,4 +13,8 @@
 |**accompanyingInvoice** | **Boolean** | If set to true, the email will have a button to view the accompanying invoice |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

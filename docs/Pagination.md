@@ -21,4 +21,8 @@
 |**total** | **Integer** | Total number of results |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

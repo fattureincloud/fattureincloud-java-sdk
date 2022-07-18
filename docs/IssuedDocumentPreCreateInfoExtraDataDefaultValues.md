@@ -13,4 +13,8 @@
 |**tsPagamentoTracciato** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

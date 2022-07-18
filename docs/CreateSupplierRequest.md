@@ -10,4 +10,8 @@
 |**data** | [**Supplier**](Supplier.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

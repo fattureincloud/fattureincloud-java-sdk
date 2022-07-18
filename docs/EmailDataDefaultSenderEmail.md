@@ -12,4 +12,8 @@ Default sender email. (Other emails can be found in `sender_emails_list`)
 |**email** | **String** | Email address |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

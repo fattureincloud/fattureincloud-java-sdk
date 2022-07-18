@@ -11,4 +11,8 @@
 |**amountVat** | **BigDecimal** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

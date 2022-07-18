@@ -10,4 +10,8 @@
 |**data** | [**PaymentMethod**](PaymentMethod.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

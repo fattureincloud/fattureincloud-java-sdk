@@ -19,4 +19,8 @@
 |**isDisabled** | **Boolean** | Determine if the vat type is disabled. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

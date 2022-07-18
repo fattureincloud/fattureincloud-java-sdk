@@ -21,4 +21,8 @@
 |**defaultAttachPdf** | **Boolean** | If a pdf is attached, this flag will be set to true |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

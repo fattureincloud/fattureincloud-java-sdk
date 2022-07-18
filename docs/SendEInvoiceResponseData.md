@@ -11,4 +11,8 @@
 |**date** | **String** | E-invoice sent date. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

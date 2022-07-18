@@ -19,4 +19,8 @@
 |**eiPaymentMethod** | **String** | E-invoice payment method |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

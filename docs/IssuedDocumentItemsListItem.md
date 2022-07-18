@@ -27,4 +27,8 @@
 |**eiRaw** | **Object** | Advanced raw attributes for e-invoices. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

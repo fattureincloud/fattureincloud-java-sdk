@@ -17,4 +17,8 @@
 |**paymentTerms** | [**IssuedDocumentPaymentsListItemPaymentTerms**](IssuedDocumentPaymentsListItemPaymentTerms.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

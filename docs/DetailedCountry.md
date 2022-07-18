@@ -14,4 +14,8 @@
 |**uic** | **String** | Country uic. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

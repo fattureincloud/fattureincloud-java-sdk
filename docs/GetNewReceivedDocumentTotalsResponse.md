@@ -11,4 +11,8 @@
 |**data** | [**ReceivedDocumentTotals**](ReceivedDocumentTotals.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -16,4 +16,8 @@
 |**paymentAccount** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

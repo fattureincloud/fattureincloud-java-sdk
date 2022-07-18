@@ -10,4 +10,8 @@
 |**data** | [**Product**](Product.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

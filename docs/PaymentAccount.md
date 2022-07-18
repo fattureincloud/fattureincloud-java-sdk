@@ -17,4 +17,8 @@
 |**virtual** | **Boolean** | Determine if the payment method is virtual. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

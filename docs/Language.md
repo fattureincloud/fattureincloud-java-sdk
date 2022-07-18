@@ -11,4 +11,8 @@
 |**name** | **String** | Language extended name. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -11,4 +11,8 @@
 |**data** | [**IssuedDocumentTotals**](IssuedDocumentTotals.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -10,4 +10,8 @@
 |**data** | [**EInvoiceRejectionReason**](EInvoiceRejectionReason.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

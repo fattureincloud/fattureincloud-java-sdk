@@ -23,4 +23,8 @@ Extra data. TS fields follow the technical specifications provided by \"Sistema 
 |**tsSingleSending** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

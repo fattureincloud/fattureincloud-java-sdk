@@ -11,4 +11,8 @@
 |**data** | [**CompanyInfo**](CompanyInfo.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

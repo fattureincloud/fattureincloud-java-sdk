@@ -10,4 +10,8 @@
 |**data** | [**IssuedDocument**](IssuedDocument.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

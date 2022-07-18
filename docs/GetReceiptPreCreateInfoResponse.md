@@ -11,4 +11,8 @@
 |**data** | [**ReceiptPreCreateInfo**](ReceiptPreCreateInfo.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 
