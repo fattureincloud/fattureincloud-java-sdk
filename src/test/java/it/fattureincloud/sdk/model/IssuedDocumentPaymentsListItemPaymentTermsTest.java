@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,23 +22,48 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.lang.reflect.Type;
+
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for IssuedDocumentPaymentsListItemPaymentTerms
  */
 public class IssuedDocumentPaymentsListItemPaymentTermsTest {
-    private final IssuedDocumentPaymentsListItemPaymentTerms model = new IssuedDocumentPaymentsListItemPaymentTerms();
+    private IssuedDocumentPaymentsListItemPaymentTerms model;
+
+    @BeforeEach
+    public void init() {
+        model = new IssuedDocumentPaymentsListItemPaymentTerms()
+                .days(2)
+                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+    }
 
     /**
      * Model tests for IssuedDocumentPaymentsListItemPaymentTerms
      */
     @Test
     public void testIssuedDocumentPaymentsListItemPaymentTerms() {
-        // TODO: test IssuedDocumentPaymentsListItemPaymentTerms
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"days\":2,\"type\":\"standard\"}";
+        assertEquals(str, json);
+        IssuedDocumentPaymentsListItemPaymentTerms generated = gson.fromJson(str, IssuedDocumentPaymentsListItemPaymentTerms.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +71,15 @@ public class IssuedDocumentPaymentsListItemPaymentTermsTest {
      */
     @Test
     public void daysTest() {
-        // TODO: test days
+        assertEquals(2, model.getDays());
+        model.setDays(3);
+        assertEquals(3, model.getDays());
+
+        IssuedDocumentPaymentsListItemPaymentTerms o = model.days(2);
+        IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
+                .days(2)
+                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+        assertEquals(expected, o);
     }
 
     /**
@@ -53,7 +87,15 @@ public class IssuedDocumentPaymentsListItemPaymentTermsTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD, model.getType());
+        model.setType(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.END_OF_MONTH);
+        assertEquals(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.END_OF_MONTH, model.getType());
+
+        IssuedDocumentPaymentsListItemPaymentTerms o = model.type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+        IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
+                .days(2)
+                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+        assertEquals(expected, o);
     }
 
 }
