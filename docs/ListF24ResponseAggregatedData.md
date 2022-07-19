@@ -10,4 +10,8 @@
 |**amount** | **BigDecimal** | Total amount. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

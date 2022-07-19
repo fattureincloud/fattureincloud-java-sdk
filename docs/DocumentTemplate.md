@@ -12,4 +12,8 @@
 |**type** | **String** | Template type. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

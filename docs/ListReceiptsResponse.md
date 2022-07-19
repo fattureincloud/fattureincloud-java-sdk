@@ -22,4 +22,8 @@
 |**data** | [**List&lt;Receipt&gt;**](Receipt.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -11,4 +11,8 @@ Default values for the document items.
 |**vat** | **BigDecimal** | Default vat value. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

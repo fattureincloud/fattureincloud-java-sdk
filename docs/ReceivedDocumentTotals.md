@@ -17,4 +17,8 @@
 |**paymentsSum** | **BigDecimal** | Payments sum. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -12,4 +12,8 @@
 |**needTermsOfServiceConfirmation** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

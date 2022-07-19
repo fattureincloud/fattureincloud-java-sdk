@@ -35,4 +35,8 @@
 |**ficIssuedDocumentsDetailed** | [**PermissionsFicIssuedDocumentsDetailed**](PermissionsFicIssuedDocumentsDetailed.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -10,4 +10,8 @@
 |**data** | [**SendEInvoiceResponseData**](SendEInvoiceResponseData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

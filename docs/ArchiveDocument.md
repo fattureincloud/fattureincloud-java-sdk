@@ -15,4 +15,8 @@
 |**attachmentToken** | **String** | [Write Only]  [Required] Attachment token returned by POST /archive/attachment. Used to attach the file already uploaded. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

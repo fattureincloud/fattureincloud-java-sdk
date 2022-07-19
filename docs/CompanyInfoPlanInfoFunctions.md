@@ -28,4 +28,8 @@ Access to functions for this company.
 |**tsPay** | **Boolean** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

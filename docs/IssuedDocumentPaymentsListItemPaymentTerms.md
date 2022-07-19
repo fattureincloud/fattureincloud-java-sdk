@@ -20,4 +20,8 @@
 | END_OF_MONTH | &quot;end_of_month&quot; |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

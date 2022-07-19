@@ -11,4 +11,8 @@
 |**data** | [**EmailSchedule**](EmailSchedule.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

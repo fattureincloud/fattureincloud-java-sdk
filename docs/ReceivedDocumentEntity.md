@@ -11,4 +11,8 @@
 |**name** | **String** | Entity name. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

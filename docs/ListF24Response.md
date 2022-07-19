@@ -23,4 +23,8 @@
 |**aggregatedData** | [**ListF24ResponseAggregatedData**](ListF24ResponseAggregatedData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

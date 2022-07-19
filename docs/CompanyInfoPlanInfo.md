@@ -12,4 +12,8 @@
 |**functionsStatus** | [**CompanyInfoPlanInfoFunctionsStatus**](CompanyInfoPlanInfoFunctionsStatus.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

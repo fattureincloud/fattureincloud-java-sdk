@@ -12,4 +12,8 @@
 |**province** | **String** | Province. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

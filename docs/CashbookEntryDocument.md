@@ -12,4 +12,8 @@
 |**path** | **String** | Document path. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

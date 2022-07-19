@@ -11,4 +11,8 @@
 |**data** | [**F24**](F24.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

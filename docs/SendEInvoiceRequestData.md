@@ -11,4 +11,8 @@
 |**withholdingTaxCausal** | **String** | Value of CausalePagamento used (optional, override the company default value). |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

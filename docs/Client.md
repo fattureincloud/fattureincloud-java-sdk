@@ -47,4 +47,8 @@
 |**updatedAt** | **String** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

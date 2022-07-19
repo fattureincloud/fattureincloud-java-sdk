@@ -17,4 +17,8 @@
 |**vatTypesList** | [**List&lt;VatType&gt;**](VatType.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

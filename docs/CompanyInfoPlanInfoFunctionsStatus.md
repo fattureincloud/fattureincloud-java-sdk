@@ -11,4 +11,8 @@
 |**tsPay** | [**FunctionStatus**](FunctionStatus.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

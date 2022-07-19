@@ -11,4 +11,8 @@
 |**extra** | [**VerifyEInvoiceXmlErrorResponseExtra**](VerifyEInvoiceXmlErrorResponseExtra.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

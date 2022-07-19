@@ -17,4 +17,8 @@
 |**picture** | **String** | Picture of the user. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

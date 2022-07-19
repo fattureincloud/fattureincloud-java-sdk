@@ -10,4 +10,8 @@
 |**data** | [**List&lt;ArchiveDocument&gt;**](ArchiveDocument.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

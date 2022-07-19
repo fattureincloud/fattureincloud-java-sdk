@@ -10,4 +10,8 @@
 |**data** | [**VatType**](VatType.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

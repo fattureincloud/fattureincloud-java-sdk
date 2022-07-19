@@ -10,4 +10,8 @@
 |**data** | [**EmailData**](EmailData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -17,4 +17,8 @@
 |**sendCopy** | **Boolean** | If set to true, a copy of the email will be sent to the &#x60;cc_email&#x60; specified by &#x60;Get email data&#x60; |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

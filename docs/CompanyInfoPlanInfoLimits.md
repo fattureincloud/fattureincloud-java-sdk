@@ -14,4 +14,8 @@ Limits for this company.
 |**documents** | **Integer** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

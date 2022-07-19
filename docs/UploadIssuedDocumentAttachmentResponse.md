@@ -10,4 +10,8 @@
 |**data** | [**AttachmentData**](AttachmentData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

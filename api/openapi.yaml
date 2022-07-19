@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.18
+  version: 2.0.19
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -4910,6 +4910,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetEInvoiceRejectionReasonResponse'
           description: Example response
+      security:
+      - OAuth2AuthenticationCodeFlow: []
       summary: Get e-invoice rejection reason
       tags:
       - Issued e-invoices
@@ -22484,7 +22486,8 @@ components:
             \ accepted the invoice\n  * `rejected` - The customer rejected the invoice,\
             \ so it must be corrected\n  * `no_response` - A response has not yet\
             \ been received whithin the deadline, contact the customer to ascertain\
-            \ the status of the invoice\n"
+            \ the status of the invoice\n  * `manual_accepted` - The customer accepted\
+            \ the invoice\n  * `manual_rejected` - The customer rejected the invoice\n"
           enum:
           - attempt
           - missing
@@ -22498,6 +22501,8 @@ components:
           - accepted
           - rejected
           - no_response
+          - manual_accepted
+          - manual_rejected
           nullable: true
           type: string
       title: IssuedDocument

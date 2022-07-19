@@ -21,4 +21,8 @@ Default values for the document.
 |**paymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

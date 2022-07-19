@@ -18,4 +18,8 @@
 |**isAccountant** | **Boolean** | Determine if the logged account is an accountant. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -26,4 +26,8 @@
 |**vatList** | **Map&lt;String, VatItem&gt;** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

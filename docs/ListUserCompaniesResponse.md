@@ -11,4 +11,8 @@
 |**data** | [**ListUserCompaniesResponseData**](ListUserCompaniesResponseData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

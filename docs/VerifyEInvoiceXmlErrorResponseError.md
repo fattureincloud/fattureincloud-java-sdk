@@ -11,4 +11,8 @@
 |**validationResult** | **Object** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

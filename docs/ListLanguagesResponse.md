@@ -11,4 +11,8 @@
 |**data** | [**List&lt;Language&gt;**](Language.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

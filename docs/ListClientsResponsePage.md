@@ -10,4 +10,8 @@
 |**data** | [**List&lt;Client&gt;**](Client.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

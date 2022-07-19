@@ -11,4 +11,8 @@
 |**data** | [**Receipt**](Receipt.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

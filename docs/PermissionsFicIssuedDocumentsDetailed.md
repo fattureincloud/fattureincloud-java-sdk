@@ -19,4 +19,8 @@
 |**selfInvoices** | **PermissionLevel** |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

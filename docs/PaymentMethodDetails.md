@@ -11,4 +11,8 @@
 |**description** | **String** | Details description. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

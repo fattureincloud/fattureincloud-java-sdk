@@ -22,4 +22,8 @@ E-invoice data. [Only if e_invoice=true]
 |**invoiceDate** | **LocalDate** | Invoice date. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

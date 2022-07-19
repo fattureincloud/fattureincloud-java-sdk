@@ -14,4 +14,8 @@
 |**date** | **OffsetDateTime** | Rejection date. |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

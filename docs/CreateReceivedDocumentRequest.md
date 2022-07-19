@@ -12,4 +12,8 @@
 |**data** | [**ReceivedDocument**](ReceivedDocument.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

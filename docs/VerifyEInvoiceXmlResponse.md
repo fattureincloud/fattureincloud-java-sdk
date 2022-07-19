@@ -10,4 +10,8 @@
 |**data** | [**VerifyEInvoiceXmlResponseData**](VerifyEInvoiceXmlResponseData.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

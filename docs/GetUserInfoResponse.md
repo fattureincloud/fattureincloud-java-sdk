@@ -13,4 +13,8 @@
 |**emailConfirmationState** | [**GetUserInfoResponseEmailConfirmationState**](GetUserInfoResponseEmailConfirmationState.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

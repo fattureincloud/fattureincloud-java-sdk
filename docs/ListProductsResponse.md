@@ -21,4 +21,8 @@
 |**data** | [**List&lt;Product&gt;**](Product.md) |  |  [optional] |
 
 
+## Implemented Interfaces
+
+* Serializable
+
 
