@@ -33,6 +33,8 @@
 |**attachmentUrl** | **String** | [Read Only] Attachment url. |  [optional] [readonly] |
 |**attachmentPreviewUrl** | **String** | [Read Only] Attachment preview url. |  [optional] [readonly] |
 |**attachmentToken** | **String** | Uploaded attachement token. |  [optional] |
+|**createdAt** | **String** |  |  [optional] |
+|**updatedAt** | **String** |  |  [optional] |
 
 
 ## Implemented Interfaces

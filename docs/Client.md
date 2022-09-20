@@ -30,7 +30,7 @@
 |**notes** | **String** | Extra notes. |  [optional] |
 |**defaultVat** | [**VatType**](VatType.md) |  |  [optional] |
 |**defaultPaymentTerms** | **Integer** |  |  [optional] |
-|**defaultPaymentTermsType** | **DefaultPaymentTermsType** |  |  [optional] |
+|**defaultPaymentTermsType** | **PaymentTermsType** |  |  [optional] |
 |**defaultPaymentMethod** | [**PaymentMethod**](PaymentMethod.md) |  |  [optional] |
 |**bankName** | **String** | Client bank name. |  [optional] |
 |**bankIban** | **String** | Client iban. |  [optional] |
@@ -41,8 +41,8 @@
 |**discountHighlight** | **Boolean** | Discount Highlight. |  [optional] |
 |**defaultDiscount** | **BigDecimal** | Default discount. |  [optional] |
 |**hasIntentDeclaration** | **Boolean** | Has intent declaration. |  [optional] |
-|**intentDeclarationProtocolNumber** | **LocalDate** | Intent declaration protocol number. |  [optional] |
-|**intentDeclarationProtocolDate** | **String** | Intent declaration protocol date. |  [optional] |
+|**intentDeclarationProtocolNumber** | **String** | Intent declaration protocol number. |  [optional] |
+|**intentDeclarationProtocolDate** | **LocalDate** | Intent declaration protocol date. |  [optional] |
 |**createdAt** | **String** |  |  [optional] |
 |**updatedAt** | **String** |  |  [optional] |
 

@@ -49,7 +49,6 @@ docs/CreateSupplierResponse.md
 docs/CreateVatTypeRequest.md
 docs/CreateVatTypeResponse.md
 docs/Currency.md
-docs/DefaultPaymentTermsType.md
 docs/DetailedCountry.md
 docs/DocumentTemplate.md
 docs/EInvoiceRejectionReason.md
@@ -179,6 +178,7 @@ docs/PaymentAccountType.md
 docs/PaymentMethod.md
 docs/PaymentMethodDetails.md
 docs/PaymentMethodType.md
+docs/PaymentTermsType.md
 docs/PermissionLevel.md
 docs/Permissions.md
 docs/PermissionsFicIssuedDocumentsDetailed.md
@@ -307,7 +307,6 @@ src/main/java/it/fattureincloud/sdk/model/CreateSupplierResponse.java
 src/main/java/it/fattureincloud/sdk/model/CreateVatTypeRequest.java
 src/main/java/it/fattureincloud/sdk/model/CreateVatTypeResponse.java
 src/main/java/it/fattureincloud/sdk/model/Currency.java
-src/main/java/it/fattureincloud/sdk/model/DefaultPaymentTermsType.java
 src/main/java/it/fattureincloud/sdk/model/DetailedCountry.java
 src/main/java/it/fattureincloud/sdk/model/DocumentTemplate.java
 src/main/java/it/fattureincloud/sdk/model/EInvoiceRejectionReason.java
@@ -434,6 +433,7 @@ src/main/java/it/fattureincloud/sdk/model/PaymentAccountType.java
 src/main/java/it/fattureincloud/sdk/model/PaymentMethod.java
 src/main/java/it/fattureincloud/sdk/model/PaymentMethodDetails.java
 src/main/java/it/fattureincloud/sdk/model/PaymentMethodType.java
+src/main/java/it/fattureincloud/sdk/model/PaymentTermsType.java
 src/main/java/it/fattureincloud/sdk/model/PermissionLevel.java
 src/main/java/it/fattureincloud/sdk/model/Permissions.java
 src/main/java/it/fattureincloud/sdk/model/PermissionsFicIssuedDocumentsDetailed.java
@@ -475,3 +475,4 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
+src/test/java/it/fattureincloud/sdk/model/PaymentTermsTypeTest.java

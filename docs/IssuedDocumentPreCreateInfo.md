@@ -20,6 +20,7 @@
 |**paymentMethodsList** | [**List&lt;PaymentMethod&gt;**](PaymentMethod.md) | Payment methods list. |  [optional] |
 |**paymentAccountsList** | [**List&lt;PaymentAccount&gt;**](PaymentAccount.md) | Payment accounts list. |  [optional] |
 |**vatTypesList** | [**List&lt;VatType&gt;**](VatType.md) | Vat types list. |  [optional] |
+|**languagesList** | [**List&lt;Language&gt;**](Language.md) | Languages list. |  [optional] |
 
 
 ## Implemented Interfaces

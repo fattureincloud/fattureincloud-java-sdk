@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.19
+  version: 2.0.20
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -15375,7 +15375,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -15383,7 +15383,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/Client'
@@ -15456,7 +15456,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -15464,7 +15464,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/Client'
@@ -15537,7 +15537,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -15545,7 +15545,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/Client'
@@ -15619,7 +15619,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -15627,7 +15627,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/Client'
@@ -15700,7 +15700,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -15708,7 +15708,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/Client'
@@ -16236,7 +16236,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16253,7 +16253,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -16363,7 +16363,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -16371,7 +16371,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
         options:
@@ -16555,7 +16555,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16572,7 +16572,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -16682,7 +16682,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -16690,7 +16690,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -16870,7 +16870,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -16887,7 +16887,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -16997,7 +16997,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -17005,7 +17005,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -17186,7 +17186,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17203,7 +17203,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -17313,7 +17313,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -17321,7 +17321,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
         options:
@@ -17505,7 +17505,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17522,7 +17522,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -17632,7 +17632,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -17640,7 +17640,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -17820,7 +17820,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -17837,7 +17837,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -17947,7 +17947,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -17955,7 +17955,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -18164,7 +18164,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           - amount: 1.45
@@ -18181,7 +18181,7 @@ components:
             id: 9
             payment_terms:
               days: 6
-              type: standard
+              type: null
             paid_date: 2018-04-03T00:00:00.000+00:00
             status: null
           h_margins: 8
@@ -18291,7 +18291,7 @@ components:
             last_name: last_name
             address_city: Bergamo
             tax_code: RSSMRA44A12E890Q
-            intent_declaration_protocol_number: 2000-01-23
+            intent_declaration_protocol_number: intent_declaration_protocol_number
             phone: phone
             address_street: "Via dei tigli, 12"
             e_invoice: true
@@ -18299,7 +18299,7 @@ components:
             default_payment_terms: 30
             certified_email: mario.rossi@pec.example.it
             has_intent_declaration: true
-            intent_declaration_protocol_date: intent_declaration_protocol_date
+            intent_declaration_protocol_date: 2000-01-23
           amount_cassa_taxable: 9.301444243932576
           amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -18439,6 +18439,11 @@ components:
             ts_pagamento_tracciato: true
             ts_communication: true
             ts_tipo_spesa: ts_tipo_spesa
+          languages_list:
+          - code: code
+            name: name
+          - code: code
+            name: name
           payment_accounts_list:
           - cuc: cuc
             virtual: true
@@ -18675,6 +18680,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -18714,6 +18720,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -18792,6 +18799,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -18831,6 +18839,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -18903,6 +18912,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -18942,6 +18952,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -19014,6 +19025,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -19053,6 +19065,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -19125,6 +19138,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -19164,6 +19178,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -19236,6 +19251,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -19275,6 +19291,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -19363,6 +19380,7 @@ components:
           attachment_preview_url: attachment_preview_url
           tax_deductibility: 3.616076749251911
           description: description
+          created_at: created_at
           amortization: 9.301444243932576
           type: null
           payments_list:
@@ -19402,6 +19420,7 @@ components:
           next_due_date: 2000-01-23
           rc_center: rc_center
           is_marked: true
+          updated_at: updated_at
           amount_vat: 5.962133916683182
           items_list:
           - code: code
@@ -21416,7 +21435,7 @@ components:
         last_name: last_name
         address_city: Bergamo
         tax_code: RSSMRA44A12E890Q
-        intent_declaration_protocol_number: 2000-01-23
+        intent_declaration_protocol_number: intent_declaration_protocol_number
         phone: phone
         address_street: "Via dei tigli, 12"
         e_invoice: true
@@ -21424,7 +21443,7 @@ components:
         default_payment_terms: 30
         certified_email: mario.rossi@pec.example.it
         has_intent_declaration: true
-        intent_declaration_protocol_date: intent_declaration_protocol_date
+        intent_declaration_protocol_date: 2000-01-23
       properties:
         id:
           description: Unique identifier
@@ -21521,7 +21540,7 @@ components:
           nullable: true
           type: integer
         default_payment_terms_type:
-          $ref: '#/components/schemas/DefaultPaymentTermsType'
+          $ref: '#/components/schemas/PaymentTermsType'
         default_payment_method:
           $ref: '#/components/schemas/PaymentMethod'
         bank_name:
@@ -21562,11 +21581,11 @@ components:
           type: boolean
         intent_declaration_protocol_number:
           description: Intent declaration protocol number.
-          format: date
           nullable: true
           type: string
         intent_declaration_protocol_date:
           description: Intent declaration protocol date.
+          format: date
           nullable: true
           type: string
         created_at:
@@ -22011,7 +22030,7 @@ components:
           id: 9
           payment_terms:
             days: 6
-            type: standard
+            type: null
           paid_date: 2018-04-03T00:00:00.000+00:00
           status: null
         - amount: 1.45
@@ -22028,7 +22047,7 @@ components:
           id: 9
           payment_terms:
             days: 6
-            type: standard
+            type: null
           paid_date: 2018-04-03T00:00:00.000+00:00
           status: null
         h_margins: 8
@@ -22138,7 +22157,7 @@ components:
           last_name: last_name
           address_city: Bergamo
           tax_code: RSSMRA44A12E890Q
-          intent_declaration_protocol_number: 2000-01-23
+          intent_declaration_protocol_number: intent_declaration_protocol_number
           phone: phone
           address_street: "Via dei tigli, 12"
           e_invoice: true
@@ -22146,7 +22165,7 @@ components:
           default_payment_terms: 30
           certified_email: mario.rossi@pec.example.it
           has_intent_declaration: true
-          intent_declaration_protocol_date: intent_declaration_protocol_date
+          intent_declaration_protocol_date: 2000-01-23
         amount_cassa_taxable: 9.301444243932576
         amount_cassa2_taxable: 7.386281948385884
       properties:
@@ -22696,6 +22715,11 @@ components:
           ts_pagamento_tracciato: true
           ts_communication: true
           ts_tipo_spesa: ts_tipo_spesa
+        languages_list:
+        - code: code
+          name: name
+        - code: code
+          name: name
         payment_accounts_list:
         - cuc: cuc
           virtual: true
@@ -22878,6 +22902,12 @@ components:
             $ref: '#/components/schemas/VatType'
           nullable: true
           type: array
+        languages_list:
+          description: Languages list.
+          items:
+            $ref: '#/components/schemas/Language'
+          nullable: true
+          type: array
       title: IssuedDocumentPreCreateInfo
       type: object
     EmailData:
@@ -23047,6 +23077,7 @@ components:
         attachment_preview_url: attachment_preview_url
         tax_deductibility: 3.616076749251911
         description: description
+        created_at: created_at
         amortization: 9.301444243932576
         type: null
         payments_list:
@@ -23086,6 +23117,7 @@ components:
         next_due_date: 2000-01-23
         rc_center: rc_center
         is_marked: true
+        updated_at: updated_at
         amount_vat: 5.962133916683182
         items_list:
         - code: code
@@ -23248,6 +23280,12 @@ components:
           type: string
         attachment_token:
           description: Uploaded attachement token.
+          nullable: true
+          type: string
+        created_at:
+          nullable: true
+          type: string
+        updated_at:
           nullable: true
           type: string
       title: ReceivedDocument
@@ -24242,13 +24280,13 @@ components:
       nullable: true
       title: ClientType
       type: string
-    DefaultPaymentTermsType:
+    PaymentTermsType:
       default: standard
-      description: Default payment terms.
+      description: Payment terms Type.
       enum:
       - standard
       - end_of_month
-      title: DefaultPaymentTermsType
+      title: PaymentTermsType
       type: string
     SupplierType:
       description: Supplier type.
@@ -24325,7 +24363,7 @@ components:
         last_name: last_name
         address_city: Bergamo
         tax_code: RSSMRA44A12E890Q
-        intent_declaration_protocol_number: 2000-01-23
+        intent_declaration_protocol_number: intent_declaration_protocol_number
         phone: phone
         address_street: "Via dei tigli, 12"
         e_invoice: true
@@ -24333,7 +24371,7 @@ components:
         default_payment_terms: 30
         certified_email: mario.rossi@pec.example.it
         has_intent_declaration: true
-        intent_declaration_protocol_date: intent_declaration_protocol_date
+        intent_declaration_protocol_date: 2000-01-23
       properties:
         id:
           description: Unique identifier
@@ -24431,7 +24469,7 @@ components:
           nullable: true
           type: integer
         default_payment_terms_type:
-          $ref: '#/components/schemas/DefaultPaymentTermsType'
+          $ref: '#/components/schemas/PaymentTermsType'
         default_payment_method:
           $ref: '#/components/schemas/PaymentMethod'
         bank_name:
@@ -24464,11 +24502,11 @@ components:
           type: boolean
         intent_declaration_protocol_number:
           description: "[Only for client]\nIntent declaration protocol number."
-          format: date
           nullable: true
           type: string
         intent_declaration_protocol_date:
           description: "[Only for client]\nIntent declaration protocol date."
+          format: date
           nullable: true
           type: string
         created_at:
@@ -24634,7 +24672,7 @@ components:
         id: 9
         payment_terms:
           days: 6
-          type: standard
+          type: null
         paid_date: 2018-04-03T00:00:00.000+00:00
         status: null
       properties:
@@ -25711,19 +25749,14 @@ components:
     IssuedDocumentPaymentsListItem_payment_terms:
       example:
         days: 6
-        type: standard
+        type: null
       properties:
         days:
           description: The number of days by which the payment must be made.
           nullable: true
           type: integer
         type:
-          description: Payment terms type.
-          enum:
-          - standard
-          - end_of_month
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/PaymentTermsType'
       type: object
     ReceivedDocumentPaymentsListItem_payment_terms:
       example:

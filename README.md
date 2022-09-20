@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.19
+- API version: 2.0.20
 
-- Build date: 2022-07-18T14:57:32.905Z[Etc/UTC]
+- Build date: 2022-09-20T06:22:23.527Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.11</version>
+  <version>2.0.12</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.11"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.12"
   }
 ```
 
@@ -240,7 +240,6 @@ Class | Method | HTTP request | Description
  - [CreateVatTypeRequest](docs/CreateVatTypeRequest.md)
  - [CreateVatTypeResponse](docs/CreateVatTypeResponse.md)
  - [Currency](docs/Currency.md)
- - [DefaultPaymentTermsType](docs/DefaultPaymentTermsType.md)
  - [DetailedCountry](docs/DetailedCountry.md)
  - [DocumentTemplate](docs/DocumentTemplate.md)
  - [EInvoiceRejectionReason](docs/EInvoiceRejectionReason.md)
@@ -367,6 +366,7 @@ Class | Method | HTTP request | Description
  - [PaymentMethod](docs/PaymentMethod.md)
  - [PaymentMethodDetails](docs/PaymentMethodDetails.md)
  - [PaymentMethodType](docs/PaymentMethodType.md)
+ - [PaymentTermsType](docs/PaymentTermsType.md)
  - [PermissionLevel](docs/PermissionLevel.md)
  - [Permissions](docs/Permissions.md)
  - [PermissionsFicIssuedDocumentsDetailed](docs/PermissionsFicIssuedDocumentsDetailed.md)

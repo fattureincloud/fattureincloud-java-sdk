@@ -1,6 +1,6 @@
 
 
-# DefaultPaymentTermsType
+# PaymentTermsType
 
 ## Enum
 
