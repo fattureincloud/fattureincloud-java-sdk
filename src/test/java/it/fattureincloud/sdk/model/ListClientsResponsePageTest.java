@@ -59,7 +59,7 @@ public class ListClientsResponsePageTest {
                                 .createdAt("2021-04-29 08:53:07")
                                 .updatedAt("2021-04-29 08:53:07")
                                 .defaultPaymentTerms(1)
-                                .defaultPaymentTermsType(DefaultPaymentTermsType.STANDARD)
+                                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
                                 .bankName("Indesa")
                                 .bankIban("IT40P123456781000000123456")
                                 .bankSwiftCode("AK86PCT")
