@@ -44,7 +44,7 @@ public class IssuedDocumentPaymentsListItemPaymentTermsTest {
     public void init() {
         model = new IssuedDocumentPaymentsListItemPaymentTerms()
                 .days(2)
-                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+                .type(PaymentTermsType.STANDARD);
     }
 
     /**
@@ -78,7 +78,7 @@ public class IssuedDocumentPaymentsListItemPaymentTermsTest {
         IssuedDocumentPaymentsListItemPaymentTerms o = model.days(2);
         IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
                 .days(2)
-                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+                .type(PaymentTermsType.STANDARD);
         assertEquals(expected, o);
     }
 
@@ -87,14 +87,14 @@ public class IssuedDocumentPaymentsListItemPaymentTermsTest {
      */
     @Test
     public void typeTest() {
-        assertEquals(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD, model.getType());
-        model.setType(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.END_OF_MONTH);
-        assertEquals(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.END_OF_MONTH, model.getType());
+        assertEquals(PaymentTermsType.STANDARD, model.getType());
+        model.setType(PaymentTermsType.END_OF_MONTH);
+        assertEquals(PaymentTermsType.END_OF_MONTH, model.getType());
 
-        IssuedDocumentPaymentsListItemPaymentTerms o = model.type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+        IssuedDocumentPaymentsListItemPaymentTerms o = model.type(PaymentTermsType.STANDARD);
         IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
                 .days(2)
-                .type(IssuedDocumentPaymentsListItemPaymentTerms.TypeEnum.STANDARD);
+                .type(PaymentTermsType.STANDARD);
         assertEquals(expected, o);
     }
 

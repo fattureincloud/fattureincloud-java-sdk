@@ -63,7 +63,7 @@ public class EntityTest {
                 .createdAt("2021-04-29 08:53:07")
                 .updatedAt("2021-04-29 08:53:07")
                 .defaultPaymentTerms(1)
-                .defaultPaymentTermsType(DefaultPaymentTermsType.STANDARD)
+                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
                 .bankName("Indesa")
                 .bankIban("IT40P123456781000000123456")
                 .bankSwiftCode("AK86PCT")
@@ -420,12 +420,12 @@ public class EntityTest {
      */
     @Test
     public void defaultPaymentTermsTypeTest() {
-        assertEquals(DefaultPaymentTermsType.STANDARD, model.getDefaultPaymentTermsType());
-        model.setDefaultPaymentTermsType(DefaultPaymentTermsType.END_OF_MONTH);
-        assertEquals(DefaultPaymentTermsType.END_OF_MONTH, model.getDefaultPaymentTermsType());
-        Entity e = model.defaultPaymentTermsType(DefaultPaymentTermsType.STANDARD);
+        assertEquals(PaymentTermsType.STANDARD, model.getDefaultPaymentTermsType());
+        model.setDefaultPaymentTermsType(PaymentTermsType.END_OF_MONTH);
+        assertEquals(PaymentTermsType.END_OF_MONTH, model.getDefaultPaymentTermsType());
+        Entity e = model.defaultPaymentTermsType(PaymentTermsType.STANDARD);
         Entity expected = new Entity();
-        expected.setDefaultPaymentTermsType(DefaultPaymentTermsType.STANDARD);
+        expected.setDefaultPaymentTermsType(PaymentTermsType.STANDARD);
         assertEquals(expected, e);
     }
 
