@@ -12,9 +12,11 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**getIssuedDocument**](IssuedDocumentsApi.md#getIssuedDocument) | **GET** /c/{company_id}/issued_documents/{document_id} | Get Issued Document |
 | [**getIssuedDocumentPreCreateInfo**](IssuedDocumentsApi.md#getIssuedDocumentPreCreateInfo) | **GET** /c/{company_id}/issued_documents/info | Get Issued Document Pre-create info |
 | [**getNewIssuedDocumentTotals**](IssuedDocumentsApi.md#getNewIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/totals | Get New Issued Document Totals |
+| [**joinIssuedDocuments**](IssuedDocumentsApi.md#joinIssuedDocuments) | **GET** /c/{company_id}/issued_documents/join | Join issued documents |
 | [**listIssuedDocuments**](IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents |
 | [**modifyIssuedDocument**](IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document |
 | [**scheduleEmail**](IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email |
+| [**transformIssuedDocument**](IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform issued document |
 | [**uploadIssuedDocumentAttachment**](IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment |
 
 
@@ -593,6 +595,80 @@ public class Example {
 | **401** | Unauthorized |  -  |
 
 
+## joinIssuedDocuments
+
+> JoinIssuedDocumentsResponse joinIssuedDocuments(companyId, ids, group, eInvoice)
+
+Join issued documents
+
+Joins issued documents.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    String ids = "1,2,3,4"; // String | Ids of the documents.
+    Integer group = 0; // Integer | Group items.
+    Integer eInvoice = 0; // Integer | New document e_invoice.
+    try {
+      JoinIssuedDocumentsResponse result = apiInstance.joinIssuedDocuments(companyId, ids, group, eInvoice);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#joinIssuedDocuments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **ids** | **String**| Ids of the documents. | |
+| **group** | **Integer**| Group items. | [optional] [enum: 0, 1] |
+| **eInvoice** | **Integer**| New document e_invoice. | [optional] [enum: 0, 1] |
+
+### Return type
+
+[**JoinIssuedDocumentsResponse**](JoinIssuedDocumentsResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Example response |  -  |
+
+
 ## listIssuedDocuments
 
 > ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q)
@@ -822,6 +898,82 @@ null (empty response body)
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+
+## transformIssuedDocument
+
+> TransformIssuedDocumentResponse transformIssuedDocument(companyId, originalDocumentId, newType, eInvoice, transformKeepCopy)
+
+Transform issued document
+
+Transforms the document.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    String originalDocumentId = "originalDocumentId_example"; // String | Original document id.
+    String newType = "newType_example"; // String | New document type.
+    Integer eInvoice = 0; // Integer | New document e_invoice.
+    Integer transformKeepCopy = 0; // Integer | Keep the old document.
+    try {
+      TransformIssuedDocumentResponse result = apiInstance.transformIssuedDocument(companyId, originalDocumentId, newType, eInvoice, transformKeepCopy);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#transformIssuedDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **originalDocumentId** | **String**| Original document id. | |
+| **newType** | **String**| New document type. | |
+| **eInvoice** | **Integer**| New document e_invoice. | [optional] [enum: 0, 1] |
+| **transformKeepCopy** | **Integer**| Keep the old document. | [optional] [enum: 0, 1] |
+
+### Return type
+
+[**TransformIssuedDocumentResponse**](TransformIssuedDocumentResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Example response |  -  |
 
 
 ## uploadIssuedDocumentAttachment
