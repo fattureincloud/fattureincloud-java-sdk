@@ -4,11 +4,11 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.20
+- API version: 2.0.21
 
-- Build date: 2022-09-20T06:22:23.527Z[Etc/UTC]
+- Build date: 2022-11-14T07:38:51.580Z[Etc/UTC]
 
-Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 400.000 businesses in Italy. 
+Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
 The Fatture in Cloud API is based on REST, and makes possible to interact with the user related data prior authorization via OAuth2 protocol.
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.12</version>
+  <version>2.0.13</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.12"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.13"
   }
 ```
 
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *ClientsApi* | [**listClients**](docs/ClientsApi.md#listClients) | **GET** /c/{company_id}/entities/clients | List Clients
 *ClientsApi* | [**modifyClient**](docs/ClientsApi.md#modifyClient) | **PUT** /c/{company_id}/entities/clients/{client_id} | Modify Client
 *CompaniesApi* | [**getCompanyInfo**](docs/CompaniesApi.md#getCompanyInfo) | **GET** /c/{company_id}/company/info | Get Company Info
+*EmailsApi* | [**listEmails**](docs/EmailsApi.md#listEmails) | **GET** /c/{company_id}/emails | List emails
 *InfoApi* | [**listArchiveCategories**](docs/InfoApi.md#listArchiveCategories) | **GET** /c/{company_id}/info/archive_categories | List Archive Categories
 *InfoApi* | [**listCities**](docs/InfoApi.md#listCities) | **GET** /info/cities | List Cities
 *InfoApi* | [**listCostCenters**](docs/InfoApi.md#listCostCenters) | **GET** /c/{company_id}/info/cost_centers | List Cost Centers
@@ -137,9 +138,11 @@ Class | Method | HTTP request | Description
 *IssuedDocumentsApi* | [**getIssuedDocument**](docs/IssuedDocumentsApi.md#getIssuedDocument) | **GET** /c/{company_id}/issued_documents/{document_id} | Get Issued Document
 *IssuedDocumentsApi* | [**getIssuedDocumentPreCreateInfo**](docs/IssuedDocumentsApi.md#getIssuedDocumentPreCreateInfo) | **GET** /c/{company_id}/issued_documents/info | Get Issued Document Pre-create info
 *IssuedDocumentsApi* | [**getNewIssuedDocumentTotals**](docs/IssuedDocumentsApi.md#getNewIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/totals | Get New Issued Document Totals
+*IssuedDocumentsApi* | [**joinIssuedDocuments**](docs/IssuedDocumentsApi.md#joinIssuedDocuments) | **GET** /c/{company_id}/issued_documents/join | Join issued documents
 *IssuedDocumentsApi* | [**listIssuedDocuments**](docs/IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
+*IssuedDocumentsApi* | [**transformIssuedDocument**](docs/IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform issued document
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
 *IssuedEInvoicesApi* | [**getEInvoiceRejectionReason**](docs/IssuedEInvoicesApi.md#getEInvoiceRejectionReason) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/error_reason | Get e-invoice rejection reason
 *IssuedEInvoicesApi* | [**getEInvoiceXml**](docs/IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get e-invoice XML
@@ -243,10 +246,14 @@ Class | Method | HTTP request | Description
  - [DetailedCountry](docs/DetailedCountry.md)
  - [DocumentTemplate](docs/DocumentTemplate.md)
  - [EInvoiceRejectionReason](docs/EInvoiceRejectionReason.md)
+ - [Email](docs/Email.md)
+ - [EmailAttachment](docs/EmailAttachment.md)
  - [EmailData](docs/EmailData.md)
  - [EmailDataDefaultSenderEmail](docs/EmailDataDefaultSenderEmail.md)
+ - [EmailRecipientStatus](docs/EmailRecipientStatus.md)
  - [EmailSchedule](docs/EmailSchedule.md)
  - [EmailScheduleInclude](docs/EmailScheduleInclude.md)
+ - [EmailStatus](docs/EmailStatus.md)
  - [Entity](docs/Entity.md)
  - [EntityType](docs/EntityType.md)
  - [F24](docs/F24.md)
@@ -296,6 +303,7 @@ Class | Method | HTTP request | Description
  - [IssuedDocumentStatus](docs/IssuedDocumentStatus.md)
  - [IssuedDocumentTotals](docs/IssuedDocumentTotals.md)
  - [IssuedDocumentType](docs/IssuedDocumentType.md)
+ - [JoinIssuedDocumentsResponse](docs/JoinIssuedDocumentsResponse.md)
  - [Language](docs/Language.md)
  - [ListArchiveCategoriesResponse](docs/ListArchiveCategoriesResponse.md)
  - [ListArchiveDocumentsResponse](docs/ListArchiveDocumentsResponse.md)
@@ -309,6 +317,8 @@ Class | Method | HTTP request | Description
  - [ListCurrenciesResponse](docs/ListCurrenciesResponse.md)
  - [ListDeliveryNotesDefaultCausalsResponse](docs/ListDeliveryNotesDefaultCausalsResponse.md)
  - [ListDetailedCountriesResponse](docs/ListDetailedCountriesResponse.md)
+ - [ListEmailsResponse](docs/ListEmailsResponse.md)
+ - [ListEmailsResponsePage](docs/ListEmailsResponsePage.md)
  - [ListF24Response](docs/ListF24Response.md)
  - [ListF24ResponseAggregatedData](docs/ListF24ResponseAggregatedData.md)
  - [ListF24ResponseAggregation](docs/ListF24ResponseAggregation.md)
@@ -394,6 +404,7 @@ Class | Method | HTTP request | Description
  - [ShowTotalsMode](docs/ShowTotalsMode.md)
  - [Supplier](docs/Supplier.md)
  - [SupplierType](docs/SupplierType.md)
+ - [TransformIssuedDocumentResponse](docs/TransformIssuedDocumentResponse.md)
  - [UploadArchiveAttachmentResponse](docs/UploadArchiveAttachmentResponse.md)
  - [UploadF24AttachmentResponse](docs/UploadF24AttachmentResponse.md)
  - [UploadIssuedDocumentAttachmentResponse](docs/UploadIssuedDocumentAttachmentResponse.md)
@@ -405,6 +416,7 @@ Class | Method | HTTP request | Description
  - [VatType](docs/VatType.md)
  - [VerifyEInvoiceXmlErrorResponse](docs/VerifyEInvoiceXmlErrorResponse.md)
  - [VerifyEInvoiceXmlErrorResponseError](docs/VerifyEInvoiceXmlErrorResponseError.md)
+ - [VerifyEInvoiceXmlErrorResponseErrorValidationResult](docs/VerifyEInvoiceXmlErrorResponseErrorValidationResult.md)
  - [VerifyEInvoiceXmlErrorResponseExtra](docs/VerifyEInvoiceXmlErrorResponseExtra.md)
  - [VerifyEInvoiceXmlResponse](docs/VerifyEInvoiceXmlResponse.md)
  - [VerifyEInvoiceXmlResponseData](docs/VerifyEInvoiceXmlResponseData.md)
@@ -433,6 +445,9 @@ Authentication schemes defined for the API:
   - **issued_documents.quotes:r**: Read permission to the issued Quotes
   - **issued_documents.proformas:r**: Read permission to the issued Proformas
   - **issued_documents.delivery_notes:r**: Read permission to the issued Delivery Notes
+  - **issued_documents.work_reports:r**: Read permission to the issued Work Reports
+  - **issued_documents.supplier_orders:r**: Read permission to the issued Supplier Orders
+  - **issued_documents.self_invoices:r**: Read permission to the issued Self Invoices
   - **issued_documents.invoices:a**: Write permission to the issued Invoices
   - **issued_documents.credit_notes:a**: Write permission to the issued Credit Notes
   - **issued_documents.receipts:a**: Write permission to the issued issued Receipts
@@ -440,6 +455,9 @@ Authentication schemes defined for the API:
   - **issued_documents.quotes:a**: Write permission to the issued Quotes
   - **issued_documents.proformas:a**: Write permission to the issued Proformas
   - **issued_documents.delivery_notes:a**: Write permission to the issued Delivery Notes
+  - **issued_documents.work_reports:a**: Write permission to the issued Work Reports
+  - **issued_documents.supplier_orders:a**: Write permission to the issued Supplier Orders
+  - **issued_documents.self_invoices:a**: Write permission to the issued Self Invoices
   - **received_documents:r**: Read permission to the Received Documents
   - **received_documents:a**: Write permission to the Received Documents
   - **stock:r**: Read permission to the Stock movements
