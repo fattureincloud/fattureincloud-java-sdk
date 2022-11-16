@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,24 +23,48 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult
  */
 public class VerifyEInvoiceXmlErrorResponseErrorValidationResultTest {
-    private final VerifyEInvoiceXmlErrorResponseErrorValidationResult model = new VerifyEInvoiceXmlErrorResponseErrorValidationResult();
+    private VerifyEInvoiceXmlErrorResponseErrorValidationResult model;
+
+    @BeforeEach
+    public void init() {
+        model = new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
+                .xmlErrors(Arrays.asList("uan", "tu"));
+    }
 
     /**
      * Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult
      */
     @Test
     public void testVerifyEInvoiceXmlErrorResponseErrorValidationResult() {
-        // TODO: test VerifyEInvoiceXmlErrorResponseErrorValidationResult
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"xml_errors\":[\"uan\",\"tu\"]}";
+        assertEquals(str, json);
+        VerifyEInvoiceXmlErrorResponseErrorValidationResult generated = gson.fromJson(str, VerifyEInvoiceXmlErrorResponseErrorValidationResult.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -47,7 +72,14 @@ public class VerifyEInvoiceXmlErrorResponseErrorValidationResultTest {
      */
     @Test
     public void xmlErrorsTest() {
-        // TODO: test xmlErrors
+        assertEquals(Arrays.asList("uan", "tu"), model.getXmlErrors());
+        model.setXmlErrors(Arrays.asList("tri", "for"));
+        assertEquals(Arrays.asList("tri", "for"), model.getXmlErrors());
+
+        VerifyEInvoiceXmlErrorResponseErrorValidationResult c = model.xmlErrors(Arrays.asList("faiv", "sics"));
+        VerifyEInvoiceXmlErrorResponseErrorValidationResult expected = new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
+                .xmlErrors(Arrays.asList("faiv", "sics"));
+        assertEquals(expected, c);
     }
 
 }

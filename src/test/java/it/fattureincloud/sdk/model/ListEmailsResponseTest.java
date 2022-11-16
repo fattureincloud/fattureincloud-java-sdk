@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -20,28 +21,103 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.Email;
 import java.io.IOException;
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListEmailsResponse
  */
 public class ListEmailsResponseTest {
-    private final ListEmailsResponse model = new ListEmailsResponse();
+    private ListEmailsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model = new ListEmailsResponse()
+                .data(
+                        Arrays.asList(
+                                new Email()
+                                        .id(1)
+                                        .status(EmailStatus.SENT)
+                                        .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                                        .errorsCount(0)
+                                        .errorLog("")
+                                        .fromEmail("test@mail.it")
+                                        .fromName("Test mail")
+                                        .toEmail("mail@test.it")
+                                        .toName("Mario")
+                                        .subject("Test")
+                                        .content("Test send email")
+                                        .copyTo("")
+                                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                                        .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                                        .kind("Fatture")
+                                        .attachments(new ArrayList<>()),
+                                new Email()
+                                        .id(2)
+                                        .status(EmailStatus.SENT)
+                                        .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                                        .errorsCount(0)
+                                        .errorLog("")
+                                        .fromEmail("test@mail.it")
+                                        .fromName("Test mail")
+                                        .toEmail("mail@test.it")
+                                        .toName("Mario")
+                                        .subject("Test")
+                                        .content("Test send email")
+                                        .copyTo("")
+                                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                                        .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                                        .kind("Fatture")
+                                        .attachments(new ArrayList<>())
+                        )
+                )
+                .currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+    }
 
     /**
      * Model tests for ListEmailsResponse
      */
     @Test
     public void testListEmailsResponse() {
-        // TODO: test ListEmailsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":1,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test send email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]},{\"id\":2,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test send email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]}]}";
+        assertEquals(str, json);
+        ListEmailsResponse generated = gson.fromJson(str, ListEmailsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -49,7 +125,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void currentPageTest() {
-        // TODO: test currentPage
+        assertEquals(10, model.getCurrentPage());
+        model.setCurrentPage(1);
+        assertEquals(1, model.getCurrentPage());
     }
 
     /**
@@ -57,7 +135,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void firstPageUrlTest() {
-        // TODO: test firstPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
+        model.setFirstPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
     }
 
     /**
@@ -65,7 +145,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void fromTest() {
-        // TODO: test from
+        assertEquals(10, model.getFrom());
+        model.setFrom(1);
+        assertEquals(1, model.getFrom());
     }
 
     /**
@@ -73,7 +155,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void lastPageTest() {
-        // TODO: test lastPage
+        assertEquals(10, model.getLastPage());
+        model.setLastPage(1);
+        assertEquals(1, model.getLastPage());
     }
 
     /**
@@ -81,7 +165,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void lastPageUrlTest() {
-        // TODO: test lastPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
+        model.setLastPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
     }
 
     /**
@@ -89,7 +175,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void nextPageUrlTest() {
-        // TODO: test nextPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
+        model.setNextPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
     }
 
     /**
@@ -97,7 +185,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void pathTest() {
-        // TODO: test path
+        assertEquals(URI.create("https://www.page.url/"), model.getPath());
+        model.setPath(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPath());
     }
 
     /**
@@ -105,7 +195,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void perPageTest() {
-        // TODO: test perPage
+        assertEquals(10, model.getPerPage());
+        model.setPerPage(1);
+        assertEquals(1, model.getPerPage());
     }
 
     /**
@@ -113,7 +205,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void prevPageUrlTest() {
-        // TODO: test prevPageUrl
+        assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
+        model.setPrevPageUrl(URI.create("https://www.page2.url/"));
+        assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
     }
 
     /**
@@ -121,7 +215,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void toTest() {
-        // TODO: test to
+        assertEquals(10, model.getTo());
+        model.setTo(1);
+        assertEquals(1, model.getTo());
     }
 
     /**
@@ -129,7 +225,9 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void totalTest() {
-        // TODO: test total
+        assertEquals(10, model.getTotal());
+        model.setTotal(1);
+        assertEquals(1, model.getTotal());
     }
 
     /**
@@ -137,7 +235,25 @@ public class ListEmailsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(1, model.getData().get(0).getId());
+        model.setData(Arrays.asList(new Email().id(3)));
+        assertEquals(3, model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new Email().id(2)));
+        ListEmailsResponse actual = new ListEmailsResponse();
+        actual.setData(Arrays.asList(new Email().id(2)));
+        actual.currentPage(10)
+                .firstPageUrl(URI.create("https://www.page.url/"))
+                .from(10)
+                .lastPage(10)
+                .lastPageUrl(URI.create("https://www.page.url/"))
+                .nextPageUrl(URI.create("https://www.page.url/"))
+                .path(URI.create("https://www.page.url/"))
+                .perPage(10)
+                .prevPageUrl(URI.create("https://www.page.url/"))
+                .to(10)
+                .total(10);
+        assertEquals(model, actual);
     }
 
 }

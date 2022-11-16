@@ -13,6 +13,7 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -20,29 +21,73 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.EmailAttachment;
 import it.fattureincloud.sdk.model.EmailRecipientStatus;
 import it.fattureincloud.sdk.model.EmailStatus;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for Email
  */
 public class EmailTest {
-    private final Email model = new Email();
+    private Email model;
+
+    @BeforeEach
+    public void init() {
+        model = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+    }
 
     /**
      * Model tests for Email
      */
     @Test
     public void testEmail() {
-        // TODO: test Email
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"id\":1,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test send email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]}";
+        assertEquals(str, json);
+        Email generated = gson.fromJson(str, Email.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +95,29 @@ public class EmailTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(1, model.getId());
+        model.setId(3);
+        assertEquals(3, model.getId());
+
+        Email e = model.id(69);
+        Email expected = new Email()
+                .id(69)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -58,7 +125,29 @@ public class EmailTest {
      */
     @Test
     public void statusTest() {
-        // TODO: test status
+        assertEquals(EmailStatus.SENT, model.getStatus());
+        model.setStatus(EmailStatus.PENDING);
+        assertEquals(EmailStatus.PENDING, model.getStatus());
+
+        Email e = model.status(EmailStatus.SENDING);
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENDING)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -66,7 +155,29 @@ public class EmailTest {
      */
     @Test
     public void sentDateTest() {
-        // TODO: test sentDate
+        assertEquals(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC), model.getSentDate());
+        model.setSentDate(OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC));
+        assertEquals(OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC), model.getSentDate());
+
+        Email e = model.sentDate(OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC));
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -74,7 +185,29 @@ public class EmailTest {
      */
     @Test
     public void errorsCountTest() {
-        // TODO: test errorsCount
+        assertEquals(0, model.getErrorsCount());
+        model.setErrorsCount(3);
+        assertEquals(3, model.getErrorsCount());
+
+        Email e = model.errorsCount(69);
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(69)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -82,7 +215,29 @@ public class EmailTest {
      */
     @Test
     public void errorLogTest() {
-        // TODO: test errorLog
+        assertEquals("", model.getErrorLog());
+        model.setErrorLog("3");
+        assertEquals("3", model.getErrorLog());
+
+        Email e = model.errorLog("69");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("69")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -90,7 +245,29 @@ public class EmailTest {
      */
     @Test
     public void fromEmailTest() {
-        // TODO: test fromEmail
+        assertEquals("test@mail.it", model.getFromEmail());
+        model.setFromEmail("test@email.it");
+        assertEquals("test@email.it", model.getFromEmail());
+
+        Email e = model.fromEmail("teste@mail.it");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("teste@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -98,7 +275,29 @@ public class EmailTest {
      */
     @Test
     public void fromNameTest() {
-        // TODO: test fromName
+        assertEquals("Test mail", model.getFromName());
+        model.setFromName("Test email");
+        assertEquals("Test email", model.getFromName());
+
+        Email e = model.fromName("Teste mail");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Teste mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -106,7 +305,29 @@ public class EmailTest {
      */
     @Test
     public void toEmailTest() {
-        // TODO: test toEmail
+        assertEquals("mail@test.it", model.getToEmail());
+        model.setToEmail("mail@teste.it");
+        assertEquals("mail@teste.it", model.getToEmail());
+
+        Email e = model.toEmail("maile@test.it");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("maile@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -114,7 +335,29 @@ public class EmailTest {
      */
     @Test
     public void toNameTest() {
-        // TODO: test toName
+        assertEquals("Mario", model.getToName());
+        model.setToName("Monty");
+        assertEquals("Monty", model.getToName());
+
+        Email e = model.toName("Mario Monty");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario Monty")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -122,7 +365,29 @@ public class EmailTest {
      */
     @Test
     public void subjectTest() {
-        // TODO: test subject
+        assertEquals("Test", model.getSubject());
+        model.setSubject("ensi");
+        assertEquals("ensi", model.getSubject());
+
+        Email e = model.subject("capo della scena");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("capo della scena")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -130,7 +395,29 @@ public class EmailTest {
      */
     @Test
     public void contentTest() {
-        // TODO: test content
+        assertEquals("Test send email", model.getContent());
+        model.setContent("You won a million paraguayan guarans");
+        assertEquals("You won a million paraguayan guarans", model.getContent());
+
+        Email e = model.content("You won a million slaps");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("You won a million slaps")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -138,7 +425,29 @@ public class EmailTest {
      */
     @Test
     public void copyToTest() {
-        // TODO: test copyTo
+        assertEquals("", model.getCopyTo());
+        model.setCopyTo("3");
+        assertEquals("3", model.getCopyTo());
+
+        Email e = model.copyTo("69");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("69")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -146,7 +455,29 @@ public class EmailTest {
      */
     @Test
     public void recipientStatusTest() {
-        // TODO: test recipientStatus
+        assertEquals(EmailRecipientStatus.UNKNOWN, model.getRecipientStatus());
+        model.setRecipientStatus(EmailRecipientStatus.DOCUMENT_OPENED);
+        assertEquals(EmailRecipientStatus.DOCUMENT_OPENED, model.getRecipientStatus());
+
+        Email e = model.recipientStatus(EmailRecipientStatus.EMAIL_OPENED);
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.EMAIL_OPENED)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -154,7 +485,29 @@ public class EmailTest {
      */
     @Test
     public void recipientDateTest() {
-        // TODO: test recipientDate
+        assertEquals(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC), model.getRecipientDate());
+        model.setRecipientDate(OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC));
+        assertEquals(OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC), model.getRecipientDate());
+
+        Email e = model.recipientDate(OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC));
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -162,7 +515,29 @@ public class EmailTest {
      */
     @Test
     public void kindTest() {
-        // TODO: test kind
+        assertEquals("Fatture", model.getKind());
+        model.setKind("Acquisti");
+        assertEquals("Acquisti", model.getKind());
+
+        Email e = model.kind("Ricevute");
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Ricevute")
+                .attachments(new ArrayList<>());
+        assertEquals(expected, e);
     }
 
     /**
@@ -170,7 +545,39 @@ public class EmailTest {
      */
     @Test
     public void attachmentsTest() {
-        // TODO: test attachments
+        EmailAttachment ea = new EmailAttachment()
+                .filename("failneim")
+                .url("www.joshua.cat");
+
+        assertEquals(Collections.emptyList(), model.getAttachments());
+        List<EmailAttachment> e1 = Arrays.asList(ea);
+        model.setAttachments(e1);
+        assertEquals(e1, model.getAttachments());
+
+        List<EmailAttachment> e2 = Arrays.asList(ea, new EmailAttachment()
+                .filename("failneim2")
+                .url("www.joshua.dog")
+        );
+
+        Email e = model.attachments(e2);
+        Email expected = new Email()
+                .id(1)
+                .status(EmailStatus.SENT)
+                .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .errorsCount(0)
+                .errorLog("")
+                .fromEmail("test@mail.it")
+                .fromName("Test mail")
+                .toEmail("mail@test.it")
+                .toName("Mario")
+                .subject("Test")
+                .content("Test send email")
+                .copyTo("")
+                .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                .kind("Fatture")
+                .attachments(e2);
+        assertEquals(expected, e);
     }
 
 }

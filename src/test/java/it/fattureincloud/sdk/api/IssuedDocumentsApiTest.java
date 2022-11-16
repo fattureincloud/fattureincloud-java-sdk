@@ -405,4 +405,65 @@ public class IssuedDocumentsApiTest {
         Mockito.verify(mockCall, Mockito.only()).execute();
     }
 
+    /**
+     * Transform issued document
+     * <p>
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void transformIssuedDocumentAttachmentTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"show_totals\":\"all\"},\"options\":{\"create_from\":[\"82112399\"],\"transform\":true,\"keep_copy\":true}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        IssuedDocumentsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        TransformIssuedDocumentResponse expected = new TransformIssuedDocumentResponse()
+                .data(
+                        new IssuedDocument()
+                                .id(12345)
+                                .type(IssuedDocumentType.INVOICE)
+                )
+                .options(
+                        new IssuedDocumentOptions()
+                                .createFrom(Arrays.asList("82112399"))
+                                .transform(true)
+                                .keepCopy(true)
+                );
+
+        TransformIssuedDocumentResponse response = api.transformIssuedDocument(companyId, 2, "proforma", 1, 1);
+
+        assertEquals(expected.getData(), response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+    }
+
+    /**
+     * Join issued documents
+     * <p>
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void joinIssuedDocumentAttachmentTest() throws ApiException, IOException {
+        String result = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"show_totals\":\"all\"},\"options\":{\"create_from\":[\"82112399\",\"82112400\"]}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        IssuedDocumentsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 11111;
+        JoinIssuedDocumentsResponse expected = new JoinIssuedDocumentsResponse()
+                .data(
+                        new IssuedDocument()
+                                .id(12345)
+                                .type(IssuedDocumentType.INVOICE)
+                )
+                .options(
+                        new IssuedDocumentOptions()
+                                .createFrom(Arrays.asList("82112399", "82112400"))
+                );
+
+        JoinIssuedDocumentsResponse response = api.joinIssuedDocuments(companyId, "1234,4321", 1, 1);
+
+        assertEquals(expected.getData(), response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+    }
 }

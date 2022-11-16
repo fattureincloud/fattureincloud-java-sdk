@@ -13,10 +13,15 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import io.swagger.annotations.ApiModel;
 import com.google.gson.annotations.SerializedName;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -28,7 +33,32 @@ public class EmailRecipientStatusTest {
      */
     @Test
     public void testEmailRecipientStatus() {
-        // TODO: test EmailRecipientStatus
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"email_opened\"", gson.toJson(EmailRecipientStatus.EMAIL_OPENED));
+        assertEquals("\"document_opened\"", gson.toJson(EmailRecipientStatus.DOCUMENT_OPENED));
+        assertEquals("\"unknown\"", gson.toJson(EmailRecipientStatus.UNKNOWN));
+
+        assertEquals(EmailRecipientStatus.EMAIL_OPENED, gson.fromJson("\"email_opened\"", EmailRecipientStatus.class));
+        assertEquals(EmailRecipientStatus.DOCUMENT_OPENED, gson.fromJson("\"document_opened\"", EmailRecipientStatus.class));
+        assertEquals(EmailRecipientStatus.UNKNOWN, gson.fromJson("\"unknown\"", EmailRecipientStatus.class));
+
+        assertEquals("email_opened", EmailRecipientStatus.EMAIL_OPENED.getValue());
+        assertEquals("document_opened", EmailRecipientStatus.DOCUMENT_OPENED.getValue());
+        assertEquals("unknown", EmailRecipientStatus.UNKNOWN.getValue());
+
+        assertEquals("email_opened", EmailRecipientStatus.EMAIL_OPENED.toString());
+        assertEquals("document_opened", EmailRecipientStatus.DOCUMENT_OPENED.toString());
+        assertEquals("unknown", EmailRecipientStatus.UNKNOWN.toString());
+
+        assertEquals(EmailRecipientStatus.EMAIL_OPENED, EmailRecipientStatus.fromValue("email_opened"));
+        assertEquals(EmailRecipientStatus.DOCUMENT_OPENED, EmailRecipientStatus.fromValue("document_opened"));
+        assertEquals(EmailRecipientStatus.UNKNOWN, EmailRecipientStatus.fromValue("unknown"));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            EmailRecipientStatus.fromValue("Evil Joshua");
+        });
     }
 
 }

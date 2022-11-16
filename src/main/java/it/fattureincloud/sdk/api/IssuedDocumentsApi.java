@@ -2372,7 +2372,7 @@ public class IssuedDocumentsApi {
    */
   public okhttp3.Call transformIssuedDocumentCall(
       Integer companyId,
-      String originalDocumentId,
+      Integer originalDocumentId,
       String newType,
       Integer eInvoice,
       Integer transformKeepCopy,
@@ -2455,7 +2455,7 @@ public class IssuedDocumentsApi {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call transformIssuedDocumentValidateBeforeCall(
       Integer companyId,
-      String originalDocumentId,
+      Integer originalDocumentId,
       String newType,
       Integer eInvoice,
       Integer transformKeepCopy,
@@ -2506,7 +2506,7 @@ public class IssuedDocumentsApi {
    */
   public TransformIssuedDocumentResponse transformIssuedDocument(
       Integer companyId,
-      String originalDocumentId,
+      Integer originalDocumentId,
       String newType,
       Integer eInvoice,
       Integer transformKeepCopy)
@@ -2537,7 +2537,7 @@ public class IssuedDocumentsApi {
    */
   public ApiResponse<TransformIssuedDocumentResponse> transformIssuedDocumentWithHttpInfo(
       Integer companyId,
-      String originalDocumentId,
+      Integer originalDocumentId,
       String newType,
       Integer eInvoice,
       Integer transformKeepCopy)
@@ -2569,7 +2569,7 @@ public class IssuedDocumentsApi {
    */
   public okhttp3.Call transformIssuedDocumentAsync(
       Integer companyId,
-      String originalDocumentId,
+      Integer originalDocumentId,
       String newType,
       Integer eInvoice,
       Integer transformKeepCopy,

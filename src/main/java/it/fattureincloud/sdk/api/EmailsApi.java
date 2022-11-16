@@ -77,7 +77,7 @@ public class EmailsApi {
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call listEmailsCall(String companyId, final ApiCallback _callback)
+  public okhttp3.Call listEmailsCall(Integer companyId, final ApiCallback _callback)
       throws ApiException {
     String basePath = null;
     // Operation Servers
@@ -136,7 +136,7 @@ public class EmailsApi {
   }
 
   @SuppressWarnings("rawtypes")
-  private okhttp3.Call listEmailsValidateBeforeCall(String companyId, final ApiCallback _callback)
+  private okhttp3.Call listEmailsValidateBeforeCall(Integer companyId, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'companyId' is set
@@ -163,7 +163,7 @@ public class EmailsApi {
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
    */
-  public ListEmailsResponse listEmails(String companyId) throws ApiException {
+  public ListEmailsResponse listEmails(Integer companyId) throws ApiException {
     ApiResponse<ListEmailsResponse> localVarResp = listEmailsWithHttpInfo(companyId);
     return localVarResp.getData();
   }
@@ -182,7 +182,7 @@ public class EmailsApi {
    * <tr><td> 200 </td><td> Example response </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<ListEmailsResponse> listEmailsWithHttpInfo(String companyId)
+  public ApiResponse<ListEmailsResponse> listEmailsWithHttpInfo(Integer companyId)
       throws ApiException {
     okhttp3.Call localVarCall = listEmailsValidateBeforeCall(companyId, null);
     Type localVarReturnType = new TypeToken<ListEmailsResponse>() {}.getType();
@@ -204,7 +204,7 @@ public class EmailsApi {
    * </table>
    */
   public okhttp3.Call listEmailsAsync(
-      String companyId, final ApiCallback<ListEmailsResponse> _callback) throws ApiException {
+      Integer companyId, final ApiCallback<ListEmailsResponse> _callback) throws ApiException {
 
     okhttp3.Call localVarCall = listEmailsValidateBeforeCall(companyId, _callback);
     Type localVarReturnType = new TypeToken<ListEmailsResponse>() {}.getType();
