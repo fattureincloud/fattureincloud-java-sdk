@@ -52,10 +52,15 @@ docs/Currency.md
 docs/DetailedCountry.md
 docs/DocumentTemplate.md
 docs/EInvoiceRejectionReason.md
+docs/Email.md
+docs/EmailAttachment.md
 docs/EmailData.md
 docs/EmailDataDefaultSenderEmail.md
+docs/EmailRecipientStatus.md
 docs/EmailSchedule.md
 docs/EmailScheduleInclude.md
+docs/EmailStatus.md
+docs/EmailsApi.md
 docs/Entity.md
 docs/EntityType.md
 docs/F24.md
@@ -108,6 +113,7 @@ docs/IssuedDocumentTotals.md
 docs/IssuedDocumentType.md
 docs/IssuedDocumentsApi.md
 docs/IssuedEInvoicesApi.md
+docs/JoinIssuedDocumentsResponse.md
 docs/Language.md
 docs/ListArchiveCategoriesResponse.md
 docs/ListArchiveDocumentsResponse.md
@@ -121,6 +127,8 @@ docs/ListCountriesResponse.md
 docs/ListCurrenciesResponse.md
 docs/ListDeliveryNotesDefaultCausalsResponse.md
 docs/ListDetailedCountriesResponse.md
+docs/ListEmailsResponse.md
+docs/ListEmailsResponsePage.md
 docs/ListF24Response.md
 docs/ListF24ResponseAggregatedData.md
 docs/ListF24ResponseAggregation.md
@@ -212,6 +220,7 @@ docs/Supplier.md
 docs/SupplierType.md
 docs/SuppliersApi.md
 docs/TaxesApi.md
+docs/TransformIssuedDocumentResponse.md
 docs/UploadArchiveAttachmentResponse.md
 docs/UploadF24AttachmentResponse.md
 docs/UploadIssuedDocumentAttachmentResponse.md
@@ -224,6 +233,7 @@ docs/VatKind.md
 docs/VatType.md
 docs/VerifyEInvoiceXmlErrorResponse.md
 docs/VerifyEInvoiceXmlErrorResponseError.md
+docs/VerifyEInvoiceXmlErrorResponseErrorValidationResult.md
 docs/VerifyEInvoiceXmlErrorResponseExtra.md
 docs/VerifyEInvoiceXmlResponse.md
 docs/VerifyEInvoiceXmlResponseData.md
@@ -251,6 +261,7 @@ src/main/java/it/fattureincloud/sdk/api/ArchiveApi.java
 src/main/java/it/fattureincloud/sdk/api/CashbookApi.java
 src/main/java/it/fattureincloud/sdk/api/ClientsApi.java
 src/main/java/it/fattureincloud/sdk/api/CompaniesApi.java
+src/main/java/it/fattureincloud/sdk/api/EmailsApi.java
 src/main/java/it/fattureincloud/sdk/api/InfoApi.java
 src/main/java/it/fattureincloud/sdk/api/IssuedDocumentsApi.java
 src/main/java/it/fattureincloud/sdk/api/IssuedEInvoicesApi.java
@@ -310,10 +321,14 @@ src/main/java/it/fattureincloud/sdk/model/Currency.java
 src/main/java/it/fattureincloud/sdk/model/DetailedCountry.java
 src/main/java/it/fattureincloud/sdk/model/DocumentTemplate.java
 src/main/java/it/fattureincloud/sdk/model/EInvoiceRejectionReason.java
+src/main/java/it/fattureincloud/sdk/model/Email.java
+src/main/java/it/fattureincloud/sdk/model/EmailAttachment.java
 src/main/java/it/fattureincloud/sdk/model/EmailData.java
 src/main/java/it/fattureincloud/sdk/model/EmailDataDefaultSenderEmail.java
+src/main/java/it/fattureincloud/sdk/model/EmailRecipientStatus.java
 src/main/java/it/fattureincloud/sdk/model/EmailSchedule.java
 src/main/java/it/fattureincloud/sdk/model/EmailScheduleInclude.java
+src/main/java/it/fattureincloud/sdk/model/EmailStatus.java
 src/main/java/it/fattureincloud/sdk/model/Entity.java
 src/main/java/it/fattureincloud/sdk/model/EntityType.java
 src/main/java/it/fattureincloud/sdk/model/F24.java
@@ -363,6 +378,7 @@ src/main/java/it/fattureincloud/sdk/model/IssuedDocumentPreCreateInfoItemsDefaul
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentStatus.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentTotals.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentType.java
+src/main/java/it/fattureincloud/sdk/model/JoinIssuedDocumentsResponse.java
 src/main/java/it/fattureincloud/sdk/model/Language.java
 src/main/java/it/fattureincloud/sdk/model/ListArchiveCategoriesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListArchiveDocumentsResponse.java
@@ -376,6 +392,8 @@ src/main/java/it/fattureincloud/sdk/model/ListCountriesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListCurrenciesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListDeliveryNotesDefaultCausalsResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListDetailedCountriesResponse.java
+src/main/java/it/fattureincloud/sdk/model/ListEmailsResponse.java
+src/main/java/it/fattureincloud/sdk/model/ListEmailsResponsePage.java
 src/main/java/it/fattureincloud/sdk/model/ListF24Response.java
 src/main/java/it/fattureincloud/sdk/model/ListF24ResponseAggregatedData.java
 src/main/java/it/fattureincloud/sdk/model/ListF24ResponseAggregation.java
@@ -461,6 +479,7 @@ src/main/java/it/fattureincloud/sdk/model/SenderEmail.java
 src/main/java/it/fattureincloud/sdk/model/ShowTotalsMode.java
 src/main/java/it/fattureincloud/sdk/model/Supplier.java
 src/main/java/it/fattureincloud/sdk/model/SupplierType.java
+src/main/java/it/fattureincloud/sdk/model/TransformIssuedDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadArchiveAttachmentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadF24AttachmentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadIssuedDocumentAttachmentResponse.java
@@ -472,7 +491,17 @@ src/main/java/it/fattureincloud/sdk/model/VatKind.java
 src/main/java/it/fattureincloud/sdk/model/VatType.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseError.java
+src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorValidationResult.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
-src/test/java/it/fattureincloud/sdk/model/PaymentTermsTypeTest.java
+src/test/java/it/fattureincloud/sdk/api/EmailsApiTest.java
+src/test/java/it/fattureincloud/sdk/model/EmailAttachmentTest.java
+src/test/java/it/fattureincloud/sdk/model/EmailRecipientStatusTest.java
+src/test/java/it/fattureincloud/sdk/model/EmailStatusTest.java
+src/test/java/it/fattureincloud/sdk/model/EmailTest.java
+src/test/java/it/fattureincloud/sdk/model/JoinIssuedDocumentsResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/ListEmailsResponsePageTest.java
+src/test/java/it/fattureincloud/sdk/model/ListEmailsResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/TransformIssuedDocumentResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorValidationResultTest.java

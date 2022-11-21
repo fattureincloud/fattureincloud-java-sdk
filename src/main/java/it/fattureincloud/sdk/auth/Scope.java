@@ -41,6 +41,15 @@ public enum Scope {
   // Read permission to the issued Delivery Notes
   ISSUED_DOCUMENTS_DELIVERY_NOTES_READ("issued_documents.delivery_notes:r"),
 
+  // Read permission to the issued Work Reports
+  ISSUED_DOCUMENTS_WORK_REPORTS_READ("issued_documents.work_reports:r"),
+
+  // Read permission to the issued Supplier Orders
+  ISSUED_DOCUMENTS_SUPPLIER_ORDERS_READ("issued_documents.supplier_orders:r"),
+
+  // Read permission to the issued Self Invoices
+  ISSUED_DOCUMENTS_SELF_INVOICES_READ("issued_documents.self_invoices:r"),
+
   // Write permission to the issued Invoices
   ISSUED_DOCUMENTS_INVOICES_ALL("issued_documents.invoices:a"),
 
@@ -61,6 +70,15 @@ public enum Scope {
 
   // Write permission to the issued Delivery Notes
   ISSUED_DOCUMENTS_DELIVERY_NOTES_ALL("issued_documents.delivery_notes:a"),
+
+  // Write permission to the issued Work Reports
+  ISSUED_DOCUMENTS_WORK_REPORTS_ALL("issued_documents.work_reports:a"),
+
+  // Write permission to the issued Supplier Orders
+  ISSUED_DOCUMENTS_SUPPLIER_ORDERS_ALL("issued_documents.supplier_orders:a"),
+
+  // Write permission to the issued Self Invoices
+  ISSUED_DOCUMENTS_SELF_INVOICES_ALL("issued_documents.self_invoices:a"),
 
   // Read permission to the Received Documents
   RECEIVED_DOCUMENTS_READ("received_documents:r"),
