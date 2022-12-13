@@ -495,13 +495,3 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorVal
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
-src/test/java/it/fattureincloud/sdk/api/EmailsApiTest.java
-src/test/java/it/fattureincloud/sdk/model/EmailAttachmentTest.java
-src/test/java/it/fattureincloud/sdk/model/EmailRecipientStatusTest.java
-src/test/java/it/fattureincloud/sdk/model/EmailStatusTest.java
-src/test/java/it/fattureincloud/sdk/model/EmailTest.java
-src/test/java/it/fattureincloud/sdk/model/JoinIssuedDocumentsResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/ListEmailsResponsePageTest.java
-src/test/java/it/fattureincloud/sdk/model/ListEmailsResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/TransformIssuedDocumentResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorValidationResultTest.java

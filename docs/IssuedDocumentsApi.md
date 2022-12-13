@@ -929,7 +929,7 @@ public class Example {
 
     IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    Integer originalDocumentId = 54321; // Integer | Original document id.
+    BigDecimal originalDocumentId = new BigDecimal(78); // BigDecimal | Original document id.
     String newType = "newType_example"; // String | New document type.
     Integer eInvoice = 0; // Integer | New document e_invoice.
     Integer transformKeepCopy = 0; // Integer | Keep the old document.
@@ -952,7 +952,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **originalDocumentId** | **Integer**| Original document id. | |
+| **originalDocumentId** | **BigDecimal**| Original document id. | |
 | **newType** | **String**| New document type. | |
 | **eInvoice** | **Integer**| New document e_invoice. | [optional] [enum: 0, 1] |
 | **transformKeepCopy** | **Integer**| Keep the old document. | [optional] [enum: 0, 1] |
