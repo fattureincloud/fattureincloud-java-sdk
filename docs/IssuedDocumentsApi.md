@@ -929,7 +929,7 @@ public class Example {
 
     IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    Integer originalDocumentId = 54321; // Integer | Original document id.
+    Integer originalDocumentId = 56; // Integer | Original document id.
     String newType = "newType_example"; // String | New document type.
     Integer eInvoice = 0; // Integer | New document e_invoice.
     Integer transformKeepCopy = 0; // Integer | Keep the old document.

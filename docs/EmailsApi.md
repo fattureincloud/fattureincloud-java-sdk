@@ -36,7 +36,7 @@ public class Example {
     OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
 
     EmailsApi apiInstance = new EmailsApi(defaultClient);
-    Integer companyId = 12345; 
+    Integer companyId = 12345; // Integer | The ID of the company.
     try {
       ListEmailsResponse result = apiInstance.listEmails(companyId);
       System.out.println(result);
@@ -55,7 +55,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **companyId** | **String**|  | |
+| **companyId** | **Integer**| The ID of the company. | |
 
 ### Return type
 

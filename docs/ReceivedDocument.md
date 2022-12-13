@@ -30,8 +30,8 @@
 |**vatDeductibility** | **BigDecimal** | Vat deducibility percentage. |  [optional] |
 |**itemsList** | [**List&lt;ReceivedDocumentItemsListItem&gt;**](ReceivedDocumentItemsListItem.md) |  |  [optional] |
 |**paymentsList** | [**List&lt;ReceivedDocumentPaymentsListItem&gt;**](ReceivedDocumentPaymentsListItem.md) |  |  [optional] |
-|**attachmentUrl** | **String** | [Read Only] Attachment url. |  [optional] [readonly] |
-|**attachmentPreviewUrl** | **String** | [Read Only] Attachment preview url. |  [optional] [readonly] |
+|**attachmentUrl** | **String** | [Temporary] [Read Only]  Public url of the attached file. Authomatically set if a valid attachment token is passed via POST /received_documents or PUT /received_documents/{documentId}. |  [optional] [readonly] |
+|**attachmentPreviewUrl** | **String** | [Temporary] [Read Only]  Attachment preview url. |  [optional] [readonly] |
 |**attachmentToken** | **String** | Uploaded attachement token. |  [optional] |
 |**createdAt** | **String** |  |  [optional] |
 |**updatedAt** | **String** |  |  [optional] |
