@@ -540,8 +540,8 @@ public class IssuedDocumentItemsListItemTest {
      */
     @Test
     public void inDnTest() {
-        assertEquals(true, model.getinDn());
-        model.setinDn(false);
+        assertEquals(true, model.getInDn());
+        model.setInDn(false);
         assertEquals(false, model.getInDn());
 
         IssuedDocumentItemsListItem a = model.inDn(true);
