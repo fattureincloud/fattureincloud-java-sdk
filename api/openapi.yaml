@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.22
+  version: 2.0.24
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -9817,7 +9817,7 @@ paths:
         name: original_document_id
         required: true
         schema:
-          type: string
+          type: integer
         style: form
       - description: New document type.
         explode: true
@@ -10166,12 +10166,14 @@ paths:
       description: List Emails.
       operationId: listEmails
       parameters:
-      - explode: false
+      - description: The ID of the company.
+        explode: false
         in: path
         name: company_id
         required: true
         schema:
-          type: string
+          example: 12345
+          type: integer
         style: simple
       responses:
         "200":
@@ -16858,7 +16860,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -16885,7 +16887,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -16928,6 +16930,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -17012,6 +17015,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17186,7 +17190,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -17213,7 +17217,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -17256,6 +17260,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -17340,6 +17345,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17504,7 +17510,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -17531,7 +17537,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -17574,6 +17580,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -17658,6 +17665,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -17823,7 +17831,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -17850,7 +17858,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -17893,6 +17901,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -17977,6 +17986,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -18151,7 +18161,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -18178,7 +18188,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -18221,6 +18231,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -18305,6 +18316,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -18469,7 +18481,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -18496,7 +18508,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -18539,6 +18551,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -18623,6 +18636,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -18816,7 +18830,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -18843,7 +18857,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -18886,6 +18900,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -18970,6 +18985,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -21918,7 +21934,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -21945,7 +21961,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -21988,6 +22004,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -22072,6 +22089,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -22246,7 +22264,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           - code: "239874892374982"
             ei_raw: "{}"
             discount_highlight: true
@@ -22273,7 +22291,7 @@ components:
             id: 4
             category: category
             stock: true
-            in_ddt: true
+            in_dn: true
           dn_ai_notes: dn_ai_notes
           acc_inv_template:
             name: Light Smoke
@@ -22316,6 +22334,7 @@ components:
           attachment_token: attachment_token
           amount_net: 3.5571952270680973
           dn_ai_destination: dn_ai_destination
+          ai_url: ai_url
           amount_cassa: 2.3021358869347655
           cassa2_taxable: 4.145608029883936
           v_margins: 9
@@ -22400,6 +22419,7 @@ components:
           ei_cassa_type: ei_cassa_type
           dn_ai_transporter: dn_ai_transporter
           show_notification_button: true
+          dn_url: dn_url
           show_payment_method: true
           delivery_note: true
           url: url
@@ -23351,7 +23371,7 @@ components:
           id: 4
           category: category
           stock: true
-          in_ddt: true
+          in_dn: true
         - code: "239874892374982"
           ei_raw: "{}"
           discount_highlight: true
@@ -23378,7 +23398,7 @@ components:
           id: 4
           category: category
           stock: true
-          in_ddt: true
+          in_dn: true
         dn_ai_notes: dn_ai_notes
         acc_inv_template:
           name: Light Smoke
@@ -23421,6 +23441,7 @@ components:
         attachment_token: attachment_token
         amount_net: 3.5571952270680973
         dn_ai_destination: dn_ai_destination
+        ai_url: ai_url
         amount_cassa: 2.3021358869347655
         cassa2_taxable: 4.145608029883936
         v_margins: 9
@@ -23505,6 +23526,7 @@ components:
         ei_cassa_type: ei_cassa_type
         dn_ai_transporter: dn_ai_transporter
         show_notification_button: true
+        dn_url: dn_url
         show_payment_method: true
         delivery_note: true
         url: url
@@ -23934,12 +23956,23 @@ components:
           nullable: true
           type: string
         url:
-          description: Public url of the document PDF file.
+          description: "[Temporary] [Read Only]\n \nPublic url of the document PDF\
+            \ file."
+          nullable: true
+          type: string
+        dn_url:
+          description: "[Temporary] [Read Only]\n \nPublic url of the attached delivery\
+            \ note PDF file."
+          nullable: true
+          type: string
+        ai_url:
+          description: "[Temporary] [Read Only]\n \nPublic url of the accompanying\
+            \ invoice PDF file."
           nullable: true
           type: string
         attachment_url:
           description: |-
-            [Read Only]
+            [Temporary] [Read Only]
             Public url of the attached file. Authomatically set if a valid attachment token is passed via POST /issued_documents or PUT /issued_documents/{documentId}.
           nullable: true
           readOnly: true
@@ -24771,14 +24804,20 @@ components:
           type: array
         attachment_url:
           description: |-
+            [Temporary]
             [Read Only]
-            Attachment url.
+
+            Public url of the attached file. Authomatically set if a valid attachment
+            token is passed via POST /received_documents or PUT
+            /received_documents/{documentId}.
           nullable: true
           readOnly: true
           type: string
         attachment_preview_url:
           description: |-
+            [Temporary]
             [Read Only]
+
             Attachment preview url.
           nullable: true
           readOnly: true
@@ -25206,7 +25245,7 @@ components:
           type: number
         attachment_url:
           description: |-
-            [Read Only]
+            [Temporary] [Read Only]
             Absolute url of the attached file. Authomatically set if a valid attachment token is passed via POST /taxes or PUT /taxes/{documentId}.
           nullable: true
           readOnly: true
@@ -25257,7 +25296,7 @@ components:
           type: string
         attachment_url:
           description: |-
-            [Read Only]
+            [Temporary] [Read Only]
             Absolute url of the attached file. Authomatically set if a valid attachment token is passed via POST /archive or PUT /archive/{documentId}.
           nullable: true
           readOnly: true
@@ -26131,7 +26170,7 @@ components:
         id: 4
         category: category
         stock: true
-        in_ddt: true
+        in_dn: true
       properties:
         id:
           description: Unique identifier.
@@ -26194,7 +26233,7 @@ components:
         discount_highlight:
           nullable: true
           type: boolean
-        in_ddt:
+        in_dn:
           nullable: true
           type: boolean
         stock:
