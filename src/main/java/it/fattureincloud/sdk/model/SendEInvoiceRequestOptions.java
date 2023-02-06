@@ -24,44 +24,46 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** CreateIssuedDocumentResponse */
+/** SendEInvoiceRequestOptions */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2023-02-06T15:44:01.481Z[Etc/UTC]")
-public class CreateIssuedDocumentResponse implements Serializable {
+public class SendEInvoiceRequestOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
+  public static final String SERIALIZED_NAME_DRY_RUN = "dry_run";
 
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private IssuedDocument data;
+  @SerializedName(SERIALIZED_NAME_DRY_RUN)
+  private Boolean dryRun;
 
-  public CreateIssuedDocumentResponse() {}
+  public SendEInvoiceRequestOptions() {}
 
-  public CreateIssuedDocumentResponse data(IssuedDocument data) {
+  public SendEInvoiceRequestOptions dryRun(Boolean dryRun) {
 
-    this.data = data;
+    this.dryRun = dryRun;
     return this;
   }
 
   /**
-   * Get data
+   * If set to true the e-invoice will not be sent to the SDI.
    *
-   * @return data
+   * @return dryRun
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  public IssuedDocument getData() {
-    return data;
+  @ApiModelProperty(value = "If set to true the e-invoice will not be sent to the SDI.")
+  public Boolean getDryRun() {
+    return dryRun;
   }
 
-  public void setData(IssuedDocument data) {
-    this.data = data;
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   @Override
@@ -72,20 +74,36 @@ public class CreateIssuedDocumentResponse implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateIssuedDocumentResponse createIssuedDocumentResponse = (CreateIssuedDocumentResponse) o;
-    return Objects.equals(this.data, createIssuedDocumentResponse.data);
+    SendEInvoiceRequestOptions sendEInvoiceRequestOptions = (SendEInvoiceRequestOptions) o;
+    return Objects.equals(this.dryRun, sendEInvoiceRequestOptions.dryRun);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b
+        || (a != null
+            && b != null
+            && a.isPresent()
+            && b.isPresent()
+            && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(dryRun);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateIssuedDocumentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SendEInvoiceRequestOptions {\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -106,7 +124,7 @@ public class CreateIssuedDocumentResponse implements Serializable {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("data");
+    openapiFields.add("dry_run");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -116,34 +134,29 @@ public class CreateIssuedDocumentResponse implements Serializable {
    * Validates the JSON Object and throws an exception if issues found
    *
    * @param jsonObj JSON Object
-   * @throws IOException if the JSON Object is invalid with respect to CreateIssuedDocumentResponse
+   * @throws IOException if the JSON Object is invalid with respect to SendEInvoiceRequestOptions
    */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
     if (jsonObj == null) {
-      if (CreateIssuedDocumentResponse.openapiRequiredFields.isEmpty()) {
+      if (SendEInvoiceRequestOptions.openapiRequiredFields.isEmpty()) {
         return;
       } else { // has required fields
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CreateIssuedDocumentResponse is not found in the empty JSON string",
-                CreateIssuedDocumentResponse.openapiRequiredFields.toString()));
+                "The required field(s) %s in SendEInvoiceRequestOptions is not found in the empty JSON string",
+                SendEInvoiceRequestOptions.openapiRequiredFields.toString()));
       }
     }
 
     Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
     // check to see if the JSON string contains additional fields
     for (Entry<String, JsonElement> entry : entries) {
-      if (!CreateIssuedDocumentResponse.openapiFields.contains(entry.getKey())) {
+      if (!SendEInvoiceRequestOptions.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CreateIssuedDocumentResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestOptions` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
-    }
-    // validate the optional field `data`
-    if ((jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull())
-        && !jsonObj.get("data").isJsonPrimitive()) {
-      IssuedDocument.validateJsonObject(jsonObj.getAsJsonObject("data"));
     }
   }
 
@@ -151,24 +164,23 @@ public class CreateIssuedDocumentResponse implements Serializable {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!CreateIssuedDocumentResponse.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'CreateIssuedDocumentResponse' and its subtypes
+      if (!SendEInvoiceRequestOptions.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'SendEInvoiceRequestOptions' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<CreateIssuedDocumentResponse> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(CreateIssuedDocumentResponse.class));
+      final TypeAdapter<SendEInvoiceRequestOptions> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(SendEInvoiceRequestOptions.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<CreateIssuedDocumentResponse>() {
+          new TypeAdapter<SendEInvoiceRequestOptions>() {
             @Override
-            public void write(JsonWriter out, CreateIssuedDocumentResponse value)
-                throws IOException {
+            public void write(JsonWriter out, SendEInvoiceRequestOptions value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public CreateIssuedDocumentResponse read(JsonReader in) throws IOException {
+            public SendEInvoiceRequestOptions read(JsonReader in) throws IOException {
               JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
               validateJsonObject(jsonObj);
               return thisAdapter.fromJsonTree(jsonObj);
@@ -178,18 +190,18 @@ public class CreateIssuedDocumentResponse implements Serializable {
   }
 
   /**
-   * Create an instance of CreateIssuedDocumentResponse given an JSON string
+   * Create an instance of SendEInvoiceRequestOptions given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreateIssuedDocumentResponse
-   * @throws IOException if the JSON string is invalid with respect to CreateIssuedDocumentResponse
+   * @return An instance of SendEInvoiceRequestOptions
+   * @throws IOException if the JSON string is invalid with respect to SendEInvoiceRequestOptions
    */
-  public static CreateIssuedDocumentResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateIssuedDocumentResponse.class);
+  public static SendEInvoiceRequestOptions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SendEInvoiceRequestOptions.class);
   }
 
   /**
-   * Convert an instance of CreateIssuedDocumentResponse to an JSON string
+   * Convert an instance of SendEInvoiceRequestOptions to an JSON string
    *
    * @return JSON string
    */
