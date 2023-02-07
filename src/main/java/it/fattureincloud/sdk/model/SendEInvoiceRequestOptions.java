@@ -13,7 +13,6 @@
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -27,52 +26,43 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** ListClientsResponsePage */
+/** SendEInvoiceRequestOptions */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2023-02-07T13:36:20.600Z[Etc/UTC]")
-public class ListClientsResponsePage implements Serializable {
+public class SendEInvoiceRequestOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
+  public static final String SERIALIZED_NAME_DRY_RUN = "dry_run";
 
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Client> data = null;
+  @SerializedName(SERIALIZED_NAME_DRY_RUN)
+  private Boolean dryRun;
 
-  public ListClientsResponsePage() {}
+  public SendEInvoiceRequestOptions() {}
 
-  public ListClientsResponsePage data(List<Client> data) {
+  public SendEInvoiceRequestOptions dryRun(Boolean dryRun) {
 
-    this.data = data;
-    return this;
-  }
-
-  public ListClientsResponsePage addDataItem(Client dataItem) {
-    if (this.data == null) {
-      this.data = null;
-    }
-    this.data.add(dataItem);
+    this.dryRun = dryRun;
     return this;
   }
 
   /**
-   * Get data
+   * If set to true the e-invoice will not be sent to the SDI.
    *
-   * @return data
+   * @return dryRun
    */
   @javax.annotation.Nullable
-  public List<Client> getData() {
-    return data;
+  public Boolean getDryRun() {
+    return dryRun;
   }
 
-  public void setData(List<Client> data) {
-    this.data = data;
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   @Override
@@ -83,8 +73,8 @@ public class ListClientsResponsePage implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListClientsResponsePage listClientsResponsePage = (ListClientsResponsePage) o;
-    return Objects.equals(this.data, listClientsResponsePage.data);
+    SendEInvoiceRequestOptions sendEInvoiceRequestOptions = (SendEInvoiceRequestOptions) o;
+    return Objects.equals(this.dryRun, sendEInvoiceRequestOptions.dryRun);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -98,7 +88,7 @@ public class ListClientsResponsePage implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(dryRun);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -111,8 +101,8 @@ public class ListClientsResponsePage implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListClientsResponsePage {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SendEInvoiceRequestOptions {\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,7 +123,7 @@ public class ListClientsResponsePage implements Serializable {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("data");
+    openapiFields.add("dry_run");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -143,45 +133,27 @@ public class ListClientsResponsePage implements Serializable {
    * Validates the JSON Object and throws an exception if issues found
    *
    * @param jsonObj JSON Object
-   * @throws IOException if the JSON Object is invalid with respect to ListClientsResponsePage
+   * @throws IOException if the JSON Object is invalid with respect to SendEInvoiceRequestOptions
    */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
     if (jsonObj == null) {
-      if (!ListClientsResponsePage.openapiRequiredFields
+      if (!SendEInvoiceRequestOptions.openapiRequiredFields
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListClientsResponsePage is not found in the empty JSON string",
-                ListClientsResponsePage.openapiRequiredFields.toString()));
+                "The required field(s) %s in SendEInvoiceRequestOptions is not found in the empty JSON string",
+                SendEInvoiceRequestOptions.openapiRequiredFields.toString()));
       }
     }
 
     Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
     // check to see if the JSON string contains additional fields
     for (Entry<String, JsonElement> entry : entries) {
-      if (!ListClientsResponsePage.openapiFields.contains(entry.getKey())) {
+      if (!SendEInvoiceRequestOptions.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListClientsResponsePage` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestOptions` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
-      }
-    }
-    if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-      if (jsonArraydata != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("data").isJsonArray()) {
-          throw new IllegalArgumentException(
-              String.format(
-                  "Expected the field `data` to be an array in the JSON string but got `%s`",
-                  jsonObj.get("data").toString()));
-        }
-
-        // validate the optional field `data` (array)
-        for (int i = 0; i < jsonArraydata.size(); i++) {
-          Client.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-        }
-        ;
       }
     }
   }
@@ -190,23 +162,23 @@ public class ListClientsResponsePage implements Serializable {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-      if (!ListClientsResponsePage.class.isAssignableFrom(type.getRawType())) {
-        return null; // this class only serializes 'ListClientsResponsePage' and its subtypes
+      if (!SendEInvoiceRequestOptions.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'SendEInvoiceRequestOptions' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-      final TypeAdapter<ListClientsResponsePage> thisAdapter =
-          gson.getDelegateAdapter(this, TypeToken.get(ListClientsResponsePage.class));
+      final TypeAdapter<SendEInvoiceRequestOptions> thisAdapter =
+          gson.getDelegateAdapter(this, TypeToken.get(SendEInvoiceRequestOptions.class));
 
       return (TypeAdapter<T>)
-          new TypeAdapter<ListClientsResponsePage>() {
+          new TypeAdapter<SendEInvoiceRequestOptions>() {
             @Override
-            public void write(JsonWriter out, ListClientsResponsePage value) throws IOException {
+            public void write(JsonWriter out, SendEInvoiceRequestOptions value) throws IOException {
               JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
               elementAdapter.write(out, obj);
             }
 
             @Override
-            public ListClientsResponsePage read(JsonReader in) throws IOException {
+            public SendEInvoiceRequestOptions read(JsonReader in) throws IOException {
               JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
               validateJsonObject(jsonObj);
               return thisAdapter.fromJsonTree(jsonObj);
@@ -216,18 +188,18 @@ public class ListClientsResponsePage implements Serializable {
   }
 
   /**
-   * Create an instance of ListClientsResponsePage given an JSON string
+   * Create an instance of SendEInvoiceRequestOptions given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ListClientsResponsePage
-   * @throws IOException if the JSON string is invalid with respect to ListClientsResponsePage
+   * @return An instance of SendEInvoiceRequestOptions
+   * @throws IOException if the JSON string is invalid with respect to SendEInvoiceRequestOptions
    */
-  public static ListClientsResponsePage fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListClientsResponsePage.class);
+  public static SendEInvoiceRequestOptions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SendEInvoiceRequestOptions.class);
   }
 
   /**
-   * Convert an instance of ListClientsResponsePage to an JSON string
+   * Convert an instance of SendEInvoiceRequestOptions to an JSON string
    *
    * @return JSON string
    */

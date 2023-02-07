@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.24
+  version: 2.0.25
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -19400,9 +19400,13 @@ components:
         data:
           withholding_tax_causal: withholding_tax_causal
           cassa_type: cassa_type
+        options:
+          dry_run: true
       properties:
         data:
           $ref: '#/components/schemas/SendEInvoiceRequest_data'
+        options:
+          $ref: '#/components/schemas/SendEInvoiceRequest_options'
       title: SendEInvoiceRequest
       type: object
     SendEInvoiceResponse:
@@ -19461,6 +19465,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -19580,6 +19585,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -19693,6 +19699,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -19806,6 +19813,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -19919,6 +19927,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -20032,6 +20041,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -20161,6 +20171,7 @@ components:
         data:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
+          auto_calculate: true
           tax_deductibility: 3.616076749251911
           description: description
           created_at: created_at
@@ -24603,6 +24614,7 @@ components:
       example:
         date: 2000-01-23
         attachment_preview_url: attachment_preview_url
+        auto_calculate: true
         tax_deductibility: 3.616076749251911
         description: description
         created_at: created_at
@@ -24822,6 +24834,11 @@ components:
           nullable: true
           readOnly: true
           type: string
+        auto_calculate:
+          description: If set to false total items amount and total payments amount
+            can be different.
+          nullable: true
+          type: boolean
         attachment_token:
           description: Uploaded attachement token.
           nullable: true
@@ -26777,6 +26794,16 @@ components:
             \ default value)."
           nullable: true
           type: string
+      type: object
+    SendEInvoiceRequest_options:
+      example:
+        dry_run: true
+      nullable: true
+      properties:
+        dry_run:
+          description: If set to true the e-invoice will not be sent to the SDI.
+          nullable: true
+          type: boolean
       type: object
     SendEInvoiceResponse_data:
       example:
