@@ -211,6 +211,7 @@ docs/ReceivedDocumentsApi.md
 docs/ScheduleEmailRequest.md
 docs/SendEInvoiceRequest.md
 docs/SendEInvoiceRequestData.md
+docs/SendEInvoiceRequestOptions.md
 docs/SendEInvoiceResponse.md
 docs/SendEInvoiceResponseData.md
 docs/SenderEmail.md
@@ -473,6 +474,7 @@ src/main/java/it/fattureincloud/sdk/model/ReceivedDocumentType.java
 src/main/java/it/fattureincloud/sdk/model/ScheduleEmailRequest.java
 src/main/java/it/fattureincloud/sdk/model/SendEInvoiceRequest.java
 src/main/java/it/fattureincloud/sdk/model/SendEInvoiceRequestData.java
+src/main/java/it/fattureincloud/sdk/model/SendEInvoiceRequestOptions.java
 src/main/java/it/fattureincloud/sdk/model/SendEInvoiceResponse.java
 src/main/java/it/fattureincloud/sdk/model/SendEInvoiceResponseData.java
 src/main/java/it/fattureincloud/sdk/model/SenderEmail.java
@@ -495,3 +497,4 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorVal
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
+src/test/java/it/fattureincloud/sdk/model/SendEInvoiceRequestOptionsTest.java
