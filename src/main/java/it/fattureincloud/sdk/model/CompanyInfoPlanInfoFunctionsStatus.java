@@ -153,7 +153,8 @@ public class CompanyInfoPlanInfoFunctionsStatus implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CompanyInfoPlanInfoFunctionsStatus is not found in the empty JSON string",
+                "The required field(s) %s in CompanyInfoPlanInfoFunctionsStatus is not found in the"
+                    + " empty JSON string",
                 CompanyInfoPlanInfoFunctionsStatus.openapiRequiredFields.toString()));
       }
     }
@@ -164,7 +165,8 @@ public class CompanyInfoPlanInfoFunctionsStatus implements Serializable {
       if (!CompanyInfoPlanInfoFunctionsStatus.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CompanyInfoPlanInfoFunctionsStatus` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `CompanyInfoPlanInfoFunctionsStatus` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -184,7 +186,7 @@ public class CompanyInfoPlanInfoFunctionsStatus implements Serializable {
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!CompanyInfoPlanInfoFunctionsStatus.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'CompanyInfoPlanInfoFunctionsStatus' and its
-                     // subtypes
+        // subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<CompanyInfoPlanInfoFunctionsStatus> thisAdapter =

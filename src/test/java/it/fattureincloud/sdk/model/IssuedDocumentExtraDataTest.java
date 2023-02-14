@@ -10,412 +10,393 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for IssuedDocumentExtraData
- */
+/** Model tests for IssuedDocumentExtraData */
 public class IssuedDocumentExtraDataTest {
-    private IssuedDocumentExtraData model;
+  private IssuedDocumentExtraData model;
 
-    @BeforeEach
-    public void init() {
-        model = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+  }
 
-    /**
-     * Model tests for IssuedDocumentExtraData
-     */
-    @Test
-    public void testIssuedDocumentExtraData() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"show_sofort_button\":true,\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\",\"ts_single_sending\":true}";
-        assertEquals(str, json);
-        IssuedDocumentExtraData generated = gson.fromJson(str, IssuedDocumentExtraData.class);
-        assertEquals(model, generated);
+  /** Model tests for IssuedDocumentExtraData */
+  @Test
+  public void testIssuedDocumentExtraData() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"show_sofort_button\":true,\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\",\"ts_single_sending\":true}";
+    assertEquals(str, json);
+    IssuedDocumentExtraData generated = gson.fromJson(str, IssuedDocumentExtraData.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'showSofortButton'
-     */
-    @Test
-    public void showSofortButtonTest() {
-        assertEquals(true, model.getShowSofortButton());
-        model.setShowSofortButton(false);
-        assertEquals(false, model.getShowSofortButton());
+  /** Test the property 'showSofortButton' */
+  @Test
+  public void showSofortButtonTest() {
+    assertEquals(true, model.getShowSofortButton());
+    model.setShowSofortButton(false);
+    assertEquals(false, model.getShowSofortButton());
 
-        IssuedDocumentExtraData i = model.showSofortButton(true);
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-    }
+    IssuedDocumentExtraData i = model.showSofortButton(true);
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+  }
 
-    /**
-     * Test the property 'multifattureSent'
-     */
-    @Test
-    public void multifattureSentTest() {
-        assertEquals(5, model.getMultifattureSent());
-        model.setMultifattureSent(6);
-        assertEquals(6, model.getMultifattureSent());
+  /** Test the property 'multifattureSent' */
+  @Test
+  public void multifattureSentTest() {
+    assertEquals(5, model.getMultifattureSent());
+    model.setMultifattureSent(6);
+    assertEquals(6, model.getMultifattureSent());
 
-        IssuedDocumentExtraData i = model.multifattureSent(5);
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.multifattureSent(5);
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsCommunication'
-     */
-    @Test
-    public void tsCommunicationTest() {
-        assertEquals(true, model.getTsCommunication());
-        model.setTsCommunication(false);
-        assertEquals(false, model.getTsCommunication());
+  /** Test the property 'tsCommunication' */
+  @Test
+  public void tsCommunicationTest() {
+    assertEquals(true, model.getTsCommunication());
+    model.setTsCommunication(false);
+    assertEquals(false, model.getTsCommunication());
 
-        IssuedDocumentExtraData i = model.tsCommunication(true);
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsCommunication(true);
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsFlagTipoSpesa'
-     */
-    @Test
-    public void tsFlagTipoSpesaTest() {
-        assertEquals(BigDecimal.valueOf(2), model.getTsFlagTipoSpesa());
-        model.setTsFlagTipoSpesa(BigDecimal.valueOf(3));
-        assertEquals(BigDecimal.valueOf(3), model.getTsFlagTipoSpesa());
+  /** Test the property 'tsFlagTipoSpesa' */
+  @Test
+  public void tsFlagTipoSpesaTest() {
+    assertEquals(BigDecimal.valueOf(2), model.getTsFlagTipoSpesa());
+    model.setTsFlagTipoSpesa(BigDecimal.valueOf(3));
+    assertEquals(BigDecimal.valueOf(3), model.getTsFlagTipoSpesa());
 
-        IssuedDocumentExtraData i = model.tsFlagTipoSpesa(BigDecimal.valueOf(2));
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsFlagTipoSpesa(BigDecimal.valueOf(2));
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsPagamentoTracciato'
-     */
-    @Test
-    public void tsPagamentoTracciatoTest() {
-        assertEquals(true, model.getTsPagamentoTracciato());
-        model.setTsPagamentoTracciato(false);
-        assertEquals(false, model.getTsPagamentoTracciato());
+  /** Test the property 'tsPagamentoTracciato' */
+  @Test
+  public void tsPagamentoTracciatoTest() {
+    assertEquals(true, model.getTsPagamentoTracciato());
+    model.setTsPagamentoTracciato(false);
+    assertEquals(false, model.getTsPagamentoTracciato());
 
-        IssuedDocumentExtraData i = model.tsPagamentoTracciato(true);
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsPagamentoTracciato(true);
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsTipoSpesa'
-     */
-    @Test
-    public void tsTipoSpesaTest() {
-        assertEquals("TK", model.getTsTipoSpesa());
-        model.setTsTipoSpesa("FC");
-        assertEquals("FC", model.getTsTipoSpesa());
+  /** Test the property 'tsTipoSpesa' */
+  @Test
+  public void tsTipoSpesaTest() {
+    assertEquals("TK", model.getTsTipoSpesa());
+    model.setTsTipoSpesa("FC");
+    assertEquals("FC", model.getTsTipoSpesa());
 
-        IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsOpposizione'
-     */
-    @Test
-    public void tsOpposizioneTest() {
-        assertEquals("TK", model.getTsTipoSpesa());
-        model.setTsTipoSpesa("FC");
-        assertEquals("FC", model.getTsTipoSpesa());
+  /** Test the property 'tsOpposizione' */
+  @Test
+  public void tsOpposizioneTest() {
+    assertEquals("TK", model.getTsTipoSpesa());
+    model.setTsTipoSpesa("FC");
+    assertEquals("FC", model.getTsTipoSpesa());
 
-        IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsStatus'
-     */
-    @Test
-    public void tsStatusTest() {
-        assertEquals("TK", model.getTsTipoSpesa());
-        model.setTsTipoSpesa("FC");
-        assertEquals("FC", model.getTsTipoSpesa());
+  /** Test the property 'tsStatus' */
+  @Test
+  public void tsStatusTest() {
+    assertEquals("TK", model.getTsTipoSpesa());
+    model.setTsTipoSpesa("FC");
+    assertEquals("FC", model.getTsTipoSpesa());
 
-        IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsFileId'
-     */
-    @Test
-    public void tsFileIdTest() {
-        assertEquals("str", model.getTsFileId());
-        model.setTsFileId("rts");
-        assertEquals("rts", model.getTsFileId());
+  /** Test the property 'tsFileId' */
+  @Test
+  public void tsFileIdTest() {
+    assertEquals("str", model.getTsFileId());
+    model.setTsFileId("rts");
+    assertEquals("rts", model.getTsFileId());
 
-        IssuedDocumentExtraData i = model.tsFileId("str");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsFileId("str");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsSentDate'
-     */
-    @Test
-    public void tsSentDateTest() {
-        assertEquals(LocalDate.of(2021, 12, 25), model.getTsSentDate());
-        model.setTsSentDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getTsSentDate());
+  /** Test the property 'tsSentDate' */
+  @Test
+  public void tsSentDateTest() {
+    assertEquals(LocalDate.of(2021, 12, 25), model.getTsSentDate());
+    model.setTsSentDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getTsSentDate());
 
-        IssuedDocumentExtraData i = model.tsSentDate(LocalDate.of(2021, 12, 25));
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsSentDate(LocalDate.of(2021, 12, 25));
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsFullAmount'
-     */
-    @Test
-    public void tsFullAmountTest() {
-        assertEquals(true, model.getTsFullAmount());
-        model.setTsFullAmount(false);
-        assertEquals(false, model.getTsFullAmount());
+  /** Test the property 'tsFullAmount' */
+  @Test
+  public void tsFullAmountTest() {
+    assertEquals(true, model.getTsFullAmount());
+    model.setTsFullAmount(false);
+    assertEquals(false, model.getTsFullAmount());
 
-        IssuedDocumentExtraData i = model.tsFullAmount(true);
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.tsFullAmount(true);
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'importedBy'
-     */
-    @Test
-    public void importedByTest() {
-        assertEquals("me", model.getImportedBy());
-        model.setImportedBy("him");
-        assertEquals("him", model.getImportedBy());
+  /** Test the property 'importedBy' */
+  @Test
+  public void importedByTest() {
+    assertEquals("me", model.getImportedBy());
+    model.setImportedBy("him");
+    assertEquals("him", model.getImportedBy());
 
-        IssuedDocumentExtraData i = model.importedBy("me");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
+    IssuedDocumentExtraData i = model.importedBy("me");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'tsSingleSending'
-     */
-    @Test
-    public void tsSingleSendingTest() {
-        assertEquals("me", model.getImportedBy());
-        model.setImportedBy("him");
-        assertEquals("him", model.getImportedBy());
+  /** Test the property 'tsSingleSending' */
+  @Test
+  public void tsSingleSendingTest() {
+    assertEquals("me", model.getImportedBy());
+    model.setImportedBy("him");
+    assertEquals("him", model.getImportedBy());
 
-        IssuedDocumentExtraData i = model.importedBy("me");
-        IssuedDocumentExtraData expected = new IssuedDocumentExtraData()
-                .showSofortButton(true)
-                .multifattureSent(5)
-                .tsCommunication(true)
-                .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-                .tsPagamentoTracciato(true)
-                .tsTipoSpesa("TK")
-                .tsOpposizione(true)
-                .tsFullAmount(true)
-                .tsStatus(5)
-                .tsFileId("str")
-                .tsSentDate(LocalDate.of(2021, 12, 25))
-                .importedBy("me")
-                .tsSingleSending(true);
-        assertEquals(expected, i);
-    }
-
+    IssuedDocumentExtraData i = model.importedBy("me");
+    IssuedDocumentExtraData expected =
+        new IssuedDocumentExtraData()
+            .showSofortButton(true)
+            .multifattureSent(5)
+            .tsCommunication(true)
+            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
+            .tsPagamentoTracciato(true)
+            .tsTipoSpesa("TK")
+            .tsOpposizione(true)
+            .tsFullAmount(true)
+            .tsStatus(5)
+            .tsFileId("str")
+            .tsSentDate(LocalDate.of(2021, 12, 25))
+            .importedBy("me")
+            .tsSingleSending(true);
+    assertEquals(expected, i);
+  }
 }

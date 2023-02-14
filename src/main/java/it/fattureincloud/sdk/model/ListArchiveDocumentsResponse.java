@@ -26,6 +26,7 @@ import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -331,7 +332,7 @@ public class ListArchiveDocumentsResponse implements Serializable {
 
   public ListArchiveDocumentsResponse addDataItem(ArchiveDocument dataItem) {
     if (this.data == null) {
-      this.data = null;
+      this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
     return this;
@@ -472,7 +473,8 @@ public class ListArchiveDocumentsResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListArchiveDocumentsResponse is not found in the empty JSON string",
+                "The required field(s) %s in ListArchiveDocumentsResponse is not found in the empty"
+                    + " JSON string",
                 ListArchiveDocumentsResponse.openapiRequiredFields.toString()));
       }
     }
@@ -483,7 +485,8 @@ public class ListArchiveDocumentsResponse implements Serializable {
       if (!ListArchiveDocumentsResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListArchiveDocumentsResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ListArchiveDocumentsResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -491,21 +494,24 @@ public class ListArchiveDocumentsResponse implements Serializable {
         && !jsonObj.get("first_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `first_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `first_page_url` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("first_page_url").toString()));
     }
     if ((jsonObj.get("last_page_url") != null && !jsonObj.get("last_page_url").isJsonNull())
         && !jsonObj.get("last_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `last_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `last_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("last_page_url").toString()));
     }
     if ((jsonObj.get("next_page_url") != null && !jsonObj.get("next_page_url").isJsonNull())
         && !jsonObj.get("next_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `next_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `next_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("next_page_url").toString()));
     }
     if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull())
@@ -519,7 +525,8 @@ public class ListArchiveDocumentsResponse implements Serializable {
         && !jsonObj.get("prev_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("prev_page_url").toString()));
     }
     if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {

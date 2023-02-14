@@ -10,40 +10,23 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-
-/**
- * Model tests for SendEInvoiceRequestOptions
- */
+/** Model tests for SendEInvoiceRequestOptions */
 public class SendEInvoiceRequestOptionsTest {
-    private final SendEInvoiceRequestOptions model = new SendEInvoiceRequestOptions();
+  private final SendEInvoiceRequestOptions model = new SendEInvoiceRequestOptions();
 
-    /**
-     * Model tests for SendEInvoiceRequestOptions
-     */
-    @Test
-    public void testSendEInvoiceRequestOptions() {
-        // TODO: test SendEInvoiceRequestOptions
-    }
+  /** Model tests for SendEInvoiceRequestOptions */
+  @Test
+  public void testSendEInvoiceRequestOptions() {
+    // TODO: test SendEInvoiceRequestOptions
+  }
 
-    /**
-     * Test the property 'dryRun'
-     */
-    @Test
-    public void dryRunTest() {
-        // TODO: test dryRun
-    }
-
+  /** Test the property 'dryRun' */
+  @Test
+  public void dryRunTest() {
+    // TODO: test dryRun
+  }
 }

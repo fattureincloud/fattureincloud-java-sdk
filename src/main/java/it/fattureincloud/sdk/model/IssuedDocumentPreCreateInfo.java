@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -247,7 +248,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addCountriesListItem(String countriesListItem) {
     if (this.countriesList == null) {
-      this.countriesList = null;
+      this.countriesList = new ArrayList<>();
     }
     this.countriesList.add(countriesListItem);
     return this;
@@ -275,7 +276,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addCurrenciesListItem(Currency currenciesListItem) {
     if (this.currenciesList == null) {
-      this.currenciesList = null;
+      this.currenciesList = new ArrayList<>();
     }
     this.currenciesList.add(currenciesListItem);
     return this;
@@ -303,7 +304,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addTemplatesListItem(DocumentTemplate templatesListItem) {
     if (this.templatesList == null) {
-      this.templatesList = null;
+      this.templatesList = new ArrayList<>();
     }
     this.templatesList.add(templatesListItem);
     return this;
@@ -331,7 +332,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addDnTemplatesListItem(DocumentTemplate dnTemplatesListItem) {
     if (this.dnTemplatesList == null) {
-      this.dnTemplatesList = null;
+      this.dnTemplatesList = new ArrayList<>();
     }
     this.dnTemplatesList.add(dnTemplatesListItem);
     return this;
@@ -359,7 +360,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addAiTemplatesListItem(DocumentTemplate aiTemplatesListItem) {
     if (this.aiTemplatesList == null) {
-      this.aiTemplatesList = null;
+      this.aiTemplatesList = new ArrayList<>();
     }
     this.aiTemplatesList.add(aiTemplatesListItem);
     return this;
@@ -388,7 +389,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
   public IssuedDocumentPreCreateInfo addPaymentMethodsListItem(
       PaymentMethod paymentMethodsListItem) {
     if (this.paymentMethodsList == null) {
-      this.paymentMethodsList = null;
+      this.paymentMethodsList = new ArrayList<>();
     }
     this.paymentMethodsList.add(paymentMethodsListItem);
     return this;
@@ -417,7 +418,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
   public IssuedDocumentPreCreateInfo addPaymentAccountsListItem(
       PaymentAccount paymentAccountsListItem) {
     if (this.paymentAccountsList == null) {
-      this.paymentAccountsList = null;
+      this.paymentAccountsList = new ArrayList<>();
     }
     this.paymentAccountsList.add(paymentAccountsListItem);
     return this;
@@ -445,7 +446,7 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
 
   public IssuedDocumentPreCreateInfo addVatTypesListItem(VatType vatTypesListItem) {
     if (this.vatTypesList == null) {
-      this.vatTypesList = null;
+      this.vatTypesList = new ArrayList<>();
     }
     this.vatTypesList.add(vatTypesListItem);
     return this;
@@ -627,7 +628,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentPreCreateInfo is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentPreCreateInfo is not found in the empty"
+                    + " JSON string",
                 IssuedDocumentPreCreateInfo.openapiRequiredFields.toString()));
       }
     }
@@ -638,7 +640,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
       if (!IssuedDocumentPreCreateInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPreCreateInfo` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `IssuedDocumentPreCreateInfo` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -673,7 +676,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("currencies_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `currencies_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `currencies_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("currencies_list").toString()));
         }
 
@@ -691,7 +695,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("templates_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `templates_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `templates_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("templates_list").toString()));
         }
 
@@ -710,7 +715,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("dn_templates_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `dn_templates_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `dn_templates_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("dn_templates_list").toString()));
         }
 
@@ -729,7 +735,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("ai_templates_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `ai_templates_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `ai_templates_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("ai_templates_list").toString()));
         }
 
@@ -748,7 +755,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("payment_methods_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `payment_methods_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `payment_methods_list` to be an array in the JSON string but"
+                      + " got `%s`",
                   jsonObj.get("payment_methods_list").toString()));
         }
 
@@ -767,7 +775,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("payment_accounts_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `payment_accounts_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `payment_accounts_list` to be an array in the JSON string but"
+                      + " got `%s`",
                   jsonObj.get("payment_accounts_list").toString()));
         }
 
@@ -785,7 +794,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("vat_types_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `vat_types_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `vat_types_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("vat_types_list").toString()));
         }
 
@@ -803,7 +813,8 @@ public class IssuedDocumentPreCreateInfo implements Serializable {
         if (!jsonObj.get("languages_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `languages_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `languages_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("languages_list").toString()));
         }
 

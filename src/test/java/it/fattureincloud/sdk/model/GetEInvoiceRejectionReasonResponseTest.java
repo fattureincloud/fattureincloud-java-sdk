@@ -10,72 +10,65 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for GetEInvoiceRejectionReasonResponse
- */
+/** Model tests for GetEInvoiceRejectionReasonResponse */
 public class GetEInvoiceRejectionReasonResponseTest {
-    private GetEInvoiceRejectionReasonResponse model;
+  private GetEInvoiceRejectionReasonResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetEInvoiceRejectionReasonResponse()
-                .data(
-                        new EInvoiceRejectionReason()
-                                .reason("invalid date")
-                                .eiStatus("rejected")
-                                .solution("set a valid date")
-                                .code("c01")
-                                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetEInvoiceRejectionReasonResponse()
+            .data(
+                new EInvoiceRejectionReason()
+                    .reason("invalid date")
+                    .eiStatus("rejected")
+                    .solution("set a valid date")
+                    .code("c01")
+                    .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2))));
+  }
 
-    /**
-     * Model tests for GetEInvoiceRejectionReasonResponse
-     */
-    @Test
-    public void testGetEInvoiceRejectionReasonResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}}";
-        assertEquals(str, json);
-        GetEInvoiceRejectionReasonResponse generated = gson.fromJson(str, GetEInvoiceRejectionReasonResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetEInvoiceRejectionReasonResponse */
+  @Test
+  public void testGetEInvoiceRejectionReasonResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a"
+            + " valid date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}}";
+    assertEquals(str, json);
+    GetEInvoiceRejectionReasonResponse generated =
+        gson.fromJson(str, GetEInvoiceRejectionReasonResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("invalid date", model.getData().getReason());
-        model.setData(new EInvoiceRejectionReason().reason("invalid date2"));
-        assertEquals("invalid date2", model.getData().getReason());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("invalid date", model.getData().getReason());
+    model.setData(new EInvoiceRejectionReason().reason("invalid date2"));
+    assertEquals("invalid date2", model.getData().getReason());
 
-        model.data(new EInvoiceRejectionReason().reason("invalid date"));
-        GetEInvoiceRejectionReasonResponse actual = new GetEInvoiceRejectionReasonResponse();
-        actual.setData(new EInvoiceRejectionReason().reason("invalid date"));
-        assertEquals(model, actual);
-    }
-
+    model.data(new EInvoiceRejectionReason().reason("invalid date"));
+    GetEInvoiceRejectionReasonResponse actual = new GetEInvoiceRejectionReasonResponse();
+    actual.setData(new EInvoiceRejectionReason().reason("invalid date"));
+    assertEquals(model, actual);
+  }
 }

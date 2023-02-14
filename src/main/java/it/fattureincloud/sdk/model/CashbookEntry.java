@@ -445,7 +445,8 @@ public class CashbookEntry implements Serializable {
       if (!CashbookEntry.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CashbookEntry` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `CashbookEntry`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -460,14 +461,16 @@ public class CashbookEntry implements Serializable {
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
     if ((jsonObj.get("entity_name") != null && !jsonObj.get("entity_name").isJsonNull())
         && !jsonObj.get("entity_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `entity_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `entity_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("entity_name").toString()));
     }
     // validate the optional field `document`

@@ -10,47 +10,43 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for PaymentMethodType
- */
+/** Model tests for PaymentMethodType */
 public class PaymentMethodTypeTest {
-    /**
-     * Model tests for PaymentMethodType
-     */
-    @Test
-    public void testPaymentMethodType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for PaymentMethodType */
+  @Test
+  public void testPaymentMethodType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"standard\"", gson.toJson(PaymentMethodType.STANDARD));
-        assertEquals("\"riba\"", gson.toJson(PaymentMethodType.RIBA));
+    assertEquals("\"standard\"", gson.toJson(PaymentMethodType.STANDARD));
+    assertEquals("\"riba\"", gson.toJson(PaymentMethodType.RIBA));
 
-        assertEquals(PaymentMethodType.STANDARD, gson.fromJson("\"standard\"", PaymentMethodType.class));
-        assertEquals(PaymentMethodType.RIBA, gson.fromJson("\"riba\"", PaymentMethodType.class));
+    assertEquals(
+        PaymentMethodType.STANDARD, gson.fromJson("\"standard\"", PaymentMethodType.class));
+    assertEquals(PaymentMethodType.RIBA, gson.fromJson("\"riba\"", PaymentMethodType.class));
 
-        assertEquals("standard", PaymentMethodType.STANDARD.getValue());
-        assertEquals("riba", PaymentMethodType.RIBA.getValue());
+    assertEquals("standard", PaymentMethodType.STANDARD.getValue());
+    assertEquals("riba", PaymentMethodType.RIBA.getValue());
 
-        assertEquals("standard", PaymentMethodType.STANDARD.toString());
-        assertEquals("riba", PaymentMethodType.RIBA.toString());
+    assertEquals("standard", PaymentMethodType.STANDARD.toString());
+    assertEquals("riba", PaymentMethodType.RIBA.toString());
 
-        assertEquals(PaymentMethodType.STANDARD, PaymentMethodType.fromValue("standard"));
-        assertEquals(PaymentMethodType.RIBA, PaymentMethodType.fromValue("riba"));
+    assertEquals(PaymentMethodType.STANDARD, PaymentMethodType.fromValue("standard"));
+    assertEquals(PaymentMethodType.RIBA, PaymentMethodType.fromValue("riba"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            PaymentMethodType.fromValue("Evil Joshua");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          PaymentMethodType.fromValue("Evil Joshua");
         });
-    }
-
+  }
 }

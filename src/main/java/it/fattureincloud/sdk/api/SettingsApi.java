@@ -651,7 +651,8 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling deletePaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling"
+              + " deletePaymentAccount(Async)");
     }
 
     return deletePaymentAccountCall(companyId, paymentAccountId, _callback);
@@ -808,7 +809,8 @@ public class SettingsApi {
     // verify the required parameter 'paymentMethodId' is set
     if (paymentMethodId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentMethodId' when calling deletePaymentMethod(Async)");
+          "Missing the required parameter 'paymentMethodId' when calling"
+              + " deletePaymentMethod(Async)");
     }
 
     return deletePaymentMethodCall(companyId, paymentMethodId, _callback);
@@ -1136,7 +1138,8 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling getPaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling"
+              + " getPaymentAccount(Async)");
     }
 
     return getPaymentAccountCall(companyId, paymentAccountId, fields, fieldset, _callback);
@@ -1671,7 +1674,8 @@ public class SettingsApi {
     // verify the required parameter 'paymentAccountId' is set
     if (paymentAccountId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentAccountId' when calling modifyPaymentAccount(Async)");
+          "Missing the required parameter 'paymentAccountId' when calling"
+              + " modifyPaymentAccount(Async)");
     }
 
     return modifyPaymentAccountCall(
@@ -1857,7 +1861,8 @@ public class SettingsApi {
     // verify the required parameter 'paymentMethodId' is set
     if (paymentMethodId == null) {
       throw new ApiException(
-          "Missing the required parameter 'paymentMethodId' when calling modifyPaymentMethod(Async)");
+          "Missing the required parameter 'paymentMethodId' when calling"
+              + " modifyPaymentMethod(Async)");
     }
 
     return modifyPaymentMethodCall(

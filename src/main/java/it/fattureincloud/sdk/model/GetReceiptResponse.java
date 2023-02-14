@@ -123,7 +123,8 @@ public class GetReceiptResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetReceiptResponse is not found in the empty JSON string",
+                "The required field(s) %s in GetReceiptResponse is not found in the empty JSON"
+                    + " string",
                 GetReceiptResponse.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class GetReceiptResponse implements Serializable {
       if (!GetReceiptResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetReceiptResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetReceiptResponse`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

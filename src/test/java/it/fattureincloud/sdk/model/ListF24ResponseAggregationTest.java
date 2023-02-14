@@ -10,69 +10,55 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListF24ResponseAggregation
- */
+/** Model tests for ListF24ResponseAggregation */
 public class ListF24ResponseAggregationTest {
-    private ListF24ResponseAggregation model;
+  private ListF24ResponseAggregation model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListF24ResponseAggregation()
-                .aggregatedData(
-                        new ListF24ResponseAggregatedData()
-                                .amount(new BigDecimal(10))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListF24ResponseAggregation()
+            .aggregatedData(new ListF24ResponseAggregatedData().amount(new BigDecimal(10)));
+  }
 
-    /**
-     * Model tests for ListF24ResponseAggregation
-     */
-    @Test
-    public void testListF24ResponseAggregation() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"aggregated_data\":{\"amount\":10}}";
-        assertEquals(str, json);
-        ListF24ResponseAggregation generated = gson.fromJson(str, ListF24ResponseAggregation.class);
-        assertEquals(model, generated);
+  /** Model tests for ListF24ResponseAggregation */
+  @Test
+  public void testListF24ResponseAggregation() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"aggregated_data\":{\"amount\":10}}";
+    assertEquals(str, json);
+    ListF24ResponseAggregation generated = gson.fromJson(str, ListF24ResponseAggregation.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'aggregatedData'
-     */
-    @Test
-    public void aggregatedDataTest() {
-        assertEquals(new BigDecimal(10), model.getAggregatedData().getAmount());
-        model.getAggregatedData().setAmount(new BigDecimal(130));
-        assertEquals(new BigDecimal(130), model.getAggregatedData().getAmount());
+  /** Test the property 'aggregatedData' */
+  @Test
+  public void aggregatedDataTest() {
+    assertEquals(new BigDecimal(10), model.getAggregatedData().getAmount());
+    model.getAggregatedData().setAmount(new BigDecimal(130));
+    assertEquals(new BigDecimal(130), model.getAggregatedData().getAmount());
 
-        ListF24ResponseAggregation expected = new ListF24ResponseAggregation()
-                .aggregatedData(
-                        new ListF24ResponseAggregatedData()
-                                .amount(new BigDecimal(130))
-                );
-        assertEquals(expected, model);
-    }
-
+    ListF24ResponseAggregation expected =
+        new ListF24ResponseAggregation()
+            .aggregatedData(new ListF24ResponseAggregatedData().amount(new BigDecimal(130)));
+    assertEquals(expected, model);
+  }
 }

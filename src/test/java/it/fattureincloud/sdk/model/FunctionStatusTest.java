@@ -10,63 +10,53 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for FunctionStatus
- */
+/** Model tests for FunctionStatus */
 public class FunctionStatusTest {
-    private FunctionStatus model;
+  private FunctionStatus model;
 
-    @BeforeEach
-    public void init() {
-        model = new FunctionStatus();
-    }
+  @BeforeEach
+  public void init() {
+    model = new FunctionStatus();
+  }
 
-    /**
-     * Model tests for FunctionStatus
-     */
-    @Test
-    public void testFunctionStatus() {
-        FunctionStatus f = new FunctionStatus()
-                .active(true);
+  /** Model tests for FunctionStatus */
+  @Test
+  public void testFunctionStatus() {
+    FunctionStatus f = new FunctionStatus().active(true);
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(f);
-        String str = "{\"active\":true}";
-        assertEquals(str, json);
-        FunctionStatus generated = gson.fromJson(str, FunctionStatus.class);
-        assertEquals(f, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(f);
+    String str = "{\"active\":true}";
+    assertEquals(str, json);
+    FunctionStatus generated = gson.fromJson(str, FunctionStatus.class);
+    assertEquals(f, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'active'
-     */
-    @Test
-    public void activeTest() {
-        assertNull(model.getActive());
-        model.setActive(true);
-        assertEquals(true, model.getActive());
+  /** Test the property 'active' */
+  @Test
+  public void activeTest() {
+    assertNull(model.getActive());
+    model.setActive(true);
+    assertEquals(true, model.getActive());
 
-        FunctionStatus c = model.active(false);
-        FunctionStatus expected = new FunctionStatus();
-        expected.setActive(false);
-        assertEquals(expected, c);
-    }
-
+    FunctionStatus c = model.active(false);
+    FunctionStatus expected = new FunctionStatus();
+    expected.setActive(false);
+    assertEquals(expected, c);
+  }
 }

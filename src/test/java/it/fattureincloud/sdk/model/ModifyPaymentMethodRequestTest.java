@@ -10,81 +10,68 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ModifyPaymentMethodRequest
- */
+/** Model tests for ModifyPaymentMethodRequest */
 public class ModifyPaymentMethodRequestTest {
-    private ModifyPaymentMethodRequest model;
+  private ModifyPaymentMethodRequest model;
 
-    @BeforeEach
-    public void init() {
-        model = new ModifyPaymentMethodRequest()
-                .data(
-                        new PaymentMethod()
-                                .id(12345)
-                                .name("Bonifico bancario")
-                                .type(PaymentMethodType.STANDARD)
-                                .isDefault(true)
-                                .details(Arrays.asList(new PaymentMethodDetails()
-                                        .title("t1")
-                                ))
-                                .defaultPaymentAccount(new PaymentAccount()
-                                        .id(21)
-                                        .name("n1")
-                                )
-                                .bankIban("IT62W0300203280486429468578")
-                                .bankName("Indesa")
-                                .bankBeneficiary("mamma")
-                                .eiPaymentMethod("2")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ModifyPaymentMethodRequest()
+            .data(
+                new PaymentMethod()
+                    .id(12345)
+                    .name("Bonifico bancario")
+                    .type(PaymentMethodType.STANDARD)
+                    .isDefault(true)
+                    .details(Arrays.asList(new PaymentMethodDetails().title("t1")))
+                    .defaultPaymentAccount(new PaymentAccount().id(21).name("n1"))
+                    .bankIban("IT62W0300203280486429468578")
+                    .bankName("Indesa")
+                    .bankBeneficiary("mamma")
+                    .eiPaymentMethod("2"));
+  }
 
-    /**
-     * Model tests for ModifyPaymentMethodRequest
-     */
-    @Test
-    public void testModifyPaymentMethodRequest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}}";
-        assertEquals(str, json);
-        ModifyPaymentMethodRequest generated = gson.fromJson(str, ModifyPaymentMethodRequest.class);
-        assertEquals(model, generated);
+  /** Model tests for ModifyPaymentMethodRequest */
+  @Test
+  public void testModifyPaymentMethodRequest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"id\":12345,\"name\":\"Bonifico"
+            + " bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}}";
+    assertEquals(str, json);
+    ModifyPaymentMethodRequest generated = gson.fromJson(str, ModifyPaymentMethodRequest.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().getId());
-        model.setData(new PaymentMethod().id(1));
-        assertEquals(1, model.getData().getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().getId());
+    model.setData(new PaymentMethod().id(1));
+    assertEquals(1, model.getData().getId());
 
-        model.data(new PaymentMethod().id(2));
-        ModifyPaymentMethodRequest actual = new ModifyPaymentMethodRequest();
-        actual.setData(new PaymentMethod().id(2));
-        assertEquals(model, actual);
-    }
-
+    model.data(new PaymentMethod().id(2));
+    ModifyPaymentMethodRequest actual = new ModifyPaymentMethodRequest();
+    actual.setData(new PaymentMethod().id(2));
+    assertEquals(model, actual);
+  }
 }

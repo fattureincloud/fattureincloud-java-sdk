@@ -10,63 +10,56 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for GetUserInfoResponseEmailConfirmationState
- */
+/** Model tests for GetUserInfoResponseEmailConfirmationState */
 public class GetUserInfoResponseEmailConfirmationStateTest {
-    private GetUserInfoResponseEmailConfirmationState model;
+  private GetUserInfoResponseEmailConfirmationState model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetUserInfoResponseEmailConfirmationState();
-    }
+  @BeforeEach
+  public void init() {
+    model = new GetUserInfoResponseEmailConfirmationState();
+  }
 
-    /**
-     * Model tests for GetUserInfoResponseEmailConfirmationState
-     */
-    @Test
-    public void testGetUserInfoResponseEmailConfirmationState() {
-        GetUserInfoResponseEmailConfirmationState u = new GetUserInfoResponseEmailConfirmationState()
-                .needConfirmation(true);
+  /** Model tests for GetUserInfoResponseEmailConfirmationState */
+  @Test
+  public void testGetUserInfoResponseEmailConfirmationState() {
+    GetUserInfoResponseEmailConfirmationState u =
+        new GetUserInfoResponseEmailConfirmationState().needConfirmation(true);
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(u);
-        String str = "{\"need_confirmation\":true}";
-        assertEquals(str, json);
-        GetUserInfoResponseEmailConfirmationState generated = gson.fromJson(str, GetUserInfoResponseEmailConfirmationState.class);
-        assertEquals(u, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(u);
+    String str = "{\"need_confirmation\":true}";
+    assertEquals(str, json);
+    GetUserInfoResponseEmailConfirmationState generated =
+        gson.fromJson(str, GetUserInfoResponseEmailConfirmationState.class);
+    assertEquals(u, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'needConfirmation'
-     */
-    @Test
-    public void needConfirmationTest() {
-        assertNull(model.getNeedConfirmation());
-        model.setNeedConfirmation(false);
-        assertEquals(false, model.getNeedConfirmation());
+  /** Test the property 'needConfirmation' */
+  @Test
+  public void needConfirmationTest() {
+    assertNull(model.getNeedConfirmation());
+    model.setNeedConfirmation(false);
+    assertEquals(false, model.getNeedConfirmation());
 
-        GetUserInfoResponseEmailConfirmationState u = model.needConfirmation(true);
-        GetUserInfoResponseEmailConfirmationState expected = new GetUserInfoResponseEmailConfirmationState();
-        expected.setNeedConfirmation(true);
-        assertEquals(expected, u);
-    }
-
+    GetUserInfoResponseEmailConfirmationState u = model.needConfirmation(true);
+    GetUserInfoResponseEmailConfirmationState expected =
+        new GetUserInfoResponseEmailConfirmationState();
+    expected.setNeedConfirmation(true);
+    assertEquals(expected, u);
+  }
 }

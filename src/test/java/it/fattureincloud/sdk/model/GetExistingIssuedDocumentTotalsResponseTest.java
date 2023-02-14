@@ -10,83 +10,75 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for GetExistingIssuedDocumentTotalsResponse
- */
+/** Model tests for GetExistingIssuedDocumentTotalsResponse */
 public class GetExistingIssuedDocumentTotalsResponseTest {
-    private GetExistingIssuedDocumentTotalsResponse model;
+  private GetExistingIssuedDocumentTotalsResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetExistingIssuedDocumentTotalsResponse()
-                .data(
-                        new IssuedDocumentTotals()
-                                .amountNet(BigDecimal.valueOf(10))
-                                .amountRivalsa(BigDecimal.valueOf(10))
-                                .amountNetWithRivalsa(BigDecimal.valueOf(10))
-                                .amountCassa(BigDecimal.valueOf(10))
-                                .taxableAmount(BigDecimal.valueOf(10))
-                                .notTaxableAmount(BigDecimal.valueOf(10))
-                                .amountVat(BigDecimal.valueOf(10))
-                                .amountGross(BigDecimal.valueOf(10))
-                                .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
-                                .amountWithholdingTax(BigDecimal.valueOf(10))
-                                .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
-                                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                                .stampDuty((BigDecimal.valueOf(10)))
-                                .amountDue((BigDecimal.valueOf(10)))
-                                .isEnasarcoMaximalExceeded(true)
-                                .paymentsSum((BigDecimal.valueOf(10)))
-                                .vatList(null)
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetExistingIssuedDocumentTotalsResponse()
+            .data(
+                new IssuedDocumentTotals()
+                    .amountNet(BigDecimal.valueOf(10))
+                    .amountRivalsa(BigDecimal.valueOf(10))
+                    .amountNetWithRivalsa(BigDecimal.valueOf(10))
+                    .amountCassa(BigDecimal.valueOf(10))
+                    .taxableAmount(BigDecimal.valueOf(10))
+                    .notTaxableAmount(BigDecimal.valueOf(10))
+                    .amountVat(BigDecimal.valueOf(10))
+                    .amountGross(BigDecimal.valueOf(10))
+                    .taxableAmountWithholdingTax(BigDecimal.valueOf(10))
+                    .amountWithholdingTax(BigDecimal.valueOf(10))
+                    .taxableAmountOtherWithholdingTax(BigDecimal.valueOf(10))
+                    .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                    .stampDuty((BigDecimal.valueOf(10)))
+                    .amountDue((BigDecimal.valueOf(10)))
+                    .isEnasarcoMaximalExceeded(true)
+                    .paymentsSum((BigDecimal.valueOf(10)))
+                    .vatList(null));
+  }
 
-    /**
-     * Model tests for GetExistingIssuedDocumentTotalsResponse
-     */
-    @Test
-    public void testGetExistingIssuedDocumentTotalsResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"amount_net\":10,\"amount_rivalsa\":10,\"amount_net_with_rivalsa\":10,\"amount_cassa\":10,\"taxable_amount\":10,\"not_taxable_amount\":10,\"amount_vat\":10,\"amount_gross\":10,\"taxable_amount_withholding_tax\":10,\"amount_withholding_tax\":10,\"taxable_amount_other_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"stamp_duty\":10,\"amount_due\":10,\"is_enasarco_maximal_exceeded\":true,\"payments_sum\":10}}";
-        assertEquals(str, json);
-        GetExistingIssuedDocumentTotalsResponse generated = gson.fromJson(str, GetExistingIssuedDocumentTotalsResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetExistingIssuedDocumentTotalsResponse */
+  @Test
+  public void testGetExistingIssuedDocumentTotalsResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"amount_net\":10,\"amount_rivalsa\":10,\"amount_net_with_rivalsa\":10,\"amount_cassa\":10,\"taxable_amount\":10,\"not_taxable_amount\":10,\"amount_vat\":10,\"amount_gross\":10,\"taxable_amount_withholding_tax\":10,\"amount_withholding_tax\":10,\"taxable_amount_other_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"stamp_duty\":10,\"amount_due\":10,\"is_enasarco_maximal_exceeded\":true,\"payments_sum\":10}}";
+    assertEquals(str, json);
+    GetExistingIssuedDocumentTotalsResponse generated =
+        gson.fromJson(str, GetExistingIssuedDocumentTotalsResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getData().getAmountNet());
-        model.setData(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(100)));
-        assertEquals(BigDecimal.valueOf(100), model.getData().getAmountNet());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getData().getAmountNet());
+    model.setData(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(100)));
+    assertEquals(BigDecimal.valueOf(100), model.getData().getAmountNet());
 
-        model.data(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
-        GetExistingIssuedDocumentTotalsResponse actual = new GetExistingIssuedDocumentTotalsResponse();
-        actual.setData(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
-        assertEquals(model, actual);
-    }
-
+    model.data(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+    GetExistingIssuedDocumentTotalsResponse actual = new GetExistingIssuedDocumentTotalsResponse();
+    actual.setData(new IssuedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+    assertEquals(model, actual);
+  }
 }

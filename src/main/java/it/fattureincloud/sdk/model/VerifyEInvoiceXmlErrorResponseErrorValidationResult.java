@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -55,7 +56,7 @@ public class VerifyEInvoiceXmlErrorResponseErrorValidationResult implements Seri
   public VerifyEInvoiceXmlErrorResponseErrorValidationResult addXmlErrorsItem(
       String xmlErrorsItem) {
     if (this.xmlErrors == null) {
-      this.xmlErrors = null;
+      this.xmlErrors = new ArrayList<>();
     }
     this.xmlErrors.add(xmlErrorsItem);
     return this;
@@ -155,7 +156,8 @@ public class VerifyEInvoiceXmlErrorResponseErrorValidationResult implements Seri
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseErrorValidationResult is not found in the empty JSON string",
+                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseErrorValidationResult is"
+                    + " not found in the empty JSON string",
                 VerifyEInvoiceXmlErrorResponseErrorValidationResult.openapiRequiredFields
                     .toString()));
       }
@@ -168,7 +170,8 @@ public class VerifyEInvoiceXmlErrorResponseErrorValidationResult implements Seri
           entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `VerifyEInvoiceXmlErrorResponseErrorValidationResult` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `VerifyEInvoiceXmlErrorResponseErrorValidationResult` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -188,7 +191,7 @@ public class VerifyEInvoiceXmlErrorResponseErrorValidationResult implements Seri
       if (!VerifyEInvoiceXmlErrorResponseErrorValidationResult.class.isAssignableFrom(
           type.getRawType())) {
         return null; // this class only serializes
-                     // 'VerifyEInvoiceXmlErrorResponseErrorValidationResult' and its subtypes
+        // 'VerifyEInvoiceXmlErrorResponseErrorValidationResult' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<VerifyEInvoiceXmlErrorResponseErrorValidationResult> thisAdapter =

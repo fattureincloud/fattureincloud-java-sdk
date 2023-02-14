@@ -290,7 +290,8 @@ public class ArchiveDocument implements Serializable {
       if (!ArchiveDocument.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ArchiveDocument` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ArchiveDocument`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -298,28 +299,32 @@ public class ArchiveDocument implements Serializable {
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
     if ((jsonObj.get("attachment_url") != null && !jsonObj.get("attachment_url").isJsonNull())
         && !jsonObj.get("attachment_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_url` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_url").toString()));
     }
     if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull())
         && !jsonObj.get("category").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `category` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `category` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("category").toString()));
     }
     if ((jsonObj.get("attachment_token") != null && !jsonObj.get("attachment_token").isJsonNull())
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
   }

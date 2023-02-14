@@ -10,82 +10,66 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for VatItem
- */
+/** Model tests for VatItem */
 public class VatItemTest {
-    private VatItem model;
+  private VatItem model;
 
-    @BeforeEach
-    public void init() {
-        model = new VatItem()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(12));
-    }
+  @BeforeEach
+  public void init() {
+    model = new VatItem().amountNet(BigDecimal.valueOf(10)).amountVat(BigDecimal.valueOf(12));
+  }
 
-    /**
-     * Model tests for VatItem
-     */
-    @Test
-    public void testVatItem() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"amount_net\":10,\"amount_vat\":12}";
-        assertEquals(str, json);
-        VatItem generated = gson.fromJson(str, VatItem.class);
-        assertEquals(model, generated);
+  /** Model tests for VatItem */
+  @Test
+  public void testVatItem() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"amount_net\":10,\"amount_vat\":12}";
+    assertEquals(str, json);
+    VatItem generated = gson.fromJson(str, VatItem.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'amountNet'
-     */
-    @Test
-    public void amountNetTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
-        model.setAmountNet(BigDecimal.valueOf(2));
-        assertEquals(BigDecimal.valueOf(2), model.getAmountNet());
+  /** Test the property 'amountNet' */
+  @Test
+  public void amountNetTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+    model.setAmountNet(BigDecimal.valueOf(2));
+    assertEquals(BigDecimal.valueOf(2), model.getAmountNet());
 
-        VatItem i = model.amountNet(BigDecimal.valueOf(22));
-        VatItem expected = new VatItem()
-                .amountNet(BigDecimal.valueOf(22))
-                .amountVat(BigDecimal.valueOf(12));
-        assertEquals(expected, i);
-    }
+    VatItem i = model.amountNet(BigDecimal.valueOf(22));
+    VatItem expected =
+        new VatItem().amountNet(BigDecimal.valueOf(22)).amountVat(BigDecimal.valueOf(12));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountVat'
-     */
-    @Test
-    public void amountVatTest() {
-        assertEquals(BigDecimal.valueOf(12), model.getAmountVat());
-        model.setAmountVat(BigDecimal.valueOf(88));
-        assertEquals(BigDecimal.valueOf(88), model.getAmountVat());
+  /** Test the property 'amountVat' */
+  @Test
+  public void amountVatTest() {
+    assertEquals(BigDecimal.valueOf(12), model.getAmountVat());
+    model.setAmountVat(BigDecimal.valueOf(88));
+    assertEquals(BigDecimal.valueOf(88), model.getAmountVat());
 
-        VatItem i = model.amountVat(BigDecimal.valueOf(2202));
-        VatItem expected = new VatItem()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(2202));
-        assertEquals(expected, i);
-    }
-
+    VatItem i = model.amountVat(BigDecimal.valueOf(2202));
+    VatItem expected =
+        new VatItem().amountNet(BigDecimal.valueOf(10)).amountVat(BigDecimal.valueOf(2202));
+    assertEquals(expected, i);
+  }
 }

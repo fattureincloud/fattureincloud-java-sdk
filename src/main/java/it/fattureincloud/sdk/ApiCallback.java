@@ -12,7 +12,6 @@
 
 package it.fattureincloud.sdk;
 
-
 import java.util.List;
 import java.util.Map;
 

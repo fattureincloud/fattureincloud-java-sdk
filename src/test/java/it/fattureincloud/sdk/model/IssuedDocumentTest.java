@@ -10,876 +10,725 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-/**
- * Model tests for IssuedDocument
- */
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+
+/** Model tests for IssuedDocument */
 public class IssuedDocumentTest {
-    private IssuedDocument model = new IssuedDocument();
-
-    /**
-     * Model tests for IssuedDocument
-     */
-    @Test
-    public void testIssuedDocument() {
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        model.id(1);
-        assertEquals(1, model.getId());
-        model.setId(2);
-        assertEquals(2, model.getId());
-    }
-
-    /**
-     * Test the property 'entity'
-     */
-    @Test
-    public void entityTest() {
-        model.entity(new Entity().id(1));
-        assertEquals(new Entity().id(1), model.getEntity());
-        model.setEntity(new Entity().id(2));
-        assertEquals(new Entity().id(2), model.getEntity());
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        model.type(IssuedDocumentType.INVOICE);
-        assertEquals(IssuedDocumentType.INVOICE, model.getType());
-        model.setType(IssuedDocumentType.CREDIT_NOTE);
-        assertEquals(IssuedDocumentType.CREDIT_NOTE, model.getType());
-    }
-
-    /**
-     * Test the property 'number'
-     */
-    @Test
-    public void numberTest() {
-        model.number(1);
-        assertEquals(1, model.getNumber());
-        model.setNumber(2);
-        assertEquals(2, model.getNumber());
-    }
-
-    /**
-     * Test the property 'numeration'
-     */
-    @Test
-    public void numerationTest() {
-        model.numeration("num");
-        assertEquals("num", model.getNumeration());
-        model.setNumeration("nums");
-        assertEquals("nums", model.getNumeration());
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        model.date(LocalDate.of(2021, 12, 25));
-        assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
-        model.setDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
-    }
-
-    /**
-     * Test the property 'currency'
-     */
-    @Test
-    public void currencyTest() {
-        model.currency(new Currency().id("EUR"));
-        assertEquals(new Currency().id("EUR"), model.getCurrency());
-        model.setCurrency(new Currency().id("USD"));
-        assertEquals(new Currency().id("USD"), model.getCurrency());
-    }
-
-    /**
-     * Test the property 'language'
-     */
-    @Test
-    public void languageTest() {
-        model.language(new Language().name("Italieno"));
-        assertEquals(new Language().name("Italieno"), model.getLanguage());
-        model.setLanguage(new Language().name("Francese"));
-        assertEquals(new Language().name("Francese"), model.getLanguage());
-    }
-
-    /**
-     * Test the property 'subject'
-     */
-    @Test
-    public void subjectTest() {
-        model.subject("subgetto");
-        assertEquals("subgetto", model.getSubject());
-        model.setSubject("supergetto");
-        assertEquals("supergetto", model.getSubject());
-    }
-
-    /**
-     * Test the property 'visibleSubject'
-     */
-    @Test
-    public void visibleSubjectTest() {
-        model.visibleSubject("subgetto vibisile");
-        assertEquals("subgetto vibisile", model.getVisibleSubject());
-        model.setVisibleSubject("supergetto sibivile");
-        assertEquals("supergetto sibivile", model.getVisibleSubject());
-    }
-
-    /**
-     * Test the property 'rcCenter'
-     */
-    @Test
-    public void rcCenterTest() {
-        model.rcCenter("bg");
-        assertEquals("bg", model.getRcCenter());
-        model.setRcCenter("mi");
-        assertEquals("mi", model.getRcCenter());
-    }
-
-    /**
-     * Test the property 'notes'
-     */
-    @Test
-    public void notesTest() {
-        model.notes("otes");
-        assertEquals("otes", model.getNotes());
-        model.setNotes("teso");
-        assertEquals("teso", model.getNotes());
-    }
-
-    /**
-     * Test the property 'rivalsa'
-     */
-    @Test
-    public void rivalsaTest() {
-        model.rivalsa(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getRivalsa());
-        model.setRivalsa(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getRivalsa());
-    }
-
-    /**
-     * Test the property 'cassa'
-     */
-    @Test
-    public void cassaTest() {
-        model.cassa(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getCassa());
-        model.setCassa(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getCassa());
-    }
-
-    /**
-     * Test the property 'withholdingTax'
-     */
-    @Test
-    public void withholdingTaxTest() {
-        model.withholdingTax(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
-        model.setWithholdingTax(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
-    }
-
-    /**
-     * Test the property 'withholdingTaxTaxable'
-     */
-    @Test
-    public void withholdingTaxTaxableTest() {
-        model.withholdingTaxTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getWithholdingTaxTaxable());
-        model.setWithholdingTaxTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getWithholdingTaxTaxable());
-    }
-
-    /**
-     * Test the property 'otherWithholdingTax'
-     */
-    @Test
-    public void otherWithholdingTaxTest() {
-        model.otherWithholdingTax(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getOtherWithholdingTax());
-        model.setOtherWithholdingTax(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getOtherWithholdingTax());
-    }
-
-    /**
-     * Test the property 'stampDuty'
-     */
-    @Test
-    public void stampDutyTest() {
-        model.stampDuty(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getStampDuty());
-        model.setStampDuty(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getStampDuty());
-    }
-
-    /**
-     * Test the property 'paymentMethod'
-     */
-    @Test
-    public void paymentMethodTest() {
-        model.paymentMethod(new PaymentMethod().id(1));
-        assertEquals(new PaymentMethod().id(1), model.getPaymentMethod());
-        model.setPaymentMethod(new PaymentMethod().id(2));
-        assertEquals(new PaymentMethod().id(2), model.getPaymentMethod());
-    }
-
-    /**
-     * Test the property 'useSplitPayment'
-     */
-    @Test
-    public void useSplitPaymentTest() {
-        model.useSplitPayment(true);
-        assertEquals(true, model.getUseSplitPayment());
-        model.setUseSplitPayment(false);
-        assertEquals(false, model.getUseSplitPayment());
-    }
-
-    /**
-     * Test the property 'useGrossPrices'
-     */
-    @Test
-    public void useGrossPricesTest() {
-        model.useGrossPrices(true);
-        assertEquals(true, model.getUseGrossPrices());
-        model.setUseGrossPrices(false);
-        assertEquals(false, model.getUseGrossPrices());
-    }
-
-    /**
-     * Test the property 'eInvoice'
-     */
-    @Test
-    public void eInvoiceTest() {
-        model.eInvoice(true);
-        assertEquals(true, model.geteInvoice());
-        model.seteInvoice(false);
-        assertEquals(false, model.geteInvoice());
-    }
-
-    /**
-     * Test the property 'eiData'
-     */
-    @Test
-    public void eiDataTest() {
-        model.eiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
-        assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
-        model.setEiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
-        assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
-    }
-
-    /**
-     * Test the property 'itemsList'
-     */
-    @Test
-    public void itemsListTest() {
-        model.addItemsListItem(new IssuedDocumentItemsListItem().name("item1"));
-        model.addItemsListItem(new IssuedDocumentItemsListItem().name("item2"));
-        assertEquals(Arrays.asList(new IssuedDocumentItemsListItem().name("item1"), new IssuedDocumentItemsListItem().name("item2")), model.getItemsList());
-    }
-
-    /**
-     * Test the property 'paymentsList'
-     */
-    @Test
-    public void paymentsListTest() {
-        model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)));
-        model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10)));
-        assertEquals(Arrays.asList(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)), new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10))), model.getPaymentsList());
-    }
-
-    /**
-     * Test the property 'template'
-     */
-    @Test
-    public void templateTest() {
-        model.template(new DocumentTemplate().id(1));
-        assertEquals(new DocumentTemplate().id(1), model.getTemplate());
-        model.setTemplate(new DocumentTemplate().id(2));
-        assertEquals(new DocumentTemplate().id(2), model.getTemplate());
-    }
-
-    /**
-     * Test the property 'deliveryNoteTemplate'
-     */
-    @Test
-    public void deliveryNoteTemplateTest() {
-        model.deliveryNoteTemplate(new DocumentTemplate().id(1));
-        assertEquals(new DocumentTemplate().id(1), model.getDeliveryNoteTemplate());
-        model.setDeliveryNoteTemplate(new DocumentTemplate().id(2));
-        assertEquals(new DocumentTemplate().id(2), model.getDeliveryNoteTemplate());
-    }
-
-    /**
-     * Test the property 'accInvTemplate'
-     */
-    @Test
-    public void accInvTemplateTest() {
-        model.accInvTemplate(new DocumentTemplate().id(1));
-        assertEquals(new DocumentTemplate().id(1), model.getAccInvTemplate());
-        model.setAccInvTemplate(new DocumentTemplate().id(2));
-        assertEquals(new DocumentTemplate().id(2), model.getAccInvTemplate());
-    }
-
-    /**
-     * Test the property 'hMargins'
-     */
-    @Test
-    public void hMarginsTest() {
-        model.hMargins(1);
-        assertEquals(1, model.gethMargins());
-        model.sethMargins(2);
-        assertEquals(2, model.gethMargins());
-    }
-
-    /**
-     * Test the property 'showPayments'
-     */
-    @Test
-    public void showPaymentsTest() {
-        model.showPayments(true);
-        assertEquals(true, model.getShowPayments());
-        model.setShowPayments(false);
-        assertEquals(false, model.getShowPayments());
-    }
-
-    /**
-     * Test the property 'showPaymentMethod'
-     */
-    @Test
-    public void showPaymentMethodTest() {
-        model.showPaymentMethod(true);
-        assertEquals(true, model.getShowPaymentMethod());
-        model.setShowPaymentMethod(false);
-        assertEquals(false, model.getShowPaymentMethod());
-    }
-
-    /**
-     * Test the property 'showTotals'
-     */
-    @Test
-    public void showTotalsTest() {
-        model.showTotals(ShowTotalsMode.ALL);
-        assertEquals(ShowTotalsMode.ALL, model.getShowTotals());
-        model.setShowTotals(ShowTotalsMode.NONE);
-        assertEquals(ShowTotalsMode.NONE, model.getShowTotals());
-    }
-
-    /**
-     * Test the property 'vMargins'
-     */
-    @Test
-    public void vMarginsTest() {
-        model.vMargins(1);
-        assertEquals(1, model.getvMargins());
-        model.setvMargins(2);
-        assertEquals(2, model.getvMargins());
-    }
-
-    /**
-     * Test the property 'showPaypalButton'
-     */
-    @Test
-    public void showPaypalButtonTest() {
-        model.showPaypalButton(true);
-        assertEquals(true, model.getShowPaypalButton());
-        model.setShowPaypalButton(false);
-        assertEquals(false, model.getShowPaypalButton());
-    }
-
-    /**
-     * Test the property 'showNotificationButton'
-     */
-    @Test
-    public void showNotificationButtonTest() {
-        model.showNotificationButton(true);
-        assertEquals(true, model.getShowNotificationButton());
-        model.setShowNotificationButton(false);
-        assertEquals(false, model.getShowNotificationButton());
-    }
-
-    /**
-     * Test the property 'deliveryNote'
-     */
-    @Test
-    public void deliveryNoteTest() {
-        model.deliveryNote(true);
-        assertEquals(true, model.getDeliveryNote());
-        model.setDeliveryNote(false);
-        assertEquals(false, model.getDeliveryNote());
-    }
-
-    /**
-     * Test the property 'accompanyingInvoice'
-     */
-    @Test
-    public void accompanyingInvoiceTest() {
-        model.accompanyingInvoice(true);
-        assertEquals(true, model.getAccompanyingInvoice());
-        model.setAccompanyingInvoice(false);
-        assertEquals(false, model.getAccompanyingInvoice());
-    }
-
-    /**
-     * Test the property 'dnNumber'
-     */
-    @Test
-    public void dnNumberTest() {
-        model.dnNumber(1);
-        assertEquals(1, model.getDnNumber());
-        model.setDnNumber(2);
-        assertEquals(2, model.getDnNumber());
-    }
-
-    /**
-     * Test the property 'dnDate'
-     */
-    @Test
-    public void dnDateTest() {
-        model.dnDate(LocalDate.of(2021, 12, 25));
-        assertEquals(LocalDate.of(2021, 12, 25), model.getDnDate());
-        model.setDnDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getDnDate());
-    }
-
-    /**
-     * Test the property 'dnAiPackagesNumber'
-     */
-    @Test
-    public void dnAiPackagesNumberTest() {
-        model.dnAiPackagesNumber("quarantasette");
-        assertEquals("quarantasette", model.getDnAiPackagesNumber());
-        model.setDnAiPackagesNumber("7/8sour");
-        assertEquals("7/8sour", model.getDnAiPackagesNumber());
-    }
-
-    /**
-     * Test the property 'dnAiWeight'
-     */
-    @Test
-    public void dnAiWeightTest() {
-        model.dnAiWeight("ottantotto");
-        assertEquals("ottantotto", model.getDnAiWeight());
-        model.setDnAiWeight("ottantottolo");
-        assertEquals("ottantottolo", model.getDnAiWeight());
-    }
-
-    /**
-     * Test the property 'dnAiCausal'
-     */
-    @Test
-    public void dnAiCausalTest() {
-        model.dnAiCausal("ottantotto");
-        assertEquals("ottantotto", model.getDnAiCausal());
-        model.setDnAiCausal("ottantottolo");
-        assertEquals("ottantottolo", model.getDnAiCausal());
-    }
-
-    /**
-     * Test the property 'dnAiDestination'
-     */
-    @Test
-    public void dnAiDestinationTest() {
-        model.dnAiDestination("ottantotto");
-        assertEquals("ottantotto", model.getDnAiDestination());
-        model.setDnAiDestination("ottantottolo");
-        assertEquals("ottantottolo", model.getDnAiDestination());
-    }
-
-    /**
-     * Test the property 'dnAiTransporter'
-     */
-    @Test
-    public void dnAiTransporterTest() {
-        model.dnAiTransporter("ottantotto");
-        assertEquals("ottantotto", model.getDnAiTransporter());
-        model.setDnAiTransporter("ottantottolo");
-        assertEquals("ottantottolo", model.getDnAiTransporter());
-    }
-
-    /**
-     * Test the property 'dnAiNotes'
-     */
-    @Test
-    public void dnAiNotesTest() {
-        model.dnAiNotes("ottantotto");
-        assertEquals("ottantotto", model.getDnAiNotes());
-        model.setDnAiNotes("ottantottolo");
-        assertEquals("ottantottolo", model.getDnAiNotes());
-    }
-
-    /**
-     * Test the property 'isMarked'
-     */
-    @Test
-    public void isMarkedTest() {
-        model.isMarked(true);
-        assertEquals(true, model.getIsMarked());
-        model.setIsMarked(false);
-        assertEquals(false, model.getIsMarked());
-    }
-
-    /**
-     * Test the property 'amountNet'
-     */
-    @Test
-    public void amountNetTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_net\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
-    }
-
-    /**
-     * Test the property 'amountVat'
-     */
-    @Test
-    public void amountVatTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_vat\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
-    }
-
-    /**
-     * Test the property 'amountGross'
-     */
-    @Test
-    public void amountGrossTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_gross\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
-    }
-
-    /**
-     * Test the property 'amountRivalsa'
-     */
-    @Test
-    public void amountRivalsaTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_rivalsa\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsa());
-    }
-
-    /**
-     * Test the property 'amountCassa'
-     */
-    @Test
-    public void amountCassaTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_cassa\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa());
-    }
-
-    /**
-     * Test the property 'amountWithholdingTax'
-     */
-    @Test
-    public void amountWithholdingTaxTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_withholding_tax\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
-    }
-
-    /**
-     * Test the property 'amountOtherWithholdingTax'
-     */
-    @Test
-    public void amountOtherWithholdingTaxTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_other_withholding_tax\":10}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
-    }
-
-    /**
-     * Test the property 'extraData'
-     */
-    @Test
-    public void extraDataTest() {
-        model.extraData(new IssuedDocumentExtraData().tsFileId("cinque"));
-        assertEquals(new IssuedDocumentExtraData().tsFileId("cinque"), model.getExtraData());
-        model.setExtraData(new IssuedDocumentExtraData().tsFileId("sei"));
-        assertEquals(new IssuedDocumentExtraData().tsFileId("sei"), model.getExtraData());
-    }
-
-    /**
-     * Test the property 'seenDate'
-     */
-    @Test
-    public void seenDateTest() {
-        model.seenDate(LocalDate.of(2021, 12, 25));
-        assertEquals(LocalDate.of(2021, 12, 25), model.getSeenDate());
-        model.setSeenDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getSeenDate());
-    }
-
-    /**
-     * Test the property 'nextDueDate'
-     */
-    @Test
-    public void nextDueDateTest() {
-        model.nextDueDate(LocalDate.of(2021, 12, 25));
-        assertEquals(LocalDate.of(2021, 12, 25), model.getNextDueDate());
-        model.setNextDueDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getNextDueDate());
-    }
-
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        model.url("www.url.co");
-        assertEquals("www.url.co", model.getUrl());
-        model.setUrl("www.co.url");
-        assertEquals("www.co.url", model.getUrl());
-    }
-
-    /**
-     * Test the property 'attachmentUrl'
-     */
-    @Test
-    public void attachmentUrlTest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"attachment_url\":\"www.attachment.url\"}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals("www.attachment.url", model.getAttachmentUrl());
-    }
-
-    /**
-     * Test the property 'attachmentToken'
-     */
-    @Test
-    public void attachmentTokenTest() {
-        model.attachmentToken("tok678ken");
-        assertEquals("tok678ken", model.getAttachmentToken());
-        model.setAttachmentToken("tok876ken");
-        assertEquals("tok876ken", model.getAttachmentToken());
-    }
-
-    /**
-     * Test the property 'eiRaw'
-     */
-    @Test
-    public void eiRawTest() {
-        model.eiRaw(null);
-        assertEquals(null, model.getEiRaw());
-        model.setEiRaw(null);
-        assertEquals(null, model.getEiRaw());
-    }
-
-    /**
-     * Test the property 'showTspayButton'
-     */
-    @Test
-    public void showTspayButtonTest() {
-        model.showTspayButton(true);
-        assertEquals(true, model.getShowTspayButton());
-        model.setShowTspayButton(false);
-        assertEquals(false, model.getShowTspayButton());
-    }
-
-    /**
-     * Test the property 'year'
-     */
-    @Test
-    public void yearTest() {
-        model.year(2021);
-        assertEquals(2021, model.getYear());
-        model.setYear(2022);
-        assertEquals(2022, model.getYear());
-    }
-
-    /**
-     * Test the property 'amountRivalsaTaxable'
-     */
-    @Test
-    public void amountRivalsaTaxableTest() {
-        model.amountRivalsaTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsaTaxable());
-        model.setAmountRivalsaTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountRivalsaTaxable());
-    }
-
-    /**
-     * Test the property 'amountGlobalCassaTaxable'
-     */
-    @Test
-    public void amountGlobalCassaTaxableTest() {
-        model.amountGlobalCassaTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountGlobalCassaTaxable());
-        model.setAmountGlobalCassaTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountGlobalCassaTaxable());
-    }
-
-    /**
-     * Test the property 'amountCassaTaxable'
-     */
-    @Test
-    public void amountCassaTaxableTest() {
-        model.amountCassaTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountCassaTaxable());
-        model.setAmountCassaTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountCassaTaxable());
-    }
-
-    /**
-     * Test the property 'amountCassa2'
-     */
-    @Test
-    public void amountCassa2Test() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = "{\"amount_cassa2\":10.0}";
-        model = gson.fromJson(json, IssuedDocument.class);
-        assertEquals(BigDecimal.valueOf(10.0), model.getAmountCassa2());
-    }
-
-    /**
-     * Test the property 'amountCassa2Taxable'
-     */
-    @Test
-    public void amountCassa2TaxableTest() {
-        model.amountCassa2Taxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountCassa2Taxable());
-        model.setAmountCassa2Taxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountCassa2Taxable());
-    }
-
-    /**
-     * Test the property 'amountWithholdingTaxTaxable'
-     */
-    @Test
-    public void amountWithholdingTaxTaxableTest() {
-        model.amountWithholdingTaxTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTaxTaxable());
-        model.setAmountWithholdingTaxTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTaxTaxable());
-    }
-
-    /**
-     * Test the property 'amountEnasarcoTaxable'
-     */
-    @Test
-    public void amountEnasarcoTaxableTest() {
-        model.amountEnasarcoTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountEnasarcoTaxable());
-        model.setAmountEnasarcoTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountEnasarcoTaxable());
-    }
-
-    /**
-     * Test the property 'amountOtherWithholdingTaxTaxable'
-     */
-    @Test
-    public void amountOtherWithholdingTaxTaxableTest() {
-        model.amountOtherWithholdingTaxTaxable(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTaxTaxable());
-        model.setAmountOtherWithholdingTaxTaxable(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTaxTaxable());
-    }
-
-    /**
-     * Test the property 'eiCassaType'
-     */
-    @Test
-    public void eiCassaTypeTest() {
-        model.eiCassaType("top");
-        assertEquals("top", model.getEiCassaType());
-        model.setEiCassaType("pot");
-        assertEquals("pot", model.getEiCassaType());
-    }
-
-    /**
-     * Test the property 'eiCassa2Type'
-     */
-    @Test
-    public void eiCassa2TypeTest() {
-        model.eiCassa2Type("top");
-        assertEquals("top", model.getEiCassa2Type());
-        model.setEiCassa2Type("pot");
-        assertEquals("pot", model.getEiCassa2Type());
-    }
-
-    /**
-     * Test the property 'eiWithholdingTaxCausal'
-     */
-    @Test
-    public void eiWithholdingTaxCausalTest() {
-        model.eiWithholdingTaxCausal("top");
-        assertEquals("top", model.getEiWithholdingTaxCausal());
-        model.setEiWithholdingTaxCausal("pot");
-        assertEquals("pot", model.getEiWithholdingTaxCausal());
-    }
-
-    /**
-     * Test the property 'eiOtherWithholdingTaxType'
-     */
-    @Test
-    public void eiOtherWithholdingTaxTypeTest() {
-        model.eiOtherWithholdingTaxType("string");
-        assertEquals("string", model.getEiOtherWithholdingTaxType());
-        model.setEiOtherWithholdingTaxType("siring");
-        assertEquals("siring", model.getEiOtherWithholdingTaxType());
-    }
-
-    /**
-     * Test the property 'eiOtherWithholdingTaxCausal'
-     */
-    @Test
-    public void eiOtherWithholdingTaxCausalTest() {
-        model.eiOtherWithholdingTaxCausal("string");
-        assertEquals("string", model.getEiOtherWithholdingTaxCausal());
-        model.setEiOtherWithholdingTaxCausal("siring");
-        assertEquals("siring", model.getEiOtherWithholdingTaxCausal());
-    }
-
-    /**
-     * Test the property 'amountDueDiscount'
-     */
-    @Test
-    public void amountDueDiscountTest() {
-        model.amountDueDiscount(BigDecimal.valueOf(10));
-        assertEquals(BigDecimal.valueOf(10), model.getAmountDueDiscount());
-        model.setAmountDueDiscount(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountDueDiscount());
-    }
-
+  private IssuedDocument model = new IssuedDocument();
+
+  /** Model tests for IssuedDocument */
+  @Test
+  public void testIssuedDocument() {
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
+
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    model.id(1);
+    assertEquals(1, model.getId());
+    model.setId(2);
+    assertEquals(2, model.getId());
+  }
+
+  /** Test the property 'entity' */
+  @Test
+  public void entityTest() {
+    model.entity(new Entity().id(1));
+    assertEquals(new Entity().id(1), model.getEntity());
+    model.setEntity(new Entity().id(2));
+    assertEquals(new Entity().id(2), model.getEntity());
+  }
+
+  /** Test the property 'type' */
+  @Test
+  public void typeTest() {
+    model.type(IssuedDocumentType.INVOICE);
+    assertEquals(IssuedDocumentType.INVOICE, model.getType());
+    model.setType(IssuedDocumentType.CREDIT_NOTE);
+    assertEquals(IssuedDocumentType.CREDIT_NOTE, model.getType());
+  }
+
+  /** Test the property 'number' */
+  @Test
+  public void numberTest() {
+    model.number(1);
+    assertEquals(1, model.getNumber());
+    model.setNumber(2);
+    assertEquals(2, model.getNumber());
+  }
+
+  /** Test the property 'numeration' */
+  @Test
+  public void numerationTest() {
+    model.numeration("num");
+    assertEquals("num", model.getNumeration());
+    model.setNumeration("nums");
+    assertEquals("nums", model.getNumeration());
+  }
+
+  /** Test the property 'date' */
+  @Test
+  public void dateTest() {
+    model.date(LocalDate.of(2021, 12, 25));
+    assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
+    model.setDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
+  }
+
+  /** Test the property 'currency' */
+  @Test
+  public void currencyTest() {
+    model.currency(new Currency().id("EUR"));
+    assertEquals(new Currency().id("EUR"), model.getCurrency());
+    model.setCurrency(new Currency().id("USD"));
+    assertEquals(new Currency().id("USD"), model.getCurrency());
+  }
+
+  /** Test the property 'language' */
+  @Test
+  public void languageTest() {
+    model.language(new Language().name("Italieno"));
+    assertEquals(new Language().name("Italieno"), model.getLanguage());
+    model.setLanguage(new Language().name("Francese"));
+    assertEquals(new Language().name("Francese"), model.getLanguage());
+  }
+
+  /** Test the property 'subject' */
+  @Test
+  public void subjectTest() {
+    model.subject("subgetto");
+    assertEquals("subgetto", model.getSubject());
+    model.setSubject("supergetto");
+    assertEquals("supergetto", model.getSubject());
+  }
+
+  /** Test the property 'visibleSubject' */
+  @Test
+  public void visibleSubjectTest() {
+    model.visibleSubject("subgetto vibisile");
+    assertEquals("subgetto vibisile", model.getVisibleSubject());
+    model.setVisibleSubject("supergetto sibivile");
+    assertEquals("supergetto sibivile", model.getVisibleSubject());
+  }
+
+  /** Test the property 'rcCenter' */
+  @Test
+  public void rcCenterTest() {
+    model.rcCenter("bg");
+    assertEquals("bg", model.getRcCenter());
+    model.setRcCenter("mi");
+    assertEquals("mi", model.getRcCenter());
+  }
+
+  /** Test the property 'notes' */
+  @Test
+  public void notesTest() {
+    model.notes("otes");
+    assertEquals("otes", model.getNotes());
+    model.setNotes("teso");
+    assertEquals("teso", model.getNotes());
+  }
+
+  /** Test the property 'rivalsa' */
+  @Test
+  public void rivalsaTest() {
+    model.rivalsa(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getRivalsa());
+    model.setRivalsa(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getRivalsa());
+  }
+
+  /** Test the property 'cassa' */
+  @Test
+  public void cassaTest() {
+    model.cassa(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getCassa());
+    model.setCassa(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getCassa());
+  }
+
+  /** Test the property 'withholdingTax' */
+  @Test
+  public void withholdingTaxTest() {
+    model.withholdingTax(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
+    model.setWithholdingTax(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getWithholdingTax());
+  }
+
+  /** Test the property 'withholdingTaxTaxable' */
+  @Test
+  public void withholdingTaxTaxableTest() {
+    model.withholdingTaxTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getWithholdingTaxTaxable());
+    model.setWithholdingTaxTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getWithholdingTaxTaxable());
+  }
+
+  /** Test the property 'otherWithholdingTax' */
+  @Test
+  public void otherWithholdingTaxTest() {
+    model.otherWithholdingTax(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getOtherWithholdingTax());
+    model.setOtherWithholdingTax(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getOtherWithholdingTax());
+  }
+
+  /** Test the property 'stampDuty' */
+  @Test
+  public void stampDutyTest() {
+    model.stampDuty(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getStampDuty());
+    model.setStampDuty(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getStampDuty());
+  }
+
+  /** Test the property 'paymentMethod' */
+  @Test
+  public void paymentMethodTest() {
+    model.paymentMethod(new PaymentMethod().id(1));
+    assertEquals(new PaymentMethod().id(1), model.getPaymentMethod());
+    model.setPaymentMethod(new PaymentMethod().id(2));
+    assertEquals(new PaymentMethod().id(2), model.getPaymentMethod());
+  }
+
+  /** Test the property 'useSplitPayment' */
+  @Test
+  public void useSplitPaymentTest() {
+    model.useSplitPayment(true);
+    assertEquals(true, model.getUseSplitPayment());
+    model.setUseSplitPayment(false);
+    assertEquals(false, model.getUseSplitPayment());
+  }
+
+  /** Test the property 'useGrossPrices' */
+  @Test
+  public void useGrossPricesTest() {
+    model.useGrossPrices(true);
+    assertEquals(true, model.getUseGrossPrices());
+    model.setUseGrossPrices(false);
+    assertEquals(false, model.getUseGrossPrices());
+  }
+
+  /** Test the property 'eInvoice' */
+  @Test
+  public void eInvoiceTest() {
+    model.eInvoice(true);
+    assertEquals(true, model.geteInvoice());
+    model.seteInvoice(false);
+    assertEquals(false, model.geteInvoice());
+  }
+
+  /** Test the property 'eiData' */
+  @Test
+  public void eiDataTest() {
+    model.eiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
+    assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
+    model.setEiData(new IssuedDocumentEiData().bankIban("ITP00000083874728"));
+    assertEquals(new IssuedDocumentEiData().bankIban("ITP00000083874728"), model.getEiData());
+  }
+
+  /** Test the property 'itemsList' */
+  @Test
+  public void itemsListTest() {
+    model.addItemsListItem(new IssuedDocumentItemsListItem().name("item1"));
+    model.addItemsListItem(new IssuedDocumentItemsListItem().name("item2"));
+    assertEquals(
+        Arrays.asList(
+            new IssuedDocumentItemsListItem().name("item1"),
+            new IssuedDocumentItemsListItem().name("item2")),
+        model.getItemsList());
+  }
+
+  /** Test the property 'paymentsList' */
+  @Test
+  public void paymentsListTest() {
+    model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)));
+    model.addPaymentsListItem(new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10)));
+    assertEquals(
+        Arrays.asList(
+            new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(100)),
+            new IssuedDocumentPaymentsListItem().amount(BigDecimal.valueOf(10))),
+        model.getPaymentsList());
+  }
+
+  /** Test the property 'template' */
+  @Test
+  public void templateTest() {
+    model.template(new DocumentTemplate().id(1));
+    assertEquals(new DocumentTemplate().id(1), model.getTemplate());
+    model.setTemplate(new DocumentTemplate().id(2));
+    assertEquals(new DocumentTemplate().id(2), model.getTemplate());
+  }
+
+  /** Test the property 'deliveryNoteTemplate' */
+  @Test
+  public void deliveryNoteTemplateTest() {
+    model.deliveryNoteTemplate(new DocumentTemplate().id(1));
+    assertEquals(new DocumentTemplate().id(1), model.getDeliveryNoteTemplate());
+    model.setDeliveryNoteTemplate(new DocumentTemplate().id(2));
+    assertEquals(new DocumentTemplate().id(2), model.getDeliveryNoteTemplate());
+  }
+
+  /** Test the property 'accInvTemplate' */
+  @Test
+  public void accInvTemplateTest() {
+    model.accInvTemplate(new DocumentTemplate().id(1));
+    assertEquals(new DocumentTemplate().id(1), model.getAccInvTemplate());
+    model.setAccInvTemplate(new DocumentTemplate().id(2));
+    assertEquals(new DocumentTemplate().id(2), model.getAccInvTemplate());
+  }
+
+  /** Test the property 'hMargins' */
+  @Test
+  public void hMarginsTest() {
+    model.hMargins(1);
+    assertEquals(1, model.gethMargins());
+    model.sethMargins(2);
+    assertEquals(2, model.gethMargins());
+  }
+
+  /** Test the property 'showPayments' */
+  @Test
+  public void showPaymentsTest() {
+    model.showPayments(true);
+    assertEquals(true, model.getShowPayments());
+    model.setShowPayments(false);
+    assertEquals(false, model.getShowPayments());
+  }
+
+  /** Test the property 'showPaymentMethod' */
+  @Test
+  public void showPaymentMethodTest() {
+    model.showPaymentMethod(true);
+    assertEquals(true, model.getShowPaymentMethod());
+    model.setShowPaymentMethod(false);
+    assertEquals(false, model.getShowPaymentMethod());
+  }
+
+  /** Test the property 'showTotals' */
+  @Test
+  public void showTotalsTest() {
+    model.showTotals(ShowTotalsMode.ALL);
+    assertEquals(ShowTotalsMode.ALL, model.getShowTotals());
+    model.setShowTotals(ShowTotalsMode.NONE);
+    assertEquals(ShowTotalsMode.NONE, model.getShowTotals());
+  }
+
+  /** Test the property 'vMargins' */
+  @Test
+  public void vMarginsTest() {
+    model.vMargins(1);
+    assertEquals(1, model.getvMargins());
+    model.setvMargins(2);
+    assertEquals(2, model.getvMargins());
+  }
+
+  /** Test the property 'showPaypalButton' */
+  @Test
+  public void showPaypalButtonTest() {
+    model.showPaypalButton(true);
+    assertEquals(true, model.getShowPaypalButton());
+    model.setShowPaypalButton(false);
+    assertEquals(false, model.getShowPaypalButton());
+  }
+
+  /** Test the property 'showNotificationButton' */
+  @Test
+  public void showNotificationButtonTest() {
+    model.showNotificationButton(true);
+    assertEquals(true, model.getShowNotificationButton());
+    model.setShowNotificationButton(false);
+    assertEquals(false, model.getShowNotificationButton());
+  }
+
+  /** Test the property 'deliveryNote' */
+  @Test
+  public void deliveryNoteTest() {
+    model.deliveryNote(true);
+    assertEquals(true, model.getDeliveryNote());
+    model.setDeliveryNote(false);
+    assertEquals(false, model.getDeliveryNote());
+  }
+
+  /** Test the property 'accompanyingInvoice' */
+  @Test
+  public void accompanyingInvoiceTest() {
+    model.accompanyingInvoice(true);
+    assertEquals(true, model.getAccompanyingInvoice());
+    model.setAccompanyingInvoice(false);
+    assertEquals(false, model.getAccompanyingInvoice());
+  }
+
+  /** Test the property 'dnNumber' */
+  @Test
+  public void dnNumberTest() {
+    model.dnNumber(1);
+    assertEquals(1, model.getDnNumber());
+    model.setDnNumber(2);
+    assertEquals(2, model.getDnNumber());
+  }
+
+  /** Test the property 'dnDate' */
+  @Test
+  public void dnDateTest() {
+    model.dnDate(LocalDate.of(2021, 12, 25));
+    assertEquals(LocalDate.of(2021, 12, 25), model.getDnDate());
+    model.setDnDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getDnDate());
+  }
+
+  /** Test the property 'dnAiPackagesNumber' */
+  @Test
+  public void dnAiPackagesNumberTest() {
+    model.dnAiPackagesNumber("quarantasette");
+    assertEquals("quarantasette", model.getDnAiPackagesNumber());
+    model.setDnAiPackagesNumber("7/8sour");
+    assertEquals("7/8sour", model.getDnAiPackagesNumber());
+  }
+
+  /** Test the property 'dnAiWeight' */
+  @Test
+  public void dnAiWeightTest() {
+    model.dnAiWeight("ottantotto");
+    assertEquals("ottantotto", model.getDnAiWeight());
+    model.setDnAiWeight("ottantottolo");
+    assertEquals("ottantottolo", model.getDnAiWeight());
+  }
+
+  /** Test the property 'dnAiCausal' */
+  @Test
+  public void dnAiCausalTest() {
+    model.dnAiCausal("ottantotto");
+    assertEquals("ottantotto", model.getDnAiCausal());
+    model.setDnAiCausal("ottantottolo");
+    assertEquals("ottantottolo", model.getDnAiCausal());
+  }
+
+  /** Test the property 'dnAiDestination' */
+  @Test
+  public void dnAiDestinationTest() {
+    model.dnAiDestination("ottantotto");
+    assertEquals("ottantotto", model.getDnAiDestination());
+    model.setDnAiDestination("ottantottolo");
+    assertEquals("ottantottolo", model.getDnAiDestination());
+  }
+
+  /** Test the property 'dnAiTransporter' */
+  @Test
+  public void dnAiTransporterTest() {
+    model.dnAiTransporter("ottantotto");
+    assertEquals("ottantotto", model.getDnAiTransporter());
+    model.setDnAiTransporter("ottantottolo");
+    assertEquals("ottantottolo", model.getDnAiTransporter());
+  }
+
+  /** Test the property 'dnAiNotes' */
+  @Test
+  public void dnAiNotesTest() {
+    model.dnAiNotes("ottantotto");
+    assertEquals("ottantotto", model.getDnAiNotes());
+    model.setDnAiNotes("ottantottolo");
+    assertEquals("ottantottolo", model.getDnAiNotes());
+  }
+
+  /** Test the property 'isMarked' */
+  @Test
+  public void isMarkedTest() {
+    model.isMarked(true);
+    assertEquals(true, model.getIsMarked());
+    model.setIsMarked(false);
+    assertEquals(false, model.getIsMarked());
+  }
+
+  /** Test the property 'amountNet' */
+  @Test
+  public void amountNetTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_net\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+  }
+
+  /** Test the property 'amountVat' */
+  @Test
+  public void amountVatTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_vat\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
+  }
+
+  /** Test the property 'amountGross' */
+  @Test
+  public void amountGrossTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_gross\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
+  }
+
+  /** Test the property 'amountRivalsa' */
+  @Test
+  public void amountRivalsaTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_rivalsa\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsa());
+  }
+
+  /** Test the property 'amountCassa' */
+  @Test
+  public void amountCassaTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_cassa\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountCassa());
+  }
+
+  /** Test the property 'amountWithholdingTax' */
+  @Test
+  public void amountWithholdingTaxTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_withholding_tax\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
+  }
+
+  /** Test the property 'amountOtherWithholdingTax' */
+  @Test
+  public void amountOtherWithholdingTaxTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_other_withholding_tax\":10}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
+  }
+
+  /** Test the property 'extraData' */
+  @Test
+  public void extraDataTest() {
+    model.extraData(new IssuedDocumentExtraData().tsFileId("cinque"));
+    assertEquals(new IssuedDocumentExtraData().tsFileId("cinque"), model.getExtraData());
+    model.setExtraData(new IssuedDocumentExtraData().tsFileId("sei"));
+    assertEquals(new IssuedDocumentExtraData().tsFileId("sei"), model.getExtraData());
+  }
+
+  /** Test the property 'seenDate' */
+  @Test
+  public void seenDateTest() {
+    model.seenDate(LocalDate.of(2021, 12, 25));
+    assertEquals(LocalDate.of(2021, 12, 25), model.getSeenDate());
+    model.setSeenDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getSeenDate());
+  }
+
+  /** Test the property 'nextDueDate' */
+  @Test
+  public void nextDueDateTest() {
+    model.nextDueDate(LocalDate.of(2021, 12, 25));
+    assertEquals(LocalDate.of(2021, 12, 25), model.getNextDueDate());
+    model.setNextDueDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getNextDueDate());
+  }
+
+  /** Test the property 'url' */
+  @Test
+  public void urlTest() {
+    model.url("www.url.co");
+    assertEquals("www.url.co", model.getUrl());
+    model.setUrl("www.co.url");
+    assertEquals("www.co.url", model.getUrl());
+  }
+
+  /** Test the property 'attachmentUrl' */
+  @Test
+  public void attachmentUrlTest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"attachment_url\":\"www.attachment.url\"}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals("www.attachment.url", model.getAttachmentUrl());
+  }
+
+  /** Test the property 'attachmentToken' */
+  @Test
+  public void attachmentTokenTest() {
+    model.attachmentToken("tok678ken");
+    assertEquals("tok678ken", model.getAttachmentToken());
+    model.setAttachmentToken("tok876ken");
+    assertEquals("tok876ken", model.getAttachmentToken());
+  }
+
+  /** Test the property 'eiRaw' */
+  @Test
+  public void eiRawTest() {
+    model.eiRaw(null);
+    assertEquals(null, model.getEiRaw());
+    model.setEiRaw(null);
+    assertEquals(null, model.getEiRaw());
+  }
+
+  /** Test the property 'showTspayButton' */
+  @Test
+  public void showTspayButtonTest() {
+    model.showTspayButton(true);
+    assertEquals(true, model.getShowTspayButton());
+    model.setShowTspayButton(false);
+    assertEquals(false, model.getShowTspayButton());
+  }
+
+  /** Test the property 'year' */
+  @Test
+  public void yearTest() {
+    model.year(2021);
+    assertEquals(2021, model.getYear());
+    model.setYear(2022);
+    assertEquals(2022, model.getYear());
+  }
+
+  /** Test the property 'amountRivalsaTaxable' */
+  @Test
+  public void amountRivalsaTaxableTest() {
+    model.amountRivalsaTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountRivalsaTaxable());
+    model.setAmountRivalsaTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountRivalsaTaxable());
+  }
+
+  /** Test the property 'amountGlobalCassaTaxable' */
+  @Test
+  public void amountGlobalCassaTaxableTest() {
+    model.amountGlobalCassaTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountGlobalCassaTaxable());
+    model.setAmountGlobalCassaTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountGlobalCassaTaxable());
+  }
+
+  /** Test the property 'amountCassaTaxable' */
+  @Test
+  public void amountCassaTaxableTest() {
+    model.amountCassaTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountCassaTaxable());
+    model.setAmountCassaTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountCassaTaxable());
+  }
+
+  /** Test the property 'amountCassa2' */
+  @Test
+  public void amountCassa2Test() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = "{\"amount_cassa2\":10.0}";
+    model = gson.fromJson(json, IssuedDocument.class);
+    assertEquals(BigDecimal.valueOf(10.0), model.getAmountCassa2());
+  }
+
+  /** Test the property 'amountCassa2Taxable' */
+  @Test
+  public void amountCassa2TaxableTest() {
+    model.amountCassa2Taxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountCassa2Taxable());
+    model.setAmountCassa2Taxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountCassa2Taxable());
+  }
+
+  /** Test the property 'amountWithholdingTaxTaxable' */
+  @Test
+  public void amountWithholdingTaxTaxableTest() {
+    model.amountWithholdingTaxTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTaxTaxable());
+    model.setAmountWithholdingTaxTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTaxTaxable());
+  }
+
+  /** Test the property 'amountEnasarcoTaxable' */
+  @Test
+  public void amountEnasarcoTaxableTest() {
+    model.amountEnasarcoTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountEnasarcoTaxable());
+    model.setAmountEnasarcoTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountEnasarcoTaxable());
+  }
+
+  /** Test the property 'amountOtherWithholdingTaxTaxable' */
+  @Test
+  public void amountOtherWithholdingTaxTaxableTest() {
+    model.amountOtherWithholdingTaxTaxable(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTaxTaxable());
+    model.setAmountOtherWithholdingTaxTaxable(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTaxTaxable());
+  }
+
+  /** Test the property 'eiCassaType' */
+  @Test
+  public void eiCassaTypeTest() {
+    model.eiCassaType("top");
+    assertEquals("top", model.getEiCassaType());
+    model.setEiCassaType("pot");
+    assertEquals("pot", model.getEiCassaType());
+  }
+
+  /** Test the property 'eiCassa2Type' */
+  @Test
+  public void eiCassa2TypeTest() {
+    model.eiCassa2Type("top");
+    assertEquals("top", model.getEiCassa2Type());
+    model.setEiCassa2Type("pot");
+    assertEquals("pot", model.getEiCassa2Type());
+  }
+
+  /** Test the property 'eiWithholdingTaxCausal' */
+  @Test
+  public void eiWithholdingTaxCausalTest() {
+    model.eiWithholdingTaxCausal("top");
+    assertEquals("top", model.getEiWithholdingTaxCausal());
+    model.setEiWithholdingTaxCausal("pot");
+    assertEquals("pot", model.getEiWithholdingTaxCausal());
+  }
+
+  /** Test the property 'eiOtherWithholdingTaxType' */
+  @Test
+  public void eiOtherWithholdingTaxTypeTest() {
+    model.eiOtherWithholdingTaxType("string");
+    assertEquals("string", model.getEiOtherWithholdingTaxType());
+    model.setEiOtherWithholdingTaxType("siring");
+    assertEquals("siring", model.getEiOtherWithholdingTaxType());
+  }
+
+  /** Test the property 'eiOtherWithholdingTaxCausal' */
+  @Test
+  public void eiOtherWithholdingTaxCausalTest() {
+    model.eiOtherWithholdingTaxCausal("string");
+    assertEquals("string", model.getEiOtherWithholdingTaxCausal());
+    model.setEiOtherWithholdingTaxCausal("siring");
+    assertEquals("siring", model.getEiOtherWithholdingTaxCausal());
+  }
+
+  /** Test the property 'amountDueDiscount' */
+  @Test
+  public void amountDueDiscountTest() {
+    model.amountDueDiscount(BigDecimal.valueOf(10));
+    assertEquals(BigDecimal.valueOf(10), model.getAmountDueDiscount());
+    model.setAmountDueDiscount(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountDueDiscount());
+  }
 }

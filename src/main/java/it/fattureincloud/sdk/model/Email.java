@@ -581,7 +581,8 @@ public class Email implements Serializable {
       if (!Email.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Email` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Email` properties. JSON:"
+                    + " %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -589,28 +590,32 @@ public class Email implements Serializable {
         && !jsonObj.get("error_log").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `error_log` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `error_log` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("error_log").toString()));
     }
     if ((jsonObj.get("from_email") != null && !jsonObj.get("from_email").isJsonNull())
         && !jsonObj.get("from_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `from_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `from_email` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("from_email").toString()));
     }
     if ((jsonObj.get("from_name") != null && !jsonObj.get("from_name").isJsonNull())
         && !jsonObj.get("from_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `from_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `from_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("from_name").toString()));
     }
     if ((jsonObj.get("to_email") != null && !jsonObj.get("to_email").isJsonNull())
         && !jsonObj.get("to_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `to_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `to_email` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("to_email").toString()));
     }
     if ((jsonObj.get("to_name") != null && !jsonObj.get("to_name").isJsonNull())

@@ -134,7 +134,8 @@ public class GetF24Response implements Serializable {
       if (!GetF24Response.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetF24Response` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetF24Response`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

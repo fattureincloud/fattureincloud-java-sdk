@@ -12,7 +12,6 @@
 
 package it.fattureincloud.sdk.model;
 
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;

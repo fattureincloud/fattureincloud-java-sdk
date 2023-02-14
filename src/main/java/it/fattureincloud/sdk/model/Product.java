@@ -670,7 +670,8 @@ public class Product implements Serializable {
       if (!Product.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Product` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Product` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -703,14 +704,16 @@ public class Product implements Serializable {
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
     if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull())
         && !jsonObj.get("category").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `category` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `category` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("category").toString()));
     }
     if ((jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull())
@@ -724,14 +727,16 @@ public class Product implements Serializable {
         && !jsonObj.get("created_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `created_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("created_at").toString()));
     }
     if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
         && !jsonObj.get("updated_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `updated_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("updated_at").toString()));
     }
   }

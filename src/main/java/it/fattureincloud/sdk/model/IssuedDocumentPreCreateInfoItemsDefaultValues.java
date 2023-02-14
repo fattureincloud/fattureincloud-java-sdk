@@ -143,7 +143,8 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValues implements Serializab
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentPreCreateInfoItemsDefaultValues is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentPreCreateInfoItemsDefaultValues is not"
+                    + " found in the empty JSON string",
                 IssuedDocumentPreCreateInfoItemsDefaultValues.openapiRequiredFields.toString()));
       }
     }
@@ -154,7 +155,8 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValues implements Serializab
       if (!IssuedDocumentPreCreateInfoItemsDefaultValues.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPreCreateInfoItemsDefaultValues` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `IssuedDocumentPreCreateInfoItemsDefaultValues` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -171,7 +173,7 @@ public class IssuedDocumentPreCreateInfoItemsDefaultValues implements Serializab
       if (!IssuedDocumentPreCreateInfoItemsDefaultValues.class.isAssignableFrom(
           type.getRawType())) {
         return null; // this class only serializes 'IssuedDocumentPreCreateInfoItemsDefaultValues'
-                     // and its subtypes
+        // and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<IssuedDocumentPreCreateInfoItemsDefaultValues> thisAdapter =

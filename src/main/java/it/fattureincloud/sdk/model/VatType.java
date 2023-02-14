@@ -372,7 +372,8 @@ public class VatType implements Serializable {
       if (!VatType.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `VatType` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `VatType` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -380,7 +381,8 @@ public class VatType implements Serializable {
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
     if ((jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull())
@@ -401,7 +403,8 @@ public class VatType implements Serializable {
         && !jsonObj.get("ei_description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_description` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("ei_description").toString()));
     }
   }

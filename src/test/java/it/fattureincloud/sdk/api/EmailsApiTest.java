@@ -10,128 +10,134 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for EmailsApi
- */
-@Disabled
+/** API tests for EmailsApi */
 public class EmailsApiTest {
 
-    private static EmailsApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static EmailsApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new EmailsApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
-    /**
-     * List emails
-     *
-     * List Emails.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listEmailsTest() throws ApiException , IOException{
-        String result = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":1,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test send email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]},{\"id\":2,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test send email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]}]}";
+    final Response response = builder.build();
 
-        Call mockCall = Mockito.mock(Call.class);
-        EmailsApi api = mockApi(result, mockCall);
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
 
-        Integer companyId = 11111;
+    ApiClient client = new ApiClient(okHttpClient);
 
-        ListEmailsResponse expected = new ListEmailsResponse()
-                .data(
-                        Arrays.asList(
-                                new Email()
-                                        .id(1)
-                                        .status(EmailStatus.SENT)
-                                        .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
-                                        .errorsCount(0)
-                                        .errorLog("")
-                                        .fromEmail("test@mail.it")
-                                        .fromName("Test mail")
-                                        .toEmail("mail@test.it")
-                                        .toName("Mario")
-                                        .subject("Test")
-                                        .content("Test send email")
-                                        .copyTo("")
-                                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
-                                        .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
-                                        .kind("Fatture")
-                                        .attachments(new ArrayList<>()),
-                                new Email()
-                                        .id(2)
-                                        .status(EmailStatus.SENT)
-                                        .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
-                                        .errorsCount(0)
-                                        .errorLog("")
-                                        .fromEmail("test@mail.it")
-                                        .fromName("Test mail")
-                                        .toEmail("mail@test.it")
-                                        .toName("Mario")
-                                        .subject("Test")
-                                        .content("Test send email")
-                                        .copyTo("")
-                                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
-                                        .recipientDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
-                                        .kind("Fatture")
-                                        .attachments(new ArrayList<>())
-                        )
-                )
-                .currentPage(10)
-                .firstPageUrl(URI.create("https://www.page.url/"))
-                .from(10)
-                .lastPage(10)
-                .lastPageUrl(URI.create("https://www.page.url/"))
-                .nextPageUrl(URI.create("https://www.page.url/"))
-                .path(URI.create("https://www.page.url/"))
-                .perPage(10)
-                .prevPageUrl(URI.create("https://www.page.url/"))
-                .to(10)
-                .total(10);
+    return new EmailsApi(client);
+  }
 
-        ListEmailsResponse response = api.listEmails(companyId);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+  /**
+   * List emails
+   *
+   * <p>List Emails.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listEmailsTest() throws ApiException, IOException {
+    String result =
+        "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":1,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test"
+            + " mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test"
+            + " send"
+            + " email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]},{\"id\":2,\"status\":\"sent\",\"sent_date\":\"2022-07-17T13:53:12Z\",\"errors_count\":0,\"error_log\":\"\",\"from_email\":\"test@mail.it\",\"from_name\":\"Test"
+            + " mail\",\"to_email\":\"mail@test.it\",\"to_name\":\"Mario\",\"subject\":\"Test\",\"content\":\"Test"
+            + " send"
+            + " email\",\"copy_to\":\"\",\"recipient_status\":\"unknown\",\"recipient_date\":\"2022-07-17T13:53:12Z\",\"kind\":\"Fatture\",\"attachments\":[]}]}";
 
+    Call mockCall = Mockito.mock(Call.class);
+    EmailsApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    ListEmailsResponse expected =
+        new ListEmailsResponse()
+            .data(
+                Arrays.asList(
+                    new Email()
+                        .id(1)
+                        .status(EmailStatus.SENT)
+                        .sentDate(
+                            OffsetDateTime.of(
+                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .errorsCount(0)
+                        .errorLog("")
+                        .fromEmail("test@mail.it")
+                        .fromName("Test mail")
+                        .toEmail("mail@test.it")
+                        .toName("Mario")
+                        .subject("Test")
+                        .content("Test send email")
+                        .copyTo("")
+                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                        .recipientDate(
+                            OffsetDateTime.of(
+                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .kind("Fatture")
+                        .attachments(new ArrayList<>()),
+                    new Email()
+                        .id(2)
+                        .status(EmailStatus.SENT)
+                        .sentDate(
+                            OffsetDateTime.of(
+                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .errorsCount(0)
+                        .errorLog("")
+                        .fromEmail("test@mail.it")
+                        .fromName("Test mail")
+                        .toEmail("mail@test.it")
+                        .toName("Mario")
+                        .subject("Test")
+                        .content("Test send email")
+                        .copyTo("")
+                        .recipientStatus(EmailRecipientStatus.UNKNOWN)
+                        .recipientDate(
+                            OffsetDateTime.of(
+                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .kind("Fatture")
+                        .attachments(new ArrayList<>())))
+            .currentPage(10)
+            .firstPageUrl(URI.create("https://www.page.url/"))
+            .from(10)
+            .lastPage(10)
+            .lastPageUrl(URI.create("https://www.page.url/"))
+            .nextPageUrl(URI.create("https://www.page.url/"))
+            .path(URI.create("https://www.page.url/"))
+            .perPage(10)
+            .prevPageUrl(URI.create("https://www.page.url/"))
+            .to(10)
+            .total(10);
+
+    ListEmailsResponse response = api.listEmails(companyId);
+    assertEquals(expected.getData(), response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

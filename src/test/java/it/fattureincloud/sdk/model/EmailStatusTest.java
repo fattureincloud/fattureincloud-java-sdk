@@ -10,55 +10,47 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for EmailStatus
- */
+/** Model tests for EmailStatus */
 public class EmailStatusTest {
-    /**
-     * Model tests for EmailStatus
-     */
-    @Test
-    public void testEmailStatus() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for EmailStatus */
+  @Test
+  public void testEmailStatus() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"pending\"", gson.toJson(EmailStatus.PENDING));
-        assertEquals("\"sending\"", gson.toJson(EmailStatus.SENDING));
-        assertEquals("\"sent\"", gson.toJson(EmailStatus.SENT));
+    assertEquals("\"pending\"", gson.toJson(EmailStatus.PENDING));
+    assertEquals("\"sending\"", gson.toJson(EmailStatus.SENDING));
+    assertEquals("\"sent\"", gson.toJson(EmailStatus.SENT));
 
-        assertEquals(EmailStatus.PENDING, gson.fromJson("\"pending\"", EmailStatus.class));
-        assertEquals(EmailStatus.SENDING, gson.fromJson("\"sending\"", EmailStatus.class));
-        assertEquals(EmailStatus.SENT, gson.fromJson("\"sent\"", EmailStatus.class));
+    assertEquals(EmailStatus.PENDING, gson.fromJson("\"pending\"", EmailStatus.class));
+    assertEquals(EmailStatus.SENDING, gson.fromJson("\"sending\"", EmailStatus.class));
+    assertEquals(EmailStatus.SENT, gson.fromJson("\"sent\"", EmailStatus.class));
 
-        assertEquals("pending", EmailStatus.PENDING.getValue());
-        assertEquals("sending", EmailStatus.SENDING.getValue());
-        assertEquals("sent", EmailStatus.SENT.getValue());
+    assertEquals("pending", EmailStatus.PENDING.getValue());
+    assertEquals("sending", EmailStatus.SENDING.getValue());
+    assertEquals("sent", EmailStatus.SENT.getValue());
 
-        assertEquals("pending", EmailStatus.PENDING.toString());
-        assertEquals("sending", EmailStatus.SENDING.toString());
-        assertEquals("sent", EmailStatus.SENT.toString());
+    assertEquals("pending", EmailStatus.PENDING.toString());
+    assertEquals("sending", EmailStatus.SENDING.toString());
+    assertEquals("sent", EmailStatus.SENT.toString());
 
-        assertEquals(EmailStatus.PENDING, EmailStatus.fromValue("pending"));
-        assertEquals(EmailStatus.SENDING, EmailStatus.fromValue("sending"));
-        assertEquals(EmailStatus.SENT, EmailStatus.fromValue("sent"));
+    assertEquals(EmailStatus.PENDING, EmailStatus.fromValue("pending"));
+    assertEquals(EmailStatus.SENDING, EmailStatus.fromValue("sending"));
+    assertEquals(EmailStatus.SENT, EmailStatus.fromValue("sent"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            EmailStatus.fromValue("Evil Joshua");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          EmailStatus.fromValue("Evil Joshua");
         });
-    }
-
+  }
 }

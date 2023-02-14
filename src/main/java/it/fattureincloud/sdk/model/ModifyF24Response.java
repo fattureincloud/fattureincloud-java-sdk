@@ -123,7 +123,8 @@ public class ModifyF24Response implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ModifyF24Response is not found in the empty JSON string",
+                "The required field(s) %s in ModifyF24Response is not found in the empty JSON"
+                    + " string",
                 ModifyF24Response.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class ModifyF24Response implements Serializable {
       if (!ModifyF24Response.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ModifyF24Response` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ModifyF24Response`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

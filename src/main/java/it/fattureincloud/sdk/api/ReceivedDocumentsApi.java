@@ -484,13 +484,15 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling deleteReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " deleteReceivedDocumentAttachment(Async)");
     }
 
     // verify the required parameter 'documentId' is set
     if (documentId == null) {
       throw new ApiException(
-          "Missing the required parameter 'documentId' when calling deleteReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'documentId' when calling"
+              + " deleteReceivedDocumentAttachment(Async)");
     }
 
     return deleteReceivedDocumentAttachmentCall(companyId, documentId, _callback);
@@ -656,13 +658,15 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling getExistingReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " getExistingReceivedDocumentTotals(Async)");
     }
 
     // verify the required parameter 'documentId' is set
     if (documentId == null) {
       throw new ApiException(
-          "Missing the required parameter 'documentId' when calling getExistingReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'documentId' when calling"
+              + " getExistingReceivedDocumentTotals(Async)");
     }
 
     return getExistingReceivedDocumentTotalsCall(
@@ -844,7 +848,8 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling getNewReceivedDocumentTotals(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " getNewReceivedDocumentTotals(Async)");
     }
 
     return getNewReceivedDocumentTotalsCall(
@@ -1214,13 +1219,15 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling getReceivedDocumentPreCreateInfo(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " getReceivedDocumentPreCreateInfo(Async)");
     }
 
     // verify the required parameter 'type' is set
     if (type == null) {
       throw new ApiException(
-          "Missing the required parameter 'type' when calling getReceivedDocumentPreCreateInfo(Async)");
+          "Missing the required parameter 'type' when calling"
+              + " getReceivedDocumentPreCreateInfo(Async)");
     }
 
     return getReceivedDocumentPreCreateInfoCall(companyId, type, _callback);
@@ -1854,7 +1861,8 @@ public class ReceivedDocumentsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling uploadReceivedDocumentAttachment(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " uploadReceivedDocumentAttachment(Async)");
     }
 
     return uploadReceivedDocumentAttachmentCall(companyId, filename, attachment, _callback);

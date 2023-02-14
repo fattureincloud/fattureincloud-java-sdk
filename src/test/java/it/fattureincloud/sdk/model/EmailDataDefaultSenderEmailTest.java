@@ -10,73 +10,61 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for EmailDataDefaultSenderEmail
- */
+/** Model tests for EmailDataDefaultSenderEmail */
 public class EmailDataDefaultSenderEmailTest {
-    private final EmailDataDefaultSenderEmail model = new EmailDataDefaultSenderEmail();
+  private final EmailDataDefaultSenderEmail model = new EmailDataDefaultSenderEmail();
 
-    /**
-     * Model tests for EmailDataDefaultSenderEmail
-     */
-    @Test
-    public void testEmailDataDefaultSenderEmail() {
-        EmailDataDefaultSenderEmail e = new EmailDataDefaultSenderEmail()
-                .id(0)
-                .email("no-reply@fattureincloud.it");
+  /** Model tests for EmailDataDefaultSenderEmail */
+  @Test
+  public void testEmailDataDefaultSenderEmail() {
+    EmailDataDefaultSenderEmail e =
+        new EmailDataDefaultSenderEmail().id(0).email("no-reply@fattureincloud.it");
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(e);
-        String str = "{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"}";
-        assertEquals(str, json);
-        EmailDataDefaultSenderEmail generated = gson.fromJson(str, EmailDataDefaultSenderEmail.class);
-        assertEquals(e, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(e);
+    String str = "{\"id\":0,\"email\":\"no-reply@fattureincloud.it\"}";
+    assertEquals(str, json);
+    EmailDataDefaultSenderEmail generated = gson.fromJson(str, EmailDataDefaultSenderEmail.class);
+    assertEquals(e, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        assertNull(model.getId());
-        model.setId(0);
-        assertEquals(0, model.getId());
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    assertNull(model.getId());
+    model.setId(0);
+    assertEquals(0, model.getId());
 
-        EmailDataDefaultSenderEmail e = model.id(5);
-        EmailDataDefaultSenderEmail expected = new EmailDataDefaultSenderEmail();
-        expected.setId(5);
-        assertEquals(expected, e);
-    }
+    EmailDataDefaultSenderEmail e = model.id(5);
+    EmailDataDefaultSenderEmail expected = new EmailDataDefaultSenderEmail();
+    expected.setId(5);
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        assertNull(model.getEmail());
-        model.setEmail("no-reply@fattureincloud.it");
-        assertEquals("no-reply@fattureincloud.it", model.getEmail());
+  /** Test the property 'email' */
+  @Test
+  public void emailTest() {
+    assertNull(model.getEmail());
+    model.setEmail("no-reply@fattureincloud.it");
+    assertEquals("no-reply@fattureincloud.it", model.getEmail());
 
-        EmailDataDefaultSenderEmail e = model.email("info@fattureincloud.it");
-        EmailDataDefaultSenderEmail expected = new EmailDataDefaultSenderEmail();
-        expected.setEmail("info@fattureincloud.it");
-        assertEquals(expected, e);
-    }
-
+    EmailDataDefaultSenderEmail e = model.email("info@fattureincloud.it");
+    EmailDataDefaultSenderEmail expected = new EmailDataDefaultSenderEmail();
+    expected.setEmail("info@fattureincloud.it");
+    assertEquals(expected, e);
+  }
 }

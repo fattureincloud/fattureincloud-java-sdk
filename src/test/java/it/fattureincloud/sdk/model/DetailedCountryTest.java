@@ -10,152 +10,141 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for DetailedCountry
- */
+/** Model tests for DetailedCountry */
 public class DetailedCountryTest {
-    private DetailedCountry model;
+  private DetailedCountry model;
 
-    @BeforeEach
-    public void init() {
-        model = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
+  @BeforeEach
+  public void init() {
+    model =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
+  }
 
-    }
+  /** Model tests for DetailedCountry */
+  @Test
+  public void testDetailedCountry() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"}";
+    assertEquals(str, json);
+    DetailedCountry generated = gson.fromJson(str, DetailedCountry.class);
+    assertEquals(model, generated);
 
-    /**
-     * Model tests for DetailedCountry
-     */
-    @Test
-    public void testDetailedCountry() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"}";
-        assertEquals(str, json);
-        DetailedCountry generated = gson.fromJson(str, DetailedCountry.class);
-        assertEquals(model, generated);
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+  /** Test the property 'name' */
+  @Test
+  public void nameTest() {
+    assertEquals("Italia", model.getName());
+    model.setName("Albania");
+    assertEquals("Albania", model.getName());
 
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        assertEquals("Italia", model.getName());
-        model.setName("Albania");
-        assertEquals("Albania", model.getName());
+    DetailedCountry c = model.name("Italia");
+    DetailedCountry expected =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
 
-        DetailedCountry c = model.name("Italia");
-        DetailedCountry expected = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
+    assertEquals(expected, c);
+  }
 
-        assertEquals(expected, c);
-    }
+  /** Test the property 'settingsName' */
+  @Test
+  public void settingsNameTest() {
+    assertEquals("Italia", model.getSettingsName());
+    model.setSettingsName("Albania");
+    assertEquals("Albania", model.getSettingsName());
 
-    /**
-     * Test the property 'settingsName'
-     */
-    @Test
-    public void settingsNameTest() {
-        assertEquals("Italia", model.getSettingsName());
-        model.setSettingsName("Albania");
-        assertEquals("Albania", model.getSettingsName());
+    DetailedCountry c = model.settingsName("Italia");
+    DetailedCountry expected =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
 
-        DetailedCountry c = model.settingsName("Italia");
-        DetailedCountry expected = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
+    assertEquals(expected, c);
+  }
 
-        assertEquals(expected, c);
-    }
+  /** Test the property 'iso' */
+  @Test
+  public void isoTest() {
+    assertEquals("IT", model.getIso());
+    model.setIso("AL");
+    assertEquals("AL", model.getIso());
 
-    /**
-     * Test the property 'iso'
-     */
-    @Test
-    public void isoTest() {
-        assertEquals("IT", model.getIso());
-        model.setIso("AL");
-        assertEquals("AL", model.getIso());
+    DetailedCountry c = model.iso("IT");
+    DetailedCountry expected =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
 
-        DetailedCountry c = model.iso("IT");
-        DetailedCountry expected = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
+    assertEquals(expected, c);
+  }
 
-        assertEquals(expected, c);
-    }
+  /** Test the property 'fiscalIso' */
+  @Test
+  public void fiscalIsoTest() {
+    assertEquals("IT", model.getFiscalIso());
+    model.setFiscalIso("AL");
+    assertEquals("AL", model.getFiscalIso());
 
-    /**
-     * Test the property 'fiscalIso'
-     */
-    @Test
-    public void fiscalIsoTest() {
-        assertEquals("IT", model.getFiscalIso());
-        model.setFiscalIso("AL");
-        assertEquals("AL", model.getFiscalIso());
+    DetailedCountry c = model.fiscalIso("IT");
+    DetailedCountry expected =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
 
-        DetailedCountry c = model.fiscalIso("IT");
-        DetailedCountry expected = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
+    assertEquals(expected, c);
+  }
 
-        assertEquals(expected, c);
-    }
+  /** Test the property 'uic' */
+  @Test
+  public void uicTest() {
+    assertEquals("086", model.getUic());
+    model.setUic("087");
+    assertEquals("087", model.getUic());
 
-    /**
-     * Test the property 'uic'
-     */
-    @Test
-    public void uicTest() {
-        assertEquals("086", model.getUic());
-        model.setUic("087");
-        assertEquals("087", model.getUic());
+    DetailedCountry c = model.uic("086");
+    DetailedCountry expected =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
 
-        DetailedCountry c = model.uic("086");
-        DetailedCountry expected = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
-
-        assertEquals(expected, c);
-    }
-
+    assertEquals(expected, c);
+  }
 }

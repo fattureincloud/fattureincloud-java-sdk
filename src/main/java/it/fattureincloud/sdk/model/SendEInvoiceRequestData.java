@@ -171,7 +171,8 @@ public class SendEInvoiceRequestData implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in SendEInvoiceRequestData is not found in the empty JSON string",
+                "The required field(s) %s in SendEInvoiceRequestData is not found in the empty JSON"
+                    + " string",
                 SendEInvoiceRequestData.openapiRequiredFields.toString()));
       }
     }
@@ -182,7 +183,8 @@ public class SendEInvoiceRequestData implements Serializable {
       if (!SendEInvoiceRequestData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestData` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestData`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -190,7 +192,8 @@ public class SendEInvoiceRequestData implements Serializable {
         && !jsonObj.get("cassa_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `cassa_type` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `cassa_type` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("cassa_type").toString()));
     }
     if ((jsonObj.get("withholding_tax_causal") != null
@@ -198,7 +201,8 @@ public class SendEInvoiceRequestData implements Serializable {
         && !jsonObj.get("withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `withholding_tax_causal` to be a primitive type in the JSON"
+                  + " string but got `%s`",
               jsonObj.get("withholding_tax_causal").toString()));
     }
   }

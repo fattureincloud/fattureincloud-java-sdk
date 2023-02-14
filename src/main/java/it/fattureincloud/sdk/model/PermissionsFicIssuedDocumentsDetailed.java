@@ -387,7 +387,8 @@ public class PermissionsFicIssuedDocumentsDetailed implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in PermissionsFicIssuedDocumentsDetailed is not found in the empty JSON string",
+                "The required field(s) %s in PermissionsFicIssuedDocumentsDetailed is not found in"
+                    + " the empty JSON string",
                 PermissionsFicIssuedDocumentsDetailed.openapiRequiredFields.toString()));
       }
     }
@@ -398,7 +399,8 @@ public class PermissionsFicIssuedDocumentsDetailed implements Serializable {
       if (!PermissionsFicIssuedDocumentsDetailed.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `PermissionsFicIssuedDocumentsDetailed` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `PermissionsFicIssuedDocumentsDetailed` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -410,7 +412,7 @@ public class PermissionsFicIssuedDocumentsDetailed implements Serializable {
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!PermissionsFicIssuedDocumentsDetailed.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'PermissionsFicIssuedDocumentsDetailed' and its
-                     // subtypes
+        // subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<PermissionsFicIssuedDocumentsDetailed> thisAdapter =

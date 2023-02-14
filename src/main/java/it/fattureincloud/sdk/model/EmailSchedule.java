@@ -350,7 +350,8 @@ public class EmailSchedule implements Serializable {
       if (!EmailSchedule.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EmailSchedule` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EmailSchedule`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -358,14 +359,16 @@ public class EmailSchedule implements Serializable {
         && !jsonObj.get("sender_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `sender_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `sender_email` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("sender_email").toString()));
     }
     if ((jsonObj.get("recipient_email") != null && !jsonObj.get("recipient_email").isJsonNull())
         && !jsonObj.get("recipient_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `recipient_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `recipient_email` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("recipient_email").toString()));
     }
     if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull())

@@ -141,7 +141,8 @@ public class SendEInvoiceRequestOptions implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in SendEInvoiceRequestOptions is not found in the empty JSON string",
+                "The required field(s) %s in SendEInvoiceRequestOptions is not found in the empty"
+                    + " JSON string",
                 SendEInvoiceRequestOptions.openapiRequiredFields.toString()));
       }
     }
@@ -152,7 +153,8 @@ public class SendEInvoiceRequestOptions implements Serializable {
       if (!SendEInvoiceRequestOptions.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `SendEInvoiceRequestOptions` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `SendEInvoiceRequestOptions` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

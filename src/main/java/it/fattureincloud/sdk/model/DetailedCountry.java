@@ -264,7 +264,8 @@ public class DetailedCountry implements Serializable {
       if (!DetailedCountry.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `DetailedCountry` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `DetailedCountry`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -279,7 +280,8 @@ public class DetailedCountry implements Serializable {
         && !jsonObj.get("settings_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `settings_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `settings_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("settings_name").toString()));
     }
     if ((jsonObj.get("iso") != null && !jsonObj.get("iso").isJsonNull())
@@ -293,7 +295,8 @@ public class DetailedCountry implements Serializable {
         && !jsonObj.get("fiscal_iso").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `fiscal_iso` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `fiscal_iso` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("fiscal_iso").toString()));
     }
     if ((jsonObj.get("uic") != null && !jsonObj.get("uic").isJsonNull())

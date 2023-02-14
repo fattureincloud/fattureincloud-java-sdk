@@ -209,7 +209,8 @@ public class MonthlyTotal implements Serializable {
       if (!MonthlyTotal.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `MonthlyTotal` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `MonthlyTotal` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

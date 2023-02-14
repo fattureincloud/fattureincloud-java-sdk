@@ -10,92 +10,67 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.lang.reflect.Type;
-
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for IssuedDocumentPaymentsListItemPaymentTerms
- */
+/** Model tests for IssuedDocumentPaymentsListItemPaymentTerms */
 public class IssuedDocumentPaymentsListItemPaymentTermsTest {
-    private IssuedDocumentPaymentsListItemPaymentTerms model;
+  private IssuedDocumentPaymentsListItemPaymentTerms model;
 
-    @BeforeEach
-    public void init() {
-        model = new IssuedDocumentPaymentsListItemPaymentTerms()
-                .days(2)
-                .type(PaymentTermsType.STANDARD);
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new IssuedDocumentPaymentsListItemPaymentTerms().days(2).type(PaymentTermsType.STANDARD);
+  }
 
-    /**
-     * Model tests for IssuedDocumentPaymentsListItemPaymentTerms
-     */
-    @Test
-    public void testIssuedDocumentPaymentsListItemPaymentTerms() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"days\":2,\"type\":\"standard\"}";
-        assertEquals(str, json);
-        IssuedDocumentPaymentsListItemPaymentTerms generated = gson.fromJson(str, IssuedDocumentPaymentsListItemPaymentTerms.class);
-        assertEquals(model, generated);
+  /** Model tests for IssuedDocumentPaymentsListItemPaymentTerms */
+  @Test
+  public void testIssuedDocumentPaymentsListItemPaymentTerms() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"days\":2,\"type\":\"standard\"}";
+    assertEquals(str, json);
+    IssuedDocumentPaymentsListItemPaymentTerms generated =
+        gson.fromJson(str, IssuedDocumentPaymentsListItemPaymentTerms.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'days'
-     */
-    @Test
-    public void daysTest() {
-        assertEquals(2, model.getDays());
-        model.setDays(3);
-        assertEquals(3, model.getDays());
+  /** Test the property 'days' */
+  @Test
+  public void daysTest() {
+    assertEquals(2, model.getDays());
+    model.setDays(3);
+    assertEquals(3, model.getDays());
 
-        IssuedDocumentPaymentsListItemPaymentTerms o = model.days(2);
-        IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
-                .days(2)
-                .type(PaymentTermsType.STANDARD);
-        assertEquals(expected, o);
-    }
+    IssuedDocumentPaymentsListItemPaymentTerms o = model.days(2);
+    IssuedDocumentPaymentsListItemPaymentTerms expected =
+        new IssuedDocumentPaymentsListItemPaymentTerms().days(2).type(PaymentTermsType.STANDARD);
+    assertEquals(expected, o);
+  }
 
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        assertEquals(PaymentTermsType.STANDARD, model.getType());
-        model.setType(PaymentTermsType.END_OF_MONTH);
-        assertEquals(PaymentTermsType.END_OF_MONTH, model.getType());
+  /** Test the property 'type' */
+  @Test
+  public void typeTest() {
+    assertEquals(PaymentTermsType.STANDARD, model.getType());
+    model.setType(PaymentTermsType.END_OF_MONTH);
+    assertEquals(PaymentTermsType.END_OF_MONTH, model.getType());
 
-        IssuedDocumentPaymentsListItemPaymentTerms o = model.type(PaymentTermsType.STANDARD);
-        IssuedDocumentPaymentsListItemPaymentTerms expected = new IssuedDocumentPaymentsListItemPaymentTerms()
-                .days(2)
-                .type(PaymentTermsType.STANDARD);
-        assertEquals(expected, o);
-    }
-
+    IssuedDocumentPaymentsListItemPaymentTerms o = model.type(PaymentTermsType.STANDARD);
+    IssuedDocumentPaymentsListItemPaymentTerms expected =
+        new IssuedDocumentPaymentsListItemPaymentTerms().days(2).type(PaymentTermsType.STANDARD);
+    assertEquals(expected, o);
+  }
 }

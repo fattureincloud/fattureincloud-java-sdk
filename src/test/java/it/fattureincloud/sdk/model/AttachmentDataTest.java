@@ -10,62 +10,52 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for AttachmentData
- */
+/** Model tests for AttachmentData */
 public class AttachmentDataTest {
-    private AttachmentData model;
+  private AttachmentData model;
 
-    @BeforeEach
-    public void init() {
-        model = new AttachmentData()
-                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
-    }
+  @BeforeEach
+  public void init() {
+    model = new AttachmentData().attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we");
+  }
 
-    /**
-     * Model tests for AttachmentData
-     */
-    @Test
-    public void testAttachmentData() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}";
-        assertEquals(str, json);
-        AttachmentData generated = gson.fromJson(str, AttachmentData.class);
-        assertEquals(model, generated);
+  /** Model tests for AttachmentData */
+  @Test
+  public void testAttachmentData() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}";
+    assertEquals(str, json);
+    AttachmentData generated = gson.fromJson(str, AttachmentData.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'attachmentToken'
-     */
-    @Test
-    public void attachmentTokenTest() {
-        assertEquals("jwfbaiuwbfoiewfoa8weohafw7gefa9we", model.getAttachmentToken());
-        model.setAttachmentToken("25630541cfeac29c829c8f9e057812ba");
-        assertEquals("25630541cfeac29c829c8f9e057812ba", model.getAttachmentToken());
+  /** Test the property 'attachmentToken' */
+  @Test
+  public void attachmentTokenTest() {
+    assertEquals("jwfbaiuwbfoiewfoa8weohafw7gefa9we", model.getAttachmentToken());
+    model.setAttachmentToken("25630541cfeac29c829c8f9e057812ba");
+    assertEquals("25630541cfeac29c829c8f9e057812ba", model.getAttachmentToken());
 
-        AttachmentData a = model.attachmentToken("25a2b204540559e615c90bb5438680f3");
-        AttachmentData expected = new AttachmentData()
-                .attachmentToken("25a2b204540559e615c90bb5438680f3");
-        assertEquals(expected, a);
-    }
-
+    AttachmentData a = model.attachmentToken("25a2b204540559e615c90bb5438680f3");
+    AttachmentData expected =
+        new AttachmentData().attachmentToken("25a2b204540559e615c90bb5438680f3");
+    assertEquals(expected, a);
+  }
 }

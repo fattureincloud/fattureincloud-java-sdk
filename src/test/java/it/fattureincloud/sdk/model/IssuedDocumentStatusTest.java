@@ -10,49 +10,42 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for IssuedDocumentStatus
- */
+/** Model tests for IssuedDocumentStatus */
 public class IssuedDocumentStatusTest {
-    /**
-     * Model tests for IssuedDocumentStatus
-     */
-    @Test
-    public void testIssuedDocumentStatus() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for IssuedDocumentStatus */
+  @Test
+  public void testIssuedDocumentStatus() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"paid\"", gson.toJson(IssuedDocumentStatus.PAID));
-        assertEquals("\"not_paid\"", gson.toJson(IssuedDocumentStatus.NOT_PAID));
-        assertEquals("\"reversed\"", gson.toJson(IssuedDocumentStatus.REVERSED));
+    assertEquals("\"paid\"", gson.toJson(IssuedDocumentStatus.PAID));
+    assertEquals("\"not_paid\"", gson.toJson(IssuedDocumentStatus.NOT_PAID));
+    assertEquals("\"reversed\"", gson.toJson(IssuedDocumentStatus.REVERSED));
 
+    assertEquals(IssuedDocumentStatus.PAID, gson.fromJson("\"paid\"", IssuedDocumentStatus.class));
+    assertEquals(
+        IssuedDocumentStatus.NOT_PAID, gson.fromJson("\"not_paid\"", IssuedDocumentStatus.class));
+    assertEquals(
+        IssuedDocumentStatus.REVERSED, gson.fromJson("\"reversed\"", IssuedDocumentStatus.class));
 
-        assertEquals(IssuedDocumentStatus.PAID, gson.fromJson("\"paid\"", IssuedDocumentStatus.class));
-        assertEquals(IssuedDocumentStatus.NOT_PAID, gson.fromJson("\"not_paid\"", IssuedDocumentStatus.class));
-        assertEquals(IssuedDocumentStatus.REVERSED, gson.fromJson("\"reversed\"", IssuedDocumentStatus.class));
+    assertEquals("paid", IssuedDocumentStatus.PAID.getValue());
+    assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.getValue());
+    assertEquals("reversed", IssuedDocumentStatus.REVERSED.getValue());
 
+    assertEquals("paid", IssuedDocumentStatus.PAID.toString());
+    assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.toString());
+    assertEquals("reversed", IssuedDocumentStatus.REVERSED.toString());
 
-        assertEquals("paid", IssuedDocumentStatus.PAID.getValue());
-        assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.getValue());
-        assertEquals("reversed", IssuedDocumentStatus.REVERSED.getValue());
-
-        assertEquals("paid", IssuedDocumentStatus.PAID.toString());
-        assertEquals("not_paid", IssuedDocumentStatus.NOT_PAID.toString());
-        assertEquals("reversed", IssuedDocumentStatus.REVERSED.toString());
-
-        assertEquals(IssuedDocumentStatus.PAID, IssuedDocumentStatus.fromValue("paid"));
-        assertEquals(IssuedDocumentStatus.NOT_PAID, IssuedDocumentStatus.fromValue("not_paid"));
-        assertEquals(IssuedDocumentStatus.REVERSED, IssuedDocumentStatus.fromValue("reversed"));
-    }
-
+    assertEquals(IssuedDocumentStatus.PAID, IssuedDocumentStatus.fromValue("paid"));
+    assertEquals(IssuedDocumentStatus.NOT_PAID, IssuedDocumentStatus.fromValue("not_paid"));
+    assertEquals(IssuedDocumentStatus.REVERSED, IssuedDocumentStatus.fromValue("reversed"));
+  }
 }

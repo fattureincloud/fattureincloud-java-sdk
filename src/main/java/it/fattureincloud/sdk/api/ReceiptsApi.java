@@ -840,7 +840,8 @@ public class ReceiptsApi {
     // verify the required parameter 'companyId' is set
     if (companyId == null) {
       throw new ApiException(
-          "Missing the required parameter 'companyId' when calling getReceiptsMonthlyTotals(Async)");
+          "Missing the required parameter 'companyId' when calling"
+              + " getReceiptsMonthlyTotals(Async)");
     }
 
     // verify the required parameter 'type' is set

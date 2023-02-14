@@ -227,7 +227,8 @@ public class EmailScheduleInclude implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in EmailScheduleInclude is not found in the empty JSON string",
+                "The required field(s) %s in EmailScheduleInclude is not found in the empty JSON"
+                    + " string",
                 EmailScheduleInclude.openapiRequiredFields.toString()));
       }
     }
@@ -238,7 +239,8 @@ public class EmailScheduleInclude implements Serializable {
       if (!EmailScheduleInclude.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EmailScheduleInclude` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EmailScheduleInclude`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

@@ -865,7 +865,8 @@ public class Permissions implements Serializable {
       if (!Permissions.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Permissions` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Permissions` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

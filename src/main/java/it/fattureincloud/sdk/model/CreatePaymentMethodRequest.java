@@ -123,7 +123,8 @@ public class CreatePaymentMethodRequest implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CreatePaymentMethodRequest is not found in the empty JSON string",
+                "The required field(s) %s in CreatePaymentMethodRequest is not found in the empty"
+                    + " JSON string",
                 CreatePaymentMethodRequest.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class CreatePaymentMethodRequest implements Serializable {
       if (!CreatePaymentMethodRequest.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CreatePaymentMethodRequest` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `CreatePaymentMethodRequest` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

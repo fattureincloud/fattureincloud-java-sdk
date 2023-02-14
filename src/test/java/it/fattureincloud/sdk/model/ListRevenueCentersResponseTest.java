@@ -10,64 +10,53 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListRevenueCentersResponse
- */
+/** Model tests for ListRevenueCentersResponse */
 public class ListRevenueCentersResponseTest {
-    private ListRevenueCentersResponse model;
+  private ListRevenueCentersResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListRevenueCentersResponse()
-                .addDataItem("BG");
-    }
+  @BeforeEach
+  public void init() {
+    model = new ListRevenueCentersResponse().addDataItem("BG");
+  }
 
-    /**
-     * Model tests for ListRevenueCentersResponse
-     */
-    @Test
-    public void testListRevenueCentersResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[\"BG\"]}";
-        assertEquals(str, json);
-        ListRevenueCentersResponse generated = gson.fromJson(str, ListRevenueCentersResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListRevenueCentersResponse */
+  @Test
+  public void testListRevenueCentersResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":[\"BG\"]}";
+    assertEquals(str, json);
+    ListRevenueCentersResponse generated = gson.fromJson(str, ListRevenueCentersResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("BG", model.getData().get(0));
-        model.setData(Arrays.asList("MI"));
-        assertEquals("MI", model.getData().get(0));
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("BG", model.getData().get(0));
+    model.setData(Arrays.asList("MI"));
+    assertEquals("MI", model.getData().get(0));
 
-        model.data(Arrays.asList("BG"));
-        ListRevenueCentersResponse actual = new ListRevenueCentersResponse();
-        actual.setData(Arrays.asList("BG"));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList("BG"));
+    ListRevenueCentersResponse actual = new ListRevenueCentersResponse();
+    actual.setData(Arrays.asList("BG"));
+    assertEquals(model, actual);
+  }
 }

@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -126,7 +127,7 @@ public class ReceivedDocumentInfo implements Serializable {
 
   public ReceivedDocumentInfo addCountriesListItem(String countriesListItem) {
     if (this.countriesList == null) {
-      this.countriesList = null;
+      this.countriesList = new ArrayList<>();
     }
     this.countriesList.add(countriesListItem);
     return this;
@@ -154,7 +155,7 @@ public class ReceivedDocumentInfo implements Serializable {
 
   public ReceivedDocumentInfo addCurrenciesListItem(Currency currenciesListItem) {
     if (this.currenciesList == null) {
-      this.currenciesList = null;
+      this.currenciesList = new ArrayList<>();
     }
     this.currenciesList.add(currenciesListItem);
     return this;
@@ -182,7 +183,7 @@ public class ReceivedDocumentInfo implements Serializable {
 
   public ReceivedDocumentInfo addCategoriesListItem(String categoriesListItem) {
     if (this.categoriesList == null) {
-      this.categoriesList = null;
+      this.categoriesList = new ArrayList<>();
     }
     this.categoriesList.add(categoriesListItem);
     return this;
@@ -210,7 +211,7 @@ public class ReceivedDocumentInfo implements Serializable {
 
   public ReceivedDocumentInfo addPaymentAccountsListItem(PaymentAccount paymentAccountsListItem) {
     if (this.paymentAccountsList == null) {
-      this.paymentAccountsList = null;
+      this.paymentAccountsList = new ArrayList<>();
     }
     this.paymentAccountsList.add(paymentAccountsListItem);
     return this;
@@ -238,7 +239,7 @@ public class ReceivedDocumentInfo implements Serializable {
 
   public ReceivedDocumentInfo addVatTypesListItem(VatType vatTypesListItem) {
     if (this.vatTypesList == null) {
-      this.vatTypesList = null;
+      this.vatTypesList = new ArrayList<>();
     }
     this.vatTypesList.add(vatTypesListItem);
     return this;
@@ -361,7 +362,8 @@ public class ReceivedDocumentInfo implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ReceivedDocumentInfo is not found in the empty JSON string",
+                "The required field(s) %s in ReceivedDocumentInfo is not found in the empty JSON"
+                    + " string",
                 ReceivedDocumentInfo.openapiRequiredFields.toString()));
       }
     }
@@ -372,7 +374,8 @@ public class ReceivedDocumentInfo implements Serializable {
       if (!ReceivedDocumentInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ReceivedDocumentInfo` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ReceivedDocumentInfo`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -401,7 +404,8 @@ public class ReceivedDocumentInfo implements Serializable {
         if (!jsonObj.get("currencies_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `currencies_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `currencies_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("currencies_list").toString()));
         }
 
@@ -427,7 +431,8 @@ public class ReceivedDocumentInfo implements Serializable {
         if (!jsonObj.get("payment_accounts_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `payment_accounts_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `payment_accounts_list` to be an array in the JSON string but"
+                      + " got `%s`",
                   jsonObj.get("payment_accounts_list").toString()));
         }
 
@@ -445,7 +450,8 @@ public class ReceivedDocumentInfo implements Serializable {
         if (!jsonObj.get("vat_types_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `vat_types_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `vat_types_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("vat_types_list").toString()));
         }
 

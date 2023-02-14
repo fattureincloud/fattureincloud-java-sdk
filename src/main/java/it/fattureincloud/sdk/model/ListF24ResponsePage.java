@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -55,7 +56,7 @@ public class ListF24ResponsePage implements Serializable {
 
   public ListF24ResponsePage addDataItem(F24 dataItem) {
     if (this.data == null) {
-      this.data = null;
+      this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
     return this;
@@ -151,7 +152,8 @@ public class ListF24ResponsePage implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListF24ResponsePage is not found in the empty JSON string",
+                "The required field(s) %s in ListF24ResponsePage is not found in the empty JSON"
+                    + " string",
                 ListF24ResponsePage.openapiRequiredFields.toString()));
       }
     }
@@ -162,7 +164,8 @@ public class ListF24ResponsePage implements Serializable {
       if (!ListF24ResponsePage.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListF24ResponsePage` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ListF24ResponsePage`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

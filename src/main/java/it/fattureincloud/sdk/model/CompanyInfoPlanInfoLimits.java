@@ -225,7 +225,8 @@ public class CompanyInfoPlanInfoLimits implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CompanyInfoPlanInfoLimits is not found in the empty JSON string",
+                "The required field(s) %s in CompanyInfoPlanInfoLimits is not found in the empty"
+                    + " JSON string",
                 CompanyInfoPlanInfoLimits.openapiRequiredFields.toString()));
       }
     }
@@ -236,7 +237,8 @@ public class CompanyInfoPlanInfoLimits implements Serializable {
       if (!CompanyInfoPlanInfoLimits.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CompanyInfoPlanInfoLimits` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `CompanyInfoPlanInfoLimits` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

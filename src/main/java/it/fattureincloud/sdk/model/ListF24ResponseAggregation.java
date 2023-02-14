@@ -123,7 +123,8 @@ public class ListF24ResponseAggregation implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListF24ResponseAggregation is not found in the empty JSON string",
+                "The required field(s) %s in ListF24ResponseAggregation is not found in the empty"
+                    + " JSON string",
                 ListF24ResponseAggregation.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class ListF24ResponseAggregation implements Serializable {
       if (!ListF24ResponseAggregation.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListF24ResponseAggregation` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ListF24ResponseAggregation` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

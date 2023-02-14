@@ -10,111 +10,93 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for Currency
- */
+/** Model tests for Currency */
 public class CurrencyTest {
-    private Currency model;
+  private Currency model;
 
-    @BeforeEach
-    public void init() {
-        model = new Currency();
-    }
+  @BeforeEach
+  public void init() {
+    model = new Currency();
+  }
 
-    /**
-     * Model tests for Currency
-     */
-    @Test
-    public void testCurrency() {
-        Currency c = new Currency()
-                .id("EUR")
-                .symbol("€")
-                .exchangeRate("1.00000")
-                .htmlSymbol("&euro;");
+  /** Model tests for Currency */
+  @Test
+  public void testCurrency() {
+    Currency c = new Currency().id("EUR").symbol("€").exchangeRate("1.00000").htmlSymbol("&euro;");
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(c);
-        String str = "{\"id\":\"EUR\",\"symbol\":\"€\",\"exchange_rate\":\"1.00000\",\"html_symbol\":\"\\u0026euro;\"}";
-        assertEquals(str, json);
-        Currency generated = gson.fromJson(str, Currency.class);
-        assertEquals(c, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(c);
+    String str =
+        "{\"id\":\"EUR\",\"symbol\":\"€\",\"exchange_rate\":\"1.00000\",\"html_symbol\":\"\\u0026euro;\"}";
+    assertEquals(str, json);
+    Currency generated = gson.fromJson(str, Currency.class);
+    assertEquals(c, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        assertNull(model.getId());
-        model.setId("PLN");
-        assertEquals("PLN", model.getId());
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    assertNull(model.getId());
+    model.setId("PLN");
+    assertEquals("PLN", model.getId());
 
-        Currency c = model.id("EUR");
-        Currency expected = new Currency();
-        expected.setId("EUR");
-        assertEquals(expected, c);
-    }
+    Currency c = model.id("EUR");
+    Currency expected = new Currency();
+    expected.setId("EUR");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'symbol'
-     */
-    @Test
-    public void symbolTest() {
-        assertNull(model.getSymbol());
-        model.setSymbol("zł");
-        assertEquals("zł", model.getSymbol());
+  /** Test the property 'symbol' */
+  @Test
+  public void symbolTest() {
+    assertNull(model.getSymbol());
+    model.setSymbol("zł");
+    assertEquals("zł", model.getSymbol());
 
-        Currency c = model.symbol("€");
-        Currency expected = new Currency();
-        expected.setSymbol("€");
-        assertEquals(expected, c);
-    }
+    Currency c = model.symbol("€");
+    Currency expected = new Currency();
+    expected.setSymbol("€");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'exchangeRate'
-     */
-    @Test
-    public void exchangeRateTest() {
-        assertNull(model.getExchangeRate());
-        model.setExchangeRate("4.62800");
-        assertEquals("4.62800", model.getExchangeRate());
+  /** Test the property 'exchangeRate' */
+  @Test
+  public void exchangeRateTest() {
+    assertNull(model.getExchangeRate());
+    model.setExchangeRate("4.62800");
+    assertEquals("4.62800", model.getExchangeRate());
 
-        Currency c = model.exchangeRate("1.00000");
-        Currency expected = new Currency();
-        expected.setExchangeRate("1.00000");
-        assertEquals(expected, c);
-    }
+    Currency c = model.exchangeRate("1.00000");
+    Currency expected = new Currency();
+    expected.setExchangeRate("1.00000");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'htmlSymbol'
-     */
-    @Test
-    public void htmlSymbolTest() {
-        assertNull(model.getHtmlSymbol());
-        model.setHtmlSymbol("&curren;");
-        assertEquals("&curren;", model.getHtmlSymbol());
+  /** Test the property 'htmlSymbol' */
+  @Test
+  public void htmlSymbolTest() {
+    assertNull(model.getHtmlSymbol());
+    model.setHtmlSymbol("&curren;");
+    assertEquals("&curren;", model.getHtmlSymbol());
 
-        Currency c = model.htmlSymbol("&euro;");
-        Currency expected = new Currency();
-        expected.setHtmlSymbol("&euro;");
-        assertEquals(expected, c);
-    }
-
+    Currency c = model.htmlSymbol("&euro;");
+    Currency expected = new Currency();
+    expected.setHtmlSymbol("&euro;");
+    assertEquals(expected, c);
+  }
 }

@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -55,7 +56,7 @@ public class ListUserCompaniesResponseData implements Serializable {
 
   public ListUserCompaniesResponseData addCompaniesItem(Company companiesItem) {
     if (this.companies == null) {
-      this.companies = null;
+      this.companies = new ArrayList<>();
     }
     this.companies.add(companiesItem);
     return this;
@@ -151,7 +152,8 @@ public class ListUserCompaniesResponseData implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListUserCompaniesResponseData is not found in the empty JSON string",
+                "The required field(s) %s in ListUserCompaniesResponseData is not found in the"
+                    + " empty JSON string",
                 ListUserCompaniesResponseData.openapiRequiredFields.toString()));
       }
     }
@@ -162,7 +164,8 @@ public class ListUserCompaniesResponseData implements Serializable {
       if (!ListUserCompaniesResponseData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListUserCompaniesResponseData` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ListUserCompaniesResponseData` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

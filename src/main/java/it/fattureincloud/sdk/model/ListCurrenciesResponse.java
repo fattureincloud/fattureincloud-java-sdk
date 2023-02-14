@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -55,7 +56,7 @@ public class ListCurrenciesResponse implements Serializable {
 
   public ListCurrenciesResponse addDataItem(Currency dataItem) {
     if (this.data == null) {
-      this.data = null;
+      this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
     return this;
@@ -151,7 +152,8 @@ public class ListCurrenciesResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListCurrenciesResponse is not found in the empty JSON string",
+                "The required field(s) %s in ListCurrenciesResponse is not found in the empty JSON"
+                    + " string",
                 ListCurrenciesResponse.openapiRequiredFields.toString()));
       }
     }
@@ -162,7 +164,8 @@ public class ListCurrenciesResponse implements Serializable {
       if (!ListCurrenciesResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListCurrenciesResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ListCurrenciesResponse`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

@@ -10,64 +10,54 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ReceivedDocumentInfoItemsDefaultValues
- */
+/** Model tests for ReceivedDocumentInfoItemsDefaultValues */
 public class ReceivedDocumentInfoItemsDefaultValuesTest {
-    private ReceivedDocumentInfoItemsDefaultValues model;
+  private ReceivedDocumentInfoItemsDefaultValues model;
 
-    @BeforeEach
-    public void init() {
-        model = new ReceivedDocumentInfoItemsDefaultValues()
-                .vat(BigDecimal.valueOf(10));
-    }
+  @BeforeEach
+  public void init() {
+    model = new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10));
+  }
 
-    /**
-     * Model tests for ReceivedDocumentInfoItemsDefaultValues
-     */
-    @Test
-    public void testReceivedDocumentInfoItemsDefaultValues() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"vat\":10}";
-        assertEquals(str, json);
-        ReceivedDocumentInfoItemsDefaultValues generated = gson.fromJson(str, ReceivedDocumentInfoItemsDefaultValues.class);
-        assertEquals(model, generated);
+  /** Model tests for ReceivedDocumentInfoItemsDefaultValues */
+  @Test
+  public void testReceivedDocumentInfoItemsDefaultValues() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"vat\":10}";
+    assertEquals(str, json);
+    ReceivedDocumentInfoItemsDefaultValues generated =
+        gson.fromJson(str, ReceivedDocumentInfoItemsDefaultValues.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'vat'
-     */
-    @Test
-    public void vatTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getVat());
-        model.setVat(BigDecimal.valueOf(22));
-        assertEquals(BigDecimal.valueOf(22), model.getVat());
+  /** Test the property 'vat' */
+  @Test
+  public void vatTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getVat());
+    model.setVat(BigDecimal.valueOf(22));
+    assertEquals(BigDecimal.valueOf(22), model.getVat());
 
-        ReceivedDocumentInfoItemsDefaultValues i = model.vat(BigDecimal.valueOf(10));
-        ReceivedDocumentInfoItemsDefaultValues expected = new ReceivedDocumentInfoItemsDefaultValues()
-                .vat(BigDecimal.valueOf(10));
-        assertEquals(expected, i);
-    }
-
+    ReceivedDocumentInfoItemsDefaultValues i = model.vat(BigDecimal.valueOf(10));
+    ReceivedDocumentInfoItemsDefaultValues expected =
+        new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10));
+    assertEquals(expected, i);
+  }
 }

@@ -10,100 +10,78 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for CashbookEntryDocument
- */
+/** Model tests for CashbookEntryDocument */
 public class CashbookEntryDocumentTest {
-    private CashbookEntryDocument model;
+  private CashbookEntryDocument model;
 
-    @BeforeEach
-    public void init() {
-        model = new CashbookEntryDocument()
-                .id(12345)
-                .type("issued_document")
-                .path("/doc1.pdf");
-    }
+  @BeforeEach
+  public void init() {
+    model = new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf");
+  }
 
-    /**
-     * Model tests for CashbookEntryDocument
-     */
-    @Test
-    public void testCashbookEntryDocument() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"}";
-        assertEquals(str, json);
-        CashbookEntryDocument generated = gson.fromJson(str, CashbookEntryDocument.class);
-        assertEquals(model, generated);
+  /** Model tests for CashbookEntryDocument */
+  @Test
+  public void testCashbookEntryDocument() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"}";
+    assertEquals(str, json);
+    CashbookEntryDocument generated = gson.fromJson(str, CashbookEntryDocument.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        assertEquals(12345, model.getId());
-        model.setId(33333);
-        assertEquals(33333, model.getId());
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    assertEquals(12345, model.getId());
+    model.setId(33333);
+    assertEquals(33333, model.getId());
 
-        CashbookEntryDocument c = model.id(69);
-        CashbookEntryDocument expected = new CashbookEntryDocument()
-                .id(69)
-                .type("issued_document")
-                .path("/doc1.pdf");
-        assertEquals(expected, c);
-    }
+    CashbookEntryDocument c = model.id(69);
+    CashbookEntryDocument expected =
+        new CashbookEntryDocument().id(69).type("issued_document").path("/doc1.pdf");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        assertEquals("issued_document", model.getType());
-        model.setType("receipt");
-        assertEquals("receipt", model.getType());
+  /** Test the property 'type' */
+  @Test
+  public void typeTest() {
+    assertEquals("issued_document", model.getType());
+    model.setType("receipt");
+    assertEquals("receipt", model.getType());
 
-        CashbookEntryDocument c = model.type("received_document");
-        CashbookEntryDocument expected = new CashbookEntryDocument()
-                .id(12345)
-                .type("received_document")
-                .path("/doc1.pdf");
-        assertEquals(expected, c);
-    }
+    CashbookEntryDocument c = model.type("received_document");
+    CashbookEntryDocument expected =
+        new CashbookEntryDocument().id(12345).type("received_document").path("/doc1.pdf");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'path'
-     */
-    @Test
-    public void pathTest() {
-        assertEquals("/doc1.pdf", model.getPath());
-        model.setPath("/text.docx");
-        assertEquals("/text.docx", model.getPath());
+  /** Test the property 'path' */
+  @Test
+  public void pathTest() {
+    assertEquals("/doc1.pdf", model.getPath());
+    model.setPath("/text.docx");
+    assertEquals("/text.docx", model.getPath());
 
-        CashbookEntryDocument c = model.path("/tab_2.xlsx");
-        CashbookEntryDocument expected = new CashbookEntryDocument()
-                .id(12345)
-                .type("issued_document")
-                .path("/tab_2.xlsx");
-        assertEquals(expected, c);
-    }
-
+    CashbookEntryDocument c = model.path("/tab_2.xlsx");
+    CashbookEntryDocument expected =
+        new CashbookEntryDocument().id(12345).type("issued_document").path("/tab_2.xlsx");
+    assertEquals(expected, c);
+  }
 }

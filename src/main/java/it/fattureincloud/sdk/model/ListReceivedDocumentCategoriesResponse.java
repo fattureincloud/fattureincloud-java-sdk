@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -54,7 +55,7 @@ public class ListReceivedDocumentCategoriesResponse implements Serializable {
 
   public ListReceivedDocumentCategoriesResponse addDataItem(String dataItem) {
     if (this.data == null) {
-      this.data = null;
+      this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
     return this;
@@ -152,7 +153,8 @@ public class ListReceivedDocumentCategoriesResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListReceivedDocumentCategoriesResponse is not found in the empty JSON string",
+                "The required field(s) %s in ListReceivedDocumentCategoriesResponse is not found in"
+                    + " the empty JSON string",
                 ListReceivedDocumentCategoriesResponse.openapiRequiredFields.toString()));
       }
     }
@@ -163,7 +165,8 @@ public class ListReceivedDocumentCategoriesResponse implements Serializable {
       if (!ListReceivedDocumentCategoriesResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListReceivedDocumentCategoriesResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ListReceivedDocumentCategoriesResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -182,7 +185,7 @@ public class ListReceivedDocumentCategoriesResponse implements Serializable {
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!ListReceivedDocumentCategoriesResponse.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'ListReceivedDocumentCategoriesResponse' and its
-                     // subtypes
+        // subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<ListReceivedDocumentCategoriesResponse> thisAdapter =

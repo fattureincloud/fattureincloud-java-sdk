@@ -473,7 +473,8 @@ public class ListEmailsResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListEmailsResponse is not found in the empty JSON string",
+                "The required field(s) %s in ListEmailsResponse is not found in the empty JSON"
+                    + " string",
                 ListEmailsResponse.openapiRequiredFields.toString()));
       }
     }
@@ -484,7 +485,8 @@ public class ListEmailsResponse implements Serializable {
       if (!ListEmailsResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListEmailsResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ListEmailsResponse`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -492,21 +494,24 @@ public class ListEmailsResponse implements Serializable {
         && !jsonObj.get("first_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `first_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `first_page_url` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("first_page_url").toString()));
     }
     if ((jsonObj.get("last_page_url") != null && !jsonObj.get("last_page_url").isJsonNull())
         && !jsonObj.get("last_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `last_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `last_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("last_page_url").toString()));
     }
     if ((jsonObj.get("next_page_url") != null && !jsonObj.get("next_page_url").isJsonNull())
         && !jsonObj.get("next_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `next_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `next_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("next_page_url").toString()));
     }
     if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull())
@@ -520,7 +525,8 @@ public class ListEmailsResponse implements Serializable {
         && !jsonObj.get("prev_page_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `prev_page_url` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("prev_page_url").toString()));
     }
     if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {

@@ -171,7 +171,8 @@ public class ReceivedDocumentPaymentsListItemPaymentTerms implements Serializabl
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ReceivedDocumentPaymentsListItemPaymentTerms is not found in the empty JSON string",
+                "The required field(s) %s in ReceivedDocumentPaymentsListItemPaymentTerms is not"
+                    + " found in the empty JSON string",
                 ReceivedDocumentPaymentsListItemPaymentTerms.openapiRequiredFields.toString()));
       }
     }
@@ -182,7 +183,8 @@ public class ReceivedDocumentPaymentsListItemPaymentTerms implements Serializabl
       if (!ReceivedDocumentPaymentsListItemPaymentTerms.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ReceivedDocumentPaymentsListItemPaymentTerms` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ReceivedDocumentPaymentsListItemPaymentTerms` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -201,7 +203,7 @@ public class ReceivedDocumentPaymentsListItemPaymentTerms implements Serializabl
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!ReceivedDocumentPaymentsListItemPaymentTerms.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'ReceivedDocumentPaymentsListItemPaymentTerms'
-                     // and its subtypes
+        // and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<ReceivedDocumentPaymentsListItemPaymentTerms> thisAdapter =

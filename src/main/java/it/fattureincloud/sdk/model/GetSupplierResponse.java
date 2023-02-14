@@ -123,7 +123,8 @@ public class GetSupplierResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetSupplierResponse is not found in the empty JSON string",
+                "The required field(s) %s in GetSupplierResponse is not found in the empty JSON"
+                    + " string",
                 GetSupplierResponse.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class GetSupplierResponse implements Serializable {
       if (!GetSupplierResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetSupplierResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetSupplierResponse`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

@@ -10,43 +10,35 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for ReceiptType
- */
+/** Model tests for ReceiptType */
 public class ReceiptTypeTest {
-    /**
-     * Model tests for ReceiptType
-     */
-    @Test
-    public void testReceiptType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for ReceiptType */
+  @Test
+  public void testReceiptType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"till_receipt\"", gson.toJson(ReceiptType.TILL_RECEIPT));
-        assertEquals("\"sales_receipt\"", gson.toJson(ReceiptType.SALES_RECEIPT));
+    assertEquals("\"till_receipt\"", gson.toJson(ReceiptType.TILL_RECEIPT));
+    assertEquals("\"sales_receipt\"", gson.toJson(ReceiptType.SALES_RECEIPT));
 
-        assertEquals(ReceiptType.TILL_RECEIPT, gson.fromJson("\"till_receipt\"", ReceiptType.class));
-        assertEquals(ReceiptType.SALES_RECEIPT, gson.fromJson("\"sales_receipt\"", ReceiptType.class));
+    assertEquals(ReceiptType.TILL_RECEIPT, gson.fromJson("\"till_receipt\"", ReceiptType.class));
+    assertEquals(ReceiptType.SALES_RECEIPT, gson.fromJson("\"sales_receipt\"", ReceiptType.class));
 
+    assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.getValue());
+    assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.getValue());
 
-        assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.getValue());
-        assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.getValue());
+    assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.toString());
+    assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.toString());
 
-        assertEquals("till_receipt", ReceiptType.TILL_RECEIPT.toString());
-        assertEquals("sales_receipt", ReceiptType.SALES_RECEIPT.toString());
-
-        assertEquals(ReceiptType.TILL_RECEIPT, ReceiptType.fromValue("till_receipt"));
-        assertEquals(ReceiptType.SALES_RECEIPT, ReceiptType.fromValue("sales_receipt"));
-    }
-
+    assertEquals(ReceiptType.TILL_RECEIPT, ReceiptType.fromValue("till_receipt"));
+    assertEquals(ReceiptType.SALES_RECEIPT, ReceiptType.fromValue("sales_receipt"));
+  }
 }

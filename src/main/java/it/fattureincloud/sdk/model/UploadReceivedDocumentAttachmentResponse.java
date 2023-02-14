@@ -125,7 +125,8 @@ public class UploadReceivedDocumentAttachmentResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in UploadReceivedDocumentAttachmentResponse is not found in the empty JSON string",
+                "The required field(s) %s in UploadReceivedDocumentAttachmentResponse is not found"
+                    + " in the empty JSON string",
                 UploadReceivedDocumentAttachmentResponse.openapiRequiredFields.toString()));
       }
     }
@@ -136,7 +137,8 @@ public class UploadReceivedDocumentAttachmentResponse implements Serializable {
       if (!UploadReceivedDocumentAttachmentResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `UploadReceivedDocumentAttachmentResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `UploadReceivedDocumentAttachmentResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -152,7 +154,7 @@ public class UploadReceivedDocumentAttachmentResponse implements Serializable {
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!UploadReceivedDocumentAttachmentResponse.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'UploadReceivedDocumentAttachmentResponse' and
-                     // its subtypes
+        // its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<UploadReceivedDocumentAttachmentResponse> thisAdapter =

@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -200,7 +201,7 @@ public class PaymentMethod implements Serializable {
 
   public PaymentMethod addDetailsItem(PaymentMethodDetails detailsItem) {
     if (this.details == null) {
-      this.details = null;
+      this.details = new ArrayList<>();
     }
     this.details.add(detailsItem);
     return this;
@@ -426,7 +427,8 @@ public class PaymentMethod implements Serializable {
       if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `PaymentMethod` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `PaymentMethod`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -464,28 +466,32 @@ public class PaymentMethod implements Serializable {
         && !jsonObj.get("bank_iban").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_iban` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_iban` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("bank_iban").toString()));
     }
     if ((jsonObj.get("bank_name") != null && !jsonObj.get("bank_name").isJsonNull())
         && !jsonObj.get("bank_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("bank_name").toString()));
     }
     if ((jsonObj.get("bank_beneficiary") != null && !jsonObj.get("bank_beneficiary").isJsonNull())
         && !jsonObj.get("bank_beneficiary").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("bank_beneficiary").toString()));
     }
     if ((jsonObj.get("ei_payment_method") != null && !jsonObj.get("ei_payment_method").isJsonNull())
         && !jsonObj.get("ei_payment_method").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_payment_method` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_payment_method` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("ei_payment_method").toString()));
     }
   }

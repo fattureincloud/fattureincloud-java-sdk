@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -110,7 +111,7 @@ public class ReceiptPreCreateInfo implements Serializable {
 
   public ReceiptPreCreateInfo addNumerationsListItem(String numerationsListItem) {
     if (this.numerationsList == null) {
-      this.numerationsList = null;
+      this.numerationsList = new ArrayList<>();
     }
     this.numerationsList.add(numerationsListItem);
     return this;
@@ -138,7 +139,7 @@ public class ReceiptPreCreateInfo implements Serializable {
 
   public ReceiptPreCreateInfo addRcCentersListItem(String rcCentersListItem) {
     if (this.rcCentersList == null) {
-      this.rcCentersList = null;
+      this.rcCentersList = new ArrayList<>();
     }
     this.rcCentersList.add(rcCentersListItem);
     return this;
@@ -166,7 +167,7 @@ public class ReceiptPreCreateInfo implements Serializable {
 
   public ReceiptPreCreateInfo addPaymentAccountsListItem(PaymentAccount paymentAccountsListItem) {
     if (this.paymentAccountsList == null) {
-      this.paymentAccountsList = null;
+      this.paymentAccountsList = new ArrayList<>();
     }
     this.paymentAccountsList.add(paymentAccountsListItem);
     return this;
@@ -194,7 +195,7 @@ public class ReceiptPreCreateInfo implements Serializable {
 
   public ReceiptPreCreateInfo addCategoriesListItem(String categoriesListItem) {
     if (this.categoriesList == null) {
-      this.categoriesList = null;
+      this.categoriesList = new ArrayList<>();
     }
     this.categoriesList.add(categoriesListItem);
     return this;
@@ -222,7 +223,7 @@ public class ReceiptPreCreateInfo implements Serializable {
 
   public ReceiptPreCreateInfo addVatTypesListItem(VatType vatTypesListItem) {
     if (this.vatTypesList == null) {
-      this.vatTypesList = null;
+      this.vatTypesList = new ArrayList<>();
     }
     this.vatTypesList.add(vatTypesListItem);
     return this;
@@ -341,7 +342,8 @@ public class ReceiptPreCreateInfo implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ReceiptPreCreateInfo is not found in the empty JSON string",
+                "The required field(s) %s in ReceiptPreCreateInfo is not found in the empty JSON"
+                    + " string",
                 ReceiptPreCreateInfo.openapiRequiredFields.toString()));
       }
     }
@@ -352,7 +354,8 @@ public class ReceiptPreCreateInfo implements Serializable {
       if (!ReceiptPreCreateInfo.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ReceiptPreCreateInfo` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ReceiptPreCreateInfo`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -360,7 +363,8 @@ public class ReceiptPreCreateInfo implements Serializable {
     if (jsonObj.get("numerations_list") != null && !jsonObj.get("numerations_list").isJsonArray()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `numerations_list` to be an array in the JSON string but got `%s`",
+              "Expected the field `numerations_list` to be an array in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("numerations_list").toString()));
     }
     // ensure the optional json data is an array if present
@@ -378,7 +382,8 @@ public class ReceiptPreCreateInfo implements Serializable {
         if (!jsonObj.get("payment_accounts_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `payment_accounts_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `payment_accounts_list` to be an array in the JSON string but"
+                      + " got `%s`",
                   jsonObj.get("payment_accounts_list").toString()));
         }
 
@@ -403,7 +408,8 @@ public class ReceiptPreCreateInfo implements Serializable {
         if (!jsonObj.get("vat_types_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `vat_types_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `vat_types_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("vat_types_list").toString()));
         }
 

@@ -123,7 +123,8 @@ public class CreateIssuedDocumentResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in CreateIssuedDocumentResponse is not found in the empty JSON string",
+                "The required field(s) %s in CreateIssuedDocumentResponse is not found in the empty"
+                    + " JSON string",
                 CreateIssuedDocumentResponse.openapiRequiredFields.toString()));
       }
     }
@@ -134,7 +135,8 @@ public class CreateIssuedDocumentResponse implements Serializable {
       if (!CreateIssuedDocumentResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `CreateIssuedDocumentResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `CreateIssuedDocumentResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

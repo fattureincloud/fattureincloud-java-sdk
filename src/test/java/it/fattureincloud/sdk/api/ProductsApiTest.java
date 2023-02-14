@@ -10,281 +10,281 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for ProductsApi
- */
+/** API tests for ProductsApi */
 public class ProductsApiTest {
 
-    private static ProductsApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static ProductsApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new ProductsApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
+    final Response response = builder.build();
 
-    /**
-     * Create Product
-     * <p>
-     * Creates a new product.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createProductTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
 
-        Call mockCall = Mockito.mock(Call.class);
-        ProductsApi api = mockApi(result, mockCall);
+    ApiClient client = new ApiClient(okHttpClient);
 
-        Integer companyId = 11111;
+    return new ProductsApi(client);
+  }
 
-        Product product = new Product()
-                .id(12345)
-                .name("nam")
-                .code("cod")
-                .netPrice(BigDecimal.valueOf(10))
-                .grossPrice(BigDecimal.valueOf(10))
-                .useGrossPrice(true)
-                .defaultVat(new VatType().id(1))
-                .netCost(BigDecimal.valueOf(10))
-                .measure("big")
-                .description("desc")
-                .category("cat6")
-                .notes("nots")
-                .inStock(true)
-                .stockInitial(BigDecimal.valueOf(10))
-                .averageCost(BigDecimal.valueOf(10))
-                .averagePrice(BigDecimal.valueOf(10))
-                .createdAt("2021-10-10")
-                .updatedAt("2021-10-10");
+  /**
+   * Create Product
+   *
+   * <p>Creates a new product.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createProductTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
 
-        Product expected = product
-                .id(1)
-                .name("neim");
+    Call mockCall = Mockito.mock(Call.class);
+    ProductsApi api = mockApi(result, mockCall);
 
-        CreateProductRequest createProductRequest = new CreateProductRequest().data(product);
+    Integer companyId = 11111;
 
-        CreateProductResponse response = api.createProduct(companyId, createProductRequest);
+    Product product =
+        new Product()
+            .id(12345)
+            .name("nam")
+            .code("cod")
+            .netPrice(BigDecimal.valueOf(10))
+            .grossPrice(BigDecimal.valueOf(10))
+            .useGrossPrice(true)
+            .defaultVat(new VatType().id(1))
+            .netCost(BigDecimal.valueOf(10))
+            .measure("big")
+            .description("desc")
+            .category("cat6")
+            .notes("nots")
+            .inStock(true)
+            .stockInitial(BigDecimal.valueOf(10))
+            .averageCost(BigDecimal.valueOf(10))
+            .averagePrice(BigDecimal.valueOf(10))
+            .createdAt("2021-10-10")
+            .updatedAt("2021-10-10");
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Product expected = product.id(1).name("neim");
 
-    /**
-     * Delete Product
-     * <p>
-     * Deletes the specified product.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteProductTest() throws ApiException, IOException {
-        Call mockCall = Mockito.mock(Call.class);
-        ProductsApi api = mockApi(null, mockCall);
+    CreateProductRequest createProductRequest = new CreateProductRequest().data(product);
 
-        Integer companyId = 11111;
-        Integer productId = 16451;
-        api.deleteProduct(companyId, productId);
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    CreateProductResponse response = api.createProduct(companyId, createProductRequest);
 
-    /**
-     * Get Product
-     * <p>
-     * Gets the specified product.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getProductTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Call mockCall = Mockito.mock(Call.class);
-        ProductsApi api = mockApi(result, mockCall);
+  /**
+   * Delete Product
+   *
+   * <p>Deletes the specified product.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteProductTest() throws ApiException, IOException {
+    Call mockCall = Mockito.mock(Call.class);
+    ProductsApi api = mockApi(null, mockCall);
 
-        Integer companyId = 11111;
-        Integer productId = 16451;
-        String fields = null;
-        String fieldset = null;
+    Integer companyId = 11111;
+    Integer productId = 16451;
+    api.deleteProduct(companyId, productId);
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Product expected = new Product()
-                .id(1)
-                .name("neim")
-                .code("cod")
-                .netPrice(BigDecimal.valueOf(10))
-                .grossPrice(BigDecimal.valueOf(10))
-                .useGrossPrice(true)
-                .defaultVat(new VatType().id(1))
-                .netCost(BigDecimal.valueOf(10))
-                .measure("big")
-                .description("desc")
-                .category("cat6")
-                .notes("nots")
-                .inStock(true)
-                .stockInitial(BigDecimal.valueOf(10))
-                .averageCost(BigDecimal.valueOf(10))
-                .averagePrice(BigDecimal.valueOf(10))
-                .createdAt("2021-10-10")
-                .updatedAt("2021-10-10");
+  /**
+   * Get Product
+   *
+   * <p>Gets the specified product.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getProductTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
 
-        GetProductResponse response = api.getProduct(companyId, productId, fields, fieldset);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Call mockCall = Mockito.mock(Call.class);
+    ProductsApi api = mockApi(result, mockCall);
 
-    /**
-     * List Products
-     * <p>
-     * Lists the products.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listProductsTest() throws ApiException, IOException {
-        String result = "{\"current_page\":1,\"data\":[{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"},{\"id\":2,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}],\"first_page_url\":\"page=1\",\"from\":1,\"last_page\":2,\"last_page_url\":\"page=2\",\"next_page_url\":\"page=2\",\"path\":\"entities/clients\",\"per_page\":5,\"prev_page_url\":null,\"to\":50,\"total\":8}";
+    Integer companyId = 11111;
+    Integer productId = 16451;
+    String fields = null;
+    String fieldset = null;
 
-        Call mockCall = Mockito.mock(Call.class);
-        ProductsApi api = mockApi(result, mockCall);
+    Product expected =
+        new Product()
+            .id(1)
+            .name("neim")
+            .code("cod")
+            .netPrice(BigDecimal.valueOf(10))
+            .grossPrice(BigDecimal.valueOf(10))
+            .useGrossPrice(true)
+            .defaultVat(new VatType().id(1))
+            .netCost(BigDecimal.valueOf(10))
+            .measure("big")
+            .description("desc")
+            .category("cat6")
+            .notes("nots")
+            .inStock(true)
+            .stockInitial(BigDecimal.valueOf(10))
+            .averageCost(BigDecimal.valueOf(10))
+            .averagePrice(BigDecimal.valueOf(10))
+            .createdAt("2021-10-10")
+            .updatedAt("2021-10-10");
 
-        Integer companyId = 11111;
-        String fields = null;
-        String fieldset = null;
-        String sort = null;
-        Integer page = 1;
-        Integer perPage = 5;
-        String q = null;
+    GetProductResponse response = api.getProduct(companyId, productId, fields, fieldset);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Product product1 = new Product()
-                .id(1)
-                .name("neim")
-                .code("cod")
-                .netPrice(BigDecimal.valueOf(10))
-                .grossPrice(BigDecimal.valueOf(10))
-                .useGrossPrice(true)
-                .defaultVat(new VatType().id(1))
-                .netCost(BigDecimal.valueOf(10))
-                .measure("big")
-                .description("desc")
-                .category("cat6")
-                .notes("nots")
-                .inStock(true)
-                .stockInitial(BigDecimal.valueOf(10))
-                .averageCost(BigDecimal.valueOf(10))
-                .averagePrice(BigDecimal.valueOf(10))
-                .createdAt("2021-10-10")
-                .updatedAt("2021-10-10");
+  /**
+   * List Products
+   *
+   * <p>Lists the products.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listProductsTest() throws ApiException, IOException {
+    String result =
+        "{\"current_page\":1,\"data\":[{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"},{\"id\":2,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}],\"first_page_url\":\"page=1\",\"from\":1,\"last_page\":2,\"last_page_url\":\"page=2\",\"next_page_url\":\"page=2\",\"path\":\"entities/clients\",\"per_page\":5,\"prev_page_url\":null,\"to\":50,\"total\":8}";
 
-        Product product2 = new Product()
-                .id(2)
-                .name("neim")
-                .code("cod")
-                .netPrice(BigDecimal.valueOf(10))
-                .grossPrice(BigDecimal.valueOf(10))
-                .useGrossPrice(true)
-                .defaultVat(new VatType().id(1))
-                .netCost(BigDecimal.valueOf(10))
-                .measure("big")
-                .description("desc")
-                .category("cat6")
-                .notes("nots")
-                .inStock(true)
-                .stockInitial(BigDecimal.valueOf(10))
-                .averageCost(BigDecimal.valueOf(10))
-                .averagePrice(BigDecimal.valueOf(10))
-                .createdAt("2021-10-10")
-                .updatedAt("2021-10-10");
+    Call mockCall = Mockito.mock(Call.class);
+    ProductsApi api = mockApi(result, mockCall);
 
-        List<Product> expected = Arrays.asList(product1, product2);
+    Integer companyId = 11111;
+    String fields = null;
+    String fieldset = null;
+    String sort = null;
+    Integer page = 1;
+    Integer perPage = 5;
+    String q = null;
 
-        ListProductsResponse response = api.listProducts(companyId, fields, fieldset, sort, page, perPage, q);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Product product1 =
+        new Product()
+            .id(1)
+            .name("neim")
+            .code("cod")
+            .netPrice(BigDecimal.valueOf(10))
+            .grossPrice(BigDecimal.valueOf(10))
+            .useGrossPrice(true)
+            .defaultVat(new VatType().id(1))
+            .netCost(BigDecimal.valueOf(10))
+            .measure("big")
+            .description("desc")
+            .category("cat6")
+            .notes("nots")
+            .inStock(true)
+            .stockInitial(BigDecimal.valueOf(10))
+            .averageCost(BigDecimal.valueOf(10))
+            .averagePrice(BigDecimal.valueOf(10))
+            .createdAt("2021-10-10")
+            .updatedAt("2021-10-10");
 
-    /**
-     * Modify Product
-     * <p>
-     * Modifies the specified product.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void modifyProductTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
+    Product product2 =
+        new Product()
+            .id(2)
+            .name("neim")
+            .code("cod")
+            .netPrice(BigDecimal.valueOf(10))
+            .grossPrice(BigDecimal.valueOf(10))
+            .useGrossPrice(true)
+            .defaultVat(new VatType().id(1))
+            .netCost(BigDecimal.valueOf(10))
+            .measure("big")
+            .description("desc")
+            .category("cat6")
+            .notes("nots")
+            .inStock(true)
+            .stockInitial(BigDecimal.valueOf(10))
+            .averageCost(BigDecimal.valueOf(10))
+            .averagePrice(BigDecimal.valueOf(10))
+            .createdAt("2021-10-10")
+            .updatedAt("2021-10-10");
 
-        Call mockCall = Mockito.mock(Call.class);
-        ProductsApi api = mockApi(result, mockCall);
+    List<Product> expected = Arrays.asList(product1, product2);
 
-        Integer companyId = 2;
-        Integer archiveDocumentId = 2;
+    ListProductsResponse response =
+        api.listProducts(companyId, fields, fieldset, sort, page, perPage, q);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Product product = new Product()
-                .id(12345)
-                .name("nam")
-                .code("cod")
-                .netPrice(BigDecimal.valueOf(10))
-                .grossPrice(BigDecimal.valueOf(10))
-                .useGrossPrice(true)
-                .defaultVat(new VatType().id(1))
-                .netCost(BigDecimal.valueOf(10))
-                .measure("big")
-                .description("desc")
-                .category("cat6")
-                .notes("nots")
-                .inStock(true)
-                .stockInitial(BigDecimal.valueOf(10))
-                .averageCost(BigDecimal.valueOf(10))
-                .averagePrice(BigDecimal.valueOf(10))
-                .createdAt("2021-10-10")
-                .updatedAt("2021-10-10");
+  /**
+   * Modify Product
+   *
+   * <p>Modifies the specified product.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void modifyProductTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":1,\"name\":\"neim\",\"code\":\"cod\",\"net_price\":10,\"gross_price\":10,\"use_gross_price\":true,\"default_vat\":{\"id\":1},\"net_cost\":10,\"measure\":\"big\",\"description\":\"desc\",\"category\":\"cat6\",\"notes\":\"nots\",\"in_stock\":true,\"stock_initial\":10,\"average_cost\":10,\"average_price\":10,\"created_at\":\"2021-10-10\",\"updated_at\":\"2021-10-10\"}}";
 
-        Product expected = product
-                .id(1)
-                .name("neim");
+    Call mockCall = Mockito.mock(Call.class);
+    ProductsApi api = mockApi(result, mockCall);
 
-        ModifyProductRequest modifyProductRequest = new ModifyProductRequest().data(product);
+    Integer companyId = 2;
+    Integer archiveDocumentId = 2;
 
-        ModifyProductResponse response = api.modifyProduct(companyId, archiveDocumentId, modifyProductRequest);
+    Product product =
+        new Product()
+            .id(12345)
+            .name("nam")
+            .code("cod")
+            .netPrice(BigDecimal.valueOf(10))
+            .grossPrice(BigDecimal.valueOf(10))
+            .useGrossPrice(true)
+            .defaultVat(new VatType().id(1))
+            .netCost(BigDecimal.valueOf(10))
+            .measure("big")
+            .description("desc")
+            .category("cat6")
+            .notes("nots")
+            .inStock(true)
+            .stockInitial(BigDecimal.valueOf(10))
+            .averageCost(BigDecimal.valueOf(10))
+            .averagePrice(BigDecimal.valueOf(10))
+            .createdAt("2021-10-10")
+            .updatedAt("2021-10-10");
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Product expected = product.id(1).name("neim");
 
+    ModifyProductRequest modifyProductRequest = new ModifyProductRequest().data(product);
+
+    ModifyProductResponse response =
+        api.modifyProduct(companyId, archiveDocumentId, modifyProductRequest);
+
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

@@ -141,7 +141,8 @@ public class GetVatTypeResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in GetVatTypeResponse is not found in the empty JSON string",
+                "The required field(s) %s in GetVatTypeResponse is not found in the empty JSON"
+                    + " string",
                 GetVatTypeResponse.openapiRequiredFields.toString()));
       }
     }
@@ -152,7 +153,8 @@ public class GetVatTypeResponse implements Serializable {
       if (!GetVatTypeResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `GetVatTypeResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `GetVatTypeResponse`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

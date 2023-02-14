@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -94,7 +95,7 @@ public class IssuedDocumentOptions implements Serializable {
 
   public IssuedDocumentOptions addCreateFromItem(String createFromItem) {
     if (this.createFrom == null) {
-      this.createFrom = null;
+      this.createFrom = new ArrayList<>();
     }
     this.createFrom.add(createFromItem);
     return this;
@@ -262,7 +263,8 @@ public class IssuedDocumentOptions implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentOptions is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentOptions is not found in the empty JSON"
+                    + " string",
                 IssuedDocumentOptions.openapiRequiredFields.toString()));
       }
     }
@@ -273,7 +275,8 @@ public class IssuedDocumentOptions implements Serializable {
       if (!IssuedDocumentOptions.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentOptions` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentOptions`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -288,7 +291,8 @@ public class IssuedDocumentOptions implements Serializable {
         && !jsonObj.get("join_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `join_type` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `join_type` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("join_type").toString()));
     }
   }

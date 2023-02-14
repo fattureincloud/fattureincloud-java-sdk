@@ -10,376 +10,391 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for CashbookApi
- */
+/** API tests for CashbookApi */
 public class CashbookApiTest {
 
-    private static CashbookApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static CashbookApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new CashbookApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
+    final Response response = builder.build();
 
-    /**
-     * Create Cashbook Entry
-     * <p>
-     * Creates a new cashbook entry.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createCashbookEntryTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
 
-        Call mockCall = Mockito.mock(Call.class);
-        CashbookApi api = mockApi(result, mockCall);
+    ApiClient client = new ApiClient(okHttpClient);
 
-        Integer companyId = 11111;
+    return new CashbookApi(client);
+  }
 
-        CashbookEntry cashbookEntry = new CashbookEntry()
-                .id("1a")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("desc")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+  /**
+   * Create Cashbook Entry
+   *
+   * <p>Creates a new cashbook entry.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createCashbookEntryTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n."
+            + " 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi"
+            + " S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
 
+    Call mockCall = Mockito.mock(Call.class);
+    CashbookApi api = mockApi(result, mockCall);
 
-        CashbookEntry expected = new CashbookEntry()
-                .id("1")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("Fattura n. 201/2021")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+    Integer companyId = 11111;
 
+    CashbookEntry cashbookEntry =
+        new CashbookEntry()
+            .id("1a")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("desc")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-        CreateCashbookEntryRequest createCashbookEntryRequest = new CreateCashbookEntryRequest().data(cashbookEntry);
+    CashbookEntry expected =
+        new CashbookEntry()
+            .id("1")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("Fattura n. 201/2021")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-        CreateCashbookEntryResponse response = api.createCashbookEntry(companyId, createCashbookEntryRequest);
+    CreateCashbookEntryRequest createCashbookEntryRequest =
+        new CreateCashbookEntryRequest().data(cashbookEntry);
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    CreateCashbookEntryResponse response =
+        api.createCashbookEntry(companyId, createCashbookEntryRequest);
 
-    /**
-     * Delete Cashbook Entry
-     * <p>
-     * Deletes the specified cashbook entry.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteCashbookEntryTest() throws ApiException, IOException {
-        Call mockCall = Mockito.mock(Call.class);
-        CashbookApi api = mockApi(null, mockCall);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Integer companyId = 11111;
-        String cashbookId = "16451";
-        api.deleteCashbookEntry(companyId, cashbookId);
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+  /**
+   * Delete Cashbook Entry
+   *
+   * <p>Deletes the specified cashbook entry.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteCashbookEntryTest() throws ApiException, IOException {
+    Call mockCall = Mockito.mock(Call.class);
+    CashbookApi api = mockApi(null, mockCall);
 
-    /**
-     * Get Cashbook Entry
-     * <p>
-     * Gets the specified cashbook entry.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getCashbookEntryTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
+    Integer companyId = 11111;
+    String cashbookId = "16451";
+    api.deleteCashbookEntry(companyId, cashbookId);
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Call mockCall = Mockito.mock(Call.class);
-        CashbookApi api = mockApi(result, mockCall);
+  /**
+   * Get Cashbook Entry
+   *
+   * <p>Gets the specified cashbook entry.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getCashbookEntryTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n."
+            + " 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi"
+            + " S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
 
-        Integer companyId = 11111;
-        String cashbookId = "16451";
-        String fields = null;
-        String fieldset = null;
+    Call mockCall = Mockito.mock(Call.class);
+    CashbookApi api = mockApi(result, mockCall);
 
-        CashbookEntry expected = new CashbookEntry()
-                .id("1")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("Fattura n. 201/2021")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+    Integer companyId = 11111;
+    String cashbookId = "16451";
+    String fields = null;
+    String fieldset = null;
 
-        GetCashbookEntryResponse response = api.getCashbookEntry(companyId, cashbookId, fields, fieldset);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    CashbookEntry expected =
+        new CashbookEntry()
+            .id("1")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("Fattura n. 201/2021")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-    /**
-     * List Cashbook Entries
-     * <p>
-     * Lists the cashbook entries.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listCashbookEntriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}},{\"id\":\"2\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}]}";
+    GetCashbookEntryResponse response =
+        api.getCashbookEntry(companyId, cashbookId, fields, fieldset);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Call mockCall = Mockito.mock(Call.class);
-        CashbookApi api = mockApi(result, mockCall);
+  /**
+   * List Cashbook Entries
+   *
+   * <p>Lists the cashbook entries.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listCashbookEntriesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n."
+            + " 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi"
+            + " S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}},{\"id\":\"2\",\"date\":\"2021-12-19\",\"description\":\"Fattura"
+            + " n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi"
+            + " S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}]}";
 
-        Integer companyId = 11111;
-        String dateFrom = "2021-12-21";
-        String dateTo = "2021-12-31";
+    Call mockCall = Mockito.mock(Call.class);
+    CashbookApi api = mockApi(result, mockCall);
 
-        CashbookEntry cashbook1 = new CashbookEntry()
-                .id("1")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("Fattura n. 201/2021")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+    Integer companyId = 11111;
+    String dateFrom = "2021-12-21";
+    String dateTo = "2021-12-31";
 
-        CashbookEntry cashbook2 = new CashbookEntry()
-                .id("2")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("Fattura n. 201/2021")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+    CashbookEntry cashbook1 =
+        new CashbookEntry()
+            .id("1")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("Fattura n. 201/2021")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-        List<CashbookEntry> expected = Arrays.asList(cashbook1, cashbook2);
+    CashbookEntry cashbook2 =
+        new CashbookEntry()
+            .id("2")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("Fattura n. 201/2021")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-        ListCashbookEntriesResponse response = api.listCashbookEntries(companyId, dateFrom, dateTo, null, null, null);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    List<CashbookEntry> expected = Arrays.asList(cashbook1, cashbook2);
 
-    /**
-     * Modify Cashbook Entry
-     * <p>
-     * Modifies the specified cashbook entry.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void modifyCashbookEntryTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n. 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
+    ListCashbookEntriesResponse response =
+        api.listCashbookEntries(companyId, dateFrom, dateTo, null, null, null);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Call mockCall = Mockito.mock(Call.class);
-        CashbookApi api = mockApi(result, mockCall);
+  /**
+   * Modify Cashbook Entry
+   *
+   * <p>Modifies the specified cashbook entry.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void modifyCashbookEntryTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":\"1\",\"date\":\"2021-12-19\",\"description\":\"Fattura n."
+            + " 201/2021\",\"kind\":\"issued_document\",\"type\":\"in\",\"entity_name\":\"Rossi"
+            + " S.r.l.\",\"document\":{\"id\":12345,\"type\":\"issued_document\",\"path\":\"/doc1.pdf\"},\"amount_in\":10,\"payment_account_in\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},\"amount_out\":10,\"payment_account_out\":{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}}";
 
-        Integer companyId = 2;
-        String cashbookId = "2";
+    Call mockCall = Mockito.mock(Call.class);
+    CashbookApi api = mockApi(result, mockCall);
 
-        CashbookEntry cashbookEntry = new CashbookEntry()
-                .id("1a")
-                .date(LocalDate.parse("2021-12-19"))
-                .description("desc")
-                .kind(CashbookEntryKind.ISSUED_DOCUMENT)
-                .type(CashbookEntryType.IN)
-                .entityName("Rossi S.r.l.")
-                .document(new CashbookEntryDocument()
-                        .id(12345)
-                        .type("issued_document")
-                        .path("/doc1.pdf")
-                )
-                .amountOut(BigDecimal.valueOf(10))
-                .paymentAccountOut(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                )
-                .amountIn(BigDecimal.valueOf(10))
-                .paymentAccountIn(new PaymentAccount()
-                        .id(21)
-                        .name("Indesa - Carta conto")
-                        .type(PaymentAccountType.STANDARD)
-                        .iban("IT84Y0300203280294126225888")
-                        .sia("sai")
-                        .cuc("cuc")
-                        .virtual(false)
-                );
+    Integer companyId = 2;
+    String cashbookId = "2";
 
+    CashbookEntry cashbookEntry =
+        new CashbookEntry()
+            .id("1a")
+            .date(LocalDate.parse("2021-12-19"))
+            .description("desc")
+            .kind(CashbookEntryKind.ISSUED_DOCUMENT)
+            .type(CashbookEntryType.IN)
+            .entityName("Rossi S.r.l.")
+            .document(
+                new CashbookEntryDocument().id(12345).type("issued_document").path("/doc1.pdf"))
+            .amountOut(BigDecimal.valueOf(10))
+            .paymentAccountOut(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false))
+            .amountIn(BigDecimal.valueOf(10))
+            .paymentAccountIn(
+                new PaymentAccount()
+                    .id(21)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
 
-        CashbookEntry expected = cashbookEntry
-                .id("1")
-                .description("Fattura n. 201/2021");
+    CashbookEntry expected = cashbookEntry.id("1").description("Fattura n. 201/2021");
 
+    ModifyCashbookEntryRequest modifyCashbookEntryRequest =
+        new ModifyCashbookEntryRequest().data(cashbookEntry);
 
-        ModifyCashbookEntryRequest modifyCashbookEntryRequest = new ModifyCashbookEntryRequest().data(cashbookEntry);
+    ModifyCashbookEntryResponse response =
+        api.modifyCashbookEntry(companyId, cashbookId, modifyCashbookEntryRequest);
 
-        ModifyCashbookEntryResponse response = api.modifyCashbookEntry(companyId, cashbookId, modifyCashbookEntryRequest);
-
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

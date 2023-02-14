@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -407,7 +408,7 @@ public class Receipt implements Serializable {
 
   public Receipt addItemsListItem(ReceiptItemsListItem itemsListItem) {
     if (this.itemsList == null) {
-      this.itemsList = null;
+      this.itemsList = new ArrayList<>();
     }
     this.itemsList.add(itemsListItem);
     return this;
@@ -570,7 +571,8 @@ public class Receipt implements Serializable {
       if (!Receipt.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `Receipt` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `Receipt` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -578,35 +580,40 @@ public class Receipt implements Serializable {
         && !jsonObj.get("numeration").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `numeration` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `numeration` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("numeration").toString()));
     }
     if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
     if ((jsonObj.get("rc_center") != null && !jsonObj.get("rc_center").isJsonNull())
         && !jsonObj.get("rc_center").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `rc_center` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `rc_center` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("rc_center").toString()));
     }
     if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull())
         && !jsonObj.get("created_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `created_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("created_at").toString()));
     }
     if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
         && !jsonObj.get("updated_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `updated_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("updated_at").toString()));
     }
     // validate the optional field `payment_account`

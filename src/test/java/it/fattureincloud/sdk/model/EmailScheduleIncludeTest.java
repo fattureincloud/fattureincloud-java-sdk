@@ -10,111 +10,98 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for EmailScheduleInclude
- */
+/** Model tests for EmailScheduleInclude */
 public class EmailScheduleIncludeTest {
-    private EmailScheduleInclude model;
+  private EmailScheduleInclude model;
 
-    @BeforeEach
-    public void init() {
-        model = new EmailScheduleInclude();
-    }
+  @BeforeEach
+  public void init() {
+    model = new EmailScheduleInclude();
+  }
 
-    /**
-     * Model tests for EmailScheduleInclude
-     */
-    @Test
-    public void testEmailScheduleInclude() {
-        EmailScheduleInclude e = new EmailScheduleInclude()
-                .document(true)
-                .deliveryNote(false)
-                .attachment(true)
-                .accompanyingInvoice(false);
+  /** Model tests for EmailScheduleInclude */
+  @Test
+  public void testEmailScheduleInclude() {
+    EmailScheduleInclude e =
+        new EmailScheduleInclude()
+            .document(true)
+            .deliveryNote(false)
+            .attachment(true)
+            .accompanyingInvoice(false);
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(e);
-        String str = "{\"document\":true,\"delivery_note\":false,\"attachment\":true,\"accompanying_invoice\":false}";
-        assertEquals(str, json);
-        EmailScheduleInclude generated = gson.fromJson(str, EmailScheduleInclude.class);
-        assertEquals(e, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(e);
+    String str =
+        "{\"document\":true,\"delivery_note\":false,\"attachment\":true,\"accompanying_invoice\":false}";
+    assertEquals(str, json);
+    EmailScheduleInclude generated = gson.fromJson(str, EmailScheduleInclude.class);
+    assertEquals(e, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'document'
-     */
-    @Test
-    public void documentTest() {
-        assertNull(model.getDocument());
-        model.setDocument(true);
-        assertEquals(true, model.getDocument());
+  /** Test the property 'document' */
+  @Test
+  public void documentTest() {
+    assertNull(model.getDocument());
+    model.setDocument(true);
+    assertEquals(true, model.getDocument());
 
-        EmailScheduleInclude c = model.document(false);
-        EmailScheduleInclude expected = new EmailScheduleInclude();
-        expected.setDocument(false);
-        assertEquals(expected, c);
-    }
+    EmailScheduleInclude c = model.document(false);
+    EmailScheduleInclude expected = new EmailScheduleInclude();
+    expected.setDocument(false);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'deliveryNote'
-     */
-    @Test
-    public void deliveryNoteTest() {
-        assertNull(model.getDeliveryNote());
-        model.setDeliveryNote(true);
-        assertEquals(true, model.getDeliveryNote());
+  /** Test the property 'deliveryNote' */
+  @Test
+  public void deliveryNoteTest() {
+    assertNull(model.getDeliveryNote());
+    model.setDeliveryNote(true);
+    assertEquals(true, model.getDeliveryNote());
 
-        EmailScheduleInclude c = model.deliveryNote(false);
-        EmailScheduleInclude expected = new EmailScheduleInclude();
-        expected.setDeliveryNote(false);
-        assertEquals(expected, c);
-    }
+    EmailScheduleInclude c = model.deliveryNote(false);
+    EmailScheduleInclude expected = new EmailScheduleInclude();
+    expected.setDeliveryNote(false);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'attachment'
-     */
-    @Test
-    public void attachmentTest() {
-        assertNull(model.getAttachment());
-        model.setAttachment(true);
-        assertEquals(true, model.getAttachment());
+  /** Test the property 'attachment' */
+  @Test
+  public void attachmentTest() {
+    assertNull(model.getAttachment());
+    model.setAttachment(true);
+    assertEquals(true, model.getAttachment());
 
-        EmailScheduleInclude c = model.attachment(false);
-        EmailScheduleInclude expected = new EmailScheduleInclude();
-        expected.setAttachment(false);
-        assertEquals(expected, c);
-    }
+    EmailScheduleInclude c = model.attachment(false);
+    EmailScheduleInclude expected = new EmailScheduleInclude();
+    expected.setAttachment(false);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'accompanyingInvoice'
-     */
-    @Test
-    public void accompanyingInvoiceTest() {
-        assertNull(model.getAccompanyingInvoice());
-        model.setAccompanyingInvoice(true);
-        assertEquals(true, model.getAccompanyingInvoice());
+  /** Test the property 'accompanyingInvoice' */
+  @Test
+  public void accompanyingInvoiceTest() {
+    assertNull(model.getAccompanyingInvoice());
+    model.setAccompanyingInvoice(true);
+    assertEquals(true, model.getAccompanyingInvoice());
 
-        EmailScheduleInclude c = model.accompanyingInvoice(false);
-        EmailScheduleInclude expected = new EmailScheduleInclude();
-        expected.setAccompanyingInvoice(false);
-        assertEquals(expected, c);
-    }
-
+    EmailScheduleInclude c = model.accompanyingInvoice(false);
+    EmailScheduleInclude expected = new EmailScheduleInclude();
+    expected.setAccompanyingInvoice(false);
+    assertEquals(expected, c);
+  }
 }

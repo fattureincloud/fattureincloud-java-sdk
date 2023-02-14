@@ -347,7 +347,8 @@ public class F24 implements Serializable {
       if (!F24.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `F24` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `F24` properties. JSON:"
+                    + " %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -359,21 +360,24 @@ public class F24 implements Serializable {
         && !jsonObj.get("attachment_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_url` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_url").toString()));
     }
     if ((jsonObj.get("attachment_token") != null && !jsonObj.get("attachment_token").isJsonNull())
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
     if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
         && !jsonObj.get("description").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `description` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("description").toString()));
     }
   }

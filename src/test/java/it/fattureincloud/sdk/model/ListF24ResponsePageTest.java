@@ -10,78 +10,69 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListF24ResponsePage
- */
+/** Model tests for ListF24ResponsePage */
 public class ListF24ResponsePageTest {
-    private ListF24ResponsePage model;
+  private ListF24ResponsePage model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListF24ResponsePage()
-                .addDataItem(
-                        new F24()
-                                .id(12345)
-                                .amount(BigDecimal.valueOf(840.36))
-                                .description("PAGAMENTO IVA 2021")
-                                .dueDate(LocalDate.parse("2021-12-31"))
-                                .status(F24Status.PAID)
-                                .paymentAccount(new PaymentAccount()
-                                        .id(111)
-                                        .name("Indesa - Carta conto")
-                                )
-                                .attachmentToken("Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListF24ResponsePage()
+            .addDataItem(
+                new F24()
+                    .id(12345)
+                    .amount(BigDecimal.valueOf(840.36))
+                    .description("PAGAMENTO IVA 2021")
+                    .dueDate(LocalDate.parse("2021-12-31"))
+                    .status(F24Status.PAID)
+                    .paymentAccount(new PaymentAccount().id(111).name("Indesa - Carta conto"))
+                    .attachmentToken("Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879"));
+  }
 
-    /**
-     * Model tests for ListF24ResponsePage
-     */
-    @Test
-    public void testListF24ResponsePage() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"id\":12345,\"due_date\":\"2021-12-31\",\"status\":\"paid\",\"payment_account\":{\"id\":111,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\"},\"amount\":840.36,\"attachment_token\":\"Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879\",\"description\":\"PAGAMENTO IVA 2021\"}]}";
-        assertEquals(str, json);
-        ListF24ResponsePage generated = gson.fromJson(str, ListF24ResponsePage.class);
-        assertEquals(model, generated);
+  /** Model tests for ListF24ResponsePage */
+  @Test
+  public void testListF24ResponsePage() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":[{\"id\":12345,\"due_date\":\"2021-12-31\",\"status\":\"paid\",\"payment_account\":{\"id\":111,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\"},\"amount\":840.36,\"attachment_token\":\"Adfqregwthwrt6whrtghsrgbsdthyeruerur6u6676e5879\",\"description\":\"PAGAMENTO"
+            + " IVA 2021\"}]}";
+    assertEquals(str, json);
+    ListF24ResponsePage generated = gson.fromJson(str, ListF24ResponsePage.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().get(0).getId());
-        model.setData(Arrays.asList(new F24().id(1)));
-        assertEquals(1, model.getData().get(0).getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().get(0).getId());
+    model.setData(Arrays.asList(new F24().id(1)));
+    assertEquals(1, model.getData().get(0).getId());
 
-        model.data(Arrays.asList(new F24().id(2)));
-        ListF24ResponsePage actual = new ListF24ResponsePage();
-        actual.setData(Arrays.asList(new F24().id(2)));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new F24().id(2)));
+    ListF24ResponsePage actual = new ListF24ResponsePage();
+    actual.setData(Arrays.asList(new F24().id(2)));
+    assertEquals(model, actual);
+  }
 }

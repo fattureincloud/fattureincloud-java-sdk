@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -54,7 +55,7 @@ public class VerifyEInvoiceXmlErrorResponseExtra implements Serializable {
 
   public VerifyEInvoiceXmlErrorResponseExtra addErrorsItem(String errorsItem) {
     if (this.errors == null) {
-      this.errors = null;
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;
@@ -152,7 +153,8 @@ public class VerifyEInvoiceXmlErrorResponseExtra implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseExtra is not found in the empty JSON string",
+                "The required field(s) %s in VerifyEInvoiceXmlErrorResponseExtra is not found in"
+                    + " the empty JSON string",
                 VerifyEInvoiceXmlErrorResponseExtra.openapiRequiredFields.toString()));
       }
     }
@@ -163,7 +165,8 @@ public class VerifyEInvoiceXmlErrorResponseExtra implements Serializable {
       if (!VerifyEInvoiceXmlErrorResponseExtra.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `VerifyEInvoiceXmlErrorResponseExtra` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `VerifyEInvoiceXmlErrorResponseExtra` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -182,7 +185,7 @@ public class VerifyEInvoiceXmlErrorResponseExtra implements Serializable {
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
       if (!VerifyEInvoiceXmlErrorResponseExtra.class.isAssignableFrom(type.getRawType())) {
         return null; // this class only serializes 'VerifyEInvoiceXmlErrorResponseExtra' and its
-                     // subtypes
+        // subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<VerifyEInvoiceXmlErrorResponseExtra> thisAdapter =

@@ -466,7 +466,8 @@ public class IssuedDocumentEiData implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentEiData is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentEiData is not found in the empty JSON"
+                    + " string",
                 IssuedDocumentEiData.openapiRequiredFields.toString()));
       }
     }
@@ -477,7 +478,8 @@ public class IssuedDocumentEiData implements Serializable {
       if (!IssuedDocumentEiData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentEiData` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentEiData`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -485,7 +487,8 @@ public class IssuedDocumentEiData implements Serializable {
         && !jsonObj.get("od_number").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `od_number` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `od_number` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("od_number").toString()));
     }
     if ((jsonObj.get("cig") != null && !jsonObj.get("cig").isJsonNull())
@@ -506,35 +509,40 @@ public class IssuedDocumentEiData implements Serializable {
         && !jsonObj.get("payment_method").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `payment_method` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `payment_method` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("payment_method").toString()));
     }
     if ((jsonObj.get("bank_name") != null && !jsonObj.get("bank_name").isJsonNull())
         && !jsonObj.get("bank_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("bank_name").toString()));
     }
     if ((jsonObj.get("bank_iban") != null && !jsonObj.get("bank_iban").isJsonNull())
         && !jsonObj.get("bank_iban").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_iban` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_iban` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("bank_iban").toString()));
     }
     if ((jsonObj.get("bank_beneficiary") != null && !jsonObj.get("bank_beneficiary").isJsonNull())
         && !jsonObj.get("bank_beneficiary").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `bank_beneficiary` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("bank_beneficiary").toString()));
     }
     if ((jsonObj.get("invoice_number") != null && !jsonObj.get("invoice_number").isJsonNull())
         && !jsonObj.get("invoice_number").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `invoice_number` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `invoice_number` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("invoice_number").toString()));
     }
   }

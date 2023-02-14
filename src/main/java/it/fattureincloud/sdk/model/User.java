@@ -319,7 +319,8 @@ public class User implements Serializable {
       if (!User.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `User` properties. JSON:"
+                    + " %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -334,14 +335,16 @@ public class User implements Serializable {
         && !jsonObj.get("first_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `first_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `first_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("first_name").toString()));
     }
     if ((jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull())
         && !jsonObj.get("last_name").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `last_name` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `last_name` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("last_name").toString()));
     }
     if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull())

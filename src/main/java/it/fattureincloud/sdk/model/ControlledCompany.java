@@ -282,7 +282,8 @@ public class ControlledCompany implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ControlledCompany is not found in the empty JSON string",
+                "The required field(s) %s in ControlledCompany is not found in the empty JSON"
+                    + " string",
                 ControlledCompany.openapiRequiredFields.toString()));
       }
     }
@@ -293,7 +294,8 @@ public class ControlledCompany implements Serializable {
       if (!ControlledCompany.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ControlledCompany` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `ControlledCompany`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -308,14 +310,16 @@ public class ControlledCompany implements Serializable {
         && !jsonObj.get("access_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `access_token` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `access_token` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("access_token").toString()));
     }
     if ((jsonObj.get("tax_code") != null && !jsonObj.get("tax_code").isJsonNull())
         && !jsonObj.get("tax_code").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `tax_code` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `tax_code` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("tax_code").toString()));
     }
   }

@@ -134,7 +134,8 @@ public class ListDetailedCountriesResponse implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in ListDetailedCountriesResponse is not found in the empty JSON string",
+                "The required field(s) %s in ListDetailedCountriesResponse is not found in the"
+                    + " empty JSON string",
                 ListDetailedCountriesResponse.openapiRequiredFields.toString()));
       }
     }
@@ -145,7 +146,8 @@ public class ListDetailedCountriesResponse implements Serializable {
       if (!ListDetailedCountriesResponse.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `ListDetailedCountriesResponse` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `ListDetailedCountriesResponse` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }

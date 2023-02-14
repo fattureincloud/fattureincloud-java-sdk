@@ -162,7 +162,8 @@ public class EmailAttachment implements Serializable {
       if (!EmailAttachment.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EmailAttachment` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EmailAttachment`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -170,7 +171,8 @@ public class EmailAttachment implements Serializable {
         && !jsonObj.get("filename").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `filename` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `filename` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("filename").toString()));
     }
     if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull())

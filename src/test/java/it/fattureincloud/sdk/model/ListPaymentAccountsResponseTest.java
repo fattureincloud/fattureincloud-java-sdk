@@ -10,73 +10,65 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListPaymentAccountsResponse
- */
+/** Model tests for ListPaymentAccountsResponse */
 public class ListPaymentAccountsResponseTest {
-    private ListPaymentAccountsResponse model;
+  private ListPaymentAccountsResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListPaymentAccountsResponse()
-                .addDataItem(
-                        new PaymentAccount()
-                                .id(12345)
-                                .name("Indesa - Carta conto")
-                                .type(PaymentAccountType.STANDARD)
-                                .iban("IT84Y0300203280294126225888")
-                                .sia("sai")
-                                .cuc("cuc")
-                                .virtual(false)
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListPaymentAccountsResponse()
+            .addDataItem(
+                new PaymentAccount()
+                    .id(12345)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
+  }
 
-    /**
-     * Model tests for ListPaymentAccountsResponse
-     */
-    @Test
-    public void testListPaymentAccountsResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"id\":12345,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}]}";
-        assertEquals(str, json);
-        ListPaymentAccountsResponse generated = gson.fromJson(str, ListPaymentAccountsResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListPaymentAccountsResponse */
+  @Test
+  public void testListPaymentAccountsResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":[{\"id\":12345,\"name\":\"Indesa - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}]}";
+    assertEquals(str, json);
+    ListPaymentAccountsResponse generated = gson.fromJson(str, ListPaymentAccountsResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().get(0).getId());
-        model.setData(Arrays.asList(new PaymentAccount().id(1)));
-        assertEquals(1, model.getData().get(0).getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().get(0).getId());
+    model.setData(Arrays.asList(new PaymentAccount().id(1)));
+    assertEquals(1, model.getData().get(0).getId());
 
-        model.data(Arrays.asList(new PaymentAccount().id(2)));
-        ListPaymentAccountsResponse actual = new ListPaymentAccountsResponse();
-        actual.setData(Arrays.asList(new PaymentAccount().id(2)));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new PaymentAccount().id(2)));
+    ListPaymentAccountsResponse actual = new ListPaymentAccountsResponse();
+    actual.setData(Arrays.asList(new PaymentAccount().id(2)));
+    assertEquals(model, actual);
+  }
 }

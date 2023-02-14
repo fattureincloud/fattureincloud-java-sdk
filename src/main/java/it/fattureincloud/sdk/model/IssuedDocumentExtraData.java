@@ -499,7 +499,8 @@ public class IssuedDocumentExtraData implements Serializable {
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentExtraData is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentExtraData is not found in the empty JSON"
+                    + " string",
                 IssuedDocumentExtraData.openapiRequiredFields.toString()));
       }
     }
@@ -510,7 +511,8 @@ public class IssuedDocumentExtraData implements Serializable {
       if (!IssuedDocumentExtraData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentExtraData` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocumentExtraData`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -518,21 +520,24 @@ public class IssuedDocumentExtraData implements Serializable {
         && !jsonObj.get("ts_tipo_spesa").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("ts_tipo_spesa").toString()));
     }
     if ((jsonObj.get("ts_file_id") != null && !jsonObj.get("ts_file_id").isJsonNull())
         && !jsonObj.get("ts_file_id").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ts_file_id` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ts_file_id` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("ts_file_id").toString()));
     }
     if ((jsonObj.get("imported_by") != null && !jsonObj.get("imported_by").isJsonNull())
         && !jsonObj.get("imported_by").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `imported_by` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `imported_by` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("imported_by").toString()));
     }
   }

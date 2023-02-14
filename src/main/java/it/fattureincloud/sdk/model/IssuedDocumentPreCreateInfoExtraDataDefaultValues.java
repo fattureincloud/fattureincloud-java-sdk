@@ -238,7 +238,8 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValues implements Serial
           .isEmpty()) { // has required fields but JSON object is null
         throw new IllegalArgumentException(
             String.format(
-                "The required field(s) %s in IssuedDocumentPreCreateInfoExtraDataDefaultValues is not found in the empty JSON string",
+                "The required field(s) %s in IssuedDocumentPreCreateInfoExtraDataDefaultValues is"
+                    + " not found in the empty JSON string",
                 IssuedDocumentPreCreateInfoExtraDataDefaultValues.openapiRequiredFields
                     .toString()));
       }
@@ -251,7 +252,8 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValues implements Serial
           entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocumentPreCreateInfoExtraDataDefaultValues` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the"
+                    + " `IssuedDocumentPreCreateInfoExtraDataDefaultValues` properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -259,7 +261,8 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValues implements Serial
         && !jsonObj.get("ts_tipo_spesa").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ts_tipo_spesa` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("ts_tipo_spesa").toString()));
     }
   }
@@ -271,7 +274,7 @@ public class IssuedDocumentPreCreateInfoExtraDataDefaultValues implements Serial
       if (!IssuedDocumentPreCreateInfoExtraDataDefaultValues.class.isAssignableFrom(
           type.getRawType())) {
         return null; // this class only serializes
-                     // 'IssuedDocumentPreCreateInfoExtraDataDefaultValues' and its subtypes
+        // 'IssuedDocumentPreCreateInfoExtraDataDefaultValues' and its subtypes
       }
       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
       final TypeAdapter<IssuedDocumentPreCreateInfoExtraDataDefaultValues> thisAdapter =

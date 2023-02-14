@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import it.fattureincloud.sdk.JSON;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -146,7 +147,7 @@ public class EmailData implements Serializable {
 
   public EmailData addSenderEmailsListItem(SenderEmail senderEmailsListItem) {
     if (this.senderEmailsList == null) {
-      this.senderEmailsList = null;
+      this.senderEmailsList = new ArrayList<>();
     }
     this.senderEmailsList.add(senderEmailsListItem);
     return this;
@@ -456,7 +457,8 @@ public class EmailData implements Serializable {
       if (!EmailData.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `EmailData` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `EmailData` properties."
+                    + " JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -464,7 +466,8 @@ public class EmailData implements Serializable {
         && !jsonObj.get("recipient_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `recipient_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `recipient_email` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("recipient_email").toString()));
     }
     // validate the optional field `default_sender_email`
@@ -481,7 +484,8 @@ public class EmailData implements Serializable {
         if (!jsonObj.get("sender_emails_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `sender_emails_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `sender_emails_list` to be an array in the JSON string but"
+                      + " got `%s`",
                   jsonObj.get("sender_emails_list").toString()));
         }
 
@@ -496,7 +500,8 @@ public class EmailData implements Serializable {
         && !jsonObj.get("cc_email").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `cc_email` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `cc_email` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("cc_email").toString()));
     }
     if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull())

@@ -10,47 +10,42 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for CompanyType
- */
+/** Model tests for CompanyType */
 public class CompanyTypeTest {
-    /**
-     * Model tests for CompanyType
-     */
-    @Test
-    public void testCompanyType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for CompanyType */
+  @Test
+  public void testCompanyType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"company\"", gson.toJson(CompanyType.COMPANY));
-        assertEquals("\"accountant\"", gson.toJson(CompanyType.ACCOUNTANT));
+    assertEquals("\"company\"", gson.toJson(CompanyType.COMPANY));
+    assertEquals("\"accountant\"", gson.toJson(CompanyType.ACCOUNTANT));
 
-        assertEquals(CompanyType.COMPANY, gson.fromJson("\"company\"", CompanyType.class));
-        assertEquals(CompanyType.ACCOUNTANT, gson.fromJson("\"accountant\"", CompanyType.class));
+    assertEquals(CompanyType.COMPANY, gson.fromJson("\"company\"", CompanyType.class));
+    assertEquals(CompanyType.ACCOUNTANT, gson.fromJson("\"accountant\"", CompanyType.class));
 
-        assertEquals("company", CompanyType.COMPANY.getValue());
-        assertEquals("accountant", CompanyType.ACCOUNTANT.getValue());
+    assertEquals("company", CompanyType.COMPANY.getValue());
+    assertEquals("accountant", CompanyType.ACCOUNTANT.getValue());
 
-        assertEquals("company", CompanyType.COMPANY.toString());
-        assertEquals("accountant", CompanyType.ACCOUNTANT.toString());
+    assertEquals("company", CompanyType.COMPANY.toString());
+    assertEquals("accountant", CompanyType.ACCOUNTANT.toString());
 
-        assertEquals(CompanyType.COMPANY, CompanyType.fromValue("company"));
-        assertEquals(CompanyType.ACCOUNTANT, CompanyType.fromValue("accountant"));
+    assertEquals(CompanyType.COMPANY, CompanyType.fromValue("company"));
+    assertEquals(CompanyType.ACCOUNTANT, CompanyType.fromValue("accountant"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CompanyType.fromValue("Evil Joshua");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          CompanyType.fromValue("Evil Joshua");
         });
-    }
-
+  }
 }

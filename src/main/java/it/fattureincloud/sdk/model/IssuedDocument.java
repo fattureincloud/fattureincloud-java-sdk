@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -1331,7 +1332,7 @@ public class IssuedDocument implements Serializable {
 
   public IssuedDocument addItemsListItem(IssuedDocumentItemsListItem itemsListItem) {
     if (this.itemsList == null) {
-      this.itemsList = null;
+      this.itemsList = new ArrayList<>();
     }
     this.itemsList.add(itemsListItem);
     return this;
@@ -1359,7 +1360,7 @@ public class IssuedDocument implements Serializable {
 
   public IssuedDocument addPaymentsListItem(IssuedDocumentPaymentsListItem paymentsListItem) {
     if (this.paymentsList == null) {
-      this.paymentsList = null;
+      this.paymentsList = new ArrayList<>();
     }
     this.paymentsList.add(paymentsListItem);
     return this;
@@ -2683,7 +2684,8 @@ public class IssuedDocument implements Serializable {
       if (!IssuedDocument.openapiFields.contains(entry.getKey())) {
         throw new IllegalArgumentException(
             String.format(
-                "The field `%s` in the JSON string is not defined in the `IssuedDocument` properties. JSON: %s",
+                "The field `%s` in the JSON string is not defined in the `IssuedDocument`"
+                    + " properties. JSON: %s",
                 entry.getKey(), jsonObj.toString()));
       }
     }
@@ -2695,7 +2697,8 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("numeration").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `numeration` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `numeration` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("numeration").toString()));
     }
     // validate the optional field `currency`
@@ -2717,14 +2720,16 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("visible_subject").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `visible_subject` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `visible_subject` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("visible_subject").toString()));
     }
     if ((jsonObj.get("rc_center") != null && !jsonObj.get("rc_center").isJsonNull())
         && !jsonObj.get("rc_center").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `rc_center` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `rc_center` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("rc_center").toString()));
     }
     if ((jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull())
@@ -2746,14 +2751,16 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("ei_cassa_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_cassa_type` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_cassa_type` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("ei_cassa_type").toString()));
     }
     if ((jsonObj.get("ei_cassa2_type") != null && !jsonObj.get("ei_cassa2_type").isJsonNull())
         && !jsonObj.get("ei_cassa2_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_cassa2_type` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_cassa2_type` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("ei_cassa2_type").toString()));
     }
     if ((jsonObj.get("ei_withholding_tax_causal") != null
@@ -2761,7 +2768,8 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("ei_withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_withholding_tax_causal` to be a primitive type in the JSON"
+                  + " string but got `%s`",
               jsonObj.get("ei_withholding_tax_causal").toString()));
     }
     if ((jsonObj.get("ei_other_withholding_tax_type") != null
@@ -2769,7 +2777,8 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("ei_other_withholding_tax_type").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_other_withholding_tax_type` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_other_withholding_tax_type` to be a primitive type in the"
+                  + " JSON string but got `%s`",
               jsonObj.get("ei_other_withholding_tax_type").toString()));
     }
     if ((jsonObj.get("ei_other_withholding_tax_causal") != null
@@ -2777,7 +2786,8 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("ei_other_withholding_tax_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_other_withholding_tax_causal` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_other_withholding_tax_causal` to be a primitive type in the"
+                  + " JSON string but got `%s`",
               jsonObj.get("ei_other_withholding_tax_causal").toString()));
     }
     if (jsonObj.get("items_list") != null && !jsonObj.get("items_list").isJsonNull()) {
@@ -2806,7 +2816,8 @@ public class IssuedDocument implements Serializable {
         if (!jsonObj.get("payments_list").isJsonArray()) {
           throw new IllegalArgumentException(
               String.format(
-                  "Expected the field `payments_list` to be an array in the JSON string but got `%s`",
+                  "Expected the field `payments_list` to be an array in the JSON string but got"
+                      + " `%s`",
                   jsonObj.get("payments_list").toString()));
         }
 
@@ -2836,42 +2847,48 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("dn_ai_packages_number").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_packages_number` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_packages_number` to be a primitive type in the JSON string"
+                  + " but got `%s`",
               jsonObj.get("dn_ai_packages_number").toString()));
     }
     if ((jsonObj.get("dn_ai_weight") != null && !jsonObj.get("dn_ai_weight").isJsonNull())
         && !jsonObj.get("dn_ai_weight").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_weight` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_weight` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("dn_ai_weight").toString()));
     }
     if ((jsonObj.get("dn_ai_causal") != null && !jsonObj.get("dn_ai_causal").isJsonNull())
         && !jsonObj.get("dn_ai_causal").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_causal` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_causal` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("dn_ai_causal").toString()));
     }
     if ((jsonObj.get("dn_ai_destination") != null && !jsonObj.get("dn_ai_destination").isJsonNull())
         && !jsonObj.get("dn_ai_destination").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_destination` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_destination` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("dn_ai_destination").toString()));
     }
     if ((jsonObj.get("dn_ai_transporter") != null && !jsonObj.get("dn_ai_transporter").isJsonNull())
         && !jsonObj.get("dn_ai_transporter").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_transporter` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_transporter` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("dn_ai_transporter").toString()));
     }
     if ((jsonObj.get("dn_ai_notes") != null && !jsonObj.get("dn_ai_notes").isJsonNull())
         && !jsonObj.get("dn_ai_notes").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `dn_ai_notes` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `dn_ai_notes` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("dn_ai_notes").toString()));
     }
     // validate the optional field `extra_data`
@@ -2903,35 +2920,40 @@ public class IssuedDocument implements Serializable {
         && !jsonObj.get("attachment_url").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_url` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_url` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_url").toString()));
     }
     if ((jsonObj.get("attachment_token") != null && !jsonObj.get("attachment_token").isJsonNull())
         && !jsonObj.get("attachment_token").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `attachment_token` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `attachment_token` to be a primitive type in the JSON string but"
+                  + " got `%s`",
               jsonObj.get("attachment_token").toString()));
     }
     if ((jsonObj.get("ei_status") != null && !jsonObj.get("ei_status").isJsonNull())
         && !jsonObj.get("ei_status").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `ei_status` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `ei_status` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("ei_status").toString()));
     }
     if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull())
         && !jsonObj.get("created_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `created_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("created_at").toString()));
     }
     if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
         && !jsonObj.get("updated_at").isJsonPrimitive()) {
       throw new IllegalArgumentException(
           String.format(
-              "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
+              "Expected the field `updated_at` to be a primitive type in the JSON string but got"
+                  + " `%s`",
               jsonObj.get("updated_at").toString()));
     }
   }

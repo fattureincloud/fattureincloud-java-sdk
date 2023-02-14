@@ -10,80 +10,75 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for VerifyEInvoiceXmlErrorResponse
- */
+/** Model tests for VerifyEInvoiceXmlErrorResponse */
 public class VerifyEInvoiceXmlErrorResponseTest {
-    private VerifyEInvoiceXmlErrorResponse model;
+  private VerifyEInvoiceXmlErrorResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new VerifyEInvoiceXmlErrorResponse()
-                .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
-                .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new VerifyEInvoiceXmlErrorResponse()
+            .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
+            .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
+  }
 
-    /**
-     * Model tests for VerifyEInvoiceXmlErrorResponse
-     */
-    @Test
-    public void testVerifyEInvoiceXmlErrorResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"error\":{\"message\":\"msg\"},\"extra\":{\"errors\":[\"err1\"]}}";
-        assertEquals(str, json);
-        VerifyEInvoiceXmlErrorResponse generated = gson.fromJson(str, VerifyEInvoiceXmlErrorResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for VerifyEInvoiceXmlErrorResponse */
+  @Test
+  public void testVerifyEInvoiceXmlErrorResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"error\":{\"message\":\"msg\"},\"extra\":{\"errors\":[\"err1\"]}}";
+    assertEquals(str, json);
+    VerifyEInvoiceXmlErrorResponse generated =
+        gson.fromJson(str, VerifyEInvoiceXmlErrorResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'error'
-     */
-    @Test
-    public void errorTest() {
-        assertEquals(new VerifyEInvoiceXmlErrorResponseError().message("msg"), model.getError());
-        model.setError(new VerifyEInvoiceXmlErrorResponseError().message("msg2"));
-        assertEquals(new VerifyEInvoiceXmlErrorResponseError().message("msg2"), model.getError());
+  /** Test the property 'error' */
+  @Test
+  public void errorTest() {
+    assertEquals(new VerifyEInvoiceXmlErrorResponseError().message("msg"), model.getError());
+    model.setError(new VerifyEInvoiceXmlErrorResponseError().message("msg2"));
+    assertEquals(new VerifyEInvoiceXmlErrorResponseError().message("msg2"), model.getError());
 
-        VerifyEInvoiceXmlErrorResponse a = model.error(new VerifyEInvoiceXmlErrorResponseError().message("msg"));
-        VerifyEInvoiceXmlErrorResponse expected = new VerifyEInvoiceXmlErrorResponse()
-                .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
-                .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
-        assertEquals(expected, a);
-    }
+    VerifyEInvoiceXmlErrorResponse a =
+        model.error(new VerifyEInvoiceXmlErrorResponseError().message("msg"));
+    VerifyEInvoiceXmlErrorResponse expected =
+        new VerifyEInvoiceXmlErrorResponse()
+            .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
+            .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
+    assertEquals(expected, a);
+  }
 
-    /**
-     * Test the property 'extra'
-     */
-    @Test
-    public void extraTest() {
-        assertEquals(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"), model.getExtra());
-        model.setExtra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err2"));
-        assertEquals(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err2"), model.getExtra());
+  /** Test the property 'extra' */
+  @Test
+  public void extraTest() {
+    assertEquals(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"), model.getExtra());
+    model.setExtra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err2"));
+    assertEquals(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err2"), model.getExtra());
 
-        VerifyEInvoiceXmlErrorResponse a = model.extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
-        VerifyEInvoiceXmlErrorResponse expected = new VerifyEInvoiceXmlErrorResponse()
-                .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
-                .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
-        assertEquals(expected, a);
-    }
-
+    VerifyEInvoiceXmlErrorResponse a =
+        model.extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
+    VerifyEInvoiceXmlErrorResponse expected =
+        new VerifyEInvoiceXmlErrorResponse()
+            .error(new VerifyEInvoiceXmlErrorResponseError().message("msg"))
+            .extra(new VerifyEInvoiceXmlErrorResponseExtra().addErrorsItem("err1"));
+    assertEquals(expected, a);
+  }
 }
