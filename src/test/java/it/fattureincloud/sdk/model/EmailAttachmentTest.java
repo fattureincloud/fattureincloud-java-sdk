@@ -10,91 +10,63 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for EmailAttachment
- */
+/** Model tests for EmailAttachment */
 public class EmailAttachmentTest {
-    private EmailAttachment model;
+  private EmailAttachment model;
 
-    @BeforeEach
-    public void init() {
-        model = new EmailAttachment()
-                .filename("nomone")
-                .url("www.af.com");
-    }
+  @BeforeEach
+  public void init() {
+    model = new EmailAttachment().filename("nomone").url("www.af.com");
+  }
 
-    /**
-     * Model tests for EmailAttachment
-     */
-    @Test
-    public void testEmailAttachment() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"filename\":\"nomone\",\"url\":\"www.af.com\"}";
-        assertEquals(str, json);
-        EmailAttachment generated = gson.fromJson(str, EmailAttachment.class);
-        assertEquals(model, generated);
+  /** Model tests for EmailAttachment */
+  @Test
+  public void testEmailAttachment() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"filename\":\"nomone\",\"url\":\"www.af.com\"}";
+    assertEquals(str, json);
+    EmailAttachment generated = gson.fromJson(str, EmailAttachment.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'filename'
-     */
-    @Test
-    public void filenameTest() {
-        assertEquals("nomone", model.getFilename());
-        model.setFilename("nomone2");
-        assertEquals("nomone2", model.getFilename());
+  /** Test the property 'filename' */
+  @Test
+  public void filenameTest() {
+    assertEquals("nomone", model.getFilename());
+    model.setFilename("nomone2");
+    assertEquals("nomone2", model.getFilename());
 
-        EmailAttachment e = model.filename("n3");
-        EmailAttachment expected = new EmailAttachment()
-                .filename("n3")
-                .url("www.af.com");
-        assertEquals(expected, e);
-    }
+    EmailAttachment e = model.filename("n3");
+    EmailAttachment expected = new EmailAttachment().filename("n3").url("www.af.com");
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        assertEquals("www.af.com", model.getUrl());
-        model.setUrl("www.lb.com");
-        assertEquals("www.lb.com", model.getUrl());
+  /** Test the property 'url' */
+  @Test
+  public void urlTest() {
+    assertEquals("www.af.com", model.getUrl());
+    model.setUrl("www.lb.com");
+    assertEquals("www.lb.com", model.getUrl());
 
-        EmailAttachment e = model.url("www.dr.com");
-        EmailAttachment expected = new EmailAttachment()
-                .filename("nomone")
-                .url("www.dr.com");
-        assertEquals(expected, e);
-    }
-
+    EmailAttachment e = model.url("www.dr.com");
+    EmailAttachment expected = new EmailAttachment().filename("nomone").url("www.dr.com");
+    assertEquals(expected, e);
+  }
 }

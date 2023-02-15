@@ -10,72 +10,66 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.time.LocalDate;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListArchiveDocumentsResponsePage
- */
+/** Model tests for ListArchiveDocumentsResponsePage */
 public class ListArchiveDocumentsResponsePageTest {
-    private ListArchiveDocumentsResponsePage model;
+  private ListArchiveDocumentsResponsePage model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListArchiveDocumentsResponsePage()
-                .addDataItem(
-                        new ArchiveDocument()
-                                .id(12345)
-                                .date(LocalDate.parse("2021-08-20"))
-                                .category("Altri documenti")
-                                .description("spesa 2")
-                                .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListArchiveDocumentsResponsePage()
+            .addDataItem(
+                new ArchiveDocument()
+                    .id(12345)
+                    .date(LocalDate.parse("2021-08-20"))
+                    .category("Altri documenti")
+                    .description("spesa 2")
+                    .attachmentToken("jwfbaiuwbfoiewfoa8weohafw7gefa9we"));
+  }
 
-    /**
-     * Model tests for ListArchiveDocumentsResponsePage
-     */
-    @Test
-    public void testListArchiveDocumentsResponsePage() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa 2\",\"category\":\"Altri documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}]}";
-        assertEquals(str, json);
-        ListArchiveDocumentsResponsePage generated = gson.fromJson(str, ListArchiveDocumentsResponsePage.class);
-        assertEquals(model, generated);
+  /** Model tests for ListArchiveDocumentsResponsePage */
+  @Test
+  public void testListArchiveDocumentsResponsePage() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":[{\"id\":12345,\"date\":\"2021-08-20\",\"description\":\"spesa"
+            + " 2\",\"category\":\"Altri"
+            + " documenti\",\"attachment_token\":\"jwfbaiuwbfoiewfoa8weohafw7gefa9we\"}]}";
+    assertEquals(str, json);
+    ListArchiveDocumentsResponsePage generated =
+        gson.fromJson(str, ListArchiveDocumentsResponsePage.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().get(0).getId());
-        model.setData(Arrays.asList(new ArchiveDocument().id(1)));
-        assertEquals(1, model.getData().get(0).getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().get(0).getId());
+    model.setData(Arrays.asList(new ArchiveDocument().id(1)));
+    assertEquals(1, model.getData().get(0).getId());
 
-        model.data(Arrays.asList(new ArchiveDocument().id(2)));
-        ListArchiveDocumentsResponsePage actual = new ListArchiveDocumentsResponsePage();
-        actual.setData(Arrays.asList(new ArchiveDocument().id(2)));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new ArchiveDocument().id(2)));
+    ListArchiveDocumentsResponsePage actual = new ListArchiveDocumentsResponsePage();
+    actual.setData(Arrays.asList(new ArchiveDocument().id(2)));
+    assertEquals(model, actual);
+  }
 }

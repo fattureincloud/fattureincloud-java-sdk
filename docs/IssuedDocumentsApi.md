@@ -671,7 +671,7 @@ public class Example {
 
 ## listIssuedDocuments
 
-> ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q)
+> ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q, inclusive)
 
 List Issued Documents
 
@@ -705,8 +705,9 @@ public class Example {
     Integer page = 1; // Integer | The page to retrieve.
     Integer perPage = 5; // Integer | The size of the page.
     String q = "q_example"; // String | Query for filtering the results.
+    Integer inclusive = 0; // Integer | (Only for type = delivery_notes) Include invoices delivery notes.
     try {
-      ListIssuedDocumentsResponse result = apiInstance.listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q);
+      ListIssuedDocumentsResponse result = apiInstance.listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q, inclusive);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IssuedDocumentsApi#listIssuedDocuments");
@@ -731,6 +732,7 @@ public class Example {
 | **page** | **Integer**| The page to retrieve. | [optional] [default to 1] |
 | **perPage** | **Integer**| The size of the page. | [optional] [default to 5] |
 | **q** | **String**| Query for filtering the results. | [optional] |
+| **inclusive** | **Integer**| (Only for type &#x3D; delivery_notes) Include invoices delivery notes. | [optional] [enum: 0, 1] |
 
 ### Return type
 

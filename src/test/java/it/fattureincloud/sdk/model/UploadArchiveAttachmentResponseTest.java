@@ -10,65 +10,55 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for UploadArchiveAttachmentResponse
- */
+/** Model tests for UploadArchiveAttachmentResponse */
 public class UploadArchiveAttachmentResponseTest {
-    private UploadArchiveAttachmentResponse model;
+  private UploadArchiveAttachmentResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new UploadArchiveAttachmentResponse()
-                .data(
-                        new AttachmentData()
-                                .attachmentToken("posdiuajgd98we7ogqwo0fgweF")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new UploadArchiveAttachmentResponse()
+            .data(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
+  }
 
-    /**
-     * Model tests for UploadArchiveAttachmentResponse
-     */
-    @Test
-    public void testUploadArchiveAttachmentResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"attachment_token\":\"posdiuajgd98we7ogqwo0fgweF\"}}";
-        assertEquals(str, json);
-        UploadArchiveAttachmentResponse generated = gson.fromJson(str, UploadArchiveAttachmentResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for UploadArchiveAttachmentResponse */
+  @Test
+  public void testUploadArchiveAttachmentResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":{\"attachment_token\":\"posdiuajgd98we7ogqwo0fgweF\"}}";
+    assertEquals(str, json);
+    UploadArchiveAttachmentResponse generated =
+        gson.fromJson(str, UploadArchiveAttachmentResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("posdiuajgd98we7ogqwo0fgweF", model.getData().getAttachmentToken());
-        model.setData(new AttachmentData().attachmentToken("lausac"));
-        assertEquals("lausac", model.getData().getAttachmentToken());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("posdiuajgd98we7ogqwo0fgweF", model.getData().getAttachmentToken());
+    model.setData(new AttachmentData().attachmentToken("lausac"));
+    assertEquals("lausac", model.getData().getAttachmentToken());
 
-        model.data(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
-        UploadArchiveAttachmentResponse actual = new UploadArchiveAttachmentResponse();
-        actual.setData(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
-        assertEquals(model, actual);
-    }
-
+    model.data(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
+    UploadArchiveAttachmentResponse actual = new UploadArchiveAttachmentResponse();
+    actual.setData(new AttachmentData().attachmentToken("posdiuajgd98we7ogqwo0fgweF"));
+    assertEquals(model, actual);
+  }
 }

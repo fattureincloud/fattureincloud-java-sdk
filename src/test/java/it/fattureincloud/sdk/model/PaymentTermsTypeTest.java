@@ -10,47 +10,43 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for PaymentTermsType
- */
+/** Model tests for PaymentTermsType */
 public class PaymentTermsTypeTest {
-    /**
-     * Model tests for PaymentTermsType
-     */
-    @Test
-    public void testPaymentTermsType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for PaymentTermsType */
+  @Test
+  public void testPaymentTermsType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"standard\"", gson.toJson(PaymentTermsType.STANDARD));
-        assertEquals("\"end_of_month\"", gson.toJson(PaymentTermsType.END_OF_MONTH));
+    assertEquals("\"standard\"", gson.toJson(PaymentTermsType.STANDARD));
+    assertEquals("\"end_of_month\"", gson.toJson(PaymentTermsType.END_OF_MONTH));
 
-        assertEquals(PaymentTermsType.STANDARD, gson.fromJson("\"standard\"", PaymentTermsType.class));
-        assertEquals(PaymentTermsType.END_OF_MONTH, gson.fromJson("\"end_of_month\"", PaymentTermsType.class));
+    assertEquals(PaymentTermsType.STANDARD, gson.fromJson("\"standard\"", PaymentTermsType.class));
+    assertEquals(
+        PaymentTermsType.END_OF_MONTH, gson.fromJson("\"end_of_month\"", PaymentTermsType.class));
 
-        assertEquals("standard", PaymentTermsType.STANDARD.getValue());
-        assertEquals("end_of_month", PaymentTermsType.END_OF_MONTH.getValue());
+    assertEquals("standard", PaymentTermsType.STANDARD.getValue());
+    assertEquals("end_of_month", PaymentTermsType.END_OF_MONTH.getValue());
 
-        assertEquals("standard", PaymentTermsType.STANDARD.toString());
-        assertEquals("end_of_month", PaymentTermsType.END_OF_MONTH.toString());
+    assertEquals("standard", PaymentTermsType.STANDARD.toString());
+    assertEquals("end_of_month", PaymentTermsType.END_OF_MONTH.toString());
 
-        assertEquals(PaymentTermsType.STANDARD, PaymentTermsType.fromValue("standard"));
-        assertEquals(PaymentTermsType.END_OF_MONTH, PaymentTermsType.fromValue("end_of_month"));
+    assertEquals(PaymentTermsType.STANDARD, PaymentTermsType.fromValue("standard"));
+    assertEquals(PaymentTermsType.END_OF_MONTH, PaymentTermsType.fromValue("end_of_month"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            PaymentTermsType.fromValue("Evil Joshua");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          PaymentTermsType.fromValue("Evil Joshua");
         });
-    }
-
+  }
 }

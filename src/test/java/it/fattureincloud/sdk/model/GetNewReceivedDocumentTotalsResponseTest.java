@@ -10,73 +10,65 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for GetNewReceivedDocumentTotalsResponse
- */
+/** Model tests for GetNewReceivedDocumentTotalsResponse */
 public class GetNewReceivedDocumentTotalsResponseTest {
-    private GetNewReceivedDocumentTotalsResponse model;
+  private GetNewReceivedDocumentTotalsResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetNewReceivedDocumentTotalsResponse()
-                .data(
-                        new ReceivedDocumentTotals()
-                                .amountNet(BigDecimal.valueOf(10))
-                                .amountVat(BigDecimal.valueOf(10))
-                                .amountGross(BigDecimal.valueOf(10))
-                                .amountWithholdingTax(BigDecimal.valueOf(10))
-                                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                                .amountDue((BigDecimal.valueOf(10)))
-                                .paymentsSum((BigDecimal.valueOf(10)))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetNewReceivedDocumentTotalsResponse()
+            .data(
+                new ReceivedDocumentTotals()
+                    .amountNet(BigDecimal.valueOf(10))
+                    .amountVat(BigDecimal.valueOf(10))
+                    .amountGross(BigDecimal.valueOf(10))
+                    .amountWithholdingTax(BigDecimal.valueOf(10))
+                    .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+                    .amountDue((BigDecimal.valueOf(10)))
+                    .paymentsSum((BigDecimal.valueOf(10))));
+  }
 
-    /**
-     * Model tests for GetNewReceivedDocumentTotalsResponse
-     */
-    @Test
-    public void testGetNewReceivedDocumentTotalsResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"amount_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"amount_due\":10,\"payments_sum\":10}}";
-        assertEquals(str, json);
-        GetNewReceivedDocumentTotalsResponse generated = gson.fromJson(str, GetNewReceivedDocumentTotalsResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetNewReceivedDocumentTotalsResponse */
+  @Test
+  public void testGetNewReceivedDocumentTotalsResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"amount_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"amount_due\":10,\"payments_sum\":10}}";
+    assertEquals(str, json);
+    GetNewReceivedDocumentTotalsResponse generated =
+        gson.fromJson(str, GetNewReceivedDocumentTotalsResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getData().getAmountNet());
-        model.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(100)));
-        assertEquals(BigDecimal.valueOf(100), model.getData().getAmountNet());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getData().getAmountNet());
+    model.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(100)));
+    assertEquals(BigDecimal.valueOf(100), model.getData().getAmountNet());
 
-        model.data(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
-        GetNewReceivedDocumentTotalsResponse actual = new GetNewReceivedDocumentTotalsResponse();
-        actual.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
-        assertEquals(model, actual);
-    }
-
+    model.data(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+    GetNewReceivedDocumentTotalsResponse actual = new GetNewReceivedDocumentTotalsResponse();
+    actual.setData(new ReceivedDocumentTotals().amountNet(BigDecimal.valueOf(10)));
+    assertEquals(model, actual);
+  }
 }

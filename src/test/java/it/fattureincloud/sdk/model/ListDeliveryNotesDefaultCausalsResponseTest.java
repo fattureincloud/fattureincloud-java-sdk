@@ -10,64 +10,54 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListDeliveryNotesDefaultCausalsResponse
- */
+/** Model tests for ListDeliveryNotesDefaultCausalsResponse */
 public class ListDeliveryNotesDefaultCausalsResponseTest {
-    private ListDeliveryNotesDefaultCausalsResponse model;
+  private ListDeliveryNotesDefaultCausalsResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListDeliveryNotesDefaultCausalsResponse()
-                .addDataItem("causal");
-    }
+  @BeforeEach
+  public void init() {
+    model = new ListDeliveryNotesDefaultCausalsResponse().addDataItem("causal");
+  }
 
-    /**
-     * Model tests for ListDeliveryNotesDefaultCausalsResponse
-     */
-    @Test
-    public void testListDeliveryNotesDefaultCausalsResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[\"causal\"]}";
-        assertEquals(str, json);
-        ListDeliveryNotesDefaultCausalsResponse generated = gson.fromJson(str, ListDeliveryNotesDefaultCausalsResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListDeliveryNotesDefaultCausalsResponse */
+  @Test
+  public void testListDeliveryNotesDefaultCausalsResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":[\"causal\"]}";
+    assertEquals(str, json);
+    ListDeliveryNotesDefaultCausalsResponse generated =
+        gson.fromJson(str, ListDeliveryNotesDefaultCausalsResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("causal", model.getData().get(0));
-        model.setData(Arrays.asList("cat6"));
-        assertEquals("cat6", model.getData().get(0));
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("causal", model.getData().get(0));
+    model.setData(Arrays.asList("cat6"));
+    assertEquals("cat6", model.getData().get(0));
 
-        model.data(Arrays.asList("causal"));
-        ListDeliveryNotesDefaultCausalsResponse actual = new ListDeliveryNotesDefaultCausalsResponse();
-        actual.setData(Arrays.asList("causal"));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList("causal"));
+    ListDeliveryNotesDefaultCausalsResponse actual = new ListDeliveryNotesDefaultCausalsResponse();
+    actual.setData(Arrays.asList("causal"));
+    assertEquals(model, actual);
+  }
 }

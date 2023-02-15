@@ -10,48 +10,44 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for OriginalDocumentType
- */
+/** Model tests for OriginalDocumentType */
 public class OriginalDocumentTypeTest {
-    /**
-     * Model tests for OriginalDocumentType
-     */
-    @Test
-    public void testOriginalDocumentType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for OriginalDocumentType */
+  @Test
+  public void testOriginalDocumentType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"ordine\"", gson.toJson(OriginalDocumentType.ORDINE));
-        assertEquals("\"contratto\"", gson.toJson(OriginalDocumentType.CONTRATTO));
-        assertEquals("\"convenzione\"", gson.toJson(OriginalDocumentType.CONVENZIONE));
+    assertEquals("\"ordine\"", gson.toJson(OriginalDocumentType.ORDINE));
+    assertEquals("\"contratto\"", gson.toJson(OriginalDocumentType.CONTRATTO));
+    assertEquals("\"convenzione\"", gson.toJson(OriginalDocumentType.CONVENZIONE));
 
-        assertEquals(OriginalDocumentType.ORDINE, gson.fromJson("\"ordine\"", OriginalDocumentType.class));
-        assertEquals(OriginalDocumentType.CONTRATTO, gson.fromJson("\"contratto\"", OriginalDocumentType.class));
-        assertEquals(OriginalDocumentType.CONVENZIONE, gson.fromJson("\"convenzione\"", OriginalDocumentType.class));
+    assertEquals(
+        OriginalDocumentType.ORDINE, gson.fromJson("\"ordine\"", OriginalDocumentType.class));
+    assertEquals(
+        OriginalDocumentType.CONTRATTO, gson.fromJson("\"contratto\"", OriginalDocumentType.class));
+    assertEquals(
+        OriginalDocumentType.CONVENZIONE,
+        gson.fromJson("\"convenzione\"", OriginalDocumentType.class));
 
-        assertEquals("ordine", OriginalDocumentType.ORDINE.getValue());
-        assertEquals("contratto", OriginalDocumentType.CONTRATTO.getValue());
-        assertEquals("convenzione", OriginalDocumentType.CONVENZIONE.getValue());
+    assertEquals("ordine", OriginalDocumentType.ORDINE.getValue());
+    assertEquals("contratto", OriginalDocumentType.CONTRATTO.getValue());
+    assertEquals("convenzione", OriginalDocumentType.CONVENZIONE.getValue());
 
-        assertEquals("ordine", OriginalDocumentType.ORDINE.toString());
-        assertEquals("contratto", OriginalDocumentType.CONTRATTO.toString());
-        assertEquals("convenzione", OriginalDocumentType.CONVENZIONE.toString());
+    assertEquals("ordine", OriginalDocumentType.ORDINE.toString());
+    assertEquals("contratto", OriginalDocumentType.CONTRATTO.toString());
+    assertEquals("convenzione", OriginalDocumentType.CONVENZIONE.toString());
 
-        assertEquals(OriginalDocumentType.ORDINE, OriginalDocumentType.fromValue("ordine"));
-        assertEquals(OriginalDocumentType.CONTRATTO, OriginalDocumentType.fromValue("contratto"));
-        assertEquals(OriginalDocumentType.CONVENZIONE, OriginalDocumentType.fromValue("convenzione"));
-
-    }
-
+    assertEquals(OriginalDocumentType.ORDINE, OriginalDocumentType.fromValue("ordine"));
+    assertEquals(OriginalDocumentType.CONTRATTO, OriginalDocumentType.fromValue("contratto"));
+    assertEquals(OriginalDocumentType.CONVENZIONE, OriginalDocumentType.fromValue("convenzione"));
+  }
 }

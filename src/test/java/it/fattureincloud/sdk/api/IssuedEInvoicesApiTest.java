@@ -10,135 +10,126 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
+import java.io.IOException;
 import okhttp3.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for IssuedEInvoicesApi
- */
+/** API tests for IssuedEInvoicesApi */
 public class IssuedEInvoicesApiTest {
 
-    private static IssuedEInvoicesApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static IssuedEInvoicesApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new IssuedEInvoicesApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
+    final Response response = builder.build();
 
-    /**
-     * Send the e-invoice
-     * <p>
-     * Sends the e-invoice to SDI.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void sendEInvoiceTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"name\":\"neim\",\"date\":\"2021-12-31\"}}";
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
 
-        Call mockCall = Mockito.mock(Call.class);
-        IssuedEInvoicesApi api = mockApi(result, mockCall);
+    ApiClient client = new ApiClient(okHttpClient);
 
-        Integer companyId = 11111;
-        Integer documentId = 12345;
+    return new IssuedEInvoicesApi(client);
+  }
 
-        SendEInvoiceRequestData sendEInvoiceRequestData = new SendEInvoiceRequestData()
-                .cassaType("cassa taip")
-                .withholdingTaxCausal("scausal");
+  /**
+   * Send the e-invoice
+   *
+   * <p>Sends the e-invoice to SDI.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void sendEInvoiceTest() throws ApiException, IOException {
+    String result = "{\"data\":{\"name\":\"neim\",\"date\":\"2021-12-31\"}}";
 
-        SendEInvoiceResponseData expected = new SendEInvoiceResponseData()
-                .name("neim")
-                .date("2021-12-31");
+    Call mockCall = Mockito.mock(Call.class);
+    IssuedEInvoicesApi api = mockApi(result, mockCall);
 
-        SendEInvoiceRequest sendEInvoiceRequest = new SendEInvoiceRequest().data(sendEInvoiceRequestData);
+    Integer companyId = 11111;
+    Integer documentId = 12345;
 
-        SendEInvoiceResponse response = api.sendEInvoice(companyId, documentId, sendEInvoiceRequest);
+    SendEInvoiceRequestData sendEInvoiceRequestData =
+        new SendEInvoiceRequestData().cassaType("cassa taip").withholdingTaxCausal("scausal");
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    SendEInvoiceResponseData expected =
+        new SendEInvoiceResponseData().name("neim").date("2021-12-31");
 
-    /**
-     * Verify e-invoice xml
-     * <p>
-     * Verifies the e-invoice xml format. Checks if all of the mandatory fields are filled and compliant to the right format.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void verifyEInvoiceXmlTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"success\":true}}";
+    SendEInvoiceRequest sendEInvoiceRequest =
+        new SendEInvoiceRequest().data(sendEInvoiceRequestData);
 
-        Call mockCall = Mockito.mock(Call.class);
-        IssuedEInvoicesApi api = mockApi(result, mockCall);
+    SendEInvoiceResponse response = api.sendEInvoice(companyId, documentId, sendEInvoiceRequest);
 
-        Integer companyId = 11111;
-        Integer documentId = 16451;
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        VerifyEInvoiceXmlResponse expected = new VerifyEInvoiceXmlResponse()
-                .data(
-                        new VerifyEInvoiceXmlResponseData().success(true)
-                );
+  /**
+   * Verify e-invoice xml
+   *
+   * <p>Verifies the e-invoice xml format. Checks if all of the mandatory fields are filled and
+   * compliant to the right format.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void verifyEInvoiceXmlTest() throws ApiException, IOException {
+    String result = "{\"data\":{\"success\":true}}";
 
-        VerifyEInvoiceXmlResponse response = api.verifyEInvoiceXml(companyId, documentId);
-        assertEquals(expected.getData(), response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Call mockCall = Mockito.mock(Call.class);
+    IssuedEInvoicesApi api = mockApi(result, mockCall);
 
-    /**
-     * Get the e-invoice xml
-     * <p>
-     * Retreives the e-invoice xml.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getEInvoiceXmlTest() throws ApiException, IOException {
-        String result = "<xml-fattura>fields</xml-fattura>";
+    Integer companyId = 11111;
+    Integer documentId = 16451;
 
-        Call mockCall = Mockito.mock(Call.class);
-        IssuedEInvoicesApi api = mockApi(result, mockCall);
+    VerifyEInvoiceXmlResponse expected =
+        new VerifyEInvoiceXmlResponse().data(new VerifyEInvoiceXmlResponseData().success(true));
 
-        Integer companyId = 11111;
-        Integer documentId = 16451;
-        Boolean includeAttachment = true;
+    VerifyEInvoiceXmlResponse response = api.verifyEInvoiceXml(companyId, documentId);
+    assertEquals(expected.getData(), response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        String expected = "<xml-fattura>fields</xml-fattura>";
+  /**
+   * Get the e-invoice xml
+   *
+   * <p>Retreives the e-invoice xml.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getEInvoiceXmlTest() throws ApiException, IOException {
+    String result = "<xml-fattura>fields</xml-fattura>";
 
-        String response = api.getEInvoiceXml(companyId, documentId, includeAttachment);
-        assertEquals(expected, response);
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Call mockCall = Mockito.mock(Call.class);
+    IssuedEInvoicesApi api = mockApi(result, mockCall);
 
+    Integer companyId = 11111;
+    Integer documentId = 16451;
+    Boolean includeAttachment = true;
+
+    String expected = "<xml-fattura>fields</xml-fattura>";
+
+    String response = api.getEInvoiceXml(companyId, documentId, includeAttachment);
+    assertEquals(expected, response);
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

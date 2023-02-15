@@ -10,62 +10,51 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for IssuedDocumentOptions
- */
+/** Model tests for IssuedDocumentOptions */
 public class IssuedDocumentOptionsTest {
-    private IssuedDocumentOptions model;
+  private IssuedDocumentOptions model;
 
-    @BeforeEach
-    public void init() {
-        model = new IssuedDocumentOptions()
-                .fixPayments(true);
-    }
+  @BeforeEach
+  public void init() {
+    model = new IssuedDocumentOptions().fixPayments(true);
+  }
 
-    /**
-     * Model tests for IssuedDocumentOptions
-     */
-    @Test
-    public void testIssuedDocumentOptions() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"fix_payments\":true}";
-        assertEquals(str, json);
-        IssuedDocumentOptions generated = gson.fromJson(str, IssuedDocumentOptions.class);
-        assertEquals(model, generated);
+  /** Model tests for IssuedDocumentOptions */
+  @Test
+  public void testIssuedDocumentOptions() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"fix_payments\":true}";
+    assertEquals(str, json);
+    IssuedDocumentOptions generated = gson.fromJson(str, IssuedDocumentOptions.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'fixPayments'
-     */
-    @Test
-    public void fixPaymentsTest() {
-        assertEquals(true, model.getFixPayments());
-        model.setFixPayments(false);
-        assertEquals(false, model.getFixPayments());
+  /** Test the property 'fixPayments' */
+  @Test
+  public void fixPaymentsTest() {
+    assertEquals(true, model.getFixPayments());
+    model.setFixPayments(false);
+    assertEquals(false, model.getFixPayments());
 
-        IssuedDocumentOptions o = model.fixPayments(true);
-        IssuedDocumentOptions expected = new IssuedDocumentOptions()
-                .fixPayments(true);
-        assertEquals(expected, o);
-    }
-
+    IssuedDocumentOptions o = model.fixPayments(true);
+    IssuedDocumentOptions expected = new IssuedDocumentOptions().fixPayments(true);
+    assertEquals(expected, o);
+  }
 }

@@ -10,76 +10,58 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult
- */
+/** Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult */
 public class VerifyEInvoiceXmlErrorResponseErrorValidationResultTest {
-    private VerifyEInvoiceXmlErrorResponseErrorValidationResult model;
+  private VerifyEInvoiceXmlErrorResponseErrorValidationResult model;
 
-    @BeforeEach
-    public void init() {
-        model = new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
-                .xmlErrors(Arrays.asList("uan", "tu"));
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
+            .xmlErrors(Arrays.asList("uan", "tu"));
+  }
 
-    /**
-     * Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult
-     */
-    @Test
-    public void testVerifyEInvoiceXmlErrorResponseErrorValidationResult() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"xml_errors\":[\"uan\",\"tu\"]}";
-        assertEquals(str, json);
-        VerifyEInvoiceXmlErrorResponseErrorValidationResult generated = gson.fromJson(str, VerifyEInvoiceXmlErrorResponseErrorValidationResult.class);
-        assertEquals(model, generated);
+  /** Model tests for VerifyEInvoiceXmlErrorResponseErrorValidationResult */
+  @Test
+  public void testVerifyEInvoiceXmlErrorResponseErrorValidationResult() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"xml_errors\":[\"uan\",\"tu\"]}";
+    assertEquals(str, json);
+    VerifyEInvoiceXmlErrorResponseErrorValidationResult generated =
+        gson.fromJson(str, VerifyEInvoiceXmlErrorResponseErrorValidationResult.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'xmlErrors'
-     */
-    @Test
-    public void xmlErrorsTest() {
-        assertEquals(Arrays.asList("uan", "tu"), model.getXmlErrors());
-        model.setXmlErrors(Arrays.asList("tri", "for"));
-        assertEquals(Arrays.asList("tri", "for"), model.getXmlErrors());
+  /** Test the property 'xmlErrors' */
+  @Test
+  public void xmlErrorsTest() {
+    assertEquals(Arrays.asList("uan", "tu"), model.getXmlErrors());
+    model.setXmlErrors(Arrays.asList("tri", "for"));
+    assertEquals(Arrays.asList("tri", "for"), model.getXmlErrors());
 
-        VerifyEInvoiceXmlErrorResponseErrorValidationResult c = model.xmlErrors(Arrays.asList("faiv", "sics"));
-        VerifyEInvoiceXmlErrorResponseErrorValidationResult expected = new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
-                .xmlErrors(Arrays.asList("faiv", "sics"));
-        assertEquals(expected, c);
-    }
-
+    VerifyEInvoiceXmlErrorResponseErrorValidationResult c =
+        model.xmlErrors(Arrays.asList("faiv", "sics"));
+    VerifyEInvoiceXmlErrorResponseErrorValidationResult expected =
+        new VerifyEInvoiceXmlErrorResponseErrorValidationResult()
+            .xmlErrors(Arrays.asList("faiv", "sics"));
+    assertEquals(expected, c);
+  }
 }

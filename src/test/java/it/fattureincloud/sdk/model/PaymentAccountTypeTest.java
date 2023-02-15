@@ -10,47 +10,43 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for PaymentAccountType
- */
+/** Model tests for PaymentAccountType */
 public class PaymentAccountTypeTest {
-    /**
-     * Model tests for PaymentAccountType
-     */
-    @Test
-    public void testPaymentAccountType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for PaymentAccountType */
+  @Test
+  public void testPaymentAccountType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"standard\"", gson.toJson(PaymentAccountType.STANDARD));
-        assertEquals("\"bank\"", gson.toJson(PaymentAccountType.BANK));
+    assertEquals("\"standard\"", gson.toJson(PaymentAccountType.STANDARD));
+    assertEquals("\"bank\"", gson.toJson(PaymentAccountType.BANK));
 
-        assertEquals(PaymentAccountType.STANDARD, gson.fromJson("\"standard\"", PaymentAccountType.class));
-        assertEquals(PaymentAccountType.BANK, gson.fromJson("\"bank\"", PaymentAccountType.class));
+    assertEquals(
+        PaymentAccountType.STANDARD, gson.fromJson("\"standard\"", PaymentAccountType.class));
+    assertEquals(PaymentAccountType.BANK, gson.fromJson("\"bank\"", PaymentAccountType.class));
 
-        assertEquals("standard", PaymentAccountType.STANDARD.getValue());
-        assertEquals("bank", PaymentAccountType.BANK.getValue());
+    assertEquals("standard", PaymentAccountType.STANDARD.getValue());
+    assertEquals("bank", PaymentAccountType.BANK.getValue());
 
-        assertEquals("standard", PaymentAccountType.STANDARD.toString());
-        assertEquals("bank", PaymentAccountType.BANK.toString());
+    assertEquals("standard", PaymentAccountType.STANDARD.toString());
+    assertEquals("bank", PaymentAccountType.BANK.toString());
 
-        assertEquals(PaymentAccountType.STANDARD, PaymentAccountType.fromValue("standard"));
-        assertEquals(PaymentAccountType.BANK, PaymentAccountType.fromValue("bank"));
+    assertEquals(PaymentAccountType.STANDARD, PaymentAccountType.fromValue("standard"));
+    assertEquals(PaymentAccountType.BANK, PaymentAccountType.fromValue("bank"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            PaymentAccountType.fromValue("Flora was here");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          PaymentAccountType.fromValue("Flora was here");
         });
-    }
-
+  }
 }

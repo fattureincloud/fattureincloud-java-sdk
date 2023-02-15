@@ -10,177 +10,168 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for CompanyInfoAccessInfo
- */
+/** Model tests for CompanyInfoAccessInfo */
 public class CompanyInfoAccessInfoTest {
-    private CompanyInfoAccessInfo model;
+  private CompanyInfoAccessInfo model;
 
-    @BeforeEach
-    public void init() {
-        model = new CompanyInfoAccessInfo();
-    }
+  @BeforeEach
+  public void init() {
+    model = new CompanyInfoAccessInfo();
+  }
 
-    /**
-     * Model tests for CompanyInfoAccessInfo
-     */
-    @Test
-    public void testCompanyInfoAccessInfo() {
-        CompanyInfoAccessInfo c = new CompanyInfoAccessInfo()
-                .role(UserCompanyRole.MASTER)
-                .throughAccountant(false)
-                .permissions(new Permissions()
-                        .ficSituation(PermissionLevel.READ)
-                        .ficClients(PermissionLevel.WRITE)
-                        .ficSuppliers(PermissionLevel.WRITE)
-                        .ficProducts(PermissionLevel.WRITE)
-                        .ficIssuedDocuments(PermissionLevel.DETAILED)
-                );
+  /** Model tests for CompanyInfoAccessInfo */
+  @Test
+  public void testCompanyInfoAccessInfo() {
+    CompanyInfoAccessInfo c =
+        new CompanyInfoAccessInfo()
+            .role(UserCompanyRole.MASTER)
+            .throughAccountant(false)
+            .permissions(
+                new Permissions()
+                    .ficSituation(PermissionLevel.READ)
+                    .ficClients(PermissionLevel.WRITE)
+                    .ficSuppliers(PermissionLevel.WRITE)
+                    .ficProducts(PermissionLevel.WRITE)
+                    .ficIssuedDocuments(PermissionLevel.DETAILED));
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(c);
-        String str = "{\"role\":\"master\",\"permissions\":{\"fic_situation\":\"read\",\"fic_clients\":\"write\",\"fic_suppliers\":\"write\",\"fic_products\":\"write\",\"fic_issued_documents\":\"detailed\"},\"through_accountant\":false}";
-        assertEquals(str, json);
-        CompanyInfoAccessInfo generated = gson.fromJson(str, CompanyInfoAccessInfo.class);
-        assertEquals(c, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(c);
+    String str =
+        "{\"role\":\"master\",\"permissions\":{\"fic_situation\":\"read\",\"fic_clients\":\"write\",\"fic_suppliers\":\"write\",\"fic_products\":\"write\",\"fic_issued_documents\":\"detailed\"},\"through_accountant\":false}";
+    assertEquals(str, json);
+    CompanyInfoAccessInfo generated = gson.fromJson(str, CompanyInfoAccessInfo.class);
+    assertEquals(c, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'role'
-     */
-    @Test
-    public void roleTest() {
-        assertNull(model.getRole());
-        model.setRole(UserCompanyRole.EMPLOYEE);
-        assertEquals(UserCompanyRole.EMPLOYEE, model.getRole());
+  /** Test the property 'role' */
+  @Test
+  public void roleTest() {
+    assertNull(model.getRole());
+    model.setRole(UserCompanyRole.EMPLOYEE);
+    assertEquals(UserCompanyRole.EMPLOYEE, model.getRole());
 
-        CompanyInfoAccessInfo c = model.role(UserCompanyRole.SUBACCOUNT);
-        CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
-        expected.setRole(UserCompanyRole.SUBACCOUNT);
-        assertEquals(expected, c);
-    }
+    CompanyInfoAccessInfo c = model.role(UserCompanyRole.SUBACCOUNT);
+    CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
+    expected.setRole(UserCompanyRole.SUBACCOUNT);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'permissions'
-     */
-    @Test
-    public void permissionsTest() {
-        Permissions p1 = new Permissions()
-                .ficSituation(PermissionLevel.WRITE)
-                .ficClients(PermissionLevel.WRITE)
-                .ficSuppliers(PermissionLevel.WRITE)
-                .ficProducts(PermissionLevel.WRITE)
-                .ficIssuedDocuments(PermissionLevel.WRITE)
-                .ficReceivedDocuments(PermissionLevel.WRITE)
-                .ficReceipts(PermissionLevel.WRITE)
-                .ficCalendar(PermissionLevel.WRITE)
-                .ficArchive(PermissionLevel.WRITE)
-                .ficTaxes(PermissionLevel.WRITE)
-                .ficStock(PermissionLevel.WRITE)
-                .ficCashbook(PermissionLevel.WRITE)
-                .ficSettings(PermissionLevel.WRITE)
-                .ficEmails(PermissionLevel.WRITE)
-                .dicEmployees(PermissionLevel.WRITE)
-                .dicTimesheet(PermissionLevel.WRITE)
-                .dicSettings(PermissionLevel.WRITE)
-                .ficExport(PermissionLevel.WRITE)
-                .ficImportBankstatements(PermissionLevel.WRITE)
-                .ficImportIssuedDocuments(PermissionLevel.WRITE)
-                .ficImportProducts(PermissionLevel.WRITE)
-                .ficRecurring(PermissionLevel.WRITE)
-                .ficRiba(PermissionLevel.WRITE)
-                .ficImportClientsSuppliers(PermissionLevel.WRITE)
-                .ficIssuedDocumentsDetailed(new PermissionsFicIssuedDocumentsDetailed()
-                        .quotes(PermissionLevel.WRITE)
-                        .proformas(PermissionLevel.WRITE)
-                        .invoices(PermissionLevel.WRITE)
-                        .receipts(PermissionLevel.WRITE)
-                        .deliveryNotes(PermissionLevel.WRITE)
-                        .creditNotes(PermissionLevel.WRITE)
-                        .orders(PermissionLevel.WRITE)
-                        .workReports(PermissionLevel.WRITE)
-                        .supplierOrders(PermissionLevel.WRITE)
-                        .selfInvoices(PermissionLevel.WRITE)
-                );
+  /** Test the property 'permissions' */
+  @Test
+  public void permissionsTest() {
+    Permissions p1 =
+        new Permissions()
+            .ficSituation(PermissionLevel.WRITE)
+            .ficClients(PermissionLevel.WRITE)
+            .ficSuppliers(PermissionLevel.WRITE)
+            .ficProducts(PermissionLevel.WRITE)
+            .ficIssuedDocuments(PermissionLevel.WRITE)
+            .ficReceivedDocuments(PermissionLevel.WRITE)
+            .ficReceipts(PermissionLevel.WRITE)
+            .ficCalendar(PermissionLevel.WRITE)
+            .ficArchive(PermissionLevel.WRITE)
+            .ficTaxes(PermissionLevel.WRITE)
+            .ficStock(PermissionLevel.WRITE)
+            .ficCashbook(PermissionLevel.WRITE)
+            .ficSettings(PermissionLevel.WRITE)
+            .ficEmails(PermissionLevel.WRITE)
+            .dicEmployees(PermissionLevel.WRITE)
+            .dicTimesheet(PermissionLevel.WRITE)
+            .dicSettings(PermissionLevel.WRITE)
+            .ficExport(PermissionLevel.WRITE)
+            .ficImportBankstatements(PermissionLevel.WRITE)
+            .ficImportIssuedDocuments(PermissionLevel.WRITE)
+            .ficImportProducts(PermissionLevel.WRITE)
+            .ficRecurring(PermissionLevel.WRITE)
+            .ficRiba(PermissionLevel.WRITE)
+            .ficImportClientsSuppliers(PermissionLevel.WRITE)
+            .ficIssuedDocumentsDetailed(
+                new PermissionsFicIssuedDocumentsDetailed()
+                    .quotes(PermissionLevel.WRITE)
+                    .proformas(PermissionLevel.WRITE)
+                    .invoices(PermissionLevel.WRITE)
+                    .receipts(PermissionLevel.WRITE)
+                    .deliveryNotes(PermissionLevel.WRITE)
+                    .creditNotes(PermissionLevel.WRITE)
+                    .orders(PermissionLevel.WRITE)
+                    .workReports(PermissionLevel.WRITE)
+                    .supplierOrders(PermissionLevel.WRITE)
+                    .selfInvoices(PermissionLevel.WRITE));
 
-        Permissions p2 = new Permissions()
-                .ficSituation(PermissionLevel.READ)
-                .ficClients(PermissionLevel.READ)
-                .ficSuppliers(PermissionLevel.READ)
-                .ficProducts(PermissionLevel.READ)
-                .ficIssuedDocuments(PermissionLevel.READ)
-                .ficReceivedDocuments(PermissionLevel.READ)
-                .ficReceipts(PermissionLevel.READ)
-                .ficCalendar(PermissionLevel.READ)
-                .ficArchive(PermissionLevel.READ)
-                .ficTaxes(PermissionLevel.READ)
-                .ficStock(PermissionLevel.READ)
-                .ficCashbook(PermissionLevel.READ)
-                .ficSettings(PermissionLevel.READ)
-                .ficEmails(PermissionLevel.READ)
-                .dicEmployees(PermissionLevel.READ)
-                .dicTimesheet(PermissionLevel.READ)
-                .dicSettings(PermissionLevel.READ)
-                .ficExport(PermissionLevel.READ)
-                .ficImportBankstatements(PermissionLevel.READ)
-                .ficImportIssuedDocuments(PermissionLevel.READ)
-                .ficImportProducts(PermissionLevel.READ)
-                .ficRecurring(PermissionLevel.READ)
-                .ficRiba(PermissionLevel.READ)
-                .ficImportClientsSuppliers(PermissionLevel.READ)
-                .ficIssuedDocumentsDetailed(new PermissionsFicIssuedDocumentsDetailed()
-                        .quotes(PermissionLevel.READ)
-                        .proformas(PermissionLevel.READ)
-                        .invoices(PermissionLevel.READ)
-                        .receipts(PermissionLevel.READ)
-                        .deliveryNotes(PermissionLevel.READ)
-                        .creditNotes(PermissionLevel.READ)
-                        .orders(PermissionLevel.READ)
-                        .workReports(PermissionLevel.READ)
-                        .supplierOrders(PermissionLevel.READ)
-                        .selfInvoices(PermissionLevel.READ)
-                );
+    Permissions p2 =
+        new Permissions()
+            .ficSituation(PermissionLevel.READ)
+            .ficClients(PermissionLevel.READ)
+            .ficSuppliers(PermissionLevel.READ)
+            .ficProducts(PermissionLevel.READ)
+            .ficIssuedDocuments(PermissionLevel.READ)
+            .ficReceivedDocuments(PermissionLevel.READ)
+            .ficReceipts(PermissionLevel.READ)
+            .ficCalendar(PermissionLevel.READ)
+            .ficArchive(PermissionLevel.READ)
+            .ficTaxes(PermissionLevel.READ)
+            .ficStock(PermissionLevel.READ)
+            .ficCashbook(PermissionLevel.READ)
+            .ficSettings(PermissionLevel.READ)
+            .ficEmails(PermissionLevel.READ)
+            .dicEmployees(PermissionLevel.READ)
+            .dicTimesheet(PermissionLevel.READ)
+            .dicSettings(PermissionLevel.READ)
+            .ficExport(PermissionLevel.READ)
+            .ficImportBankstatements(PermissionLevel.READ)
+            .ficImportIssuedDocuments(PermissionLevel.READ)
+            .ficImportProducts(PermissionLevel.READ)
+            .ficRecurring(PermissionLevel.READ)
+            .ficRiba(PermissionLevel.READ)
+            .ficImportClientsSuppliers(PermissionLevel.READ)
+            .ficIssuedDocumentsDetailed(
+                new PermissionsFicIssuedDocumentsDetailed()
+                    .quotes(PermissionLevel.READ)
+                    .proformas(PermissionLevel.READ)
+                    .invoices(PermissionLevel.READ)
+                    .receipts(PermissionLevel.READ)
+                    .deliveryNotes(PermissionLevel.READ)
+                    .creditNotes(PermissionLevel.READ)
+                    .orders(PermissionLevel.READ)
+                    .workReports(PermissionLevel.READ)
+                    .supplierOrders(PermissionLevel.READ)
+                    .selfInvoices(PermissionLevel.READ));
 
-        assertNull(model.getPermissions());
-        model.setPermissions(p1);
-        assertEquals(p1, model.getPermissions());
+    assertNull(model.getPermissions());
+    model.setPermissions(p1);
+    assertEquals(p1, model.getPermissions());
 
-        CompanyInfoAccessInfo c = model.permissions(p2);
-        CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
-        expected.setPermissions(p2);
-        assertEquals(expected, c);
-    }
+    CompanyInfoAccessInfo c = model.permissions(p2);
+    CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
+    expected.setPermissions(p2);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'throughAccountant'
-     */
-    @Test
-    public void throughAccountantTest() {
-        assertNull(model.getThroughAccountant());
-        model.setThroughAccountant(true);
-        assertEquals(true, model.getThroughAccountant());
+  /** Test the property 'throughAccountant' */
+  @Test
+  public void throughAccountantTest() {
+    assertNull(model.getThroughAccountant());
+    model.setThroughAccountant(true);
+    assertEquals(true, model.getThroughAccountant());
 
-        CompanyInfoAccessInfo c = model.throughAccountant(false);
-        CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
-        expected.setThroughAccountant(false);
-        assertEquals(expected, c);
-    }
-
+    CompanyInfoAccessInfo c = model.throughAccountant(false);
+    CompanyInfoAccessInfo expected = new CompanyInfoAccessInfo();
+    expected.setThroughAccountant(false);
+    assertEquals(expected, c);
+  }
 }

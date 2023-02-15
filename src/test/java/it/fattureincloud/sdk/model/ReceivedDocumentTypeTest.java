@@ -10,48 +10,50 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for ReceivedDocumentType
- */
+/** Model tests for ReceivedDocumentType */
 public class ReceivedDocumentTypeTest {
-    /**
-     * Model tests for ReceivedDocumentType
-     */
-    @Test
-    public void testReceivedDocumentType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for ReceivedDocumentType */
+  @Test
+  public void testReceivedDocumentType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"expense\"", gson.toJson(ReceivedDocumentType.EXPENSE));
-        assertEquals("\"passive_credit_note\"", gson.toJson(ReceivedDocumentType.PASSIVE_CREDIT_NOTE));
-        assertEquals("\"passive_delivery_note\"", gson.toJson(ReceivedDocumentType.PASSIVE_DELIVERY_NOTE));
+    assertEquals("\"expense\"", gson.toJson(ReceivedDocumentType.EXPENSE));
+    assertEquals("\"passive_credit_note\"", gson.toJson(ReceivedDocumentType.PASSIVE_CREDIT_NOTE));
+    assertEquals(
+        "\"passive_delivery_note\"", gson.toJson(ReceivedDocumentType.PASSIVE_DELIVERY_NOTE));
 
-        assertEquals(ReceivedDocumentType.EXPENSE, gson.fromJson("\"expense\"", ReceivedDocumentType.class));
-        assertEquals(ReceivedDocumentType.PASSIVE_CREDIT_NOTE, gson.fromJson("\"passive_credit_note\"", ReceivedDocumentType.class));
-        assertEquals(ReceivedDocumentType.PASSIVE_DELIVERY_NOTE, gson.fromJson("\"passive_delivery_note\"", ReceivedDocumentType.class));
+    assertEquals(
+        ReceivedDocumentType.EXPENSE, gson.fromJson("\"expense\"", ReceivedDocumentType.class));
+    assertEquals(
+        ReceivedDocumentType.PASSIVE_CREDIT_NOTE,
+        gson.fromJson("\"passive_credit_note\"", ReceivedDocumentType.class));
+    assertEquals(
+        ReceivedDocumentType.PASSIVE_DELIVERY_NOTE,
+        gson.fromJson("\"passive_delivery_note\"", ReceivedDocumentType.class));
 
+    assertEquals("expense", ReceivedDocumentType.EXPENSE.getValue());
+    assertEquals("passive_credit_note", ReceivedDocumentType.PASSIVE_CREDIT_NOTE.getValue());
+    assertEquals("passive_delivery_note", ReceivedDocumentType.PASSIVE_DELIVERY_NOTE.getValue());
 
-        assertEquals("expense", ReceivedDocumentType.EXPENSE.getValue());
-        assertEquals("passive_credit_note", ReceivedDocumentType.PASSIVE_CREDIT_NOTE.getValue());
-        assertEquals("passive_delivery_note", ReceivedDocumentType.PASSIVE_DELIVERY_NOTE.getValue());
+    assertEquals("expense", ReceivedDocumentType.EXPENSE.toString());
+    assertEquals("passive_credit_note", ReceivedDocumentType.PASSIVE_CREDIT_NOTE.toString());
+    assertEquals("passive_delivery_note", ReceivedDocumentType.PASSIVE_DELIVERY_NOTE.toString());
 
-        assertEquals("expense", ReceivedDocumentType.EXPENSE.toString());
-        assertEquals("passive_credit_note", ReceivedDocumentType.PASSIVE_CREDIT_NOTE.toString());
-        assertEquals("passive_delivery_note", ReceivedDocumentType.PASSIVE_DELIVERY_NOTE.toString());
-
-        assertEquals(ReceivedDocumentType.EXPENSE, ReceivedDocumentType.fromValue("expense"));
-        assertEquals(ReceivedDocumentType.PASSIVE_CREDIT_NOTE, ReceivedDocumentType.fromValue("passive_credit_note"));
-        assertEquals(ReceivedDocumentType.PASSIVE_DELIVERY_NOTE, ReceivedDocumentType.fromValue("passive_delivery_note"));
-    }
-
+    assertEquals(ReceivedDocumentType.EXPENSE, ReceivedDocumentType.fromValue("expense"));
+    assertEquals(
+        ReceivedDocumentType.PASSIVE_CREDIT_NOTE,
+        ReceivedDocumentType.fromValue("passive_credit_note"));
+    assertEquals(
+        ReceivedDocumentType.PASSIVE_DELIVERY_NOTE,
+        ReceivedDocumentType.fromValue("passive_delivery_note"));
+  }
 }

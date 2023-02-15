@@ -10,45 +10,38 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-
-/**
- * Model tests for CashbookEntryType
- */
+/** Model tests for CashbookEntryType */
 public class CashbookEntryTypeTest {
-    /**
-     * Model tests for CashbookEntryType
-     */
-    @Test
-    public void testCashbookEntryType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for CashbookEntryType */
+  @Test
+  public void testCashbookEntryType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"in\"", gson.toJson(CashbookEntryType.IN));
-        assertEquals("\"out\"", gson.toJson(CashbookEntryType.OUT));
+    assertEquals("\"in\"", gson.toJson(CashbookEntryType.IN));
+    assertEquals("\"out\"", gson.toJson(CashbookEntryType.OUT));
 
-        assertEquals(CashbookEntryType.IN, gson.fromJson("\"in\"", CashbookEntryType.class));
-        assertEquals(CashbookEntryType.OUT, gson.fromJson("\"out\"", CashbookEntryType.class));
+    assertEquals(CashbookEntryType.IN, gson.fromJson("\"in\"", CashbookEntryType.class));
+    assertEquals(CashbookEntryType.OUT, gson.fromJson("\"out\"", CashbookEntryType.class));
 
-        assertEquals("in", CashbookEntryType.IN.getValue());
-        assertEquals("out", CashbookEntryType.OUT.getValue());
+    assertEquals("in", CashbookEntryType.IN.getValue());
+    assertEquals("out", CashbookEntryType.OUT.getValue());
 
-        assertEquals("in", CashbookEntryType.IN.toString());
-        assertEquals("out", CashbookEntryType.OUT.toString());
+    assertEquals("in", CashbookEntryType.IN.toString());
+    assertEquals("out", CashbookEntryType.OUT.toString());
 
-        assertEquals(CashbookEntryType.IN, CashbookEntryType.fromValue("in"));
-        assertEquals(CashbookEntryType.OUT, CashbookEntryType.fromValue("out"));
+    assertEquals(CashbookEntryType.IN, CashbookEntryType.fromValue("in"));
+    assertEquals(CashbookEntryType.OUT, CashbookEntryType.fromValue("out"));
 
-        assertNull(CashbookEntryType.fromValue("Evil Joshua"));
-    }
-
+    assertNull(CashbookEntryType.fromValue("Evil Joshua"));
+  }
 }

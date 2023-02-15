@@ -10,330 +10,343 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for IssuedDocumentPreCreateInfo
- */
+/** Model tests for IssuedDocumentPreCreateInfo */
 public class IssuedDocumentPreCreateInfoTest {
-    private IssuedDocumentPreCreateInfo model;
+  private IssuedDocumentPreCreateInfo model;
 
-    @BeforeEach
-    public void init() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  @BeforeEach
+  public void init() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-
-        model = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-
-    }
-
-    /**
-     * Model tests for IssuedDocumentPreCreateInfo
-     */
-    @Test
-    public void testIssuedDocumentPreCreateInfo() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"numerations\":{\"2022\":{\"cloud\":1988,\"in\":2,\"fatture\":22},\"2021\":{\"a\":1,\"b\":2,\"c\":3}},\"dn_numerations\":{\"2022\":{\"a\":0,\"b\":11,\"c\":222},\"2021\":{\"d\":3333,\"e\":44444,\"f\":555555}},\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}]}";
-        assertEquals(str, json);
-        IssuedDocumentPreCreateInfo generated = gson.fromJson(str, IssuedDocumentPreCreateInfo.class);
-        assertEquals(model, generated);
-
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
-
-    /**
-     * Test the property 'numerations'
-     */
-    @Test
-    public void numerationsTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
-
-        HashMap<String, Integer> n2019 = new HashMap<>();
-        n2019.put("covid", 19);
-        HashMap<String, Map<String, Integer>> numerationsTest2 = new HashMap<>();
-        numerationsTest2.put("2019", n2019);
-
-        HashMap<String, Integer> n2018 = new HashMap<>();
-        n2018.put("evil", 18);
-        HashMap<String, Map<String, Integer>> numerationsTest3 = new HashMap<>();
-        numerationsTest3.put("2018", n2018);
-
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
-
-        assertEquals(numerationsTest, model.getNumerations());
-        model.setNumerations(numerationsTest2);
-        assertEquals(numerationsTest2, model.getNumerations());
-
-        IssuedDocumentPreCreateInfo i = model.numerations(numerationsTest3);
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest3)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
-
-    /**
-     * Test the property 'dnNumerations'
-     */
-    @Test
-    public void dnNumerationsTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
-
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
-
-        HashMap<String, Integer> dn2019 = new HashMap<>();
-        dn2019.put("covid", 19);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest2 = new HashMap<>();
-        dnNumerationsTest2.put("2019", dn2019);
-
-        HashMap<String, Integer> dn2018 = new HashMap<>();
-        dn2018.put("evil", 18);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest3 = new HashMap<>();
-        dnNumerationsTest3.put("2018", dn2018);
-
-        assertEquals(dnNumerationsTest, model.getDnNumerations());
-        model.setDnNumerations(dnNumerationsTest2);
-        assertEquals(dnNumerationsTest2, model.getDnNumerations());
-
-        IssuedDocumentPreCreateInfo i = model.dnNumerations(dnNumerationsTest3);
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest3)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
-
-    /**
-     * Test the property 'defaultValues'
-     */
-    @Test
-    public void defaultValuesTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
-
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
-
-        assertEquals(
+    model =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
                 new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)), model.getDefaultValues());
-        model.setDefaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                .defaultTemplate(new DocumentTemplate().id(1))
-                .dnTemplate(new DocumentTemplate().id(1))
-                .aiTemplate(new DocumentTemplate().id(1))
-                .notes("uop")
-                .rivalsa(BigDecimal.valueOf(1))
-                .cassa(BigDecimal.valueOf(1))
-                .withholdingTax(BigDecimal.valueOf(1))
-                .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                .otherWithholdingTax(BigDecimal.valueOf(1))
-                .useGrossPrices(true)
-                .paymentMethod(new PaymentMethod().id(1)));
-        assertEquals(new IssuedDocumentPreCreateInfoDefaultValues()
-                .defaultTemplate(new DocumentTemplate().id(1))
-                .dnTemplate(new DocumentTemplate().id(1))
-                .aiTemplate(new DocumentTemplate().id(1))
-                .notes("uop")
-                .rivalsa(BigDecimal.valueOf(1))
-                .cassa(BigDecimal.valueOf(1))
-                .withholdingTax(BigDecimal.valueOf(1))
-                .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                .otherWithholdingTax(BigDecimal.valueOf(1))
-                .useGrossPrices(true)
-                .paymentMethod(new PaymentMethod().id(1)), model.getDefaultValues());
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+  }
 
-        IssuedDocumentPreCreateInfo i = model.defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
+  /** Model tests for IssuedDocumentPreCreateInfo */
+  @Test
+  public void testIssuedDocumentPreCreateInfo() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"numerations\":{\"2022\":{\"cloud\":1988,\"in\":2,\"fatture\":22},\"2021\":{\"a\":1,\"b\":2,\"c\":3}},\"dn_numerations\":{\"2022\":{\"a\":0,\"b\":11,\"c\":222},\"2021\":{\"d\":3333,\"e\":44444,\"f\":555555}},\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}]}";
+    assertEquals(str, json);
+    IssuedDocumentPreCreateInfo generated = gson.fromJson(str, IssuedDocumentPreCreateInfo.class);
+    assertEquals(model, generated);
+
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
+
+  /** Test the property 'numerations' */
+  @Test
+  public void numerationsTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
+
+    HashMap<String, Integer> n2019 = new HashMap<>();
+    n2019.put("covid", 19);
+    HashMap<String, Map<String, Integer>> numerationsTest2 = new HashMap<>();
+    numerationsTest2.put("2019", n2019);
+
+    HashMap<String, Integer> n2018 = new HashMap<>();
+    n2018.put("evil", 18);
+    HashMap<String, Map<String, Integer>> numerationsTest3 = new HashMap<>();
+    numerationsTest3.put("2018", n2018);
+
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
+
+    assertEquals(numerationsTest, model.getNumerations());
+    model.setNumerations(numerationsTest2);
+    assertEquals(numerationsTest2, model.getNumerations());
+
+    IssuedDocumentPreCreateInfo i = model.numerations(numerationsTest3);
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest3)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
+
+  /** Test the property 'dnNumerations' */
+  @Test
+  public void dnNumerationsTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
+
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
+
+    HashMap<String, Integer> dn2019 = new HashMap<>();
+    dn2019.put("covid", 19);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest2 = new HashMap<>();
+    dnNumerationsTest2.put("2019", dn2019);
+
+    HashMap<String, Integer> dn2018 = new HashMap<>();
+    dn2018.put("evil", 18);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest3 = new HashMap<>();
+    dnNumerationsTest3.put("2018", dn2018);
+
+    assertEquals(dnNumerationsTest, model.getDnNumerations());
+    model.setDnNumerations(dnNumerationsTest2);
+    assertEquals(dnNumerationsTest2, model.getDnNumerations());
+
+    IssuedDocumentPreCreateInfo i = model.dnNumerations(dnNumerationsTest3);
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest3)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
+
+  /** Test the property 'defaultValues' */
+  @Test
+  public void defaultValuesTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
+
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
+
+    assertEquals(
+        new IssuedDocumentPreCreateInfoDefaultValues()
+            .defaultTemplate(new DocumentTemplate().id(1))
+            .dnTemplate(new DocumentTemplate().id(1))
+            .aiTemplate(new DocumentTemplate().id(1))
+            .notes("notes")
+            .rivalsa(BigDecimal.valueOf(1))
+            .cassa(BigDecimal.valueOf(1))
+            .withholdingTax(BigDecimal.valueOf(1))
+            .withholdingTaxTaxable(BigDecimal.valueOf(1))
+            .otherWithholdingTax(BigDecimal.valueOf(1))
+            .useGrossPrices(true)
+            .paymentMethod(new PaymentMethod().id(1)),
+        model.getDefaultValues());
+    model.setDefaultValues(
+        new IssuedDocumentPreCreateInfoDefaultValues()
+            .defaultTemplate(new DocumentTemplate().id(1))
+            .dnTemplate(new DocumentTemplate().id(1))
+            .aiTemplate(new DocumentTemplate().id(1))
+            .notes("uop")
+            .rivalsa(BigDecimal.valueOf(1))
+            .cassa(BigDecimal.valueOf(1))
+            .withholdingTax(BigDecimal.valueOf(1))
+            .withholdingTaxTaxable(BigDecimal.valueOf(1))
+            .otherWithholdingTax(BigDecimal.valueOf(1))
+            .useGrossPrices(true)
+            .paymentMethod(new PaymentMethod().id(1)));
+    assertEquals(
+        new IssuedDocumentPreCreateInfoDefaultValues()
+            .defaultTemplate(new DocumentTemplate().id(1))
+            .dnTemplate(new DocumentTemplate().id(1))
+            .aiTemplate(new DocumentTemplate().id(1))
+            .notes("uop")
+            .rivalsa(BigDecimal.valueOf(1))
+            .cassa(BigDecimal.valueOf(1))
+            .withholdingTax(BigDecimal.valueOf(1))
+            .withholdingTaxTaxable(BigDecimal.valueOf(1))
+            .otherWithholdingTax(BigDecimal.valueOf(1))
+            .useGrossPrices(true)
+            .paymentMethod(new PaymentMethod().id(1)),
+        model.getDefaultValues());
+
+    IssuedDocumentPreCreateInfo i =
+        model.defaultValues(
+            new IssuedDocumentPreCreateInfoDefaultValues()
                 .defaultTemplate(new DocumentTemplate().id(1))
                 .dnTemplate(new DocumentTemplate().id(1))
                 .aiTemplate(new DocumentTemplate().id(1))
@@ -345,730 +358,834 @@ public class IssuedDocumentPreCreateInfoTest {
                 .otherWithholdingTax(BigDecimal.valueOf(1))
                 .useGrossPrices(true)
                 .paymentMethod(new PaymentMethod().id(1)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'extraDataDefaultValues'
-     */
-    @Test
-    public void extraDataDefaultValuesTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'extraDataDefaultValues' */
+  @Test
+  public void extraDataDefaultValuesTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+    assertEquals(
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true),
+        model.getExtraDataDefaultValues());
+    model.setExtraDataDefaultValues(
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("tsi")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true));
+    assertEquals(
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("tsi")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true),
+        model.getExtraDataDefaultValues());
+
+    IssuedDocumentPreCreateInfo i =
+        model.extraDataDefaultValues(
+            new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
                 .tsCommunication(true)
                 .tsTipoSpesa("ts")
                 .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true), model.getExtraDataDefaultValues());
-        model.setExtraDataDefaultValues(
+                .tsPagamentoTracciato(true));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
                 new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("tsi")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true));
-        assertEquals(
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
+
+  /** Test the property 'itemsDefaultValues' */
+  @Test
+  public void itemsDefaultValuesTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
+
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
+
+    assertEquals(
+        new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)),
+        model.getItemsDefaultValues());
+    model.setItemsDefaultValues(
+        new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(11)));
+    assertEquals(
+        new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(11)),
+        model.getItemsDefaultValues());
+
+    IssuedDocumentPreCreateInfo i =
+        model.itemsDefaultValues(
+            new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
                 new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("tsi")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true), model.getExtraDataDefaultValues());
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-        IssuedDocumentPreCreateInfo i = model.extraDataDefaultValues(
+  /** Test the property 'countriesList' */
+  @Test
+  public void countriesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
+
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
+
+    assertEquals(Arrays.asList("Italia", "Marocco"), model.getCountriesList());
+    model.setCountriesList(Arrays.asList("Albania", "Polonia"));
+    assertEquals(Arrays.asList("Albania", "Polonia"), model.getCountriesList());
+
+    IssuedDocumentPreCreateInfo i = model.countriesList(Arrays.asList("Italia", "Marocco"));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
                 new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'itemsDefaultValues'
-     */
-    @Test
-    public void itemsDefaultValuesTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'currenciesList' */
+  @Test
+  public void currenciesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                .vat(new VatType().id(1)), model.getItemsDefaultValues());
-        model.setItemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                .vat(new VatType().id(11)));
-        assertEquals(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                .vat(new VatType().id(11)), model.getItemsDefaultValues());
+    assertEquals(
+        Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")),
+        model.getCurrenciesList());
+    model.setCurrenciesList(Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")));
+    assertEquals(
+        Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")),
+        model.getCurrenciesList());
 
-        IssuedDocumentPreCreateInfo i = model.itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                .vat(new VatType().id(1)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'countriesList'
-     */
-    @Test
-    public void countriesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'templatesList' */
+  @Test
+  public void templatesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList("Italia", "Marocco"), model.getCountriesList());
-        model.setCountriesList(Arrays.asList("Albania", "Polonia"));
-        assertEquals(Arrays.asList("Albania", "Polonia"), model.getCountriesList());
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)),
+        model.getTemplatesList());
+    model.setTemplatesList(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)),
+        model.getTemplatesList());
 
-        IssuedDocumentPreCreateInfo i = model.countriesList(Arrays.asList("Italia", "Marocco"));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.templatesList(
+            Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'currenciesList'
-     */
-    @Test
-    public void currenciesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'dnTemplatesList' */
+  @Test
+  public void dnTemplatesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")), model.getCurrenciesList());
-        model.setCurrenciesList(Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")));
-        assertEquals(Arrays.asList(new Currency().id("USD"), new Currency().id("BNB")), model.getCurrenciesList());
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)),
+        model.getDnTemplatesList());
+    model.setDnTemplatesList(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)),
+        model.getDnTemplatesList());
 
-        IssuedDocumentPreCreateInfo i = model.currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.dnTemplatesList(
+            Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'templatesList'
-     */
-    @Test
-    public void templatesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'aiTemplatesList' */
+  @Test
+  public void aiTemplatesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getTemplatesList());
-        model.setTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
-        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getTemplatesList());
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)),
+        model.getAiTemplatesList());
+    model.setAiTemplatesList(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
+    assertEquals(
+        Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)),
+        model.getAiTemplatesList());
 
-        IssuedDocumentPreCreateInfo i = model.templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.aiTemplatesList(
+            Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'dnTemplatesList'
-     */
-    @Test
-    public void dnTemplatesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'paymentMethodsList' */
+  @Test
+  public void paymentMethodsListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getDnTemplatesList());
-        model.setDnTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
-        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getDnTemplatesList());
+    assertEquals(
+        Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)),
+        model.getPaymentMethodsList());
+    model.setPaymentMethodsList(
+        Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)));
+    assertEquals(
+        Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)),
+        model.getPaymentMethodsList());
 
-        IssuedDocumentPreCreateInfo i = model.dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.paymentMethodsList(
+            Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'aiTemplatesList'
-     */
-    @Test
-    public void aiTemplatesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'paymentAccountsList' */
+  @Test
+  public void paymentAccountsListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)), model.getAiTemplatesList());
-        model.setAiTemplatesList(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)));
-        assertEquals(Arrays.asList(new DocumentTemplate().id(3), new DocumentTemplate().id(4)), model.getAiTemplatesList());
+    assertEquals(
+        Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)),
+        model.getPaymentAccountsList());
+    model.setPaymentAccountsList(
+        Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)));
+    assertEquals(
+        Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)),
+        model.getPaymentAccountsList());
 
-        IssuedDocumentPreCreateInfo i = model.aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
+    IssuedDocumentPreCreateInfo i =
+        model.paymentAccountsList(
+            Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'paymentMethodsList'
-     */
-    @Test
-    public void paymentMethodsListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
+  /** Test the property 'vatTypesList' */
+  @Test
+  public void vatTypesListTest() {
+    HashMap<String, Integer> n2022 = new HashMap<>();
+    n2022.put("fatture", 22);
+    n2022.put("in", 2);
+    n2022.put("cloud", 1988);
+    HashMap<String, Integer> n2021 = new HashMap<>();
+    n2021.put("a", 1);
+    n2021.put("b", 2);
+    n2021.put("c", 3);
+    HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
+    numerationsTest.put("2022", n2022);
+    numerationsTest.put("2021", n2021);
 
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
+    HashMap<String, Integer> dn2022 = new HashMap<>();
+    dn2022.put("a", 0);
+    dn2022.put("b", 11);
+    dn2022.put("c", 222);
+    HashMap<String, Integer> dn2021 = new HashMap<>();
+    dn2021.put("d", 3333);
+    dn2021.put("e", 44444);
+    dn2021.put("f", 555555);
+    HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
+    dnNumerationsTest.put("2022", dn2022);
+    dnNumerationsTest.put("2021", dn2021);
 
-        assertEquals(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)), model.getPaymentMethodsList());
-        model.setPaymentMethodsList(Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)));
-        assertEquals(Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)), model.getPaymentMethodsList());
+    assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
+    model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
+    assertEquals(Arrays.asList(new VatType().id(3), new VatType().id(4)), model.getVatTypesList());
 
-        IssuedDocumentPreCreateInfo i = model.paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
-
-    /**
-     * Test the property 'paymentAccountsList'
-     */
-    @Test
-    public void paymentAccountsListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
-
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
-
-        assertEquals(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)), model.getPaymentAccountsList());
-        model.setPaymentAccountsList(Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)));
-        assertEquals(Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)), model.getPaymentAccountsList());
-
-        IssuedDocumentPreCreateInfo i = model.paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
-
-    /**
-     * Test the property 'vatTypesList'
-     */
-    @Test
-    public void vatTypesListTest() {
-        HashMap<String, Integer> n2022 = new HashMap<>();
-        n2022.put("fatture", 22);
-        n2022.put("in", 2);
-        n2022.put("cloud", 1988);
-        HashMap<String, Integer> n2021 = new HashMap<>();
-        n2021.put("a", 1);
-        n2021.put("b", 2);
-        n2021.put("c", 3);
-        HashMap<String, Map<String, Integer>> numerationsTest = new HashMap<>();
-        numerationsTest.put("2022", n2022);
-        numerationsTest.put("2021", n2021);
-
-        HashMap<String, Integer> dn2022 = new HashMap<>();
-        dn2022.put("a", 0);
-        dn2022.put("b", 11);
-        dn2022.put("c", 222);
-        HashMap<String, Integer> dn2021 = new HashMap<>();
-        dn2021.put("d", 3333);
-        dn2021.put("e", 44444);
-        dn2021.put("f", 555555);
-        HashMap<String, Map<String, Integer>> dnNumerationsTest = new HashMap<>();
-        dnNumerationsTest.put("2022", dn2022);
-        dnNumerationsTest.put("2021", dn2021);
-
-        assertEquals(Arrays.asList(new VatType().id(1), new VatType().id(2)), model.getVatTypesList());
-        model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
-        assertEquals(Arrays.asList(new VatType().id(3), new VatType().id(4)), model.getVatTypesList());
-
-        IssuedDocumentPreCreateInfo i = model.vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        IssuedDocumentPreCreateInfo expected = new IssuedDocumentPreCreateInfo()
-                .numerations(numerationsTest)
-                .dnNumerations(dnNumerationsTest)
-                .defaultValues(new IssuedDocumentPreCreateInfoDefaultValues()
-                        .defaultTemplate(new DocumentTemplate().id(1))
-                        .dnTemplate(new DocumentTemplate().id(1))
-                        .aiTemplate(new DocumentTemplate().id(1))
-                        .notes("notes")
-                        .rivalsa(BigDecimal.valueOf(1))
-                        .cassa(BigDecimal.valueOf(1))
-                        .withholdingTax(BigDecimal.valueOf(1))
-                        .withholdingTaxTaxable(BigDecimal.valueOf(1))
-                        .otherWithholdingTax(BigDecimal.valueOf(1))
-                        .useGrossPrices(true)
-                        .paymentMethod(new PaymentMethod().id(1)))
-                .extraDataDefaultValues(new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                        .tsCommunication(true)
-                        .tsTipoSpesa("ts")
-                        .tsFlagTipoSpesa(1)
-                        .tsPagamentoTracciato(true))
-                .itemsDefaultValues(new IssuedDocumentPreCreateInfoItemsDefaultValues()
-                        .vat(new VatType().id(1)))
-                .countriesList(Arrays.asList("Italia", "Marocco"))
-                .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
-                .templatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .dnTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .aiTemplatesList(Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
-                .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
-                .paymentAccountsList(Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
-        assertEquals(expected, i);
-    }
-
+    IssuedDocumentPreCreateInfo i =
+        model.vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    IssuedDocumentPreCreateInfo expected =
+        new IssuedDocumentPreCreateInfo()
+            .numerations(numerationsTest)
+            .dnNumerations(dnNumerationsTest)
+            .defaultValues(
+                new IssuedDocumentPreCreateInfoDefaultValues()
+                    .defaultTemplate(new DocumentTemplate().id(1))
+                    .dnTemplate(new DocumentTemplate().id(1))
+                    .aiTemplate(new DocumentTemplate().id(1))
+                    .notes("notes")
+                    .rivalsa(BigDecimal.valueOf(1))
+                    .cassa(BigDecimal.valueOf(1))
+                    .withholdingTax(BigDecimal.valueOf(1))
+                    .withholdingTaxTaxable(BigDecimal.valueOf(1))
+                    .otherWithholdingTax(BigDecimal.valueOf(1))
+                    .useGrossPrices(true)
+                    .paymentMethod(new PaymentMethod().id(1)))
+            .extraDataDefaultValues(
+                new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+                    .tsCommunication(true)
+                    .tsTipoSpesa("ts")
+                    .tsFlagTipoSpesa(1)
+                    .tsPagamentoTracciato(true))
+            .itemsDefaultValues(
+                new IssuedDocumentPreCreateInfoItemsDefaultValues().vat(new VatType().id(1)))
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .currenciesList(Arrays.asList(new Currency().id("EUR"), new Currency().id("DNR")))
+            .templatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .dnTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .aiTemplatesList(
+                Arrays.asList(new DocumentTemplate().id(1), new DocumentTemplate().id(2)))
+            .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+    assertEquals(expected, i);
+  }
 }

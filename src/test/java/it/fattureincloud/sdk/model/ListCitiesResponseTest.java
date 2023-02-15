@@ -10,69 +10,58 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListCitiesResponse
- */
+/** Model tests for ListCitiesResponse */
 public class ListCitiesResponseTest {
-    private ListCitiesResponse model;
+  private ListCitiesResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListCitiesResponse()
-                .addDataItem(
-                        new City()
-                                .city("San Pellegrino Terme")
-                                .province("BG")
-                                .postalCode("24016")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListCitiesResponse()
+            .addDataItem(
+                new City().city("San Pellegrino Terme").province("BG").postalCode("24016"));
+  }
 
-    /**
-     * Model tests for ListCitiesResponse
-     */
-    @Test
-    public void testListCitiesResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"}]}";
-        assertEquals(str, json);
-        ListCitiesResponse generated = gson.fromJson(str, ListCitiesResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListCitiesResponse */
+  @Test
+  public void testListCitiesResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":[{\"postal_code\":\"24016\",\"city\":\"San Pellegrino"
+            + " Terme\",\"province\":\"BG\"}]}";
+    assertEquals(str, json);
+    ListCitiesResponse generated = gson.fromJson(str, ListCitiesResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("BG", model.getData().get(0).getProvince());
-        model.setData(Arrays.asList(new City().province("MI")));
-        assertEquals("MI", model.getData().get(0).getProvince());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("BG", model.getData().get(0).getProvince());
+    model.setData(Arrays.asList(new City().province("MI")));
+    assertEquals("MI", model.getData().get(0).getProvince());
 
-        model.data(Arrays.asList(new City().province("BG")));
-        ListCitiesResponse actual = new ListCitiesResponse();
-        actual.setData(Arrays.asList(new City().province("BG")));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new City().province("BG")));
+    ListCitiesResponse actual = new ListCitiesResponse();
+    actual.setData(Arrays.asList(new City().province("BG")));
+    assertEquals(model, actual);
+  }
 }

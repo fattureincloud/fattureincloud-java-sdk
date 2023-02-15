@@ -10,95 +10,79 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for DocumentTemplate
- */
+/** Model tests for DocumentTemplate */
 public class DocumentTemplateTest {
-    private DocumentTemplate model;
+  private DocumentTemplate model;
 
-    @BeforeEach
-    public void init() {
-        model = new DocumentTemplate();
-    }
+  @BeforeEach
+  public void init() {
+    model = new DocumentTemplate();
+  }
 
-    /**
-     * Model tests for DocumentTemplate
-     */
-    @Test
-    public void testDocumentTemplate() {
-        DocumentTemplate d = new DocumentTemplate()
-                .id(10)
-                .name("New Standard S1")
-                .type("Tipo 1");
+  /** Model tests for DocumentTemplate */
+  @Test
+  public void testDocumentTemplate() {
+    DocumentTemplate d = new DocumentTemplate().id(10).name("New Standard S1").type("Tipo 1");
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(d);
-        String str = "{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}";
-        assertEquals(str, json);
-        DocumentTemplate generated = gson.fromJson(str, DocumentTemplate.class);
-        assertEquals(d, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(d);
+    String str = "{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}";
+    assertEquals(str, json);
+    DocumentTemplate generated = gson.fromJson(str, DocumentTemplate.class);
+    assertEquals(d, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        assertNull(model.getId());
-        model.setId(10);
-        assertEquals(10, model.getId());
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    assertNull(model.getId());
+    model.setId(10);
+    assertEquals(10, model.getId());
 
-        DocumentTemplate c = model.id(11);
-        DocumentTemplate expected = new DocumentTemplate();
-        expected.setId(11);
-        assertEquals(expected, c);
-    }
+    DocumentTemplate c = model.id(11);
+    DocumentTemplate expected = new DocumentTemplate();
+    expected.setId(11);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        assertNull(model.getName());
-        model.setName("New standard 51");
-        assertEquals("New standard 51", model.getName());
+  /** Test the property 'name' */
+  @Test
+  public void nameTest() {
+    assertNull(model.getName());
+    model.setName("New standard 51");
+    assertEquals("New standard 51", model.getName());
 
-        DocumentTemplate c = model.name("Template 45");
-        DocumentTemplate expected = new DocumentTemplate();
-        expected.setName("Template 45");
-        assertEquals(expected, c);
-    }
+    DocumentTemplate c = model.name("Template 45");
+    DocumentTemplate expected = new DocumentTemplate();
+    expected.setName("Template 45");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        assertNull(model.getType());
-        model.setType("Tipo 1");
-        assertEquals("Tipo 1", model.getType());
+  /** Test the property 'type' */
+  @Test
+  public void typeTest() {
+    assertNull(model.getType());
+    model.setType("Tipo 1");
+    assertEquals("Tipo 1", model.getType());
 
-        DocumentTemplate c = model.type("Tipo 2");
-        DocumentTemplate expected = new DocumentTemplate();
-        expected.setType("Tipo 2");
-        assertEquals(expected, c);
-    }
-
+    DocumentTemplate c = model.type("Tipo 2");
+    DocumentTemplate expected = new DocumentTemplate();
+    expected.setType("Tipo 2");
+    assertEquals(expected, c);
+  }
 }

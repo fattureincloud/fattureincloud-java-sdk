@@ -10,63 +10,53 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for VerifyEInvoiceXmlResponseData
- */
+/** Model tests for VerifyEInvoiceXmlResponseData */
 public class VerifyEInvoiceXmlResponseDataTest {
-    private VerifyEInvoiceXmlResponseData model;
+  private VerifyEInvoiceXmlResponseData model;
 
-    @BeforeEach
-    public void init() {
-        model = new VerifyEInvoiceXmlResponseData()
-                .success(true);
-    }
+  @BeforeEach
+  public void init() {
+    model = new VerifyEInvoiceXmlResponseData().success(true);
+  }
 
-    /**
-     * Model tests for VerifyEInvoiceXmlResponseData
-     */
-    @Test
-    public void testVerifyEInvoiceXmlResponseData() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"success\":true}";
-        assertEquals(str, json);
-        VerifyEInvoiceXmlResponseData generated = gson.fromJson(str, VerifyEInvoiceXmlResponseData.class);
-        assertEquals(model, generated);
+  /** Model tests for VerifyEInvoiceXmlResponseData */
+  @Test
+  public void testVerifyEInvoiceXmlResponseData() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"success\":true}";
+    assertEquals(str, json);
+    VerifyEInvoiceXmlResponseData generated =
+        gson.fromJson(str, VerifyEInvoiceXmlResponseData.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'success'
-     */
-    @Test
-    public void successTest() {
-        assertEquals(true, model.getSuccess());
-        model.setSuccess(false);
-        assertEquals(false, model.getSuccess());
+  /** Test the property 'success' */
+  @Test
+  public void successTest() {
+    assertEquals(true, model.getSuccess());
+    model.setSuccess(false);
+    assertEquals(false, model.getSuccess());
 
-        VerifyEInvoiceXmlResponseData i = model.success(true);
-        VerifyEInvoiceXmlResponseData expected = new VerifyEInvoiceXmlResponseData()
-                .success(true);
+    VerifyEInvoiceXmlResponseData i = model.success(true);
+    VerifyEInvoiceXmlResponseData expected = new VerifyEInvoiceXmlResponseData().success(true);
 
-        assertEquals(expected, i);
-    }
-
+    assertEquals(expected, i);
+  }
 }

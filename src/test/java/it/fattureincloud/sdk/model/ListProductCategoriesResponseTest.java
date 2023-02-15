@@ -10,64 +10,54 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListProductCategoriesResponse
- */
+/** Model tests for ListProductCategoriesResponse */
 public class ListProductCategoriesResponseTest {
-    private ListProductCategoriesResponse model;
+  private ListProductCategoriesResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListProductCategoriesResponse()
-                .addDataItem("cat5");
-    }
+  @BeforeEach
+  public void init() {
+    model = new ListProductCategoriesResponse().addDataItem("cat5");
+  }
 
-    /**
-     * Model tests for ListProductCategoriesResponse
-     */
-    @Test
-    public void testListProductCategoriesResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[\"cat5\"]}";
-        assertEquals(str, json);
-        ListProductCategoriesResponse generated = gson.fromJson(str, ListProductCategoriesResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListProductCategoriesResponse */
+  @Test
+  public void testListProductCategoriesResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":[\"cat5\"]}";
+    assertEquals(str, json);
+    ListProductCategoriesResponse generated =
+        gson.fromJson(str, ListProductCategoriesResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("cat5", model.getData().get(0));
-        model.setData(Arrays.asList("cat6"));
-        assertEquals("cat6", model.getData().get(0));
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("cat5", model.getData().get(0));
+    model.setData(Arrays.asList("cat6"));
+    assertEquals("cat6", model.getData().get(0));
 
-        model.data(Arrays.asList("cat5"));
-        ListProductCategoriesResponse actual = new ListProductCategoriesResponse();
-        actual.setData(Arrays.asList("cat5"));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList("cat5"));
+    ListProductCategoriesResponse actual = new ListProductCategoriesResponse();
+    actual.setData(Arrays.asList("cat5"));
+    assertEquals(model, actual);
+  }
 }

@@ -10,123 +10,114 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues
- */
+/** Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues */
 public class IssuedDocumentPreCreateInfoExtraDataDefaultValuesTest {
-    private IssuedDocumentPreCreateInfoExtraDataDefaultValues model;
+  private IssuedDocumentPreCreateInfoExtraDataDefaultValues model;
 
-    @BeforeEach
-    public void init() {
-        model = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                .tsCommunication(true)
-                .tsTipoSpesa("ts")
-                .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true);
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true);
+  }
 
+  /** Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues */
+  @Test
+  public void testIssuedDocumentPreCreateInfoExtraDataDefaultValues() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true}";
+    assertEquals(str, json);
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues generated =
+        gson.fromJson(str, IssuedDocumentPreCreateInfoExtraDataDefaultValues.class);
+    assertEquals(model, generated);
 
-    /**
-     * Model tests for IssuedDocumentPreCreateInfoExtraDataDefaultValues
-     */
-    @Test
-    public void testIssuedDocumentPreCreateInfoExtraDataDefaultValues() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true}";
-        assertEquals(str, json);
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues generated = gson.fromJson(str, IssuedDocumentPreCreateInfoExtraDataDefaultValues.class);
-        assertEquals(model, generated);
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+  /** Test the property 'tsCommunication' */
+  @Test
+  public void tsCommunicationTest() {
+    assertEquals(true, model.getTsCommunication());
+    model.setTsCommunication(false);
+    assertEquals(false, model.getTsCommunication());
 
-    /**
-     * Test the property 'tsCommunication'
-     */
-    @Test
-    public void tsCommunicationTest() {
-        assertEquals(true, model.getTsCommunication());
-        model.setTsCommunication(false);
-        assertEquals(false, model.getTsCommunication());
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsCommunication(true);
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues expected =
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true);
+    assertEquals(expected, i);
+  }
 
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsCommunication(true);
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                .tsCommunication(true)
-                .tsTipoSpesa("ts")
-                .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true);
-        assertEquals(expected, i);
-    }
+  /** Test the property 'tsTipoSpesa' */
+  @Test
+  public void tsTipoSpesaTest() {
+    assertEquals("ts", model.getTsTipoSpesa());
+    model.setTsTipoSpesa("tsts");
+    assertEquals("tsts", model.getTsTipoSpesa());
 
-    /**
-     * Test the property 'tsTipoSpesa'
-     */
-    @Test
-    public void tsTipoSpesaTest() {
-        assertEquals("ts", model.getTsTipoSpesa());
-        model.setTsTipoSpesa("tsts");
-        assertEquals("tsts", model.getTsTipoSpesa());
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsTipoSpesa("ts");
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues expected =
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true);
+    assertEquals(expected, i);
+  }
 
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsTipoSpesa("ts");
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                .tsCommunication(true)
-                .tsTipoSpesa("ts")
-                .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true);
-        assertEquals(expected, i);
-    }
+  /** Test the property 'tsFlagTipoSpesa' */
+  @Test
+  public void tsFlagTipoSpesaTest() {
+    assertEquals(1, model.getTsFlagTipoSpesa());
+    model.setTsFlagTipoSpesa(2);
+    assertEquals(2, model.getTsFlagTipoSpesa());
 
-    /**
-     * Test the property 'tsFlagTipoSpesa'
-     */
-    @Test
-    public void tsFlagTipoSpesaTest() {
-        assertEquals(1, model.getTsFlagTipoSpesa());
-        model.setTsFlagTipoSpesa(2);
-        assertEquals(2, model.getTsFlagTipoSpesa());
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsFlagTipoSpesa(1);
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues expected =
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true);
+    assertEquals(expected, i);
+  }
 
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsFlagTipoSpesa(1);
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                .tsCommunication(true)
-                .tsTipoSpesa("ts")
-                .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true);
-        assertEquals(expected, i);
-    }
+  /** Test the property 'tsPagamentoTracciato' */
+  @Test
+  public void tsPagamentoTracciatoTest() {
+    assertEquals(true, model.getTsPagamentoTracciato());
+    model.setTsPagamentoTracciato(false);
+    assertEquals(false, model.getTsPagamentoTracciato());
 
-    /**
-     * Test the property 'tsPagamentoTracciato'
-     */
-    @Test
-    public void tsPagamentoTracciatoTest() {
-        assertEquals(true, model.getTsPagamentoTracciato());
-        model.setTsPagamentoTracciato(false);
-        assertEquals(false, model.getTsPagamentoTracciato());
-
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsPagamentoTracciato(true);
-        IssuedDocumentPreCreateInfoExtraDataDefaultValues expected = new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
-                .tsCommunication(true)
-                .tsTipoSpesa("ts")
-                .tsFlagTipoSpesa(1)
-                .tsPagamentoTracciato(true);
-        assertEquals(expected, i);
-    }
-
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues i = model.tsPagamentoTracciato(true);
+    IssuedDocumentPreCreateInfoExtraDataDefaultValues expected =
+        new IssuedDocumentPreCreateInfoExtraDataDefaultValues()
+            .tsCommunication(true)
+            .tsTipoSpesa("ts")
+            .tsFlagTipoSpesa(1)
+            .tsPagamentoTracciato(true);
+    assertEquals(expected, i);
+  }
 }

@@ -10,148 +10,142 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-/**
- * Model tests for EInvoiceRejectionReason
- */
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+/** Model tests for EInvoiceRejectionReason */
 public class EInvoiceRejectionReasonTest {
-    private EInvoiceRejectionReason model;
+  private EInvoiceRejectionReason model;
 
-    @BeforeEach
-    public void init() {
-        model = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+  }
 
-    /**
-     * Model tests for EInvoiceRejectionReason
-     */
-    @Test
-    public void testEInvoiceRejectionReason() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}";
-        assertEquals(str, json);
-        EInvoiceRejectionReason generated = gson.fromJson(str, EInvoiceRejectionReason.class);
-        assertEquals(model, generated);
+  /** Model tests for EInvoiceRejectionReason */
+  @Test
+  public void testEInvoiceRejectionReason() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"reason\":\"invalid date\",\"ei_status\":\"rejected\",\"solution\":\"set a valid"
+            + " date\",\"code\":\"c01\",\"date\":\"2022-10-10T23:22:21.000000001+02:00\"}";
+    assertEquals(str, json);
+    EInvoiceRejectionReason generated = gson.fromJson(str, EInvoiceRejectionReason.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'reason'
-     */
-    @Test
-    public void reasonTest() {
-        assertEquals("invalid date", model.getReason());
-        model.setReason("invalid qualcosa");
-        assertEquals("invalid qualcosa", model.getReason());
+  /** Test the property 'reason' */
+  @Test
+  public void reasonTest() {
+    assertEquals("invalid date", model.getReason());
+    model.setReason("invalid qualcosa");
+    assertEquals("invalid qualcosa", model.getReason());
 
-        EInvoiceRejectionReason c = model.reason("invalid date");
-        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(expected, c);
-    }
+    EInvoiceRejectionReason c = model.reason("invalid date");
+    EInvoiceRejectionReason expected =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'eiStatus'
-     */
-    @Test
-    public void eiStatusTest() {
-        assertEquals("rejected", model.getEiStatus());
-        model.setEiStatus("error");
-        assertEquals("error", model.getEiStatus());
+  /** Test the property 'eiStatus' */
+  @Test
+  public void eiStatusTest() {
+    assertEquals("rejected", model.getEiStatus());
+    model.setEiStatus("error");
+    assertEquals("error", model.getEiStatus());
 
-        EInvoiceRejectionReason c = model.eiStatus("rejected");
-        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(expected, c);
-    }
+    EInvoiceRejectionReason c = model.eiStatus("rejected");
+    EInvoiceRejectionReason expected =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'solution'
-     */
-    @Test
-    public void solutionTest() {
-        assertEquals("set a valid date", model.getSolution());
-        model.setSolution("set a valid qualcosa");
-        assertEquals("set a valid qualcosa", model.getSolution());
+  /** Test the property 'solution' */
+  @Test
+  public void solutionTest() {
+    assertEquals("set a valid date", model.getSolution());
+    model.setSolution("set a valid qualcosa");
+    assertEquals("set a valid qualcosa", model.getSolution());
 
-        EInvoiceRejectionReason c = model.solution("set a valid date");
-        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(expected, c);
-    }
+    EInvoiceRejectionReason c = model.solution("set a valid date");
+    EInvoiceRejectionReason expected =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'code'
-     */
-    @Test
-    public void codeTest() {
-        assertEquals("c01", model.getCode());
-        model.setCode("c02");
-        assertEquals("c02", model.getCode());
+  /** Test the property 'code' */
+  @Test
+  public void codeTest() {
+    assertEquals("c01", model.getCode());
+    model.setCode("c02");
+    assertEquals("c02", model.getCode());
 
-        EInvoiceRejectionReason c = model.code("c01");
-        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(expected, c);
-    }
+    EInvoiceRejectionReason c = model.code("c01");
+    EInvoiceRejectionReason expected =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        assertEquals(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
-        model.setDate(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
+  /** Test the property 'date' */
+  @Test
+  public void dateTest() {
+    assertEquals(
+        OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
+    model.setDate(OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(
+        OffsetDateTime.of(2022, 10, 12, 23, 22, 21, 1, ZoneOffset.ofHours(+2)), model.getDate());
 
-        EInvoiceRejectionReason c = model.date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        EInvoiceRejectionReason expected = new EInvoiceRejectionReason()
-                .reason("invalid date")
-                .eiStatus("rejected")
-                .solution("set a valid date")
-                .code("c01")
-                .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
-        assertEquals(expected, c);
-    }
-
+    EInvoiceRejectionReason c =
+        model.date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    EInvoiceRejectionReason expected =
+        new EInvoiceRejectionReason()
+            .reason("invalid date")
+            .eiStatus("rejected")
+            .solution("set a valid date")
+            .code("c01")
+            .date(OffsetDateTime.of(2022, 10, 10, 23, 22, 21, 1, ZoneOffset.ofHours(+2)));
+    assertEquals(expected, c);
+  }
 }
