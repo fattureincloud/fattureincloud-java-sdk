@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.26
+  version: 2.0.27
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -343,6 +343,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -876,6 +878,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -1319,6 +1323,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -1760,6 +1766,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -4993,6 +5001,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -6624,6 +6634,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: List of comma-separated fields for result sorting (minus for
@@ -7368,6 +7380,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -7808,6 +7822,8 @@ paths:
         required: false
         schema:
           default: 5
+          maximum: 100
+          minimum: 1
           type: integer
         style: form
       - description: Query for filtering the results.
@@ -10246,6 +10262,220 @@ paths:
       tags:
       - Emails
       x-accepts: application/json
+  /c/{company_id}/subscriptions:
+    get:
+      description: List active webhooks subscriptions.
+      operationId: listWebhooksSubscriptions
+      parameters:
+      - description: The ID of the company.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          example: 12345
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                    - id: SUB12345
+                      sink: https://www.testurl.com/endpoint
+                      verified: true
+                      types:
+                      - it.fattureincloud.issued_documents.create
+                      - it.fattureincloud.issued_documents.update
+                    - id: SUB12346
+                      sink: https://www.testurl.com/endpoint2
+                      verified: true
+                      types:
+                      - it.fattureincloud.issued_documents.delete
+              schema:
+                $ref: '#/components/schemas/ListWebhooksSubscriptionsResponse'
+          description: Example response
+      summary: List Webhooks Subscriptions
+      tags:
+      - Webhooks
+      x-accepts: application/json
+    post:
+      description: Register some webhooks Subscriptions.
+      operationId: CreateWebhooksSubscription
+      parameters:
+      - description: The ID of the company.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          example: 12345
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              example-1:
+                value:
+                  data:
+                    sink: http://www.test.com
+                    types:
+                    - it.fattureincloud.entities.create
+                    - it.fattureincloud.issued_documents.create
+            schema:
+              $ref: '#/components/schemas/CreateWebhooksSubscriptionRequest'
+        description: ""
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                example-1:
+                  value:
+                    data:
+                      id: SUB123
+                      sink: http://www.test.com
+                      verified: true
+                      types:
+                      - it.fattureincloud.entities.create
+                      - it.fattureincloud.issued_documents.create
+                    warnings: The 'it.fattureincloud.entities.clients.delete' event
+                      is already registered for this application
+              schema:
+                $ref: '#/components/schemas/CreateWebhooksSubscriptionResponse'
+          description: Example response
+      summary: Create a Webhook Subscription
+      tags:
+      - Webhooks
+      x-content-type: application/json
+      x-accepts: application/json
+  /c/{company_id}/subscriptions/{subscription_id}:
+    delete:
+      description: Delete a webhooks subscription.
+      operationId: deleteWebhooksSubscription
+      parameters:
+      - description: The ID of the company.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          example: 12345
+          type: integer
+        style: simple
+      - description: The ID of the subscription.
+        explode: false
+        in: path
+        name: subscription_id
+        required: true
+        schema:
+          example: SUB123
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete Webhooks Subscription
+      tags:
+      - Webhooks
+      x-accepts: application/json
+    get:
+      description: Get a webhooks subscription.
+      operationId: getWebhooksSubscription
+      parameters:
+      - description: The ID of the company.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          example: 12345
+          type: integer
+        style: simple
+      - description: The ID of the subscription.
+        explode: false
+        in: path
+        name: subscription_id
+        required: true
+        schema:
+          example: SUB123
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: SUB123
+                      sink: https://test.url
+                      verified: true
+                      types:
+                      - it.fattureincloud.issued_documents.invoices.create
+              schema:
+                $ref: '#/components/schemas/GetWebhooksSubscriptionResponse'
+          description: Example response
+      summary: Get Webhooks Subscription
+      tags:
+      - Webhooks
+      x-accepts: application/json
+    put:
+      description: Edit a webhooks subscription.
+      operationId: modifyWebhooksSubscription
+      parameters:
+      - description: The ID of the company.
+        explode: false
+        in: path
+        name: company_id
+        required: true
+        schema:
+          example: 12345
+          type: integer
+        style: simple
+      - description: The ID of the subscription.
+        explode: false
+        in: path
+        name: subscription_id
+        required: true
+        schema:
+          example: SUB123
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyWebhooksSubscriptionRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: SUB12345
+                      sink: http://www.test.com
+                      verified: true
+                      types:
+                      - it.fattureincloud.entities.create
+                      - it.fattureincloud.issued_documents.create
+                    warnings: The 'it.fattureincloud.entities.clients.delete' event
+                      is already registered for this application
+              schema:
+                $ref: '#/components/schemas/ModifyWebhooksSubscriptionResponse'
+          description: Example response
+      summary: Modify Webhooks Subscription
+      tags:
+      - Webhooks
+      x-content-type: application/json
+      x-accepts: application/json
 components:
   parameters:
     company_id:
@@ -10355,6 +10585,8 @@ components:
       required: false
       schema:
         default: 5
+        maximum: 100
+        minimum: 1
         type: integer
       style: form
     document_id:
@@ -10397,6 +10629,16 @@ components:
       schema:
         type: boolean
       style: form
+    subscription_id:
+      description: The ID of the subscription.
+      explode: false
+      in: path
+      name: subscription_id
+      required: true
+      schema:
+        example: SUB123
+        type: string
+      style: simple
   responses:
     GetUserInfoResponse:
       content:
@@ -15892,6 +16134,78 @@ components:
           schema:
             $ref: '#/components/schemas/ListEmailsResponse'
       description: Example response
+    CreateWebhooksSubscriptionResponse:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                data:
+                  id: SUB123
+                  sink: http://www.test.com
+                  verified: true
+                  types:
+                  - it.fattureincloud.entities.create
+                  - it.fattureincloud.issued_documents.create
+                warnings: The 'it.fattureincloud.entities.clients.delete' event is
+                  already registered for this application
+          schema:
+            $ref: '#/components/schemas/CreateWebhooksSubscriptionResponse'
+      description: Example response
+    ListWebhooksSubscriptionsResponse:
+      content:
+        application/json:
+          examples:
+            example-1:
+              value:
+                data:
+                - id: SUB12345
+                  sink: https://www.testurl.com/endpoint
+                  verified: true
+                  types:
+                  - it.fattureincloud.issued_documents.create
+                  - it.fattureincloud.issued_documents.update
+                - id: SUB12346
+                  sink: https://www.testurl.com/endpoint2
+                  verified: true
+                  types:
+                  - it.fattureincloud.issued_documents.delete
+          schema:
+            $ref: '#/components/schemas/ListWebhooksSubscriptionsResponse'
+      description: Example response
+    GetWebhooksSubscriptionResponse:
+      content:
+        application/json:
+          examples:
+            Example 1:
+              value:
+                data:
+                  id: SUB123
+                  sink: https://test.url
+                  verified: true
+                  types:
+                  - it.fattureincloud.issued_documents.invoices.create
+          schema:
+            $ref: '#/components/schemas/GetWebhooksSubscriptionResponse'
+      description: Example response
+    ModifyWebhooksSubscriptionResponse:
+      content:
+        application/json:
+          examples:
+            Example 1:
+              value:
+                data:
+                  id: SUB12345
+                  sink: http://www.test.com
+                  verified: true
+                  types:
+                  - it.fattureincloud.entities.create
+                  - it.fattureincloud.issued_documents.create
+                warnings: The 'it.fattureincloud.entities.clients.delete' event is
+                  already registered for this application
+          schema:
+            $ref: '#/components/schemas/ModifyWebhooksSubscriptionResponse'
+      description: Example response
   schemas:
     GetUserInfoResponse:
       description: ""
@@ -19477,13 +19791,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19493,13 +19807,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19509,9 +19823,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -19520,12 +19834,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19537,14 +19851,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19556,29 +19870,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
         pending_id: 0
       properties:
         pending_id:
@@ -19597,13 +19981,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19613,13 +19997,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19629,9 +20013,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -19640,12 +20024,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19657,14 +20041,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19676,29 +20060,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -19711,13 +20165,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19727,13 +20181,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19743,9 +20197,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -19754,12 +20208,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19771,14 +20225,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19790,29 +20244,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -19825,13 +20349,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19841,13 +20365,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19857,9 +20381,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -19868,12 +20392,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19885,14 +20409,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19904,29 +20428,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -19939,13 +20533,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19955,13 +20549,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -19971,9 +20565,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -19982,12 +20576,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -19999,14 +20593,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -20018,29 +20612,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -20053,13 +20717,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -20069,13 +20733,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -20085,9 +20749,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -20096,12 +20760,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -20113,14 +20777,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -20132,29 +20796,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -20183,13 +20917,13 @@ components:
           date: 2000-01-23
           attachment_preview_url: attachment_preview_url
           auto_calculate: true
-          tax_deductibility: 3.616076749251911
+          tax_deductibility: 9.301444243932576
           description: description
           created_at: created_at
-          amortization: 9.301444243932576
+          amortization: 7.061401241503109
           type: null
           payments_list:
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -20199,13 +20933,13 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
-          - amount: 7.457744773683766
+          - amount: 6.84685269835264
             payment_account:
               cuc: cuc
               virtual: true
@@ -20215,9 +20949,9 @@ components:
               id: 5
               type: null
             due_date: 2000-01-23
-            id: 6
+            id: 1
             payment_terms:
-              days: 1
+              days: 7
               type: type
             paid_date: 2000-01-23
             status: status
@@ -20226,12 +20960,12 @@ components:
           rc_center: rc_center
           is_marked: true
           updated_at: updated_at
-          amount_vat: 5.962133916683182
+          amount_vat: 1.4658129805029452
           items_list:
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -20243,14 +20977,14 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           - code: code
             measure: measure
-            product_id: 7
-            qty: 1.0246457001441578
+            product_id: 4
+            qty: 1.2315135367772556
             name: name
             vat:
               ei_description: ei_description
@@ -20262,29 +20996,99 @@ components:
               description: Non imponibile art. 123
               id: 6
               value: 22
-            net_price: 1.2315135367772556
-            id: 4
+            net_price: 7.386281948385884
+            id: 2
             category: category
-            stock: 1.4894159098541704
+            stock: 1.0246457001441578
           currency:
             symbol: €
             exchange_rate: "1"
             html_symbol: EUR
             id: EUR
           id: 0
-          amount_other_withholding_tax: 2.3021358869347655
+          amount_other_withholding_tax: 5.637376656633329
           invoice_number: invoice_number
-          vat_deductibility: 2.027123023002322
+          vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
-          amount_net: 1.4658129805029452
+          amount_net: 6.027456183070403
           attachment_url: attachment_url
-          amount_withholding_tax: 5.637376656633329
+          amount_withholding_tax: 5.962133916683182
           e_invoice: true
           category: category
-          amount_gross: 7.061401241503109
+          amount_gross: 2.3021358869347655
           entity:
-            name: name
+            country: Italia
+            code: "123"
+            notes: notes
+            ei_code: ei_code
+            default_payment_terms_type: null
+            vat_number: IT01234567890
+            created_at: created_at
+            type: null
+            address_extra: address_extra
+            bank_swift_code: bank_swift_code
+            default_vat:
+              ei_description: ei_description
+              notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+              e_invoice: true
+              ei_type: "2"
+              editable: true
+              is_disabled: true
+              description: Non imponibile art. 123
+              id: 6
+              value: 22
+            address_province: BG
+            updated_at: updated_at
+            bank_name: bank_name
             id: 6
+            shipping_address: shipping_address
+            fax: fax
+            first_name: first_name
+            bank_iban: bank_iban
+            country_iso: Italia
+            email: mario.rossi@example.it
+            contact_person: contact_person
+            address_postal_code: "24010"
+            default_payment_method:
+              default_payment_account:
+                cuc: cuc
+                virtual: true
+                iban: iban
+                name: Conto Banca Intesa
+                sia: sia
+                id: 5
+                type: null
+              name: name
+              bank_name: bank_name
+              details:
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              - description: description
+                title: title
+              bank_beneficiary: bank_beneficiary
+              id: 1
+              type: null
+              is_default: true
+              ei_payment_method: ei_payment_method
+              bank_iban: bank_iban
+            last_name: last_name
+            address_city: Bergamo
+            tax_code: RSSMRA44A12E890Q
+            intent_declaration_protocol_number: intent_declaration_protocol_number
+            phone: phone
+            address_street: "Via dei tigli, 12"
+            e_invoice: true
+            name: Rossi S.r.l.
+            default_payment_terms: 30
+            certified_email: mario.rossi@pec.example.it
+            has_intent_declaration: true
+            intent_declaration_protocol_date: 2000-01-23
       properties:
         data:
           $ref: '#/components/schemas/ReceivedDocument'
@@ -22562,6 +23366,116 @@ components:
       - $ref: '#/components/schemas/Pagination'
       - $ref: '#/components/schemas/ListEmailsResponsePage'
       title: ListEmailsResponse
+    ListWebhooksSubscriptionsResponse:
+      example:
+        data:
+        - types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+        - types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/WebhooksSubscription'
+          type: array
+      title: ListWebhooksSubscriptionsResponse
+      type: object
+    CreateWebhooksSubscriptionRequest:
+      example:
+        data:
+          types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/WebhooksSubscription'
+      title: CreateWebhooksSubscriptionRequest
+      type: object
+    CreateWebhooksSubscriptionResponse:
+      example:
+        data:
+          types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+        warnings:
+        - warnings
+        - warnings
+      properties:
+        data:
+          $ref: '#/components/schemas/WebhooksSubscription'
+        warnings:
+          description: Webhooks registration warnings
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: CreateWebhooksSubscriptionResponse
+      type: object
+    GetWebhooksSubscriptionResponse:
+      example:
+        data:
+          types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/WebhooksSubscription'
+      title: GetWebhooksSubscriptionResponse
+      type: object
+    ModifyWebhooksSubscriptionRequest:
+      example:
+        data:
+          types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/WebhooksSubscription'
+      title: ModifyWebhooksSubscriptionRequest
+      type: object
+    ModifyWebhooksSubscriptionResponse:
+      example:
+        data:
+          types:
+          - null
+          - null
+          sink: sink
+          verified: true
+          id: id
+        warnings:
+        - warnings
+        - warnings
+      properties:
+        data:
+          $ref: '#/components/schemas/WebhooksSubscription'
+        warnings:
+          description: Webhooks registration warnings
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: CreateWebhooksSubscriptionRequest
+      type: object
     User:
       description: ""
       example:
@@ -24564,7 +25478,7 @@ components:
           nullable: true
           type: string
         body:
-          description: Email body
+          description: "Email body [HTML Escaped] [max size 50KiB]"
           nullable: true
           type: string
         include:
@@ -24626,13 +25540,13 @@ components:
         date: 2000-01-23
         attachment_preview_url: attachment_preview_url
         auto_calculate: true
-        tax_deductibility: 3.616076749251911
+        tax_deductibility: 9.301444243932576
         description: description
         created_at: created_at
-        amortization: 9.301444243932576
+        amortization: 7.061401241503109
         type: null
         payments_list:
-        - amount: 7.457744773683766
+        - amount: 6.84685269835264
           payment_account:
             cuc: cuc
             virtual: true
@@ -24642,13 +25556,13 @@ components:
             id: 5
             type: null
           due_date: 2000-01-23
-          id: 6
+          id: 1
           payment_terms:
-            days: 1
+            days: 7
             type: type
           paid_date: 2000-01-23
           status: status
-        - amount: 7.457744773683766
+        - amount: 6.84685269835264
           payment_account:
             cuc: cuc
             virtual: true
@@ -24658,9 +25572,9 @@ components:
             id: 5
             type: null
           due_date: 2000-01-23
-          id: 6
+          id: 1
           payment_terms:
-            days: 1
+            days: 7
             type: type
           paid_date: 2000-01-23
           status: status
@@ -24669,12 +25583,12 @@ components:
         rc_center: rc_center
         is_marked: true
         updated_at: updated_at
-        amount_vat: 5.962133916683182
+        amount_vat: 1.4658129805029452
         items_list:
         - code: code
           measure: measure
-          product_id: 7
-          qty: 1.0246457001441578
+          product_id: 4
+          qty: 1.2315135367772556
           name: name
           vat:
             ei_description: ei_description
@@ -24686,14 +25600,14 @@ components:
             description: Non imponibile art. 123
             id: 6
             value: 22
-          net_price: 1.2315135367772556
-          id: 4
+          net_price: 7.386281948385884
+          id: 2
           category: category
-          stock: 1.4894159098541704
+          stock: 1.0246457001441578
         - code: code
           measure: measure
-          product_id: 7
-          qty: 1.0246457001441578
+          product_id: 4
+          qty: 1.2315135367772556
           name: name
           vat:
             ei_description: ei_description
@@ -24705,29 +25619,99 @@ components:
             description: Non imponibile art. 123
             id: 6
             value: 22
-          net_price: 1.2315135367772556
-          id: 4
+          net_price: 7.386281948385884
+          id: 2
           category: category
-          stock: 1.4894159098541704
+          stock: 1.0246457001441578
         currency:
           symbol: €
           exchange_rate: "1"
           html_symbol: EUR
           id: EUR
         id: 0
-        amount_other_withholding_tax: 2.3021358869347655
+        amount_other_withholding_tax: 5.637376656633329
         invoice_number: invoice_number
-        vat_deductibility: 2.027123023002322
+        vat_deductibility: 3.616076749251911
         attachment_token: attachment_token
-        amount_net: 1.4658129805029452
+        amount_net: 6.027456183070403
         attachment_url: attachment_url
-        amount_withholding_tax: 5.637376656633329
+        amount_withholding_tax: 5.962133916683182
         e_invoice: true
         category: category
-        amount_gross: 7.061401241503109
+        amount_gross: 2.3021358869347655
         entity:
-          name: name
+          country: Italia
+          code: "123"
+          notes: notes
+          ei_code: ei_code
+          default_payment_terms_type: null
+          vat_number: IT01234567890
+          created_at: created_at
+          type: null
+          address_extra: address_extra
+          bank_swift_code: bank_swift_code
+          default_vat:
+            ei_description: ei_description
+            notes: "IVA non imponibile ai sensi dell'articolo 123, comma 2"
+            e_invoice: true
+            ei_type: "2"
+            editable: true
+            is_disabled: true
+            description: Non imponibile art. 123
+            id: 6
+            value: 22
+          address_province: BG
+          updated_at: updated_at
+          bank_name: bank_name
           id: 6
+          shipping_address: shipping_address
+          fax: fax
+          first_name: first_name
+          bank_iban: bank_iban
+          country_iso: Italia
+          email: mario.rossi@example.it
+          contact_person: contact_person
+          address_postal_code: "24010"
+          default_payment_method:
+            default_payment_account:
+              cuc: cuc
+              virtual: true
+              iban: iban
+              name: Conto Banca Intesa
+              sia: sia
+              id: 5
+              type: null
+            name: name
+            bank_name: bank_name
+            details:
+            - description: description
+              title: title
+            - description: description
+              title: title
+            - description: description
+              title: title
+            - description: description
+              title: title
+            - description: description
+              title: title
+            bank_beneficiary: bank_beneficiary
+            id: 1
+            type: null
+            is_default: true
+            ei_payment_method: ei_payment_method
+            bank_iban: bank_iban
+          last_name: last_name
+          address_city: Bergamo
+          tax_code: RSSMRA44A12E890Q
+          intent_declaration_protocol_number: intent_declaration_protocol_number
+          phone: phone
+          address_street: "Via dei tigli, 12"
+          e_invoice: true
+          name: Rossi S.r.l.
+          default_payment_terms: 30
+          certified_email: mario.rossi@pec.example.it
+          has_intent_declaration: true
+          intent_declaration_protocol_date: 2000-01-23
       properties:
         id:
           description: Unique identifier of the document.
@@ -24736,7 +25720,7 @@ components:
         type:
           $ref: '#/components/schemas/ReceivedDocumentType'
         entity:
-          $ref: '#/components/schemas/ReceivedDocument_entity'
+          $ref: '#/components/schemas/Entity'
         date:
           description: "Date of the document [If not specified, today date is used]."
           format: date
@@ -25707,6 +26691,35 @@ components:
           type: array
       title: ListEmailsResponsePage
       type: object
+    WebhooksSubscription:
+      example:
+        types:
+        - null
+        - null
+        sink: sink
+        verified: true
+        id: id
+      properties:
+        id:
+          description: Unique identifier
+          nullable: true
+          type: string
+        sink:
+          description: Webhooks callback uri.
+          nullable: true
+          type: string
+        verified:
+          description: "[Read Only] True if the webhooks subscription has been verified."
+          nullable: true
+          type: boolean
+        types:
+          description: Webhooks events types.
+          items:
+            $ref: '#/components/schemas/EventType'
+          nullable: true
+          type: array
+      title: WebhooksSubscription
+      type: object
     CompanyType:
       description: Company type.
       enum:
@@ -26375,8 +27388,8 @@ components:
       example:
         code: code
         measure: measure
-        product_id: 7
-        qty: 1.0246457001441578
+        product_id: 4
+        qty: 1.2315135367772556
         name: name
         vat:
           ei_description: ei_description
@@ -26388,10 +27401,10 @@ components:
           description: Non imponibile art. 123
           id: 6
           value: 22
-        net_price: 1.2315135367772556
-        id: 4
+        net_price: 7.386281948385884
+        id: 2
         category: category
-        stock: 1.4894159098541704
+        stock: 1.0246457001441578
       properties:
         id:
           description: Unique identifier.
@@ -26435,7 +27448,7 @@ components:
       type: object
     ReceivedDocumentPaymentsListItem:
       example:
-        amount: 7.457744773683766
+        amount: 6.84685269835264
         payment_account:
           cuc: cuc
           virtual: true
@@ -26445,9 +27458,9 @@ components:
           id: 5
           type: null
         due_date: 2000-01-23
-        id: 6
+        id: 1
         payment_terms:
-          days: 1
+          days: 7
           type: type
         paid_date: 2000-01-23
         status: status
@@ -26642,6 +27655,70 @@ components:
           type: array
       title: Email
       type: object
+    EventType:
+      description: Event type.
+      enum:
+      - it.fattureincloud.issued_documents.invoices.create
+      - it.fattureincloud.issued_documents.invoices.update
+      - it.fattureincloud.issued_documents.invoices.delete
+      - it.fattureincloud.issued_documents.quotes.create
+      - it.fattureincloud.issued_documents.quotes.update
+      - it.fattureincloud.issued_documents.quotes.delete
+      - it.fattureincloud.issued_documents.proformas.create
+      - it.fattureincloud.issued_documents.proformas.update
+      - it.fattureincloud.issued_documents.proformas.create
+      - it.fattureincloud.issued_documents.receipts.create
+      - it.fattureincloud.issued_documents.receipts.update
+      - it.fattureincloud.issued_documents.receipts.delete
+      - it.fattureincloud.issued_documents.delivery_notes.create
+      - it.fattureincloud.issued_documents.delivery_notes.update
+      - it.fattureincloud.issued_documents.delivery_notes.delete
+      - it.fattureincloud.issued_documents.credit_notes.create
+      - it.fattureincloud.issued_documents.credit_notes.update
+      - it.fattureincloud.issued_documents.credit_notes.delete
+      - it.fattureincloud.issued_documents.orders.create
+      - it.fattureincloud.issued_documents.orders.update
+      - it.fattureincloud.issued_documents.orders.delete
+      - it.fattureincloud.issued_documents.work_reports.create
+      - it.fattureincloud.issued_documents.work_reports.update
+      - it.fattureincloud.issued_documents.work_reports.delete
+      - it.fattureincloud.issued_documents.supplier_orders.create
+      - it.fattureincloud.issued_documents.supplier_orders.update
+      - it.fattureincloud.issued_documents.supplier_orders.delete
+      - it.fattureincloud.issued_documents.self_invoices.create
+      - it.fattureincloud.issued_documents.self_invoices.update
+      - it.fattureincloud.issued_documents.self_invoices.delete
+      - it.fattureincloud.issued_documents.all.create
+      - it.fattureincloud.issued_documents.all.update
+      - it.fattureincloud.issued_documents.all.delete
+      - it.fattureincloud.received_documents.create
+      - it.fattureincloud.received_documents.update
+      - it.fattureincloud.received_documents.delete
+      - it.fattureincloud.receipts.create
+      - it.fattureincloud.receipts.update
+      - it.fattureincloud.receipts.delete
+      - it.fattureincloud.taxes.create
+      - it.fattureincloud.taxes.update
+      - it.fattureincloud.taxes.delete
+      - it.fattureincloud.cashbook.create
+      - it.fattureincloud.cashbook.update
+      - it.fattureincloud.cashbook.delete
+      - it.fattureincloud.products.create
+      - it.fattureincloud.products.update
+      - it.fattureincloud.products.delete
+      - it.fattureincloud.entities.clients.create
+      - it.fattureincloud.entities.clients.update
+      - it.fattureincloud.entities.clients.delete
+      - it.fattureincloud.entities.suppliers.create
+      - it.fattureincloud.entities.suppliers.update
+      - it.fattureincloud.entities.suppliers.delete
+      - it.fattureincloud.entities.all.create
+      - it.fattureincloud.entities.all.update
+      - it.fattureincloud.entities.all.delete
+      - it.fattureincloud.issued_documents.e_invoices
+      - it.fattureincloud.received_documents.e_invoices
+      title: EventType
+      type: string
     PermissionLevel:
       description: Level of the permission.
       enum:
@@ -27373,21 +28450,6 @@ components:
           nullable: true
           type: boolean
       type: object
-    ReceivedDocument_entity:
-      example:
-        name: name
-        id: 6
-      nullable: true
-      properties:
-        id:
-          description: Entity unique identifier.
-          nullable: true
-          type: integer
-        name:
-          description: Entity name.
-          nullable: true
-          type: string
-      type: object
     ReceivedDocumentInfo_default_values:
       description: Default values for the document.
       example:
@@ -27478,7 +28540,7 @@ components:
       type: object
     ReceivedDocumentPaymentsListItem_payment_terms:
       example:
-        days: 1
+        days: 7
         type: type
       nullable: true
       properties:

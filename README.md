@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.26
+- API version: 2.0.27
 
-- Build date: 2023-02-13T13:42:26.512Z[Etc/UTC]
+- Build date: 2023-04-18T10:47:06.435Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.15</version>
+  <version>2.0.16</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.15"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.16"
   }
 ```
 
@@ -196,6 +196,11 @@ Class | Method | HTTP request | Description
 *TaxesApi* | [**uploadF24Attachment**](docs/TaxesApi.md#uploadF24Attachment) | **POST** /c/{company_id}/taxes/attachment | Upload F24 Attachment
 *UserApi* | [**getUserInfo**](docs/UserApi.md#getUserInfo) | **GET** /user/info | Get User Info
 *UserApi* | [**listUserCompanies**](docs/UserApi.md#listUserCompanies) | **GET** /user/companies | List User Companies
+*WebhooksApi* | [**createWebhooksSubscription**](docs/WebhooksApi.md#createWebhooksSubscription) | **POST** /c/{company_id}/subscriptions | Create a Webhook Subscription
+*WebhooksApi* | [**deleteWebhooksSubscription**](docs/WebhooksApi.md#deleteWebhooksSubscription) | **DELETE** /c/{company_id}/subscriptions/{subscription_id} | Delete Webhooks Subscription
+*WebhooksApi* | [**getWebhooksSubscription**](docs/WebhooksApi.md#getWebhooksSubscription) | **GET** /c/{company_id}/subscriptions/{subscription_id} | Get Webhooks Subscription
+*WebhooksApi* | [**listWebhooksSubscriptions**](docs/WebhooksApi.md#listWebhooksSubscriptions) | **GET** /c/{company_id}/subscriptions | List Webhooks Subscriptions
+*WebhooksApi* | [**modifyWebhooksSubscription**](docs/WebhooksApi.md#modifyWebhooksSubscription) | **PUT** /c/{company_id}/subscriptions/{subscription_id} | Modify Webhooks Subscription
 
 
 ## Documentation for Models
@@ -242,6 +247,8 @@ Class | Method | HTTP request | Description
  - [CreateSupplierResponse](docs/CreateSupplierResponse.md)
  - [CreateVatTypeRequest](docs/CreateVatTypeRequest.md)
  - [CreateVatTypeResponse](docs/CreateVatTypeResponse.md)
+ - [CreateWebhooksSubscriptionRequest](docs/CreateWebhooksSubscriptionRequest.md)
+ - [CreateWebhooksSubscriptionResponse](docs/CreateWebhooksSubscriptionResponse.md)
  - [Currency](docs/Currency.md)
  - [DetailedCountry](docs/DetailedCountry.md)
  - [DocumentTemplate](docs/DocumentTemplate.md)
@@ -256,6 +263,7 @@ Class | Method | HTTP request | Description
  - [EmailStatus](docs/EmailStatus.md)
  - [Entity](docs/Entity.md)
  - [EntityType](docs/EntityType.md)
+ - [EventType](docs/EventType.md)
  - [F24](docs/F24.md)
  - [F24Status](docs/F24Status.md)
  - [FunctionStatus](docs/FunctionStatus.md)
@@ -289,6 +297,7 @@ Class | Method | HTTP request | Description
  - [GetUserInfoResponseEmailConfirmationState](docs/GetUserInfoResponseEmailConfirmationState.md)
  - [GetUserInfoResponseInfo](docs/GetUserInfoResponseInfo.md)
  - [GetVatTypeResponse](docs/GetVatTypeResponse.md)
+ - [GetWebhooksSubscriptionResponse](docs/GetWebhooksSubscriptionResponse.md)
  - [IssuedDocument](docs/IssuedDocument.md)
  - [IssuedDocumentEiData](docs/IssuedDocumentEiData.md)
  - [IssuedDocumentExtraData](docs/IssuedDocumentExtraData.md)
@@ -344,6 +353,7 @@ Class | Method | HTTP request | Description
  - [ListUserCompaniesResponse](docs/ListUserCompaniesResponse.md)
  - [ListUserCompaniesResponseData](docs/ListUserCompaniesResponseData.md)
  - [ListVatTypesResponse](docs/ListVatTypesResponse.md)
+ - [ListWebhooksSubscriptionsResponse](docs/ListWebhooksSubscriptionsResponse.md)
  - [ModifyArchiveDocumentRequest](docs/ModifyArchiveDocumentRequest.md)
  - [ModifyArchiveDocumentResponse](docs/ModifyArchiveDocumentResponse.md)
  - [ModifyCashbookEntryRequest](docs/ModifyCashbookEntryRequest.md)
@@ -368,6 +378,8 @@ Class | Method | HTTP request | Description
  - [ModifySupplierResponse](docs/ModifySupplierResponse.md)
  - [ModifyVatTypeRequest](docs/ModifyVatTypeRequest.md)
  - [ModifyVatTypeResponse](docs/ModifyVatTypeResponse.md)
+ - [ModifyWebhooksSubscriptionRequest](docs/ModifyWebhooksSubscriptionRequest.md)
+ - [ModifyWebhooksSubscriptionResponse](docs/ModifyWebhooksSubscriptionResponse.md)
  - [MonthlyTotal](docs/MonthlyTotal.md)
  - [OriginalDocumentType](docs/OriginalDocumentType.md)
  - [Pagination](docs/Pagination.md)
@@ -386,7 +398,6 @@ Class | Method | HTTP request | Description
  - [ReceiptPreCreateInfo](docs/ReceiptPreCreateInfo.md)
  - [ReceiptType](docs/ReceiptType.md)
  - [ReceivedDocument](docs/ReceivedDocument.md)
- - [ReceivedDocumentEntity](docs/ReceivedDocumentEntity.md)
  - [ReceivedDocumentInfo](docs/ReceivedDocumentInfo.md)
  - [ReceivedDocumentInfoDefaultValues](docs/ReceivedDocumentInfoDefaultValues.md)
  - [ReceivedDocumentInfoItemsDefaultValues](docs/ReceivedDocumentInfoItemsDefaultValues.md)
@@ -421,6 +432,7 @@ Class | Method | HTTP request | Description
  - [VerifyEInvoiceXmlErrorResponseExtra](docs/VerifyEInvoiceXmlErrorResponseExtra.md)
  - [VerifyEInvoiceXmlResponse](docs/VerifyEInvoiceXmlResponse.md)
  - [VerifyEInvoiceXmlResponseData](docs/VerifyEInvoiceXmlResponseData.md)
+ - [WebhooksSubscription](docs/WebhooksSubscription.md)
 
 
 ## Documentation for Authorization
