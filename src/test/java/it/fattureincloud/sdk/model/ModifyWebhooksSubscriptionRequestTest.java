@@ -13,29 +13,52 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import it.fattureincloud.sdk.model.WebhooksSubscription;
-import java.io.IOException;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ModifyWebhooksSubscriptionRequest
  */
 public class ModifyWebhooksSubscriptionRequestTest {
-    private final ModifyWebhooksSubscriptionRequest model = new ModifyWebhooksSubscriptionRequest();
+    private ModifyWebhooksSubscriptionRequest model;
+
+    @BeforeEach
+    public void init() {
+        ArrayList<EventType> types = new ArrayList<>();
+        types.add(EventType.CASHBOOK_CREATE);
+        model =
+                new ModifyWebhooksSubscriptionRequest()
+                        .data(
+                                new WebhooksSubscription()
+                                        .sink("https://endpoint.test")
+                        );
+    }
 
     /**
      * Model tests for ModifyWebhooksSubscriptionRequest
      */
     @Test
     public void testModifyWebhooksSubscriptionRequest() {
-        // TODO: test ModifyWebhooksSubscriptionRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"sink\":\"https://endpoint.test\"}}";
+        assertEquals(str, json);
+        ModifyWebhooksSubscriptionRequest generated = gson.fromJson(str, ModifyWebhooksSubscriptionRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +66,14 @@ public class ModifyWebhooksSubscriptionRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("https://endpoint.test", model.getData().getSink());
+        model.setData(new WebhooksSubscription().sink("https://endpoint2.test"));
+        assertEquals("https://endpoint2.test", model.getData().getSink());
+
+        model.data(new WebhooksSubscription().id("https://endpoint3.test"));
+        ModifyWebhooksSubscriptionRequest actual = new ModifyWebhooksSubscriptionRequest();
+        actual.setData(new WebhooksSubscription().id("https://endpoint3.test"));
+        assertEquals(model, actual);
     }
 
 }

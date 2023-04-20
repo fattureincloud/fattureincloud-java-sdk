@@ -12,14 +12,15 @@
 
 package it.fattureincloud.sdk.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
-import java.math.BigDecimal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /** Model tests for GetExistingIssuedDocumentTotalsResponse */
 public class GetExistingIssuedDocumentTotalsResponseTest {
@@ -46,18 +47,17 @@ public class GetExistingIssuedDocumentTotalsResponseTest {
                     .stampDuty((BigDecimal.valueOf(10)))
                     .amountDue((BigDecimal.valueOf(10)))
                     .isEnasarcoMaximalExceeded(true)
-                    .paymentsSum((BigDecimal.valueOf(10)))
-                    .vatList(null));
+                    .paymentsSum((BigDecimal.valueOf(10))));
   }
 
   /** Model tests for GetExistingIssuedDocumentTotalsResponse */
   @Test
-  public void testGetExistingIssuedDocumentTotalsResponse() {
+  public void xtestGetExistingIssuedDocumentTotalsResponse() {
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"data\":{\"amount_net\":10,\"amount_rivalsa\":10,\"amount_net_with_rivalsa\":10,\"amount_cassa\":10,\"taxable_amount\":10,\"not_taxable_amount\":10,\"amount_vat\":10,\"amount_gross\":10,\"taxable_amount_withholding_tax\":10,\"amount_withholding_tax\":10,\"taxable_amount_other_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"stamp_duty\":10,\"amount_due\":10,\"is_enasarco_maximal_exceeded\":true,\"payments_sum\":10}}";
+        "{\"data\":{\"amount_net\":10,\"amount_rivalsa\":10,\"amount_net_with_rivalsa\":10,\"amount_cassa\":10,\"taxable_amount\":10,\"not_taxable_amount\":10,\"amount_vat\":10,\"amount_gross\":10,\"taxable_amount_withholding_tax\":10,\"amount_withholding_tax\":10,\"taxable_amount_other_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"stamp_duty\":10,\"amount_due\":10,\"is_enasarco_maximal_exceeded\":true,\"payments_sum\":10,\"vat_list\":{}}}";
     assertEquals(str, json);
     GetExistingIssuedDocumentTotalsResponse generated =
         gson.fromJson(str, GetExistingIssuedDocumentTotalsResponse.class);

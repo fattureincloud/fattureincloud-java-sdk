@@ -13,9 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -27,7 +29,43 @@ public class EventTypeTest {
      */
     @Test
     public void testEventType() {
-        // TODO: test EventType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"it.fattureincloud.cashbook.create\"", gson.toJson(EventType.CASHBOOK_CREATE));
+        assertEquals("\"it.fattureincloud.issued_documents.proformas.create\"", gson.toJson(EventType.ISSUED_DOCUMENTS_PROFORMAS_CREATE));
+        assertEquals("\"it.fattureincloud.issued_documents.all.create\"", gson.toJson(EventType.ISSUED_DOCUMENTS_ALL_CREATE));
+        assertEquals("\"it.fattureincloud.products.delete\"", gson.toJson(EventType.PRODUCTS_DELETE));
+        assertEquals("\"it.fattureincloud.entities.all.update\"", gson.toJson(EventType.ENTITIES_ALL_UPDATE));
+
+
+        assertEquals(EventType.CASHBOOK_CREATE, gson.fromJson("\"it.fattureincloud.cashbook.create\"", EventType.class));
+        assertEquals(EventType.ISSUED_DOCUMENTS_PROFORMAS_CREATE, gson.fromJson("\"it.fattureincloud.issued_documents.proformas.create\"", EventType.class));
+        assertEquals(EventType.ISSUED_DOCUMENTS_ALL_CREATE, gson.fromJson("\"it.fattureincloud.issued_documents.all.create\"", EventType.class));
+        assertEquals(EventType.PRODUCTS_DELETE, gson.fromJson("\"it.fattureincloud.products.delete\"", EventType.class));
+        assertEquals(EventType.ENTITIES_ALL_UPDATE, gson.fromJson("\"it.fattureincloud.entities.all.update\"", EventType.class));
+
+
+        assertEquals("it.fattureincloud.cashbook.create", EventType.CASHBOOK_CREATE.getValue());
+        assertEquals("it.fattureincloud.issued_documents.proformas.create", EventType.ISSUED_DOCUMENTS_PROFORMAS_CREATE.getValue());
+        assertEquals("it.fattureincloud.issued_documents.all.create", EventType.ISSUED_DOCUMENTS_ALL_CREATE.getValue());
+        assertEquals("it.fattureincloud.products.delete", EventType.PRODUCTS_DELETE.getValue());
+        assertEquals("it.fattureincloud.entities.all.update", EventType.ENTITIES_ALL_UPDATE.getValue());
+
+
+        assertEquals("it.fattureincloud.cashbook.create", EventType.CASHBOOK_CREATE.toString());
+        assertEquals("it.fattureincloud.issued_documents.proformas.create", EventType.ISSUED_DOCUMENTS_PROFORMAS_CREATE.toString());
+        assertEquals("it.fattureincloud.issued_documents.all.create", EventType.ISSUED_DOCUMENTS_ALL_CREATE.toString());
+        assertEquals("it.fattureincloud.products.delete", EventType.PRODUCTS_DELETE.toString());
+        assertEquals("it.fattureincloud.entities.all.update", EventType.ENTITIES_ALL_UPDATE.toString());
+
+
+        assertEquals(EventType.CASHBOOK_CREATE, EventType.fromValue("it.fattureincloud.cashbook.create"));
+        assertEquals(EventType.ISSUED_DOCUMENTS_PROFORMAS_CREATE, EventType.fromValue("it.fattureincloud.issued_documents.proformas.create"));
+        assertEquals(EventType.ISSUED_DOCUMENTS_ALL_CREATE, EventType.fromValue("it.fattureincloud.issued_documents.all.create"));
+        assertEquals(EventType.PRODUCTS_DELETE, EventType.fromValue("it.fattureincloud.products.delete"));
+        assertEquals(EventType.ENTITIES_ALL_UPDATE, EventType.fromValue("it.fattureincloud.entities.all.update"));
+
     }
 
 }

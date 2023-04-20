@@ -13,31 +13,68 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import it.fattureincloud.sdk.model.WebhooksSubscription;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for ListWebhooksSubscriptionsResponse
  */
 public class ListWebhooksSubscriptionsResponseTest {
-    private final ListWebhooksSubscriptionsResponse model = new ListWebhooksSubscriptionsResponse();
+    private ListWebhooksSubscriptionsResponse model;
+
+    @BeforeEach
+    public void init() {
+        ArrayList<EventType> types = new ArrayList<>();
+        types.add(EventType.CASHBOOK_CREATE);
+        ArrayList<EventType> types2 = new ArrayList<>();
+        types2.add(EventType.CASHBOOK_UPDATE);
+
+        ArrayList<WebhooksSubscription> data = new ArrayList<>();
+        data.add(
+                new WebhooksSubscription()
+                    .id("SUB123")
+                    .sink("https://endpoint.test")
+                    .verified(true)
+                    .types(types)
+        );
+        data.add(
+                new WebhooksSubscription()
+                    .id("SUB12345")
+                    .sink("https://endpoint.test")
+                    .verified(true)
+                    .types(types2)
+        );
+
+        model = new ListWebhooksSubscriptionsResponse()
+                    .data(data);
+    }
 
     /**
      * Model tests for ListWebhooksSubscriptionsResponse
      */
     @Test
     public void testListWebhooksSubscriptionsResponse() {
-        // TODO: test ListWebhooksSubscriptionsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":[{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]},{\"id\":\"SUB12345\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.update\"]}]}";
+        assertEquals(str, json);
+        ListWebhooksSubscriptionsResponse generated = gson.fromJson(str, ListWebhooksSubscriptionsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +82,14 @@ public class ListWebhooksSubscriptionsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("SUB123", model.getData().get(0).getId());
+        model.setData(Arrays.asList(new WebhooksSubscription().id("SUB1")));
+        assertEquals("SUB1", model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new WebhooksSubscription().id("SUB2")));
+        ListWebhooksSubscriptionsResponse actual = new ListWebhooksSubscriptionsResponse();
+        actual.setData(Arrays.asList(new WebhooksSubscription().id("SUB2")));
+        assertEquals(model.getData(), actual.getData());
     }
 
 }

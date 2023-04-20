@@ -13,32 +13,58 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import it.fattureincloud.sdk.model.WebhooksSubscription;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for CreateWebhooksSubscriptionResponse
  */
 public class CreateWebhooksSubscriptionResponseTest {
-    private final CreateWebhooksSubscriptionResponse model = new CreateWebhooksSubscriptionResponse();
+    private CreateWebhooksSubscriptionResponse model;
+
+    @BeforeEach
+    public void init() {
+        ArrayList<EventType> types = new ArrayList<>();
+        types.add(EventType.CASHBOOK_CREATE);
+        ArrayList<String> warnings = new ArrayList<>();
+        warnings.add("error");
+        model =
+                new CreateWebhooksSubscriptionResponse()
+                        .data(
+                                new WebhooksSubscription()
+                                        .id("SUB123")
+                                        .sink("https://endpoint.test")
+                                        .verified(true)
+                                        .types(types)
+                        )
+                        .warnings(warnings);
+    }
 
     /**
      * Model tests for CreateWebhooksSubscriptionResponse
      */
     @Test
     public void testCreateWebhooksSubscriptionResponse() {
-        // TODO: test CreateWebhooksSubscriptionResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]},\"warnings\":[\"error\"]}";
+        assertEquals(str, json);
+        CreateWebhooksSubscriptionResponse generated = gson.fromJson(str, CreateWebhooksSubscriptionResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -46,7 +72,14 @@ public class CreateWebhooksSubscriptionResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("SUB123", model.getData().getId());
+        model.setData(new WebhooksSubscription().id("SUB1"));
+        assertEquals("SUB1", model.getData().getId());
+
+        model.data(new WebhooksSubscription().id("SUB2"));
+        CreateWebhooksSubscriptionResponse actual = new CreateWebhooksSubscriptionResponse();
+        actual.setData(new WebhooksSubscription().id("SUB2"));
+        assertEquals(model.getData(), actual.getData());
     }
 
     /**
@@ -54,7 +87,7 @@ public class CreateWebhooksSubscriptionResponseTest {
      */
     @Test
     public void warningsTest() {
-        // TODO: test warnings
+        assertEquals("error", model.getWarnings().get(0));
     }
 
 }

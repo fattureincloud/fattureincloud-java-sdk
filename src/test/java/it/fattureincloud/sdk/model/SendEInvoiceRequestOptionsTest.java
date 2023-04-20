@@ -12,21 +12,49 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /** Model tests for SendEInvoiceRequestOptions */
 public class SendEInvoiceRequestOptionsTest {
-  private final SendEInvoiceRequestOptions model = new SendEInvoiceRequestOptions();
+  private SendEInvoiceRequestOptions model;
+
+  @BeforeEach
+  public void init() {
+    model = new SendEInvoiceRequestOptions().dryRun(true);
+  }
 
   /** Model tests for SendEInvoiceRequestOptions */
   @Test
   public void testSendEInvoiceRequestOptions() {
-    // TODO: test SendEInvoiceRequestOptions
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"dry_run\":true}";
+    assertEquals(str, json);
+    SendEInvoiceRequestOptions generated = gson.fromJson(str, SendEInvoiceRequestOptions.class);
+    assertEquals(model, generated);
+
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
   }
 
   /** Test the property 'dryRun' */
   @Test
   public void dryRunTest() {
-    // TODO: test dryRun
+    assertEquals(true, model.getDryRun());
+    model.setDryRun(false);
+    assertEquals(false, model.getDryRun());
+
+    SendEInvoiceRequestOptions o = model.dryRun(true);
+    SendEInvoiceRequestOptions expected = new SendEInvoiceRequestOptions().dryRun(true);
+    assertEquals(expected, o);
   }
 }

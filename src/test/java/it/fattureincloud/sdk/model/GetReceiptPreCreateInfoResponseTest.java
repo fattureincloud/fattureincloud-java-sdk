@@ -12,14 +12,15 @@
 
 package it.fattureincloud.sdk.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
-import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /** Model tests for GetReceiptPreCreateInfoResponse */
 public class GetReceiptPreCreateInfoResponseTest {
@@ -31,7 +32,6 @@ public class GetReceiptPreCreateInfoResponseTest {
         new GetReceiptPreCreateInfoResponse()
             .data(
                 new ReceiptPreCreateInfo()
-                    .numerations(null)
                     .addNumerationsListItem("num")
                     .addRcCentersListItem("bg")
                     .addPaymentAccountsListItem(new PaymentAccount().id(1))
@@ -46,7 +46,7 @@ public class GetReceiptPreCreateInfoResponseTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
+        "{\"data\":{\"numerations\":{},\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
     assertEquals(str, json);
     GetReceiptPreCreateInfoResponse generated =
         gson.fromJson(str, GetReceiptPreCreateInfoResponse.class);

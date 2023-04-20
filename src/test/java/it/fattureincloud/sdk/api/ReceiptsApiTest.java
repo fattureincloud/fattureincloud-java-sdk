@@ -12,20 +12,21 @@
 
 package it.fattureincloud.sdk.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import okhttp3.*;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /** API tests for ReceiptsApi */
 public class ReceiptsApiTest {
@@ -171,7 +172,7 @@ public class ReceiptsApiTest {
   @Test
   public void getReceiptPreCreateInfoTest() throws ApiException, IOException {
     String result =
-        "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
+        "{\"data\":{\"numerations\":{},\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
 
     Call mockCall = Mockito.mock(Call.class);
     ReceiptsApi api = mockApi(result, mockCall);
@@ -180,7 +181,6 @@ public class ReceiptsApiTest {
 
     ReceiptPreCreateInfo receiptPreCreateInfo =
         new ReceiptPreCreateInfo()
-            .numerations(null)
             .addNumerationsListItem("num")
             .addRcCentersListItem("bg")
             .addPaymentAccountsListItem(new PaymentAccount().id(1))

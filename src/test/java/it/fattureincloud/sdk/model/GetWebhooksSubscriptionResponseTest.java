@@ -13,29 +13,55 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import it.fattureincloud.sdk.model.WebhooksSubscription;
-import java.io.IOException;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
  * Model tests for GetWebhooksSubscriptionResponse
  */
 public class GetWebhooksSubscriptionResponseTest {
-    private final GetWebhooksSubscriptionResponse model = new GetWebhooksSubscriptionResponse();
+    private GetWebhooksSubscriptionResponse model;
+
+    @BeforeEach
+    public void init() {
+        ArrayList<EventType> types = new ArrayList<>();
+        types.add(EventType.CASHBOOK_CREATE);
+        model =
+                new GetWebhooksSubscriptionResponse()
+                        .data(
+                                new WebhooksSubscription()
+                                        .id("SUB123")
+                                        .sink("https://endpoint.test")
+                                        .verified(true)
+                                        .types(types)
+                        );
+    }
 
     /**
      * Model tests for GetWebhooksSubscriptionResponse
      */
     @Test
     public void testGetWebhooksSubscriptionResponse() {
-        // TODO: test GetWebhooksSubscriptionResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]}}";
+        assertEquals(str, json);
+        GetWebhooksSubscriptionResponse generated = gson.fromJson(str, GetWebhooksSubscriptionResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +69,14 @@ public class GetWebhooksSubscriptionResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("SUB123", model.getData().getId());
+        model.setData(new WebhooksSubscription().id("SUB1"));
+        assertEquals("SUB1", model.getData().getId());
+
+        model.data(new WebhooksSubscription().id("SUB2"));
+        GetWebhooksSubscriptionResponse actual = new GetWebhooksSubscriptionResponse();
+        actual.setData(new WebhooksSubscription().id("SUB2"));
+        assertEquals(model.getData(), actual.getData());
     }
 
 }
