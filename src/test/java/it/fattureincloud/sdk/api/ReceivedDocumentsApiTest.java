@@ -12,17 +12,18 @@
 
 package it.fattureincloud.sdk.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import okhttp3.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /** API tests for ReceivedDocumentsApi */
 public class ReceivedDocumentsApiTest {
@@ -73,7 +74,7 @@ public class ReceivedDocumentsApiTest {
         new ReceivedDocument()
             .id(12)
             .type(ReceivedDocumentType.EXPENSE)
-            .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+            .entity(new Entity().id(1).name("neim"))
             .date(LocalDate.of(2021, 12, 25))
             .category("cat5")
             .description("Ricarica")
@@ -226,7 +227,7 @@ public class ReceivedDocumentsApiTest {
                 new ReceivedDocument()
                     .id(12)
                     .type(ReceivedDocumentType.EXPENSE)
-                    .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+                    .entity(new Entity().id(1).name("neim"))
                     .date(LocalDate.of(2021, 12, 25))
                     .category("cat5")
                     .description("Ricarica")
@@ -290,7 +291,7 @@ public class ReceivedDocumentsApiTest {
         new ReceivedDocument()
             .id(12)
             .type(ReceivedDocumentType.EXPENSE)
-            .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+            .entity(new Entity().id(1).name("neim"))
             .date(LocalDate.of(2021, 12, 25))
             .category("cat5")
             .description("Ricarica")
@@ -386,7 +387,7 @@ public class ReceivedDocumentsApiTest {
         new ReceivedDocument()
             .id(1)
             .type(ReceivedDocumentType.EXPENSE)
-            .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+            .entity(new Entity().id(1).name("neim"))
             .date(LocalDate.of(2021, 12, 25))
             .category("cat6")
             .description("Ricarica")
@@ -421,7 +422,7 @@ public class ReceivedDocumentsApiTest {
         new ReceivedDocument()
             .id(1)
             .type(ReceivedDocumentType.EXPENSE)
-            .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+            .entity(new Entity().id(1).name("neim"))
             .date(LocalDate.of(2021, 12, 25))
             .category("cat6")
             .description("Ricarica")
@@ -496,7 +497,7 @@ public class ReceivedDocumentsApiTest {
         new ReceivedDocument()
             .id(12)
             .type(ReceivedDocumentType.EXPENSE)
-            .entity(new ReceivedDocumentEntity().id(1).name("neim"))
+            .entity(new Entity().id(1).name("neim"))
             .date(LocalDate.of(2021, 12, 25))
             .category("cat5")
             .description("Ricarica")

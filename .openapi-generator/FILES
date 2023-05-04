@@ -48,6 +48,8 @@ docs/CreateSupplierRequest.md
 docs/CreateSupplierResponse.md
 docs/CreateVatTypeRequest.md
 docs/CreateVatTypeResponse.md
+docs/CreateWebhooksSubscriptionRequest.md
+docs/CreateWebhooksSubscriptionResponse.md
 docs/Currency.md
 docs/DetailedCountry.md
 docs/DocumentTemplate.md
@@ -63,6 +65,7 @@ docs/EmailStatus.md
 docs/EmailsApi.md
 docs/Entity.md
 docs/EntityType.md
+docs/EventType.md
 docs/F24.md
 docs/F24Status.md
 docs/FunctionStatus.md
@@ -96,6 +99,7 @@ docs/GetUserInfoResponse.md
 docs/GetUserInfoResponseEmailConfirmationState.md
 docs/GetUserInfoResponseInfo.md
 docs/GetVatTypeResponse.md
+docs/GetWebhooksSubscriptionResponse.md
 docs/InfoApi.md
 docs/IssuedDocument.md
 docs/IssuedDocumentEiData.md
@@ -154,6 +158,7 @@ docs/ListUnitsOfMeasureResponse.md
 docs/ListUserCompaniesResponse.md
 docs/ListUserCompaniesResponseData.md
 docs/ListVatTypesResponse.md
+docs/ListWebhooksSubscriptionsResponse.md
 docs/ModifyArchiveDocumentRequest.md
 docs/ModifyArchiveDocumentResponse.md
 docs/ModifyCashbookEntryRequest.md
@@ -178,6 +183,8 @@ docs/ModifySupplierRequest.md
 docs/ModifySupplierResponse.md
 docs/ModifyVatTypeRequest.md
 docs/ModifyVatTypeResponse.md
+docs/ModifyWebhooksSubscriptionRequest.md
+docs/ModifyWebhooksSubscriptionResponse.md
 docs/MonthlyTotal.md
 docs/OriginalDocumentType.md
 docs/Pagination.md
@@ -198,7 +205,6 @@ docs/ReceiptPreCreateInfo.md
 docs/ReceiptType.md
 docs/ReceiptsApi.md
 docs/ReceivedDocument.md
-docs/ReceivedDocumentEntity.md
 docs/ReceivedDocumentInfo.md
 docs/ReceivedDocumentInfoDefaultValues.md
 docs/ReceivedDocumentInfoItemsDefaultValues.md
@@ -238,6 +244,8 @@ docs/VerifyEInvoiceXmlErrorResponseErrorValidationResult.md
 docs/VerifyEInvoiceXmlErrorResponseExtra.md
 docs/VerifyEInvoiceXmlResponse.md
 docs/VerifyEInvoiceXmlResponseData.md
+docs/WebhooksApi.md
+docs/WebhooksSubscription.md
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -273,6 +281,7 @@ src/main/java/it/fattureincloud/sdk/api/SettingsApi.java
 src/main/java/it/fattureincloud/sdk/api/SuppliersApi.java
 src/main/java/it/fattureincloud/sdk/api/TaxesApi.java
 src/main/java/it/fattureincloud/sdk/api/UserApi.java
+src/main/java/it/fattureincloud/sdk/api/WebhooksApi.java
 src/main/java/it/fattureincloud/sdk/auth/Authentication.java
 src/main/java/it/fattureincloud/sdk/auth/OAuth.java
 src/main/java/it/fattureincloud/sdk/model/AbstractOpenApiSchema.java
@@ -318,6 +327,8 @@ src/main/java/it/fattureincloud/sdk/model/CreateSupplierRequest.java
 src/main/java/it/fattureincloud/sdk/model/CreateSupplierResponse.java
 src/main/java/it/fattureincloud/sdk/model/CreateVatTypeRequest.java
 src/main/java/it/fattureincloud/sdk/model/CreateVatTypeResponse.java
+src/main/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionRequest.java
+src/main/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionResponse.java
 src/main/java/it/fattureincloud/sdk/model/Currency.java
 src/main/java/it/fattureincloud/sdk/model/DetailedCountry.java
 src/main/java/it/fattureincloud/sdk/model/DocumentTemplate.java
@@ -332,6 +343,7 @@ src/main/java/it/fattureincloud/sdk/model/EmailScheduleInclude.java
 src/main/java/it/fattureincloud/sdk/model/EmailStatus.java
 src/main/java/it/fattureincloud/sdk/model/Entity.java
 src/main/java/it/fattureincloud/sdk/model/EntityType.java
+src/main/java/it/fattureincloud/sdk/model/EventType.java
 src/main/java/it/fattureincloud/sdk/model/F24.java
 src/main/java/it/fattureincloud/sdk/model/F24Status.java
 src/main/java/it/fattureincloud/sdk/model/FunctionStatus.java
@@ -365,6 +377,7 @@ src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseEmailConfirmationState.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseInfo.java
 src/main/java/it/fattureincloud/sdk/model/GetVatTypeResponse.java
+src/main/java/it/fattureincloud/sdk/model/GetWebhooksSubscriptionResponse.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocument.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentEiData.java
 src/main/java/it/fattureincloud/sdk/model/IssuedDocumentExtraData.java
@@ -420,6 +433,7 @@ src/main/java/it/fattureincloud/sdk/model/ListUnitsOfMeasureResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListUserCompaniesResponse.java
 src/main/java/it/fattureincloud/sdk/model/ListUserCompaniesResponseData.java
 src/main/java/it/fattureincloud/sdk/model/ListVatTypesResponse.java
+src/main/java/it/fattureincloud/sdk/model/ListWebhooksSubscriptionsResponse.java
 src/main/java/it/fattureincloud/sdk/model/ModifyArchiveDocumentRequest.java
 src/main/java/it/fattureincloud/sdk/model/ModifyArchiveDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/ModifyCashbookEntryRequest.java
@@ -444,6 +458,8 @@ src/main/java/it/fattureincloud/sdk/model/ModifySupplierRequest.java
 src/main/java/it/fattureincloud/sdk/model/ModifySupplierResponse.java
 src/main/java/it/fattureincloud/sdk/model/ModifyVatTypeRequest.java
 src/main/java/it/fattureincloud/sdk/model/ModifyVatTypeResponse.java
+src/main/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionRequest.java
+src/main/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionResponse.java
 src/main/java/it/fattureincloud/sdk/model/MonthlyTotal.java
 src/main/java/it/fattureincloud/sdk/model/OriginalDocumentType.java
 src/main/java/it/fattureincloud/sdk/model/Pagination.java
@@ -462,7 +478,6 @@ src/main/java/it/fattureincloud/sdk/model/ReceiptItemsListItem.java
 src/main/java/it/fattureincloud/sdk/model/ReceiptPreCreateInfo.java
 src/main/java/it/fattureincloud/sdk/model/ReceiptType.java
 src/main/java/it/fattureincloud/sdk/model/ReceivedDocument.java
-src/main/java/it/fattureincloud/sdk/model/ReceivedDocumentEntity.java
 src/main/java/it/fattureincloud/sdk/model/ReceivedDocumentInfo.java
 src/main/java/it/fattureincloud/sdk/model/ReceivedDocumentInfoDefaultValues.java
 src/main/java/it/fattureincloud/sdk/model/ReceivedDocumentInfoItemsDefaultValues.java
@@ -497,4 +512,13 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseErrorVal
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
-src/test/java/it/fattureincloud/sdk/model/SendEInvoiceRequestOptionsTest.java
+src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
+src/test/java/it/fattureincloud/sdk/api/WebhooksApiTest.java
+src/test/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionRequestTest.java
+src/test/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/EventTypeTest.java
+src/test/java/it/fattureincloud/sdk/model/GetWebhooksSubscriptionResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/ListWebhooksSubscriptionsResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionRequestTest.java
+src/test/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/WebhooksSubscriptionTest.java

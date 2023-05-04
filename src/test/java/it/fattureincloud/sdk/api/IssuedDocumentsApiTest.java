@@ -12,19 +12,20 @@
 
 package it.fattureincloud.sdk.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.*;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.Arrays;
 import okhttp3.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /** API tests for IssuedDocumentsApi */
 public class IssuedDocumentsApiTest {
@@ -240,7 +241,7 @@ public class IssuedDocumentsApiTest {
   @Test
   public void getIssuedDocumentPreCreateInfoTest() throws ApiException, IOException {
     String result =
-        "{\"data\":{\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}]}}";
+        "{\"data\":{\"numerations\":{},\"dn_numerations\":{},\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}]}}";
 
     Call mockCall = Mockito.mock(Call.class);
     IssuedDocumentsApi api = mockApi(result, mockCall);
@@ -249,8 +250,6 @@ public class IssuedDocumentsApiTest {
 
     IssuedDocumentPreCreateInfo issuedDocumentPreCreateInfo =
         new IssuedDocumentPreCreateInfo()
-            .numerations(null)
-            .dnNumerations(null)
             .defaultValues(
                 new IssuedDocumentPreCreateInfoDefaultValues()
                     .defaultTemplate(new DocumentTemplate().id(1))

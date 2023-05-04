@@ -12,14 +12,15 @@
 
 package it.fattureincloud.sdk.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
-import java.util.ArrayList;
-import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /** Model tests for ListUserCompaniesResponse */
 public class ListUserCompaniesResponseTest {
@@ -47,6 +48,8 @@ public class ListUserCompaniesResponseTest {
                                 .accessToken("fc3c89ba29a926f9ef20203577c00ada")
                                 .connectionId(94566)
                                 .controlledCompanies(new ArrayList<>()))));
+
+    r.getData().getCompanies().get(0).getId();
 
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
