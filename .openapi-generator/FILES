@@ -513,12 +513,3 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
-src/test/java/it/fattureincloud/sdk/api/WebhooksApiTest.java
-src/test/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionRequestTest.java
-src/test/java/it/fattureincloud/sdk/model/CreateWebhooksSubscriptionResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/EventTypeTest.java
-src/test/java/it/fattureincloud/sdk/model/GetWebhooksSubscriptionResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/ListWebhooksSubscriptionsResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionRequestTest.java
-src/test/java/it/fattureincloud/sdk/model/ModifyWebhooksSubscriptionResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/WebhooksSubscriptionTest.java
