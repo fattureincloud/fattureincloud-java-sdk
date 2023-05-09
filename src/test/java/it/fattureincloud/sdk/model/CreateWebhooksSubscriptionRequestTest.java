@@ -51,7 +51,7 @@ public class CreateWebhooksSubscriptionRequestTest {
         JSON jsonManager = new JSON();
         Gson gson = jsonManager.getGson();
         String json = gson.toJson(model);
-        String str = "{\"data\":{\"sink\":\"https://endpoint.test\",\"types\":[\"it.fattureincloud.cashbook.create\"]}}";
+        String str = "{\"data\":{\"sink\":\"https://endpoint.test\",\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]}}";
         assertEquals(str, json);
         CreateWebhooksSubscriptionRequest generated = gson.fromJson(str, CreateWebhooksSubscriptionRequest.class);
         assertEquals(model, generated);
