@@ -65,7 +65,7 @@ public class WebhooksApiTest {
      */
     @Test
     public void createWebhooksSubscriptionTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]},\"warnings\":[\"error\"]}";
+        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]},\"warnings\":[\"error\"]}";
         Call mockCall = Mockito.mock(Call.class);
         WebhooksApi api = mockApi(result, mockCall);
 
@@ -118,7 +118,7 @@ public class WebhooksApiTest {
      */
     @Test
     public void getWebhooksSubscriptionTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]}}";
+        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]}}";
         Call mockCall = Mockito.mock(Call.class);
         WebhooksApi api = mockApi(result, mockCall);
 
@@ -147,7 +147,7 @@ public class WebhooksApiTest {
      */
     @Test
     public void listWebhooksSubscriptionsTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]},{\"id\":\"SUB12345\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.update\"]}]}";
+        String result = "{\"data\":[{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]},{\"id\":\"SUB12345\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.update\"]}]}";
         Call mockCall = Mockito.mock(Call.class);
         WebhooksApi api = mockApi(result, mockCall);
 
@@ -184,7 +184,7 @@ public class WebhooksApiTest {
      */
     @Test
     public void modifyWebhooksSubscriptionTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.cashbook.create\"]},\"warnings\":[\"error\"]}";
+        String result = "{\"data\":{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]},\"warnings\":[\"error\"]}";
         Call mockCall = Mockito.mock(Call.class);
         WebhooksApi api = mockApi(result, mockCall);
 
