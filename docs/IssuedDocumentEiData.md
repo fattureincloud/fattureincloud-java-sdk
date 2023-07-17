@@ -2,7 +2,7 @@
 
 # IssuedDocumentEiData
 
-E-invoice data. [Only if e_invoice=true]
+Issued document e-invoice data [Only if e_invoice=true]
 
 ## Properties
 
@@ -10,16 +10,16 @@ E-invoice data. [Only if e_invoice=true]
 |------------ | ------------- | ------------- | -------------|
 |**vatKind** | **VatKind** |  |  [optional] |
 |**originalDocumentType** | **OriginalDocumentType** |  |  [optional] |
-|**odNumber** | **String** | Original document number. |  [optional] |
-|**odDate** | **LocalDate** | Original document date. |  [optional] |
-|**cig** | **String** | CIG. |  [optional] |
-|**cup** | **String** | CUP. |  [optional] |
-|**paymentMethod** | **String** | Payment method (see https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2.1/Rappresentazione-tabellare-fattura-ordinaria.pdf for the accepted values of ModalitaPagamento). |  [optional] |
-|**bankName** | **String** | Bank name. |  [optional] |
-|**bankIban** | **String** | IBAN. |  [optional] |
-|**bankBeneficiary** | **String** | Bank beneficiary. |  [optional] |
-|**invoiceNumber** | **String** | Invoice number. |  [optional] |
-|**invoiceDate** | **LocalDate** | Invoice date. |  [optional] |
+|**odNumber** | **String** | E-invoice original document number |  [optional] |
+|**odDate** | **LocalDate** | E-invoice original document date |  [optional] |
+|**cig** | **String** | E-invoice CIG |  [optional] |
+|**cup** | **String** | E-invoice CUP |  [optional] |
+|**paymentMethod** | **String** | E-invoice payment method [required for e-invoices](see https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2.2/Rappresentazione_Tabellare_FattOrdinaria_V1.2.2.pdf for the accepted values of ModalitaPagamento) |  [optional] |
+|**bankName** | **String** | E-invoice bank name |  [optional] |
+|**bankIban** | **String** | E-invoice bank IBAN |  [optional] |
+|**bankBeneficiary** | **String** | E-invoice bank beneficiary |  [optional] |
+|**invoiceNumber** | **String** | E-invoice invoice number |  [optional] |
+|**invoiceDate** | **LocalDate** | E-invoice invoice date |  [optional] |
 
 
 ## Implemented Interfaces

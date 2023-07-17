@@ -2,6 +2,7 @@
 
 # CompanyInfoPlanInfo
 
+Company plan info
 
 ## Properties
 

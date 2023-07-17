@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**postalCode** | **String** | City postal code. |  [optional] |
-|**city** | **String** | City name. |  [optional] |
-|**province** | **String** | Province. |  [optional] |
+|**postalCode** | **String** | City postal code |  [optional] |
+|**city** | **String** | City name |  [optional] |
+|**province** | **String** | City province |  [optional] |
 
 
 ## Implemented Interfaces

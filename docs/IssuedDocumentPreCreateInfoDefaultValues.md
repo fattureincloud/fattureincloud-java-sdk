@@ -2,7 +2,7 @@
 
 # IssuedDocumentPreCreateInfoDefaultValues
 
-Default values for the document.
+Issued document default values
 
 ## Properties
 

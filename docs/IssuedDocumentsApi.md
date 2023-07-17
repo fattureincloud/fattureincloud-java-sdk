@@ -1007,8 +1007,8 @@ public class Example {
 
     IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    String filename = "filename_example"; // String | Name of the file.
-    File attachment = new File("/path/to/file"); // File | Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx
+    String filename = "filename_example"; // String | Attachment file name
+    File attachment = new File("/path/to/file"); // File | Attachment file [.png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx]
     try {
       UploadIssuedDocumentAttachmentResponse result = apiInstance.uploadIssuedDocumentAttachment(companyId, filename, attachment);
       System.out.println(result);
@@ -1028,8 +1028,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **filename** | **String**| Name of the file. | [optional] |
-| **attachment** | **File**| Valid format: .png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx | [optional] |
+| **filename** | **String**| Attachment file name | [optional] |
+| **attachment** | **File**| Attachment file [.png, .jpg, .gif, .pdf, .zip, .xls, .xlsx, .doc, .docx] | [optional] |
 
 ### Return type
 

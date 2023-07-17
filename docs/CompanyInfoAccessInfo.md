@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**role** | **UserCompanyRole** |  |  [optional] |
 |**permissions** | [**Permissions**](Permissions.md) |  |  [optional] |
-|**throughAccountant** | **Boolean** |  |  [optional] |
+|**throughAccountant** | **Boolean** | Company activated through accountant |  [optional] |
 
 
 ## Implemented Interfaces

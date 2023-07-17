@@ -7,16 +7,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Cashbook unique identifier. |  [optional] |
-|**date** | **LocalDate** | Cashbook date. |  [optional] |
-|**description** | **String** | Cashbook description. |  [optional] |
+|**id** | **String** | Cashbook id |  [optional] |
+|**date** | **LocalDate** | Cashbook date |  [optional] |
+|**description** | **String** | Cashbook description |  [optional] |
 |**kind** | **CashbookEntryKind** |  |  [optional] |
 |**type** | **CashbookEntryType** |  |  [optional] |
-|**entityName** | **String** | Entity name. |  [optional] |
+|**entityName** | **String** | Cashbook entity name |  [optional] |
 |**document** | [**CashbookEntryDocument**](CashbookEntryDocument.md) |  |  [optional] |
-|**amountIn** | **BigDecimal** | [Only for cashbook entry in] Total amount in. |  [optional] |
+|**amountIn** | **BigDecimal** | [Only for cashbook entry in] Cashbook total amount in |  [optional] |
 |**paymentAccountIn** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional] |
-|**amountOut** | **BigDecimal** | [Only for cashbook entry out] Total amount out. |  [optional] |
+|**amountOut** | **BigDecimal** | [Only for cashbook entry out] Cashbook total amount out |  [optional] |
 |**paymentAccountOut** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional] |
 
 
