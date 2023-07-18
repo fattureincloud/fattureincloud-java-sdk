@@ -99,7 +99,7 @@ public class ReceivedDocumentsApiTest {
                     .dueDate(LocalDate.of(2021, 12, 25))
                     .paidDate(LocalDate.of(2021, 12, 25))
                     .paymentTerms(
-                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type("standard"))
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                     .status("paid")
                     .paymentAccount(new PaymentAccount().id(21)))
             .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
@@ -255,7 +255,7 @@ public class ReceivedDocumentsApiTest {
                             .paymentTerms(
                                 new ReceivedDocumentPaymentsListItemPaymentTerms()
                                     .days(0)
-                                    .type("standard"))
+                                    .type(PaymentTermsType.STANDARD))
                             .status("paid")
                             .paymentAccount(new PaymentAccount().id(21)))
                     .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
@@ -316,7 +316,7 @@ public class ReceivedDocumentsApiTest {
                     .dueDate(LocalDate.of(2021, 12, 25))
                     .paidDate(LocalDate.of(2021, 12, 25))
                     .paymentTerms(
-                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type("standard"))
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                     .status("paid")
                     .paymentAccount(new PaymentAccount().id(21)))
             .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
@@ -412,7 +412,7 @@ public class ReceivedDocumentsApiTest {
                     .dueDate(LocalDate.of(2021, 12, 25))
                     .paidDate(LocalDate.of(2021, 12, 25))
                     .paymentTerms(
-                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type("standard"))
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                     .status("paid")
                     .paymentAccount(new PaymentAccount().id(21)))
             .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
@@ -447,7 +447,7 @@ public class ReceivedDocumentsApiTest {
                     .dueDate(LocalDate.of(2021, 12, 25))
                     .paidDate(LocalDate.of(2021, 12, 25))
                     .paymentTerms(
-                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type("standard"))
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                     .status("paid")
                     .paymentAccount(new PaymentAccount().id(21)))
             .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
@@ -522,7 +522,7 @@ public class ReceivedDocumentsApiTest {
                     .dueDate(LocalDate.of(2021, 12, 25))
                     .paidDate(LocalDate.of(2021, 12, 25))
                     .paymentTerms(
-                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type("standard"))
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                     .status("paid")
                     .paymentAccount(new PaymentAccount().id(21)))
             .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))

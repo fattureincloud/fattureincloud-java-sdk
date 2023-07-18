@@ -46,7 +46,7 @@ public class ReceivedDocumentPaymentsListItemTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"id\":1,\"amount\":10,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":10},\"status\":\"oks\",\"payment_account\":{\"id\":1,\"type\":\"standard\"}}";
+        "{\"id\":1,\"amount\":10,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":10,\"type\":\"standard\"},\"status\":\"oks\",\"payment_account\":{\"id\":1,\"type\":\"standard\"}}";
     assertEquals(str, json);
     ReceivedDocumentPaymentsListItem generated =
         gson.fromJson(str, ReceivedDocumentPaymentsListItem.class);

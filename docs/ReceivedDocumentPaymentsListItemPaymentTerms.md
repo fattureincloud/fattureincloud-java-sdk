@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**days** | **Integer** | Number of days. |  [optional] |
-|**type** | **String** |  |  [optional] |
+|**days** | **Integer** | Received document payment number of days by which the payment must be made |  [optional] |
+|**type** | **PaymentTermsType** |  |  [optional] |
 
 
 ## Implemented Interfaces

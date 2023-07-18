@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**amountNet** | **BigDecimal** |  |  [optional] |
-|**amountVat** | **BigDecimal** |  |  [optional] |
+|**amountNet** | **BigDecimal** | Vat item net amount |  [optional] |
+|**amountVat** | **BigDecimal** | Vat item vat amount |  [optional] |
 
 
 ## Implemented Interfaces
