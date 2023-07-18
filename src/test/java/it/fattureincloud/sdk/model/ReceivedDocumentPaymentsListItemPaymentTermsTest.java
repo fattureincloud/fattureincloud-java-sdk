@@ -26,7 +26,7 @@ public class ReceivedDocumentPaymentsListItemPaymentTermsTest {
 
   @BeforeEach
   public void init() {
-    model = new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type("taip");
+    model = new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type(PaymentTermsType.STANDARD);
   }
 
   /** Model tests for ReceivedDocumentPaymentsListItemPaymentTerms */
@@ -35,7 +35,7 @@ public class ReceivedDocumentPaymentsListItemPaymentTermsTest {
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
-    String str = "{\"days\":10,\"type\":\"taip\"}";
+    String str = "{\"days\":10,\"type\":\"standard\"}";
     assertEquals(str, json);
     ReceivedDocumentPaymentsListItemPaymentTerms generated =
         gson.fromJson(str, ReceivedDocumentPaymentsListItemPaymentTerms.class);
@@ -56,20 +56,20 @@ public class ReceivedDocumentPaymentsListItemPaymentTermsTest {
 
     ReceivedDocumentPaymentsListItemPaymentTerms i = model.days(10);
     ReceivedDocumentPaymentsListItemPaymentTerms expected =
-        new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type("taip");
+        new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type(PaymentTermsType.STANDARD);
     assertEquals(expected, i);
   }
 
   /** Test the property 'type' */
   @Test
   public void typeTest() {
-    assertEquals("taip", model.getType());
-    model.setType("taipV2");
-    assertEquals("taipV2", model.getType());
+    assertEquals(PaymentTermsType.STANDARD, model.getType());
+    model.setType(PaymentTermsType.END_OF_MONTH);
+    assertEquals(PaymentTermsType.END_OF_MONTH, model.getType());
 
-    ReceivedDocumentPaymentsListItemPaymentTerms i = model.type("taip");
+    ReceivedDocumentPaymentsListItemPaymentTerms i = model.type(PaymentTermsType.STANDARD);
     ReceivedDocumentPaymentsListItemPaymentTerms expected =
-        new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type("taip");
+        new ReceivedDocumentPaymentsListItemPaymentTerms().days(10).type(PaymentTermsType.STANDARD);
     assertEquals(expected, i);
   }
 }

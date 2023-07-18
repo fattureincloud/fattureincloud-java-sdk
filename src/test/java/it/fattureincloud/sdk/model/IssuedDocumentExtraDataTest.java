@@ -41,8 +41,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
   }
 
   /** Model tests for IssuedDocumentExtraData */
@@ -52,7 +51,7 @@ public class IssuedDocumentExtraDataTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"show_sofort_button\":true,\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\",\"ts_single_sending\":true}";
+        "{\"show_sofort_button\":true,\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\"}";
     assertEquals(str, json);
     IssuedDocumentExtraData generated = gson.fromJson(str, IssuedDocumentExtraData.class);
     assertEquals(model, generated);
@@ -84,8 +83,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
   }
 
   /** Test the property 'multifattureSent' */
@@ -109,8 +107,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -135,8 +132,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -161,8 +157,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -187,8 +182,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -213,8 +207,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -239,8 +232,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -265,8 +257,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -291,8 +282,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -317,8 +307,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -343,8 +332,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 
@@ -369,34 +357,7 @@ public class IssuedDocumentExtraDataTest {
             .tsStatus(5)
             .tsFileId("str")
             .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
-    assertEquals(expected, i);
-  }
-
-  /** Test the property 'tsSingleSending' */
-  @Test
-  public void tsSingleSendingTest() {
-    assertEquals("me", model.getImportedBy());
-    model.setImportedBy("him");
-    assertEquals("him", model.getImportedBy());
-
-    IssuedDocumentExtraData i = model.importedBy("me");
-    IssuedDocumentExtraData expected =
-        new IssuedDocumentExtraData()
-            .showSofortButton(true)
-            .multifattureSent(5)
-            .tsCommunication(true)
-            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-            .tsPagamentoTracciato(true)
-            .tsTipoSpesa("TK")
-            .tsOpposizione(true)
-            .tsFullAmount(true)
-            .tsStatus(5)
-            .tsFileId("str")
-            .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me")
-            .tsSingleSending(true);
+            .importedBy("me");
     assertEquals(expected, i);
   }
 }
