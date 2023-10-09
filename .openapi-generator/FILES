@@ -246,6 +246,8 @@ docs/VerifyEInvoiceXmlResponse.md
 docs/VerifyEInvoiceXmlResponseData.md
 docs/WebhooksApi.md
 docs/WebhooksSubscription.md
+docs/WebhooksSubscriptionConfig.md
+docs/WebhooksSubscriptionMapping.md
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -513,3 +515,7 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlErrorResponseExtra.ja
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponse.java
 src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
+src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfig.java
+src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMapping.java
+src/test/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfigTest.java
+src/test/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMappingTest.java

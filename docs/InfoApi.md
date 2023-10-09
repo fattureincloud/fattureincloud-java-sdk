@@ -739,7 +739,7 @@ public class Example {
 
     InfoApi apiInstance = new InfoApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    String context = "products"; // String | 
+    String context = "products"; // String | Categories resource type.
     try {
       ListProductCategoriesResponse result = apiInstance.listProductCategories(companyId, context);
       System.out.println(result);
@@ -759,7 +759,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **context** | **String**|  | [enum: products, issued_documents, received_documents] |
+| **context** | **String**| Categories resource type. | [enum: products, issued_documents, received_documents] |
 
 ### Return type
 

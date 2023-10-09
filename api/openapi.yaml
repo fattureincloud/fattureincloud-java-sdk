@@ -12,7 +12,7 @@ info:
     name: MIT
     url: https://github.com/fattureincloud/openapi-fattureincloud/blob/master/LICENSE
   title: Fatture in Cloud API v2 - API Reference
-  version: 2.0.29
+  version: 2.0.30
 servers:
 - url: https://api-v2.fattureincloud.it
 security:
@@ -4606,7 +4606,7 @@ paths:
           description: Pre-create info.
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Get Issued Document Pre-create info
+      summary: Get Issued Document Pre-Create Info
       tags:
       - Issued Documents
       x-accepts: application/json
@@ -4793,7 +4793,7 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Send the e-invoice
+      summary: Send E-Invoice
       tags:
       - Issued e-invoices
       x-content-type: application/json
@@ -4845,7 +4845,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Verify e-invoice XML
+      summary: Verify E-Invoice XML
       tags:
       - Issued e-invoices
       x-accepts: application/json
@@ -4892,7 +4892,7 @@ paths:
           description: Not Found
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Get e-invoice XML
+      summary: Get E-Invoice XML
       tags:
       - Issued e-invoices
       x-accepts: text/xml
@@ -4937,7 +4937,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Get e-invoice rejection reason
+      summary: Get E-Invoice Rejection Reason
       tags:
       - Issued e-invoices
       x-accepts: application/json
@@ -9098,7 +9098,8 @@ paths:
           example: 12345
           type: integer
         style: simple
-      - explode: true
+      - description: Categories resource type.
+        explode: true
         in: query
         name: context
         required: true
@@ -10044,7 +10045,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Transform issued document
+      summary: Transform Issued Document
       tags:
       - Issued Documents
       x-accepts: application/json
@@ -10222,7 +10223,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: Join issued documents
+      summary: Join Issued Documents
       tags:
       - Issued Documents
       x-accepts: application/json
@@ -10296,7 +10297,7 @@ paths:
           description: Example response
       security:
       - OAuth2AuthenticationCodeFlow: []
-      summary: List emails
+      summary: List Emails
       tags:
       - Emails
       x-accepts: application/json
@@ -16488,6 +16489,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
           contact_person: contact_person
           address_postal_code: "24010"
@@ -16569,6 +16571,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
           contact_person: contact_person
           address_postal_code: "24010"
@@ -16650,6 +16653,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
           contact_person: contact_person
           address_postal_code: "24010"
@@ -16732,6 +16736,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
           contact_person: contact_person
           address_postal_code: "24010"
@@ -16813,6 +16818,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
           contact_person: contact_person
           address_postal_code: "24010"
@@ -16891,6 +16897,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
       properties:
         data:
@@ -16922,6 +16929,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
       properties:
         data:
@@ -16953,6 +16961,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
       properties:
         data:
@@ -16984,6 +16993,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
       properties:
         data:
@@ -17015,6 +17025,7 @@ components:
           fax: fax
           first_name: first_name
           bank_iban: bank_iban
+          country_iso: Italia
           email: mario.rossi@example.it
       properties:
         data:
@@ -17308,6 +17319,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -17637,6 +17649,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -17956,6 +17969,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -18276,6 +18290,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -18605,6 +18620,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -18924,6 +18940,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -19272,6 +19289,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -19958,6 +19976,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -20148,6 +20167,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -20332,6 +20352,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -20516,6 +20537,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -20700,6 +20722,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -20884,6 +20907,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -21084,6 +21108,7 @@ components:
             id: EUR
           id: 0
           amount_other_withholding_tax: 5.637376656633329
+          locked: true
           invoice_number: invoice_number
           vat_deductibility: 3.616076749251911
           attachment_token: attachment_token
@@ -22875,6 +22900,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -23204,6 +23230,7 @@ components:
             name: Light Smoke
             id: 123
             type: type
+          locked: true
           show_tspay_button: true
           payment_method:
             default_payment_account:
@@ -23450,12 +23477,16 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
         - types:
           - null
           - null
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
       properties:
         data:
           items:
@@ -23472,6 +23503,8 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
       properties:
         data:
           $ref: '#/components/schemas/WebhooksSubscription'
@@ -23486,6 +23519,8 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
         warnings:
         - warnings
         - warnings
@@ -23509,6 +23544,8 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
       properties:
         data:
           $ref: '#/components/schemas/WebhooksSubscription'
@@ -23523,6 +23560,8 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
       properties:
         data:
           $ref: '#/components/schemas/WebhooksSubscription'
@@ -23537,6 +23576,8 @@ components:
           sink: sink
           verified: true
           id: id
+          config:
+            mapping: null
         warnings:
         - warnings
         - warnings
@@ -23861,6 +23902,7 @@ components:
         fax: fax
         first_name: first_name
         bank_iban: bank_iban
+        country_iso: Italia
         email: mario.rossi@example.it
         contact_person: contact_person
         address_postal_code: "24010"
@@ -23969,6 +24011,11 @@ components:
           type: string
         country:
           description: Client country
+          example: Italia
+          nullable: true
+          type: string
+        country_iso:
+          description: Client country iso code
           example: Italia
           nullable: true
           type: string
@@ -24094,6 +24141,7 @@ components:
         fax: fax
         first_name: first_name
         bank_iban: bank_iban
+        country_iso: Italia
         email: mario.rossi@example.it
       properties:
         id:
@@ -24160,6 +24208,11 @@ components:
           type: string
         country:
           description: Supplier country
+          example: Italia
+          nullable: true
+          type: string
+        country_iso:
+          description: Supplier country iso code
           example: Italia
           nullable: true
           type: string
@@ -24423,6 +24476,7 @@ components:
           name: Light Smoke
           id: 123
           type: type
+        locked: true
         show_tspay_button: true
         payment_method:
           default_payment_account:
@@ -25042,6 +25096,10 @@ components:
           - manual_rejected
           nullable: true
           type: string
+        locked:
+          description: Issued Document can't be edited
+          nullable: true
+          type: boolean
         created_at:
           description: Issued document creation date
           nullable: true
@@ -25710,6 +25768,7 @@ components:
           id: EUR
         id: 0
         amount_other_withholding_tax: 5.637376656633329
+        locked: true
         invoice_number: invoice_number
         vat_deductibility: 3.616076749251911
         attachment_token: attachment_token
@@ -25918,6 +25977,10 @@ components:
             Received document attachment token returned by POST /received_documents/attachment
           nullable: true
           type: string
+        locked:
+          description: Received Document can't be edited
+          nullable: true
+          type: boolean
         created_at:
           description: Received document creation date
           nullable: true
@@ -26780,6 +26843,8 @@ components:
         sink: sink
         verified: true
         id: id
+        config:
+          mapping: null
       properties:
         id:
           description: Webhooks subscription id
@@ -26799,6 +26864,8 @@ components:
             $ref: '#/components/schemas/EventType'
           nullable: true
           type: array
+        config:
+          $ref: '#/components/schemas/WebhooksSubscriptionConfig'
       title: WebhooksSubscription
       type: object
     CompanyType:
@@ -27808,6 +27875,7 @@ components:
       - it.fattureincloud.webhooks.products.create
       - it.fattureincloud.webhooks.products.update
       - it.fattureincloud.webhooks.products.delete
+      - it.fattureincloud.webhooks.products.stock_update
       - it.fattureincloud.webhooks.entities.clients.create
       - it.fattureincloud.webhooks.entities.clients.update
       - it.fattureincloud.webhooks.entities.clients.delete
@@ -27817,10 +27885,18 @@ components:
       - it.fattureincloud.webhooks.entities.all.create
       - it.fattureincloud.webhooks.entities.all.update
       - it.fattureincloud.webhooks.entities.all.delete
-      - it.fattureincloud.webhooks.issued_documents.e_invoices
-      - it.fattureincloud.webhooks.received_documents.e_invoices
+      - it.fattureincloud.webhooks.issued_documents.e_invoices.status_update
+      - it.fattureincloud.webhooks.received_documents.e_invoices.status_update
       title: EventType
       type: string
+    WebhooksSubscriptionConfig:
+      example:
+        mapping: null
+      properties:
+        mapping:
+          $ref: '#/components/schemas/WebhooksSubscriptionMapping'
+      title: WebhooksSubscriptionConfig
+      type: object
     PermissionLevel:
       description: Permission level
       enum:
@@ -27895,6 +27971,13 @@ components:
           type: string
       title: EmailAttachment
       type: object
+    WebhooksSubscriptionMapping:
+      description: Webhooks Subscription mapping
+      enum:
+      - binary
+      - structured
+      title: WebhooksSubscriptionMapping
+      type: string
     GetUserInfoResponse_info:
       example:
         need_password_change: true
@@ -28299,7 +28382,7 @@ components:
           nullable: true
           type: string
         payment_method:
-          description: "E-invoice payment method [required for e-invoices](see https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2.2/Rappresentazione_Tabellare_FattOrdinaria_V1.2.2.pdf\
+          description: "E-invoice payment method [required for e-invoices] (see [here](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2.2/Rappresentazione_Tabellare_FattOrdinaria_V1.2.2.pdf)\
             \ for the accepted values of ModalitaPagamento)"
           nullable: true
           type: string
