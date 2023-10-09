@@ -13,29 +13,43 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import it.fattureincloud.sdk.model.WebhooksSubscriptionMapping;
-import java.io.IOException;
-import java.util.Arrays;
-import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for WebhooksSubscriptionConfig
  */
 public class WebhooksSubscriptionConfigTest {
-    private final WebhooksSubscriptionConfig model = new WebhooksSubscriptionConfig();
+    private WebhooksSubscriptionConfig model;
+
+    @BeforeEach
+    public void init() {
+        model = new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY);
+    }
 
     /**
      * Model tests for WebhooksSubscriptionConfig
      */
     @Test
     public void testWebhooksSubscriptionConfig() {
-        // TODO: test WebhooksSubscriptionConfig
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"mapping\":\"binary\"}";
+        assertEquals(str, json);
+        WebhooksSubscriptionConfig generated = gson.fromJson(str, WebhooksSubscriptionConfig.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +57,14 @@ public class WebhooksSubscriptionConfigTest {
      */
     @Test
     public void mappingTest() {
-        // TODO: test mapping
+        assertEquals(WebhooksSubscriptionMapping.BINARY, model.getMapping());
+        model.setMapping(WebhooksSubscriptionMapping.STRUCTURED);
+        assertEquals(WebhooksSubscriptionMapping.STRUCTURED, model.getMapping());
+
+        model.mapping(WebhooksSubscriptionMapping.BINARY);
+        WebhooksSubscriptionConfig actual = new WebhooksSubscriptionConfig();
+        actual.setMapping(WebhooksSubscriptionMapping.BINARY);
+        assertEquals(model, actual);
     }
 
 }

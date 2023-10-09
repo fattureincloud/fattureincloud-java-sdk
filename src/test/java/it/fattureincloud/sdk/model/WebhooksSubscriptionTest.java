@@ -39,7 +39,10 @@ public class WebhooksSubscriptionTest {
             .id("SUB123")
             .sink("https://endpoint.test")
             .verified(true)
-            .types(types);
+            .types(types)
+            .config(
+              new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY)
+            );
     }
 
     /**
@@ -50,7 +53,7 @@ public class WebhooksSubscriptionTest {
       JSON jsonManager = new JSON();
       Gson gson = jsonManager.getGson();
       String json = gson.toJson(model);
-      String str = "{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"]}";
+      String str = "{\"id\":\"SUB123\",\"sink\":\"https://endpoint.test\",\"verified\":true,\"types\":[\"it.fattureincloud.webhooks.cashbook.create\"],\"config\":{\"mapping\":\"binary\"}}";
       assertEquals(str, json);
       WebhooksSubscription generated = gson.fromJson(str, WebhooksSubscription.class);
       assertEquals(model, generated);
@@ -78,7 +81,10 @@ public class WebhooksSubscriptionTest {
                       .id("SUB12345")
                       .sink("https://endpoint.test")
                       .verified(true)
-                      .types(types);
+                      .types(types)
+                      .config(
+                              new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY)
+                      );
       assertEquals(expected, a);
     }
 
@@ -99,7 +105,10 @@ public class WebhooksSubscriptionTest {
                       .id("SUB123")
                       .sink("https://endpoint3.test")
                       .verified(true)
-                      .types(types);
+                      .types(types)
+                      .config(
+                              new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY)
+                      );
       assertEquals(expected, a);
     }
 
@@ -120,7 +129,10 @@ public class WebhooksSubscriptionTest {
                       .id("SUB123")
                       .sink("https://endpoint.test")
                       .verified(true)
-                      .types(types);
+                      .types(types)
+                      .config(
+                              new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY)
+                      );
       assertEquals(expected, a);
     }
 
@@ -144,8 +156,26 @@ public class WebhooksSubscriptionTest {
                       .id("SUB123")
                       .sink("https://endpoint.test")
                       .verified(true)
-                      .types(types);
+                      .types(types)
+                      .config(
+                              new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY)
+                      );
       assertEquals(expected, a);
+    }
+
+    /**
+     * Test the property 'config'
+     */
+    @Test
+    public void configTest() {
+      assertEquals("binary", model.getConfig().getMapping().getValue());
+      model.setConfig(new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.STRUCTURED));
+      assertEquals("structured", model.getConfig().getMapping().getValue());
+
+      model.config(new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY));
+      WebhooksSubscription actual = new WebhooksSubscription();
+      actual.setConfig(new WebhooksSubscriptionConfig().mapping(WebhooksSubscriptionMapping.BINARY));
+      assertEquals(model.getConfig(), actual.getConfig());
     }
 
 }

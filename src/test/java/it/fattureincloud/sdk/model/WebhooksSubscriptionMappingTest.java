@@ -13,8 +13,9 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -26,7 +27,23 @@ public class WebhooksSubscriptionMappingTest {
      */
     @Test
     public void testWebhooksSubscriptionMapping() {
-        // TODO: test WebhooksSubscriptionMapping
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"binary\"", gson.toJson(WebhooksSubscriptionMapping.BINARY));
+        assertEquals("\"structured\"", gson.toJson(WebhooksSubscriptionMapping.STRUCTURED));
+
+        assertEquals(WebhooksSubscriptionMapping.BINARY, gson.fromJson("\"binary\"", WebhooksSubscriptionMapping.class));
+        assertEquals(WebhooksSubscriptionMapping.STRUCTURED, gson.fromJson("\"structured\"", WebhooksSubscriptionMapping.class));
+
+        assertEquals("binary", WebhooksSubscriptionMapping.BINARY.getValue());
+        assertEquals("structured", WebhooksSubscriptionMapping.STRUCTURED.getValue());
+
+        assertEquals("binary", WebhooksSubscriptionMapping.BINARY.toString());
+        assertEquals("structured", WebhooksSubscriptionMapping.STRUCTURED.toString());
+
+        assertEquals(WebhooksSubscriptionMapping.BINARY, WebhooksSubscriptionMapping.fromValue("binary"));
+        assertEquals(WebhooksSubscriptionMapping.STRUCTURED, WebhooksSubscriptionMapping.fromValue("structured"));
     }
 
 }
