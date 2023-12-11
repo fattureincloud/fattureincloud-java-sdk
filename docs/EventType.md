@@ -89,6 +89,12 @@
 
 * `TAXES_DELETE` (value: `"it.fattureincloud.webhooks.taxes.delete"`)
 
+* `ARCHIVE_DOCUMENTS_CREATE` (value: `"it.fattureincloud.webhooks.archive_documents.create"`)
+
+* `ARCHIVE_DOCUMENTS_UPDATE` (value: `"it.fattureincloud.webhooks.archive_documents.update"`)
+
+* `ARCHIVE_DOCUMENTS_DELETE` (value: `"it.fattureincloud.webhooks.archive_documents.delete"`)
+
 * `CASHBOOK_CREATE` (value: `"it.fattureincloud.webhooks.cashbook.create"`)
 
 * `CASHBOOK_UPDATE` (value: `"it.fattureincloud.webhooks.cashbook.update"`)
@@ -123,7 +129,7 @@
 
 * `ISSUED_DOCUMENTS_E_INVOICES_STATUS_UPDATE` (value: `"it.fattureincloud.webhooks.issued_documents.e_invoices.status_update"`)
 
-* `RECEIVED_DOCUMENTS_E_INVOICES_STATUS_UPDATE` (value: `"it.fattureincloud.webhooks.received_documents.e_invoices.status_update"`)
+* `RECEIVED_DOCUMENTS_E_INVOICES_RECEIVE` (value: `"it.fattureincloud.webhooks.received_documents.e_invoices.receive"`)
 
 
 
