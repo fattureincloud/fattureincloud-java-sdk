@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.30
+- API version: 2.0.31
 
-- Build date: 2023-10-03T08:26:02.123402Z[Etc/UTC]
+- Build date: 2023-12-11T13:42:26.096601Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.19</version>
+  <version>2.0.20</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.19"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.20"
   }
 ```
 
