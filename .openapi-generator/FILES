@@ -22,6 +22,7 @@ docs/CompanyInfoPlanInfo.md
 docs/CompanyInfoPlanInfoFunctions.md
 docs/CompanyInfoPlanInfoFunctionsStatus.md
 docs/CompanyInfoPlanInfoLimits.md
+docs/CompanyPlanUsage.md
 docs/CompanyType.md
 docs/ControlledCompany.md
 docs/CreateArchiveDocumentRequest.md
@@ -68,11 +69,13 @@ docs/EntityType.md
 docs/EventType.md
 docs/F24.md
 docs/F24Status.md
+docs/FattureInCloudPlanType.md
 docs/FunctionStatus.md
 docs/GetArchiveDocumentResponse.md
 docs/GetCashbookEntryResponse.md
 docs/GetClientResponse.md
 docs/GetCompanyInfoResponse.md
+docs/GetCompanyPlanUsageResponse.md
 docs/GetEInvoiceRejectionReasonResponse.md
 docs/GetEmailDataResponse.md
 docs/GetExistingIssuedDocumentTotalsRequest.md
@@ -303,6 +306,7 @@ src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfo.java
 src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoFunctions.java
 src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoFunctionsStatus.java
 src/main/java/it/fattureincloud/sdk/model/CompanyInfoPlanInfoLimits.java
+src/main/java/it/fattureincloud/sdk/model/CompanyPlanUsage.java
 src/main/java/it/fattureincloud/sdk/model/CompanyType.java
 src/main/java/it/fattureincloud/sdk/model/ControlledCompany.java
 src/main/java/it/fattureincloud/sdk/model/CreateArchiveDocumentRequest.java
@@ -348,11 +352,13 @@ src/main/java/it/fattureincloud/sdk/model/EntityType.java
 src/main/java/it/fattureincloud/sdk/model/EventType.java
 src/main/java/it/fattureincloud/sdk/model/F24.java
 src/main/java/it/fattureincloud/sdk/model/F24Status.java
+src/main/java/it/fattureincloud/sdk/model/FattureInCloudPlanType.java
 src/main/java/it/fattureincloud/sdk/model/FunctionStatus.java
 src/main/java/it/fattureincloud/sdk/model/GetArchiveDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetCashbookEntryResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetClientResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetCompanyInfoResponse.java
+src/main/java/it/fattureincloud/sdk/model/GetCompanyPlanUsageResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetEInvoiceRejectionReasonResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetEmailDataResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetExistingIssuedDocumentTotalsRequest.java
@@ -517,3 +523,6 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfig.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMapping.java
+src/test/java/it/fattureincloud/sdk/model/CompanyPlanUsageTest.java
+src/test/java/it/fattureincloud/sdk/model/FattureInCloudPlanTypeTest.java
+src/test/java/it/fattureincloud/sdk/model/GetCompanyPlanUsageResponseTest.java
