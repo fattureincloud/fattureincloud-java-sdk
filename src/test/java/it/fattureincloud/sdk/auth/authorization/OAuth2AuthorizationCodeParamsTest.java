@@ -1,10 +1,11 @@
-package it.fattureincloud.sdk.auth;
+package it.fattureincloud.sdk.auth.authorization;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
+import it.fattureincloud.sdk.auth.authorization.OAuth2AuthorizationCodeParams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

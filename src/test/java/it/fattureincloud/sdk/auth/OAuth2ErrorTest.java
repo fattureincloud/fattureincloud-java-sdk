@@ -9,20 +9,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Tests for OAuth2AuthorizationCodeError */
-public class OAuth2AuthorizationCodeErrorTest {
+public class OAuth2ErrorTest {
 
-  private OAuth2AuthorizationCodeError err;
+  private OAuth2Error err;
 
   @BeforeEach
   public void init() {
-    err = new OAuth2AuthorizationCodeError("I am a teapot", "I am a teapot", 418);
+    err = new OAuth2Error("I am a teapot", "I am a teapot", 418);
   }
 
   /** Model tests for OAuth2AuthorizationCodeError */
   @Test
   public void testOAuth2AuthorizationCodeError() {
-    OAuth2AuthorizationCodeError err =
-        new OAuth2AuthorizationCodeError("something_bad_happened", "it is you, not me", 401);
+    OAuth2Error err =
+        new OAuth2Error("something_bad_happened", "it is you, not me", 401);
 
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
@@ -31,15 +31,15 @@ public class OAuth2AuthorizationCodeErrorTest {
         "{\"error\":\"something_bad_happened\",\"error_description\":\"it is you, not"
             + " me\",\"code\":401}";
     assertEquals(str, json);
-    OAuth2AuthorizationCodeError generated = gson.fromJson(str, OAuth2AuthorizationCodeError.class);
+    OAuth2Error generated = gson.fromJson(str, OAuth2Error.class);
     assertEquals(err, generated);
 
-    OAuth2AuthorizationCodeError err2 =
-        new OAuth2AuthorizationCodeError("something_bad_happened", "it is you, not me", null);
+    OAuth2Error err2 =
+        new OAuth2Error("something_bad_happened", "it is you, not me", null);
     String str2 =
         "{\"error\":\"something_bad_happened\",\"error_description\":\"it is you, not me\"}";
-    OAuth2AuthorizationCodeError generated2 =
-        gson.fromJson(str2, OAuth2AuthorizationCodeError.class);
+    OAuth2Error generated2 =
+        gson.fromJson(str2, OAuth2Error.class);
     assertEquals(err2, generated2);
 
     Object o = err;

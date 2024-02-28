@@ -1,4 +1,4 @@
-package it.fattureincloud.sdk.auth;
+package it.fattureincloud.sdk.auth.authorization;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,6 +9,12 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+
+import it.fattureincloud.sdk.auth.OAuth2Error;
+import it.fattureincloud.sdk.auth.OAuth2TokenResponse;
+import it.fattureincloud.sdk.auth.Scope;
+import it.fattureincloud.sdk.auth.authorization.OAuth2AuthorizationCodeManager;
+import it.fattureincloud.sdk.auth.authorization.OAuth2AuthorizationCodeParams;
 import okhttp3.*;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
@@ -151,11 +157,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     manager.setHttpClient(okHttpClient);
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.fetchToken("c/GIMME_A_TOKEN");
     assert (res.isRight());
-    OAuth2AuthorizationCodeResponse exp =
-        new OAuth2AuthorizationCodeResponse(
+    OAuth2TokenResponse exp =
+        new OAuth2TokenResponse(
             "bearer", "a/THIS_IS_A_TOKEN", "r/RINFRESCA_IL_TOKEN", 86400);
     assertEquals(exp, res.get());
     Mockito.verify(mockCall, Mockito.only()).execute();
@@ -185,11 +191,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     manager.setHttpClient(okHttpClient);
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.fetchToken("c/GIMME_GIMME_GIMME_A_TOKEN");
     assert (res.isLeft());
-    OAuth2AuthorizationCodeError exp =
-        new OAuth2AuthorizationCodeError("wtf", "ma perché è gialla?", 401);
+    OAuth2Error exp =
+        new OAuth2Error("wtf", "ma perché è gialla?", 401);
     assertEquals(exp, res.getLeft());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }
@@ -211,11 +217,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     assertEquals(0, mockWebServer.getRequestCount());
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.fetchToken("c/GIMME_A_TOKEN");
     assert (res.isRight());
-    OAuth2AuthorizationCodeResponse exp =
-        new OAuth2AuthorizationCodeResponse(
+    OAuth2TokenResponse exp =
+        new OAuth2TokenResponse(
             "bearer", "a/THIS_IS_A_TOKEN", "r/RINFRESCA_IL_TOKEN", 86400);
     assertEquals(exp, res.get());
     assertEquals(1, mockWebServer.getRequestCount());
@@ -254,11 +260,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     manager.setHttpClient(okHttpClient);
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.refreshToken("r/REFRESH_ME");
     assert (res.isRight());
-    OAuth2AuthorizationCodeResponse exp =
-        new OAuth2AuthorizationCodeResponse("bearer", "a/THIS_IS_A_NEW_TOKEN", "r/SO_FRESH", 86400);
+    OAuth2TokenResponse exp =
+        new OAuth2TokenResponse("bearer", "a/THIS_IS_A_NEW_TOKEN", "r/SO_FRESH", 86400);
     assertEquals(exp, res.get());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }
@@ -287,11 +293,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     manager.setHttpClient(okHttpClient);
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.refreshToken("r/WHY_IS_IT_SO_HOT_IN_HERE");
     assert (res.isLeft());
-    OAuth2AuthorizationCodeError exp =
-        new OAuth2AuthorizationCodeError("so_hot", "I_AM_MELTING", 418);
+    OAuth2Error exp =
+        new OAuth2Error("so_hot", "I_AM_MELTING", 418);
     assertEquals(exp, res.getLeft());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }
@@ -313,11 +319,11 @@ public class OAuth2AuthorizationCodeManagerTest {
 
     assertEquals(0, mockWebServer.getRequestCount());
 
-    Either<OAuth2AuthorizationCodeError, OAuth2AuthorizationCodeResponse> res =
+    Either<OAuth2Error, OAuth2TokenResponse> res =
         manager.refreshToken("r/REFRESH_ME");
     assert (res.isRight());
-    OAuth2AuthorizationCodeResponse exp =
-        new OAuth2AuthorizationCodeResponse("bearer", "a/THIS_IS_A_NEW_TOKEN", "r/SO_FRESH", 86400);
+    OAuth2TokenResponse exp =
+        new OAuth2TokenResponse("bearer", "a/THIS_IS_A_NEW_TOKEN", "r/SO_FRESH", 86400);
     assertEquals(exp, res.get());
     assertEquals(1, mockWebServer.getRequestCount());
 

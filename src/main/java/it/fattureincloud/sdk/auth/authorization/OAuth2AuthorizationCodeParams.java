@@ -1,4 +1,4 @@
-package it.fattureincloud.sdk.auth;
+package it.fattureincloud.sdk.auth.authorization;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;

@@ -3,7 +3,7 @@ package it.fattureincloud.sdk.auth;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
-public class OAuth2AuthorizationCodeResponse {
+public class OAuth2TokenResponse {
   @SerializedName(value = "token_type")
   private String tokenType;
 
@@ -16,7 +16,7 @@ public class OAuth2AuthorizationCodeResponse {
   @SerializedName(value = "expires_in")
   private int expiresIn;
 
-  public OAuth2AuthorizationCodeResponse(
+  public OAuth2TokenResponse(
       String tokenType, String accessToken, String refreshToken, int expiresIn) {
     this.tokenType = tokenType;
     this.accessToken = accessToken;
@@ -60,7 +60,7 @@ public class OAuth2AuthorizationCodeResponse {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    OAuth2AuthorizationCodeResponse that = (OAuth2AuthorizationCodeResponse) o;
+    OAuth2TokenResponse that = (OAuth2TokenResponse) o;
     return expiresIn == that.expiresIn
         && Objects.equals(tokenType, that.tokenType)
         && Objects.equals(accessToken, that.accessToken)

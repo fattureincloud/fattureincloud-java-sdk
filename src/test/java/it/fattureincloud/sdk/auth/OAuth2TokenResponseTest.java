@@ -4,27 +4,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
-import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Tests for OAuth2AuthorizationCodeResponse */
-public class OAuth2AuthorizationCodeResponseTest {
+public class OAuth2TokenResponseTest {
 
-  private OAuth2AuthorizationCodeResponse response;
+  private OAuth2TokenResponse response;
 
   @BeforeEach
   public void init() {
     response =
-        new OAuth2AuthorizationCodeResponse("bearer", "a/ACCESS_TOKEN", "r/REFRESH_TOKEN", 86400);
+        new OAuth2TokenResponse("bearer", "a/ACCESS_TOKEN", "r/REFRESH_TOKEN", 86400);
   }
 
   /** Model tests for OAuth2AuthorizationCodeResponse */
   @Test
   public void testOAuth2AuthorizationCodeResponse() {
-    OAuth2AuthorizationCodeResponse response =
-        new OAuth2AuthorizationCodeResponse("bearer", "a/ACCESS_TOKEN", "r/REFRESH_TOKEN", 86400);
+    OAuth2TokenResponse response =
+        new OAuth2TokenResponse("bearer", "a/ACCESS_TOKEN", "r/REFRESH_TOKEN", 86400);
 
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
@@ -32,8 +30,8 @@ public class OAuth2AuthorizationCodeResponseTest {
     String str =
         "{\"token_type\":\"bearer\",\"access_token\":\"a/ACCESS_TOKEN\",\"refresh_token\":\"r/REFRESH_TOKEN\",\"expires_in\":86400}";
     assertEquals(str, json);
-    OAuth2AuthorizationCodeResponse generated =
-        gson.fromJson(str, OAuth2AuthorizationCodeResponse.class);
+    OAuth2TokenResponse generated =
+        gson.fromJson(str, OAuth2TokenResponse.class);
     assertEquals(response, generated);
 
     Object o = response;
