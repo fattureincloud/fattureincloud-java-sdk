@@ -3,7 +3,7 @@ package it.fattureincloud.sdk.auth;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
-public class OAuth2AuthorizationCodeError {
+public class OAuth2Error {
   @SerializedName(value = "error")
   private String error;
 
@@ -13,7 +13,7 @@ public class OAuth2AuthorizationCodeError {
   @SerializedName(value = "code")
   private Integer code;
 
-  public OAuth2AuthorizationCodeError(String error, String errorDescription, Integer code) {
+  public OAuth2Error(String error, String errorDescription, Integer code) {
     this.error = error;
     this.errorDescription = errorDescription;
     this.code = code;
@@ -47,7 +47,7 @@ public class OAuth2AuthorizationCodeError {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    OAuth2AuthorizationCodeError that = (OAuth2AuthorizationCodeError) o;
+    OAuth2Error that = (OAuth2Error) o;
     return Objects.equals(error, that.error)
         && Objects.equals(errorDescription, that.errorDescription)
         && Objects.equals(code, that.code);
