@@ -532,11 +532,6 @@ public class IssuedDocument implements Serializable {
         return EiStatusEnum.fromValue(value);
       }
     }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      EiStatusEnum.fromValue(value);
-    }
   }
 
   public static final String SERIALIZED_NAME_EI_STATUS = "ei_status";
