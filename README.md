@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.0.31
+- API version: 2.0.32
 
-- Build date: 2023-12-11T13:42:26.096601Z[Etc/UTC]
+- Build date: 2024-03-05T15:34:38.736484Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.0.20</version>
+  <version>2.0.21</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.20"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.0.21"
   }
 ```
 
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *ClientsApi* | [**listClients**](docs/ClientsApi.md#listClients) | **GET** /c/{company_id}/entities/clients | List Clients
 *ClientsApi* | [**modifyClient**](docs/ClientsApi.md#modifyClient) | **PUT** /c/{company_id}/entities/clients/{client_id} | Modify Client
 *CompaniesApi* | [**getCompanyInfo**](docs/CompaniesApi.md#getCompanyInfo) | **GET** /c/{company_id}/company/info | Get Company Info
+*CompaniesApi* | [**getCompanyPlanUsage**](docs/CompaniesApi.md#getCompanyPlanUsage) | **GET** /c/{company_id}/company/plan_usage | Get Company Plan Usage
 *EmailsApi* | [**listEmails**](docs/EmailsApi.md#listEmails) | **GET** /c/{company_id}/emails | List Emails
 *InfoApi* | [**listArchiveCategories**](docs/InfoApi.md#listArchiveCategories) | **GET** /c/{company_id}/info/archive_categories | List Archive Categories
 *InfoApi* | [**listCities**](docs/InfoApi.md#listCities) | **GET** /info/cities | List Cities
@@ -221,6 +222,7 @@ Class | Method | HTTP request | Description
  - [CompanyInfoPlanInfoFunctions](docs/CompanyInfoPlanInfoFunctions.md)
  - [CompanyInfoPlanInfoFunctionsStatus](docs/CompanyInfoPlanInfoFunctionsStatus.md)
  - [CompanyInfoPlanInfoLimits](docs/CompanyInfoPlanInfoLimits.md)
+ - [CompanyPlanUsage](docs/CompanyPlanUsage.md)
  - [CompanyType](docs/CompanyType.md)
  - [ControlledCompany](docs/ControlledCompany.md)
  - [CreateArchiveDocumentRequest](docs/CreateArchiveDocumentRequest.md)
@@ -266,11 +268,13 @@ Class | Method | HTTP request | Description
  - [EventType](docs/EventType.md)
  - [F24](docs/F24.md)
  - [F24Status](docs/F24Status.md)
+ - [FattureInCloudPlanType](docs/FattureInCloudPlanType.md)
  - [FunctionStatus](docs/FunctionStatus.md)
  - [GetArchiveDocumentResponse](docs/GetArchiveDocumentResponse.md)
  - [GetCashbookEntryResponse](docs/GetCashbookEntryResponse.md)
  - [GetClientResponse](docs/GetClientResponse.md)
  - [GetCompanyInfoResponse](docs/GetCompanyInfoResponse.md)
+ - [GetCompanyPlanUsageResponse](docs/GetCompanyPlanUsageResponse.md)
  - [GetEInvoiceRejectionReasonResponse](docs/GetEInvoiceRejectionReasonResponse.md)
  - [GetEmailDataResponse](docs/GetEmailDataResponse.md)
  - [GetExistingIssuedDocumentTotalsRequest](docs/GetExistingIssuedDocumentTotalsRequest.md)
@@ -437,9 +441,12 @@ Class | Method | HTTP request | Description
  - [WebhooksSubscriptionMapping](docs/WebhooksSubscriptionMapping.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
+
 Authentication schemes defined for the API:
+<a id="OAuth2AuthenticationCodeFlow"></a>
 ### OAuth2AuthenticationCodeFlow
 
 
