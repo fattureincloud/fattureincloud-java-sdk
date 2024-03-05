@@ -13,8 +13,11 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -26,7 +29,30 @@ public class FattureInCloudPlanTypeTest {
      */
     @Test
     public void testFattureInCloudPlanType() {
-        // TODO: test FattureInCloudPlanType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"standard\"", gson.toJson(FattureInCloudPlanType.STANDARD));
+        assertEquals("\"premium\"", gson.toJson(FattureInCloudPlanType.PREMIUM));
+
+        assertEquals(
+            FattureInCloudPlanType.STANDARD, gson.fromJson("\"standard\"", FattureInCloudPlanType.class));
+        assertEquals(FattureInCloudPlanType.PREMIUM, gson.fromJson("\"premium\"", FattureInCloudPlanType.class));
+
+        assertEquals("standard", FattureInCloudPlanType.STANDARD.getValue());
+        assertEquals("premium", FattureInCloudPlanType.PREMIUM.getValue());
+
+        assertEquals("standard", FattureInCloudPlanType.STANDARD.toString());
+        assertEquals("premium", FattureInCloudPlanType.PREMIUM.toString());
+
+        assertEquals(FattureInCloudPlanType.STANDARD, FattureInCloudPlanType.fromValue("standard"));
+        assertEquals(FattureInCloudPlanType.PREMIUM, FattureInCloudPlanType.fromValue("premium"));
+
+        Assertions.assertThrows(
+            IllegalArgumentException.class,
+            () -> {
+              FattureInCloudPlanType.fromValue("Evil Joshua");
+            });
     }
 
 }
