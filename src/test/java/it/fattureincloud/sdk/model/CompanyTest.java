@@ -42,7 +42,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
   }
 
   /** Model tests for Company */
@@ -53,7 +54,7 @@ public class CompanyTest {
     String json = gson.toJson(model);
     String str =
         "{\"id\":5,\"name\":\"Azienda"
-            + " 1\",\"type\":\"company\",\"access_token\":\"ABCDEF\",\"controlled_companies\":[],\"fic_license_expire\":\"2024-10-10\",\"fic_plan\":\"standard\",\"connection_id\":94817,\"tax_code\":\"SLVMTT50A01F205L\"}";
+            + " 1\",\"type\":\"company\",\"access_token\":\"ABCDEF\",\"controlled_companies\":[],\"fic_license_expire\":\"2024-10-10\",\"fic_plan\":\"standard\",\"connection_id\":94817,\"tax_code\":\"SLVMTT50A01F205L\",\"vat_number\":\"03881520161\"}";
     assertEquals(str, json);
     Company generated = gson.fromJson(str, Company.class);
     assertEquals(model, generated);
@@ -82,7 +83,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -105,8 +107,7 @@ public class CompanyTest {
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
             .ficLicenseExpire(LocalDate.parse("2024-10-10"))
-            .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -128,7 +129,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -151,7 +153,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -198,7 +201,8 @@ public class CompanyTest {
             .controlledCompanies(c2)
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
 
     model.setControlledCompanies(new ArrayList<>());
@@ -226,7 +230,8 @@ public class CompanyTest {
             .controlledCompanies(Arrays.asList(added))
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expectedA, a);
   }
 
@@ -248,7 +253,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -270,7 +276,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("LTTDTT90A41F205S")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -292,7 +299,8 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
 
@@ -314,7 +322,31 @@ public class CompanyTest {
             .controlledCompanies(new ArrayList<>())
             .taxCode("SLVMTT50A01F205L")
             .ficPlan(FattureInCloudPlanType.STANDARD)
-            .ficLicenseExpire(LocalDate.parse("2024-10-10"));
+            .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+            .vatNumber("03881520161");
     assertEquals(expected, c);
   }
+
+  /** Test the property 'vatNumber' */
+  @Test
+  public void vatNumberTest() {
+    assertEquals("03881520161", model.getVatNumber());
+    model.setVatNumber("03881520153");
+    assertEquals("03881520153", model.getVatNumber());
+
+    Company c = model.vatNumber("03881520161");
+    Company expected =
+      new Company()
+          .id(5)
+          .name("Azienda 1")
+          .accessToken("ABCDEF")
+          .type(CompanyType.COMPANY)
+          .connectionId(94817)
+          .controlledCompanies(new ArrayList<>())
+          .taxCode("SLVMTT50A01F205L")
+          .ficPlan(FattureInCloudPlanType.STANDARD)
+          .ficLicenseExpire(LocalDate.parse("2024-10-10"))
+          .vatNumber("03881520161");
+    assertEquals(expected, c);
+    }
 }
