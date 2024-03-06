@@ -13,30 +13,53 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import org.junit.jupiter.api.Disabled;
+import java.util.Collections;
+import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for CompanyPlanUsage
  */
 public class CompanyPlanUsageTest {
-    private final CompanyPlanUsage model = new CompanyPlanUsage();
+    private CompanyPlanUsage model;
+
+    @BeforeEach
+      public void init() {
+        model =
+            new CompanyPlanUsage()
+                .limit(BigDecimal.valueOf(5.5))
+                .usage(BigDecimal.valueOf(7.5));
+      }
 
     /**
      * Model tests for CompanyPlanUsage
      */
     @Test
     public void testCompanyPlanUsage() {
-        // TODO: test CompanyPlanUsage
+        JSON jsonManager = new JSON();
+            Gson gson = jsonManager.getGson();
+            String json = gson.toJson(model);
+            String str =
+                "{\"limit\":5.5,\"usage\":7.5}";
+            assertEquals(str, json);
+            CompanyPlanUsage generated = gson.fromJson(str, CompanyPlanUsage.class);
+            assertEquals(model, generated);
+
+            Object o = model;
+            assertEquals(model, o);
+            assertFalse(model.equals(null));
+            assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -44,7 +67,16 @@ public class CompanyPlanUsageTest {
      */
     @Test
     public void limitTest() {
-        // TODO: test limit
+        assertEquals(BigDecimal.valueOf(5.5), model.getLimit());
+        model.setLimit(BigDecimal.valueOf(3.5));
+        assertEquals(BigDecimal.valueOf(3.5), model.getLimit());
+
+        CompanyPlanUsage c = model.limit(BigDecimal.valueOf(5.5));
+        CompanyPlanUsage expected =
+            new CompanyPlanUsage()
+                .limit(BigDecimal.valueOf(5.5))
+                .usage(BigDecimal.valueOf(7.5));
+        assertEquals(expected, c);
     }
 
     /**
@@ -52,7 +84,16 @@ public class CompanyPlanUsageTest {
      */
     @Test
     public void usageTest() {
-        // TODO: test usage
+        assertEquals(BigDecimal.valueOf(7.5), model.getUsage());
+                model.setUsage(BigDecimal.valueOf(5.5));
+                assertEquals(BigDecimal.valueOf(5.5), model.getUsage());
+
+                CompanyPlanUsage c = model.usage(BigDecimal.valueOf(7.5));
+                CompanyPlanUsage expected =
+                    new CompanyPlanUsage()
+                        .limit(BigDecimal.valueOf(5.5))
+                        .usage(BigDecimal.valueOf(7.5));
+                assertEquals(expected, c);
     }
 
 }
