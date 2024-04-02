@@ -336,15 +336,6 @@ public class IssuedDocumentTest {
     assertEquals(2, model.getvMargins());
   }
 
-  /** Test the property 'showPaypalButton' */
-  @Test
-  public void showPaypalButtonTest() {
-    model.showPaypalButton(true);
-    assertEquals(true, model.getShowPaypalButton());
-    model.setShowPaypalButton(false);
-    assertEquals(false, model.getShowPaypalButton());
-  }
-
   /** Test the property 'showNotificationButton' */
   @Test
   public void showNotificationButtonTest() {
