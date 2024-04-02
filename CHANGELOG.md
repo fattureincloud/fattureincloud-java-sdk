@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 2.0.22 (2024-04-02)
 
+### 2.0.22 (2024-04-02)
+
 ### 2.0.21 (2024-03-06)
 
 ### 2.0.20 (2023-12-18)
