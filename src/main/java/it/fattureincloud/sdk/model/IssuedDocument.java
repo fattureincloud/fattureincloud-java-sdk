@@ -30,7 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** IssuedDocument */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2024-03-06T07:36:30.776640Z[Etc/UTC]")
+    date = "2024-04-02T08:46:44.590061Z[Etc/UTC]",
+    comments = "Generator version: 7.4.0")
 public class IssuedDocument implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -277,11 +278,6 @@ public class IssuedDocument implements Serializable {
 
   @SerializedName(SERIALIZED_NAME_SHOW_TOTALS)
   private ShowTotalsMode showTotals = ShowTotalsMode.ALL;
-
-  public static final String SERIALIZED_NAME_SHOW_PAYPAL_BUTTON = "show_paypal_button";
-
-  @SerializedName(SERIALIZED_NAME_SHOW_PAYPAL_BUTTON)
-  private Boolean showPaypalButton;
 
   public static final String SERIALIZED_NAME_SHOW_NOTIFICATION_BUTTON = "show_notification_button";
 
@@ -1534,26 +1530,6 @@ public class IssuedDocument implements Serializable {
     this.showTotals = showTotals;
   }
 
-  public IssuedDocument showPaypalButton(Boolean showPaypalButton) {
-
-    this.showPaypalButton = showPaypalButton;
-    return this;
-  }
-
-  /**
-   * Show paypal button in the PDF
-   *
-   * @return showPaypalButton
-   */
-  @javax.annotation.Nullable
-  public Boolean getShowPaypalButton() {
-    return showPaypalButton;
-  }
-
-  public void setShowPaypalButton(Boolean showPaypalButton) {
-    this.showPaypalButton = showPaypalButton;
-  }
-
   public IssuedDocument showNotificationButton(Boolean showNotificationButton) {
 
     this.showNotificationButton = showNotificationButton;
@@ -2294,7 +2270,6 @@ public class IssuedDocument implements Serializable {
         && Objects.equals(this.showPayments, issuedDocument.showPayments)
         && Objects.equals(this.showPaymentMethod, issuedDocument.showPaymentMethod)
         && Objects.equals(this.showTotals, issuedDocument.showTotals)
-        && Objects.equals(this.showPaypalButton, issuedDocument.showPaypalButton)
         && Objects.equals(this.showNotificationButton, issuedDocument.showNotificationButton)
         && Objects.equals(this.showTspayButton, issuedDocument.showTspayButton)
         && Objects.equals(this.deliveryNote, issuedDocument.deliveryNote)
@@ -2396,7 +2371,6 @@ public class IssuedDocument implements Serializable {
         showPayments,
         showPaymentMethod,
         showTotals,
-        showPaypalButton,
         showNotificationButton,
         showTspayButton,
         deliveryNote,
@@ -2511,7 +2485,6 @@ public class IssuedDocument implements Serializable {
     sb.append("    showPayments: ").append(toIndentedString(showPayments)).append("\n");
     sb.append("    showPaymentMethod: ").append(toIndentedString(showPaymentMethod)).append("\n");
     sb.append("    showTotals: ").append(toIndentedString(showTotals)).append("\n");
-    sb.append("    showPaypalButton: ").append(toIndentedString(showPaypalButton)).append("\n");
     sb.append("    showNotificationButton: ")
         .append(toIndentedString(showNotificationButton))
         .append("\n");
