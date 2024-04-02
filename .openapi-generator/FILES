@@ -523,6 +523,3 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfig.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMapping.java
-src/test/java/it/fattureincloud/sdk/model/CompanyPlanUsageTest.java
-src/test/java/it/fattureincloud/sdk/model/FattureInCloudPlanTypeTest.java
-src/test/java/it/fattureincloud/sdk/model/GetCompanyPlanUsageResponseTest.java

@@ -22,7 +22,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Issued document e-invoice data [Only if e_invoice&#x3D;true] */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2024-03-06T07:36:30.776640Z[Etc/UTC]")
+    date = "2024-04-02T08:46:44.590061Z[Etc/UTC]",
+    comments = "Generator version: 7.4.0")
 public class IssuedDocumentEiData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -34,7 +35,7 @@ public class IssuedDocumentEiData implements Serializable {
   public static final String SERIALIZED_NAME_ORIGINAL_DOCUMENT_TYPE = "original_document_type";
 
   @SerializedName(SERIALIZED_NAME_ORIGINAL_DOCUMENT_TYPE)
-  private OriginalDocumentType originalDocumentType = OriginalDocumentType.ORDINE;
+  private OriginalDocumentType originalDocumentType;
 
   public static final String SERIALIZED_NAME_OD_NUMBER = "od_number";
 
