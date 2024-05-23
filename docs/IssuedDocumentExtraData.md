@@ -8,7 +8,6 @@ Issued document extra data [TS fields follow the technical specifications provid
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**showSofortButton** | **Boolean** |  |  [optional] |
 |**multifattureSent** | **Integer** |  |  [optional] |
 |**tsCommunication** | **Boolean** | Send issued document to \&quot;Sistema Tessera Sanitaria\&quot; |  [optional] |
 |**tsFlagTipoSpesa** | **BigDecimal** | Issued document ts \&quot;tipo spesa\&quot; [TK, FC, FV, SV,SP, AD, AS, ECG, SR] |  [optional] |
