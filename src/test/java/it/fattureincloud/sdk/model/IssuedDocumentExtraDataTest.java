@@ -30,7 +30,6 @@ public class IssuedDocumentExtraDataTest {
   public void init() {
     model =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -51,7 +50,7 @@ public class IssuedDocumentExtraDataTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"show_sofort_button\":true,\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\"}";
+        "{\"multifatture_sent\":5,\"ts_communication\":true,\"ts_flag_tipo_spesa\":2,\"ts_pagamento_tracciato\":true,\"ts_tipo_spesa\":\"TK\",\"ts_opposizione\":true,\"ts_status\":5,\"ts_file_id\":\"str\",\"ts_sent_date\":\"2021-12-25\",\"ts_full_amount\":true,\"imported_by\":\"me\"}";
     assertEquals(str, json);
     IssuedDocumentExtraData generated = gson.fromJson(str, IssuedDocumentExtraData.class);
     assertEquals(model, generated);
@@ -60,30 +59,6 @@ public class IssuedDocumentExtraDataTest {
     assertEquals(model, o);
     assertFalse(model.equals(null));
     assertFalse(model.equals(Integer.getInteger("5")));
-  }
-
-  /** Test the property 'showSofortButton' */
-  @Test
-  public void showSofortButtonTest() {
-    assertEquals(true, model.getShowSofortButton());
-    model.setShowSofortButton(false);
-    assertEquals(false, model.getShowSofortButton());
-
-    IssuedDocumentExtraData i = model.showSofortButton(true);
-    IssuedDocumentExtraData expected =
-        new IssuedDocumentExtraData()
-            .showSofortButton(true)
-            .multifattureSent(5)
-            .tsCommunication(true)
-            .tsFlagTipoSpesa(BigDecimal.valueOf(2))
-            .tsPagamentoTracciato(true)
-            .tsTipoSpesa("TK")
-            .tsOpposizione(true)
-            .tsFullAmount(true)
-            .tsStatus(5)
-            .tsFileId("str")
-            .tsSentDate(LocalDate.of(2021, 12, 25))
-            .importedBy("me");
   }
 
   /** Test the property 'multifattureSent' */
@@ -96,7 +71,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.multifattureSent(5);
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -121,7 +95,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsCommunication(true);
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -146,7 +119,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsFlagTipoSpesa(BigDecimal.valueOf(2));
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -171,7 +143,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsPagamentoTracciato(true);
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -196,7 +167,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -221,7 +191,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -246,7 +215,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsTipoSpesa("TK");
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -271,7 +239,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsFileId("str");
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -296,7 +263,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsSentDate(LocalDate.of(2021, 12, 25));
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -321,7 +287,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.tsFullAmount(true);
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
@@ -346,7 +311,6 @@ public class IssuedDocumentExtraDataTest {
     IssuedDocumentExtraData i = model.importedBy("me");
     IssuedDocumentExtraData expected =
         new IssuedDocumentExtraData()
-            .showSofortButton(true)
             .multifattureSent(5)
             .tsCommunication(true)
             .tsFlagTipoSpesa(BigDecimal.valueOf(2))
