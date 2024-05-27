@@ -43,6 +43,12 @@ public class OperatorTest {
     Operator contains = Operator.CONTAINS;
     assertEquals("contains", contains.getSymbol());
 
+    Operator notLike = Operator.NOT_LIKE;
+    assertEquals("not like", notLike.getSymbol());
+
+    Operator notContains = Operator.NOT_CONTAINS;
+    assertEquals("not contains", notContains.getSymbol());
+
     Operator startsWith = Operator.STARTS_WITH;
     assertEquals("starts with", startsWith.getSymbol());
 
