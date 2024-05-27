@@ -10,68 +10,53 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListLanguagesResponse
- */
+/** Model tests for ListLanguagesResponse */
 public class ListLanguagesResponseTest {
-    private ListLanguagesResponse model;
+  private ListLanguagesResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListLanguagesResponse()
-                .addDataItem(
-                        new Language()
-                                .code("IT")
-                                .name("Italiano")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model = new ListLanguagesResponse().addDataItem(new Language().code("IT").name("Italiano"));
+  }
 
-    /**
-     * Model tests for ListLanguagesResponse
-     */
-    @Test
-    public void testListLanguagesResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"code\":\"IT\",\"name\":\"Italiano\"}]}";
-        assertEquals(str, json);
-        ListLanguagesResponse generated = gson.fromJson(str, ListLanguagesResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListLanguagesResponse */
+  @Test
+  public void testListLanguagesResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":[{\"code\":\"IT\",\"name\":\"Italiano\"}]}";
+    assertEquals(str, json);
+    ListLanguagesResponse generated = gson.fromJson(str, ListLanguagesResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("IT", model.getData().get(0).getCode());
-        model.setData(Arrays.asList(new Language().code("FR")));
-        assertEquals("FR", model.getData().get(0).getCode());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("IT", model.getData().get(0).getCode());
+    model.setData(Arrays.asList(new Language().code("FR")));
+    assertEquals("FR", model.getData().get(0).getCode());
 
-        model.data(Arrays.asList(new Language().code("IT")));
-        ListLanguagesResponse actual = new ListLanguagesResponse();
-        actual.setData(Arrays.asList(new Language().code("IT")));
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new Language().code("IT")));
+    ListLanguagesResponse actual = new ListLanguagesResponse();
+    actual.setData(Arrays.asList(new Language().code("IT")));
+    assertEquals(model, actual);
+  }
 }

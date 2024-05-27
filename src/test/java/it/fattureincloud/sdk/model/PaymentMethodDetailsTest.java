@@ -10,80 +10,65 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for PaymentMethodDetails
- */
+/** Model tests for PaymentMethodDetails */
 public class PaymentMethodDetailsTest {
-    private PaymentMethodDetails model;
+  private PaymentMethodDetails model;
 
-    @BeforeEach
-    public void init() {
-        model = new PaymentMethodDetails()
-                .title("details")
-                .description("new details");
-    }
+  @BeforeEach
+  public void init() {
+    model = new PaymentMethodDetails().title("details").description("new details");
+  }
 
-    /**
-     * Model tests for PaymentMethodDetails
-     */
-    @Test
-    public void testPaymentMethodDetails() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"title\":\"details\",\"description\":\"new details\"}";
-        assertEquals(str, json);
-        PaymentMethodDetails generated = gson.fromJson(str, PaymentMethodDetails.class);
-        assertEquals(model, generated);
+  /** Model tests for PaymentMethodDetails */
+  @Test
+  public void testPaymentMethodDetails() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"title\":\"details\",\"description\":\"new details\"}";
+    assertEquals(str, json);
+    PaymentMethodDetails generated = gson.fromJson(str, PaymentMethodDetails.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'title'
-     */
-    @Test
-    public void titleTest() {
-        assertEquals("details", model.getTitle());
-        model.setTitle("title");
-        assertEquals("title", model.getTitle());
+  /** Test the property 'title' */
+  @Test
+  public void titleTest() {
+    assertEquals("details", model.getTitle());
+    model.setTitle("title");
+    assertEquals("title", model.getTitle());
 
-        PaymentMethodDetails p = model.title("string");
-        PaymentMethodDetails expected = new PaymentMethodDetails()
-                .title("string")
-                .description("new details");
-        assertEquals(expected, p);
-    }
+    PaymentMethodDetails p = model.title("string");
+    PaymentMethodDetails expected =
+        new PaymentMethodDetails().title("string").description("new details");
+    assertEquals(expected, p);
+  }
 
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        assertEquals("new details", model.getDescription());
-        model.setDescription("description");
-        assertEquals("description", model.getDescription());
+  /** Test the property 'description' */
+  @Test
+  public void descriptionTest() {
+    assertEquals("new details", model.getDescription());
+    model.setDescription("description");
+    assertEquals("description", model.getDescription());
 
-        PaymentMethodDetails p = model.description("string");
-        PaymentMethodDetails expected = new PaymentMethodDetails()
-                .title("details")
-                .description("string");
-        assertEquals(expected, p);
-    }
-
+    PaymentMethodDetails p = model.description("string");
+    PaymentMethodDetails expected =
+        new PaymentMethodDetails().title("details").description("string");
+    assertEquals(expected, p);
+  }
 }

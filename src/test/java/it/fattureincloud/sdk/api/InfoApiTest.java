@@ -10,514 +10,504 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for InfoApi
- */
+/** API tests for InfoApi */
 public class InfoApiTest {
 
-    private static InfoApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static InfoApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new InfoApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
-    /**
-     * List Archive Categories
-     * <p>
-     * Lists the archive categories.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listArchiveCategoriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"cat5\",\"cat6\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        List<String> expected = Arrays.asList("cat5", "cat6");
-
-        ListArchiveCategoriesResponse response = api.listArchiveCategories(companyId);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Cities
-     * <p>
-     * Lists the Italian cities.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listCitiesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"},{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        City city1 = new City()
-                .city("San Pellegrino Terme")
-                .province("BG")
-                .postalCode("24016");
-        City city2 = new City()
-                .city("San Pellegrino Terme")
-                .province("BG")
-                .postalCode("24016");
-
-        List<City> expected = Arrays.asList(city1, city2);
-
-        ListCitiesResponse response = api.listCities("24020", "bg");
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Cost Centers
-     * <p>
-     * Lists the cost centers.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listCostCentersTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"bg\",\"mi\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        List<String> expected = Arrays.asList("bg", "mi");
-
-        ListCostCentersResponse response = api.listCostCenters(companyId);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Countries
-     * <p>
-     * Lists the supported countries.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listCountriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"italia\", \"albania\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        List<String> expected = Arrays.asList("italia", "albania");
-
-        ListCountriesResponse response = api.listCountries();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Detailed Countries
-     * <p>
-     * Lists the supported countries.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listDetailedCountriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"},{\"name\":\"Albania\",\"settings_name\":\"Albania\",\"iso\":\"AL\",\"fiscal_iso\":\"AL\",\"uic\":\"087\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        DetailedCountry d1 = new DetailedCountry()
-                .name("Italia")
-                .settingsName("Italia")
-                .iso("IT")
-                .fiscalIso("IT")
-                .uic("086");
-        DetailedCountry d2 = new DetailedCountry()
-                .name("Albania")
-                .settingsName("Albania")
-                .iso("AL")
-                .fiscalIso("AL")
-                .uic("087");
-        List<DetailedCountry> expected = Arrays.asList(d1, d2);
-
-        ListDetailedCountriesResponse response = api.listDetailedCountries();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Currencies
-     * <p>
-     * Lists the supported currencies.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listCurrenciesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":\"EUR\",\"symbol\":\"€\",\"exchange_rate\":\"1.00000\",\"html_symbol\":\"\\u0026euro;\"}, {\"id\":\"USD\",\"symbol\":\"$\",\"exchange_rate\":\"0.84000\",\"html_symbol\":\"\\u0026usd;\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Currency c1 = new Currency()
-                .id("EUR")
-                .symbol("€")
-                .exchangeRate("1.00000")
-                .htmlSymbol("&euro;");
-        Currency c2 = new Currency()
-                .id("USD")
-                .symbol("$")
-                .exchangeRate("0.84000")
-                .htmlSymbol("&usd;");
-        List<Currency> expected = Arrays.asList(c1, c2);
-
-        ListCurrenciesResponse response = api.listCurrencies();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Delivery Notes Default Causals
-     * <p>
-     * Lists the delivery note default causals.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listDeliveryNotesDefaultCausalsTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"causal1\", \"causal2\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        List<String> expected = Arrays.asList("causal1", "causal2");
-
-        ListDeliveryNotesDefaultCausalsResponse response = api.listDeliveryNotesDefaultCausals();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Languages
-     * <p>
-     * Lists the supported languages.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listLanguagesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"code\":\"IT\",\"name\":\"Italiano\"}, {\"code\":\"ENG\",\"name\":\"Inglese\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Language l1 = new Language()
-                .code("IT")
-                .name("Italiano");
-        Language l2 = new Language()
-                .code("ENG")
-                .name("Inglese");
-        List<Language> expected = Arrays.asList(l1, l2);
-
-        ListLanguagesResponse response = api.listLanguages();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Payment Accounts
-     * <p>
-     * Lists the available payment accounts.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listPaymentAccountsTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":12,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},{\"id\":21,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        PaymentAccount p1 = new PaymentAccount()
-                .id(12)
-                .name("Indesa - Carta conto")
-                .type(PaymentAccountType.STANDARD)
-                .iban("IT84Y0300203280294126225888")
-                .sia("sai")
-                .cuc("cuc")
-                .virtual(false);
-        PaymentAccount p2 = new PaymentAccount()
-                .id(21)
-                .name("Indesa - Carta conto")
-                .type(PaymentAccountType.STANDARD)
-                .iban("IT84Y0300203280294126225888")
-                .sia("sai")
-                .cuc("cuc")
-                .virtual(false);
-        List<PaymentAccount> expected = Arrays.asList(p1, p2);
-
-        ListPaymentAccountsResponse response = api.listPaymentAccounts(companyId, null, null, null);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Payment Methods
-     * <p>
-     * Lists the available payment methods.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listPaymentMethodsTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":12345,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"},{\"id\":12346,\"name\":\"Bonifico bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-        Integer companyId = 11111;
-
-        PaymentMethod p1 = new PaymentMethod()
-                .id(12345)
-                .name("Bonifico bancario")
-                .type(PaymentMethodType.STANDARD)
-                .isDefault(true)
-                .details(Arrays.asList(new PaymentMethodDetails()
-                        .title("t1")
-                ))
-                .defaultPaymentAccount(new PaymentAccount()
-                        .id(21)
-                        .name("n1")
-                )
-                .bankIban("IT62W0300203280486429468578")
-                .bankName("Indesa")
-                .bankBeneficiary("mamma")
-                .eiPaymentMethod("2");
-        PaymentMethod p2 = new PaymentMethod()
-                .id(12346)
-                .name("Bonifico bancario")
-                .type(PaymentMethodType.STANDARD)
-                .isDefault(true)
-                .details(Arrays.asList(new PaymentMethodDetails()
-                        .title("t1")
-                ))
-                .defaultPaymentAccount(new PaymentAccount()
-                        .id(21)
-                        .name("n1")
-                )
-                .bankIban("IT62W0300203280486429468578")
-                .bankName("Indesa")
-                .bankBeneficiary("mamma")
-                .eiPaymentMethod("2");
-        List<PaymentMethod> expected = Arrays.asList(p1, p2);
-
-        ListPaymentMethodsResponse response = api.listPaymentMethods(companyId, null, null, null);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Product Categories
-     * <p>
-     * Lists the product categories.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listProductCategoriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"cat5\",\"cat6\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        List<String> expected = Arrays.asList("cat5", "cat6");
-
-        ListProductCategoriesResponse response = api.listProductCategories(companyId, "products");
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Received Document Categories
-     * <p>
-     * Lists the received document categories.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listReceivedDocumentCategoriesTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"cat5\",\"cat6\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        List<String> expected = Arrays.asList("cat5", "cat6");
-
-        ListReceivedDocumentCategoriesResponse response = api.listReceivedDocumentCategories(companyId);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Revenue Centers
-     * <p>
-     * Lists the revenue centers.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listRevenueCentersTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"bg\",\"mi\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        List<String> expected = Arrays.asList("bg", "mi");
-
-        ListRevenueCentersResponse response = api.listRevenueCenters(companyId);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Templates
-     * <p>
-     * Lists the available templates.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listTemplatesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"},{\"id\":20,\"name\":\"New Standard S2\",\"type\":\"Tipo 2\"}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        DocumentTemplate d1 = new DocumentTemplate()
-                .id(10)
-                .name("New Standard S1")
-                .type("Tipo 1");
-        DocumentTemplate d2 = new DocumentTemplate()
-                .id(20)
-                .name("New Standard S2")
-                .type("Tipo 2");
-        List<DocumentTemplate> expected = Arrays.asList(d1, d2);
-
-        ListTemplatesResponse response = api.listTemplates("invoice", false);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Units of Measure
-     * <p>
-     * Lists the units of measure.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listUnitsOfMeasureTest() throws ApiException, IOException {
-        String result = "{\"data\":[\"kg\",\"km\"]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        List<String> expected = Arrays.asList("kg", "km");
-
-        ListUnitsOfMeasureResponse response = api.listUnitsOfMeasure();
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
-    /**
-     * List Vat Types
-     * <p>
-     * Lists the available vat types.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listVatTypesTest() throws ApiException, IOException {
-        String result = "{\"data\":[{\"id\":1,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false},{\"id\":2,\"value\":33,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}]}";
-
-        Call mockCall = Mockito.mock(Call.class);
-        InfoApi api = mockApi(result, mockCall);
-
-        Integer companyId = 11111;
-
-        VatType v1 = new VatType()
-                .id(1)
-                .value(BigDecimal.valueOf(22))
-                .description("Non imponibile art. 123")
-                .notes("IVA non imponibile")
-                .eInvoice(true)
-                .eiType("2")
-                .eiDescription("desc")
-                .isDisabled(false);
-        VatType v2 = new VatType()
-                .id(2)
-                .value(BigDecimal.valueOf(33))
-                .description("Non imponibile art. 123")
-                .notes("IVA non imponibile")
-                .eInvoice(true)
-                .eiType("2")
-                .eiDescription("desc")
-                .isDisabled(false);
-        List<VatType> expected = Arrays.asList(v1, v2);
-
-        ListVatTypesResponse response = api.listVatTypes(companyId, null);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
-
+    final Response response = builder.build();
+
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
+
+    ApiClient client = new ApiClient(okHttpClient);
+
+    return new InfoApi(client);
+  }
+
+  /**
+   * List Archive Categories
+   *
+   * <p>Lists the archive categories.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listArchiveCategoriesTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"cat5\",\"cat6\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    List<String> expected = Arrays.asList("cat5", "cat6");
+
+    ListArchiveCategoriesResponse response = api.listArchiveCategories(companyId);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Cities
+   *
+   * <p>Lists the Italian cities.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listCitiesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"postal_code\":\"24016\",\"city\":\"San Pellegrino"
+            + " Terme\",\"province\":\"BG\"},{\"postal_code\":\"24016\",\"city\":\"San Pellegrino"
+            + " Terme\",\"province\":\"BG\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    City city1 = new City().city("San Pellegrino Terme").province("BG").postalCode("24016");
+    City city2 = new City().city("San Pellegrino Terme").province("BG").postalCode("24016");
+
+    List<City> expected = Arrays.asList(city1, city2);
+
+    ListCitiesResponse response = api.listCities("24020", "bg");
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Cost Centers
+   *
+   * <p>Lists the cost centers.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listCostCentersTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"bg\",\"mi\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    List<String> expected = Arrays.asList("bg", "mi");
+
+    ListCostCentersResponse response = api.listCostCenters(companyId);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Countries
+   *
+   * <p>Lists the supported countries.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listCountriesTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"italia\", \"albania\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    List<String> expected = Arrays.asList("italia", "albania");
+
+    ListCountriesResponse response = api.listCountries();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Detailed Countries
+   *
+   * <p>Lists the supported countries.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listDetailedCountriesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"name\":\"Italia\",\"settings_name\":\"Italia\",\"iso\":\"IT\",\"fiscal_iso\":\"IT\",\"uic\":\"086\"},{\"name\":\"Albania\",\"settings_name\":\"Albania\",\"iso\":\"AL\",\"fiscal_iso\":\"AL\",\"uic\":\"087\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    DetailedCountry d1 =
+        new DetailedCountry()
+            .name("Italia")
+            .settingsName("Italia")
+            .iso("IT")
+            .fiscalIso("IT")
+            .uic("086");
+    DetailedCountry d2 =
+        new DetailedCountry()
+            .name("Albania")
+            .settingsName("Albania")
+            .iso("AL")
+            .fiscalIso("AL")
+            .uic("087");
+    List<DetailedCountry> expected = Arrays.asList(d1, d2);
+
+    ListDetailedCountriesResponse response = api.listDetailedCountries();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Currencies
+   *
+   * <p>Lists the supported currencies.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listCurrenciesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":\"EUR\",\"symbol\":\"€\",\"exchange_rate\":\"1.00000\",\"html_symbol\":\"\\u0026euro;\"},"
+            + " {\"id\":\"USD\",\"symbol\":\"$\",\"exchange_rate\":\"0.84000\",\"html_symbol\":\"\\u0026usd;\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Currency c1 = new Currency().id("EUR").symbol("€").exchangeRate("1.00000").htmlSymbol("&euro;");
+    Currency c2 = new Currency().id("USD").symbol("$").exchangeRate("0.84000").htmlSymbol("&usd;");
+    List<Currency> expected = Arrays.asList(c1, c2);
+
+    ListCurrenciesResponse response = api.listCurrencies();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Delivery Notes Default Causals
+   *
+   * <p>Lists the delivery note default causals.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listDeliveryNotesDefaultCausalsTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"causal1\", \"causal2\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    List<String> expected = Arrays.asList("causal1", "causal2");
+
+    ListDeliveryNotesDefaultCausalsResponse response = api.listDeliveryNotesDefaultCausals();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Languages
+   *
+   * <p>Lists the supported languages.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listLanguagesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"code\":\"IT\",\"name\":\"Italiano\"},"
+            + " {\"code\":\"ENG\",\"name\":\"Inglese\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Language l1 = new Language().code("IT").name("Italiano");
+    Language l2 = new Language().code("ENG").name("Inglese");
+    List<Language> expected = Arrays.asList(l1, l2);
+
+    ListLanguagesResponse response = api.listLanguages();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Payment Accounts
+   *
+   * <p>Lists the available payment accounts.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listPaymentAccountsTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":12,\"name\":\"Indesa - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false},{\"id\":21,\"name\":\"Indesa"
+            + " - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    PaymentAccount p1 =
+        new PaymentAccount()
+            .id(12)
+            .name("Indesa - Carta conto")
+            .type(PaymentAccountType.STANDARD)
+            .iban("IT84Y0300203280294126225888")
+            .sia("sai")
+            .cuc("cuc")
+            .virtual(false);
+    PaymentAccount p2 =
+        new PaymentAccount()
+            .id(21)
+            .name("Indesa - Carta conto")
+            .type(PaymentAccountType.STANDARD)
+            .iban("IT84Y0300203280294126225888")
+            .sia("sai")
+            .cuc("cuc")
+            .virtual(false);
+    List<PaymentAccount> expected = Arrays.asList(p1, p2);
+
+    ListPaymentAccountsResponse response = api.listPaymentAccounts(companyId, null, null, null);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Payment Methods
+   *
+   * <p>Lists the available payment methods.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listPaymentMethodsTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":12345,\"name\":\"Bonifico"
+            + " bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"},{\"id\":12346,\"name\":\"Bonifico"
+            + " bancario\",\"type\":\"standard\",\"is_default\":true,\"default_payment_account\":{\"id\":21,\"name\":\"n1\",\"type\":\"standard\"},\"details\":[{\"title\":\"t1\"}],\"bank_iban\":\"IT62W0300203280486429468578\",\"bank_name\":\"Indesa\",\"bank_beneficiary\":\"mamma\",\"ei_payment_method\":\"2\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+    Integer companyId = 11111;
+
+    PaymentMethod p1 =
+        new PaymentMethod()
+            .id(12345)
+            .name("Bonifico bancario")
+            .type(PaymentMethodType.STANDARD)
+            .isDefault(true)
+            .details(Arrays.asList(new PaymentMethodDetails().title("t1")))
+            .defaultPaymentAccount(new PaymentAccount().id(21).name("n1"))
+            .bankIban("IT62W0300203280486429468578")
+            .bankName("Indesa")
+            .bankBeneficiary("mamma")
+            .eiPaymentMethod("2");
+    PaymentMethod p2 =
+        new PaymentMethod()
+            .id(12346)
+            .name("Bonifico bancario")
+            .type(PaymentMethodType.STANDARD)
+            .isDefault(true)
+            .details(Arrays.asList(new PaymentMethodDetails().title("t1")))
+            .defaultPaymentAccount(new PaymentAccount().id(21).name("n1"))
+            .bankIban("IT62W0300203280486429468578")
+            .bankName("Indesa")
+            .bankBeneficiary("mamma")
+            .eiPaymentMethod("2");
+    List<PaymentMethod> expected = Arrays.asList(p1, p2);
+
+    ListPaymentMethodsResponse response = api.listPaymentMethods(companyId, null, null, null);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Product Categories
+   *
+   * <p>Lists the product categories.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listProductCategoriesTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"cat5\",\"cat6\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    List<String> expected = Arrays.asList("cat5", "cat6");
+
+    ListProductCategoriesResponse response = api.listProductCategories(companyId, "products");
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Received Document Categories
+   *
+   * <p>Lists the received document categories.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listReceivedDocumentCategoriesTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"cat5\",\"cat6\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    List<String> expected = Arrays.asList("cat5", "cat6");
+
+    ListReceivedDocumentCategoriesResponse response = api.listReceivedDocumentCategories(companyId);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Revenue Centers
+   *
+   * <p>Lists the revenue centers.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listRevenueCentersTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"bg\",\"mi\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    List<String> expected = Arrays.asList("bg", "mi");
+
+    ListRevenueCentersResponse response = api.listRevenueCenters(companyId);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Templates
+   *
+   * <p>Lists the available templates.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listTemplatesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo"
+            + " 1\"},{\"id\":20,\"name\":\"New Standard S2\",\"type\":\"Tipo 2\"}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    DocumentTemplate d1 = new DocumentTemplate().id(10).name("New Standard S1").type("Tipo 1");
+    DocumentTemplate d2 = new DocumentTemplate().id(20).name("New Standard S2").type("Tipo 2");
+    List<DocumentTemplate> expected = Arrays.asList(d1, d2);
+
+    ListTemplatesResponse response = api.listTemplates("invoice", false);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Units of Measure
+   *
+   * <p>Lists the units of measure.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listUnitsOfMeasureTest() throws ApiException, IOException {
+    String result = "{\"data\":[\"kg\",\"km\"]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    List<String> expected = Arrays.asList("kg", "km");
+
+    ListUnitsOfMeasureResponse response = api.listUnitsOfMeasure();
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
+  /**
+   * List Vat Types
+   *
+   * <p>Lists the available vat types.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listVatTypesTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":[{\"id\":1,\"value\":22,\"description\":\"Non imponibile art."
+            + " 123\",\"notes\":\"IVA non"
+            + " imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false},{\"id\":2,\"value\":33,\"description\":\"Non"
+            + " imponibile art. 123\",\"notes\":\"IVA non"
+            + " imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}]}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    InfoApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    VatType v1 =
+        new VatType()
+            .id(1)
+            .value(BigDecimal.valueOf(22))
+            .description("Non imponibile art. 123")
+            .notes("IVA non imponibile")
+            .eInvoice(true)
+            .eiType("2")
+            .eiDescription("desc")
+            .isDisabled(false);
+    VatType v2 =
+        new VatType()
+            .id(2)
+            .value(BigDecimal.valueOf(33))
+            .description("Non imponibile art. 123")
+            .notes("IVA non imponibile")
+            .eInvoice(true)
+            .eiType("2")
+            .eiDescription("desc")
+            .isDisabled(false);
+    List<VatType> expected = Arrays.asList(v1, v2);
+
+    ListVatTypesResponse response = api.listVatTypes(companyId, null);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

@@ -10,55 +10,48 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-
-/**
- * Model tests for EntityType
- */
+/** Model tests for EntityType */
 public class EntityTypeTest {
-    /**
-     * Model tests for EntityType
-     */
-    @Test
-    public void testEntityType() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for EntityType */
+  @Test
+  public void testEntityType() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"company\"", gson.toJson(EntityType.COMPANY));
-        assertEquals("\"person\"", gson.toJson(EntityType.PERSON));
-        assertEquals("\"pa\"", gson.toJson(EntityType.PA));
-        assertEquals("\"condo\"", gson.toJson(EntityType.CONDO));
+    assertEquals("\"company\"", gson.toJson(EntityType.COMPANY));
+    assertEquals("\"person\"", gson.toJson(EntityType.PERSON));
+    assertEquals("\"pa\"", gson.toJson(EntityType.PA));
+    assertEquals("\"condo\"", gson.toJson(EntityType.CONDO));
 
-        assertEquals(EntityType.COMPANY, gson.fromJson("\"company\"", EntityType.class));
-        assertEquals(EntityType.PERSON, gson.fromJson("\"person\"", EntityType.class));
-        assertEquals(EntityType.PA, gson.fromJson("\"pa\"", EntityType.class));
-        assertEquals(EntityType.CONDO, gson.fromJson("\"condo\"", EntityType.class));
+    assertEquals(EntityType.COMPANY, gson.fromJson("\"company\"", EntityType.class));
+    assertEquals(EntityType.PERSON, gson.fromJson("\"person\"", EntityType.class));
+    assertEquals(EntityType.PA, gson.fromJson("\"pa\"", EntityType.class));
+    assertEquals(EntityType.CONDO, gson.fromJson("\"condo\"", EntityType.class));
 
-        assertEquals("company", EntityType.COMPANY.getValue());
-        assertEquals("person", EntityType.PERSON.getValue());
-        assertEquals("pa", EntityType.PA.getValue());
-        assertEquals("condo", EntityType.CONDO.getValue());
+    assertEquals("company", EntityType.COMPANY.getValue());
+    assertEquals("person", EntityType.PERSON.getValue());
+    assertEquals("pa", EntityType.PA.getValue());
+    assertEquals("condo", EntityType.CONDO.getValue());
 
-        assertEquals("company", EntityType.COMPANY.toString());
-        assertEquals("person", EntityType.PERSON.toString());
-        assertEquals("pa", EntityType.PA.toString());
-        assertEquals("condo", EntityType.CONDO.toString());
+    assertEquals("company", EntityType.COMPANY.toString());
+    assertEquals("person", EntityType.PERSON.toString());
+    assertEquals("pa", EntityType.PA.toString());
+    assertEquals("condo", EntityType.CONDO.toString());
 
-        assertEquals(EntityType.COMPANY, EntityType.fromValue("company"));
-        assertEquals(EntityType.PERSON, EntityType.fromValue("person"));
-        assertEquals(EntityType.PA, EntityType.fromValue("pa"));
-        assertEquals(EntityType.CONDO, EntityType.fromValue("condo"));
+    assertEquals(EntityType.COMPANY, EntityType.fromValue("company"));
+    assertEquals(EntityType.PERSON, EntityType.fromValue("person"));
+    assertEquals(EntityType.PA, EntityType.fromValue("pa"));
+    assertEquals(EntityType.CONDO, EntityType.fromValue("condo"));
 
-        assertNull(EntityType.fromValue("Evil Joshua"));
-    }
-
+    assertNull(EntityType.fromValue("Evil Joshua"));
+  }
 }

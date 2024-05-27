@@ -1,14 +1,13 @@
 
 
-# ReceivedDocumentEntity
+# SendEInvoiceRequestOptions
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **Integer** | Entity unique identifier. |  [optional] |
-|**name** | **String** | Entity name. |  [optional] |
+|**dryRun** | **Boolean** | If set to true the e-invoice will not be sent to the SDI. |  [optional] |
 
 
 ## Implemented Interfaces

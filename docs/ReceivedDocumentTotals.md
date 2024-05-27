@@ -3,18 +3,17 @@
 # ReceivedDocumentTotals
 
 
-
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**amountNet** | **BigDecimal** | Total net amount. |  [optional] |
-|**amountVat** | **BigDecimal** | Total vat amount. |  [optional] |
-|**amountGross** | **BigDecimal** | Total gross amount. |  [optional] |
-|**amountWithholdingTax** | **BigDecimal** | Total withholding tax amount. |  [optional] |
-|**amountOtherWithholdingTax** | **BigDecimal** | Total other withholding tax amount. |  [optional] |
-|**amountDue** | **BigDecimal** | Total amount due. |  [optional] |
-|**paymentsSum** | **BigDecimal** | Payments sum. |  [optional] |
+|**amountNet** | **BigDecimal** | Received document total net amount |  [optional] |
+|**amountVat** | **BigDecimal** | Received document total vat amount |  [optional] |
+|**amountGross** | **BigDecimal** | Received document total gross amount |  [optional] |
+|**amountWithholdingTax** | **BigDecimal** | Received document withholding tax amount |  [optional] |
+|**amountOtherWithholdingTax** | **BigDecimal** | Received document other withholding tax amount |  [optional] |
+|**amountDue** | **BigDecimal** | Received document total amount due |  [optional] |
+|**paymentsSum** | **BigDecimal** | Received document payments sum |  [optional] |
 
 
 ## Implemented Interfaces

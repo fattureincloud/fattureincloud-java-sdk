@@ -10,111 +10,99 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for GetCompanyInfoResponse
- */
+/** Model tests for GetCompanyInfoResponse */
 public class GetCompanyInfoResponseTest {
-    private GetCompanyInfoResponse model;
+  private GetCompanyInfoResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetCompanyInfoResponse()
-                .data(
-                        new CompanyInfo()
-                                .id(12345)
-                                .name("Studio Commercialista")
-                                .email("mario.rossi@example.com")
-                                .type(CompanyType.ACCOUNTANT)
-                                .isAccountant(true)
-                                .accountantId(12345)
-                                .accessInfo(new CompanyInfoAccessInfo()
-                                        .role(UserCompanyRole.MASTER)
-                                        .throughAccountant(false)
-                                )
-                                .planInfo(
-                                        new CompanyInfoPlanInfo()
-                                                .limits(new CompanyInfoPlanInfoLimits()
-                                                        .clients(5000)
-                                                        .suppliers(5000)
-                                                        .products(5000)
-                                                        .documents(3000)
-                                                )
-                                                .functions(new CompanyInfoPlanInfoFunctions()
-                                                        .documentAttachments(true)
-                                                        .archive(true)
-                                                        .paymentNotifications(true)
-                                                        .paypal(true)
-                                                        .receipts(true)
-                                                        .eInvoice(true)
-                                                        .genius(true)
-                                                        .stock(true)
-                                                        .smtp(true)
-                                                        .mailTracking(true)
-                                                        .subaccounts(true)
-                                                        .tesseraSanitaria(true)
-                                                        .recurring(true)
-                                                        .sofort(false)
-                                                        .cerved(true)
-                                                        .tsDigital(true)
-                                                        .tsPay(true)
-                                                        .tsInvoiceTrading(true)
-                                                )
-                                                .functionsStatus(new CompanyInfoPlanInfoFunctionsStatus()
-                                                        .tsDigital(new FunctionStatus()
-                                                                .active(true)
-                                                        )
-                                                        .tsPay(new FunctionStatus()
-                                                                .active(false)
-                                                        )
-                                                )
-                                )
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetCompanyInfoResponse()
+            .data(
+                new CompanyInfo()
+                    .id(12345)
+                    .name("Studio Commercialista")
+                    .email("mario.rossi@example.com")
+                    .type(CompanyType.ACCOUNTANT)
+                    .isAccountant(true)
+                    .accountantId(12345)
+                    .accessInfo(
+                        new CompanyInfoAccessInfo()
+                            .role(UserCompanyRole.MASTER)
+                            .throughAccountant(false))
+                    .planInfo(
+                        new CompanyInfoPlanInfo()
+                            .limits(
+                                new CompanyInfoPlanInfoLimits()
+                                    .clients(5000)
+                                    .suppliers(5000)
+                                    .products(5000)
+                                    .documents(3000))
+                            .functions(
+                                new CompanyInfoPlanInfoFunctions()
+                                    .documentAttachments(true)
+                                    .archive(true)
+                                    .paymentNotifications(true)
+                                    .paypal(true)
+                                    .receipts(true)
+                                    .eInvoice(true)
+                                    .genius(true)
+                                    .stock(true)
+                                    .smtp(true)
+                                    .mailTracking(true)
+                                    .subaccounts(true)
+                                    .tesseraSanitaria(true)
+                                    .recurring(true)
+                                    .sofort(false)
+                                    .cerved(true)
+                                    .tsDigital(true)
+                                    .tsPay(true)
+                                    .tsInvoiceTrading(true))
+                            .functionsStatus(
+                                new CompanyInfoPlanInfoFunctionsStatus()
+                                    .tsDigital(new FunctionStatus().active(true))
+                                    .tsPay(new FunctionStatus().active(false)))));
+  }
 
-    /**
-     * Model tests for GetCompanyInfoResponse
-     */
-    @Test
-    public void testGetCompanyInfoResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"name\":\"Studio Commercialista\",\"email\":\"mario.rossi@example.com\",\"type\":\"accountant\",\"access_info\":{\"role\":\"master\",\"through_accountant\":false},\"plan_info\":{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":false}}},\"accountant_id\":12345,\"is_accountant\":true}}";
-        assertEquals(str, json);
-        GetCompanyInfoResponse generated = gson.fromJson(str, GetCompanyInfoResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetCompanyInfoResponse */
+  @Test
+  public void testGetCompanyInfoResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"id\":12345,\"name\":\"Studio"
+            + " Commercialista\",\"email\":\"mario.rossi@example.com\",\"type\":\"accountant\",\"access_info\":{\"role\":\"master\",\"through_accountant\":false},\"plan_info\":{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":false}}},\"accountant_id\":12345,\"is_accountant\":true}}";
+    assertEquals(str, json);
+    GetCompanyInfoResponse generated = gson.fromJson(str, GetCompanyInfoResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().getId());
-        model.setData(new CompanyInfo().id(2));
-        assertEquals(2, model.getData().getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().getId());
+    model.setData(new CompanyInfo().id(2));
+    assertEquals(2, model.getData().getId());
 
-        model.data(new CompanyInfo().id(12345));
-        GetCompanyInfoResponse actual = new GetCompanyInfoResponse();
-        actual.setData(new CompanyInfo().id(12345));
-        assertEquals(model, actual);
-    }
-
+    model.data(new CompanyInfo().id(12345));
+    GetCompanyInfoResponse actual = new GetCompanyInfoResponse();
+    actual.setData(new CompanyInfo().id(12345));
+    assertEquals(model, actual);
+  }
 }

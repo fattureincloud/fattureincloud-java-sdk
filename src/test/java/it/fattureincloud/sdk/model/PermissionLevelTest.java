@@ -10,57 +10,52 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for PermissionLevel
- */
+/** Model tests for PermissionLevel */
 public class PermissionLevelTest {
-    /**
-     * Model tests for PermissionLevel
-     */
-    @Test
-    public void testPermissionLevel() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for PermissionLevel */
+  @Test
+  public void testPermissionLevel() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"none\"", gson.toJson(PermissionLevel.NONE));
-        assertEquals("\"read\"", gson.toJson(PermissionLevel.READ));
-        assertEquals("\"write\"", gson.toJson(PermissionLevel.WRITE));
-        assertEquals("\"detailed\"", gson.toJson(PermissionLevel.DETAILED));
+    assertEquals("\"none\"", gson.toJson(PermissionLevel.NONE));
+    assertEquals("\"read\"", gson.toJson(PermissionLevel.READ));
+    assertEquals("\"write\"", gson.toJson(PermissionLevel.WRITE));
+    assertEquals("\"detailed\"", gson.toJson(PermissionLevel.DETAILED));
 
-        assertEquals(PermissionLevel.NONE, gson.fromJson("\"none\"", PermissionLevel.class));
-        assertEquals(PermissionLevel.READ, gson.fromJson("\"read\"", PermissionLevel.class));
-        assertEquals(PermissionLevel.WRITE, gson.fromJson("\"write\"", PermissionLevel.class));
-        assertEquals(PermissionLevel.DETAILED, gson.fromJson("\"detailed\"", PermissionLevel.class));
+    assertEquals(PermissionLevel.NONE, gson.fromJson("\"none\"", PermissionLevel.class));
+    assertEquals(PermissionLevel.READ, gson.fromJson("\"read\"", PermissionLevel.class));
+    assertEquals(PermissionLevel.WRITE, gson.fromJson("\"write\"", PermissionLevel.class));
+    assertEquals(PermissionLevel.DETAILED, gson.fromJson("\"detailed\"", PermissionLevel.class));
 
-        assertEquals("none", PermissionLevel.NONE.getValue());
-        assertEquals("read", PermissionLevel.READ.getValue());
-        assertEquals("write", PermissionLevel.WRITE.getValue());
-        assertEquals("detailed", PermissionLevel.DETAILED.getValue());
+    assertEquals("none", PermissionLevel.NONE.getValue());
+    assertEquals("read", PermissionLevel.READ.getValue());
+    assertEquals("write", PermissionLevel.WRITE.getValue());
+    assertEquals("detailed", PermissionLevel.DETAILED.getValue());
 
-        assertEquals("none", PermissionLevel.NONE.toString());
-        assertEquals("read", PermissionLevel.READ.toString());
-        assertEquals("write", PermissionLevel.WRITE.toString());
-        assertEquals("detailed", PermissionLevel.DETAILED.toString());
+    assertEquals("none", PermissionLevel.NONE.toString());
+    assertEquals("read", PermissionLevel.READ.toString());
+    assertEquals("write", PermissionLevel.WRITE.toString());
+    assertEquals("detailed", PermissionLevel.DETAILED.toString());
 
-        assertEquals(PermissionLevel.NONE, PermissionLevel.fromValue("none"));
-        assertEquals(PermissionLevel.READ, PermissionLevel.fromValue("read"));
-        assertEquals(PermissionLevel.WRITE, PermissionLevel.fromValue("write"));
-        assertEquals(PermissionLevel.DETAILED, PermissionLevel.fromValue("detailed"));
+    assertEquals(PermissionLevel.NONE, PermissionLevel.fromValue("none"));
+    assertEquals(PermissionLevel.READ, PermissionLevel.fromValue("read"));
+    assertEquals(PermissionLevel.WRITE, PermissionLevel.fromValue("write"));
+    assertEquals(PermissionLevel.DETAILED, PermissionLevel.fromValue("detailed"));
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            PermissionLevel.fromValue("Evil Joshua");
+    Assertions.assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          PermissionLevel.fromValue("Evil Joshua");
         });
-    }
-
+  }
 }

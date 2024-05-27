@@ -10,194 +10,177 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for CompanyInfoPlanInfo
- */
+/** Model tests for CompanyInfoPlanInfo */
 public class CompanyInfoPlanInfoTest {
-    private CompanyInfoPlanInfo model;
+  private CompanyInfoPlanInfo model;
 
-    @BeforeEach
-    public void init() {
-        model = new CompanyInfoPlanInfo();
-    }
+  @BeforeEach
+  public void init() {
+    model = new CompanyInfoPlanInfo();
+  }
 
-    /**
-     * Model tests for CompanyInfoPlanInfo
-     */
-    @Test
-    public void testCompanyInfoPlanInfo() {
-        CompanyInfoPlanInfo c = new CompanyInfoPlanInfo()
-                .limits(new CompanyInfoPlanInfoLimits()
-                        .clients(5000)
-                        .suppliers(5000)
-                        .products(5000)
-                        .documents(3000)
-                )
-                .functions(new CompanyInfoPlanInfoFunctions()
-                        .documentAttachments(true)
-                        .archive(true)
-                        .paymentNotifications(true)
-                        .paypal(true)
-                        .receipts(true)
-                        .eInvoice(true)
-                        .genius(true)
-                        .stock(true)
-                        .smtp(true)
-                        .mailTracking(true)
-                        .subaccounts(true)
-                        .tesseraSanitaria(true)
-                        .recurring(true)
-                        .sofort(false)
-                        .cerved(true)
-                        .tsDigital(true)
-                        .tsPay(true)
-                        .tsInvoiceTrading(true)
-                )
-                .functionsStatus(new CompanyInfoPlanInfoFunctionsStatus()
-                        .tsDigital(new FunctionStatus()
-                                .active(true)
-                        )
-                        .tsPay(new FunctionStatus()
-                                .active(true)
-                        )
-                );
+  /** Model tests for CompanyInfoPlanInfo */
+  @Test
+  public void testCompanyInfoPlanInfo() {
+    CompanyInfoPlanInfo c =
+        new CompanyInfoPlanInfo()
+            .limits(
+                new CompanyInfoPlanInfoLimits()
+                    .clients(5000)
+                    .suppliers(5000)
+                    .products(5000)
+                    .documents(3000))
+            .functions(
+                new CompanyInfoPlanInfoFunctions()
+                    .documentAttachments(true)
+                    .archive(true)
+                    .paymentNotifications(true)
+                    .paypal(true)
+                    .receipts(true)
+                    .eInvoice(true)
+                    .genius(true)
+                    .stock(true)
+                    .smtp(true)
+                    .mailTracking(true)
+                    .subaccounts(true)
+                    .tesseraSanitaria(true)
+                    .recurring(true)
+                    .sofort(false)
+                    .cerved(true)
+                    .tsDigital(true)
+                    .tsPay(true)
+                    .tsInvoiceTrading(true))
+            .functionsStatus(
+                new CompanyInfoPlanInfoFunctionsStatus()
+                    .tsDigital(new FunctionStatus().active(true))
+                    .tsPay(new FunctionStatus().active(true)));
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(c);
-        String str = "{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":true}}}";
-        assertEquals(str, json);
-        CompanyInfoPlanInfo generated = gson.fromJson(str, CompanyInfoPlanInfo.class);
-        assertEquals(c, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(c);
+    String str =
+        "{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":true}}}";
+    assertEquals(str, json);
+    CompanyInfoPlanInfo generated = gson.fromJson(str, CompanyInfoPlanInfo.class);
+    assertEquals(c, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'limits'
-     */
-    @Test
-    public void limitsTest() {
-        CompanyInfoPlanInfoLimits c1 = new CompanyInfoPlanInfoLimits()
-                .clients(5000)
-                .suppliers(5000)
-                .products(5000)
-                .documents(3000);
+  /** Test the property 'limits' */
+  @Test
+  public void limitsTest() {
+    CompanyInfoPlanInfoLimits c1 =
+        new CompanyInfoPlanInfoLimits()
+            .clients(5000)
+            .suppliers(5000)
+            .products(5000)
+            .documents(3000);
 
-        CompanyInfoPlanInfoLimits c2 = new CompanyInfoPlanInfoLimits()
-                .clients(1000)
-                .suppliers(1000)
-                .products(1000)
-                .documents(2000);
+    CompanyInfoPlanInfoLimits c2 =
+        new CompanyInfoPlanInfoLimits()
+            .clients(1000)
+            .suppliers(1000)
+            .products(1000)
+            .documents(2000);
 
-        assertNull(model.getLimits());
-        model.setLimits(c1);
-        assertEquals(c1, model.getLimits());
+    assertNull(model.getLimits());
+    model.setLimits(c1);
+    assertEquals(c1, model.getLimits());
 
-        CompanyInfoPlanInfo c = model.limits(c2);
-        CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
-        expected.setLimits(c2);
-        assertEquals(expected, c);
-    }
+    CompanyInfoPlanInfo c = model.limits(c2);
+    CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
+    expected.setLimits(c2);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'functions'
-     */
-    @Test
-    public void functionsTest() {
-        CompanyInfoPlanInfoFunctions c1 = new CompanyInfoPlanInfoFunctions()
-                .documentAttachments(true)
-                .archive(true)
-                .paymentNotifications(true)
-                .paypal(true)
-                .receipts(true)
-                .eInvoice(true)
-                .genius(true)
-                .stock(true)
-                .smtp(true)
-                .mailTracking(true)
-                .subaccounts(true)
-                .tesseraSanitaria(true)
-                .recurring(true)
-                .sofort(false)
-                .cerved(true)
-                .tsDigital(true)
-                .tsPay(true)
-                .tsInvoiceTrading(true);
+  /** Test the property 'functions' */
+  @Test
+  public void functionsTest() {
+    CompanyInfoPlanInfoFunctions c1 =
+        new CompanyInfoPlanInfoFunctions()
+            .documentAttachments(true)
+            .archive(true)
+            .paymentNotifications(true)
+            .paypal(true)
+            .receipts(true)
+            .eInvoice(true)
+            .genius(true)
+            .stock(true)
+            .smtp(true)
+            .mailTracking(true)
+            .subaccounts(true)
+            .tesseraSanitaria(true)
+            .recurring(true)
+            .sofort(false)
+            .cerved(true)
+            .tsDigital(true)
+            .tsPay(true)
+            .tsInvoiceTrading(true);
 
-        CompanyInfoPlanInfoFunctions c2 = new CompanyInfoPlanInfoFunctions()
-                .documentAttachments(false)
-                .archive(false)
-                .paymentNotifications(false)
-                .paypal(true)
-                .receipts(false)
-                .eInvoice(false)
-                .genius(false)
-                .stock(false)
-                .smtp(false)
-                .mailTracking(false)
-                .subaccounts(false)
-                .tesseraSanitaria(false)
-                .recurring(false)
-                .sofort(false)
-                .cerved(false)
-                .tsDigital(false)
-                .tsPay(false)
-                .tsInvoiceTrading(false);
+    CompanyInfoPlanInfoFunctions c2 =
+        new CompanyInfoPlanInfoFunctions()
+            .documentAttachments(false)
+            .archive(false)
+            .paymentNotifications(false)
+            .paypal(true)
+            .receipts(false)
+            .eInvoice(false)
+            .genius(false)
+            .stock(false)
+            .smtp(false)
+            .mailTracking(false)
+            .subaccounts(false)
+            .tesseraSanitaria(false)
+            .recurring(false)
+            .sofort(false)
+            .cerved(false)
+            .tsDigital(false)
+            .tsPay(false)
+            .tsInvoiceTrading(false);
 
-        assertNull(model.getFunctions());
-        model.setFunctions(c1);
-        assertEquals(c1, model.getFunctions());
+    assertNull(model.getFunctions());
+    model.setFunctions(c1);
+    assertEquals(c1, model.getFunctions());
 
-        CompanyInfoPlanInfo c = model.functions(c2);
-        CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
-        expected.setFunctions(c2);
-        assertEquals(expected, c);
-    }
+    CompanyInfoPlanInfo c = model.functions(c2);
+    CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
+    expected.setFunctions(c2);
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'functionsStatus'
-     */
-    @Test
-    public void functionsStatusTest() {
-        CompanyInfoPlanInfoFunctionsStatus c1 = new CompanyInfoPlanInfoFunctionsStatus()
-                .tsDigital(new FunctionStatus()
-                        .active(true)
-                )
-                .tsPay(new FunctionStatus()
-                        .active(false)
-                );
+  /** Test the property 'functionsStatus' */
+  @Test
+  public void functionsStatusTest() {
+    CompanyInfoPlanInfoFunctionsStatus c1 =
+        new CompanyInfoPlanInfoFunctionsStatus()
+            .tsDigital(new FunctionStatus().active(true))
+            .tsPay(new FunctionStatus().active(false));
 
-        CompanyInfoPlanInfoFunctionsStatus c2 = new CompanyInfoPlanInfoFunctionsStatus()
-                .tsDigital(new FunctionStatus()
-                        .active(false)
-                )
-                .tsPay(new FunctionStatus()
-                        .active(true)
-                );
+    CompanyInfoPlanInfoFunctionsStatus c2 =
+        new CompanyInfoPlanInfoFunctionsStatus()
+            .tsDigital(new FunctionStatus().active(false))
+            .tsPay(new FunctionStatus().active(true));
 
-        assertNull(model.getFunctionsStatus());
-        model.setFunctionsStatus(c1);
-        assertEquals(c1, model.getFunctionsStatus());
+    assertNull(model.getFunctionsStatus());
+    model.setFunctionsStatus(c1);
+    assertEquals(c1, model.getFunctionsStatus());
 
-        CompanyInfoPlanInfo c = model.functionsStatus(c2);
-        CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
-        expected.setFunctionsStatus(c2);
-        assertEquals(expected, c);
-    }
-
+    CompanyInfoPlanInfo c = model.functionsStatus(c2);
+    CompanyInfoPlanInfo expected = new CompanyInfoPlanInfo();
+    expected.setFunctionsStatus(c2);
+    assertEquals(expected, c);
+  }
 }

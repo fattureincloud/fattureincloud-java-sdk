@@ -10,392 +10,396 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.*;
-import okhttp3.*;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-/**
- * API tests for ClientsApi
- */
+/** API tests for ClientsApi */
 public class ClientsApiTest {
 
-    private static ClientsApi mockApi(final String serializedBody, final Call remoteCall) throws IOException {
-        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+  private static ClientsApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+    final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
 
-        Response.Builder builder = new Response.Builder()
-                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("");
-        if (serializedBody != null) {
-            builder = builder.body(
-                    ResponseBody.create(
-                            serializedBody,
-                            MediaType.parse("application/json")
-                    ));
-        }
-
-        final Response response = builder.build();
-
-        Mockito.when(remoteCall.execute()).thenReturn(response);
-        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
-
-        ApiClient client = new ApiClient(okHttpClient);
-
-        return new ClientsApi(client);
+    Response.Builder builder =
+        new Response.Builder()
+            .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+            .protocol(Protocol.HTTP_1_1)
+            .code(200)
+            .message("");
+    if (serializedBody != null) {
+      builder =
+          builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
     }
 
+    final Response response = builder.build();
 
-    /**
-     * Create Client
-     * <p>
-     * Creates a new client.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createClientTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}}}";
+    Mockito.when(remoteCall.execute()).thenReturn(response);
+    Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
 
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi(result, mockCall);
+    ApiClient client = new ApiClient(okHttpClient);
 
-        Integer companyId = 11111;
+    return new ClientsApi(client);
+  }
 
-        Client client = new Client()
-                .type(ClientType.PERSON)
-                .country("Italia")
-                .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
-                        .description("")
-                        .isDisabled(false)
-                )
-                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
-                .code("AE86")
-                .name("Avv. Maria Rossi")
-                .firstName("Maria")
-                .lastName("Rossi")
-                .contactPerson("")
-                .vatNumber("IT12345640962")
-                .taxCode("BLTGNI5ABCDA794E")
-                .addressStreet("Via Roma, 1")
-                .addressPostalCode("20900")
-                .addressCity("Milano")
-                .addressProvince("MI")
-                .addressExtra("")
-                .email("maria.rossi@example.com")
-                .certifiedEmail("maria.rossi@pec.example.com")
-                .phone("1234567890")
-                .fax("")
-                .notes("")
-                .defaultPaymentTerms(1)
-                .bankName("Indesa")
-                .bankIban("IT40P123456781000000123456")
-                .bankSwiftCode("AK86PCT")
-                .shippingAddress("Corso Magellano 4")
-                .eiCode("111111");
+  /**
+   * Create Client
+   *
+   * <p>Creates a new client.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createClientTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria"
+            + " Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via"
+            + " Roma,"
+            + " 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29"
+            + " 08:53:07\",\"updated_at\":\"2021-04-29"
+            + " 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso"
+            + " Magellano"
+            + " 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit"
+            + " card\"}}}";
 
-        Client expected = client
-                .id(16451)
-                .createdAt("2021-04-29 08:53:07")
-                .updatedAt("2021-04-29 08:53:07");
+    Call mockCall = Mockito.mock(Call.class);
+    ClientsApi api = mockApi(result, mockCall);
 
-        CreateClientRequest createClientRequest = new CreateClientRequest().data(client);
+    Integer companyId = 11111;
 
-        CreateClientResponse response = api.createClient(companyId, createClientRequest);
+    Client client =
+        new Client()
+            .type(ClientType.PERSON)
+            .country("Italia")
+            .defaultVat(
+                new VatType().id(54321).value(new BigDecimal(45)).description("").isDisabled(false))
+            .defaultPaymentTermsType(PaymentTermsType.STANDARD)
+            .defaultPaymentMethod(
+                new PaymentMethod().id(386092).name("Credit card").type(PaymentMethodType.STANDARD))
+            .eInvoice(true)
+            .code("AE86")
+            .name("Avv. Maria Rossi")
+            .firstName("Maria")
+            .lastName("Rossi")
+            .contactPerson("")
+            .vatNumber("IT12345640962")
+            .taxCode("BLTGNI5ABCDA794E")
+            .addressStreet("Via Roma, 1")
+            .addressPostalCode("20900")
+            .addressCity("Milano")
+            .addressProvince("MI")
+            .addressExtra("")
+            .email("maria.rossi@example.com")
+            .certifiedEmail("maria.rossi@pec.example.com")
+            .phone("1234567890")
+            .fax("")
+            .notes("")
+            .defaultPaymentTerms(1)
+            .bankName("Indesa")
+            .bankIban("IT40P123456781000000123456")
+            .bankSwiftCode("AK86PCT")
+            .shippingAddress("Corso Magellano 4")
+            .eiCode("111111");
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Client expected =
+        client.id(16451).createdAt("2021-04-29 08:53:07").updatedAt("2021-04-29 08:53:07");
 
-    /**
-     * Delete Client
-     * <p>
-     * Deletes the specified client.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteClientTest() throws ApiException, IOException {
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi(null, mockCall);
+    CreateClientRequest createClientRequest = new CreateClientRequest().data(client);
 
-        Integer companyId = 11111;
-        Integer clientId = 16451;
-        api.deleteClient(companyId, clientId);
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    CreateClientResponse response = api.createClient(companyId, createClientRequest);
 
-    /**
-     * Get Client
-     * <p>
-     * Gets the specified client.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getClientTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}}}";
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi(result, mockCall);
+  /**
+   * Delete Client
+   *
+   * <p>Deletes the specified client.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteClientTest() throws ApiException, IOException {
+    Call mockCall = Mockito.mock(Call.class);
+    ClientsApi api = mockApi(null, mockCall);
 
-        Integer companyId = 11111;
-        Integer clientId = 16451;
-        String fields = null;
-        String fieldset = null;
+    Integer companyId = 11111;
+    Integer clientId = 16451;
+    api.deleteClient(companyId, clientId);
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Client expected = new Client()
-                .type(ClientType.PERSON)
-                .country("Italia")
-                .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
-                        .description("")
-                        .isDisabled(false)
-                )
-                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
-                .code("AE86")
-                .name("Avv. Maria Rossi")
-                .firstName("Maria")
-                .lastName("Rossi")
-                .contactPerson("")
-                .vatNumber("IT12345640962")
-                .taxCode("BLTGNI5ABCDA794E")
-                .addressStreet("Via Roma, 1")
-                .addressPostalCode("20900")
-                .addressCity("Milano")
-                .addressProvince("MI")
-                .addressExtra("")
-                .email("maria.rossi@example.com")
-                .certifiedEmail("maria.rossi@pec.example.com")
-                .phone("1234567890")
-                .fax("")
-                .notes("")
-                .defaultPaymentTerms(1)
-                .bankName("Indesa")
-                .bankIban("IT40P123456781000000123456")
-                .bankSwiftCode("AK86PCT")
-                .shippingAddress("Corso Magellano 4")
-                .eiCode("111111")
-                .id(16451)
-                .createdAt("2021-04-29 08:53:07")
-                .updatedAt("2021-04-29 08:53:07");
+  /**
+   * Get Client
+   *
+   * <p>Gets the specified client.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getClientTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria"
+            + " Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via"
+            + " Roma,"
+            + " 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29"
+            + " 08:53:07\",\"updated_at\":\"2021-04-29"
+            + " 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso"
+            + " Magellano"
+            + " 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit"
+            + " card\"}}}";
 
-        GetClientResponse response = api.getClient(companyId, clientId, fields, fieldset);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Call mockCall = Mockito.mock(Call.class);
+    ClientsApi api = mockApi(result, mockCall);
 
-    /**
-     * List Clients
-     * <p>
-     * Lists the clients.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listClientsTest() throws ApiException, IOException {
-        String result = "{\"current_page\":1,\"data\":[{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}},{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}}],\"first_page_url\":\"page=1\",\"from\":1,\"last_page\":2,\"last_page_url\":\"page=2\",\"next_page_url\":\"page=2\",\"path\":\"entities/clients\",\"per_page\":5,\"prev_page_url\":null,\"to\":50,\"total\":8}";
+    Integer companyId = 11111;
+    Integer clientId = 16451;
+    String fields = null;
+    String fieldset = null;
 
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi(result, mockCall);
+    Client expected =
+        new Client()
+            .type(ClientType.PERSON)
+            .country("Italia")
+            .defaultVat(
+                new VatType().id(54321).value(new BigDecimal(45)).description("").isDisabled(false))
+            .defaultPaymentTermsType(PaymentTermsType.STANDARD)
+            .defaultPaymentMethod(
+                new PaymentMethod().id(386092).name("Credit card").type(PaymentMethodType.STANDARD))
+            .eInvoice(true)
+            .code("AE86")
+            .name("Avv. Maria Rossi")
+            .firstName("Maria")
+            .lastName("Rossi")
+            .contactPerson("")
+            .vatNumber("IT12345640962")
+            .taxCode("BLTGNI5ABCDA794E")
+            .addressStreet("Via Roma, 1")
+            .addressPostalCode("20900")
+            .addressCity("Milano")
+            .addressProvince("MI")
+            .addressExtra("")
+            .email("maria.rossi@example.com")
+            .certifiedEmail("maria.rossi@pec.example.com")
+            .phone("1234567890")
+            .fax("")
+            .notes("")
+            .defaultPaymentTerms(1)
+            .bankName("Indesa")
+            .bankIban("IT40P123456781000000123456")
+            .bankSwiftCode("AK86PCT")
+            .shippingAddress("Corso Magellano 4")
+            .eiCode("111111")
+            .id(16451)
+            .createdAt("2021-04-29 08:53:07")
+            .updatedAt("2021-04-29 08:53:07");
 
-        Integer companyId = 11111;
-        String fields = null;
-        String fieldset = null;
-        String sort = null;
-        Integer page = 1;
-        Integer perPage = 5;
-        String q = null;
+    GetClientResponse response = api.getClient(companyId, clientId, fields, fieldset);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Client client16451 = new Client()
-                .type(ClientType.PERSON)
-                .country("Italia")
-                .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
-                        .description("")
-                        .isDisabled(false)
-                )
-                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
-                .code("AE86")
-                .name("Avv. Maria Rossi")
-                .firstName("Maria")
-                .lastName("Rossi")
-                .contactPerson("")
-                .vatNumber("IT12345640962")
-                .taxCode("BLTGNI5ABCDA794E")
-                .addressStreet("Via Roma, 1")
-                .addressPostalCode("20900")
-                .addressCity("Milano")
-                .addressProvince("MI")
-                .addressExtra("")
-                .email("maria.rossi@example.com")
-                .certifiedEmail("maria.rossi@pec.example.com")
-                .phone("1234567890")
-                .fax("")
-                .notes("")
-                .defaultPaymentTerms(1)
-                .bankName("Indesa")
-                .bankIban("IT40P123456781000000123456")
-                .bankSwiftCode("AK86PCT")
-                .shippingAddress("Corso Magellano 4")
-                .eiCode("111111")
-                .id(16451)
-                .createdAt("2021-04-29 08:53:07")
-                .updatedAt("2021-04-29 08:53:07");
+  /**
+   * List Clients
+   *
+   * <p>Lists the clients.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listClientsTest() throws ApiException, IOException {
+    String result =
+        "{\"current_page\":1,\"data\":[{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria"
+            + " Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via"
+            + " Roma,"
+            + " 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29"
+            + " 08:53:07\",\"updated_at\":\"2021-04-29"
+            + " 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso"
+            + " Magellano"
+            + " 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit"
+            + " card\"}},{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria"
+            + " Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via"
+            + " Roma,"
+            + " 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29"
+            + " 08:53:07\",\"updated_at\":\"2021-04-29"
+            + " 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso"
+            + " Magellano"
+            + " 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit"
+            + " card\"}}],\"first_page_url\":\"page=1\",\"from\":1,\"last_page\":2,\"last_page_url\":\"page=2\",\"next_page_url\":\"page=2\",\"path\":\"entities/clients\",\"per_page\":5,\"prev_page_url\":null,\"to\":50,\"total\":8}";
 
-        Client client25330696 = new Client()
-                .type(ClientType.PERSON)
-                .country("Italia")
-                .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
-                        .description("")
-                        .isDisabled(false)
-                )
-                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
-                .code("AE86")
-                .name("Avv. Maria Rossi")
-                .firstName("Maria")
-                .lastName("Rossi")
-                .contactPerson("")
-                .vatNumber("IT12345640962")
-                .taxCode("BLTGNI5ABCDA794E")
-                .addressStreet("Via Roma, 1")
-                .addressPostalCode("20900")
-                .addressCity("Milano")
-                .addressProvince("MI")
-                .addressExtra("")
-                .email("maria.rossi@example.com")
-                .certifiedEmail("maria.rossi@pec.example.com")
-                .phone("1234567890")
-                .fax("")
-                .notes("")
-                .defaultPaymentTerms(1)
-                .bankName("Indesa")
-                .bankIban("IT40P123456781000000123456")
-                .bankSwiftCode("AK86PCT")
-                .shippingAddress("Corso Magellano 4")
-                .eiCode("111111")
-                .id(16451)
-                .createdAt("2021-04-29 08:53:07")
-                .updatedAt("2021-04-29 08:53:07");
+    Call mockCall = Mockito.mock(Call.class);
+    ClientsApi api = mockApi(result, mockCall);
 
-        List<Client> expected = Arrays.asList(client16451, client25330696);
+    Integer companyId = 11111;
+    String fields = null;
+    String fieldset = null;
+    String sort = null;
+    Integer page = 1;
+    Integer perPage = 5;
+    String q = null;
 
-        ListClientsResponse response = api.listClients(companyId, fields, fieldset, sort, page, perPage, q);
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Client client16451 =
+        new Client()
+            .type(ClientType.PERSON)
+            .country("Italia")
+            .defaultVat(
+                new VatType().id(54321).value(new BigDecimal(45)).description("").isDisabled(false))
+            .defaultPaymentTermsType(PaymentTermsType.STANDARD)
+            .defaultPaymentMethod(
+                new PaymentMethod().id(386092).name("Credit card").type(PaymentMethodType.STANDARD))
+            .eInvoice(true)
+            .code("AE86")
+            .name("Avv. Maria Rossi")
+            .firstName("Maria")
+            .lastName("Rossi")
+            .contactPerson("")
+            .vatNumber("IT12345640962")
+            .taxCode("BLTGNI5ABCDA794E")
+            .addressStreet("Via Roma, 1")
+            .addressPostalCode("20900")
+            .addressCity("Milano")
+            .addressProvince("MI")
+            .addressExtra("")
+            .email("maria.rossi@example.com")
+            .certifiedEmail("maria.rossi@pec.example.com")
+            .phone("1234567890")
+            .fax("")
+            .notes("")
+            .defaultPaymentTerms(1)
+            .bankName("Indesa")
+            .bankIban("IT40P123456781000000123456")
+            .bankSwiftCode("AK86PCT")
+            .shippingAddress("Corso Magellano 4")
+            .eiCode("111111")
+            .id(16451)
+            .createdAt("2021-04-29 08:53:07")
+            .updatedAt("2021-04-29 08:53:07");
 
-    /**
-     * Modify Client
-     * <p>
-     * Modifies the specified client.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void modifyClientTest() throws ApiException, IOException {
-        String result = "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via Roma, 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29 08:53:07\",\"updated_at\":\"2021-04-29 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso Magellano 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit card\"}}}";
+    Client client25330696 =
+        new Client()
+            .type(ClientType.PERSON)
+            .country("Italia")
+            .defaultVat(
+                new VatType().id(54321).value(new BigDecimal(45)).description("").isDisabled(false))
+            .defaultPaymentTermsType(PaymentTermsType.STANDARD)
+            .defaultPaymentMethod(
+                new PaymentMethod().id(386092).name("Credit card").type(PaymentMethodType.STANDARD))
+            .eInvoice(true)
+            .code("AE86")
+            .name("Avv. Maria Rossi")
+            .firstName("Maria")
+            .lastName("Rossi")
+            .contactPerson("")
+            .vatNumber("IT12345640962")
+            .taxCode("BLTGNI5ABCDA794E")
+            .addressStreet("Via Roma, 1")
+            .addressPostalCode("20900")
+            .addressCity("Milano")
+            .addressProvince("MI")
+            .addressExtra("")
+            .email("maria.rossi@example.com")
+            .certifiedEmail("maria.rossi@pec.example.com")
+            .phone("1234567890")
+            .fax("")
+            .notes("")
+            .defaultPaymentTerms(1)
+            .bankName("Indesa")
+            .bankIban("IT40P123456781000000123456")
+            .bankSwiftCode("AK86PCT")
+            .shippingAddress("Corso Magellano 4")
+            .eiCode("111111")
+            .id(16451)
+            .createdAt("2021-04-29 08:53:07")
+            .updatedAt("2021-04-29 08:53:07");
 
-        Call mockCall = Mockito.mock(Call.class);
-        ClientsApi api = mockApi(result, mockCall);
+    List<Client> expected = Arrays.asList(client16451, client25330696);
 
-        Integer companyId = 2;
-        Integer clientId = 2;
+    ListClientsResponse response =
+        api.listClients(companyId, fields, fieldset, sort, page, perPage, q);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 
-        Client client = new Client()
-                .type(ClientType.PERSON)
-                .country("Italia")
-                .defaultVat(new VatType()
-                        .id(54321)
-                        .value(new BigDecimal(45))
-                        .description("")
-                        .isDisabled(false)
-                )
-                .defaultPaymentTermsType(PaymentTermsType.STANDARD)
-                .defaultPaymentMethod(new PaymentMethod()
-                        .id(386092)
-                        .name("Credit card")
-                        .type(PaymentMethodType.STANDARD)
-                )
-                .eInvoice(true)
-                .code("AE86")
-                .name("Avv. Maria Rossi")
-                .firstName("Maria")
-                .lastName("Rossi")
-                .contactPerson("")
-                .vatNumber("IT12345640962")
-                .taxCode("BLTGNI5ABCDA794E")
-                .addressStreet("Via Roma, 1")
-                .addressPostalCode("20900")
-                .addressCity("Milano")
-                .addressProvince("MI")
-                .addressExtra("")
-                .email("maria.rossi@example.com")
-                .certifiedEmail("maria.rossi@pec.example.com")
-                .phone("1234567890")
-                .fax("")
-                .notes("")
-                .defaultPaymentTerms(1)
-                .bankName("Indesa")
-                .bankIban("IT40P123456781000000123456")
-                .bankSwiftCode("AK86PCT")
-                .shippingAddress("Corso Magellano 4")
-                .eiCode("111111");
+  /**
+   * Modify Client
+   *
+   * <p>Modifies the specified client.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void modifyClientTest() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"id\":16451,\"code\":\"AE86\",\"name\":\"Avv. Maria"
+            + " Rossi\",\"type\":\"person\",\"first_name\":\"Maria\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"IT12345640962\",\"tax_code\":\"BLTGNI5ABCDA794E\",\"address_street\":\"Via"
+            + " Roma,"
+            + " 1\",\"address_postal_code\":\"20900\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"maria.rossi@example.com\",\"certified_email\":\"maria.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"\",\"notes\":\"\",\"created_at\":\"2021-04-29"
+            + " 08:53:07\",\"updated_at\":\"2021-04-29"
+            + " 08:53:07\",\"default_payment_terms\":1,\"default_payment_terms_type\":\"standard\",\"bank_name\":\"Indesa\",\"bank_iban\":\"IT40P123456781000000123456\",\"bank_swift_code\":\"AK86PCT\",\"shipping_address\":\"Corso"
+            + " Magellano"
+            + " 4\",\"e_invoice\":true,\"ei_code\":\"111111\",\"default_vat\":{\"id\":54321,\"value\":45,\"description\":\"\",\"is_disabled\":false},\"default_payment_method\":{\"id\":386092,\"name\":\"Credit"
+            + " card\"}}}";
 
-        Client expected = client
-                .id(16451)
-                .createdAt("2021-04-29 08:53:07")
-                .updatedAt("2021-04-29 08:53:07");
+    Call mockCall = Mockito.mock(Call.class);
+    ClientsApi api = mockApi(result, mockCall);
 
-        ModifyClientRequest modifyClientRequest = new ModifyClientRequest().data(client);
+    Integer companyId = 2;
+    Integer clientId = 2;
 
-        ModifyClientResponse response = api.modifyClient(companyId, clientId, modifyClientRequest);
+    Client client =
+        new Client()
+            .type(ClientType.PERSON)
+            .country("Italia")
+            .defaultVat(
+                new VatType().id(54321).value(new BigDecimal(45)).description("").isDisabled(false))
+            .defaultPaymentTermsType(PaymentTermsType.STANDARD)
+            .defaultPaymentMethod(
+                new PaymentMethod().id(386092).name("Credit card").type(PaymentMethodType.STANDARD))
+            .eInvoice(true)
+            .code("AE86")
+            .name("Avv. Maria Rossi")
+            .firstName("Maria")
+            .lastName("Rossi")
+            .contactPerson("")
+            .vatNumber("IT12345640962")
+            .taxCode("BLTGNI5ABCDA794E")
+            .addressStreet("Via Roma, 1")
+            .addressPostalCode("20900")
+            .addressCity("Milano")
+            .addressProvince("MI")
+            .addressExtra("")
+            .email("maria.rossi@example.com")
+            .certifiedEmail("maria.rossi@pec.example.com")
+            .phone("1234567890")
+            .fax("")
+            .notes("")
+            .defaultPaymentTerms(1)
+            .bankName("Indesa")
+            .bankIban("IT40P123456781000000123456")
+            .bankSwiftCode("AK86PCT")
+            .shippingAddress("Corso Magellano 4")
+            .eiCode("111111");
 
-        assertEquals(expected, response.getData());
-        Mockito.verify(mockCall, Mockito.only()).execute();
-    }
+    Client expected =
+        client.id(16451).createdAt("2021-04-29 08:53:07").updatedAt("2021-04-29 08:53:07");
 
+    ModifyClientRequest modifyClientRequest = new ModifyClientRequest().data(client);
+
+    ModifyClientResponse response = api.modifyClient(companyId, clientId, modifyClientRequest);
+
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
 }

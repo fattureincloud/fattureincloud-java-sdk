@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
@@ -23,59 +22,52 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
-/**
- * Model tests for GetReceiptPreCreateInfoResponse
- */
+/** Model tests for GetReceiptPreCreateInfoResponse */
 public class GetReceiptPreCreateInfoResponseTest {
-    private GetReceiptPreCreateInfoResponse model;
+  private GetReceiptPreCreateInfoResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetReceiptPreCreateInfoResponse()
-                .data(
-                        new ReceiptPreCreateInfo()
-                                .numerations(null)
-                                .addNumerationsListItem("num")
-                                .addRcCentersListItem("bg")
-                                .addPaymentAccountsListItem(new PaymentAccount().id(1))
-                                .addCategoriesListItem("cat6")
-                                .addVatTypesListItem(new VatType().id(1))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetReceiptPreCreateInfoResponse()
+            .data(
+                new ReceiptPreCreateInfo()
+                    .addNumerationsListItem("num")
+                    .addRcCentersListItem("bg")
+                    .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                    .addCategoriesListItem("cat6")
+                    .addVatTypesListItem(new VatType().id(1)));
+  }
 
-    /**
-     * Model tests for GetReceiptPreCreateInfoResponse
-     */
-    @Test
-    public void testGetReceiptPreCreateInfoResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
-        assertEquals(str, json);
-        GetReceiptPreCreateInfoResponse generated = gson.fromJson(str, GetReceiptPreCreateInfoResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetReceiptPreCreateInfoResponse */
+  @Test
+  public void testGetReceiptPreCreateInfoResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"numerations\":{},\"numerations_list\":[\"num\"],\"rc_centers_list\":[\"bg\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"categories_list\":[\"cat6\"],\"vat_types_list\":[{\"id\":1}]}}";
+    assertEquals(str, json);
+    GetReceiptPreCreateInfoResponse generated =
+        gson.fromJson(str, GetReceiptPreCreateInfoResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals("cat6", model.getData().getCategoriesList().get(0));
-        model.setData(new ReceiptPreCreateInfo().categoriesList(Arrays.asList("cat5")));
-        assertEquals("cat5", model.getData().getCategoriesList().get(0));
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals("cat6", model.getData().getCategoriesList().get(0));
+    model.setData(new ReceiptPreCreateInfo().categoriesList(Arrays.asList("cat5")));
+    assertEquals("cat5", model.getData().getCategoriesList().get(0));
 
-        model.data(new ReceiptPreCreateInfo().categoriesList(Arrays.asList("cat6")));
-        GetReceiptPreCreateInfoResponse actual = new GetReceiptPreCreateInfoResponse();
-        actual.setData(new ReceiptPreCreateInfo().addCategoriesListItem("cat6"));
-        assertEquals(model, actual);
-    }
-
+    model.data(new ReceiptPreCreateInfo().categoriesList(Arrays.asList("cat6")));
+    GetReceiptPreCreateInfoResponse actual = new GetReceiptPreCreateInfoResponse();
+    actual.setData(new ReceiptPreCreateInfo().addCategoriesListItem("cat6"));
+    assertEquals(model, actual);
+  }
 }

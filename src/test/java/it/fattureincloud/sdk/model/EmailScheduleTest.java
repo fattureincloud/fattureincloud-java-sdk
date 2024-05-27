@@ -10,192 +10,175 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for EmailSchedule
- */
+/** Model tests for EmailSchedule */
 public class EmailScheduleTest {
-    private EmailSchedule model;
+  private EmailSchedule model;
 
-    @BeforeEach
-    public void init() {
-        model = new EmailSchedule();
-    }
+  @BeforeEach
+  public void init() {
+    model = new EmailSchedule();
+  }
 
-    /**
-     * Model tests for EmailSchedule
-     */
-    @Test
-    public void testEmailSchedule() {
-        EmailSchedule e = new EmailSchedule()
-                .senderEmail("mariorossi@fattureincloud.it")
-                .senderId(5)
-                .recipientEmail("mary.red@example.com")
-                .subject("Nostra pro forma nr. 1")
-                .body("Pro forma body")
-                .attachPdf(true)
-                .include(new EmailScheduleInclude()
-                        .document(false)
-                        .deliveryNote(false)
-                        .attachment(false)
-                        .accompanyingInvoice(false)
-                )
-                .sendCopy(false);
+  /** Model tests for EmailSchedule */
+  @Test
+  public void testEmailSchedule() {
+    EmailSchedule e =
+        new EmailSchedule()
+            .senderEmail("mariorossi@fattureincloud.it")
+            .senderId(5)
+            .recipientEmail("mary.red@example.com")
+            .subject("Nostra pro forma nr. 1")
+            .body("Pro forma body")
+            .attachPdf(true)
+            .include(
+                new EmailScheduleInclude()
+                    .document(false)
+                    .deliveryNote(false)
+                    .attachment(false)
+                    .accompanyingInvoice(false))
+            .sendCopy(false);
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(e);
-        String str = "{\"sender_id\":5,\"sender_email\":\"mariorossi@fattureincloud.it\",\"recipient_email\":\"mary.red@example.com\",\"subject\":\"Nostra pro forma nr. 1\",\"body\":\"Pro forma body\",\"include\":{\"document\":false,\"delivery_note\":false,\"attachment\":false,\"accompanying_invoice\":false},\"attach_pdf\":true,\"send_copy\":false}";
-        assertEquals(str, json);
-        EmailSchedule generated = gson.fromJson(str, EmailSchedule.class);
-        assertEquals(e, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(e);
+    String str =
+        "{\"sender_id\":5,\"sender_email\":\"mariorossi@fattureincloud.it\",\"recipient_email\":\"mary.red@example.com\",\"subject\":\"Nostra"
+            + " pro forma nr. 1\",\"body\":\"Pro forma"
+            + " body\",\"include\":{\"document\":false,\"delivery_note\":false,\"attachment\":false,\"accompanying_invoice\":false},\"attach_pdf\":true,\"send_copy\":false}";
+    assertEquals(str, json);
+    EmailSchedule generated = gson.fromJson(str, EmailSchedule.class);
+    assertEquals(e, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'senderId'
-     */
-    @Test
-    public void senderIdTest() {
-        assertNull(model.getSenderId());
-        model.setSenderId(1);
-        assertEquals(1, model.getSenderId());
+  /** Test the property 'senderId' */
+  @Test
+  public void senderIdTest() {
+    assertNull(model.getSenderId());
+    model.setSenderId(1);
+    assertEquals(1, model.getSenderId());
 
-        EmailSchedule e = model.senderId(2);
-        EmailSchedule expected = new EmailSchedule();
-        expected.setSenderId(2);
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.senderId(2);
+    EmailSchedule expected = new EmailSchedule();
+    expected.setSenderId(2);
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'senderEmail'
-     */
-    @Test
-    public void senderEmailTest() {
-        assertNull(model.getSenderEmail());
-        model.setSenderEmail("no-reply@fattureincloud.it");
-        assertEquals("no-reply@fattureincloud.it", model.getSenderEmail());
+  /** Test the property 'senderEmail' */
+  @Test
+  public void senderEmailTest() {
+    assertNull(model.getSenderEmail());
+    model.setSenderEmail("no-reply@fattureincloud.it");
+    assertEquals("no-reply@fattureincloud.it", model.getSenderEmail());
 
-        EmailSchedule e = model.senderEmail("info@fattureincloud.it");
-        EmailSchedule expected = new EmailSchedule();
-        expected.setSenderEmail("info@fattureincloud.it");
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.senderEmail("info@fattureincloud.it");
+    EmailSchedule expected = new EmailSchedule();
+    expected.setSenderEmail("info@fattureincloud.it");
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'recipientEmail'
-     */
-    @Test
-    public void recipientEmailTest() {
-        assertNull(model.getRecipientEmail());
-        model.setRecipientEmail("no-reply@fattureincloud.it");
-        assertEquals("no-reply@fattureincloud.it", model.getRecipientEmail());
+  /** Test the property 'recipientEmail' */
+  @Test
+  public void recipientEmailTest() {
+    assertNull(model.getRecipientEmail());
+    model.setRecipientEmail("no-reply@fattureincloud.it");
+    assertEquals("no-reply@fattureincloud.it", model.getRecipientEmail());
 
-        EmailSchedule e = model.recipientEmail("info@fattureincloud.it");
-        EmailSchedule expected = new EmailSchedule();
-        expected.setRecipientEmail("info@fattureincloud.it");
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.recipientEmail("info@fattureincloud.it");
+    EmailSchedule expected = new EmailSchedule();
+    expected.setRecipientEmail("info@fattureincloud.it");
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'subject'
-     */
-    @Test
-    public void subjectTest() {
-        assertNull(model.getSubject());
-        model.setSubject("Mail");
-        assertEquals("Mail", model.getSubject());
+  /** Test the property 'subject' */
+  @Test
+  public void subjectTest() {
+    assertNull(model.getSubject());
+    model.setSubject("Mail");
+    assertEquals("Mail", model.getSubject());
 
-        EmailSchedule e = model.subject("Soggetto importante");
-        EmailSchedule expected = new EmailSchedule();
-        expected.setSubject("Soggetto importante");
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.subject("Soggetto importante");
+    EmailSchedule expected = new EmailSchedule();
+    expected.setSubject("Soggetto importante");
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'body'
-     */
-    @Test
-    public void bodyTest() {
-        assertNull(model.getBody());
-        model.setBody("Bla bla");
-        assertEquals("Bla bla", model.getBody());
+  /** Test the property 'body' */
+  @Test
+  public void bodyTest() {
+    assertNull(model.getBody());
+    model.setBody("Bla bla");
+    assertEquals("Bla bla", model.getBody());
 
-        EmailSchedule e = model.body("Contenuto molto importante");
-        EmailSchedule expected = new EmailSchedule();
-        expected.setBody("Contenuto molto importante");
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.body("Contenuto molto importante");
+    EmailSchedule expected = new EmailSchedule();
+    expected.setBody("Contenuto molto importante");
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'include'
-     */
-    @Test
-    public void includeTest() {
-        EmailScheduleInclude e1 = new EmailScheduleInclude()
-                .document(true)
-                .deliveryNote(false)
-                .attachment(true)
-                .accompanyingInvoice(false);
+  /** Test the property 'include' */
+  @Test
+  public void includeTest() {
+    EmailScheduleInclude e1 =
+        new EmailScheduleInclude()
+            .document(true)
+            .deliveryNote(false)
+            .attachment(true)
+            .accompanyingInvoice(false);
 
-        EmailScheduleInclude e2 = new EmailScheduleInclude()
-                .document(false)
-                .deliveryNote(false)
-                .attachment(false)
-                .accompanyingInvoice(false);
+    EmailScheduleInclude e2 =
+        new EmailScheduleInclude()
+            .document(false)
+            .deliveryNote(false)
+            .attachment(false)
+            .accompanyingInvoice(false);
 
-        assertNull(model.getInclude());
-        model.setInclude(e1);
-        assertEquals(e1, model.getInclude());
+    assertNull(model.getInclude());
+    model.setInclude(e1);
+    assertEquals(e1, model.getInclude());
 
-        EmailSchedule e = model.include(e2);
-        EmailSchedule expected = new EmailSchedule();
-        expected.setInclude(e2);
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.include(e2);
+    EmailSchedule expected = new EmailSchedule();
+    expected.setInclude(e2);
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'attachPdf'
-     */
-    @Test
-    public void attachPdfTest() {
-        assertNull(model.getAttachPdf());
-        model.setAttachPdf(false);
-        assertEquals(false, model.getAttachPdf());
+  /** Test the property 'attachPdf' */
+  @Test
+  public void attachPdfTest() {
+    assertNull(model.getAttachPdf());
+    model.setAttachPdf(false);
+    assertEquals(false, model.getAttachPdf());
 
-        EmailSchedule e = model.attachPdf(true);
-        EmailSchedule expected = new EmailSchedule();
-        expected.setAttachPdf(true);
-        assertEquals(expected, e);
-    }
+    EmailSchedule e = model.attachPdf(true);
+    EmailSchedule expected = new EmailSchedule();
+    expected.setAttachPdf(true);
+    assertEquals(expected, e);
+  }
 
-    /**
-     * Test the property 'sendCopy'
-     */
-    @Test
-    public void sendCopyTest() {
-        assertNull(model.getSendCopy());
-        model.setSendCopy(false);
-        assertEquals(false, model.getSendCopy());
+  /** Test the property 'sendCopy' */
+  @Test
+  public void sendCopyTest() {
+    assertNull(model.getSendCopy());
+    model.setSendCopy(false);
+    assertEquals(false, model.getSendCopy());
 
-        EmailSchedule e = model.sendCopy(true);
-        EmailSchedule expected = new EmailSchedule();
-        expected.setSendCopy(true);
-        assertEquals(expected, e);
-    }
-
+    EmailSchedule e = model.sendCopy(true);
+    EmailSchedule expected = new EmailSchedule();
+    expected.setSendCopy(true);
+    assertEquals(expected, e);
+  }
 }

@@ -10,105 +10,95 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for MonthlyTotal
- */
+/** Model tests for MonthlyTotal */
 public class MonthlyTotalTest {
-    private MonthlyTotal model;
+  private MonthlyTotal model;
 
-    @BeforeEach
-    public void init() {
-        model = new MonthlyTotal()
-                .net(BigDecimal.valueOf(10))
-                .gross(BigDecimal.valueOf(10))
-                .count(BigDecimal.valueOf(10));
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new MonthlyTotal()
+            .net(BigDecimal.valueOf(10))
+            .gross(BigDecimal.valueOf(10))
+            .count(BigDecimal.valueOf(10));
+  }
 
-    /**
-     * Model tests for MonthlyTotal
-     */
-    @Test
-    public void testMonthlyTotal() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"net\":10,\"gross\":10,\"count\":10}";
-        assertEquals(str, json);
-        MonthlyTotal generated = gson.fromJson(str, MonthlyTotal.class);
-        assertEquals(model, generated);
+  /** Model tests for MonthlyTotal */
+  @Test
+  public void testMonthlyTotal() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"net\":10,\"gross\":10,\"count\":10}";
+    assertEquals(str, json);
+    MonthlyTotal generated = gson.fromJson(str, MonthlyTotal.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'net'
-     */
-    @Test
-    public void netTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getNet());
-        model.setNet(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getNet());
+  /** Test the property 'net' */
+  @Test
+  public void netTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getNet());
+    model.setNet(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getNet());
 
-        MonthlyTotal i = model.net(BigDecimal.valueOf(10));
-        MonthlyTotal expected = new MonthlyTotal()
-                .net(BigDecimal.valueOf(10))
-                .gross(BigDecimal.valueOf(10))
-                .count(BigDecimal.valueOf(10));
+    MonthlyTotal i = model.net(BigDecimal.valueOf(10));
+    MonthlyTotal expected =
+        new MonthlyTotal()
+            .net(BigDecimal.valueOf(10))
+            .gross(BigDecimal.valueOf(10))
+            .count(BigDecimal.valueOf(10));
 
-        assertEquals(expected, i);
-    }
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'gross'
-     */
-    @Test
-    public void grossTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getGross());
-        model.setGross(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getGross());
+  /** Test the property 'gross' */
+  @Test
+  public void grossTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getGross());
+    model.setGross(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getGross());
 
-        MonthlyTotal i = model.gross(BigDecimal.valueOf(10));
-        MonthlyTotal expected = new MonthlyTotal()
-                .net(BigDecimal.valueOf(10))
-                .gross(BigDecimal.valueOf(10))
-                .count(BigDecimal.valueOf(10));
+    MonthlyTotal i = model.gross(BigDecimal.valueOf(10));
+    MonthlyTotal expected =
+        new MonthlyTotal()
+            .net(BigDecimal.valueOf(10))
+            .gross(BigDecimal.valueOf(10))
+            .count(BigDecimal.valueOf(10));
 
-        assertEquals(expected, i);
-    }
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'count'
-     */
-    @Test
-    public void countTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getCount());
-        model.setCount(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getCount());
+  /** Test the property 'count' */
+  @Test
+  public void countTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getCount());
+    model.setCount(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getCount());
 
-        MonthlyTotal i = model.count(BigDecimal.valueOf(10));
-        MonthlyTotal expected = new MonthlyTotal()
-                .net(BigDecimal.valueOf(10))
-                .gross(BigDecimal.valueOf(10))
-                .count(BigDecimal.valueOf(10));
+    MonthlyTotal i = model.count(BigDecimal.valueOf(10));
+    MonthlyTotal expected =
+        new MonthlyTotal()
+            .net(BigDecimal.valueOf(10))
+            .gross(BigDecimal.valueOf(10))
+            .count(BigDecimal.valueOf(10));
 
-        assertEquals(expected, i);
-    }
-
+    assertEquals(expected, i);
+  }
 }

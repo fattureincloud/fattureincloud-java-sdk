@@ -10,202 +10,189 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ReceivedDocumentTotals
- */
+/** Model tests for ReceivedDocumentTotals */
 public class ReceivedDocumentTotalsTest {
-    private ReceivedDocumentTotals model;
+  private ReceivedDocumentTotals model;
 
-    @BeforeEach
-    public void init() {
-        model = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+  }
 
-    /**
-     * Model tests for ReceivedDocumentTotals
-     */
-    @Test
-    public void testReceivedDocumentTotals() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"amount_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"amount_due\":10,\"payments_sum\":10}";
-        assertEquals(str, json);
-        ReceivedDocumentTotals generated = gson.fromJson(str, ReceivedDocumentTotals.class);
-        assertEquals(model, generated);
+  /** Model tests for ReceivedDocumentTotals */
+  @Test
+  public void testReceivedDocumentTotals() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"amount_net\":10,\"amount_vat\":10,\"amount_gross\":10,\"amount_withholding_tax\":10,\"amount_other_withholding_tax\":10,\"amount_due\":10,\"payments_sum\":10}";
+    assertEquals(str, json);
+    ReceivedDocumentTotals generated = gson.fromJson(str, ReceivedDocumentTotals.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'amountNet'
-     */
-    @Test
-    public void amountNetTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
-        model.setAmountNet(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountNet());
+  /** Test the property 'amountNet' */
+  @Test
+  public void amountNetTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountNet());
+    model.setAmountNet(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountNet());
 
-        ReceivedDocumentTotals i = model.amountNet(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountNet(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountVat'
-     */
-    @Test
-    public void amountVatTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
-        model.setAmountVat(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountVat());
+  /** Test the property 'amountVat' */
+  @Test
+  public void amountVatTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountVat());
+    model.setAmountVat(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountVat());
 
-        ReceivedDocumentTotals i = model.amountVat(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountVat(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountGross'
-     */
-    @Test
-    public void amountGrossTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
-        model.setAmountGross(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountGross());
+  /** Test the property 'amountGross' */
+  @Test
+  public void amountGrossTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountGross());
+    model.setAmountGross(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountGross());
 
-        ReceivedDocumentTotals i = model.amountGross(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountGross(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountWithholdingTax'
-     */
-    @Test
-    public void amountWithholdingTaxTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
-        model.setAmountWithholdingTax(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTax());
+  /** Test the property 'amountWithholdingTax' */
+  @Test
+  public void amountWithholdingTaxTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountWithholdingTax());
+    model.setAmountWithholdingTax(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountWithholdingTax());
 
-        ReceivedDocumentTotals i = model.amountWithholdingTax(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountWithholdingTax(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountOtherWithholdingTax'
-     */
-    @Test
-    public void amountOtherWithholdingTaxTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
-        model.setAmountOtherWithholdingTax(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTax());
+  /** Test the property 'amountOtherWithholdingTax' */
+  @Test
+  public void amountOtherWithholdingTaxTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountOtherWithholdingTax());
+    model.setAmountOtherWithholdingTax(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountOtherWithholdingTax());
 
-        ReceivedDocumentTotals i = model.amountOtherWithholdingTax(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountOtherWithholdingTax(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountDue'
-     */
-    @Test
-    public void amountDueTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getAmountDue());
-        model.setAmountDue(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getAmountDue());
+  /** Test the property 'amountDue' */
+  @Test
+  public void amountDueTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getAmountDue());
+    model.setAmountDue(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getAmountDue());
 
-        ReceivedDocumentTotals i = model.amountDue(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
+    ReceivedDocumentTotals i = model.amountDue(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'paymentsSum'
-     */
-    @Test
-    public void paymentsSumTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getPaymentsSum());
-        model.setPaymentsSum(BigDecimal.valueOf(100));
-        assertEquals(BigDecimal.valueOf(100), model.getPaymentsSum());
+  /** Test the property 'paymentsSum' */
+  @Test
+  public void paymentsSumTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getPaymentsSum());
+    model.setPaymentsSum(BigDecimal.valueOf(100));
+    assertEquals(BigDecimal.valueOf(100), model.getPaymentsSum());
 
-        ReceivedDocumentTotals i = model.paymentsSum(BigDecimal.valueOf(10));
-        ReceivedDocumentTotals expected = new ReceivedDocumentTotals()
-                .amountNet(BigDecimal.valueOf(10))
-                .amountVat(BigDecimal.valueOf(10))
-                .amountGross(BigDecimal.valueOf(10))
-                .amountWithholdingTax(BigDecimal.valueOf(10))
-                .amountOtherWithholdingTax(BigDecimal.valueOf(10))
-                .amountDue((BigDecimal.valueOf(10)))
-                .paymentsSum((BigDecimal.valueOf(10)));
-        assertEquals(expected, i);
-    }
-
+    ReceivedDocumentTotals i = model.paymentsSum(BigDecimal.valueOf(10));
+    ReceivedDocumentTotals expected =
+        new ReceivedDocumentTotals()
+            .amountNet(BigDecimal.valueOf(10))
+            .amountVat(BigDecimal.valueOf(10))
+            .amountGross(BigDecimal.valueOf(10))
+            .amountWithholdingTax(BigDecimal.valueOf(10))
+            .amountOtherWithholdingTax(BigDecimal.valueOf(10))
+            .amountDue((BigDecimal.valueOf(10)))
+            .paymentsSum((BigDecimal.valueOf(10)));
+    assertEquals(expected, i);
+  }
 }

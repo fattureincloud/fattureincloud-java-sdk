@@ -10,71 +10,64 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for ModifyPaymentAccountResponse
- */
+/** Model tests for ModifyPaymentAccountResponse */
 public class ModifyPaymentAccountResponseTest {
-    private ModifyPaymentAccountResponse model;
+  private ModifyPaymentAccountResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ModifyPaymentAccountResponse()
-                .data(
-                        new PaymentAccount()
-                                .id(12345)
-                                .name("Indesa - Carta conto")
-                                .type(PaymentAccountType.STANDARD)
-                                .iban("IT84Y0300203280294126225888")
-                                .sia("sai")
-                                .cuc("cuc")
-                                .virtual(false)
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ModifyPaymentAccountResponse()
+            .data(
+                new PaymentAccount()
+                    .id(12345)
+                    .name("Indesa - Carta conto")
+                    .type(PaymentAccountType.STANDARD)
+                    .iban("IT84Y0300203280294126225888")
+                    .sia("sai")
+                    .cuc("cuc")
+                    .virtual(false));
+  }
 
-    /**
-     * Model tests for ModifyPaymentAccountResponse
-     */
-    @Test
-    public void testModifyPaymentAccountResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"name\":\"Indesa - Carta conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
-        assertEquals(str, json);
-        ModifyPaymentAccountResponse generated = gson.fromJson(str, ModifyPaymentAccountResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ModifyPaymentAccountResponse */
+  @Test
+  public void testModifyPaymentAccountResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"id\":12345,\"name\":\"Indesa - Carta"
+            + " conto\",\"type\":\"standard\",\"iban\":\"IT84Y0300203280294126225888\",\"sia\":\"sai\",\"cuc\":\"cuc\",\"virtual\":false}}";
+    assertEquals(str, json);
+    ModifyPaymentAccountResponse generated = gson.fromJson(str, ModifyPaymentAccountResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().getId());
-        model.setData(new PaymentAccount().id(1));
-        assertEquals(1, model.getData().getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().getId());
+    model.setData(new PaymentAccount().id(1));
+    assertEquals(1, model.getData().getId());
 
-        model.data(new PaymentAccount().id(2));
-        ModifyPaymentAccountResponse actual = new ModifyPaymentAccountResponse();
-        actual.setData(new PaymentAccount().id(2));
-        assertEquals(model, actual);
-    }
-
+    model.data(new PaymentAccount().id(2));
+    ModifyPaymentAccountResponse actual = new ModifyPaymentAccountResponse();
+    actual.setData(new PaymentAccount().id(2));
+    assertEquals(model, actual);
+  }
 }

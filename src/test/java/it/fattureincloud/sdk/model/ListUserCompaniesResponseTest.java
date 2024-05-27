@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
@@ -23,70 +22,69 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-/**
- * Model tests for ListUserCompaniesResponse
- */
+/** Model tests for ListUserCompaniesResponse */
 public class ListUserCompaniesResponseTest {
-    private ListUserCompaniesResponse model;
+  private ListUserCompaniesResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListUserCompaniesResponse();
-    }
+  @BeforeEach
+  public void init() {
+    model = new ListUserCompaniesResponse();
+  }
 
-    /**
-     * Model tests for ListUserCompaniesResponse
-     */
-    @Test
-    public void testListUserCompaniesResponse() {
-        ListUserCompaniesResponse r = new ListUserCompaniesResponse()
-                .data(new ListUserCompaniesResponseData()
-                        .companies(Arrays.asList(new Company()
+  /** Model tests for ListUserCompaniesResponse */
+  @Test
+  public void testListUserCompaniesResponse() {
+    ListUserCompaniesResponse r =
+        new ListUserCompaniesResponse()
+            .data(
+                new ListUserCompaniesResponseData()
+                    .companies(
+                        Arrays.asList(
+                            new Company()
                                 .id(12345)
                                 .name("Studio Commercialista")
                                 .taxCode("ABCSFN94T17A794K")
                                 .type(CompanyType.ACCOUNTANT)
                                 .accessToken("fc3c89ba29a926f9ef20203577c00ada")
                                 .connectionId(94566)
-                                .controlledCompanies(new ArrayList<>())
-                        ))
-                );
+                                .controlledCompanies(new ArrayList<>()))));
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(r);
-        String str = "{\"data\":{\"companies\":[{\"id\":12345,\"name\":\"Studio Commercialista\",\"type\":\"accountant\",\"access_token\":\"fc3c89ba29a926f9ef20203577c00ada\",\"controlled_companies\":[],\"connection_id\":94566,\"tax_code\":\"ABCSFN94T17A794K\"}]}}";
-        assertEquals(str, json);
-        ListUserCompaniesResponse generated = gson.fromJson(str, ListUserCompaniesResponse.class);
-        assertEquals(r, generated);
+    r.getData().getCompanies().get(0).getId();
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(r);
+    String str =
+        "{\"data\":{\"companies\":[{\"id\":12345,\"name\":\"Studio"
+            + " Commercialista\",\"type\":\"accountant\",\"access_token\":\"fc3c89ba29a926f9ef20203577c00ada\",\"controlled_companies\":[],\"connection_id\":94566,\"tax_code\":\"ABCSFN94T17A794K\"}]}}";
+    assertEquals(str, json);
+    ListUserCompaniesResponse generated = gson.fromJson(str, ListUserCompaniesResponse.class);
+    assertEquals(r, generated);
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        ListUserCompaniesResponseData rd1 = new ListUserCompaniesResponseData()
-                .addCompaniesItem(new Company().id(1));
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-        ListUserCompaniesResponseData rd2 = new ListUserCompaniesResponseData()
-                .addCompaniesItem(new Company().id(2))
-                .addCompaniesItem(new Company().id(3));
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    ListUserCompaniesResponseData rd1 =
+        new ListUserCompaniesResponseData().addCompaniesItem(new Company().id(1));
 
-        assertNull(model.getData());
-        model.setData(rd1);
-        assertEquals(rd1, model.getData());
+    ListUserCompaniesResponseData rd2 =
+        new ListUserCompaniesResponseData()
+            .addCompaniesItem(new Company().id(2))
+            .addCompaniesItem(new Company().id(3));
 
-        ListUserCompaniesResponse u = model.data(rd2);
-        ListUserCompaniesResponse expected = new ListUserCompaniesResponse();
-        expected.setData(rd2);
-        assertEquals(expected, u);
-    }
+    assertNull(model.getData());
+    model.setData(rd1);
+    assertEquals(rd1, model.getData());
 
+    ListUserCompaniesResponse u = model.data(rd2);
+    ListUserCompaniesResponse expected = new ListUserCompaniesResponse();
+    expected.setData(rd2);
+    assertEquals(expected, u);
+  }
 }

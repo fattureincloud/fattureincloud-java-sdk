@@ -10,74 +10,67 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for CreateVatTypeResponse
- */
+/** Model tests for CreateVatTypeResponse */
 public class CreateVatTypeResponseTest {
-    private CreateVatTypeResponse model;
+  private CreateVatTypeResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new CreateVatTypeResponse()
-                .data(
-                        new VatType()
-                                .id(12345)
-                                .value(BigDecimal.valueOf(22))
-                                .description("Non imponibile art. 123")
-                                .notes("IVA non imponibile")
-                                .eInvoice(true)
-                                .eiType("2")
-                                .eiDescription("desc")
-                                .isDisabled(false)
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new CreateVatTypeResponse()
+            .data(
+                new VatType()
+                    .id(12345)
+                    .value(BigDecimal.valueOf(22))
+                    .description("Non imponibile art. 123")
+                    .notes("IVA non imponibile")
+                    .eInvoice(true)
+                    .eiType("2")
+                    .eiDescription("desc")
+                    .isDisabled(false));
+  }
 
-    /**
-     * Model tests for CreateVatTypeResponse
-     */
-    @Test
-    public void testCreateVatTypeResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"value\":22,\"description\":\"Non imponibile art. 123\",\"notes\":\"IVA non imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}}";
-        assertEquals(str, json);
-        CreateVatTypeResponse generated = gson.fromJson(str, CreateVatTypeResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for CreateVatTypeResponse */
+  @Test
+  public void testCreateVatTypeResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"id\":12345,\"value\":22,\"description\":\"Non imponibile art."
+            + " 123\",\"notes\":\"IVA non"
+            + " imponibile\",\"e_invoice\":true,\"ei_type\":\"2\",\"ei_description\":\"desc\",\"is_disabled\":false}}";
+    assertEquals(str, json);
+    CreateVatTypeResponse generated = gson.fromJson(str, CreateVatTypeResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().getId());
-        model.setData(new VatType().id(2));
-        assertEquals(2, model.getData().getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().getId());
+    model.setData(new VatType().id(2));
+    assertEquals(2, model.getData().getId());
 
-        model.data(new VatType().id(12345));
-        CreateVatTypeResponse actual = new CreateVatTypeResponse();
-        actual.setData(new VatType().id(12345));
-        assertEquals(model, actual);
-    }
-
+    model.data(new VatType().id(12345));
+    CreateVatTypeResponse actual = new CreateVatTypeResponse();
+    actual.setData(new VatType().id(12345));
+    assertEquals(model, actual);
+  }
 }

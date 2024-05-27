@@ -10,47 +10,40 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/**
- * Model tests for ShowTotalsMode
- */
+/** Model tests for ShowTotalsMode */
 public class ShowTotalsModeTest {
-    /**
-     * Model tests for ShowTotalsMode
-     */
-    @Test
-    public void testShowTotalsMode() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
+  /** Model tests for ShowTotalsMode */
+  @Test
+  public void testShowTotalsMode() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
 
-        assertEquals("\"all\"", gson.toJson(ShowTotalsMode.ALL));
-        assertEquals("\"nets\"", gson.toJson(ShowTotalsMode.NETS));
-        assertEquals("\"none\"", gson.toJson(ShowTotalsMode.NONE));
+    assertEquals("\"all\"", gson.toJson(ShowTotalsMode.ALL));
+    assertEquals("\"nets\"", gson.toJson(ShowTotalsMode.NETS));
+    assertEquals("\"none\"", gson.toJson(ShowTotalsMode.NONE));
 
-        assertEquals(ShowTotalsMode.ALL, gson.fromJson("\"all\"", ShowTotalsMode.class));
-        assertEquals(ShowTotalsMode.NETS, gson.fromJson("\"nets\"", ShowTotalsMode.class));
-        assertEquals(ShowTotalsMode.NONE, gson.fromJson("\"none\"", ShowTotalsMode.class));
+    assertEquals(ShowTotalsMode.ALL, gson.fromJson("\"all\"", ShowTotalsMode.class));
+    assertEquals(ShowTotalsMode.NETS, gson.fromJson("\"nets\"", ShowTotalsMode.class));
+    assertEquals(ShowTotalsMode.NONE, gson.fromJson("\"none\"", ShowTotalsMode.class));
 
-        assertEquals("all", ShowTotalsMode.ALL.getValue());
-        assertEquals("nets", ShowTotalsMode.NETS.getValue());
-        assertEquals("none", ShowTotalsMode.NONE.getValue());
+    assertEquals("all", ShowTotalsMode.ALL.getValue());
+    assertEquals("nets", ShowTotalsMode.NETS.getValue());
+    assertEquals("none", ShowTotalsMode.NONE.getValue());
 
-        assertEquals("all", ShowTotalsMode.ALL.toString());
-        assertEquals("nets", ShowTotalsMode.NETS.toString());
-        assertEquals("none", ShowTotalsMode.NONE.toString());
+    assertEquals("all", ShowTotalsMode.ALL.toString());
+    assertEquals("nets", ShowTotalsMode.NETS.toString());
+    assertEquals("none", ShowTotalsMode.NONE.toString());
 
-        assertEquals(ShowTotalsMode.ALL, ShowTotalsMode.fromValue("all"));
-        assertEquals(ShowTotalsMode.NETS, ShowTotalsMode.fromValue("nets"));
-        assertEquals(ShowTotalsMode.NONE, ShowTotalsMode.fromValue("none"));
-    }
-
+    assertEquals(ShowTotalsMode.ALL, ShowTotalsMode.fromValue("all"));
+    assertEquals(ShowTotalsMode.NETS, ShowTotalsMode.fromValue("nets"));
+    assertEquals(ShowTotalsMode.NONE, ShowTotalsMode.fromValue("none"));
+  }
 }

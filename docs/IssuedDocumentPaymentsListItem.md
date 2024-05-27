@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **Integer** | Unique identifier. |  [optional] |
-|**dueDate** | **LocalDate** | Due date. |  [optional] |
-|**amount** | **BigDecimal** | Payment amount. |  [optional] |
+|**id** | **Integer** | Issued document payment item id |  [optional] |
+|**dueDate** | **LocalDate** | Issued document payment due date |  [optional] |
+|**amount** | **BigDecimal** | Issued document payment amount |  [optional] |
 |**status** | **IssuedDocumentStatus** |  |  [optional] |
 |**paymentAccount** | [**PaymentAccount**](PaymentAccount.md) |  |  [optional] |
-|**paidDate** | **LocalDate** | Payment date. [Only if status is paid] |  [optional] |
-|**eiRaw** | **Object** | Advanced raw attributes for e-invoices. |  [optional] |
+|**paidDate** | **LocalDate** | Issued document payment date [Only if status is paid] |  [optional] |
+|**eiRaw** | **Object** | Issued document payment advanced raw attributes for e-invoices |  [optional] |
 |**paymentTerms** | [**IssuedDocumentPaymentsListItemPaymentTerms**](IssuedDocumentPaymentsListItemPaymentTerms.md) |  |  [optional] |
 
 

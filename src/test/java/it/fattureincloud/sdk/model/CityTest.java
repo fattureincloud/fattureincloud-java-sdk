@@ -10,95 +10,80 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
-/**
- * Model tests for City
- */
+/** Model tests for City */
 public class CityTest {
-    private City model;
+  private City model;
 
-    @BeforeEach
-    public void init() {
-        model = new City();
-    }
+  @BeforeEach
+  public void init() {
+    model = new City();
+  }
 
-    /**
-     * Model tests for City
-     */
-    @Test
-    public void testCity() {
-        City city = new City()
-                .city("San Pellegrino Terme")
-                .province("BG")
-                .postalCode("24016");
+  /** Model tests for City */
+  @Test
+  public void testCity() {
+    City city = new City().city("San Pellegrino Terme").province("BG").postalCode("24016");
 
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(city);
-        String str = "{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"}";
-        assertEquals(str, json);
-        City generated = gson.fromJson(str, City.class);
-        assertEquals(city, generated);
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(city);
+    String str =
+        "{\"postal_code\":\"24016\",\"city\":\"San Pellegrino Terme\",\"province\":\"BG\"}";
+    assertEquals(str, json);
+    City generated = gson.fromJson(str, City.class);
+    assertEquals(city, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'postalCode'
-     */
-    @Test
-    public void postalCodeTest() {
-        assertNull(model.getPostalCode());
-        model.setPostalCode("24044");
-        assertEquals("24044", model.getPostalCode());
+  /** Test the property 'postalCode' */
+  @Test
+  public void postalCodeTest() {
+    assertNull(model.getPostalCode());
+    model.setPostalCode("24044");
+    assertEquals("24044", model.getPostalCode());
 
-        City c = model.postalCode("24016");
-        City expected = new City();
-        expected.setPostalCode("24016");
-        assertEquals(expected, c);
-    }
+    City c = model.postalCode("24016");
+    City expected = new City();
+    expected.setPostalCode("24016");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'city'
-     */
-    @Test
-    public void cityTest() {
-        assertNull(model.getCity());
-        model.setCity("Dalmine");
-        assertEquals("Dalmine", model.getCity());
+  /** Test the property 'city' */
+  @Test
+  public void cityTest() {
+    assertNull(model.getCity());
+    model.setCity("Dalmine");
+    assertEquals("Dalmine", model.getCity());
 
-        City c = model.city("San Pellegrino Terme");
-        City expected = new City();
-        expected.setCity("San Pellegrino Terme");
-        assertEquals(expected, c);
-    }
+    City c = model.city("San Pellegrino Terme");
+    City expected = new City();
+    expected.setCity("San Pellegrino Terme");
+    assertEquals(expected, c);
+  }
 
-    /**
-     * Test the property 'province'
-     */
-    @Test
-    public void provinceTest() {
-        assertNull(model.getProvince());
-        model.setProvince("BG");
-        assertEquals("BG", model.getProvince());
+  /** Test the property 'province' */
+  @Test
+  public void provinceTest() {
+    assertNull(model.getProvince());
+    model.setProvince("BG");
+    assertEquals("BG", model.getProvince());
 
-        City c = model.province("RM");
-        City expected = new City();
-        expected.setProvince("RM");
-        assertEquals(expected, c);
-    }
-
+    City c = model.province("RM");
+    City expected = new City();
+    expected.setProvince("RM");
+    assertEquals(expected, c);
+  }
 }

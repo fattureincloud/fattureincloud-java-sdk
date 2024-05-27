@@ -10,82 +10,68 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for VerifyEInvoiceXmlErrorResponseError
- */
+/** Model tests for VerifyEInvoiceXmlErrorResponseError */
 public class VerifyEInvoiceXmlErrorResponseErrorTest {
-    private VerifyEInvoiceXmlErrorResponseError model;
+  private VerifyEInvoiceXmlErrorResponseError model;
 
-    @BeforeEach
-    public void init() {
-        model = new VerifyEInvoiceXmlErrorResponseError()
-                .message("messeig")
-                .validationResult(null);
-    }
+  @BeforeEach
+  public void init() {
+    model = new VerifyEInvoiceXmlErrorResponseError().message("messeig").validationResult(null);
+  }
 
-    /**
-     * Model tests for VerifyEInvoiceXmlErrorResponseError
-     */
-    @Test
-    public void testVerifyEInvoiceXmlErrorResponseError() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"message\":\"messeig\"}";
-        assertEquals(str, json);
-        VerifyEInvoiceXmlErrorResponseError generated = gson.fromJson(str, VerifyEInvoiceXmlErrorResponseError.class);
-        assertEquals(model, generated);
+  /** Model tests for VerifyEInvoiceXmlErrorResponseError */
+  @Test
+  public void testVerifyEInvoiceXmlErrorResponseError() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"message\":\"messeig\"}";
+    assertEquals(str, json);
+    VerifyEInvoiceXmlErrorResponseError generated =
+        gson.fromJson(str, VerifyEInvoiceXmlErrorResponseError.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'message'
-     */
-    @Test
-    public void messageTest() {
-        assertEquals("messeig", model.getMessage());
-        model.setMessage("msg");
-        assertEquals("msg", model.getMessage());
+  /** Test the property 'message' */
+  @Test
+  public void messageTest() {
+    assertEquals("messeig", model.getMessage());
+    model.setMessage("msg");
+    assertEquals("msg", model.getMessage());
 
-        VerifyEInvoiceXmlErrorResponseError i = model.message("messeig");
-        VerifyEInvoiceXmlErrorResponseError expected = new VerifyEInvoiceXmlErrorResponseError()
-                .message("messeig")
-                .validationResult(null);
+    VerifyEInvoiceXmlErrorResponseError i = model.message("messeig");
+    VerifyEInvoiceXmlErrorResponseError expected =
+        new VerifyEInvoiceXmlErrorResponseError().message("messeig").validationResult(null);
 
-        assertEquals(expected, i);
-    }
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'validationResult'
-     */
-    @Test
-    public void validationResultTest() {
-        assertEquals(null, model.getValidationResult());
-        model.setValidationResult(null);
-        assertEquals(null, model.getValidationResult());
+  /** Test the property 'validationResult' */
+  @Test
+  public void validationResultTest() {
+    assertEquals(null, model.getValidationResult());
+    model.setValidationResult(null);
+    assertEquals(null, model.getValidationResult());
 
-        VerifyEInvoiceXmlErrorResponseError i = model.validationResult(null);
-        VerifyEInvoiceXmlErrorResponseError expected = new VerifyEInvoiceXmlErrorResponseError()
-                .message("messeig")
-                .validationResult(null);
+    VerifyEInvoiceXmlErrorResponseError i = model.validationResult(null);
+    VerifyEInvoiceXmlErrorResponseError expected =
+        new VerifyEInvoiceXmlErrorResponseError().message("messeig").validationResult(null);
 
-        assertEquals(expected, i);
-    }
-
+    assertEquals(expected, i);
+  }
 }

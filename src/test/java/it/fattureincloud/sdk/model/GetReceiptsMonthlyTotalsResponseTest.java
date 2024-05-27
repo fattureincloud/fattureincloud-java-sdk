@@ -10,70 +10,71 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for GetReceiptsMonthlyTotalsResponse
- */
+/** Model tests for GetReceiptsMonthlyTotalsResponse */
 public class GetReceiptsMonthlyTotalsResponseTest {
-    private GetReceiptsMonthlyTotalsResponse model;
+  private GetReceiptsMonthlyTotalsResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetReceiptsMonthlyTotalsResponse()
-                .addDataItem(
-                        new MonthlyTotal()
-                                .net(BigDecimal.valueOf(10))
-                                .gross(BigDecimal.valueOf(10))
-                                .count(BigDecimal.valueOf(10))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetReceiptsMonthlyTotalsResponse()
+            .addDataItem(
+                new MonthlyTotal()
+                    .net(BigDecimal.valueOf(10))
+                    .gross(BigDecimal.valueOf(10))
+                    .count(BigDecimal.valueOf(10)));
+  }
 
-    /**
-     * Model tests for GetReceiptsMonthlyTotalsResponse
-     */
-    @Test
-    public void testGetReceiptsMonthlyTotalsResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":[{\"net\":10,\"gross\":10,\"count\":10}]}";
-        assertEquals(str, json);
-        GetReceiptsMonthlyTotalsResponse generated = gson.fromJson(str, GetReceiptsMonthlyTotalsResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetReceiptsMonthlyTotalsResponse */
+  @Test
+  public void testGetReceiptsMonthlyTotalsResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str = "{\"data\":[{\"net\":10,\"gross\":10,\"count\":10}]}";
+    assertEquals(str, json);
+    GetReceiptsMonthlyTotalsResponse generated =
+        gson.fromJson(str, GetReceiptsMonthlyTotalsResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(BigDecimal.valueOf(10), model.getData().get(0).getNet());
-        model.setData(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))));
-        assertEquals(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))), model.getData());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(BigDecimal.valueOf(10), model.getData().get(0).getNet());
+    model.setData(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))));
+    assertEquals(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(7))), model.getData());
 
-        model.data(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(10)).gross(BigDecimal.valueOf(10)).count(BigDecimal.valueOf(10))));
-        GetReceiptsMonthlyTotalsResponse actual = new GetReceiptsMonthlyTotalsResponse();
-        actual.setData(Arrays.asList(new MonthlyTotal().net(BigDecimal.valueOf(10)).gross(BigDecimal.valueOf(10)).count(BigDecimal.valueOf(10))));
-        assertEquals(model, actual);
-    }
-
+    model.data(
+        Arrays.asList(
+            new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10))));
+    GetReceiptsMonthlyTotalsResponse actual = new GetReceiptsMonthlyTotalsResponse();
+    actual.setData(
+        Arrays.asList(
+            new MonthlyTotal()
+                .net(BigDecimal.valueOf(10))
+                .gross(BigDecimal.valueOf(10))
+                .count(BigDecimal.valueOf(10))));
+    assertEquals(model, actual);
+  }
 }

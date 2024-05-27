@@ -10,69 +10,62 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for GetReceivedDocumentPreCreateInfoResponse
- */
+/** Model tests for GetReceivedDocumentPreCreateInfoResponse */
 public class GetReceivedDocumentPreCreateInfoResponseTest {
-    private GetReceivedDocumentPreCreateInfoResponse model;
+  private GetReceivedDocumentPreCreateInfoResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetReceivedDocumentPreCreateInfoResponse()
-                .data(
-                        new ReceivedDocumentInfo()
-                                .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
-                                .itemsDefaultValues(new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
-                                .addCountriesListItem("Italia")
-                                .addCurrenciesListItem(new Currency().id("EUR"))
-                                .addCategoriesListItem("cat6")
-                                .addPaymentAccountsListItem(new PaymentAccount().id(1))
-                                .addVatTypesListItem(new VatType().id(1))
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetReceivedDocumentPreCreateInfoResponse()
+            .data(
+                new ReceivedDocumentInfo()
+                    .defaultValues(new ReceivedDocumentInfoDefaultValues().detailed(false))
+                    .itemsDefaultValues(
+                        new ReceivedDocumentInfoItemsDefaultValues().vat(BigDecimal.valueOf(10)))
+                    .addCountriesListItem("Italia")
+                    .addCurrenciesListItem(new Currency().id("EUR"))
+                    .addCategoriesListItem("cat6")
+                    .addPaymentAccountsListItem(new PaymentAccount().id(1))
+                    .addVatTypesListItem(new VatType().id(1)));
+  }
 
-    /**
-     * Model tests for GetReceivedDocumentPreCreateInfoResponse
-     */
-    @Test
-    public void testGetReceivedDocumentPreCreateInfoResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1}]}}";
-        assertEquals(str, json);
-        GetReceivedDocumentPreCreateInfoResponse generated = gson.fromJson(str, GetReceivedDocumentPreCreateInfoResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for GetReceivedDocumentPreCreateInfoResponse */
+  @Test
+  public void testGetReceivedDocumentPreCreateInfoResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"default_values\":{\"detailed\":false},\"items_default_values\":{\"vat\":10},\"countries_list\":[\"Italia\"],\"currencies_list\":[{\"id\":\"EUR\"}],\"categories_list\":[\"cat6\"],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1}]}}";
+    assertEquals(str, json);
+    GetReceivedDocumentPreCreateInfoResponse generated =
+        gson.fromJson(str, GetReceivedDocumentPreCreateInfoResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(Arrays.asList("Italia"), model.getData().getCountriesList());
-        model.getData().setCountriesList(Arrays.asList("Spagna", "Francia"));
-        assertEquals(Arrays.asList("Spagna", "Francia"), model.getData().getCountriesList());
-    }
-
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(Arrays.asList("Italia"), model.getData().getCountriesList());
+    model.getData().setCountriesList(Arrays.asList("Spagna", "Francia"));
+    assertEquals(Arrays.asList("Spagna", "Francia"), model.getData().getCountriesList());
+  }
 }

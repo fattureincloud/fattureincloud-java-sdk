@@ -10,221 +10,195 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
-
-import com.google.gson.Gson;
-import it.fattureincloud.sdk.JSON;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.net.URI;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import com.google.gson.Gson;
+import it.fattureincloud.sdk.JSON;
+import java.net.URI;
+import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * Model tests for ListSuppliersResponse
- */
+/** Model tests for ListSuppliersResponse */
 public class ListSuppliersResponseTest {
-    private ListSuppliersResponse model;
+  private ListSuppliersResponse model;
 
-    @BeforeEach
-    public void init() {
-        model = new ListSuppliersResponse()
-                .addDataItem(
-                        new Supplier()
-                                .id(12345)
-                                .code("AE86")
-                                .name("Mario Rossi S.R.L.")
-                                .type(SupplierType.COMPANY)
-                                .firstName("Mario")
-                                .lastName("Rossi")
-                                .contactPerson("")
-                                .vatNumber("111222333")
-                                .taxCode("111122233")
-                                .addressStreet("Corso Magellano, 46")
-                                .addressPostalCode("20146")
-                                .addressCity("Milano")
-                                .addressProvince("MI")
-                                .addressExtra("")
-                                .country("Italia")
-                                .email("mario.rossi@example.com")
-                                .certifiedEmail("mario.rossi@pec.example.com")
-                                .phone("1234567890")
-                                .fax("123456789")
-                                .notes("")
-                                .createdAt("2021-15-08")
-                                .updatedAt("2021-15-08")
-                )
-                .currentPage(10)
-                .firstPageUrl(URI.create("https://www.page.url/"))
-                .from(10)
-                .lastPage(10)
-                .lastPageUrl(URI.create("https://www.page.url/"))
-                .nextPageUrl(URI.create("https://www.page.url/"))
-                .path(URI.create("https://www.page.url/"))
-                .perPage(10)
-                .prevPageUrl(URI.create("https://www.page.url/"))
-                .to(10)
-                .total(10);
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ListSuppliersResponse()
+            .addDataItem(
+                new Supplier()
+                    .id(12345)
+                    .code("AE86")
+                    .name("Mario Rossi S.R.L.")
+                    .type(SupplierType.COMPANY)
+                    .firstName("Mario")
+                    .lastName("Rossi")
+                    .contactPerson("")
+                    .vatNumber("111222333")
+                    .taxCode("111122233")
+                    .addressStreet("Corso Magellano, 46")
+                    .addressPostalCode("20146")
+                    .addressCity("Milano")
+                    .addressProvince("MI")
+                    .addressExtra("")
+                    .country("Italia")
+                    .email("mario.rossi@example.com")
+                    .certifiedEmail("mario.rossi@pec.example.com")
+                    .phone("1234567890")
+                    .fax("123456789")
+                    .notes("")
+                    .createdAt("2021-15-08")
+                    .updatedAt("2021-15-08"))
+            .currentPage(10)
+            .firstPageUrl(URI.create("https://www.page.url/"))
+            .from(10)
+            .lastPage(10)
+            .lastPageUrl(URI.create("https://www.page.url/"))
+            .nextPageUrl(URI.create("https://www.page.url/"))
+            .path(URI.create("https://www.page.url/"))
+            .perPage(10)
+            .prevPageUrl(URI.create("https://www.page.url/"))
+            .to(10)
+            .total(10);
+  }
 
-    /**
-     * Model tests for ListSuppliersResponse
-     */
-    @Test
-    public void testListSuppliersResponse() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"code\":\"AE86\",\"name\":\"Mario Rossi S.R.L.\",\"type\":\"company\",\"first_name\":\"Mario\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"111222333\",\"tax_code\":\"111122233\",\"address_street\":\"Corso Magellano, 46\",\"address_postal_code\":\"20146\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"mario.rossi@example.com\",\"certified_email\":\"mario.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"123456789\",\"notes\":\"\",\"created_at\":\"2021-15-08\",\"updated_at\":\"2021-15-08\"}]}";
-        assertEquals(str, json);
-        ListSuppliersResponse generated = gson.fromJson(str, ListSuppliersResponse.class);
-        assertEquals(model, generated);
+  /** Model tests for ListSuppliersResponse */
+  @Test
+  public void testListSuppliersResponse() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"current_page\":10,\"first_page_url\":\"https://www.page.url/\",\"from\":10,\"last_page\":10,\"last_page_url\":\"https://www.page.url/\",\"next_page_url\":\"https://www.page.url/\",\"path\":\"https://www.page.url/\",\"per_page\":10,\"prev_page_url\":\"https://www.page.url/\",\"to\":10,\"total\":10,\"data\":[{\"id\":12345,\"code\":\"AE86\",\"name\":\"Mario"
+            + " Rossi"
+            + " S.R.L.\",\"type\":\"company\",\"first_name\":\"Mario\",\"last_name\":\"Rossi\",\"contact_person\":\"\",\"vat_number\":\"111222333\",\"tax_code\":\"111122233\",\"address_street\":\"Corso"
+            + " Magellano,"
+            + " 46\",\"address_postal_code\":\"20146\",\"address_city\":\"Milano\",\"address_province\":\"MI\",\"address_extra\":\"\",\"country\":\"Italia\",\"email\":\"mario.rossi@example.com\",\"certified_email\":\"mario.rossi@pec.example.com\",\"phone\":\"1234567890\",\"fax\":\"123456789\",\"notes\":\"\",\"created_at\":\"2021-15-08\",\"updated_at\":\"2021-15-08\"}]}";
+    assertEquals(str, json);
+    ListSuppliersResponse generated = gson.fromJson(str, ListSuppliersResponse.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'currentPage'
-     */
-    @Test
-    public void currentPageTest() {
-        assertEquals(10, model.getCurrentPage());
-        model.setCurrentPage(1);
-        assertEquals(1, model.getCurrentPage());
-    }
+  /** Test the property 'currentPage' */
+  @Test
+  public void currentPageTest() {
+    assertEquals(10, model.getCurrentPage());
+    model.setCurrentPage(1);
+    assertEquals(1, model.getCurrentPage());
+  }
 
-    /**
-     * Test the property 'firstPageUrl'
-     */
-    @Test
-    public void firstPageUrlTest() {
-        assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
-        model.setFirstPageUrl(URI.create("https://www.page2.url/"));
-        assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
-    }
+  /** Test the property 'firstPageUrl' */
+  @Test
+  public void firstPageUrlTest() {
+    assertEquals(URI.create("https://www.page.url/"), model.getFirstPageUrl());
+    model.setFirstPageUrl(URI.create("https://www.page2.url/"));
+    assertEquals(URI.create("https://www.page2.url/"), model.getFirstPageUrl());
+  }
 
-    /**
-     * Test the property 'from'
-     */
-    @Test
-    public void fromTest() {
-        assertEquals(10, model.getFrom());
-        model.setFrom(1);
-        assertEquals(1, model.getFrom());
-    }
+  /** Test the property 'from' */
+  @Test
+  public void fromTest() {
+    assertEquals(10, model.getFrom());
+    model.setFrom(1);
+    assertEquals(1, model.getFrom());
+  }
 
-    /**
-     * Test the property 'lastPage'
-     */
-    @Test
-    public void lastPageTest() {
-        assertEquals(10, model.getLastPage());
-        model.setLastPage(1);
-        assertEquals(1, model.getLastPage());
-    }
+  /** Test the property 'lastPage' */
+  @Test
+  public void lastPageTest() {
+    assertEquals(10, model.getLastPage());
+    model.setLastPage(1);
+    assertEquals(1, model.getLastPage());
+  }
 
-    /**
-     * Test the property 'lastPageUrl'
-     */
-    @Test
-    public void lastPageUrlTest() {
-        assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
-        model.setLastPageUrl(URI.create("https://www.page2.url/"));
-        assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
-    }
+  /** Test the property 'lastPageUrl' */
+  @Test
+  public void lastPageUrlTest() {
+    assertEquals(URI.create("https://www.page.url/"), model.getLastPageUrl());
+    model.setLastPageUrl(URI.create("https://www.page2.url/"));
+    assertEquals(URI.create("https://www.page2.url/"), model.getLastPageUrl());
+  }
 
-    /**
-     * Test the property 'nextPageUrl'
-     */
-    @Test
-    public void nextPageUrlTest() {
-        assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
-        model.setNextPageUrl(URI.create("https://www.page2.url/"));
-        assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
-    }
+  /** Test the property 'nextPageUrl' */
+  @Test
+  public void nextPageUrlTest() {
+    assertEquals(URI.create("https://www.page.url/"), model.getNextPageUrl());
+    model.setNextPageUrl(URI.create("https://www.page2.url/"));
+    assertEquals(URI.create("https://www.page2.url/"), model.getNextPageUrl());
+  }
 
-    /**
-     * Test the property 'path'
-     */
-    @Test
-    public void pathTest() {
-        assertEquals(URI.create("https://www.page.url/"), model.getPath());
-        model.setPath(URI.create("https://www.page2.url/"));
-        assertEquals(URI.create("https://www.page2.url/"), model.getPath());
-    }
+  /** Test the property 'path' */
+  @Test
+  public void pathTest() {
+    assertEquals(URI.create("https://www.page.url/"), model.getPath());
+    model.setPath(URI.create("https://www.page2.url/"));
+    assertEquals(URI.create("https://www.page2.url/"), model.getPath());
+  }
 
-    /**
-     * Test the property 'perPage'
-     */
-    @Test
-    public void perPageTest() {
-        assertEquals(10, model.getPerPage());
-        model.setPerPage(1);
-        assertEquals(1, model.getPerPage());
-    }
+  /** Test the property 'perPage' */
+  @Test
+  public void perPageTest() {
+    assertEquals(10, model.getPerPage());
+    model.setPerPage(1);
+    assertEquals(1, model.getPerPage());
+  }
 
-    /**
-     * Test the property 'prevPageUrl'
-     */
-    @Test
-    public void prevPageUrlTest() {
-        assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
-        model.setPrevPageUrl(URI.create("https://www.page2.url/"));
-        assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
-    }
+  /** Test the property 'prevPageUrl' */
+  @Test
+  public void prevPageUrlTest() {
+    assertEquals(URI.create("https://www.page.url/"), model.getPrevPageUrl());
+    model.setPrevPageUrl(URI.create("https://www.page2.url/"));
+    assertEquals(URI.create("https://www.page2.url/"), model.getPrevPageUrl());
+  }
 
-    /**
-     * Test the property 'to'
-     */
-    @Test
-    public void toTest() {
-        assertEquals(10, model.getTo());
-        model.setTo(1);
-        assertEquals(1, model.getTo());
-    }
+  /** Test the property 'to' */
+  @Test
+  public void toTest() {
+    assertEquals(10, model.getTo());
+    model.setTo(1);
+    assertEquals(1, model.getTo());
+  }
 
-    /**
-     * Test the property 'total'
-     */
-    @Test
-    public void totalTest() {
-        assertEquals(10, model.getTotal());
-        model.setTotal(1);
-        assertEquals(1, model.getTotal());
-    }
+  /** Test the property 'total' */
+  @Test
+  public void totalTest() {
+    assertEquals(10, model.getTotal());
+    model.setTotal(1);
+    assertEquals(1, model.getTotal());
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().get(0).getId());
-        model.setData(Arrays.asList(new Supplier().id(1)));
-        assertEquals(1, model.getData().get(0).getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().get(0).getId());
+    model.setData(Arrays.asList(new Supplier().id(1)));
+    assertEquals(1, model.getData().get(0).getId());
 
-        model.data(Arrays.asList(new Supplier().id(2)));
-        ListSuppliersResponse actual = new ListSuppliersResponse();
-        actual.setData(Arrays.asList(new Supplier().id(2)));
-        actual.currentPage(10)
-                .firstPageUrl(URI.create("https://www.page.url/"))
-                .from(10)
-                .lastPage(10)
-                .lastPageUrl(URI.create("https://www.page.url/"))
-                .nextPageUrl(URI.create("https://www.page.url/"))
-                .path(URI.create("https://www.page.url/"))
-                .perPage(10)
-                .prevPageUrl(URI.create("https://www.page.url/"))
-                .to(10)
-                .total(10);
-        assertEquals(model, actual);
-    }
-
+    model.data(Arrays.asList(new Supplier().id(2)));
+    ListSuppliersResponse actual = new ListSuppliersResponse();
+    actual.setData(Arrays.asList(new Supplier().id(2)));
+    actual
+        .currentPage(10)
+        .firstPageUrl(URI.create("https://www.page.url/"))
+        .from(10)
+        .lastPage(10)
+        .lastPageUrl(URI.create("https://www.page.url/"))
+        .nextPageUrl(URI.create("https://www.page.url/"))
+        .path(URI.create("https://www.page.url/"))
+        .perPage(10)
+        .prevPageUrl(URI.create("https://www.page.url/"))
+        .to(10)
+        .total(10);
+    assertEquals(model, actual);
+  }
 }

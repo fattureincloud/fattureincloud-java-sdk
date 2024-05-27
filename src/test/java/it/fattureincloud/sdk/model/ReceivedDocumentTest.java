@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
 
 import com.google.gson.Gson;
@@ -25,1391 +24,1154 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
-/**
- * Model tests for ReceivedDocument
- */
+/** Model tests for ReceivedDocument */
 public class ReceivedDocumentTest {
-    private ReceivedDocument model;
+  private ReceivedDocument model;
 
-    @BeforeEach
-    public void init() {
-        model = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+  }
 
-    /**
-     * Model tests for ReceivedDocument
-     */
-    @Test
-    public void testReceivedDocument() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
-        assertEquals(str, json);
-        ReceivedDocument generated = gson.fromJson(str, ReceivedDocument.class);
-        assertEquals(model, generated);
+  /** Model tests for ReceivedDocument */
+  @Test
+  public void testReceivedDocument() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\",\"default_payment_terms_type\":\"standard\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
+    assertEquals(str, json);
+    ReceivedDocument generated = gson.fromJson(str, ReceivedDocument.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        assertEquals(1, model.getId());
-        model.setId(2);
-        assertEquals(2, model.getId());
+  /** Test the property 'id' */
+  @Test
+  public void idTest() {
+    assertEquals(1, model.getId());
+    model.setId(2);
+    assertEquals(2, model.getId());
 
-        ReceivedDocument i = model.id(1);
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.id(1);
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        assertEquals(ReceivedDocumentType.EXPENSE, model.getType());
-        model.setType(ReceivedDocumentType.PASSIVE_CREDIT_NOTE);
-        assertEquals(ReceivedDocumentType.PASSIVE_CREDIT_NOTE, model.getType());
+  /** Test the property 'type' */
+  @Test
+  public void typeTest() {
+    assertEquals(ReceivedDocumentType.EXPENSE, model.getType());
+    model.setType(ReceivedDocumentType.PASSIVE_CREDIT_NOTE);
+    assertEquals(ReceivedDocumentType.PASSIVE_CREDIT_NOTE, model.getType());
 
-        ReceivedDocument i = model.type(ReceivedDocumentType.EXPENSE);
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.type(ReceivedDocumentType.EXPENSE);
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'entity'
-     */
-    @Test
-    public void entityTest() {
-        assertEquals(new ReceivedDocumentEntity()
-                .id(1)
-                .name("neim"), model.getEntity());
-        model.setEntity(new ReceivedDocumentEntity()
-                .id(2)
-                .name("name"));
-        assertEquals(new ReceivedDocumentEntity()
-                .id(2)
-                .name("name"), model.getEntity());
+  /** Test the property 'entity' */
+  @Test
+  public void entityTest() {
+    assertEquals(new Entity().id(1).name("neim"), model.getEntity());
+    model.setEntity(new Entity().id(2).name("name"));
+    assertEquals(new Entity().id(2).name("name"), model.getEntity());
 
-        ReceivedDocument i = model.entity(
-                new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.entity(new Entity().id(1).name("neim"));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
-        model.setDate(LocalDate.of(2021, 12, 26));
-        assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
+  /** Test the property 'date' */
+  @Test
+  public void dateTest() {
+    assertEquals(LocalDate.of(2021, 12, 25), model.getDate());
+    model.setDate(LocalDate.of(2021, 12, 26));
+    assertEquals(LocalDate.of(2021, 12, 26), model.getDate());
 
-        ReceivedDocument i = model.date(LocalDate.of(2021, 12, 25));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.date(LocalDate.of(2021, 12, 25));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'category'
-     */
-    @Test
-    public void categoryTest() {
-        assertEquals("cat6", model.getCategory());
-        model.setCategory("catS");
-        assertEquals("catS", model.getCategory());
+  /** Test the property 'category' */
+  @Test
+  public void categoryTest() {
+    assertEquals("cat6", model.getCategory());
+    model.setCategory("catS");
+    assertEquals("catS", model.getCategory());
 
-        ReceivedDocument i = model.category("cat6");
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.category("cat6");
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        assertEquals("Ricarica", model.getDescription());
-        model.setDescription("aciraciR");
-        assertEquals("aciraciR", model.getDescription());
+  /** Test the property 'description' */
+  @Test
+  public void descriptionTest() {
+    assertEquals("Ricarica", model.getDescription());
+    model.setDescription("aciraciR");
+    assertEquals("aciraciR", model.getDescription());
 
-        ReceivedDocument i = model.description("Ricarica");
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.description("Ricarica");
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountNet'
-     */
-    @Test
-    public void amountNetTest() {
-        assertEquals(new BigDecimal(10), model.getAmountNet());
-        model.setAmountNet(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getAmountNet());
+  /** Test the property 'amountNet' */
+  @Test
+  public void amountNetTest() {
+    assertEquals(new BigDecimal(10), model.getAmountNet());
+    model.setAmountNet(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getAmountNet());
 
-        ReceivedDocument i = model.amountNet(new BigDecimal(10));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.amountNet(new BigDecimal(10));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountVat'
-     */
-    @Test
-    public void amountVatTest() {
-        assertEquals(new BigDecimal(0), model.getAmountVat());
-        model.setAmountVat(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getAmountVat());
+  /** Test the property 'amountVat' */
+  @Test
+  public void amountVatTest() {
+    assertEquals(new BigDecimal(0), model.getAmountVat());
+    model.setAmountVat(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getAmountVat());
 
-        ReceivedDocument i = model.amountVat(new BigDecimal(0));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.amountVat(new BigDecimal(0));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountWithholdingTax'
-     */
-    @Test
-    public void amountWithholdingTaxTest() {
-        assertEquals(new BigDecimal(0), model.getAmountWithholdingTax());
-        model.setAmountWithholdingTax(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getAmountWithholdingTax());
+  /** Test the property 'amountWithholdingTax' */
+  @Test
+  public void amountWithholdingTaxTest() {
+    assertEquals(new BigDecimal(0), model.getAmountWithholdingTax());
+    model.setAmountWithholdingTax(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getAmountWithholdingTax());
 
-        ReceivedDocument i = model.amountWithholdingTax(new BigDecimal(0));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.amountWithholdingTax(new BigDecimal(0));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountOtherWithholdingTax'
-     */
-    @Test
-    public void amountOtherWithholdingTaxTest() {
-        assertEquals(new BigDecimal(0), model.getAmountOtherWithholdingTax());
-        model.setAmountOtherWithholdingTax(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getAmountOtherWithholdingTax());
+  /** Test the property 'amountOtherWithholdingTax' */
+  @Test
+  public void amountOtherWithholdingTaxTest() {
+    assertEquals(new BigDecimal(0), model.getAmountOtherWithholdingTax());
+    model.setAmountOtherWithholdingTax(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getAmountOtherWithholdingTax());
 
-        ReceivedDocument i = model.amountOtherWithholdingTax(new BigDecimal(0));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.amountOtherWithholdingTax(new BigDecimal(0));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'amountGross'
-     */
-    @Test
-    public void amountGrossTest() {
-        String str = "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
+  /** Test the property 'amountGross' */
+  @Test
+  public void amountGrossTest() {
+    String str =
+        "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
 
-        assertEquals(new BigDecimal(10), model.getAmountGross());
-    }
+    assertEquals(new BigDecimal(10), model.getAmountGross());
+  }
 
-    /**
-     * Test the property 'amortization'
-     */
-    @Test
-    public void amortizationTest() {
-        assertEquals(new BigDecimal(10), model.getAmortization());
-        model.setAmortization(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getAmortization());
+  /** Test the property 'amortization' */
+  @Test
+  public void amortizationTest() {
+    assertEquals(new BigDecimal(10), model.getAmortization());
+    model.setAmortization(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getAmortization());
 
-        ReceivedDocument i = model.amortization(new BigDecimal(10));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.amortization(new BigDecimal(10));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'rcCenter'
-     */
-    @Test
-    public void rcCenterTest() {
-        assertEquals("bg", model.getRcCenter());
-        model.setRcCenter("mi");
-        assertEquals("mi", model.getRcCenter());
+  /** Test the property 'rcCenter' */
+  @Test
+  public void rcCenterTest() {
+    assertEquals("bg", model.getRcCenter());
+    model.setRcCenter("mi");
+    assertEquals("mi", model.getRcCenter());
 
-        ReceivedDocument i = model.rcCenter("bg");
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.rcCenter("bg");
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'invoiceNumber'
-     */
-    @Test
-    public void invoiceNumberTest() {
-        assertEquals("in", model.getInvoiceNumber());
-        model.setInvoiceNumber("ni");
-        assertEquals("ni", model.getInvoiceNumber());
+  /** Test the property 'invoiceNumber' */
+  @Test
+  public void invoiceNumberTest() {
+    assertEquals("in", model.getInvoiceNumber());
+    model.setInvoiceNumber("ni");
+    assertEquals("ni", model.getInvoiceNumber());
 
-        ReceivedDocument i = model.invoiceNumber("in");
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.invoiceNumber("in");
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'isMarked'
-     */
-    @Test
-    public void isMarkedTest() {
-        assertEquals(false, model.getIsMarked());
-        model.setIsMarked(true);
-        assertEquals(true, model.getIsMarked());
+  /** Test the property 'isMarked' */
+  @Test
+  public void isMarkedTest() {
+    assertEquals(false, model.getIsMarked());
+    model.setIsMarked(true);
+    assertEquals(true, model.getIsMarked());
 
-        ReceivedDocument i = model.isMarked(false);
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.isMarked(false);
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'isDetailed'
-     */
-    @Test
-    public void isDetailedTest() {
-        assertEquals(false, model.getIsDetailed());
-        model.setIsDetailed(true);
-        assertEquals(true, model.getIsDetailed());
+  /** Test the property 'isDetailed' */
+  @Test
+  public void isDetailedTest() {
+    assertEquals(false, model.getIsDetailed());
+    model.setIsDetailed(true);
+    assertEquals(true, model.getIsDetailed());
 
-        ReceivedDocument i = model.isDetailed(false);
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.isDetailed(false);
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'eInvoice'
-     */
-    @Test
-    public void eInvoiceTest() {
-        assertEquals(false, model.geteInvoice());
-        model.seteInvoice(true);
-        assertEquals(true, model.geteInvoice());
+  /** Test the property 'eInvoice' */
+  @Test
+  public void eInvoiceTest() {
+    assertEquals(false, model.geteInvoice());
+    model.seteInvoice(true);
+    assertEquals(true, model.geteInvoice());
 
-        ReceivedDocument i = model.eInvoice(false);
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.eInvoice(false);
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'nextDueDate'
-     */
-    @Test
-    public void nextDueDateTest() {
-        String str = "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"next_due_date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
+  /** Test the property 'nextDueDate' */
+  @Test
+  public void nextDueDateTest() {
+    String str =
+        "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"next_due_date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\"}";
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
 
-        assertEquals(LocalDate.of(2021, 12, 25), model.getNextDueDate());
-    }
+    assertEquals(LocalDate.of(2021, 12, 25), model.getNextDueDate());
+  }
 
-    /**
-     * Test the property 'currency'
-     */
-    @Test
-    public void currencyTest() {
-        assertEquals(new Currency()
-                .id("EUR")
-                .exchangeRate("1"), model.getCurrency());
-        model.setCurrency(new Currency()
-                .id("USD")
-                .exchangeRate("1.2"));
-        assertEquals(new Currency()
-                .id("USD")
-                .exchangeRate("1.2"), model.getCurrency());
+  /** Test the property 'currency' */
+  @Test
+  public void currencyTest() {
+    assertEquals(new Currency().id("EUR").exchangeRate("1"), model.getCurrency());
+    model.setCurrency(new Currency().id("USD").exchangeRate("1.2"));
+    assertEquals(new Currency().id("USD").exchangeRate("1.2"), model.getCurrency());
 
-        ReceivedDocument i = model.currency(new Currency()
-                .id("EUR")
-                .exchangeRate("1"));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.currency(new Currency().id("EUR").exchangeRate("1"));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'taxDeductibility'
-     */
-    @Test
-    public void taxDeductibilityTest() {
-        assertEquals(new BigDecimal(50), model.getTaxDeductibility());
-        model.setTaxDeductibility(new BigDecimal(100));
-        assertEquals(new BigDecimal(100), model.getTaxDeductibility());
+  /** Test the property 'taxDeductibility' */
+  @Test
+  public void taxDeductibilityTest() {
+    assertEquals(new BigDecimal(50), model.getTaxDeductibility());
+    model.setTaxDeductibility(new BigDecimal(100));
+    assertEquals(new BigDecimal(100), model.getTaxDeductibility());
 
-        ReceivedDocument i = model.taxDeductibility(new BigDecimal(50));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.taxDeductibility(new BigDecimal(50));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'vatDeductibility'
-     */
-    @Test
-    public void vatDeductibilityTest() {
-        assertEquals(new BigDecimal(100), model.getVatDeductibility());
-        model.setVatDeductibility(new BigDecimal(10));
-        assertEquals(new BigDecimal(10), model.getVatDeductibility());
+  /** Test the property 'vatDeductibility' */
+  @Test
+  public void vatDeductibilityTest() {
+    assertEquals(new BigDecimal(100), model.getVatDeductibility());
+    model.setVatDeductibility(new BigDecimal(10));
+    assertEquals(new BigDecimal(10), model.getVatDeductibility());
 
-        ReceivedDocument i = model.vatDeductibility(new BigDecimal(100));
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model.vatDeductibility(new BigDecimal(100));
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'itemsList'
-     */
-    @Test
-    public void itemsListTest() {
-        assertEquals(Arrays.asList(new ReceivedDocumentItemsListItem()
-                .id(1)), model.getItemsList());
-        model.addItemsListItem(new ReceivedDocumentItemsListItem()
-                .id(2));
-        assertEquals(Arrays.asList(
-                new ReceivedDocumentItemsListItem()
-                        .id(1),
-                new ReceivedDocumentItemsListItem()
-                        .id(2)), model.getItemsList());
+  /** Test the property 'itemsList' */
+  @Test
+  public void itemsListTest() {
+    assertEquals(Arrays.asList(new ReceivedDocumentItemsListItem().id(1)), model.getItemsList());
+    model.addItemsListItem(new ReceivedDocumentItemsListItem().id(2));
+    assertEquals(
+        Arrays.asList(
+            new ReceivedDocumentItemsListItem().id(1), new ReceivedDocumentItemsListItem().id(2)),
+        model.getItemsList());
 
-        ReceivedDocument i = model;
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(2))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+    ReceivedDocument i = model;
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(2))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-    /**
-     * Test the property 'paymentsList'
-     */
-    @Test
-    public void paymentsListTest() {
-        assertEquals(Arrays.asList(new ReceivedDocumentPaymentsListItem()
+  /** Test the property 'paymentsList' */
+  @Test
+  public void paymentsListTest() {
+    assertEquals(
+        Arrays.asList(
+            new ReceivedDocumentPaymentsListItem()
                 .amount(new BigDecimal(592))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                        .days(0)
-                        .type("standard"))
+                .paymentTerms(
+                    new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                 .status("paid")
-                .paymentAccount(new PaymentAccount()
-                        .id(21))), model.getPaymentsList());
-        model.addPaymentsListItem(new ReceivedDocumentPaymentsListItem()
+                .paymentAccount(new PaymentAccount().id(21))),
+        model.getPaymentsList());
+    model.addPaymentsListItem(
+        new ReceivedDocumentPaymentsListItem()
+            .amount(new BigDecimal(900))
+            .dueDate(LocalDate.of(2021, 12, 25))
+            .paidDate(LocalDate.of(2021, 12, 25))
+            .paymentTerms(
+                new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+            .status("paid")
+            .paymentAccount(new PaymentAccount().id(21)));
+    assertEquals(
+        Arrays.asList(
+            new ReceivedDocumentPaymentsListItem()
+                .amount(new BigDecimal(592))
+                .dueDate(LocalDate.of(2021, 12, 25))
+                .paidDate(LocalDate.of(2021, 12, 25))
+                .paymentTerms(
+                    new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                .status("paid")
+                .paymentAccount(new PaymentAccount().id(21)),
+            new ReceivedDocumentPaymentsListItem()
                 .amount(new BigDecimal(900))
                 .dueDate(LocalDate.of(2021, 12, 25))
                 .paidDate(LocalDate.of(2021, 12, 25))
-                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                        .days(0)
-                        .type("standard"))
+                .paymentTerms(
+                    new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
                 .status("paid")
-                .paymentAccount(new PaymentAccount()
-                        .id(21)));
-        assertEquals(Arrays.asList(new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21)),
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(900))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21)))
+                .paymentAccount(new PaymentAccount().id(21))),
+        model.getPaymentsList());
 
-                , model.getPaymentsList());
+    ReceivedDocument i = model;
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(900))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 
-        ReceivedDocument i = model;
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(900))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
+  /** Test the property 'attachmentUrl' */
+  @Test
+  public void attachmentUrlTest() {
+    String str =
+        "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\",\"attachment_url\":\"www.attacciament.url\"}";
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
 
-    /**
-     * Test the property 'attachmentUrl'
-     */
-    @Test
-    public void attachmentUrlTest() {
-        String str = "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\",\"attachment_url\":\"www.attacciament.url\"}";
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
+    assertEquals("www.attacciament.url", model.getAttachmentUrl());
+  }
 
-        assertEquals("www.attacciament.url", model.getAttachmentUrl());
-    }
+  /** Test the property 'attachmentPreviewUrl' */
+  @Test
+  public void attachmentPreviewUrlTest() {
+    String str =
+        "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\",\"attachment_preview_url\":\"www.attacciament.url\"}";
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
 
-    /**
-     * Test the property 'attachmentPreviewUrl'
-     */
-    @Test
-    public void attachmentPreviewUrlTest() {
-        String str = "{\"id\":1,\"type\":\"expense\",\"entity\":{\"id\":1,\"name\":\"neim\"},\"date\":\"2021-12-25\",\"category\":\"cat6\",\"description\":\"Ricarica\",\"amount_net\":10,\"amount_vat\":0,\"amount_gross\":10,\"amount_withholding_tax\":0,\"amount_other_withholding_tax\":0,\"amortization\":10,\"rc_center\":\"bg\",\"invoice_number\":\"in\",\"is_marked\":false,\"is_detailed\":false,\"e_invoice\":false,\"currency\":{\"id\":\"EUR\",\"exchange_rate\":\"1\"},\"tax_deductibility\":50,\"vat_deductibility\":100,\"items_list\":[{\"id\":1}],\"payments_list\":[{\"amount\":592,\"due_date\":\"2021-12-25\",\"paid_date\":\"2021-12-25\",\"payment_terms\":{\"days\":0,\"type\":\"standard\"},\"status\":\"paid\",\"payment_account\":{\"id\":21,\"type\":\"standard\"}}],\"attachment_token\":\"dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ\\u003d\\u003d\",\"attachment_preview_url\":\"www.attacciament.url\"}";
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        ReceivedDocument model = gson.fromJson(str, ReceivedDocument.class);
+    assertEquals("www.attacciament.url", model.getAttachmentPreviewUrl());
+  }
 
-        assertEquals("www.attacciament.url", model.getAttachmentPreviewUrl());
-    }
+  /** Test the property 'attachmentToken' */
+  @Test
+  public void attachmentTokenTest() {
+    assertEquals(
+        "dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==",
+        model.getAttachmentToken());
+    model.setAttachmentToken("1234567890");
+    assertEquals("1234567890", model.getAttachmentToken());
 
-    /**
-     * Test the property 'attachmentToken'
-     */
-    @Test
-    public void attachmentTokenTest() {
-        assertEquals("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==", model.getAttachmentToken());
-        model.setAttachmentToken("1234567890");
-        assertEquals("1234567890", model.getAttachmentToken());
-
-        ReceivedDocument i = model.attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==");
-        ReceivedDocument expected = new ReceivedDocument()
-                .id(1)
-                .type(ReceivedDocumentType.EXPENSE)
-                .entity(new ReceivedDocumentEntity()
-                        .id(1)
-                        .name("neim"))
-                .date(LocalDate.of(2021, 12, 25))
-                .category("cat6")
-                .description("Ricarica")
-                .amountNet(new BigDecimal(10))
-                .amortization(new BigDecimal(10))
-                .rcCenter("bg")
-                .amountVat(new BigDecimal(0))
-                .amountWithholdingTax(new BigDecimal(0))
-                .amountOtherWithholdingTax(new BigDecimal(0))
-                .taxDeductibility(new BigDecimal(50))
-                .vatDeductibility(new BigDecimal(100))
-                .isMarked(false)
-                .invoiceNumber("in")
-                .isMarked(false)
-                .isDetailed(false)
-                .eInvoice(false)
-                .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
-                .currency(new Currency()
-                        .id("EUR")
-                        .exchangeRate("1"))
-                .addPaymentsListItem(
-                        new ReceivedDocumentPaymentsListItem()
-                                .amount(new BigDecimal(592))
-                                .dueDate(LocalDate.of(2021, 12, 25))
-                                .paidDate(LocalDate.of(2021, 12, 25))
-                                .paymentTerms(new ReceivedDocumentPaymentsListItemPaymentTerms()
-                                        .days(0)
-                                        .type("standard"))
-                                .status("paid")
-                                .paymentAccount(new PaymentAccount()
-                                        .id(21))
-                )
-                .addItemsListItem(new ReceivedDocumentItemsListItem()
-                        .id(1))
-                .isDetailed(false);
-        assertEquals(expected, i);
-    }
-
+    ReceivedDocument i =
+        model.attachmentToken(
+            "dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==");
+    ReceivedDocument expected =
+        new ReceivedDocument()
+            .id(1)
+            .type(ReceivedDocumentType.EXPENSE)
+            .entity(new Entity().id(1).name("neim"))
+            .date(LocalDate.of(2021, 12, 25))
+            .category("cat6")
+            .description("Ricarica")
+            .amountNet(new BigDecimal(10))
+            .amortization(new BigDecimal(10))
+            .rcCenter("bg")
+            .amountVat(new BigDecimal(0))
+            .amountWithholdingTax(new BigDecimal(0))
+            .amountOtherWithholdingTax(new BigDecimal(0))
+            .taxDeductibility(new BigDecimal(50))
+            .vatDeductibility(new BigDecimal(100))
+            .isMarked(false)
+            .invoiceNumber("in")
+            .isMarked(false)
+            .isDetailed(false)
+            .eInvoice(false)
+            .attachmentToken("dGdweHdjNjlieWFjY3BseGZ0cTZmbWN0Njhhb3R0cXQvZmlsZW5hbWVfZXhhbXBsZQ==")
+            .currency(new Currency().id("EUR").exchangeRate("1"))
+            .addPaymentsListItem(
+                new ReceivedDocumentPaymentsListItem()
+                    .amount(new BigDecimal(592))
+                    .dueDate(LocalDate.of(2021, 12, 25))
+                    .paidDate(LocalDate.of(2021, 12, 25))
+                    .paymentTerms(
+                        new ReceivedDocumentPaymentsListItemPaymentTerms().days(0).type(PaymentTermsType.STANDARD))
+                    .status("paid")
+                    .paymentAccount(new PaymentAccount().id(21)))
+            .addItemsListItem(new ReceivedDocumentItemsListItem().id(1))
+            .isDetailed(false);
+    assertEquals(expected, i);
+  }
 }

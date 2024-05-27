@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**reason** | **String** | Rejection reason. |  [optional] |
-|**eiStatus** | **String** | E-invoice status. |  [optional] |
+|**reason** | **String** | E-invoice rejection reason |  [optional] |
+|**eiStatus** | **String** | E-invoice status |  [optional] |
 |**solution** | **String** | Error solution. |  [optional] |
-|**code** | **String** | Error code. |  [optional] |
-|**date** | **OffsetDateTime** | Rejection date. |  [optional] |
+|**code** | **String** | E-invoice rejection error code |  [optional] |
+|**date** | **OffsetDateTime** | E-invoice rejection date |  [optional] |
 
 
 ## Implemented Interfaces

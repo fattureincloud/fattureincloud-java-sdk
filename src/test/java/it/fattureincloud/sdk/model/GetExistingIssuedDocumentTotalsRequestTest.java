@@ -10,66 +10,56 @@
  * Do not edit the class manually.
  */
 
-
 package it.fattureincloud.sdk.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-
-/**
- * Model tests for GetExistingIssuedDocumentTotalsRequest
- */
+/** Model tests for GetExistingIssuedDocumentTotalsRequest */
 public class GetExistingIssuedDocumentTotalsRequestTest {
-    private GetExistingIssuedDocumentTotalsRequest model;
+  private GetExistingIssuedDocumentTotalsRequest model;
 
-    @BeforeEach
-    public void init() {
-        model = new GetExistingIssuedDocumentTotalsRequest()
-                .data(
-                        new IssuedDocument()
-                                .id(12345)
-                                .notes("bando")
-                );
-    }
+  @BeforeEach
+  public void init() {
+    model =
+        new GetExistingIssuedDocumentTotalsRequest()
+            .data(new IssuedDocument().id(12345).notes("bando"));
+  }
 
-    /**
-     * Model tests for GetExistingIssuedDocumentTotalsRequest
-     */
-    @Test
-    public void testGetExistingIssuedDocumentTotalsRequest() {
-        JSON jsonManager = new JSON();
-        Gson gson = jsonManager.getGson();
-        String json = gson.toJson(model);
-        String str = "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"show_totals\":\"all\"}}";
-        assertEquals(str, json);
-        GetExistingIssuedDocumentTotalsRequest generated = gson.fromJson(str, GetExistingIssuedDocumentTotalsRequest.class);
-        assertEquals(model, generated);
+  /** Model tests for GetExistingIssuedDocumentTotalsRequest */
+  @Test
+  public void testGetExistingIssuedDocumentTotalsRequest() {
+    JSON jsonManager = new JSON();
+    Gson gson = jsonManager.getGson();
+    String json = gson.toJson(model);
+    String str =
+        "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"notes\":\"bando\",\"show_totals\":\"all\"}}";
+    assertEquals(str, json);
+    GetExistingIssuedDocumentTotalsRequest generated =
+        gson.fromJson(str, GetExistingIssuedDocumentTotalsRequest.class);
+    assertEquals(model, generated);
 
-        Object o = model;
-        assertEquals(model, o);
-        assertFalse(model.equals(null));
-        assertFalse(model.equals(Integer.getInteger("5")));
-    }
+    Object o = model;
+    assertEquals(model, o);
+    assertFalse(model.equals(null));
+    assertFalse(model.equals(Integer.getInteger("5")));
+  }
 
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        assertEquals(12345, model.getData().getId());
-        model.setData(new IssuedDocument().id(1));
-        assertEquals(1, model.getData().getId());
+  /** Test the property 'data' */
+  @Test
+  public void dataTest() {
+    assertEquals(12345, model.getData().getId());
+    model.setData(new IssuedDocument().id(1));
+    assertEquals(1, model.getData().getId());
 
-        model.data(new IssuedDocument().id(2));
-        GetExistingIssuedDocumentTotalsRequest actual = new GetExistingIssuedDocumentTotalsRequest();
-        actual.setData(new IssuedDocument().id(2));
-        assertEquals(model, actual);
-    }
-
+    model.data(new IssuedDocument().id(2));
+    GetExistingIssuedDocumentTotalsRequest actual = new GetExistingIssuedDocumentTotalsRequest();
+    actual.setData(new IssuedDocument().id(2));
+    assertEquals(model, actual);
+  }
 }
