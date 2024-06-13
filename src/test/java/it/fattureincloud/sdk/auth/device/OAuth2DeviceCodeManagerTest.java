@@ -69,7 +69,7 @@ public class OAuth2DeviceCodeManagerTest {
     Call mockCall = Mockito.mock(Call.class);
 
     String jsonResponse =
-            "{\"device_code\":\"d/MEDELLIN\",\"user_code\":\"CALI\",\"scope\":{\"situation\":\"r\",\"settings\":\"a\"},\"verification_uri\":\"https://fattureincloud.it/connetti\",\"interval\":5,\"expires_in\":300}";
+            "{\"data\":{\"device_code\":\"d/MEDELLIN\",\"user_code\":\"CALI\",\"scope\":{\"situation\":\"r\",\"settings\":\"a\"},\"verification_uri\":\"https://fattureincloud.it/connetti\",\"interval\":5,\"expires_in\":300}}";
 
     Response.Builder builder =
             new Response.Builder()
