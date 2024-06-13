@@ -46,7 +46,11 @@ public class OAuth2DeviceCodeManager extends OAuth2Manager {
 
     String json = mapToJson(map);
 
-    return this.post(tokenUri, json, OAuth2DeviceCodeResponse.class);
+    Either<OAuth2Error, OAuth2DeviceCodeResponseData> response = this.post(tokenUri, json, OAuth2DeviceCodeResponseData.class);
+    if(response.isRight())
+      return Either.right(response.get().getData());
+    else
+      return Either.left(response.getLeft());
   }
 
   public Either<OAuth2Error, OAuth2TokenResponse> fetchToken(
