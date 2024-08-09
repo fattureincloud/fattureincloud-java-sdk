@@ -98,6 +98,7 @@ docs/GetReceiptsMonthlyTotalsResponse.md
 docs/GetReceivedDocumentPreCreateInfoResponse.md
 docs/GetReceivedDocumentResponse.md
 docs/GetSupplierResponse.md
+docs/GetTaxProfileResponse.md
 docs/GetUserInfoResponse.md
 docs/GetUserInfoResponseEmailConfirmationState.md
 docs/GetUserInfoResponseInfo.md
@@ -229,6 +230,7 @@ docs/ShowTotalsMode.md
 docs/Supplier.md
 docs/SupplierType.md
 docs/SuppliersApi.md
+docs/TaxProfile.md
 docs/TaxesApi.md
 docs/TransformIssuedDocumentResponse.md
 docs/UploadArchiveAttachmentResponse.md
@@ -381,6 +383,7 @@ src/main/java/it/fattureincloud/sdk/model/GetReceiptsMonthlyTotalsResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetReceivedDocumentPreCreateInfoResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetReceivedDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetSupplierResponse.java
+src/main/java/it/fattureincloud/sdk/model/GetTaxProfileResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseEmailConfirmationState.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseInfo.java
@@ -504,6 +507,7 @@ src/main/java/it/fattureincloud/sdk/model/SenderEmail.java
 src/main/java/it/fattureincloud/sdk/model/ShowTotalsMode.java
 src/main/java/it/fattureincloud/sdk/model/Supplier.java
 src/main/java/it/fattureincloud/sdk/model/SupplierType.java
+src/main/java/it/fattureincloud/sdk/model/TaxProfile.java
 src/main/java/it/fattureincloud/sdk/model/TransformIssuedDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadArchiveAttachmentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadF24AttachmentResponse.java
@@ -523,3 +527,5 @@ src/main/java/it/fattureincloud/sdk/model/VerifyEInvoiceXmlResponseData.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfig.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMapping.java
+src/test/java/it/fattureincloud/sdk/model/GetTaxProfileResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/TaxProfileTest.java

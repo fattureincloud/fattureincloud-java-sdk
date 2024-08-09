@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.1.0
+- API version: 2.1.1
 
-- Build date: 2024-06-17T06:54:20.410889Z[Etc/UTC]
+- Build date: 2024-08-09T09:03:55.704569Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.1</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.0"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.1"
   }
 ```
 
@@ -179,6 +179,7 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**deleteVatType**](docs/SettingsApi.md#deleteVatType) | **DELETE** /c/{company_id}/settings/vat_types/{vat_type_id} | Delete Vat Type
 *SettingsApi* | [**getPaymentAccount**](docs/SettingsApi.md#getPaymentAccount) | **GET** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Get Payment Account
 *SettingsApi* | [**getPaymentMethod**](docs/SettingsApi.md#getPaymentMethod) | **GET** /c/{company_id}/settings/payment_methods/{payment_method_id} | Get Payment Method
+*SettingsApi* | [**getTaxProfile**](docs/SettingsApi.md#getTaxProfile) | **GET** /c/{company_id}/settings/tax_profile | Get Tax Profile
 *SettingsApi* | [**getVatType**](docs/SettingsApi.md#getVatType) | **GET** /c/{company_id}/settings/vat_types/{vat_type_id} | Get Vat Type
 *SettingsApi* | [**modifyPaymentAccount**](docs/SettingsApi.md#modifyPaymentAccount) | **PUT** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Modify Payment Account
 *SettingsApi* | [**modifyPaymentMethod**](docs/SettingsApi.md#modifyPaymentMethod) | **PUT** /c/{company_id}/settings/payment_methods/{payment_method_id} | Modify Payment Method
@@ -297,6 +298,7 @@ Class | Method | HTTP request | Description
  - [GetReceivedDocumentPreCreateInfoResponse](docs/GetReceivedDocumentPreCreateInfoResponse.md)
  - [GetReceivedDocumentResponse](docs/GetReceivedDocumentResponse.md)
  - [GetSupplierResponse](docs/GetSupplierResponse.md)
+ - [GetTaxProfileResponse](docs/GetTaxProfileResponse.md)
  - [GetUserInfoResponse](docs/GetUserInfoResponse.md)
  - [GetUserInfoResponseEmailConfirmationState](docs/GetUserInfoResponseEmailConfirmationState.md)
  - [GetUserInfoResponseInfo](docs/GetUserInfoResponseInfo.md)
@@ -420,6 +422,7 @@ Class | Method | HTTP request | Description
  - [ShowTotalsMode](docs/ShowTotalsMode.md)
  - [Supplier](docs/Supplier.md)
  - [SupplierType](docs/SupplierType.md)
+ - [TaxProfile](docs/TaxProfile.md)
  - [TransformIssuedDocumentResponse](docs/TransformIssuedDocumentResponse.md)
  - [UploadArchiveAttachmentResponse](docs/UploadArchiveAttachmentResponse.md)
  - [UploadF24AttachmentResponse](docs/UploadF24AttachmentResponse.md)
