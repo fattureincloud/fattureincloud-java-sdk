@@ -17,18 +17,18 @@ jobs:
     steps:
     - id: checkout
       name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - id: setup-jdk
       name: Set up JDK
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.java }}
         distribution: 'adopt'
 
     - id: cache-gradle
       name: Cache Gradle packages
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.gradle/caches
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
@@ -36,7 +36,7 @@ jobs:
 
     - id: validate-wrapper
       name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@v1
+      uses: gradle/actions/wrapper-validation@v3
 
     - id: executable-wrapper
       name: Gradle Wrapper is made executable
