@@ -498,7 +498,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **type** | **String**| The type of the received document. | [enum: expense, passive_credit_note, passive_delivery_note] |
+| **type** | **String**| The type of the received document. | [enum: expense, passive_credit_note, passive_delivery_note, self_invoice] |
 
 ### Return type
 
@@ -574,7 +574,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **type** | **String**| The type of the received document. | [enum: expense, passive_credit_note, passive_delivery_note] |
+| **type** | **String**| The type of the received document. | [enum: expense, passive_credit_note, passive_delivery_note, self_invoice] |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
 | **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
 | **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |

@@ -12,6 +12,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**deleteVatType**](SettingsApi.md#deleteVatType) | **DELETE** /c/{company_id}/settings/vat_types/{vat_type_id} | Delete Vat Type |
 | [**getPaymentAccount**](SettingsApi.md#getPaymentAccount) | **GET** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Get Payment Account |
 | [**getPaymentMethod**](SettingsApi.md#getPaymentMethod) | **GET** /c/{company_id}/settings/payment_methods/{payment_method_id} | Get Payment Method |
+| [**getTaxProfile**](SettingsApi.md#getTaxProfile) | **GET** /c/{company_id}/settings/tax_profile | Get Tax Profile |
 | [**getVatType**](SettingsApi.md#getVatType) | **GET** /c/{company_id}/settings/vat_types/{vat_type_id} | Get Vat Type |
 | [**modifyPaymentAccount**](SettingsApi.md#modifyPaymentAccount) | **PUT** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Modify Payment Account |
 | [**modifyPaymentMethod**](SettingsApi.md#modifyPaymentMethod) | **PUT** /c/{company_id}/settings/payment_methods/{payment_method_id} | Modify Payment Method |
@@ -568,6 +569,74 @@ public class Example {
 ### Return type
 
 [**GetPaymentMethodResponse**](GetPaymentMethodResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Example response |  -  |
+
+
+## getTaxProfile
+
+> GetTaxProfileResponse getTaxProfile(companyId)
+
+Get Tax Profile
+
+Gets the Tax Profile
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.SettingsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    SettingsApi apiInstance = new SettingsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    try {
+      GetTaxProfileResponse result = apiInstance.getTaxProfile(companyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SettingsApi#getTaxProfile");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+
+### Return type
+
+[**GetTaxProfileResponse**](GetTaxProfileResponse.md)
 
 ### Authorization
 

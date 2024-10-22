@@ -1,18 +1,15 @@
 package it.fattureincloud.sdk.auth;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import io.vavr.control.Either;
-import okhttp3.*;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
+import okhttp3.*;
 
 public abstract class OAuth2Manager {
   static final String DEFAULT_BASE_URI = "https://api-v2.fattureincloud.it";
@@ -28,20 +25,15 @@ public abstract class OAuth2Manager {
     this(clientId, null, null);
   }
 
-  public OAuth2Manager(
-      String clientId, String baseUri) {
+  public OAuth2Manager(String clientId, String baseUri) {
     this(clientId, baseUri, null);
   }
 
-  public OAuth2Manager(
-      String clientId, OkHttpClient httpClient) {
+  public OAuth2Manager(String clientId, OkHttpClient httpClient) {
     this(clientId, null, httpClient);
   }
 
-  public OAuth2Manager(
-      String clientId,
-      String baseUri,
-      OkHttpClient httpClient) {
+  public OAuth2Manager(String clientId, String baseUri, OkHttpClient httpClient) {
     this.clientId = clientId;
     this.baseUri = Optional.ofNullable(baseUri);
     if (httpClient != null) {
@@ -80,11 +72,11 @@ public abstract class OAuth2Manager {
     this.httpClient = httpClient;
   }
 
-  protected abstract Either<OAuth2Error, OAuth2TokenResponse> fetchToken(
-          String code) throws IOException;
+  protected abstract Either<OAuth2Error, OAuth2TokenResponse> fetchToken(String code)
+      throws IOException;
 
-  protected abstract Either<OAuth2Error, OAuth2TokenResponse> refreshToken(
-          String refreshToken) throws IOException;
+  protected abstract Either<OAuth2Error, OAuth2TokenResponse> refreshToken(String refreshToken)
+      throws IOException;
 
   protected String getCompleteUri(String path) {
     return this.getBaseUri().concat(path);
@@ -94,8 +86,8 @@ public abstract class OAuth2Manager {
     return gson.toJson(inputMap);
   }
 
-  protected <T> Either<OAuth2Error, T> post(
-          String url, String json, Class<T> typeOfT) throws IOException {
+  protected <T> Either<OAuth2Error, T> post(String url, String json, Class<T> typeOfT)
+      throws IOException {
     RequestBody body = RequestBody.create(json, JSON);
     Request request = new Request.Builder().url(url).post(body).build();
     try (Response response = this.httpClient.newCall(request).execute()) {
@@ -103,8 +95,7 @@ public abstract class OAuth2Manager {
       int code = response.code();
 
       if (code != 200) {
-        OAuth2Error err =
-                gson.fromJson(responseBody, OAuth2Error.class);
+        OAuth2Error err = gson.fromJson(responseBody, OAuth2Error.class);
         err.setCode(code);
         return Either.left(err);
       } else {
