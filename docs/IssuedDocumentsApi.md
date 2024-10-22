@@ -597,7 +597,7 @@ public class Example {
 
 ## joinIssuedDocuments
 
-> JoinIssuedDocumentsResponse joinIssuedDocuments(companyId, ids, group, eInvoice)
+> JoinIssuedDocumentsResponse joinIssuedDocuments(companyId, ids, group, parameter)
 
 Join Issued Documents
 
@@ -626,9 +626,9 @@ public class Example {
     Integer companyId = 12345; // Integer | The ID of the company.
     String ids = "1,2,3,4"; // String | Ids of the documents.
     Integer group = 0; // Integer | Group items.
-    Integer eInvoice = 0; // Integer | New document e_invoice.
+    String parameter = "delivery_notes"; // String | Type of the parameters to be joined
     try {
-      JoinIssuedDocumentsResponse result = apiInstance.joinIssuedDocuments(companyId, ids, group, eInvoice);
+      JoinIssuedDocumentsResponse result = apiInstance.joinIssuedDocuments(companyId, ids, group, parameter);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IssuedDocumentsApi#joinIssuedDocuments");
@@ -648,7 +648,7 @@ public class Example {
 | **companyId** | **Integer**| The ID of the company. | |
 | **ids** | **String**| Ids of the documents. | |
 | **group** | **Integer**| Group items. | [optional] [enum: 0, 1] |
-| **eInvoice** | **Integer**| New document e_invoice. | [optional] [enum: 0, 1] |
+| **parameter** | **String**| Type of the parameters to be joined | [optional] [enum: delivery_notes, orders, quotes, work_reports] |
 
 ### Return type
 
@@ -904,7 +904,7 @@ null (empty response body)
 
 ## transformIssuedDocument
 
-> TransformIssuedDocumentResponse transformIssuedDocument(companyId, originalDocumentId, newType, eInvoice, transformKeepCopy)
+> TransformIssuedDocumentResponse transformIssuedDocument(companyId, originalDocumentId, newType, parameter, eInvoice, transformKeepCopy)
 
 Transform Issued Document
 
@@ -933,10 +933,11 @@ public class Example {
     Integer companyId = 12345; // Integer | The ID of the company.
     Integer originalDocumentId = 56; // Integer | Original document id.
     String newType = "newType_example"; // String | New document type.
+    String parameter = "parameter_example"; // String | Old document type.
     Integer eInvoice = 0; // Integer | New document e_invoice.
     Integer transformKeepCopy = 0; // Integer | Keep the old document.
     try {
-      TransformIssuedDocumentResponse result = apiInstance.transformIssuedDocument(companyId, originalDocumentId, newType, eInvoice, transformKeepCopy);
+      TransformIssuedDocumentResponse result = apiInstance.transformIssuedDocument(companyId, originalDocumentId, newType, parameter, eInvoice, transformKeepCopy);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IssuedDocumentsApi#transformIssuedDocument");
@@ -956,6 +957,7 @@ public class Example {
 | **companyId** | **Integer**| The ID of the company. | |
 | **originalDocumentId** | **Integer**| Original document id. | |
 | **newType** | **String**| New document type. | |
+| **parameter** | **String**| Old document type. | [optional] |
 | **eInvoice** | **Integer**| New document e_invoice. | [optional] [enum: 0, 1] |
 | **transformKeepCopy** | **Integer**| Keep the old document. | [optional] [enum: 0, 1] |
 

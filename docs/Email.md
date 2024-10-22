@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **Integer** | Email id |  [optional] |
 |**status** | **EmailStatus** |  |  [optional] |
-|**sentDate** | **OffsetDateTime** | Email sent date |  [optional] |
+|**sentDate** | **String** | Email sent date |  [optional] |
 |**errorsCount** | **Integer** | Email errors count |  [optional] |
 |**errorLog** | **String** | Email errors log |  [optional] |
 |**fromEmail** | **String** | Email sender email |  [optional] |
