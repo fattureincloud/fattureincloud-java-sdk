@@ -11,5 +11,7 @@
 
 * `PASSIVE_DELIVERY_NOTE` (value: `"passive_delivery_note"`)
 
+* `SELF_INVOICE` (value: `"self_invoice"`)
+
 
 
