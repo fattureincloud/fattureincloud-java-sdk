@@ -39,9 +39,7 @@ public class ListEmailsResponseTest {
                     new Email()
                         .id(1)
                         .status(EmailStatus.SENT)
-                        .sentDate(
-                            OffsetDateTime.of(
-                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .sentDate("2022-07-17T13:53:12Z")
                         .errorsCount(0)
                         .errorLog("")
                         .fromEmail("test@mail.it")
@@ -60,9 +58,7 @@ public class ListEmailsResponseTest {
                     new Email()
                         .id(2)
                         .status(EmailStatus.SENT)
-                        .sentDate(
-                            OffsetDateTime.of(
-                                LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+                        .sentDate("2022-07-17T13:53:12Z")
                         .errorsCount(0)
                         .errorLog("")
                         .fromEmail("test@mail.it")
