@@ -466,4 +466,51 @@ public class SettingsApiTest {
     assertEquals(expected, response.getData());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }
+
+   /**
+   * Get Tax Profile
+   *
+   * <p>Gets the tax profile.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getTaxProfile() throws ApiException, IOException {
+    String result =
+        "{\"data\":{\"company_type\":\"individual\",\"company_subtype\":\"artigiani\",\"profession\":\"profession\",\"regime\":\"forfettario_5\",\"rivalsa_name\":\"\",\"default_rivalsa\":0,\"cassa_name\":\"\",\"default_cassa\":0,\"default_cassa_taxable\":0,\"cassa2_name\":\"\",\"default_cassa2\":0,\"default_cassa2_taxable\":0,\"default_withholding_tax\":0,\"default_withholding_tax_taxable\":100,\"default_other_withholding_tax\":0,\"enasarco\":false,\"enasarco_type\":\"enasarcoType\",\"contributions_percentage\":0,\"profit_coefficient\":0,\"med\":false,\"default_vat\":{\"id\":66,\"value\":0,\"description\":\"Contribuenti forfettari\",\"notes\":\"Operazione non soggetta a IVA ai sensi dell\\u0027art. 1, commi 54-89, Legge n. 190/2014 e succ. modifiche/integrazioni\",\"e_invoice\":true,\"ei_type\":\"2.2\",\"ei_description\":\"Non soggetta art. 1/54-89 L. 190/2014 e succ. modifiche/integrazioni\",\"is_disabled\":false}}}";
+
+    Call mockCall = Mockito.mock(Call.class);
+    SettingsApi api = mockApi(result, mockCall);
+
+    Integer companyId = 11111;
+
+    TaxProfile expected =
+        new TaxProfile()
+            .companyType("individual")
+            .companySubtype("artigiani")
+            .profession("profession")
+            .regime("forfettario_5")
+            .rivalsaName("")
+            .defaultRivalsa(new BigDecimal(0))
+            .cassaName("")
+            .defaultCassa(new BigDecimal(0))
+            .defaultCassaTaxable(new BigDecimal(0))
+            .cassa2Name("")
+            .defaultCassa2(new BigDecimal(0))
+            .defaultCassa2Taxable(new BigDecimal(0))
+            .defaultWithholdingTax(new BigDecimal(0))
+            .defaultWithholdingTaxTaxable(new BigDecimal(100))
+            .defaultOtherWithholdingTax(new BigDecimal(0))
+            .enasarco(false)
+            .enasarcoType("enasarcoType")
+            .contributionsPercentage(new BigDecimal(0))
+            .profitCoefficient(new BigDecimal(0))
+            .med(false)
+            .defaultVat(new VatType().id(66).value(new BigDecimal(0)).description("Contribuenti forfettari").notes("Operazione non soggetta a IVA ai sensi dell'art. 1, commi 54-89, Legge n. 190/2014 e succ. modifiche/integrazioni").eInvoice(true).eiType("2.2").eiDescription("Non soggetta art. 1/54-89 L. 190/2014 e succ. modifiche/integrazioni").isDisabled(false));
+
+    GetTaxProfileResponse response = api.getTaxProfile(companyId);
+    assertEquals(expected, response.getData());
+    Mockito.verify(mockCall, Mockito.only()).execute();
+  }
+
 }

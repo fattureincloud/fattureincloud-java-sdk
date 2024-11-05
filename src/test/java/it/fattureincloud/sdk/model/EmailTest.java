@@ -37,7 +37,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -87,7 +87,7 @@ public class EmailTest {
         new Email()
             .id(69)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -117,7 +117,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENDING)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -138,22 +138,19 @@ public class EmailTest {
   /** Test the property 'sentDate' */
   @Test
   public void sentDateTest() {
+    assertEquals("2022-07-17T13:53:12Z", model.getSentDate());
+    model.setSentDate("2023-07-17T13:53:12Z");
     assertEquals(
-        OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC),
-        model.getSentDate());
-    model.setSentDate(OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC));
-    assertEquals(
-        OffsetDateTime.of(LocalDateTime.of(2023, 7, 17, 13, 53, 12), ZoneOffset.UTC),
+        "2023-07-17T13:53:12Z",
         model.getSentDate());
 
     Email e =
-        model.sentDate(
-            OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC));
+        model.sentDate("2024-07-17T13:53:12Z");
     Email expected =
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2024, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2024-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -183,7 +180,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(69)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -213,7 +210,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("69")
             .fromEmail("test@mail.it")
@@ -243,7 +240,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("teste@mail.it")
@@ -273,7 +270,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -303,7 +300,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -333,7 +330,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -363,7 +360,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -393,7 +390,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -423,7 +420,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -453,7 +450,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -490,7 +487,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -520,7 +517,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")
@@ -556,7 +553,7 @@ public class EmailTest {
         new Email()
             .id(1)
             .status(EmailStatus.SENT)
-            .sentDate(OffsetDateTime.of(LocalDateTime.of(2022, 7, 17, 13, 53, 12), ZoneOffset.UTC))
+            .sentDate("2022-07-17T13:53:12Z")
             .errorsCount(0)
             .errorLog("")
             .fromEmail("test@mail.it")

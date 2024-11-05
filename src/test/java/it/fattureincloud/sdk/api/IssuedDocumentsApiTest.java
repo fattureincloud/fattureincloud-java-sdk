@@ -501,7 +501,7 @@ public class IssuedDocumentsApiTest {
                     .keepCopy(true));
 
     TransformIssuedDocumentResponse response =
-        api.transformIssuedDocument(companyId, 2, "proforma", 1, 1);
+        api.transformIssuedDocument(companyId, 2, "proforma", "delivery_notes", 1, 1);
 
     assertEquals(expected.getData(), response.getData());
     Mockito.verify(mockCall, Mockito.only()).execute();
@@ -528,7 +528,7 @@ public class IssuedDocumentsApiTest {
             .data(new IssuedDocument().id(12345).type(IssuedDocumentType.INVOICE))
             .options(new IssuedDocumentOptions().createFrom(Arrays.asList("82112399", "82112400")));
 
-    JoinIssuedDocumentsResponse response = api.joinIssuedDocuments(companyId, "1234,4321", 1, 1);
+    JoinIssuedDocumentsResponse response = api.joinIssuedDocuments(companyId, "1234,4321", 1, "invoice");
 
     assertEquals(expected.getData(), response.getData());
     Mockito.verify(mockCall, Mockito.only()).execute();
