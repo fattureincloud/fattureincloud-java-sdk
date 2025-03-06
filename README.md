@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.1.3
+- API version: 2.1.5
 
-- Build date: 2024-10-30T09:09:50.123536Z[Etc/UTC]
+- Build date: 2025-03-06T15:40:46.627547Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.1.1</version>
+  <version>2.1.2</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.1"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.2"
   }
 ```
 
@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *ClientsApi* | [**createClient**](docs/ClientsApi.md#createClient) | **POST** /c/{company_id}/entities/clients | Create Client
 *ClientsApi* | [**deleteClient**](docs/ClientsApi.md#deleteClient) | **DELETE** /c/{company_id}/entities/clients/{client_id} | Delete Client
 *ClientsApi* | [**getClient**](docs/ClientsApi.md#getClient) | **GET** /c/{company_id}/entities/clients/{client_id} | Get Client
+*ClientsApi* | [**getClientInfo**](docs/ClientsApi.md#getClientInfo) | **GET** /c/{company_id}/entities/clients/info | Get Client info
 *ClientsApi* | [**listClients**](docs/ClientsApi.md#listClients) | **GET** /c/{company_id}/entities/clients | List Clients
 *ClientsApi* | [**modifyClient**](docs/ClientsApi.md#modifyClient) | **PUT** /c/{company_id}/entities/clients/{client_id} | Modify Client
 *CompaniesApi* | [**getCompanyInfo**](docs/CompaniesApi.md#getCompanyInfo) | **GET** /c/{company_id}/company/info | Get Company Info
@@ -132,16 +133,20 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**listUnitsOfMeasure**](docs/InfoApi.md#listUnitsOfMeasure) | **GET** /info/measures | List Units of Measure
 *InfoApi* | [**listVatTypes**](docs/InfoApi.md#listVatTypes) | **GET** /c/{company_id}/info/vat_types | List Vat Types
 *IssuedDocumentsApi* | [**createIssuedDocument**](docs/IssuedDocumentsApi.md#createIssuedDocument) | **POST** /c/{company_id}/issued_documents | Create Issued Document
+*IssuedDocumentsApi* | [**deleteBinIssuedDocument**](docs/IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | 
 *IssuedDocumentsApi* | [**deleteIssuedDocument**](docs/IssuedDocumentsApi.md#deleteIssuedDocument) | **DELETE** /c/{company_id}/issued_documents/{document_id} | Delete Issued Document
 *IssuedDocumentsApi* | [**deleteIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#deleteIssuedDocumentAttachment) | **DELETE** /c/{company_id}/issued_documents/{document_id}/attachment | Delete Issued Document Attachment
+*IssuedDocumentsApi* | [**getBinIssuedDocument**](docs/IssuedDocumentsApi.md#getBinIssuedDocument) | **GET** /c/{company_id}/bin/issued_documents/{document_id} | Get Bin Issued Documents List
 *IssuedDocumentsApi* | [**getEmailData**](docs/IssuedDocumentsApi.md#getEmailData) | **GET** /c/{company_id}/issued_documents/{document_id}/email | Get Email Data
 *IssuedDocumentsApi* | [**getExistingIssuedDocumentTotals**](docs/IssuedDocumentsApi.md#getExistingIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/{document_id}/totals | Get Existing Issued Document Totals
 *IssuedDocumentsApi* | [**getIssuedDocument**](docs/IssuedDocumentsApi.md#getIssuedDocument) | **GET** /c/{company_id}/issued_documents/{document_id} | Get Issued Document
 *IssuedDocumentsApi* | [**getIssuedDocumentPreCreateInfo**](docs/IssuedDocumentsApi.md#getIssuedDocumentPreCreateInfo) | **GET** /c/{company_id}/issued_documents/info | Get Issued Document Pre-Create Info
 *IssuedDocumentsApi* | [**getNewIssuedDocumentTotals**](docs/IssuedDocumentsApi.md#getNewIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/totals | Get New Issued Document Totals
 *IssuedDocumentsApi* | [**joinIssuedDocuments**](docs/IssuedDocumentsApi.md#joinIssuedDocuments) | **GET** /c/{company_id}/issued_documents/join | Join Issued Documents
+*IssuedDocumentsApi* | [**listBinIssuedDocuments**](docs/IssuedDocumentsApi.md#listBinIssuedDocuments) | **GET** /c/{company_id}/bin/issued_documents | Get Bin Issued Documents List
 *IssuedDocumentsApi* | [**listIssuedDocuments**](docs/IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
+*IssuedDocumentsApi* | [**recoverBinIssuedDocument**](docs/IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | 
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
 *IssuedDocumentsApi* | [**transformIssuedDocument**](docs/IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform Issued Document
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
@@ -149,6 +154,8 @@ Class | Method | HTTP request | Description
 *IssuedEInvoicesApi* | [**getEInvoiceXml**](docs/IssuedEInvoicesApi.md#getEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml | Get E-Invoice XML
 *IssuedEInvoicesApi* | [**sendEInvoice**](docs/IssuedEInvoicesApi.md#sendEInvoice) | **POST** /c/{company_id}/issued_documents/{document_id}/e_invoice/send | Send E-Invoice
 *IssuedEInvoicesApi* | [**verifyEInvoiceXml**](docs/IssuedEInvoicesApi.md#verifyEInvoiceXml) | **GET** /c/{company_id}/issued_documents/{document_id}/e_invoice/xml_verify | Verify E-Invoice XML
+*PriceListsApi* | [**getPriceListItems**](docs/PriceListsApi.md#getPriceListItems) | **GET** /c/{company_id}/price_lists/{price_list_id}/items | Get PriceList Items List
+*PriceListsApi* | [**getPriceLists**](docs/PriceListsApi.md#getPriceLists) | **GET** /c/{company_id}/price_lists | Get PriceLists
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /c/{company_id}/products | Create Product
 *ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /c/{company_id}/products/{product_id} | Delete Product
 *ProductsApi* | [**getProduct**](docs/ProductsApi.md#getProduct) | **GET** /c/{company_id}/products/{product_id} | Get Product
@@ -162,14 +169,18 @@ Class | Method | HTTP request | Description
 *ReceiptsApi* | [**listReceipts**](docs/ReceiptsApi.md#listReceipts) | **GET** /c/{company_id}/receipts | List Receipts
 *ReceiptsApi* | [**modifyReceipt**](docs/ReceiptsApi.md#modifyReceipt) | **PUT** /c/{company_id}/receipts/{document_id} | Modify Receipt
 *ReceivedDocumentsApi* | [**createReceivedDocument**](docs/ReceivedDocumentsApi.md#createReceivedDocument) | **POST** /c/{company_id}/received_documents | Create Received Document
+*ReceivedDocumentsApi* | [**deleteBinReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | 
 *ReceivedDocumentsApi* | [**deleteReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteReceivedDocument) | **DELETE** /c/{company_id}/received_documents/{document_id} | Delete Received Document
 *ReceivedDocumentsApi* | [**deleteReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#deleteReceivedDocumentAttachment) | **DELETE** /c/{company_id}/received_documents/{document_id}/attachment | Delete Received Document Attachment
+*ReceivedDocumentsApi* | [**getBinReceivedDocument**](docs/ReceivedDocumentsApi.md#getBinReceivedDocument) | **GET** /c/{company_id}/bin/received_documents/{document_id} | Get Bin Received Documents List
 *ReceivedDocumentsApi* | [**getExistingReceivedDocumentTotals**](docs/ReceivedDocumentsApi.md#getExistingReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/{document_id}/totals | Get Existing Received Document Totals
 *ReceivedDocumentsApi* | [**getNewReceivedDocumentTotals**](docs/ReceivedDocumentsApi.md#getNewReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/totals | Get New Received Document Totals
 *ReceivedDocumentsApi* | [**getReceivedDocument**](docs/ReceivedDocumentsApi.md#getReceivedDocument) | **GET** /c/{company_id}/received_documents/{document_id} | Get Received Document
 *ReceivedDocumentsApi* | [**getReceivedDocumentPreCreateInfo**](docs/ReceivedDocumentsApi.md#getReceivedDocumentPreCreateInfo) | **GET** /c/{company_id}/received_documents/info | Get Received Document Pre-Create Info
+*ReceivedDocumentsApi* | [**listBinReceivedDocuments**](docs/ReceivedDocumentsApi.md#listBinReceivedDocuments) | **GET** /c/{company_id}/bin/received_documents | Get Bin Received Documents List
 *ReceivedDocumentsApi* | [**listReceivedDocuments**](docs/ReceivedDocumentsApi.md#listReceivedDocuments) | **GET** /c/{company_id}/received_documents | List Received Documents
 *ReceivedDocumentsApi* | [**modifyReceivedDocument**](docs/ReceivedDocumentsApi.md#modifyReceivedDocument) | **PUT** /c/{company_id}/received_documents/{document_id} | Modify Received Document
+*ReceivedDocumentsApi* | [**recoverBinReceivedDocument**](docs/ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | 
 *ReceivedDocumentsApi* | [**uploadReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#uploadReceivedDocumentAttachment) | **POST** /c/{company_id}/received_documents/attachment | Upload Received Document Attachment
 *SettingsApi* | [**createPaymentAccount**](docs/SettingsApi.md#createPaymentAccount) | **POST** /c/{company_id}/settings/payment_accounts | Create Payment Account
 *SettingsApi* | [**createPaymentMethod**](docs/SettingsApi.md#createPaymentMethod) | **POST** /c/{company_id}/settings/payment_methods | Create Payment Method
@@ -203,6 +214,7 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**getWebhooksSubscription**](docs/WebhooksApi.md#getWebhooksSubscription) | **GET** /c/{company_id}/subscriptions/{subscription_id} | Get Webhooks Subscription
 *WebhooksApi* | [**listWebhooksSubscriptions**](docs/WebhooksApi.md#listWebhooksSubscriptions) | **GET** /c/{company_id}/subscriptions | List Webhooks Subscriptions
 *WebhooksApi* | [**modifyWebhooksSubscription**](docs/WebhooksApi.md#modifyWebhooksSubscription) | **PUT** /c/{company_id}/subscriptions/{subscription_id} | Modify Webhooks Subscription
+*WebhooksApi* | [**verifyWebhooksSubscription**](docs/WebhooksApi.md#verifyWebhooksSubscription) | **POST** /c/{company_id}/subscriptions/{subscription_id}/verify | Verify Webhooks Subscription
 
 
 ## Documentation for Models
@@ -265,6 +277,7 @@ Class | Method | HTTP request | Description
  - [EmailScheduleInclude](docs/EmailScheduleInclude.md)
  - [EmailStatus](docs/EmailStatus.md)
  - [Entity](docs/Entity.md)
+ - [EntityClientPreCreateInfo](docs/EntityClientPreCreateInfo.md)
  - [EntityType](docs/EntityType.md)
  - [EventType](docs/EventType.md)
  - [F24](docs/F24.md)
@@ -272,12 +285,15 @@ Class | Method | HTTP request | Description
  - [FattureInCloudPlanType](docs/FattureInCloudPlanType.md)
  - [FunctionStatus](docs/FunctionStatus.md)
  - [GetArchiveDocumentResponse](docs/GetArchiveDocumentResponse.md)
+ - [GetBinIssuedDocumentResponse](docs/GetBinIssuedDocumentResponse.md)
+ - [GetBinReceivedDocumentResponse](docs/GetBinReceivedDocumentResponse.md)
  - [GetCashbookEntryResponse](docs/GetCashbookEntryResponse.md)
  - [GetClientResponse](docs/GetClientResponse.md)
  - [GetCompanyInfoResponse](docs/GetCompanyInfoResponse.md)
  - [GetCompanyPlanUsageResponse](docs/GetCompanyPlanUsageResponse.md)
  - [GetEInvoiceRejectionReasonResponse](docs/GetEInvoiceRejectionReasonResponse.md)
  - [GetEmailDataResponse](docs/GetEmailDataResponse.md)
+ - [GetEntityClientPreCreateInfoResponse](docs/GetEntityClientPreCreateInfoResponse.md)
  - [GetExistingIssuedDocumentTotalsRequest](docs/GetExistingIssuedDocumentTotalsRequest.md)
  - [GetExistingIssuedDocumentTotalsResponse](docs/GetExistingIssuedDocumentTotalsResponse.md)
  - [GetExistingReceivedDocumentTotalsRequest](docs/GetExistingReceivedDocumentTotalsRequest.md)
@@ -291,6 +307,7 @@ Class | Method | HTTP request | Description
  - [GetNewReceivedDocumentTotalsResponse](docs/GetNewReceivedDocumentTotalsResponse.md)
  - [GetPaymentAccountResponse](docs/GetPaymentAccountResponse.md)
  - [GetPaymentMethodResponse](docs/GetPaymentMethodResponse.md)
+ - [GetPriceListItemsResponse](docs/GetPriceListItemsResponse.md)
  - [GetProductResponse](docs/GetProductResponse.md)
  - [GetReceiptPreCreateInfoResponse](docs/GetReceiptPreCreateInfoResponse.md)
  - [GetReceiptResponse](docs/GetReceiptResponse.md)
@@ -323,6 +340,8 @@ Class | Method | HTTP request | Description
  - [ListArchiveCategoriesResponse](docs/ListArchiveCategoriesResponse.md)
  - [ListArchiveDocumentsResponse](docs/ListArchiveDocumentsResponse.md)
  - [ListArchiveDocumentsResponsePage](docs/ListArchiveDocumentsResponsePage.md)
+ - [ListBinIssuedDocuments](docs/ListBinIssuedDocuments.md)
+ - [ListBinReceivedDocuments](docs/ListBinReceivedDocuments.md)
  - [ListCashbookEntriesResponse](docs/ListCashbookEntriesResponse.md)
  - [ListCitiesResponse](docs/ListCitiesResponse.md)
  - [ListClientsResponse](docs/ListClientsResponse.md)
@@ -343,6 +362,7 @@ Class | Method | HTTP request | Description
  - [ListLanguagesResponse](docs/ListLanguagesResponse.md)
  - [ListPaymentAccountsResponse](docs/ListPaymentAccountsResponse.md)
  - [ListPaymentMethodsResponse](docs/ListPaymentMethodsResponse.md)
+ - [ListPriceListsResponse](docs/ListPriceListsResponse.md)
  - [ListProductCategoriesResponse](docs/ListProductCategoriesResponse.md)
  - [ListProductsResponse](docs/ListProductsResponse.md)
  - [ListProductsResponsePage](docs/ListProductsResponsePage.md)
@@ -398,6 +418,10 @@ Class | Method | HTTP request | Description
  - [PermissionLevel](docs/PermissionLevel.md)
  - [Permissions](docs/Permissions.md)
  - [PermissionsFicIssuedDocumentsDetailed](docs/PermissionsFicIssuedDocumentsDetailed.md)
+ - [PriceList](docs/PriceList.md)
+ - [PriceListItem](docs/PriceListItem.md)
+ - [PriceListPricesType](docs/PriceListPricesType.md)
+ - [PriceListType](docs/PriceListType.md)
  - [Product](docs/Product.md)
  - [Receipt](docs/Receipt.md)
  - [ReceiptItemsListItem](docs/ReceiptItemsListItem.md)
@@ -439,9 +463,12 @@ Class | Method | HTTP request | Description
  - [VerifyEInvoiceXmlErrorResponseExtra](docs/VerifyEInvoiceXmlErrorResponseExtra.md)
  - [VerifyEInvoiceXmlResponse](docs/VerifyEInvoiceXmlResponse.md)
  - [VerifyEInvoiceXmlResponseData](docs/VerifyEInvoiceXmlResponseData.md)
+ - [VerifyWebhooksSubscription](docs/VerifyWebhooksSubscription.md)
+ - [VerifyWebhooksSubscriptionRequest](docs/VerifyWebhooksSubscriptionRequest.md)
  - [WebhooksSubscription](docs/WebhooksSubscription.md)
  - [WebhooksSubscriptionConfig](docs/WebhooksSubscriptionConfig.md)
  - [WebhooksSubscriptionMapping](docs/WebhooksSubscriptionMapping.md)
+ - [WebhooksSubscriptionVerificationMethod](docs/WebhooksSubscriptionVerificationMethod.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -489,10 +516,13 @@ Authentication schemes defined for the API:
   - **stock:a**: Write permission to the Stock movements
   - **receipts:r**: Read permission to the Receipts
   - **receipts:a**: Write permission to the Receipts
+  - **calendar:r**: Read permission to the Calendar
+  - **calendar:a**: Write permission to the Calendar
   - **taxes:r**: Read permission to the Taxes
   - **taxes:a**: Write permission to the Taxes
   - **archive:r**: Read permission to the Archive Documents
   - **archive:a**: Read permission to the Archive Documents
+  - **emails:r**: Read permission to the Emails
   - **cashbook:r**: Read permission to the Cashbook
   - **cashbook:a**: Write permission to the Cashbook
   - **settings:r**: Read permission to the Settings

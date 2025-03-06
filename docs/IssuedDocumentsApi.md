@@ -5,16 +5,20 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createIssuedDocument**](IssuedDocumentsApi.md#createIssuedDocument) | **POST** /c/{company_id}/issued_documents | Create Issued Document |
+| [**deleteBinIssuedDocument**](IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} |  |
 | [**deleteIssuedDocument**](IssuedDocumentsApi.md#deleteIssuedDocument) | **DELETE** /c/{company_id}/issued_documents/{document_id} | Delete Issued Document |
 | [**deleteIssuedDocumentAttachment**](IssuedDocumentsApi.md#deleteIssuedDocumentAttachment) | **DELETE** /c/{company_id}/issued_documents/{document_id}/attachment | Delete Issued Document Attachment |
+| [**getBinIssuedDocument**](IssuedDocumentsApi.md#getBinIssuedDocument) | **GET** /c/{company_id}/bin/issued_documents/{document_id} | Get Bin Issued Documents List |
 | [**getEmailData**](IssuedDocumentsApi.md#getEmailData) | **GET** /c/{company_id}/issued_documents/{document_id}/email | Get Email Data |
 | [**getExistingIssuedDocumentTotals**](IssuedDocumentsApi.md#getExistingIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/{document_id}/totals | Get Existing Issued Document Totals |
 | [**getIssuedDocument**](IssuedDocumentsApi.md#getIssuedDocument) | **GET** /c/{company_id}/issued_documents/{document_id} | Get Issued Document |
 | [**getIssuedDocumentPreCreateInfo**](IssuedDocumentsApi.md#getIssuedDocumentPreCreateInfo) | **GET** /c/{company_id}/issued_documents/info | Get Issued Document Pre-Create Info |
 | [**getNewIssuedDocumentTotals**](IssuedDocumentsApi.md#getNewIssuedDocumentTotals) | **POST** /c/{company_id}/issued_documents/totals | Get New Issued Document Totals |
 | [**joinIssuedDocuments**](IssuedDocumentsApi.md#joinIssuedDocuments) | **GET** /c/{company_id}/issued_documents/join | Join Issued Documents |
+| [**listBinIssuedDocuments**](IssuedDocumentsApi.md#listBinIssuedDocuments) | **GET** /c/{company_id}/bin/issued_documents | Get Bin Issued Documents List |
 | [**listIssuedDocuments**](IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents |
 | [**modifyIssuedDocument**](IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document |
+| [**recoverBinIssuedDocument**](IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover |  |
 | [**scheduleEmail**](IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email |
 | [**transformIssuedDocument**](IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform Issued Document |
 | [**uploadIssuedDocumentAttachment**](IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment |
@@ -90,6 +94,75 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Document created. |  -  |
 | **401** | Unauthorized |  -  |
+
+
+## deleteBinIssuedDocument
+
+> deleteBinIssuedDocument(companyId, documentId)
+
+
+
+Delete Bin Issued Document
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer documentId = 56; // Integer | The ID of the document.
+    try {
+      apiInstance.deleteBinIssuedDocument(companyId, documentId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#deleteBinIssuedDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **documentId** | **Integer**| The ID of the document. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 
 ## deleteIssuedDocument
@@ -232,6 +305,76 @@ null (empty response body)
 | **200** | File removed. |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+
+## getBinIssuedDocument
+
+> GetBinIssuedDocumentResponse getBinIssuedDocument(companyId, documentId)
+
+Get Bin Issued Documents List
+
+Get bin issued documents detail
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer documentId = 56; // Integer | The ID of the document.
+    try {
+      GetBinIssuedDocumentResponse result = apiInstance.getBinIssuedDocument(companyId, documentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#getBinIssuedDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **documentId** | **Integer**| The ID of the document. | |
+
+### Return type
+
+[**GetBinIssuedDocumentResponse**](GetBinIssuedDocumentResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Bin issued document details |  -  |
 
 
 ## getEmailData
@@ -669,6 +812,74 @@ public class Example {
 | **200** | Example response |  -  |
 
 
+## listBinIssuedDocuments
+
+> ListBinIssuedDocuments listBinIssuedDocuments(companyId)
+
+Get Bin Issued Documents List
+
+Get bin issued documents list
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    try {
+      ListBinIssuedDocuments result = apiInstance.listBinIssuedDocuments(companyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#listBinIssuedDocuments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+
+### Return type
+
+[**ListBinIssuedDocuments**](ListBinIssuedDocuments.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Bin Issued Documents List |  -  |
+
+
 ## listIssuedDocuments
 
 > ListIssuedDocumentsResponse listIssuedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q, inclusive)
@@ -827,6 +1038,75 @@ public class Example {
 | **200** | Document edited |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+
+
+## recoverBinIssuedDocument
+
+> recoverBinIssuedDocument(companyId, documentId)
+
+
+
+Recover Issued Document From The Bin
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.IssuedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    IssuedDocumentsApi apiInstance = new IssuedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer documentId = 56; // Integer | The ID of the document.
+    try {
+      apiInstance.recoverBinIssuedDocument(companyId, documentId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IssuedDocumentsApi#recoverBinIssuedDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **documentId** | **Integer**| The ID of the document. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 
 ## scheduleEmail

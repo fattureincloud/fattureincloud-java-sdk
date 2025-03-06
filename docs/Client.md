@@ -37,12 +37,13 @@
 |**bankSwiftCode** | **String** | Client bank swift code |  [optional] |
 |**shippingAddress** | **String** | Client shipping address |  [optional] |
 |**eInvoice** | **Boolean** | Use e-invoices for this entity |  [optional] |
-|**eiCode** | **String** | Client e-invoice code  |  [optional] |
 |**discountHighlight** | **Boolean** | Highlight Discount |  [optional] |
+|**eiCode** | **String** | Client e-invoice code  |  [optional] |
 |**defaultDiscount** | **BigDecimal** | Client default discount |  [optional] |
 |**hasIntentDeclaration** | **Boolean** | Client has intent declaration |  [optional] |
 |**intentDeclarationProtocolNumber** | **String** | Client intent declaration protocol number |  [optional] |
 |**intentDeclarationProtocolDate** | **LocalDate** | Client intent declaration protocol date |  [optional] |
+|**priceListId** | **String** | Price list id |  [optional] |
 |**createdAt** | **String** | Client creation date |  [optional] |
 |**updatedAt** | **String** | Client last update date |  [optional] |
 
