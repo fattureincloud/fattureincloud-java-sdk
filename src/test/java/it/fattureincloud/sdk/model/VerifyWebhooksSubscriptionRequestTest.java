@@ -13,14 +13,23 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.VerifyWebhooksSubscription;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.util.Arrays;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +37,36 @@ import org.junit.jupiter.api.Test;
  * Model tests for VerifyWebhooksSubscriptionRequest
  */
 public class VerifyWebhooksSubscriptionRequestTest {
-    private final VerifyWebhooksSubscriptionRequest model = new VerifyWebhooksSubscriptionRequest();
+    private VerifyWebhooksSubscriptionRequest model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new VerifyWebhooksSubscriptionRequest()
+                .data(new VerifyWebhooksSubscription()
+                    .id("12345")
+                    .verificationMethod(WebhooksSubscriptionVerificationMethod.HEADER));
+    }
+
 
     /**
      * Model tests for VerifyWebhooksSubscriptionRequest
      */
     @Test
     public void testVerifyWebhooksSubscriptionRequest() {
-        // TODO: test VerifyWebhooksSubscriptionRequest
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str = "{\"data\":{\"id\":\"12345\",\"verification_method\":\"header\"}}";
+        assertEquals(str, json);
+        VerifyWebhooksSubscriptionRequest generated =
+            gson.fromJson(str, VerifyWebhooksSubscriptionRequest.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +74,14 @@ public class VerifyWebhooksSubscriptionRequestTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("12345", model.getData().getId());
+        model.setData(new VerifyWebhooksSubscription().id("123456"));
+        assertEquals("123456", model.getData().getId());
+
+        model.data(new VerifyWebhooksSubscription().id("12345"));
+        VerifyWebhooksSubscriptionRequest actual = new VerifyWebhooksSubscriptionRequest();
+        actual.setData(new VerifyWebhooksSubscription().id("12345"));
+        assertEquals(model, actual);
     }
 
 }

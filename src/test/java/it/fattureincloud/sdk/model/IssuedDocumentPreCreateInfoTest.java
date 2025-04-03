@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import com.google.gson.Gson;
 import it.fattureincloud.sdk.JSON;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,7 +91,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));
   }
 
   /** Model tests for IssuedDocumentPreCreateInfo */
@@ -100,7 +102,7 @@ public class IssuedDocumentPreCreateInfoTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
     String str =
-        "{\"numerations\":{\"2022\":{\"cloud\":1988,\"in\":2,\"fatture\":22},\"2021\":{\"a\":1,\"b\":2,\"c\":3}},\"dn_numerations\":{\"2022\":{\"a\":0,\"b\":11,\"c\":222},\"2021\":{\"d\":3333,\"e\":44444,\"f\":555555}},\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}]}";
+        "{\"numerations\":{\"2022\":{\"cloud\":1988,\"in\":2,\"fatture\":22},\"2021\":{\"a\":1,\"b\":2,\"c\":3}},\"dn_numerations\":{\"2022\":{\"a\":0,\"b\":11,\"c\":222},\"2021\":{\"d\":3333,\"e\":44444,\"f\":555555}},\"default_values\":{\"default_template\":{\"id\":1},\"dn_template\":{\"id\":1},\"ai_template\":{\"id\":1},\"notes\":\"notes\",\"rivalsa\":1,\"cassa\":1,\"withholding_tax\":1,\"withholding_tax_taxable\":1,\"other_withholding_tax\":1,\"use_gross_prices\":true,\"payment_method\":{\"id\":1,\"type\":\"standard\"}},\"extra_data_default_values\":{\"ts_communication\":true,\"ts_tipo_spesa\":\"ts\",\"ts_flag_tipo_spesa\":1,\"ts_pagamento_tracciato\":true},\"items_default_values\":{\"vat\":{\"id\":1}},\"countries_list\":[\"Italia\",\"Marocco\"],\"currencies_list\":[{\"id\":\"EUR\"},{\"id\":\"DNR\"}],\"templates_list\":[{\"id\":1},{\"id\":2}],\"dn_templates_list\":[{\"id\":1},{\"id\":2}],\"ai_templates_list\":[{\"id\":1},{\"id\":2}],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}],\"price_lists\":[{\"id\":\"12345\"}]}";
     assertEquals(str, json);
     IssuedDocumentPreCreateInfo generated = gson.fromJson(str, IssuedDocumentPreCreateInfo.class);
     assertEquals(model, generated);
@@ -189,7 +191,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -271,7 +274,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -394,7 +398,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -489,7 +494,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -568,7 +574,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -640,7 +647,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -717,7 +725,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -796,7 +805,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -875,7 +885,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -954,7 +965,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -1033,7 +1045,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -1112,7 +1125,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));;
     assertEquals(expected, i);
   }
 
@@ -1185,7 +1199,8 @@ public class IssuedDocumentPreCreateInfoTest {
             .paymentMethodsList(Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
             .paymentAccountsList(
                 Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
-            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)));
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));
     assertEquals(expected, i);
   }
 }

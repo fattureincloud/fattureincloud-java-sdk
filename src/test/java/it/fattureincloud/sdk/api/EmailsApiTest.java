@@ -77,6 +77,12 @@ public class EmailsApiTest {
     EmailsApi api = mockApi(result, mockCall);
 
     Integer companyId = 11111;
+    String fields = null;
+    String fieldset = null;
+    String sort = null;
+    Integer page = 1;
+    Integer perPage = 5;
+    String q = null;
 
     ListEmailsResponse expected =
         new ListEmailsResponse()
@@ -132,7 +138,7 @@ public class EmailsApiTest {
             .to(10)
             .total(10);
 
-    ListEmailsResponse response = api.listEmails(companyId);
+    ListEmailsResponse response = api.listEmails(companyId, fields, fieldset, sort, page, perPage, q);
     assertEquals(expected.getData(), response.getData());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }
