@@ -13,8 +13,12 @@
 
 package it.fattureincloud.sdk.model;
 
-import com.google.gson.annotations.SerializedName;
-import org.junit.jupiter.api.Disabled;
+import com.google.gson.Gson;
+
+import it.fattureincloud.sdk.JSON;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -26,7 +30,23 @@ public class PriceListTypeTest {
      */
     @Test
     public void testPriceListType() {
-        // TODO: test PriceListType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"sell\"", gson.toJson(PriceListType.SELL));
+        assertEquals("\"purchase\"", gson.toJson(PriceListType.PURCHASE));
+
+        assertEquals(PriceListType.SELL, gson.fromJson("\"sell\"", PriceListType.class));
+        assertEquals(PriceListType.PURCHASE, gson.fromJson("\"purchase\"", PriceListType.class));
+
+        assertEquals("sell", PriceListType.SELL.getValue());
+        assertEquals("purchase", PriceListType.PURCHASE.getValue());
+
+        assertEquals("sell", PriceListType.SELL.toString());
+        assertEquals("purchase", PriceListType.PURCHASE.toString());
+
+        assertEquals(PriceListType.SELL, PriceListType.fromValue("sell"));
+        assertEquals(PriceListType.PURCHASE, PriceListType.fromValue("purchase"));
     }
 
 }

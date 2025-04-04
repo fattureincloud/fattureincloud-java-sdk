@@ -13,16 +13,25 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.PriceListPricesType;
 import it.fattureincloud.sdk.model.PriceListType;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -30,14 +39,39 @@ import org.junit.jupiter.api.Test;
  * Model tests for PriceList
  */
 public class PriceListTest {
-    private final PriceList model = new PriceList();
+    private PriceList model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+    }
 
     /**
      * Model tests for PriceList
      */
     @Test
-    public void testPriceList() {
-        // TODO: test PriceList
+    public void testPriceListItem() {
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"id\":\"10\",\"name\":\"Listino 1\",\"prices_type\":\"net\",\"is_default\":true,\"valid_from\":\"2023-01-01\",\"valid_to\":\"2023-12-31\",\"type\":\"sell\"}";
+        assertEquals(str, json);
+        PriceList generated = gson.fromJson(str, PriceList.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +79,20 @@ public class PriceListTest {
      */
     @Test
     public void idTest() {
-        // TODO: test id
+        assertEquals(model.getId(), "10");
+        model.setId("11");
+        assertEquals(model.getId(), "11");
+        PriceList a = model.id("10");
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -53,7 +100,20 @@ public class PriceListTest {
      */
     @Test
     public void nameTest() {
-        // TODO: test name
+        assertEquals(model.getName(), "Listino 1");
+        model.setName("Listino 2");
+        assertEquals(model.getName(), "Listino 2");
+        PriceList a = model.name("Listino 1");
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -61,7 +121,20 @@ public class PriceListTest {
      */
     @Test
     public void pricesTypeTest() {
-        // TODO: test pricesType
+        assertEquals(model.getPricesType(), PriceListPricesType.NET);
+        model.setPricesType(PriceListPricesType.GROSS);
+        assertEquals(model.getPricesType(), PriceListPricesType.GROSS);
+        PriceList a = model.pricesType(PriceListPricesType.NET);
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -69,7 +142,20 @@ public class PriceListTest {
      */
     @Test
     public void isDefaultTest() {
-        // TODO: test isDefault
+        assertEquals(model.getIsDefault(), true);
+        model.setIsDefault(false);
+        assertEquals(model.getIsDefault(), false);
+        PriceList a = model.isDefault(true);
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -77,7 +163,20 @@ public class PriceListTest {
      */
     @Test
     public void validFromTest() {
-        // TODO: test validFrom
+        assertEquals(model.getValidFrom(), "2023-01-01");
+        model.setValidFrom("2023-02-01");
+        assertEquals(model.getValidFrom(), "2023-02-01");
+        PriceList a = model.validFrom("2023-01-01");
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -85,7 +184,20 @@ public class PriceListTest {
      */
     @Test
     public void validToTest() {
-        // TODO: test validTo
+        assertEquals(model.getValidTo(), "2023-12-31");
+        model.setValidTo("2024-01-01");
+        assertEquals(model.getValidTo(), "2024-01-01");
+        PriceList a = model.validTo("2023-12-31");
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
     /**
@@ -93,7 +205,20 @@ public class PriceListTest {
      */
     @Test
     public void typeTest() {
-        // TODO: test type
+        assertEquals(model.getType(), PriceListType.SELL);
+        model.setType(PriceListType.PURCHASE);
+        assertEquals(model.getType(), PriceListType.PURCHASE);
+        PriceList a = model.type(PriceListType.SELL);
+        PriceList expected =
+            new PriceList()
+                .id("10")
+                .name("Listino 1")
+                .pricesType(PriceListPricesType.NET)
+                .isDefault(true)
+                .validFrom("2023-01-01")
+                .validTo("2023-12-31")
+                .type(PriceListType.SELL);
+        assertEquals(expected, a);
     }
 
 }
