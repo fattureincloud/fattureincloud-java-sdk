@@ -81,7 +81,7 @@ public class GetPriceListItemsResponseTest {
         assertEquals(BigDecimal.valueOf(5), model.getData().get("2").getPrice());
         model.setData(null);
         assertEquals(null, model.getData());
-        model.setData(new HashMap<>() {{
+        model.setData(new HashMap<String, PriceListItem>() {{
             put("3", new PriceListItem().price(BigDecimal.valueOf(10)));
         }});
         assertEquals(BigDecimal.valueOf(10), model.getData().get("3").getPrice());
