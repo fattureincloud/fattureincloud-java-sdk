@@ -13,14 +13,23 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.IssuedDocument;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.util.Arrays;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +37,35 @@ import org.junit.jupiter.api.Test;
  * Model tests for GetBinIssuedDocumentResponse
  */
 public class GetBinIssuedDocumentResponseTest {
-    private final GetBinIssuedDocumentResponse model = new GetBinIssuedDocumentResponse();
+    private GetBinIssuedDocumentResponse model;
+    
+    @BeforeEach
+    public void init() {
+        model =
+            new GetBinIssuedDocumentResponse()
+                .data(new IssuedDocument()
+                    .id(12345)
+                    .type(IssuedDocumentType.INVOICE));
+    }
 
     /**
      * Model tests for GetBinIssuedDocumentResponse
      */
     @Test
     public void testGetBinIssuedDocumentResponse() {
-        // TODO: test GetBinIssuedDocumentResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"data\":{\"id\":12345,\"type\":\"invoice\",\"show_totals\":\"all\"}}";
+        assertEquals(str, json);
+        GetBinIssuedDocumentResponse generated = gson.fromJson(str, GetBinIssuedDocumentResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +73,14 @@ public class GetBinIssuedDocumentResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(12345, model.getData().getId());
+        model.setData(new IssuedDocument().id(1));
+        assertEquals(1, model.getData().getId());
+
+        model.data(new IssuedDocument().id(2));
+        GetBinIssuedDocumentResponse actual = new GetBinIssuedDocumentResponse();
+        actual.setData(new IssuedDocument().id(2));
+        assertEquals(model, actual);
     }
 
 }

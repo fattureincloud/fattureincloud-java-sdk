@@ -13,16 +13,25 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.PriceList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -30,14 +39,43 @@ import org.junit.jupiter.api.Test;
  * Model tests for ListPriceListsResponse
  */
 public class ListPriceListsResponseTest {
-    private final ListPriceListsResponse model = new ListPriceListsResponse();
+    private ListPriceListsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new ListPriceListsResponse()
+                .addDataItem(
+                new PriceList()
+                    .id("10")
+                    .name("Listino 1")
+                    .pricesType(PriceListPricesType.NET)
+                    .isDefault(true)
+                    .validFrom("2023-01-01")
+                    .validTo("2023-12-31")
+                    .type(PriceListType.SELL)
+                );
+    }
+
 
     /**
      * Model tests for ListPriceListsResponse
      */
     @Test
     public void testListPriceListsResponse() {
-        // TODO: test ListPriceListsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"data\":[{\"id\":\"10\",\"name\":\"Listino 1\",\"prices_type\":\"net\",\"is_default\":true,\"valid_from\":\"2023-01-01\",\"valid_to\":\"2023-12-31\",\"type\":\"sell\"}]}";
+        assertEquals(str, json);
+        ListPriceListsResponse generated = gson.fromJson(str, ListPriceListsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +83,14 @@ public class ListPriceListsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals("10", model.getData().get(0).getId());
+        model.setData(Arrays.asList(new PriceList().id("11")));
+        assertEquals("11", model.getData().get(0).getId());
+
+        model.data(Arrays.asList(new PriceList().id("12")));
+        ListPriceListsResponse actual = new ListPriceListsResponse();
+        actual.setData(Arrays.asList(new PriceList().id("12")));
+        assertEquals(model, actual);
     }
 
 }

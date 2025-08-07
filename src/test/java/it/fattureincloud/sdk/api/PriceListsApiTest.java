@@ -13,12 +13,30 @@
 
 package it.fattureincloud.sdk.api;
 
+import it.fattureincloud.sdk.ApiClient;
 import it.fattureincloud.sdk.ApiException;
 import it.fattureincloud.sdk.model.GetPriceListItemsResponse;
+import it.fattureincloud.sdk.model.GetReceiptResponse;
 import it.fattureincloud.sdk.model.ListPriceListsResponse;
+import it.fattureincloud.sdk.model.PaymentAccount;
+import it.fattureincloud.sdk.model.PriceList;
+import it.fattureincloud.sdk.model.PriceListItem;
+import it.fattureincloud.sdk.model.PriceListPricesType;
+import it.fattureincloud.sdk.model.PriceListType;
+import it.fattureincloud.sdk.model.Receipt;
+import it.fattureincloud.sdk.model.ReceiptItemsListItem;
+import it.fattureincloud.sdk.model.ReceiptType;
+import okhttp3.*;
+import org.mockito.Mockito;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +48,30 @@ import java.util.Map;
 @Disabled
 public class PriceListsApiTest {
 
-    private final PriceListsApi api = new PriceListsApi();
+    private static PriceListsApi mockApi(final String serializedBody, final Call remoteCall)
+      throws IOException {
+        final OkHttpClient okHttpClient = Mockito.mock(OkHttpClient.class);
+
+        Response.Builder builder =
+            new Response.Builder()
+                .request(new Request.Builder().url("https://api-v2.fattureincloud.it").build())
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("");
+        if (serializedBody != null) {
+        builder =
+            builder.body(ResponseBody.create(serializedBody, MediaType.parse("application/json")));
+        }
+
+        final Response response = builder.build();
+
+        Mockito.when(remoteCall.execute()).thenReturn(response);
+        Mockito.when(okHttpClient.newCall(Mockito.any())).thenReturn(remoteCall);
+
+        ApiClient client = new ApiClient(okHttpClient);
+
+        return new PriceListsApi(client);
+    }
 
     /**
      * Get PriceList Items List
@@ -40,11 +81,26 @@ public class PriceListsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPriceListItemsTest() throws ApiException {
-        Integer companyId = null;
-        String priceListId = null;
+    public void getPriceListItemsTest() throws ApiException, IOException  {
+        String result =
+        "{\"data\":{1:{\"price\":3.5}}}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        PriceListsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+        String priceListId = "1";
+
+        GetPriceListItemsResponse expected =
+            new GetPriceListItemsResponse()
+                .data(new HashMap<String, PriceListItem>() {{
+                    put("1", new PriceListItem().price(BigDecimal.valueOf(3.5)));
+                }});
+
         GetPriceListItemsResponse response = api.getPriceListItems(companyId, priceListId);
-        // TODO: test validations
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+
     }
 
     /**
@@ -55,10 +111,31 @@ public class PriceListsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getPriceListsTest() throws ApiException {
-        Integer companyId = null;
+    public void getPriceListsTest() throws ApiException, IOException  {
+        String result =
+            "{\"data\":[{\"id\":\"10\",\"name\":\"Listino 1\",\"prices_type\":\"net\",\"is_default\":true,\"valid_from\":\"2023-01-01\",\"valid_to\":\"2023-12-31\",\"type\":\"sell\"}]}";
+
+        Call mockCall = Mockito.mock(Call.class);
+        PriceListsApi api = mockApi(result, mockCall);
+
+        Integer companyId = 2;
+
+        ListPriceListsResponse expected =
+            new ListPriceListsResponse()
+                .addDataItem(
+                    new PriceList()
+                        .id("10")
+                        .name("Listino 1")
+                        .pricesType(PriceListPricesType.NET)
+                        .isDefault(true)
+                        .validFrom("2023-01-01")
+                        .validTo("2023-12-31")
+                        .type(PriceListType.SELL));
+
         ListPriceListsResponse response = api.getPriceLists(companyId);
-        // TODO: test validations
+        assertEquals(expected, response.getData());
+        Mockito.verify(mockCall, Mockito.only()).execute();
+
     }
 
 }

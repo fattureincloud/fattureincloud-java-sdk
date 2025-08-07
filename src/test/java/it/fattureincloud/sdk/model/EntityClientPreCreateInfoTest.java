@@ -13,21 +13,29 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.PaymentAccount;
 import it.fattureincloud.sdk.model.PaymentMethod;
 import it.fattureincloud.sdk.model.PriceList;
 import it.fattureincloud.sdk.model.VatType;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -35,14 +43,39 @@ import org.junit.jupiter.api.Test;
  * Model tests for EntityClientPreCreateInfo
  */
 public class EntityClientPreCreateInfoTest {
-    private final EntityClientPreCreateInfo model = new EntityClientPreCreateInfo();
+    private EntityClientPreCreateInfo model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new EntityClientPreCreateInfo()
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .paymentMethodsList(
+                    Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(
+                    Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                .priceLists(Arrays.asList(new PriceList().id("12345")));
+    }
 
     /**
      * Model tests for EntityClientPreCreateInfo
      */
     @Test
     public void testEntityClientPreCreateInfo() {
-        // TODO: test EntityClientPreCreateInfo
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"countries_list\":[\"Italia\",\"Marocco\"],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}],\"price_lists\":[{\"id\":\"12345\"}]}";
+        assertEquals(str, json);
+        EntityClientPreCreateInfo generated = gson.fromJson(str, EntityClientPreCreateInfo.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -50,7 +83,20 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void countriesListTest() {
-        // TODO: test countriesList
+        assertEquals(model.getCountriesList(), Arrays.asList("Italia", "Marocco"));
+        model.setCountriesList(Arrays.asList("Italia", "Marocco", "Francia"));
+        assertEquals(model.getCountriesList(), Arrays.asList("Italia", "Marocco", "Francia"));
+        EntityClientPreCreateInfo a = model.countriesList(Arrays.asList("Italia", "Marocco"));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .paymentMethodsList(
+                    Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(
+                    Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                .priceLists(Arrays.asList(new PriceList().id("12345")));
+        assertEquals(expected, a);
     }
 
     /**
@@ -58,7 +104,24 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void paymentMethodsListTest() {
-        // TODO: test paymentMethodsList
+        assertEquals(1, model.getPaymentMethodsList().get(0).getId());
+        assertEquals(2, model.getPaymentMethodsList().get(1).getId());
+        model.setPaymentMethodsList(
+            Arrays.asList(new PaymentMethod().id(3), new PaymentMethod().id(4)));
+        assertEquals(3, model.getPaymentMethodsList().get(0).getId());
+        assertEquals(4, model.getPaymentMethodsList().get(1).getId());
+        EntityClientPreCreateInfo a = model.paymentMethodsList(
+            Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .paymentMethodsList(
+                Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));
+        assertEquals(expected, a);
     }
 
     /**
@@ -66,7 +129,24 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void paymentAccountsListTest() {
-        // TODO: test paymentAccountsList
+        assertEquals(1, model.getPaymentAccountsList().get(0).getId());
+        assertEquals(2, model.getPaymentAccountsList().get(1).getId());
+        model.setPaymentAccountsList(
+            Arrays.asList(new PaymentAccount().id(3), new PaymentAccount().id(4)));
+        assertEquals(3, model.getPaymentAccountsList().get(0).getId());
+        assertEquals(4, model.getPaymentAccountsList().get(1).getId());
+        EntityClientPreCreateInfo a = model.paymentAccountsList(
+            Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .paymentMethodsList(
+                Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));
+        assertEquals(expected, a);
     }
 
     /**
@@ -74,7 +154,23 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void vatTypesListTest() {
-        // TODO: test vatTypesList
+        assertEquals(1, model.getVatTypesList().get(0).getId());
+        assertEquals(2, model.getVatTypesList().get(1).getId());
+        model.setVatTypesList(Arrays.asList(new VatType().id(3), new VatType().id(4)));
+        assertEquals(3, model.getVatTypesList().get(0).getId());
+        assertEquals(4, model.getVatTypesList().get(1).getId());
+        EntityClientPreCreateInfo a = model.vatTypesList(
+            Arrays.asList(new VatType().id(1), new VatType().id(2)));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+            .paymentMethodsList(
+                Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+            .paymentAccountsList(
+                Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+            .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+            .priceLists(Arrays.asList(new PriceList().id("12345")));
+        assertEquals(expected, a);
     }
 
     /**
@@ -82,7 +178,21 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void priceListsTest() {
-        // TODO: test priceLists
+        assertEquals("12345", model.getPriceLists().get(0).getId());
+        model.setPriceLists(Arrays.asList(new PriceList().id("54321")));
+        assertEquals("54321", model.getPriceLists().get(0).getId());
+        EntityClientPreCreateInfo a = model.priceLists(
+            Arrays.asList(new PriceList().id("12345")));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+            .countriesList(Arrays.asList("Italia", "Marocco"))
+                .paymentMethodsList(
+                    Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(
+                    Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                .priceLists(Arrays.asList(new PriceList().id("12345")));
+        assertEquals(expected, a);
     }
 
     /**
@@ -90,7 +200,21 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void limitTest() {
-        // TODO: test limit
+        assertEquals(null, model.getLimit());
+        model.setLimit(new BigDecimal("1000.50"));
+        assertEquals(new BigDecimal("1000.50"), model.getLimit());
+        EntityClientPreCreateInfo a = model.limit(new BigDecimal("500.25"));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .paymentMethodsList(
+                    Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(
+                    Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                .priceLists(Arrays.asList(new PriceList().id("12345")))
+                .limit(new BigDecimal("500.25"));
+        assertEquals(expected, a);
     }
 
     /**
@@ -98,7 +222,22 @@ public class EntityClientPreCreateInfoTest {
      */
     @Test
     public void usageTest() {
-        // TODO: test usage
+        assertEquals(null, model.getUsage());
+        model.setUsage(new BigDecimal("200.75"));
+        assertEquals(new BigDecimal("200.75"), model.getUsage());
+        EntityClientPreCreateInfo a = model.usage(new BigDecimal("150.50"));
+        EntityClientPreCreateInfo expected =
+            new EntityClientPreCreateInfo()
+                .countriesList(Arrays.asList("Italia", "Marocco"))
+                .paymentMethodsList(
+                    Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                .paymentAccountsList(
+                    Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                .priceLists(Arrays.asList(new PriceList().id("12345")))
+                .usage(new BigDecimal("150.50"));
+        assertEquals(expected, a);
     }
+    
 
 }

@@ -13,7 +13,13 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+
+import it.fattureincloud.sdk.JSON;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +32,23 @@ public class PriceListPricesTypeTest {
      */
     @Test
     public void testPriceListPricesType() {
-        // TODO: test PriceListPricesType
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"net\"", gson.toJson(PriceListPricesType.NET));
+        assertEquals("\"gross\"", gson.toJson(PriceListPricesType.GROSS));
+
+        assertEquals(PriceListPricesType.NET, gson.fromJson("\"net\"", PriceListPricesType.class));
+        assertEquals(PriceListPricesType.GROSS, gson.fromJson("\"gross\"", PriceListPricesType.class));
+
+        assertEquals("net", PriceListPricesType.NET.getValue());
+        assertEquals("gross", PriceListPricesType.GROSS.getValue());
+
+        assertEquals("net", PriceListPricesType.NET.toString());
+        assertEquals("gross", PriceListPricesType.GROSS.toString());
+
+        assertEquals(PriceListPricesType.NET, PriceListPricesType.fromValue("net"));
+        assertEquals(PriceListPricesType.GROSS, PriceListPricesType.fromValue("gross"));
     }
 
 }

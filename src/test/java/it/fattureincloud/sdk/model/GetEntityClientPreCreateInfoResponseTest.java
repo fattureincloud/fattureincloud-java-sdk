@@ -13,14 +13,23 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.EntityClientPreCreateInfo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
 import java.util.Arrays;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +37,40 @@ import org.junit.jupiter.api.Test;
  * Model tests for GetEntityClientPreCreateInfoResponse
  */
 public class GetEntityClientPreCreateInfoResponseTest {
-    private final GetEntityClientPreCreateInfoResponse model = new GetEntityClientPreCreateInfoResponse();
+    private GetEntityClientPreCreateInfoResponse model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new GetEntityClientPreCreateInfoResponse()
+                .data(new EntityClientPreCreateInfo()
+                    .countriesList(Arrays.asList("Italia", "Marocco"))
+                    .paymentMethodsList(
+                        Arrays.asList(new PaymentMethod().id(1), new PaymentMethod().id(2)))
+                    .paymentAccountsList(
+                        Arrays.asList(new PaymentAccount().id(1), new PaymentAccount().id(2)))
+                    .vatTypesList(Arrays.asList(new VatType().id(1), new VatType().id(2)))
+                    .priceLists(Arrays.asList(new PriceList().id("12345"))));
+    }
 
     /**
      * Model tests for GetEntityClientPreCreateInfoResponse
      */
     @Test
     public void testGetEntityClientPreCreateInfoResponse() {
-        // TODO: test GetEntityClientPreCreateInfoResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"data\":{\"countries_list\":[\"Italia\",\"Marocco\"],\"payment_methods_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"payment_accounts_list\":[{\"id\":1,\"type\":\"standard\"},{\"id\":2,\"type\":\"standard\"}],\"vat_types_list\":[{\"id\":1},{\"id\":2}],\"price_lists\":[{\"id\":\"12345\"}]}}";
+        assertEquals(str, json);
+        GetEntityClientPreCreateInfoResponse generated = gson.fromJson(str, GetEntityClientPreCreateInfoResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -43,7 +78,15 @@ public class GetEntityClientPreCreateInfoResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        EntityClientPreCreateInfo data = model.getData();
+        assertEquals(Arrays.asList("Italia", "Marocco"), data.getCountriesList());
+        assertEquals(1, data.getPaymentMethodsList().get(0).getId());
+        assertEquals(2, data.getPaymentMethodsList().get(1).getId());
+        assertEquals(1, data.getPaymentAccountsList().get(0).getId());
+        assertEquals(2, data.getPaymentAccountsList().get(1).getId());
+        assertEquals(1, data.getVatTypesList().get(0).getId());
+        assertEquals(2, data.getVatTypesList().get(1).getId());
+        assertEquals("12345", data.getPriceLists().get(0).getId());
     }
 
 }

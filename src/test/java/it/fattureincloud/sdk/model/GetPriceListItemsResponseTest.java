@@ -13,16 +13,26 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import it.fattureincloud.sdk.JSON;
 import it.fattureincloud.sdk.model.PriceListItem;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -30,14 +40,35 @@ import org.junit.jupiter.api.Test;
  * Model tests for GetPriceListItemsResponse
  */
 public class GetPriceListItemsResponseTest {
-    private final GetPriceListItemsResponse model = new GetPriceListItemsResponse();
+    private GetPriceListItemsResponse model;
+
+    @BeforeEach
+    public void init() {
+        model =
+            new GetPriceListItemsResponse()
+                .data(new HashMap<String, PriceListItem>() {{
+                    put("1", new PriceListItem().price(BigDecimal.valueOf(3)));
+                }});
+    }
 
     /**
      * Model tests for GetPriceListItemsResponse
      */
     @Test
     public void testGetPriceListItemsResponse() {
-        // TODO: test GetPriceListItemsResponse
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+        String json = gson.toJson(model);
+        String str =
+            "{\"data\":{\"1\":{\"price\":3}}}";
+        assertEquals(str, json);
+        GetPriceListItemsResponse generated = gson.fromJson(str, GetPriceListItemsResponse.class);
+        assertEquals(model, generated);
+
+        Object o = model;
+        assertEquals(model, o);
+        assertFalse(model.equals(null));
+        assertFalse(model.equals(Integer.getInteger("5")));
     }
 
     /**
@@ -45,7 +76,15 @@ public class GetPriceListItemsResponseTest {
      */
     @Test
     public void dataTest() {
-        // TODO: test data
+        assertEquals(BigDecimal.valueOf(3), model.getData().get("1").getPrice());
+        model.putDataItem("2", new PriceListItem().price(BigDecimal.valueOf(5)));
+        assertEquals(BigDecimal.valueOf(5), model.getData().get("2").getPrice());
+        model.setData(null);
+        assertEquals(null, model.getData());
+        model.setData(new HashMap<>() {{
+            put("3", new PriceListItem().price(BigDecimal.valueOf(10)));
+        }});
+        assertEquals(BigDecimal.valueOf(10), model.getData().get("3").getPrice());
     }
 
 }

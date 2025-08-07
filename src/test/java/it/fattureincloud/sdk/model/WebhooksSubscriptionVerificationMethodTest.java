@@ -13,7 +13,14 @@
 
 package it.fattureincloud.sdk.model;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+
+import it.fattureincloud.sdk.JSON;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +33,24 @@ public class WebhooksSubscriptionVerificationMethodTest {
      */
     @Test
     public void testWebhooksSubscriptionVerificationMethod() {
-        // TODO: test WebhooksSubscriptionVerificationMethod
+        JSON jsonManager = new JSON();
+        Gson gson = jsonManager.getGson();
+
+        assertEquals("\"header\"", gson.toJson(WebhooksSubscriptionVerificationMethod.HEADER));
+        assertEquals("\"query\"", gson.toJson(WebhooksSubscriptionVerificationMethod.QUERY));
+
+        assertEquals(
+            WebhooksSubscriptionVerificationMethod.HEADER, gson.fromJson("\"header\"", WebhooksSubscriptionVerificationMethod.class));
+        assertEquals(WebhooksSubscriptionVerificationMethod.QUERY, gson.fromJson("\"query\"", WebhooksSubscriptionVerificationMethod.class));
+
+        assertEquals("header", WebhooksSubscriptionVerificationMethod.HEADER.getValue());
+        assertEquals("query", WebhooksSubscriptionVerificationMethod.QUERY.getValue());
+
+        assertEquals("header", WebhooksSubscriptionVerificationMethod.HEADER.toString());
+        assertEquals("query", WebhooksSubscriptionVerificationMethod.QUERY.toString());
+
+        assertEquals(WebhooksSubscriptionVerificationMethod.HEADER, WebhooksSubscriptionVerificationMethod.fromValue("header"));
+        assertEquals(WebhooksSubscriptionVerificationMethod.QUERY, WebhooksSubscriptionVerificationMethod.fromValue("query"));
     }
 
 }
