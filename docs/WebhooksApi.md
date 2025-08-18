@@ -9,6 +9,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**getWebhooksSubscription**](WebhooksApi.md#getWebhooksSubscription) | **GET** /c/{company_id}/subscriptions/{subscription_id} | Get Webhooks Subscription |
 | [**listWebhooksSubscriptions**](WebhooksApi.md#listWebhooksSubscriptions) | **GET** /c/{company_id}/subscriptions | List Webhooks Subscriptions |
 | [**modifyWebhooksSubscription**](WebhooksApi.md#modifyWebhooksSubscription) | **PUT** /c/{company_id}/subscriptions/{subscription_id} | Modify Webhooks Subscription |
+| [**verifyWebhooksSubscription**](WebhooksApi.md#verifyWebhooksSubscription) | **POST** /c/{company_id}/subscriptions/{subscription_id}/verify | Verify Webhooks Subscription |
 
 
 
@@ -359,4 +360,75 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Example response |  -  |
+
+
+## verifyWebhooksSubscription
+
+> verifyWebhooksSubscription(companyId, subscriptionId, verifyWebhooksSubscriptionRequest)
+
+Verify Webhooks Subscription
+
+Verify a webhook subscription.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.WebhooksApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    WebhooksApi apiInstance = new WebhooksApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    String subscriptionId = "SUB123"; // String | The ID of the subscription.
+    VerifyWebhooksSubscriptionRequest verifyWebhooksSubscriptionRequest = new VerifyWebhooksSubscriptionRequest(); // VerifyWebhooksSubscriptionRequest | 
+    try {
+      apiInstance.verifyWebhooksSubscription(companyId, subscriptionId, verifyWebhooksSubscriptionRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebhooksApi#verifyWebhooksSubscription");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **subscriptionId** | **String**| The ID of the subscription. | |
+| **verifyWebhooksSubscriptionRequest** | [**VerifyWebhooksSubscriptionRequest**](VerifyWebhooksSubscriptionRequest.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 

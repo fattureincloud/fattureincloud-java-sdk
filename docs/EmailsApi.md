@@ -10,7 +10,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 
 ## listEmails
 
-> ListEmailsResponse listEmails(companyId)
+> ListEmailsResponse listEmails(companyId, fields, fieldset, sort, page, perPage, q)
 
 List Emails
 
@@ -37,8 +37,14 @@ public class Example {
 
     EmailsApi apiInstance = new EmailsApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
+    String fields = "fields_example"; // String | List of comma-separated fields.
+    String fieldset = "basic"; // String | Name of the fieldset.
+    String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
+    Integer page = 1; // Integer | The page to retrieve.
+    Integer perPage = 5; // Integer | The size of the page.
+    String q = "q_example"; // String | Query for filtering the results.
     try {
-      ListEmailsResponse result = apiInstance.listEmails(companyId);
+      ListEmailsResponse result = apiInstance.listEmails(companyId, fields, fieldset, sort, page, perPage, q);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailsApi#listEmails");
@@ -56,6 +62,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
+| **fields** | **String**| List of comma-separated fields. | [optional] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
+| **page** | **Integer**| The page to retrieve. | [optional] [default to 1] |
+| **perPage** | **Integer**| The size of the page. | [optional] [default to 5] |
+| **q** | **String**| Query for filtering the results. | [optional] |
 
 ### Return type
 

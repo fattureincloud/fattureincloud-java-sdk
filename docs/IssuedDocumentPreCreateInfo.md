@@ -21,6 +21,7 @@
 |**paymentAccountsList** | [**List&lt;PaymentAccount&gt;**](PaymentAccount.md) | Payment accounts list |  [optional] |
 |**vatTypesList** | [**List&lt;VatType&gt;**](VatType.md) | Vat types list |  [optional] |
 |**languagesList** | [**List&lt;Language&gt;**](Language.md) | Languages list |  [optional] |
+|**priceLists** | [**List&lt;PriceList&gt;**](PriceList.md) | Price lists |  [optional] |
 
 
 ## Implemented Interfaces
