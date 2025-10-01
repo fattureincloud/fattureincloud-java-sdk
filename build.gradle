@@ -103,11 +103,12 @@ jreleaser {
 }
 
 signing {
-    def signingKeyId = System.getenv("GPG_KEY_ID")
-    def signingKey = System.getenv("GPG_KEY")
-    def signingPassword = System.getenv("GPG_PASSPHRASE")
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign publishing.publications.mavenJava
+    def signingKey = System.getenv("JRELEASER_GPG_SECRET_KEY")
+    def signingPassword = System.getenv("JRELEASER_GPG_PASSPHRASE")
+    if (signingKey && signingPassword) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+        sign publishing.publications.mavenJava
+    }
 }
 
 
