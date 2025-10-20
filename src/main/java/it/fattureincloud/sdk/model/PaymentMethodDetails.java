@@ -21,8 +21,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** PaymentMethodDetails */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2025-03-06T15:40:46.627547Z[Etc/UTC]",
-    comments = "Generator version: 7.12.0")
+    date = "2025-10-20T11:09:23.223120Z[Etc/UTC]",
+    comments = "Generator version: 7.16.0")
 public class PaymentMethodDetails implements Serializable {
   private static final long serialVersionUID = 1L;
 

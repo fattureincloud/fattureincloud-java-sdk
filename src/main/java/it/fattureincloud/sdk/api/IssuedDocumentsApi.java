@@ -341,7 +341,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * Delete Bin Issued Document
+   * Delete Bin Issued Document Delete Bin Issued Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -359,7 +359,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * Delete Bin Issued Document
+   * Delete Bin Issued Document Delete Bin Issued Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -381,7 +381,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * (asynchronously) Delete Bin Issued Document
+   * Delete Bin Issued Document (asynchronously) Delete Bin Issued Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2690,7 +2690,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * Recover Issued Document From The Bin
+   * Recover Issued Document From The Bin Recover Issued Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2708,7 +2708,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * Recover Issued Document From The Bin
+   * Recover Issued Document From The Bin Recover Issued Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2730,7 +2730,7 @@ public class IssuedDocumentsApi {
   }
 
   /**
-   * (asynchronously) Recover Issued Document From The Bin
+   * Recover Issued Document From The Bin (asynchronously) Recover Issued Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
