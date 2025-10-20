@@ -14,31 +14,15 @@ package it.fattureincloud.sdk;
 
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2025-03-06T15:40:46.627547Z[Etc/UTC]",
-    comments = "Generator version: 7.12.0")
+    date = "2025-10-20T10:11:01.141526Z[Etc/UTC]",
+    comments = "Generator version: 7.16.0")
 public class Pair {
-  private String name = "";
-  private String value = "";
+  private final String name;
+  private final String value;
 
   public Pair(String name, String value) {
-    setName(name);
-    setValue(value);
-  }
-
-  private void setName(String name) {
-    if (!isValidString(name)) {
-      return;
-    }
-
-    this.name = name;
-  }
-
-  private void setValue(String value) {
-    if (!isValidString(value)) {
-      return;
-    }
-
-    this.value = value;
+    this.name = isValidString(name) ? name : "";
+    this.value = isValidString(value) ? value : "";
   }
 
   public String getName() {
@@ -49,11 +33,7 @@ public class Pair {
     return this.value;
   }
 
-  private boolean isValidString(String arg) {
-    if (arg == null) {
-      return false;
-    }
-
-    return true;
+  private static boolean isValidString(String arg) {
+    return arg != null;
   }
 }

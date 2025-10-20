@@ -38,7 +38,7 @@ public class Example {
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     Integer companyId = 12345; // Integer | The ID of the company.
-    String priceListId = "priceListId_example"; // String | 
+    String priceListId = "priceListId_example"; // String | The ID of the price
     try {
       GetPriceListItemsResponse result = apiInstance.getPriceListItems(companyId, priceListId);
       System.out.println(result);
@@ -58,7 +58,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **priceListId** | **String**|  | |
+| **priceListId** | **String**| The ID of the price | |
 
 ### Return type
 

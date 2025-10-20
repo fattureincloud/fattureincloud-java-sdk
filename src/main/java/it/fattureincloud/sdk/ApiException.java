@@ -13,14 +13,15 @@
 package it.fattureincloud.sdk;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /** ApiException class. */
 @SuppressWarnings("serial")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2025-03-06T15:40:46.627547Z[Etc/UTC]",
-    comments = "Generator version: 7.12.0")
+    date = "2025-10-20T10:11:01.141526Z[Etc/UTC]",
+    comments = "Generator version: 7.16.0")
 public class ApiException extends Exception {
   private static final long serialVersionUID = 1L;
 
@@ -172,7 +173,11 @@ public class ApiException extends Exception {
    */
   public String getMessage() {
     return String.format(
+        Locale.ROOT,
         "Message: %s%nHTTP response code: %s%nHTTP response body: %s%nHTTP response headers: %s",
-        super.getMessage(), this.getCode(), this.getResponseBody(), this.getResponseHeaders());
+        super.getMessage(),
+        this.getCode(),
+        this.getResponseBody(),
+        this.getResponseHeaders());
   }
 }
