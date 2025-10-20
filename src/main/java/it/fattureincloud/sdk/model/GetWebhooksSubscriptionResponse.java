@@ -19,8 +19,8 @@ import java.util.Objects;
 /** GetWebhooksSubscriptionResponse */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2025-03-06T15:40:46.627547Z[Etc/UTC]",
-    comments = "Generator version: 7.12.0")
+    date = "2025-10-20T12:06:10.351765Z[Etc/UTC]",
+    comments = "Generator version: 7.16.0")
 public class GetWebhooksSubscriptionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 

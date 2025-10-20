@@ -334,7 +334,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * Delete Bin Received Document
+   * Delete Bin Received Document Delete Bin Received Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -352,7 +352,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * Delete Bin Received Document
+   * Delete Bin Received Document Delete Bin Received Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -374,7 +374,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * (asynchronously) Delete Bin Received Document
+   * Delete Bin Received Document (asynchronously) Delete Bin Received Document
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2322,7 +2322,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * Recover Received Document From The Bin
+   * Recover Received Document From The Bin Recover Received Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2341,7 +2341,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * Recover Received Document From The Bin
+   * Recover Received Document From The Bin Recover Received Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
@@ -2363,7 +2363,7 @@ public class ReceivedDocumentsApi {
   }
 
   /**
-   * (asynchronously) Recover Received Document From The Bin
+   * Recover Received Document From The Bin (asynchronously) Recover Received Document From The Bin
    *
    * @param companyId The ID of the company. (required)
    * @param documentId The ID of the document. (required)
