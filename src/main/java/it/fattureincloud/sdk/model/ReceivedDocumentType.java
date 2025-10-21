@@ -12,17 +12,17 @@
 
 package it.fattureincloud.sdk.model;
 
-
 import com.google.gson.JsonElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.io.Serializable;
 
 /** Received document type */
 @JsonAdapter(ReceivedDocumentType.Adapter.class)
-public enum ReceivedDocumentType {
+public enum ReceivedDocumentType implements Serializable {
   EXPENSE("expense"),
 
   PASSIVE_CREDIT_NOTE("passive_credit_note"),
