@@ -12,17 +12,17 @@
 
 package it.fattureincloud.sdk.model;
 
-
 import com.google.gson.JsonElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.io.Serializable;
 
 /** Company type */
 @JsonAdapter(CompanyType.Adapter.class)
-public enum CompanyType {
+public enum CompanyType implements Serializable {
   COMPANY("company"),
 
   ACCOUNTANT("accountant");
