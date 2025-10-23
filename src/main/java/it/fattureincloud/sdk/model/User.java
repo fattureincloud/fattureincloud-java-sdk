@@ -21,8 +21,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** User */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2025-03-06T15:40:46.627547Z[Etc/UTC]",
-    comments = "Generator version: 7.12.0")
+    date = "2025-10-23T09:54:59.486203Z[Etc/UTC]",
+    comments = "Generator version: 7.16.0")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 

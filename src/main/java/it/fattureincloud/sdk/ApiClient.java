@@ -130,7 +130,7 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("FattureInCloud/2.1.2/Java-SDK");
+    setUserAgent("FattureInCloud/2.1.3/Java-SDK");
 
     authentications = new HashMap<String, Authentication>();
   }
