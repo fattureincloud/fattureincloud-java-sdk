@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'it.fattureincloud'
-version = '2.1.2'
+version = '2.1.3'
 
 java {
     withJavadocJar()
@@ -76,7 +76,6 @@ publishing {
             }
         }
     }
-
     repositories {
         maven {
             url = layout.buildDirectory.dir('staging-deploy')

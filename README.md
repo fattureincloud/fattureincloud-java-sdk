@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.1.5
+- API version: 2.1.7
 
-- Build date: 2025-03-06T15:40:46.627547Z[Etc/UTC]
+- Build date: 2025-10-23T12:48:03.144893Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.1.2</version>
+  <version>2.1.3</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.2"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.3"
   }
 ```
 
@@ -133,7 +133,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**listUnitsOfMeasure**](docs/InfoApi.md#listUnitsOfMeasure) | **GET** /info/measures | List Units of Measure
 *InfoApi* | [**listVatTypes**](docs/InfoApi.md#listVatTypes) | **GET** /c/{company_id}/info/vat_types | List Vat Types
 *IssuedDocumentsApi* | [**createIssuedDocument**](docs/IssuedDocumentsApi.md#createIssuedDocument) | **POST** /c/{company_id}/issued_documents | Create Issued Document
-*IssuedDocumentsApi* | [**deleteBinIssuedDocument**](docs/IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | 
+*IssuedDocumentsApi* | [**deleteBinIssuedDocument**](docs/IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | Delete Bin Issued Document
 *IssuedDocumentsApi* | [**deleteIssuedDocument**](docs/IssuedDocumentsApi.md#deleteIssuedDocument) | **DELETE** /c/{company_id}/issued_documents/{document_id} | Delete Issued Document
 *IssuedDocumentsApi* | [**deleteIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#deleteIssuedDocumentAttachment) | **DELETE** /c/{company_id}/issued_documents/{document_id}/attachment | Delete Issued Document Attachment
 *IssuedDocumentsApi* | [**getBinIssuedDocument**](docs/IssuedDocumentsApi.md#getBinIssuedDocument) | **GET** /c/{company_id}/bin/issued_documents/{document_id} | Get Bin Issued Documents List
@@ -146,7 +146,7 @@ Class | Method | HTTP request | Description
 *IssuedDocumentsApi* | [**listBinIssuedDocuments**](docs/IssuedDocumentsApi.md#listBinIssuedDocuments) | **GET** /c/{company_id}/bin/issued_documents | Get Bin Issued Documents List
 *IssuedDocumentsApi* | [**listIssuedDocuments**](docs/IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
-*IssuedDocumentsApi* | [**recoverBinIssuedDocument**](docs/IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | 
+*IssuedDocumentsApi* | [**recoverBinIssuedDocument**](docs/IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | Recover Issued Document From The Bin
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
 *IssuedDocumentsApi* | [**transformIssuedDocument**](docs/IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform Issued Document
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
@@ -169,7 +169,7 @@ Class | Method | HTTP request | Description
 *ReceiptsApi* | [**listReceipts**](docs/ReceiptsApi.md#listReceipts) | **GET** /c/{company_id}/receipts | List Receipts
 *ReceiptsApi* | [**modifyReceipt**](docs/ReceiptsApi.md#modifyReceipt) | **PUT** /c/{company_id}/receipts/{document_id} | Modify Receipt
 *ReceivedDocumentsApi* | [**createReceivedDocument**](docs/ReceivedDocumentsApi.md#createReceivedDocument) | **POST** /c/{company_id}/received_documents | Create Received Document
-*ReceivedDocumentsApi* | [**deleteBinReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | 
+*ReceivedDocumentsApi* | [**deleteBinReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | Delete Bin Received Document
 *ReceivedDocumentsApi* | [**deleteReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteReceivedDocument) | **DELETE** /c/{company_id}/received_documents/{document_id} | Delete Received Document
 *ReceivedDocumentsApi* | [**deleteReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#deleteReceivedDocumentAttachment) | **DELETE** /c/{company_id}/received_documents/{document_id}/attachment | Delete Received Document Attachment
 *ReceivedDocumentsApi* | [**getBinReceivedDocument**](docs/ReceivedDocumentsApi.md#getBinReceivedDocument) | **GET** /c/{company_id}/bin/received_documents/{document_id} | Get Bin Received Documents List
@@ -180,7 +180,7 @@ Class | Method | HTTP request | Description
 *ReceivedDocumentsApi* | [**listBinReceivedDocuments**](docs/ReceivedDocumentsApi.md#listBinReceivedDocuments) | **GET** /c/{company_id}/bin/received_documents | Get Bin Received Documents List
 *ReceivedDocumentsApi* | [**listReceivedDocuments**](docs/ReceivedDocumentsApi.md#listReceivedDocuments) | **GET** /c/{company_id}/received_documents | List Received Documents
 *ReceivedDocumentsApi* | [**modifyReceivedDocument**](docs/ReceivedDocumentsApi.md#modifyReceivedDocument) | **PUT** /c/{company_id}/received_documents/{document_id} | Modify Received Document
-*ReceivedDocumentsApi* | [**recoverBinReceivedDocument**](docs/ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | 
+*ReceivedDocumentsApi* | [**recoverBinReceivedDocument**](docs/ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | Recover Received Document From The Bin
 *ReceivedDocumentsApi* | [**uploadReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#uploadReceivedDocumentAttachment) | **POST** /c/{company_id}/received_documents/attachment | Upload Received Document Attachment
 *SettingsApi* | [**createPaymentAccount**](docs/SettingsApi.md#createPaymentAccount) | **POST** /c/{company_id}/settings/payment_accounts | Create Payment Account
 *SettingsApi* | [**createPaymentMethod**](docs/SettingsApi.md#createPaymentMethod) | **POST** /c/{company_id}/settings/payment_methods | Create Payment Method
