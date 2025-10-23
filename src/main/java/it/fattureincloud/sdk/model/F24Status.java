@@ -12,17 +12,17 @@
 
 package it.fattureincloud.sdk.model;
 
-
 import com.google.gson.JsonElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.io.Serializable;
 
 /** F24 status */
 @JsonAdapter(F24Status.Adapter.class)
-public enum F24Status {
+public enum F24Status implements Serializable {
   PAID("paid"),
 
   NOT_PAID("not_paid"),
