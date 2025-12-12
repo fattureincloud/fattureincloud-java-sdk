@@ -5,7 +5,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createIssuedDocument**](IssuedDocumentsApi.md#createIssuedDocument) | **POST** /c/{company_id}/issued_documents | Create Issued Document |
-| [**deleteBinIssuedDocument**](IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} |  |
+| [**deleteBinIssuedDocument**](IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | Delete Bin Issued Document |
 | [**deleteIssuedDocument**](IssuedDocumentsApi.md#deleteIssuedDocument) | **DELETE** /c/{company_id}/issued_documents/{document_id} | Delete Issued Document |
 | [**deleteIssuedDocumentAttachment**](IssuedDocumentsApi.md#deleteIssuedDocumentAttachment) | **DELETE** /c/{company_id}/issued_documents/{document_id}/attachment | Delete Issued Document Attachment |
 | [**getBinIssuedDocument**](IssuedDocumentsApi.md#getBinIssuedDocument) | **GET** /c/{company_id}/bin/issued_documents/{document_id} | Get Bin Issued Documents List |
@@ -18,7 +18,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**listBinIssuedDocuments**](IssuedDocumentsApi.md#listBinIssuedDocuments) | **GET** /c/{company_id}/bin/issued_documents | Get Bin Issued Documents List |
 | [**listIssuedDocuments**](IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents |
 | [**modifyIssuedDocument**](IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document |
-| [**recoverBinIssuedDocument**](IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover |  |
+| [**recoverBinIssuedDocument**](IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | Recover Issued Document From The Bin |
 | [**scheduleEmail**](IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email |
 | [**transformIssuedDocument**](IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform Issued Document |
 | [**uploadIssuedDocumentAttachment**](IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment |
@@ -92,15 +92,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document created. |  -  |
+| **200** | Document created. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## deleteBinIssuedDocument
 
 > deleteBinIssuedDocument(companyId, documentId)
 
-
+Delete Bin Issued Document
 
 Delete Bin Issued Document
 
@@ -162,7 +164,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## deleteIssuedDocument
@@ -231,9 +235,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document removed |  -  |
+| **200** | Document removed |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## deleteIssuedDocumentAttachment
@@ -302,9 +308,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | File removed. |  -  |
+| **200** | File removed. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getBinIssuedDocument
@@ -374,7 +382,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Bin issued document details |  -  |
+| **200** | Bin issued document details |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getEmailData
@@ -444,7 +454,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | EmailData |  -  |
+| **200** | EmailData |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getExistingIssuedDocumentTotals
@@ -516,9 +528,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Totals. |  -  |
+| **200** | Totals. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getIssuedDocument
@@ -592,9 +606,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document Details. |  -  |
+| **200** | Document Details. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getIssuedDocumentPreCreateInfo
@@ -664,7 +680,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Pre-create info. |  -  |
+| **200** | Pre-create info. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getNewIssuedDocumentTotals
@@ -734,8 +752,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Totals. |  -  |
+| **200** | Totals. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## joinIssuedDocuments
@@ -809,7 +829,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## listBinIssuedDocuments
@@ -877,7 +899,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Bin Issued Documents List |  -  |
+| **200** | Bin Issued Documents List |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## listIssuedDocuments
@@ -961,9 +985,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Results list. |  -  |
+| **200** | Results list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## modifyIssuedDocument
@@ -1035,16 +1061,18 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document edited |  -  |
+| **200** | Document edited |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## recoverBinIssuedDocument
 
 > recoverBinIssuedDocument(companyId, documentId)
 
-
+Recover Issued Document From The Bin
 
 Recover Issued Document From The Bin
 
@@ -1106,7 +1134,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## scheduleEmail
@@ -1177,9 +1207,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## transformIssuedDocument
@@ -1257,7 +1289,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## uploadIssuedDocumentAttachment
@@ -1329,6 +1363,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment Token. |  -  |
+| **200** | Attachment Token. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 

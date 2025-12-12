@@ -79,9 +79,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The created Cashbook Entry. |  -  |
+| **200** | The created Cashbook Entry. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## deleteCashbookEntry
@@ -150,9 +152,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document removed. |  -  |
+| **200** | Document removed. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## getCashbookEntry
@@ -226,9 +230,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Cashbook Entry. |  -  |
+| **200** | Cashbook Entry. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## listCashbookEntries
@@ -306,9 +312,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Results list. |  -  |
+| **200** | Results list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 
 
 ## modifyCashbookEntry
@@ -380,7 +388,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The modified Cashbook Entry |  -  |
+| **200** | The modified Cashbook Entry |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden - Rate limit exceeded |  * Retry-After -  <br>  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  * Retry-After -  <br>  |
 

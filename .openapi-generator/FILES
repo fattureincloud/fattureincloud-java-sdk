@@ -104,6 +104,7 @@ docs/GetReceivedDocumentPreCreateInfoResponse.md
 docs/GetReceivedDocumentResponse.md
 docs/GetSupplierResponse.md
 docs/GetTaxProfileResponse.md
+docs/GetTemplatesResponse.md
 docs/GetUserInfoResponse.md
 docs/GetUserInfoResponseEmailConfirmationState.md
 docs/GetUserInfoResponseInfo.md
@@ -245,6 +246,7 @@ docs/SupplierType.md
 docs/SuppliersApi.md
 docs/TaxProfile.md
 docs/TaxesApi.md
+docs/TemplateType.md
 docs/TransformIssuedDocumentResponse.md
 docs/UploadArchiveAttachmentResponse.md
 docs/UploadF24AttachmentResponse.md
@@ -406,6 +408,7 @@ src/main/java/it/fattureincloud/sdk/model/GetReceivedDocumentPreCreateInfoRespon
 src/main/java/it/fattureincloud/sdk/model/GetReceivedDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetSupplierResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetTaxProfileResponse.java
+src/main/java/it/fattureincloud/sdk/model/GetTemplatesResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponse.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseEmailConfirmationState.java
 src/main/java/it/fattureincloud/sdk/model/GetUserInfoResponseInfo.java
@@ -537,6 +540,7 @@ src/main/java/it/fattureincloud/sdk/model/ShowTotalsMode.java
 src/main/java/it/fattureincloud/sdk/model/Supplier.java
 src/main/java/it/fattureincloud/sdk/model/SupplierType.java
 src/main/java/it/fattureincloud/sdk/model/TaxProfile.java
+src/main/java/it/fattureincloud/sdk/model/TemplateType.java
 src/main/java/it/fattureincloud/sdk/model/TransformIssuedDocumentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadArchiveAttachmentResponse.java
 src/main/java/it/fattureincloud/sdk/model/UploadF24AttachmentResponse.java
@@ -559,19 +563,5 @@ src/main/java/it/fattureincloud/sdk/model/WebhooksSubscription.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionConfig.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionMapping.java
 src/main/java/it/fattureincloud/sdk/model/WebhooksSubscriptionVerificationMethod.java
-src/test/java/it/fattureincloud/sdk/api/PriceListsApiTest.java
-src/test/java/it/fattureincloud/sdk/model/EntityClientPreCreateInfoTest.java
-src/test/java/it/fattureincloud/sdk/model/GetBinIssuedDocumentResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/GetBinReceivedDocumentResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/GetEntityClientPreCreateInfoResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/GetPriceListItemsResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/ListBinIssuedDocumentsTest.java
-src/test/java/it/fattureincloud/sdk/model/ListBinReceivedDocumentsTest.java
-src/test/java/it/fattureincloud/sdk/model/ListPriceListsResponseTest.java
-src/test/java/it/fattureincloud/sdk/model/PriceListItemTest.java
-src/test/java/it/fattureincloud/sdk/model/PriceListPricesTypeTest.java
-src/test/java/it/fattureincloud/sdk/model/PriceListTest.java
-src/test/java/it/fattureincloud/sdk/model/PriceListTypeTest.java
-src/test/java/it/fattureincloud/sdk/model/VerifyWebhooksSubscriptionRequestTest.java
-src/test/java/it/fattureincloud/sdk/model/VerifyWebhooksSubscriptionTest.java
-src/test/java/it/fattureincloud/sdk/model/WebhooksSubscriptionVerificationMethodTest.java
+src/test/java/it/fattureincloud/sdk/model/GetTemplatesResponseTest.java
+src/test/java/it/fattureincloud/sdk/model/TemplateTypeTest.java
