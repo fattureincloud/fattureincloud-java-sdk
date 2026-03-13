@@ -5,18 +5,20 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createReceivedDocument**](ReceivedDocumentsApi.md#createReceivedDocument) | **POST** /c/{company_id}/received_documents | Create Received Document |
-| [**deleteBinReceivedDocument**](ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} |  |
+| [**deleteBinReceivedDocument**](ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | Delete Bin Received Document |
 | [**deleteReceivedDocument**](ReceivedDocumentsApi.md#deleteReceivedDocument) | **DELETE** /c/{company_id}/received_documents/{document_id} | Delete Received Document |
 | [**deleteReceivedDocumentAttachment**](ReceivedDocumentsApi.md#deleteReceivedDocumentAttachment) | **DELETE** /c/{company_id}/received_documents/{document_id}/attachment | Delete Received Document Attachment |
 | [**getBinReceivedDocument**](ReceivedDocumentsApi.md#getBinReceivedDocument) | **GET** /c/{company_id}/bin/received_documents/{document_id} | Get Bin Received Documents List |
 | [**getExistingReceivedDocumentTotals**](ReceivedDocumentsApi.md#getExistingReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/{document_id}/totals | Get Existing Received Document Totals |
 | [**getNewReceivedDocumentTotals**](ReceivedDocumentsApi.md#getNewReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/totals | Get New Received Document Totals |
+| [**getPendingReceivedDocument**](ReceivedDocumentsApi.md#getPendingReceivedDocument) | **GET** /c/{company_id}/received_documents/pending/{document_id} | Get Pending Received Document |
 | [**getReceivedDocument**](ReceivedDocumentsApi.md#getReceivedDocument) | **GET** /c/{company_id}/received_documents/{document_id} | Get Received Document |
 | [**getReceivedDocumentPreCreateInfo**](ReceivedDocumentsApi.md#getReceivedDocumentPreCreateInfo) | **GET** /c/{company_id}/received_documents/info | Get Received Document Pre-Create Info |
 | [**listBinReceivedDocuments**](ReceivedDocumentsApi.md#listBinReceivedDocuments) | **GET** /c/{company_id}/bin/received_documents | Get Bin Received Documents List |
+| [**listPendingReceivedDocuments**](ReceivedDocumentsApi.md#listPendingReceivedDocuments) | **GET** /c/{company_id}/received_documents/pending | List Pending Received Documents |
 | [**listReceivedDocuments**](ReceivedDocumentsApi.md#listReceivedDocuments) | **GET** /c/{company_id}/received_documents | List Received Documents |
 | [**modifyReceivedDocument**](ReceivedDocumentsApi.md#modifyReceivedDocument) | **PUT** /c/{company_id}/received_documents/{document_id} | Modify Received Document |
-| [**recoverBinReceivedDocument**](ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover |  |
+| [**recoverBinReceivedDocument**](ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | Recover Received Document From The Bin |
 | [**uploadReceivedDocumentAttachment**](ReceivedDocumentsApi.md#uploadReceivedDocumentAttachment) | **POST** /c/{company_id}/received_documents/attachment | Upload Received Document Attachment |
 
 
@@ -88,14 +90,23 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document created. |  -  |
+| **200** | Document created. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## deleteBinReceivedDocument
 
 > deleteBinReceivedDocument(companyId, documentId)
 
-
+Delete Bin Received Document
 
 Delete Bin Received Document
 
@@ -152,12 +163,21 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## deleteReceivedDocument
@@ -221,14 +241,21 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document removed. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Document removed. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## deleteReceivedDocumentAttachment
@@ -292,19 +319,26 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | File removed |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | File removed |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getBinReceivedDocument
 
-> GetBinIssuedDocumentResponse getBinReceivedDocument(companyId, documentId)
+> GetBinReceivedDocumentResponse getBinReceivedDocument(companyId, documentId)
 
 Get Bin Received Documents List
 
@@ -333,7 +367,7 @@ public class Example {
     Integer companyId = 12345; // Integer | The ID of the company.
     Integer documentId = 56; // Integer | The ID of the document.
     try {
-      GetBinIssuedDocumentResponse result = apiInstance.getBinReceivedDocument(companyId, documentId);
+      GetBinReceivedDocumentResponse result = apiInstance.getBinReceivedDocument(companyId, documentId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReceivedDocumentsApi#getBinReceivedDocument");
@@ -355,7 +389,7 @@ public class Example {
 
 ### Return type
 
-[**GetBinIssuedDocumentResponse**](GetBinIssuedDocumentResponse.md)
+[**GetBinReceivedDocumentResponse**](GetBinReceivedDocumentResponse.md)
 
 ### Authorization
 
@@ -369,7 +403,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Bin issued document details |  -  |
+| **200** | Bin received document details |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getExistingReceivedDocumentTotals
@@ -441,7 +484,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document Totals. |  -  |
+| **200** | Document Totals. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getNewReceivedDocumentTotals
@@ -511,9 +563,99 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document Totals. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Document Totals. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
+
+
+## getPendingReceivedDocument
+
+> GetPendingReceivedDocumentResponse getPendingReceivedDocument(companyId, documentId, fields, fieldset)
+
+Get Pending Received Document
+
+Gets the specified pending received document.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.ReceivedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    ReceivedDocumentsApi apiInstance = new ReceivedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    Integer documentId = 56; // Integer | The ID of the document.
+    String fields = "fields_example"; // String | List of comma-separated fields.
+    String fieldset = "basic"; // String | Name of the fieldset.
+    try {
+      GetPendingReceivedDocumentResponse result = apiInstance.getPendingReceivedDocument(companyId, documentId, fields, fieldset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ReceivedDocumentsApi#getPendingReceivedDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **documentId** | **Integer**| The ID of the document. | |
+| **fields** | **String**| List of comma-separated fields. | [optional] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
+
+### Return type
+
+[**GetPendingReceivedDocumentResponse**](GetPendingReceivedDocumentResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Document details. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getReceivedDocument
@@ -569,7 +711,7 @@ public class Example {
 | **companyId** | **Integer**| The ID of the company. | |
 | **documentId** | **Integer**| The ID of the document. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 
 ### Return type
 
@@ -587,9 +729,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Document details. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Document details. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getReceivedDocumentPreCreateInfo
@@ -659,7 +808,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Pre-create info |  -  |
+| **200** | Pre-create info |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listBinReceivedDocuments
@@ -727,7 +885,107 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
+
+
+## listPendingReceivedDocuments
+
+> ListPendingReceivedDocumentsResponse listPendingReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q)
+
+List Pending Received Documents
+
+Lists the pending received documents.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.ReceivedDocumentsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    ReceivedDocumentsApi apiInstance = new ReceivedDocumentsApi(defaultClient);
+    Integer companyId = 12345; // Integer | The ID of the company.
+    String type = "agyo"; // String | The type of the pending received document.
+    String fields = "fields_example"; // String | List of comma-separated fields.
+    String fieldset = "basic"; // String | Name of the fieldset.
+    String sort = "sort_example"; // String | List of comma-separated fields for result sorting (minus for desc sorting).
+    Integer page = 1; // Integer | The page to retrieve.
+    Integer perPage = 5; // Integer | The size of the page.
+    String q = "q_example"; // String | Query for filtering the results.
+    try {
+      ListPendingReceivedDocumentsResponse result = apiInstance.listPendingReceivedDocuments(companyId, type, fields, fieldset, sort, page, perPage, q);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ReceivedDocumentsApi#listPendingReceivedDocuments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **companyId** | **Integer**| The ID of the company. | |
+| **type** | **String**| The type of the pending received document. | [enum: agyo, mail, browser] |
+| **fields** | **String**| List of comma-separated fields. | [optional] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
+| **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
+| **page** | **Integer**| The page to retrieve. | [optional] [default to 1] |
+| **perPage** | **Integer**| The size of the page. | [optional] [default to 5] |
+| **q** | **String**| Query for filtering the results. | [optional] |
+
+### Return type
+
+[**ListPendingReceivedDocumentsResponse**](ListPendingReceivedDocumentsResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Results list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listReceivedDocuments
@@ -787,7 +1045,7 @@ public class Example {
 | **companyId** | **Integer**| The ID of the company. | |
 | **type** | **String**| The type of the received document. | [enum: expense, passive_credit_note, passive_delivery_note, self_invoice] |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 | **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
 | **page** | **Integer**| The page to retrieve. | [optional] [default to 1] |
 | **perPage** | **Integer**| The size of the page. | [optional] [default to 5] |
@@ -809,8 +1067,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Results list. |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Results list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## modifyReceivedDocument
@@ -882,16 +1148,23 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Modified document. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Modified document. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## recoverBinReceivedDocument
 
 > recoverBinReceivedDocument(companyId, documentId)
 
-
+Recover Received Document From The Bin
 
 Recover Received Document From The Bin
 
@@ -948,12 +1221,21 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | OK |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## uploadReceivedDocumentAttachment
@@ -1025,6 +1307,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment Token. |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Attachment Token. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 

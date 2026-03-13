@@ -23,7 +23,7 @@
 |**amountDue** | **BigDecimal** | Issued document total amount due |  [optional] |
 |**isEnasarcoMaximalExceeded** | **Boolean** | Is enasarco maximal excedeed |  [optional] |
 |**paymentsSum** | **BigDecimal** | Issued document payments sum |  [optional] |
-|**vatList** | **Map&lt;String, VatItem&gt;** |  |  [optional] |
+|**vatList** | [**Map&lt;String, VatItem&gt;**](VatItem.md) |  |  [optional] |
 
 
 ## Implemented Interfaces

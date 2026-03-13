@@ -9,6 +9,7 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**listCostCenters**](InfoApi.md#listCostCenters) | **GET** /c/{company_id}/info/cost_centers | List Cost Centers |
 | [**listCountries**](InfoApi.md#listCountries) | **GET** /info/countries | List Countries |
 | [**listCurrencies**](InfoApi.md#listCurrencies) | **GET** /info/currencies | List Currencies |
+| [**listDefaultTemplates**](InfoApi.md#listDefaultTemplates) | **GET** /info/templates | List Default Templates |
 | [**listDeliveryNotesDefaultCausals**](InfoApi.md#listDeliveryNotesDefaultCausals) | **GET** /info/dn_causals | List Delivery Notes Default Causals |
 | [**listDetailedCountries**](InfoApi.md#listDetailedCountries) | **GET** /info/detailed_countries | List Detailed Countries |
 | [**listLanguages**](InfoApi.md#listLanguages) | **GET** /info/languages | List Languages |
@@ -17,7 +18,6 @@ All URIs are relative to *https://api-v2.fattureincloud.it*
 | [**listProductCategories**](InfoApi.md#listProductCategories) | **GET** /c/{company_id}/info/product_categories | List Product Categories |
 | [**listReceivedDocumentCategories**](InfoApi.md#listReceivedDocumentCategories) | **GET** /c/{company_id}/info/received_document_categories | List Received Document Categories |
 | [**listRevenueCenters**](InfoApi.md#listRevenueCenters) | **GET** /c/{company_id}/info/revenue_centers | List Revenue Centers |
-| [**listTemplates**](InfoApi.md#listTemplates) | **GET** /info/templates | List Templates |
 | [**listUnitsOfMeasure**](InfoApi.md#listUnitsOfMeasure) | **GET** /info/measures | List Units of Measure |
 | [**listVatTypes**](InfoApi.md#listVatTypes) | **GET** /c/{company_id}/info/vat_types | List Vat Types |
 
@@ -88,9 +88,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Archive Categories list. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Archive Categories list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listCities
@@ -160,7 +167,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Cities List. |  -  |
+| **200** | Cities List. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listCostCenters
@@ -228,9 +244,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Cost Centers |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | List of Cost Centers |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listCountries
@@ -294,8 +317,16 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of countries |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of countries |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listCurrencies
@@ -359,8 +390,95 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Currencies List. |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Currencies List. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
+
+
+## listDefaultTemplates
+
+> ListTemplatesResponse listDefaultTemplates(type, byType)
+
+List Default Templates
+
+Lists the default available templates.
+
+### Example
+```java
+// Import classes:
+import it.fattureincloud.sdk.ApiClient;
+import it.fattureincloud.sdk.ApiException;
+import it.fattureincloud.sdk.Configuration;
+import it.fattureincloud.sdk.auth.*;
+import it.fattureincloud.sdk.models.*;
+import it.fattureincloud.sdk.api.InfoApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
+    
+    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
+    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
+    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+    InfoApi apiInstance = new InfoApi(defaultClient);
+    String type = "all"; // String | Type of the templates.
+    Boolean byType = false; // Boolean | [Only if type=all] If true, splits the list in objects, grouping templates by type.
+    try {
+      ListTemplatesResponse result = apiInstance.listDefaultTemplates(type, byType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InfoApi#listDefaultTemplates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **type** | **String**| Type of the templates. | [optional] [default to all] [enum: all, standard, delivery_note, accompanying_invoice] |
+| **byType** | **Boolean**| [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. | [optional] [default to false] |
+
+### Return type
+
+[**ListTemplatesResponse**](ListTemplatesResponse.md)
+
+### Authorization
+
+[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Templates list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listDeliveryNotesDefaultCausals
@@ -424,8 +542,16 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Delivery Notes Default Causals |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of Delivery Notes Default Causals |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listDetailedCountries
@@ -489,8 +615,16 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of detailed countries |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of detailed countries |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listLanguages
@@ -554,8 +688,16 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | LanguagesList |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | LanguagesList |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listPaymentAccounts
@@ -610,7 +752,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 | **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
 
 ### Return type
@@ -629,9 +771,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Payment accounts list. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Payment accounts list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listPaymentMethods
@@ -686,7 +835,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 | **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
 
 ### Return type
@@ -705,9 +854,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Payment methods list. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Payment methods list. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listProductCategories
@@ -777,9 +933,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Product Categories List |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Product Categories List |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listReceivedDocumentCategories
@@ -847,7 +1010,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Received Document Categories List |  -  |
+| **200** | Received Document Categories List |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listRevenueCenters
@@ -915,80 +1087,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Revenue Centers |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-
-
-## listTemplates
-
-> ListTemplatesResponse listTemplates(type, byType)
-
-List Templates
-
-Lists the available templates.
-
-### Example
-```java
-// Import classes:
-import it.fattureincloud.sdk.ApiClient;
-import it.fattureincloud.sdk.ApiException;
-import it.fattureincloud.sdk.Configuration;
-import it.fattureincloud.sdk.auth.*;
-import it.fattureincloud.sdk.models.*;
-import it.fattureincloud.sdk.api.InfoApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api-v2.fattureincloud.it");
-    
-    // Configure OAuth2 access token for authorization: OAuth2AuthenticationCodeFlow
-    OAuth OAuth2AuthenticationCodeFlow = (OAuth) defaultClient.getAuthentication("OAuth2AuthenticationCodeFlow");
-    OAuth2AuthenticationCodeFlow.setAccessToken("YOUR ACCESS TOKEN");
-
-    InfoApi apiInstance = new InfoApi(defaultClient);
-    String type = "all"; // String | Type of the templates.
-    Boolean byType = false; // Boolean | [Only if type=all] If true, splits the list in objects, grouping templates by type.
-    try {
-      ListTemplatesResponse result = apiInstance.listTemplates(type, byType);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InfoApi#listTemplates");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **type** | **String**| Type of the templates. | [optional] [default to all] [enum: all, standard, delivery_note, accompanying_invoice] |
-| **byType** | **Boolean**| [Only if type&#x3D;all] If true, splits the list in objects, grouping templates by type. | [optional] [default to false] |
-
-### Return type
-
-[**ListTemplatesResponse**](ListTemplatesResponse.md)
-
-### Authorization
-
-[OAuth2AuthenticationCodeFlow](../README.md#OAuth2AuthenticationCodeFlow)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Templates list. |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of Revenue Centers |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listUnitsOfMeasure
@@ -1052,8 +1160,16 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Units of measure. |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Units of measure. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listVatTypes
@@ -1105,7 +1221,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 
 ### Return type
 
@@ -1123,7 +1239,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Vat Types. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | List of Vat Types. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 

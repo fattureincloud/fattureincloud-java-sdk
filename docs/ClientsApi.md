@@ -80,7 +80,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## deleteClient
@@ -144,14 +153,21 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Entity Removed |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Entity Removed |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getClient
@@ -207,7 +223,7 @@ public class Example {
 | **companyId** | **Integer**| The ID of the company. | |
 | **clientId** | **Integer**| The ID of the client. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 
 ### Return type
 
@@ -225,9 +241,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Client Details. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Client Details. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## getClientInfo
@@ -295,9 +318,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## listClients
@@ -355,7 +385,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **companyId** | **Integer**| The ID of the company. | |
 | **fields** | **String**| List of comma-separated fields. | [optional] |
-| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed] |
+| **fieldset** | **String**| Name of the fieldset. | [optional] [enum: basic, detailed, fic_view] |
 | **sort** | **String**| List of comma-separated fields for result sorting (minus for desc sorting). | [optional] |
 | **page** | **Integer**| The page to retrieve. | [optional] [default to 1] |
 | **perPage** | **Integer**| The size of the page. | [optional] [default to 5] |
@@ -377,8 +407,16 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Example response |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Example response |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 
 
 ## modifyClient
@@ -450,7 +488,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Client modified. |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
+| **200** | Client modified. |  * RateLimit-HourlyRemaining -  <br>  * RateLimit-HourlyLimit -  <br>  * RateLimit-MonthlyRemaining -  <br>  * RateLimit-MonthlyLimit -  <br>  |
+| **400** | ErrorResponse |  * Retry-After -  <br>  |
+| **401** | ErrorResponse |  * Retry-After -  <br>  |
+| **403** | ErrorResponse |  * Retry-After -  <br>  |
+| **404** | ErrorResponse |  * Retry-After -  <br>  |
+| **405** | ErrorResponse |  * Retry-After -  <br>  |
+| **409** | ErrorResponse |  * Retry-After -  <br>  |
+| **422** | ErrorResponse |  * Retry-After -  <br>  |
+| **429** | ErrorResponse |  * Retry-After -  <br>  |
+| **500** | ErrorResponse |  * Retry-After -  <br>  |
 

@@ -19,6 +19,8 @@ Issued document extra data [TS fields follow the technical specifications provid
 |**tsSentDate** | **LocalDate** | Issued document ts sent date |  [optional] |
 |**tsFullAmount** | **Boolean** | Issued document ts total amount |  [optional] |
 |**importedBy** | **String** | Issued document imported by software |  [optional] |
+|**debtVatDetect** | **Boolean** | Issued document debt VAT detect |  [optional] |
+|**revenueDetect** | **Boolean** | Issued document revenue detect |  [optional] |
 
 
 ## Implemented Interfaces

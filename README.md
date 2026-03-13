@@ -4,9 +4,9 @@
 
 Fatture in Cloud API v2 - API Reference
 
-- API version: 2.1.5
+- API version: 2.1.8
 
-- Build date: 2025-03-06T15:40:46.627547Z[Etc/UTC]
+- Build date: 2026-03-13T09:56:52.581101Z[Etc/UTC]
 
 Connect your software with Fatture in Cloud, the invoicing platform chosen by more than 500.000 businesses in Italy. 
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>it.fattureincloud</groupId>
   <artifactId>fattureincloud-java-sdk</artifactId>
-  <version>2.1.2</version>
+  <version>2.1.3</version>
 </dependency>
 ```
 
@@ -47,7 +47,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.2"
+     implementation "it.fattureincloud:fattureincloud-java-sdk:2.1.3"
   }
 ```
 
@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**listCostCenters**](docs/InfoApi.md#listCostCenters) | **GET** /c/{company_id}/info/cost_centers | List Cost Centers
 *InfoApi* | [**listCountries**](docs/InfoApi.md#listCountries) | **GET** /info/countries | List Countries
 *InfoApi* | [**listCurrencies**](docs/InfoApi.md#listCurrencies) | **GET** /info/currencies | List Currencies
+*InfoApi* | [**listDefaultTemplates**](docs/InfoApi.md#listDefaultTemplates) | **GET** /info/templates | List Default Templates
 *InfoApi* | [**listDeliveryNotesDefaultCausals**](docs/InfoApi.md#listDeliveryNotesDefaultCausals) | **GET** /info/dn_causals | List Delivery Notes Default Causals
 *InfoApi* | [**listDetailedCountries**](docs/InfoApi.md#listDetailedCountries) | **GET** /info/detailed_countries | List Detailed Countries
 *InfoApi* | [**listLanguages**](docs/InfoApi.md#listLanguages) | **GET** /info/languages | List Languages
@@ -129,11 +130,10 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**listProductCategories**](docs/InfoApi.md#listProductCategories) | **GET** /c/{company_id}/info/product_categories | List Product Categories
 *InfoApi* | [**listReceivedDocumentCategories**](docs/InfoApi.md#listReceivedDocumentCategories) | **GET** /c/{company_id}/info/received_document_categories | List Received Document Categories
 *InfoApi* | [**listRevenueCenters**](docs/InfoApi.md#listRevenueCenters) | **GET** /c/{company_id}/info/revenue_centers | List Revenue Centers
-*InfoApi* | [**listTemplates**](docs/InfoApi.md#listTemplates) | **GET** /info/templates | List Templates
 *InfoApi* | [**listUnitsOfMeasure**](docs/InfoApi.md#listUnitsOfMeasure) | **GET** /info/measures | List Units of Measure
 *InfoApi* | [**listVatTypes**](docs/InfoApi.md#listVatTypes) | **GET** /c/{company_id}/info/vat_types | List Vat Types
 *IssuedDocumentsApi* | [**createIssuedDocument**](docs/IssuedDocumentsApi.md#createIssuedDocument) | **POST** /c/{company_id}/issued_documents | Create Issued Document
-*IssuedDocumentsApi* | [**deleteBinIssuedDocument**](docs/IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | 
+*IssuedDocumentsApi* | [**deleteBinIssuedDocument**](docs/IssuedDocumentsApi.md#deleteBinIssuedDocument) | **DELETE** /c/{company_id}/bin/issued_documents/{document_id} | Delete Bin Issued Document
 *IssuedDocumentsApi* | [**deleteIssuedDocument**](docs/IssuedDocumentsApi.md#deleteIssuedDocument) | **DELETE** /c/{company_id}/issued_documents/{document_id} | Delete Issued Document
 *IssuedDocumentsApi* | [**deleteIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#deleteIssuedDocumentAttachment) | **DELETE** /c/{company_id}/issued_documents/{document_id}/attachment | Delete Issued Document Attachment
 *IssuedDocumentsApi* | [**getBinIssuedDocument**](docs/IssuedDocumentsApi.md#getBinIssuedDocument) | **GET** /c/{company_id}/bin/issued_documents/{document_id} | Get Bin Issued Documents List
@@ -146,7 +146,7 @@ Class | Method | HTTP request | Description
 *IssuedDocumentsApi* | [**listBinIssuedDocuments**](docs/IssuedDocumentsApi.md#listBinIssuedDocuments) | **GET** /c/{company_id}/bin/issued_documents | Get Bin Issued Documents List
 *IssuedDocumentsApi* | [**listIssuedDocuments**](docs/IssuedDocumentsApi.md#listIssuedDocuments) | **GET** /c/{company_id}/issued_documents | List Issued Documents
 *IssuedDocumentsApi* | [**modifyIssuedDocument**](docs/IssuedDocumentsApi.md#modifyIssuedDocument) | **PUT** /c/{company_id}/issued_documents/{document_id} | Modify Issued Document
-*IssuedDocumentsApi* | [**recoverBinIssuedDocument**](docs/IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | 
+*IssuedDocumentsApi* | [**recoverBinIssuedDocument**](docs/IssuedDocumentsApi.md#recoverBinIssuedDocument) | **POST** /c/{company_id}/bin/issued_documents/{document_id}/recover | Recover Issued Document From The Bin
 *IssuedDocumentsApi* | [**scheduleEmail**](docs/IssuedDocumentsApi.md#scheduleEmail) | **POST** /c/{company_id}/issued_documents/{document_id}/email | Schedule Email
 *IssuedDocumentsApi* | [**transformIssuedDocument**](docs/IssuedDocumentsApi.md#transformIssuedDocument) | **GET** /c/{company_id}/issued_documents/transform | Transform Issued Document
 *IssuedDocumentsApi* | [**uploadIssuedDocumentAttachment**](docs/IssuedDocumentsApi.md#uploadIssuedDocumentAttachment) | **POST** /c/{company_id}/issued_documents/attachment | Upload Issued Document Attachment
@@ -169,18 +169,20 @@ Class | Method | HTTP request | Description
 *ReceiptsApi* | [**listReceipts**](docs/ReceiptsApi.md#listReceipts) | **GET** /c/{company_id}/receipts | List Receipts
 *ReceiptsApi* | [**modifyReceipt**](docs/ReceiptsApi.md#modifyReceipt) | **PUT** /c/{company_id}/receipts/{document_id} | Modify Receipt
 *ReceivedDocumentsApi* | [**createReceivedDocument**](docs/ReceivedDocumentsApi.md#createReceivedDocument) | **POST** /c/{company_id}/received_documents | Create Received Document
-*ReceivedDocumentsApi* | [**deleteBinReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | 
+*ReceivedDocumentsApi* | [**deleteBinReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteBinReceivedDocument) | **DELETE** /c/{company_id}/bin/received_documents/{document_id} | Delete Bin Received Document
 *ReceivedDocumentsApi* | [**deleteReceivedDocument**](docs/ReceivedDocumentsApi.md#deleteReceivedDocument) | **DELETE** /c/{company_id}/received_documents/{document_id} | Delete Received Document
 *ReceivedDocumentsApi* | [**deleteReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#deleteReceivedDocumentAttachment) | **DELETE** /c/{company_id}/received_documents/{document_id}/attachment | Delete Received Document Attachment
 *ReceivedDocumentsApi* | [**getBinReceivedDocument**](docs/ReceivedDocumentsApi.md#getBinReceivedDocument) | **GET** /c/{company_id}/bin/received_documents/{document_id} | Get Bin Received Documents List
 *ReceivedDocumentsApi* | [**getExistingReceivedDocumentTotals**](docs/ReceivedDocumentsApi.md#getExistingReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/{document_id}/totals | Get Existing Received Document Totals
 *ReceivedDocumentsApi* | [**getNewReceivedDocumentTotals**](docs/ReceivedDocumentsApi.md#getNewReceivedDocumentTotals) | **POST** /c/{company_id}/received_documents/totals | Get New Received Document Totals
+*ReceivedDocumentsApi* | [**getPendingReceivedDocument**](docs/ReceivedDocumentsApi.md#getPendingReceivedDocument) | **GET** /c/{company_id}/received_documents/pending/{document_id} | Get Pending Received Document
 *ReceivedDocumentsApi* | [**getReceivedDocument**](docs/ReceivedDocumentsApi.md#getReceivedDocument) | **GET** /c/{company_id}/received_documents/{document_id} | Get Received Document
 *ReceivedDocumentsApi* | [**getReceivedDocumentPreCreateInfo**](docs/ReceivedDocumentsApi.md#getReceivedDocumentPreCreateInfo) | **GET** /c/{company_id}/received_documents/info | Get Received Document Pre-Create Info
 *ReceivedDocumentsApi* | [**listBinReceivedDocuments**](docs/ReceivedDocumentsApi.md#listBinReceivedDocuments) | **GET** /c/{company_id}/bin/received_documents | Get Bin Received Documents List
+*ReceivedDocumentsApi* | [**listPendingReceivedDocuments**](docs/ReceivedDocumentsApi.md#listPendingReceivedDocuments) | **GET** /c/{company_id}/received_documents/pending | List Pending Received Documents
 *ReceivedDocumentsApi* | [**listReceivedDocuments**](docs/ReceivedDocumentsApi.md#listReceivedDocuments) | **GET** /c/{company_id}/received_documents | List Received Documents
 *ReceivedDocumentsApi* | [**modifyReceivedDocument**](docs/ReceivedDocumentsApi.md#modifyReceivedDocument) | **PUT** /c/{company_id}/received_documents/{document_id} | Modify Received Document
-*ReceivedDocumentsApi* | [**recoverBinReceivedDocument**](docs/ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | 
+*ReceivedDocumentsApi* | [**recoverBinReceivedDocument**](docs/ReceivedDocumentsApi.md#recoverBinReceivedDocument) | **POST** /c/{company_id}/bin/received_documents/{document_id}/recover | Recover Received Document From The Bin
 *ReceivedDocumentsApi* | [**uploadReceivedDocumentAttachment**](docs/ReceivedDocumentsApi.md#uploadReceivedDocumentAttachment) | **POST** /c/{company_id}/received_documents/attachment | Upload Received Document Attachment
 *SettingsApi* | [**createPaymentAccount**](docs/SettingsApi.md#createPaymentAccount) | **POST** /c/{company_id}/settings/payment_accounts | Create Payment Account
 *SettingsApi* | [**createPaymentMethod**](docs/SettingsApi.md#createPaymentMethod) | **POST** /c/{company_id}/settings/payment_methods | Create Payment Method
@@ -191,7 +193,9 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**getPaymentAccount**](docs/SettingsApi.md#getPaymentAccount) | **GET** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Get Payment Account
 *SettingsApi* | [**getPaymentMethod**](docs/SettingsApi.md#getPaymentMethod) | **GET** /c/{company_id}/settings/payment_methods/{payment_method_id} | Get Payment Method
 *SettingsApi* | [**getTaxProfile**](docs/SettingsApi.md#getTaxProfile) | **GET** /c/{company_id}/settings/tax_profile | Get Tax Profile
+*SettingsApi* | [**getTemplate**](docs/SettingsApi.md#getTemplate) | **GET** /c/{company_id}/settings/templates/{template_id} | Get Template
 *SettingsApi* | [**getVatType**](docs/SettingsApi.md#getVatType) | **GET** /c/{company_id}/settings/vat_types/{vat_type_id} | Get Vat Type
+*SettingsApi* | [**listTemplates**](docs/SettingsApi.md#listTemplates) | **GET** /c/{company_id}/settings/templates | List Templates
 *SettingsApi* | [**modifyPaymentAccount**](docs/SettingsApi.md#modifyPaymentAccount) | **PUT** /c/{company_id}/settings/payment_accounts/{payment_account_id} | Modify Payment Account
 *SettingsApi* | [**modifyPaymentMethod**](docs/SettingsApi.md#modifyPaymentMethod) | **PUT** /c/{company_id}/settings/payment_methods/{payment_method_id} | Modify Payment Method
 *SettingsApi* | [**modifyVatType**](docs/SettingsApi.md#modifyVatType) | **PUT** /c/{company_id}/settings/vat_types/{vat_type_id} | Modify Vat Type
@@ -220,6 +224,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [ArchiveDocument](docs/ArchiveDocument.md)
+ - [Attachment](docs/Attachment.md)
  - [AttachmentData](docs/AttachmentData.md)
  - [CashbookEntry](docs/CashbookEntry.md)
  - [CashbookEntryDocument](docs/CashbookEntryDocument.md)
@@ -307,6 +312,7 @@ Class | Method | HTTP request | Description
  - [GetNewReceivedDocumentTotalsResponse](docs/GetNewReceivedDocumentTotalsResponse.md)
  - [GetPaymentAccountResponse](docs/GetPaymentAccountResponse.md)
  - [GetPaymentMethodResponse](docs/GetPaymentMethodResponse.md)
+ - [GetPendingReceivedDocumentResponse](docs/GetPendingReceivedDocumentResponse.md)
  - [GetPriceListItemsResponse](docs/GetPriceListItemsResponse.md)
  - [GetProductResponse](docs/GetProductResponse.md)
  - [GetReceiptPreCreateInfoResponse](docs/GetReceiptPreCreateInfoResponse.md)
@@ -316,6 +322,7 @@ Class | Method | HTTP request | Description
  - [GetReceivedDocumentResponse](docs/GetReceivedDocumentResponse.md)
  - [GetSupplierResponse](docs/GetSupplierResponse.md)
  - [GetTaxProfileResponse](docs/GetTaxProfileResponse.md)
+ - [GetTemplatesResponse](docs/GetTemplatesResponse.md)
  - [GetUserInfoResponse](docs/GetUserInfoResponse.md)
  - [GetUserInfoResponseEmailConfirmationState](docs/GetUserInfoResponseEmailConfirmationState.md)
  - [GetUserInfoResponseInfo](docs/GetUserInfoResponseInfo.md)
@@ -362,6 +369,8 @@ Class | Method | HTTP request | Description
  - [ListLanguagesResponse](docs/ListLanguagesResponse.md)
  - [ListPaymentAccountsResponse](docs/ListPaymentAccountsResponse.md)
  - [ListPaymentMethodsResponse](docs/ListPaymentMethodsResponse.md)
+ - [ListPendingReceivedDocumentsResponse](docs/ListPendingReceivedDocumentsResponse.md)
+ - [ListPendingReceivedDocumentsResponsePage](docs/ListPendingReceivedDocumentsResponsePage.md)
  - [ListPriceListsResponse](docs/ListPriceListsResponse.md)
  - [ListProductCategoriesResponse](docs/ListProductCategoriesResponse.md)
  - [ListProductsResponse](docs/ListProductsResponse.md)
@@ -415,6 +424,12 @@ Class | Method | HTTP request | Description
  - [PaymentMethodDetails](docs/PaymentMethodDetails.md)
  - [PaymentMethodType](docs/PaymentMethodType.md)
  - [PaymentTermsType](docs/PaymentTermsType.md)
+ - [PendingReceivedDocument](docs/PendingReceivedDocument.md)
+ - [PendingReceivedDocumentExtractedData](docs/PendingReceivedDocumentExtractedData.md)
+ - [PendingReceivedDocumentExtractedDataMining](docs/PendingReceivedDocumentExtractedDataMining.md)
+ - [PendingReceivedDocumentPaymentsListItem](docs/PendingReceivedDocumentPaymentsListItem.md)
+ - [PendingReceivedDocumentPaymentsListItemPaymentTerms](docs/PendingReceivedDocumentPaymentsListItemPaymentTerms.md)
+ - [PendingReceivedDocumentType](docs/PendingReceivedDocumentType.md)
  - [PermissionLevel](docs/PermissionLevel.md)
  - [Permissions](docs/Permissions.md)
  - [PermissionsFicIssuedDocumentsDetailed](docs/PermissionsFicIssuedDocumentsDetailed.md)
@@ -447,6 +462,7 @@ Class | Method | HTTP request | Description
  - [Supplier](docs/Supplier.md)
  - [SupplierType](docs/SupplierType.md)
  - [TaxProfile](docs/TaxProfile.md)
+ - [TemplateType](docs/TemplateType.md)
  - [TransformIssuedDocumentResponse](docs/TransformIssuedDocumentResponse.md)
  - [UploadArchiveAttachmentResponse](docs/UploadArchiveAttachmentResponse.md)
  - [UploadF24AttachmentResponse](docs/UploadF24AttachmentResponse.md)
