@@ -31,12 +31,12 @@ public class DocumentTemplateTest {
   /** Model tests for DocumentTemplate */
   @Test
   public void testDocumentTemplate() {
-    DocumentTemplate d = new DocumentTemplate().id(10).name("New Standard S1").type("Tipo 1");
+    DocumentTemplate d = new DocumentTemplate().id(10).name("New Standard S1").type(TemplateType.STANDARD);
 
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(d);
-    String str = "{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}";
+    String str = "{\"id\":10,\"type\":\"standard\",\"name\":\"New Standard S1\"}";
     assertEquals(str, json);
     DocumentTemplate generated = gson.fromJson(str, DocumentTemplate.class);
     assertEquals(d, generated);
@@ -77,12 +77,12 @@ public class DocumentTemplateTest {
   @Test
   public void typeTest() {
     assertNull(model.getType());
-    model.setType("Tipo 1");
-    assertEquals("Tipo 1", model.getType());
+    model.setType(TemplateType.STANDARD);
+    assertEquals(TemplateType.STANDARD, model.getType());
 
-    DocumentTemplate c = model.type("Tipo 2");
+    DocumentTemplate c = model.type(TemplateType.DELIVERY_NOTE);
     DocumentTemplate expected = new DocumentTemplate();
-    expected.setType("Tipo 2");
+    expected.setType(TemplateType.DELIVERY_NOTE);
     assertEquals(expected, c);
   }
 }

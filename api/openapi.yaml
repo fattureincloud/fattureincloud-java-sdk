@@ -76476,9 +76476,12 @@ components:
       - it.fattureincloud.webhooks.issued_documents.supplier_orders.create
       - it.fattureincloud.webhooks.issued_documents.supplier_orders.update
       - it.fattureincloud.webhooks.issued_documents.supplier_orders.delete
-      - it.fattureincloud.webhooks.issued_documents.self_invoices.create
-      - it.fattureincloud.webhooks.issued_documents.self_invoices.update
-      - it.fattureincloud.webhooks.issued_documents.self_invoices.delete
+      - it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.create
+      - it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.update
+      - it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.delete
+      - it.fattureincloud.webhooks.issued_documents.self_own_invoices.create
+      - it.fattureincloud.webhooks.issued_documents.self_own_invoices.update
+      - it.fattureincloud.webhooks.issued_documents.self_own_invoices.delete
       - it.fattureincloud.webhooks.issued_documents.all.create
       - it.fattureincloud.webhooks.issued_documents.all.update
       - it.fattureincloud.webhooks.issued_documents.all.delete
@@ -76521,7 +76524,8 @@ components:
       - it.fattureincloud.webhooks.issued_documents.orders.email_sent
       - it.fattureincloud.webhooks.issued_documents.work_reports.email_sent
       - it.fattureincloud.webhooks.issued_documents.supplier_orders.email_sent
-      - it.fattureincloud.webhooks.issued_documents.self_invoices.email_sent
+      - it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.email_sent
+      - it.fattureincloud.webhooks.issued_documents.self_own_invoices.email_sent
       - it.fattureincloud.webhooks.issued_documents.all.email_sent
       title: EventType
       type: string

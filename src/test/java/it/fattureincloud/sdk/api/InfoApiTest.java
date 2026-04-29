@@ -427,17 +427,17 @@ public class InfoApiTest {
   @Test
   public void listTemplatesTest() throws ApiException, IOException {
     String result =
-        "{\"data\":[{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"Tipo"
-            + " 1\"},{\"id\":20,\"name\":\"New Standard S2\",\"type\":\"Tipo 2\"}]}";
+        "{\"data\":[{\"id\":10,\"name\":\"New Standard S1\",\"type\":\"standard\"}," +
+                "{\"id\":20,\"name\":\"New Standard S2\",\"type\":\"accompanying_invoice\"}]}";
 
     Call mockCall = Mockito.mock(Call.class);
     InfoApi api = mockApi(result, mockCall);
 
-    DocumentTemplate d1 = new DocumentTemplate().id(10).name("New Standard S1").type("Tipo 1");
-    DocumentTemplate d2 = new DocumentTemplate().id(20).name("New Standard S2").type("Tipo 2");
+    DocumentTemplate d1 = new DocumentTemplate().id(10).name("New Standard S1").type(TemplateType.STANDARD);
+    DocumentTemplate d2 = new DocumentTemplate().id(20).name("New Standard S2").type(TemplateType.ACCOMPANYING_INVOICE);
     List<DocumentTemplate> expected = Arrays.asList(d1, d2);
 
-    ListTemplatesResponse response = api.listTemplates("invoice", false);
+    ListTemplatesResponse response = api.listDefaultTemplates("invoice", false);
     assertEquals(expected, response.getData());
     Mockito.verify(mockCall, Mockito.only()).execute();
   }

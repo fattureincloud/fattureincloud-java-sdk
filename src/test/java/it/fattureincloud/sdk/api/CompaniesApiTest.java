@@ -61,7 +61,7 @@ public class CompaniesApiTest {
   public void getCompanyInfoTest() throws ApiException, IOException {
     String result =
         "{\"data\":{\"id\":12346,\"name\":\"Studio"
-            + " Commercialista\",\"email\":\"mario.rossi@example.com\",\"type\":\"accountant\",\"access_info\":{\"role\":\"master\",\"through_accountant\":false},\"plan_info\":{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":false}}},\"accountant_id\":12345,\"is_accountant\":true}}";
+            + " Commercialista\",\"email\":\"mario.rossi@example.com\",\"type\":\"accountant\",\"access_info\":{\"role\":\"master\",\"through_accountant\":false},\"plan_info\":{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":false}}},\"accountant_id\":12345,\"is_accountant\":true}}";
 
     Call mockCall = Mockito.mock(Call.class);
     CompaniesApi api = mockApi(result, mockCall);
@@ -101,7 +101,6 @@ public class CompaniesApiTest {
                             .subaccounts(true)
                             .tesseraSanitaria(true)
                             .recurring(true)
-                            .sofort(false)
                             .cerved(true)
                             .tsDigital(true)
                             .tsPay(true)

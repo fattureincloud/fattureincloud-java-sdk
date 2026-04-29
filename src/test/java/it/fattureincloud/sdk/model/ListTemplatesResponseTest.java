@@ -29,7 +29,7 @@ public class ListTemplatesResponseTest {
   public void init() {
     model =
         new ListTemplatesResponse()
-            .addDataItem(new DocumentTemplate().id(12345).name("New Standard S1").type("Tipo 1"));
+            .addDataItem(new DocumentTemplate().id(12345).name("New Standard S1").type(TemplateType.STANDARD));
   }
 
   /** Model tests for ListTemplatesResponse */
@@ -38,7 +38,7 @@ public class ListTemplatesResponseTest {
     JSON jsonManager = new JSON();
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(model);
-    String str = "{\"data\":[{\"id\":12345,\"name\":\"New Standard S1\",\"type\":\"Tipo 1\"}]}";
+    String str = "{\"data\":[{\"id\":12345,\"type\":\"standard\",\"name\":\"New Standard S1\"}]}";
     assertEquals(str, json);
     ListTemplatesResponse generated = gson.fromJson(str, ListTemplatesResponse.class);
     assertEquals(model, generated);
