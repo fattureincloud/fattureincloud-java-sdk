@@ -68,7 +68,7 @@ public class PriceListsApi {
    * Build call for getPriceListItems
    *
    * @param companyId The ID of the company. (required)
-   * @param priceListId The ID of the price (required)
+   * @param priceListId The pricelist ID (required)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -169,7 +169,7 @@ public class PriceListsApi {
    * Get PriceList Items List Retrieves all the Items of a PriceList
    *
    * @param companyId The ID of the company. (required)
-   * @param priceListId The ID of the price (required)
+   * @param priceListId The pricelist ID (required)
    * @return GetPriceListItemsResponse
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -200,7 +200,7 @@ public class PriceListsApi {
    * Get PriceList Items List Retrieves all the Items of a PriceList
    *
    * @param companyId The ID of the company. (required)
-   * @param priceListId The ID of the price (required)
+   * @param priceListId The pricelist ID (required)
    * @return ApiResponse&lt;GetPriceListItemsResponse&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -231,7 +231,7 @@ public class PriceListsApi {
    * Get PriceList Items List (asynchronously) Retrieves all the Items of a PriceList
    *
    * @param companyId The ID of the company. (required)
-   * @param priceListId The ID of the price (required)
+   * @param priceListId The pricelist ID (required)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
