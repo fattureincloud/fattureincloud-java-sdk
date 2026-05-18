@@ -15,5 +15,7 @@
 
 * `RECEIPT` (value: `"receipt"`)
 
+* `TS_PAY` (value: `"ts_pay"`)
+
 
 

@@ -46,7 +46,6 @@ public class CompanyInfoPlanInfoFunctionsTest {
             .subaccounts(true)
             .tesseraSanitaria(true)
             .recurring(true)
-            .sofort(false)
             .cerved(true)
             .tsDigital(true)
             .tsPay(true)
@@ -56,7 +55,7 @@ public class CompanyInfoPlanInfoFunctionsTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(c);
     String str =
-        "{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true}";
+        "{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true}";
     assertEquals(str, json);
     CompanyInfoPlanInfoFunctions generated = gson.fromJson(str, CompanyInfoPlanInfoFunctions.class);
     assertEquals(c, generated);
@@ -207,19 +206,6 @@ public class CompanyInfoPlanInfoFunctionsTest {
     CompanyInfoPlanInfoFunctions c = model.smtp(false);
     CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
     expected.setSmtp(false);
-    assertEquals(expected, c);
-  }
-
-  /** Test the property 'sofort' */
-  @Test
-  public void sofortTest() {
-    assertNull(model.getSofort());
-    model.setSofort(true);
-    assertEquals(true, model.getSofort());
-
-    CompanyInfoPlanInfoFunctions c = model.sofort(false);
-    CompanyInfoPlanInfoFunctions expected = new CompanyInfoPlanInfoFunctions();
-    expected.setSofort(false);
     assertEquals(expected, c);
   }
 

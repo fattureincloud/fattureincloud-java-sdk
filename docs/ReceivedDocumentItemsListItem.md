@@ -17,6 +17,7 @@
 |**qty** | **BigDecimal** | Received document item quantity |  [optional] |
 |**vat** | [**VatType**](VatType.md) |  |  [optional] |
 |**stock** | **BigDecimal** | Received document item product number of items in stock |  [optional] |
+|**deductibilityVatPercentage** | **BigDecimal** | Received document item deductibility vat percentage |  [optional] |
 
 
 ## Implemented Interfaces

@@ -59,11 +59,17 @@
 
 * `ISSUED_DOCUMENTS_SUPPLIER_ORDERS_DELETE` (value: `"it.fattureincloud.webhooks.issued_documents.supplier_orders.delete"`)
 
-* `ISSUED_DOCUMENTS_SELF_INVOICES_CREATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_invoices.create"`)
+* `ISSUED_DOCUMENTS_SELF_SUPPLIER_INVOICES_CREATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.create"`)
 
-* `ISSUED_DOCUMENTS_SELF_INVOICES_UPDATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_invoices.update"`)
+* `ISSUED_DOCUMENTS_SELF_SUPPLIER_INVOICES_UPDATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.update"`)
 
-* `ISSUED_DOCUMENTS_SELF_INVOICES_DELETE` (value: `"it.fattureincloud.webhooks.issued_documents.self_invoices.delete"`)
+* `ISSUED_DOCUMENTS_SELF_SUPPLIER_INVOICES_DELETE` (value: `"it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.delete"`)
+
+* `ISSUED_DOCUMENTS_SELF_OWN_INVOICES_CREATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_own_invoices.create"`)
+
+* `ISSUED_DOCUMENTS_SELF_OWN_INVOICES_UPDATE` (value: `"it.fattureincloud.webhooks.issued_documents.self_own_invoices.update"`)
+
+* `ISSUED_DOCUMENTS_SELF_OWN_INVOICES_DELETE` (value: `"it.fattureincloud.webhooks.issued_documents.self_own_invoices.delete"`)
 
 * `ISSUED_DOCUMENTS_ALL_CREATE` (value: `"it.fattureincloud.webhooks.issued_documents.all.create"`)
 
@@ -149,7 +155,9 @@
 
 * `ISSUED_DOCUMENTS_SUPPLIER_ORDERS_EMAIL_SENT` (value: `"it.fattureincloud.webhooks.issued_documents.supplier_orders.email_sent"`)
 
-* `ISSUED_DOCUMENTS_SELF_INVOICES_EMAIL_SENT` (value: `"it.fattureincloud.webhooks.issued_documents.self_invoices.email_sent"`)
+* `ISSUED_DOCUMENTS_SELF_SUPPLIER_INVOICES_EMAIL_SENT` (value: `"it.fattureincloud.webhooks.issued_documents.self_supplier_invoices.email_sent"`)
+
+* `ISSUED_DOCUMENTS_SELF_OWN_INVOICES_EMAIL_SENT` (value: `"it.fattureincloud.webhooks.issued_documents.self_own_invoices.email_sent"`)
 
 * `ISSUED_DOCUMENTS_ALL_EMAIL_SENT` (value: `"it.fattureincloud.webhooks.issued_documents.all.email_sent"`)
 

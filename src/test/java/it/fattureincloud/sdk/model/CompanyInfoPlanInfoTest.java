@@ -54,7 +54,6 @@ public class CompanyInfoPlanInfoTest {
                     .subaccounts(true)
                     .tesseraSanitaria(true)
                     .recurring(true)
-                    .sofort(false)
                     .cerved(true)
                     .tsDigital(true)
                     .tsPay(true)
@@ -68,7 +67,7 @@ public class CompanyInfoPlanInfoTest {
     Gson gson = jsonManager.getGson();
     String json = gson.toJson(c);
     String str =
-        "{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"sofort\":false,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":true}}}";
+        "{\"limits\":{\"clients\":5000,\"suppliers\":5000,\"products\":5000,\"documents\":3000},\"functions\":{\"archive\":true,\"cerved\":true,\"document_attachments\":true,\"e_invoice\":true,\"genius\":true,\"mail_tracking\":true,\"payment_notifications\":true,\"paypal\":true,\"receipts\":true,\"recurring\":true,\"smtp\":true,\"stock\":true,\"subaccounts\":true,\"tessera_sanitaria\":true,\"ts_digital\":true,\"ts_invoice_trading\":true,\"ts_pay\":true},\"functions_status\":{\"ts_digital\":{\"active\":true},\"ts_pay\":{\"active\":true}}}";
     assertEquals(str, json);
     CompanyInfoPlanInfo generated = gson.fromJson(str, CompanyInfoPlanInfo.class);
     assertEquals(c, generated);
@@ -124,7 +123,6 @@ public class CompanyInfoPlanInfoTest {
             .subaccounts(true)
             .tesseraSanitaria(true)
             .recurring(true)
-            .sofort(false)
             .cerved(true)
             .tsDigital(true)
             .tsPay(true)
@@ -144,9 +142,8 @@ public class CompanyInfoPlanInfoTest {
             .mailTracking(false)
             .subaccounts(false)
             .tesseraSanitaria(false)
-            .recurring(false)
-            .sofort(false)
-            .cerved(false)
+                    .recurring(false)
+                    .cerved(false)
             .tsDigital(false)
             .tsPay(false)
             .tsInvoiceTrading(false);
